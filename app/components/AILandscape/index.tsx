@@ -5,6 +5,7 @@ import landscapeData from '@/data/landscape.json';
 import { LandscapeData, Company, ExpandedSections } from './types';
 import LandscapeView from './LandscapeView';
 import CompanyDetail from './CompanyDetail';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const AILandscape: React.FC = () => {
   const [data, setData] = useState<LandscapeData>(landscapeData as LandscapeData);

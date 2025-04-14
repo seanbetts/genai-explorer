@@ -3,6 +3,7 @@
 import React from 'react';
 import { CategorizedCompanies, LandscapeData, Company, CategoryMap, CompanyCategory } from './types';
 import CategorySection from './shared/CategorySection';
+import { categoryStyles } from './utils/styles';
 
 interface LandscapeViewProps {
   data: LandscapeData;
@@ -26,16 +27,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
     other: data.companies.filter(company => company.category === 'other' && hasFeaturedModel(company))
   };
 
-  // Category styling
-  const categoryStyles: CategoryMap = {
-    frontier: { bgClass: 'bg-blue-50', borderClass: 'border-blue-200' },
-    open: { bgClass: 'bg-green-50', borderClass: 'border-green-200' },
-    enterprise: { bgClass: 'bg-purple-50', borderClass: 'border-purple-200' },
-    image: { bgClass: 'bg-yellow-50', borderClass: 'border-yellow-200' },
-    video: { bgClass: 'bg-red-50', borderClass: 'border-red-200' },
-    music: { bgClass: 'bg-pink-50', borderClass: 'border-pink-200' },
-    other: { bgClass: 'bg-gray-50', borderClass: 'border-gray-200' }
-  };
+  // Using centralized category styling
 
   // Category labels
   const categoryLabels = {
@@ -50,7 +42,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
   
   // Generate the style name for a category
   const getCategoryStyle = (category: CompanyCategory): string => {
-    return `${categoryStyles[category].bgClass} ${categoryStyles[category].borderClass}`;
+    return categoryStyles[category].full;
   };
 
   return (

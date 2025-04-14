@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Model } from '../types';
+import { textStyles, tableStyles, iconStyles } from '../utils/styles';
 
 interface ModelTableProps {
   models: Model[];
@@ -27,7 +28,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
   // Render the rating indicators (circles, lightning, etc)
   const renderRating = (model: Model, type: string) => {
     if (!model.capabilities || !(type in model.capabilities) || !model.capabilities[type as keyof typeof model.capabilities]) {
-      return "-";
+      return <span className={textStyles.primary}>-</span>;
     }
     
     const value = model.capabilities[type as keyof typeof model.capabilities] as number;
@@ -79,9 +80,9 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           <table className="w-full bg-white border border-gray-200 rounded-lg shadow-sm">
             <thead>
               <tr className="bg-gray-50">
-                <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b sticky left-0 bg-gray-50" style={{ width: '20%', minWidth: '160px' }}></th>
+                <th className={`${tableStyles.headerCell} sticky left-0 bg-gray-50`} style={{ width: '20%', minWidth: '160px' }}></th>
                 {displayModels.map(model => (
-                  <th key={model.id} className="py-3 px-4 text-center font-semibold text-gray-700 border-b" style={{ width: '20%', minWidth: '160px' }}>
+                  <th key={model.id} className={tableStyles.headerCellCenter} style={{ width: '20%', minWidth: '160px' }}>
                     <div className="font-semibold text-gray-900">{model.name}</div>
                   </th>
                 ))}
@@ -89,14 +90,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
             </thead>
             <tbody>
               {/* Release Date Row */}
-              <tr className="hover:bg-gray-50">
-                <td className="py-3 px-4 border-b sticky left-0 bg-white">
+              <tr className={tableStyles.rowHover}>
+                <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
                   <div className="flex items-center">
-                    <i className="bi bi-calendar-date text-blue-600 mr-2"></i> Release Date
+                    <i className={`bi bi-calendar-date ${iconStyles.base}`}></i> <span className={textStyles.primary}>Release Date</span>
                   </div>
                 </td>
                 {displayModels.map(model => (
-                  <td key={model.id} className="py-3 px-4 border-b text-center">
+                  <td key={model.id} className={tableStyles.cellCenter}>
                     {model.releaseDate ? (
                       new Date(model.releaseDate).toLocaleDateString('en-GB', {
                         day: 'numeric',
@@ -109,29 +110,29 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               </tr>
 
               {/* Type Row */}
-              <tr className="hover:bg-gray-50">
-                <td className="py-3 px-4 border-b sticky left-0 bg-white">
+              <tr className={tableStyles.rowHover}>
+                <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
                   <div className="flex items-center">
-                    <i className="bi bi-box text-blue-600 mr-2"></i> Type
+                    <i className={`bi bi-box ${iconStyles.base}`}></i> <span className={textStyles.primary}>Type</span>
                   </div>
                 </td>
                 {displayModels.map(model => (
-                  <td key={model.id} className="py-3 px-4 border-b text-center">
-                    <span className="capitalize">{model.type || "-"}</span>
+                  <td key={model.id} className={tableStyles.cellCenter}>
+                    <span className={`capitalize ${textStyles.primary}`}>{model.type || "-"}</span>
                   </td>
                 ))}
               </tr>
               
               {/* Intelligence Row */}
               {hasAnyModelCapability("intelligence") && (
-                <tr className="hover:bg-gray-50">
-                  <td className="py-3 px-4 border-b sticky left-0 bg-white">
+                <tr className={tableStyles.rowHover}>
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
                     <div className="flex items-center">
-                      <i className="bi bi-circle-fill text-blue-600 mr-2"></i> Intelligence
+                      <i className={`bi bi-circle-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Intelligence</span>
                     </div>
                   </td>
                   {displayModels.map(model => (
-                    <td key={model.id} className="py-3 px-4 border-b text-center">
+                    <td key={model.id} className={tableStyles.cellCenter}>
                       {renderRating(model, "intelligence")}
                     </td>
                   ))}
@@ -140,14 +141,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               
               {/* Speed Row */}
               {hasAnyModelCapability("speed") && (
-                <tr className="hover:bg-gray-50">
-                  <td className="py-3 px-4 border-b sticky left-0 bg-white">
+                <tr className={tableStyles.rowHover}>
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
                     <div className="flex items-center">
-                      <i className="bi bi-lightning-charge-fill text-blue-600 mr-2"></i> Speed
+                      <i className={`bi bi-lightning-charge-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Speed</span>
                     </div>
                   </td>
                   {displayModels.map(model => (
-                    <td key={model.id} className="py-3 px-4 border-b text-center">
+                    <td key={model.id} className={tableStyles.cellCenter}>
                       {renderRating(model, "speed")}
                     </td>
                   ))}
@@ -156,14 +157,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               
               {/* Reasoning Row */}
               {hasAnyModelCapability("reasoning") && (
-                <tr className="hover:bg-gray-50">
-                  <td className="py-3 px-4 border-b sticky left-0 bg-white">
+                <tr className={tableStyles.rowHover}>
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
                     <div className="flex items-center">
-                      <i className="bi bi-lightbulb-fill text-blue-600 mr-2"></i> Reasoning
+                      <i className={`bi bi-lightbulb-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Reasoning</span>
                     </div>
                   </td>
                   {displayModels.map(model => (
-                    <td key={model.id} className="py-3 px-4 border-b text-center">
+                    <td key={model.id} className={tableStyles.cellCenter}>
                       {renderRating(model, "reasoning")}
                     </td>
                   ))}
@@ -172,17 +173,19 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               
               {/* Reasoning Tokens Row */}
               {hasAnyModelSpec("reasoningTokens") && (
-                <tr className="hover:bg-gray-50">
-                  <td className="py-3 px-4 border-b sticky left-0 bg-white">
+                <tr className={tableStyles.rowHover}>
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
                     <div className="flex items-center">
-                      <i className="bi bi-lightbulb text-blue-600 mr-2"></i> Reasoning Tokens
+                      <i className={`bi bi-lightbulb ${iconStyles.base}`}></i> <span className={textStyles.primary}>Reasoning Tokens</span>
                     </div>
                   </td>
                   {displayModels.map(model => (
-                    <td key={model.id} className="py-3 px-4 border-b text-center">
-                      {model.specs?.reasoningTokens !== undefined ? (
-                        model.specs.reasoningTokens ? "Yes" : "No"
-                      ) : "-"}
+                    <td key={model.id} className={tableStyles.cellCenter}>
+                      <span className={textStyles.primary}>
+                        {model.specs?.reasoningTokens !== undefined ? (
+                          model.specs.reasoningTokens ? "Yes" : "No"
+                        ) : "-"}
+                      </span>
                     </td>
                   ))}
                 </tr>
@@ -190,14 +193,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               
               {/* Creativity Row */}
               {hasAnyModelCapability("creativity") && (
-                <tr className="hover:bg-gray-50">
-                  <td className="py-3 px-4 border-b sticky left-0 bg-white">
+                <tr className={tableStyles.rowHover}>
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
                     <div className="flex items-center">
-                      <i className="bi bi-stars text-blue-600 mr-2"></i> Creativity
+                      <i className={`bi bi-stars ${iconStyles.base}`}></i> <span className={textStyles.primary}>Creativity</span>
                     </div>
                   </td>
                   {displayModels.map(model => (
-                    <td key={model.id} className="py-3 px-4 border-b text-center">
+                    <td key={model.id} className={tableStyles.cellCenter}>
                       {renderRating(model, "creativity")}
                     </td>
                   ))}
@@ -206,14 +209,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               
               {/* Input Formats Row */}
               {hasAnyModelSpec("inputFormats") && (
-                <tr className="hover:bg-gray-50">
-                  <td className="py-3 px-4 border-b sticky left-0 bg-white">
+                <tr className={tableStyles.rowHover}>
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
                     <div className="flex items-center">
-                      <i className="bi bi-arrow-down-right-square-fill text-blue-600 mr-2"></i> Input Formats
+                      <i className={`bi bi-arrow-down-right-square-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Input Formats</span>
                     </div>
                   </td>
                   {displayModels.map(model => (
-                    <td key={model.id} className="py-3 px-4 border-b text-center">
+                    <td key={model.id} className={tableStyles.cellCenter}>
                       <div className="flex gap-3 justify-center">
                         <i className={`bi bi-file-text-fill text-lg ${model.specs?.inputFormats?.includes("text") ? "text-blue-600" : "text-gray-300"}`} title="Text"></i>
                         <i className={`bi bi-mic-fill text-lg ${model.specs?.inputFormats?.includes("audio") ? "text-blue-600" : "text-gray-300"}`} title="Audio"></i>
@@ -228,14 +231,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               
               {/* Output Formats Row */}
               {hasAnyModelSpec("outputFormats") && (
-                <tr className="hover:bg-gray-50">
-                  <td className="py-3 px-4 border-b sticky left-0 bg-white">
+                <tr className={tableStyles.rowHover}>
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
                     <div className="flex items-center">
-                      <i className="bi bi-arrow-up-right-square-fill text-blue-600 mr-2"></i> Output Formats
+                      <i className={`bi bi-arrow-up-right-square-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Output Formats</span>
                     </div>
                   </td>
                   {displayModels.map(model => (
-                    <td key={model.id} className="py-3 px-4 border-b text-center">
+                    <td key={model.id} className={tableStyles.cellCenter}>
                       <div className="flex gap-3 justify-center">
                         <i className={`bi bi-file-text-fill text-lg ${model.specs?.outputFormats?.includes("text") ? "text-blue-600" : "text-gray-300"}`} title="Text"></i>
                         <i className={`bi bi-mic-fill text-lg ${model.specs?.outputFormats?.includes("audio") ? "text-blue-600" : "text-gray-300"}`} title="Audio"></i>
@@ -250,17 +253,17 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               
               {/* Max Input Tokens Row */}
               {hasAnyModelSpec("maxInputTokens") && (
-                <tr className="hover:bg-gray-50">
-                  <td className="py-3 px-4 border-b sticky left-0 bg-white">
+                <tr className={tableStyles.rowHover}>
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
                     <div className="flex items-center">
-                      <i className="bi bi-sign-turn-right-fill text-blue-600 mr-2"></i> Max Input
+                      <i className={`bi bi-sign-turn-right-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Max Input</span>
                     </div>
                   </td>
                   {displayModels.map(model => (
-                    <td key={model.id} className="py-3 px-4 border-b text-center">
+                    <td key={model.id} className={tableStyles.cellCenter}>
                       {model.specs?.maxInputTokens ? (
-                        <span>{model.specs.maxInputTokens.toLocaleString()} tokens</span>
-                      ) : "-"}
+                        <span className={textStyles.primary}>{model.specs.maxInputTokens.toLocaleString()} tokens</span>
+                      ) : <span className={textStyles.primary}>-</span>}
                     </td>
                   ))}
                 </tr>
@@ -268,17 +271,17 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
 
               {/* Max Output Tokens Row */}
               {hasAnyModelSpec("maxOutputTokens") && (
-                <tr className="hover:bg-gray-50">
-                  <td className="py-3 px-4 border-b sticky left-0 bg-white">
+                <tr className={tableStyles.rowHover}>
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
                     <div className="flex items-center">
-                      <i className="bi bi-sign-turn-left-fill text-blue-600 mr-2"></i> Max Output
+                      <i className={`bi bi-sign-turn-left-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Max Output</span>
                     </div>
                   </td>
                   {displayModels.map(model => (
-                    <td key={model.id} className="py-3 px-4 border-b text-center">
+                    <td key={model.id} className={tableStyles.cellCenter}>
                       {model.specs?.maxOutputTokens ? (
-                        <span>{model.specs.maxOutputTokens.toLocaleString()} tokens</span>
-                      ) : "-"}
+                        <span className={textStyles.primary}>{model.specs.maxOutputTokens.toLocaleString()} tokens</span>
+                      ) : <span className={textStyles.primary}>-</span>}
                     </td>
                   ))}
                 </tr>
@@ -286,15 +289,15 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
 
               {/* Knowledge Cutoff Row */}
               {hasAnyModelSpec("knowledgeCutoff") && (
-                <tr className="hover:bg-gray-50">
-                  <td className="py-3 px-4 border-b sticky left-0 bg-white">
+                <tr className={tableStyles.rowHover}>
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
                     <div className="flex items-center">
-                      <i className="bi bi-calendar-check-fill text-blue-600 mr-2"></i> Knowledge Cutoff
+                      <i className={`bi bi-calendar-check-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Knowledge Cutoff</span>
                     </div>
                   </td>
                   {displayModels.map(model => (
-                    <td key={model.id} className="py-3 px-4 border-b text-center">
-                      {model.specs?.knowledgeCutoff || "-"}
+                    <td key={model.id} className={tableStyles.cellCenter}>
+                      <span className={textStyles.primary}>{model.specs?.knowledgeCutoff || "-"}</span>
                     </td>
                   ))}
                 </tr>
@@ -307,26 +310,26 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Format Icons Legend */}
       <div className="mt-4 max-w-lg mx-auto">
         <div className="flex gap-5 items-center justify-center bg-gray-50 p-3 rounded-lg flex-wrap">
-          <span className="text-sm text-gray-600">Legend:</span>
+          <span className={`text-sm ${textStyles.secondary}`}>Legend:</span>
           <div className="flex items-center">
             <i className="bi bi-file-text-fill text-blue-600 mr-1"></i>
-            <span className="text-sm">Text</span>
+            <span className={`text-sm ${textStyles.primary}`}>Text</span>
           </div>
           <div className="flex items-center">
             <i className="bi bi-mic-fill text-blue-600 mr-1"></i>
-            <span className="text-sm">Audio</span>
+            <span className={`text-sm ${textStyles.primary}`}>Audio</span>
           </div>
           <div className="flex items-center">
             <i className="bi bi-image-fill text-blue-600 mr-1"></i>
-            <span className="text-sm">Image</span>
+            <span className={`text-sm ${textStyles.primary}`}>Image</span>
           </div>
           <div className="flex items-center">
             <i className="bi bi-music-note-beamed text-blue-600 mr-1"></i>
-            <span className="text-sm">Music</span>
+            <span className={`text-sm ${textStyles.primary}`}>Music</span>
           </div>
           <div className="flex items-center">
             <i className="bi bi-camera-video-fill text-blue-600 mr-1"></i>
-            <span className="text-sm">Video</span>
+            <span className={`text-sm ${textStyles.primary}`}>Video</span>
           </div>
         </div>
       </div>

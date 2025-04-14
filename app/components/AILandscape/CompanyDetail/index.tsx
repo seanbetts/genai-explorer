@@ -6,6 +6,7 @@ import { Company, ExpandedSections } from '../types';
 import ModelTable from './ModelTable';
 import FeatureGrid from './FeatureGrid';
 import SubscriptionGrid from './SubscriptionGrid';
+import { textStyles, containerStyles, headingStyles, buttonStyles, iconStyles } from '../utils/styles';
 
 interface CompanyDetailProps {
   company: Company;
@@ -24,11 +25,11 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
     <div>
       <button 
         onClick={onBack} 
-        className="mb-4 flex items-center text-blue-600 hover:text-blue-800 transition-colors cursor-pointer"
+        className={`mb-4 flex items-center ${buttonStyles.link}`}
       >
         <i className="bi bi-arrow-left mr-1"></i> Back to landscape
       </button>
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className={containerStyles.card}>
         <div className="flex justify-between mb-8">
           <div className="flex items-center flex-1">
             <a 
@@ -46,10 +47,10 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
               />
             </a>
             <div className="flex-1">
-              <p className="text-lg">{company.description}</p>
+              <p className={`text-lg ${textStyles.primary}`}>{company.description}</p>
             </div>
           </div>
-          <div className="text-gray-600 text-sm ml-4 flex-shrink-0 self-start">
+          <div className={`${textStyles.secondary} text-sm ml-4 flex-shrink-0 self-start`}>
             Last updated: {
               new Date(company.lastUpdated).toLocaleDateString('en-GB', { 
                 day: 'numeric', 
@@ -60,13 +61,13 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           </div>
         </div>
         
-        <div className="mb-8">
+        <div className={containerStyles.section}>
           <h2 
-            className="text-2xl font-bold mb-4 flex items-center cursor-pointer"
+            className={`${headingStyles.main} flex items-center cursor-pointer`}
             onClick={() => onToggleSection('models')}
           >
-            <i className={`bi ${expandedSections.models ? 'bi-chevron-down' : 'bi-chevron-right'} mr-2 text-blue-600`}></i>
-            Models
+            <i className={`bi ${expandedSections.models ? 'bi-chevron-down' : 'bi-chevron-right'} ${iconStyles.base}`}></i>
+            <span className={textStyles.primary}>Models</span>
           </h2>
           
           {company.models && company.models.length > 0 && expandedSections.models && (
@@ -75,13 +76,13 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
         </div>
         
         {company.features && company.features.length > 0 && (
-          <div className="mb-8">
+          <div className={containerStyles.section}>
             <h2 
-              className="text-2xl font-bold mb-4 flex items-center cursor-pointer"
+              className={`${headingStyles.main} flex items-center cursor-pointer`}
               onClick={() => onToggleSection('features')}
             >
-              <i className={`bi ${expandedSections.features ? 'bi-chevron-down' : 'bi-chevron-right'} mr-2 text-blue-600`}></i>
-              Features
+              <i className={`bi ${expandedSections.features ? 'bi-chevron-down' : 'bi-chevron-right'} ${iconStyles.base}`}></i>
+              <span className={textStyles.primary}>Features</span>
             </h2>
             {expandedSections.features && (
               <FeatureGrid features={company.features} />
@@ -90,13 +91,13 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
         )}
         
         {company.subscriptions && company.subscriptions.length > 0 && (
-          <div className="mb-8">
+          <div className={containerStyles.section}>
             <h2 
-              className="text-2xl font-bold mb-4 flex items-center cursor-pointer"
+              className={`${headingStyles.main} flex items-center cursor-pointer`}
               onClick={() => onToggleSection('subscriptions')}
             >
-              <i className={`bi ${expandedSections.subscriptions ? 'bi-chevron-down' : 'bi-chevron-right'} mr-2 text-blue-600`}></i>
-              Subscription Plans
+              <i className={`bi ${expandedSections.subscriptions ? 'bi-chevron-down' : 'bi-chevron-right'} ${iconStyles.base}`}></i>
+              <span className={textStyles.primary}>Subscription Plans</span>
             </h2>
             {expandedSections.subscriptions && (
               <SubscriptionGrid subscriptions={company.subscriptions} />

@@ -3,6 +3,7 @@
 import React from 'react';
 import { Company } from '../types';
 import CompanyCard from './CompanyCard';
+import { textStyles, containerStyles } from '../utils/styles';
 
 interface CategorySectionProps {
   title: string;
@@ -49,7 +50,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({
     if (layout === 'full-width') {
       return (
         <div className="flex items-center mb-4">
-          <div className={`text-xl font-bold ${config.titleClass}`}>{title}</div>
+          <div className={`text-xl font-bold ${textStyles.primary} ${config.titleClass}`}>{title}</div>
           <div className={`flex-1 grid ${config.gridClass}`}>
             {companies.map(company => (
               <CompanyCard 
@@ -65,7 +66,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({
     } else {
       return (
         <>
-          <div className="text-xl font-bold mb-4">{title}</div>
+          <div className={`text-xl font-bold mb-4 ${textStyles.primary}`}>{title}</div>
           <div className={layout === 'half-width' ? `grid ${config.gridClass}` : config.gridClass}>
             {companies.map(company => (
               <CompanyCard 

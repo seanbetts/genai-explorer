@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Company, Model } from '../types';
+import { textStyles } from '../utils/styles';
 
 interface CompanyCardProps {
   company: Company;
@@ -37,7 +38,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
       </div>
       <div className="text-center">
         {featuredModels.slice(0, showModelCount).map((model, idx) => (
-          <div key={model.id} className="text-sm font-medium">
+          <div key={model.id} className={`text-sm font-medium ${textStyles.primary}`}>
             {showModelCount > 1 && idx > 0 ? `& ${model.name}` : model.name}
           </div>
         ))}
