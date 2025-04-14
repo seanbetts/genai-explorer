@@ -343,26 +343,28 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Format Icons Legend */}
       <div className={`${containerStyles.legend} transform transition-all duration-500`}>
         <div className={`${containerStyles.legendBox} hover:shadow-md transition-all duration-300 hover:border-gray-300`}>
-          <span className={`${textStyles.small} ${textStyles.secondary}`}>Legend:</span>
-          <div className={iconStyles.formatItem}>
-            <i className={`bi bi-file-text-fill ${iconStyles.activeFormat} ${iconStyles.iconRight}`}></i>
-            <span className={`${textStyles.small} ${textStyles.primary}`}>Text</span>
-          </div>
-          <div className={iconStyles.formatItem}>
-            <i className={`bi bi-mic-fill ${iconStyles.activeFormat} ${iconStyles.iconRight}`}></i>
-            <span className={`${textStyles.small} ${textStyles.primary}`}>Audio</span>
-          </div>
-          <div className={iconStyles.formatItem}>
-            <i className={`bi bi-image-fill ${iconStyles.activeFormat} ${iconStyles.iconRight}`}></i>
-            <span className={`${textStyles.small} ${textStyles.primary}`}>Image</span>
-          </div>
-          <div className={iconStyles.formatItem}>
-            <i className={`bi bi-music-note-beamed ${iconStyles.activeFormat} ${iconStyles.iconRight}`}></i>
-            <span className={`${textStyles.small} ${textStyles.primary}`}>Music</span>
-          </div>
-          <div className={iconStyles.formatItem}>
-            <i className={`bi bi-camera-video-fill ${iconStyles.activeFormat} ${iconStyles.iconRight}`}></i>
-            <span className={`${textStyles.small} ${textStyles.primary}`}>Video</span>
+          <span className={containerStyles.legendLabel}>Legend:</span>
+          <div className={containerStyles.legendItems}>
+            <div className={containerStyles.legendItem}>
+              <i className={`bi bi-file-text-fill ${iconStyles.activeFormat}`}></i>
+              <span className={`${textStyles.small} ${textStyles.primary}`}>Text</span>
+            </div>
+            <div className={containerStyles.legendItem}>
+              <i className={`bi bi-mic-fill ${iconStyles.activeFormat}`}></i>
+              <span className={`${textStyles.small} ${textStyles.primary}`}>Audio</span>
+            </div>
+            <div className={containerStyles.legendItem}>
+              <i className={`bi bi-image-fill ${iconStyles.activeFormat}`}></i>
+              <span className={`${textStyles.small} ${textStyles.primary}`}>Image</span>
+            </div>
+            <div className={containerStyles.legendItem}>
+              <i className={`bi bi-music-note-beamed ${iconStyles.activeFormat}`}></i>
+              <span className={`${textStyles.small} ${textStyles.primary}`}>Music</span>
+            </div>
+            <div className={containerStyles.legendItem}>
+              <i className={`bi bi-camera-video-fill ${iconStyles.activeFormat}`}></i>
+              <span className={`${textStyles.small} ${textStyles.primary}`}>Video</span>
+            </div>
           </div>
         </div>
       </div>
