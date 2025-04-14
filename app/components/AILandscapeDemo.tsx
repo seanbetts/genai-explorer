@@ -66,12 +66,12 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
                 <div className="w-full text-center">
                   <div className="relative h-10 w-full mb-2">
                     <Image 
-                      src={company.logo || "/images/companies/placeholder.png"} 
+                      src={company.logo && company.logo.startsWith("/") ? company.logo : "/images/companies/placeholder.png"} 
                       alt={`${company.name} logo`}
                       className="mx-auto"
                       width={100}
                       height={40}
-                      objectFit="contain"
+                      style={{ objectFit: "contain" }}
                     />
                   </div>
                   {company.models && company.models.filter(model => model.featured).map((model, idx) => (
@@ -100,12 +100,12 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
               >
                 <div className="relative h-10 w-full mb-2">
                   <Image 
-                    src={company.logo || "/images/companies/placeholder.png"} 
+                    src={company.logo && company.logo.startsWith("/") ? company.logo : "/images/companies/placeholder.png"} 
                     alt={`${company.name} logo`}
                     className="mx-auto"
                     width={100}
                     height={40}
-                    objectFit="contain"
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 <div className="text-center">
@@ -130,12 +130,12 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
               >
                 <div className="relative h-10 w-full mb-2">
                   <Image 
-                    src={company.logo || "/images/companies/placeholder.png"} 
+                    src={company.logo && company.logo.startsWith("/") ? company.logo : "/images/companies/placeholder.png"} 
                     alt={`${company.name} logo`}
                     className="mx-auto"
                     width={100}
                     height={40}
-                    objectFit="contain"
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 <div className="text-center">
@@ -163,12 +163,12 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
               >
                 <div className="relative h-8 w-full mb-1">
                   <Image 
-                    src={company.logo || "/images/companies/placeholder.png"} 
+                    src={company.logo && company.logo.startsWith("/") ? company.logo : "/images/companies/placeholder.png"} 
                     alt={`${company.name} logo`}
                     className="mx-auto"
                     width={80}
                     height={32}
-                    objectFit="contain"
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 {company.models && company.models.filter(model => model.featured).slice(0, 1).map(model => (
@@ -191,12 +191,12 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
               >
                 <div className="relative h-8 w-full mb-1">
                   <Image 
-                    src={company.logo || "/images/companies/placeholder.png"} 
+                    src={company.logo && company.logo.startsWith("/") ? company.logo : "/images/companies/placeholder.png"} 
                     alt={`${company.name} logo`}
                     className="mx-auto"
                     width={80}
                     height={32}
-                    objectFit="contain"
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 {company.models && company.models.filter(model => model.featured).slice(0, 1).map(model => (
@@ -219,12 +219,12 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
               >
                 <div className="relative h-8 w-full mb-1">
                   <Image 
-                    src={company.logo || "/images/companies/placeholder.png"} 
+                    src={company.logo && company.logo.startsWith("/") ? company.logo : "/images/companies/placeholder.png"} 
                     alt={`${company.name} logo`}
                     className="mx-auto"
                     width={80}
                     height={32}
-                    objectFit="contain"
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 {company.models && company.models.filter(model => model.featured).slice(0, 1).map(model => (
@@ -247,12 +247,12 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
               >
                 <div className="relative h-8 w-full mb-1">
                   <Image 
-                    src={company.logo || "/images/companies/placeholder.png"} 
+                    src={company.logo && company.logo.startsWith("/") ? company.logo : "/images/companies/placeholder.png"} 
                     alt={`${company.name} logo`}
                     className="mx-auto"
                     width={80}
                     height={32}
-                    objectFit="contain"
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 {company.models && company.models.filter(model => model.featured).slice(0, 1).map(model => (
@@ -345,10 +345,10 @@ const AILandscapeDemo = () => {
             <div className="flex items-center mb-6">
               <div className="relative h-16 w-40 mr-4">
                 <Image 
-                  src={selectedCompany.logo || "/images/companies/placeholder.png"} 
+                  src={selectedCompany.logo && selectedCompany.logo.startsWith("/") ? selectedCompany.logo : "/images/companies/placeholder.png"} 
                   alt={`${selectedCompany.name} logo`}
                   fill
-                  objectFit="contain"
+                  style={{ objectFit: "contain" }}
                 />
               </div>
               <div>
@@ -408,10 +408,10 @@ const AILandscapeDemo = () => {
                     <div key={feature.name} className="border rounded-lg overflow-hidden">
                       <div className="relative h-48 bg-gray-200">
                         <Image 
-                          src={feature.image || "/images/companies/placeholder.png"} 
+                          src={feature.image && feature.image.startsWith("/") ? feature.image : "/images/companies/placeholder.png"} 
                           alt={feature.name}
                           fill
-                          objectFit="cover"
+                          style={{ objectFit: "cover" }}
                         />
                       </div>
                       <div className="p-4">
@@ -483,10 +483,10 @@ const AILandscapeDemo = () => {
             <div className="flex items-center mb-6">
               <div className="relative h-12 w-32 mr-4">
                 <Image 
-                  src={selectedCompany.logo || "/images/companies/placeholder.png"} 
+                  src={selectedCompany.logo && selectedCompany.logo.startsWith("/") ? selectedCompany.logo : "/images/companies/placeholder.png"} 
                   alt={`${selectedCompany.name} logo`}
                   fill
-                  objectFit="contain"
+                  style={{ objectFit: "contain" }}
                 />
               </div>
               <div>
