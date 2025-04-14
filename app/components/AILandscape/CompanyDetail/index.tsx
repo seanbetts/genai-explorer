@@ -21,32 +21,43 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
   onBack, 
   onToggleSection 
 }) => {
+  // Animation related hooks
+  const [isVisible, setIsVisible] = React.useState(false);
+  
+  React.useEffect(() => {
+    // Small delay for animation effect
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
   return (
-    <div>
+    <div className={`transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       <button 
         onClick={onBack} 
-        className={`mb-4 flex items-center ${buttonStyles.link}`}
+        className={`mb-4 flex items-center ${buttonStyles.link} ${containerStyles.flexCenter} transform transition-all duration-300 hover:-translate-x-1`}
       >
-        <i className="bi bi-arrow-left mr-1"></i> Back to landscape
+        <i className="bi bi-arrow-left mr-2 text-gray-600"></i> Back to landscape
       </button>
-      <div className={containerStyles.card}>
-        <div className="flex justify-between mb-8">
-          <div className="flex items-center flex-1">
+      <div className={`${containerStyles.cardHover} transform transition-all duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-4'}`}>
+        <div className={containerStyles.companyDetailHeader}>
+          <div className={`${containerStyles.flexCenter} flex-1`}>
             <a 
               href={company.website} 
               target="_blank" 
               rel="noopener" 
-              className="relative block h-20 w-40 hover:opacity-80 transition-opacity mr-6 flex-shrink-0"
+              className={containerStyles.companyLogoContainer}
               title="Visit website"
             >
               <Image 
                 src={company.logo && company.logo.startsWith("/") ? company.logo : "/images/companies/placeholder.png"} 
                 alt={`${company.name} logo`}
                 fill
-                style={{ objectFit: "contain" }}
+                className={containerStyles.companyLogoImage}
               />
             </a>
-            <div className="flex-1">
+            <div className={containerStyles.companyDescriptionContainer}>
               <p className={`text-lg ${textStyles.primary}`}>{company.description}</p>
             </div>
           </div>
@@ -61,46 +72,52 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           </div>
         </div>
         
-        <div className={containerStyles.section}>
+        <div className={`${containerStyles.section} transform transition-all duration-500 delay-100 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
           <h2 
             className={`${headingStyles.main} flex items-center cursor-pointer`}
             onClick={() => onToggleSection('models')}
           >
-            <i className={`bi ${expandedSections.models ? 'bi-chevron-down' : 'bi-chevron-right'} ${iconStyles.base}`}></i>
+            <i className={`bi ${expandedSections.models ? 'bi-chevron-down' : 'bi-chevron-right'} ${iconStyles.base} transition-transform duration-300`}></i>
             <span className={textStyles.primary}>Models</span>
           </h2>
           
           {company.models && company.models.length > 0 && expandedSections.models && (
-            <ModelTable models={company.models} />
+            <div className="transform transition-all duration-300">
+              <ModelTable models={company.models} />
+            </div>
           )}
         </div>
         
         {company.features && company.features.length > 0 && (
-          <div className={containerStyles.section}>
+          <div className={`${containerStyles.section} transform transition-all duration-500 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
             <h2 
               className={`${headingStyles.main} flex items-center cursor-pointer`}
               onClick={() => onToggleSection('features')}
             >
-              <i className={`bi ${expandedSections.features ? 'bi-chevron-down' : 'bi-chevron-right'} ${iconStyles.base}`}></i>
+              <i className={`bi ${expandedSections.features ? 'bi-chevron-down' : 'bi-chevron-right'} ${iconStyles.base} transition-transform duration-300`}></i>
               <span className={textStyles.primary}>Features</span>
             </h2>
             {expandedSections.features && (
-              <FeatureGrid features={company.features} />
+              <div className="transform transition-all duration-300">
+                <FeatureGrid features={company.features} />
+              </div>
             )}
           </div>
         )}
         
         {company.subscriptions && company.subscriptions.length > 0 && (
-          <div className={containerStyles.section}>
+          <div className={`${containerStyles.section} transform transition-all duration-500 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
             <h2 
               className={`${headingStyles.main} flex items-center cursor-pointer`}
               onClick={() => onToggleSection('subscriptions')}
             >
-              <i className={`bi ${expandedSections.subscriptions ? 'bi-chevron-down' : 'bi-chevron-right'} ${iconStyles.base}`}></i>
+              <i className={`bi ${expandedSections.subscriptions ? 'bi-chevron-down' : 'bi-chevron-right'} ${iconStyles.base} transition-transform duration-300`}></i>
               <span className={textStyles.primary}>Subscription Plans</span>
             </h2>
             {expandedSections.subscriptions && (
-              <SubscriptionGrid subscriptions={company.subscriptions} />
+              <div className="transform transition-all duration-300">
+                <SubscriptionGrid subscriptions={company.subscriptions} />
+              </div>
             )}
           </div>
         )}

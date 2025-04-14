@@ -5,6 +5,7 @@ import landscapeData from '@/data/landscape.json';
 import { LandscapeData, Company, ExpandedSections } from './types';
 import LandscapeView from './LandscapeView';
 import CompanyDetail from './CompanyDetail';
+import { textStyles, containerStyles } from './utils/styles';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const AILandscape: React.FC = () => {
@@ -43,11 +44,11 @@ const AILandscape: React.FC = () => {
   };
   
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-md">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <div className={containerStyles.appContainer}>
+      <header className={containerStyles.header}>
+        <div className={containerStyles.headerContent}>
           <div
-            className="text-2xl font-bold text-gray-800 cursor-pointer"
+            className={`${containerStyles.appTitle} ${textStyles.primary}`}
             onClick={() => {
               setCurrentView('home');
               setSelectedCompany(null);
@@ -58,7 +59,7 @@ const AILandscape: React.FC = () => {
           
           <div>
             {currentView === 'home' && (
-              <div className="text-gray-600 text-sm">
+              <div className={`${textStyles.muted} text-sm`}>
                 Last updated: {new Date().toLocaleDateString('en-GB', { 
                   day: 'numeric', 
                   month: 'long', 
@@ -70,7 +71,7 @@ const AILandscape: React.FC = () => {
         </div>
       </header>
 
-      <main className="container mx-auto p-4">
+      <main className={containerStyles.mainContent}>
         {currentView === 'home' && (
           <LandscapeView data={data} onCompanySelect={handleCompanySelect} />
         )}
@@ -85,8 +86,8 @@ const AILandscape: React.FC = () => {
         )}
       </main>
 
-      <footer className="bg-gray-800 text-white mt-12 py-6">
-        <div className="container mx-auto px-4">
+      <footer className={containerStyles.footer}>
+        <div className={containerStyles.footerContent}>
           <p>© 2025 AI Landscape Explorer</p>
         </div>
       </footer>

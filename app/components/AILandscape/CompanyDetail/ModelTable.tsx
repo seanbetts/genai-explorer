@@ -317,10 +317,10 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
   );
 
   return (
-    <div className={containerStyles.flexCol}>
+    <div className={`${containerStyles.flexCol} transform transition-all duration-300`}>
       <div style={tableContainerStyle}>
         <div className={needsScrolling ? "overflow-x-auto" : ""}>
-          <table className={tableStyles.table}>
+          <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300`}>
             <thead>
               <tr className={tableStyles.header}>
                 <th className={`${tableStyles.headerCell} ${tableStyles.headerFixed}`} 
@@ -341,8 +341,8 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       </div>
       
       {/* Format Icons Legend */}
-      <div className={containerStyles.legend}>
-        <div className={containerStyles.legendBox}>
+      <div className={`${containerStyles.legend} transform transition-all duration-500`}>
+        <div className={`${containerStyles.legendBox} hover:shadow-md transition-all duration-300 hover:border-gray-300`}>
           <span className={`${textStyles.small} ${textStyles.secondary}`}>Legend:</span>
           <div className={iconStyles.formatItem}>
             <i className={`bi bi-file-text-fill ${iconStyles.activeFormat} ${iconStyles.iconRight}`}></i>

@@ -13,6 +13,7 @@ interface CategorySectionProps {
   layout: 'full-width' | 'half-width' | 'quarter-width';
   columns?: number;
   showModelCount?: number;
+  icon?: string; // Bootstrap icon class
 }
 
 const CategorySection: React.FC<CategorySectionProps> = ({ 
@@ -22,59 +23,57 @@ const CategorySection: React.FC<CategorySectionProps> = ({
   onCompanySelect,
   layout,
   columns = 4,
-  showModelCount = 1
+  showModelCount, // No default value to show all models
+  icon
 }) => {
-  // Get appropriate grid class based on layout and columns
+  // Get appropriate grid class based on layout
   const getGridClass = () => {
     if (layout === 'full-width') {
       return containerStyles.companyGridFull;
     } else if (layout === 'half-width') {
-      return containerStyles.companyGridHalf;
+      return containerStyles.companyGridHalf; // 4 columns for Open Source Models
     } else {
-      return containerStyles.companyGridQuarter;
+      return containerStyles.companyGridQuarter; // 2 columns for Enterprise and specialty categories
     }
   };
 
-  // For full-width layout, we display the title with special formatting
+  // Render content with consistent layout for all categories
   const renderContent = () => {
-    if (layout === 'full-width') {
-      return (
-        <div className={containerStyles.flexCenter + ' mb-4'}>
-          <div className={`${textStyles.primary} ${containerStyles.categoryTitleInline}`}>{title}</div>
-          <div className={`flex-1 ${getGridClass()}`}>
-            {companies.map(company => (
-              <CompanyCard 
-                key={company.id}
-                company={company}
-                onClick={onCompanySelect}
-                showModelCount={showModelCount}
-              />
-            ))}
-          </div>
+    // Use consistent styling for all icons
+    const iconColorClass = 'text-gray-600';
+    
+    // Determine image size based on layout
+    const imageSize = layout === 'quarter-width' 
+      ? { width: 84, height: 36 } 
+      : layout === 'half-width' 
+        ? { width: 100, height: 42 }
+        : { width: 110, height: 46 }; // Slightly larger for full-width
+    
+    return (
+      <>
+        <div className={`${containerStyles.categoryTitle}`}>
+          {icon && (
+            <i className={`bi ${icon} ${iconColorClass} mr-2 text-lg`}></i>
+          )}
+          <span className="text-gray-800 font-semibold">{title}</span>
         </div>
-      );
-    } else {
-      return (
-        <>
-          <div className={`${containerStyles.categoryTitle} ${textStyles.primary}`}>{title}</div>
-          <div className={getGridClass()}>
-            {companies.map(company => (
-              <CompanyCard 
-                key={company.id}
-                company={company}
-                onClick={onCompanySelect}
-                showModelCount={showModelCount}
-                imageSize={layout === 'quarter-width' ? { width: 80, height: 32 } : { width: 100, height: 40 }}
-              />
-            ))}
-          </div>
-        </>
-      );
-    }
+        <div className={getGridClass()}>
+          {companies.map(company => (
+            <CompanyCard 
+              key={company.id}
+              company={company}
+              onClick={onCompanySelect}
+              showModelCount={showModelCount}
+              imageSize={imageSize}
+            />
+          ))}
+        </div>
+      </>
+    );
   };
 
   return (
-    <div className={containerStyles.categorySection}>
+    <div className={`${containerStyles.categorySection} ${styleName}`}>
       {renderContent()}
     </div>
   );

@@ -16,7 +16,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ features }) => {
       {features.map(feature => (
         <div 
           key={feature.name} 
-          className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow h-full flex flex-col w-full sm:w-[calc(50%-12px)] md:w-[calc(33.33%-16px)] max-w-md"
+          className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col w-full sm:w-[calc(50%-12px)] md:w-[calc(33.33%-16px)] max-w-md hover:border-gray-300 hover:scale-105 transform"
         >
           <div className="relative h-36 bg-gray-200">
             <Image 
@@ -33,9 +33,10 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ features }) => {
               href={feature.url} 
               target="_blank" 
               rel="noopener"
-              className={`${buttonStyles.link} text-sm mt-auto no-underline hover:underline`}
+              className={`${buttonStyles.link} text-sm mt-auto no-underline hover:underline flex items-center transition-all duration-300 hover:translate-x-1 transform`}
             >
-              Learn more →
+              <span>Learn more</span>
+              <i className="bi bi-arrow-right ml-1"></i>
             </a>
           </div>
         </div>
