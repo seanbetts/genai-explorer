@@ -454,6 +454,20 @@ const AILandscapeDemo = () => {
                       </tr>
                     )}
                     
+                    {/* Reasoning Tokens Row */}
+                    {selectedCompany.models.some(model => model.specs?.reasoningTokens !== undefined) && (
+                      <tr className="hover:bg-gray-50">
+                        <td className="py-3 px-4 border-b pl-8">Reasoning Tokens</td>
+                        {selectedCompany.models.map(model => (
+                          <td key={model.id} className="py-3 px-4 border-b">
+                            {model.specs?.reasoningTokens !== undefined ? (
+                              model.specs.reasoningTokens ? "Yes" : "No"
+                            ) : "-"}
+                          </td>
+                        ))}
+                      </tr>
+                    )}
+                    
                     {/* Creativity Row */}
                     {selectedCompany.models.some(model => model.capabilities?.creativity) && (
                       <tr className="hover:bg-gray-50">
@@ -557,20 +571,6 @@ const AILandscapeDemo = () => {
                         {selectedCompany.models.map(model => (
                           <td key={model.id} className="py-3 px-4 border-b">
                             {model.specs?.knowledgeCutoff || "-"}
-                          </td>
-                        ))}
-                      </tr>
-                    )}
-
-                    {/* Reasoning Tokens Row */}
-                    {selectedCompany.models.some(model => model.specs?.reasoningTokens !== undefined) && (
-                      <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">Reasoning Tokens</td>
-                        {selectedCompany.models.map(model => (
-                          <td key={model.id} className="py-3 px-4 border-b">
-                            {model.specs?.reasoningTokens !== undefined ? (
-                              model.specs.reasoningTokens ? "Yes" : "No"
-                            ) : "-"}
                           </td>
                         ))}
                       </tr>
