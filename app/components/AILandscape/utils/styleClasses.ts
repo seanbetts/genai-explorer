@@ -38,11 +38,11 @@ export const styles = {
   
   // Feature Grid
   featureGrid: containerStyles.featureGrid,
-  featureCard: 'border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col w-full sm:w-96 hover:border-gray-300 hover:scale-105 transform',
-  featureCardContent: 'p-3 flex-1 flex flex-col',
-  featureTitle: 'text-lg font-semibold mb-1 text-gray-800',
-  featureDescription: 'text-gray-600 text-sm mb-3 flex-1',
-  featureLink: 'text-gray-600 hover:text-gray-800 transition-colors duration-200 cursor-pointer underline-offset-2 hover:underline flex items-center mt-auto no-underline hover:underline transition-all duration-300 hover:translate-x-1 transform',
+  featureCard: 'border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col w-full sm:w-96 hover:border-gray-300 hover:scale-105 transform cursor-pointer no-underline',
+  featureCardContent: 'p-4 flex-1 flex flex-col overflow-hidden',
+  featureTitle: 'text-lg font-semibold mb-2 text-gray-800',
+  featureDescription: 'text-gray-600 text-sm',
+  featureLink: 'text-gray-600 hover:text-gray-800 transition-colors duration-200 cursor-pointer flex items-center no-underline',
   
   // Subscription Grid
   subscriptionGrid: containerStyles.subscriptionGrid,
