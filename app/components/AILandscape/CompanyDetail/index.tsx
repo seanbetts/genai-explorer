@@ -74,15 +74,15 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
         
         <div className={`${containerStyles.section} transform transition-all duration-500 delay-100 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
           <h2 
-            className={`${headingStyles.main} flex items-center cursor-pointer`}
+            className={`${headingStyles.h2} flex items-center cursor-pointer py-2`}
             onClick={() => onToggleSection('models')}
           >
-            <i className={`bi ${expandedSections.models ? 'bi-chevron-down' : 'bi-chevron-right'} ${iconStyles.base} transition-transform duration-300`}></i>
-            <span className={textStyles.primary}>Models</span>
+            <i className={`bi ${expandedSections.models ? 'bi-chevron-down' : 'bi-chevron-right'} ${iconStyles.tableRowIcon} text-xl mr-3 transition-transform duration-300`}></i>
+            <span className="text-gray-800">Models</span>
           </h2>
           
           {company.models && company.models.length > 0 && expandedSections.models && (
-            <div className="transform transition-all duration-300">
+            <div className="transform transition-all duration-300 pb-4 mt-2">
               <ModelTable models={company.models} />
             </div>
           )}
@@ -91,14 +91,14 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
         {company.features && company.features.length > 0 && (
           <div className={`${containerStyles.section} transform transition-all duration-500 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
             <h2 
-              className={`${headingStyles.main} flex items-center cursor-pointer`}
+              className={`${headingStyles.h2} flex items-center cursor-pointer py-2`}
               onClick={() => onToggleSection('features')}
             >
-              <i className={`bi ${expandedSections.features ? 'bi-chevron-down' : 'bi-chevron-right'} ${iconStyles.base} transition-transform duration-300`}></i>
-              <span className={textStyles.primary}>Features</span>
+              <i className={`bi ${expandedSections.features ? 'bi-chevron-down' : 'bi-chevron-right'} ${iconStyles.tableRowIcon} text-xl mr-3 transition-transform duration-300`}></i>
+              <span className="text-gray-800">Features</span>
             </h2>
             {expandedSections.features && (
-              <div className="transform transition-all duration-300">
+              <div className="transform transition-all duration-300 pb-4 mt-2">
                 <FeatureGrid features={company.features} />
               </div>
             )}
@@ -108,14 +108,14 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
         {company.subscriptions && company.subscriptions.length > 0 && (
           <div className={`${containerStyles.section} transform transition-all duration-500 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
             <h2 
-              className={`${headingStyles.main} flex items-center cursor-pointer`}
+              className={`${headingStyles.h2} flex items-center cursor-pointer py-2`}
               onClick={() => onToggleSection('subscriptions')}
             >
-              <i className={`bi ${expandedSections.subscriptions ? 'bi-chevron-down' : 'bi-chevron-right'} ${iconStyles.base} transition-transform duration-300`}></i>
-              <span className={textStyles.primary}>Subscription Plans</span>
+              <i className={`bi ${expandedSections.subscriptions ? 'bi-chevron-down' : 'bi-chevron-right'} ${iconStyles.tableRowIcon} text-xl mr-3 transition-transform duration-300`}></i>
+              <span className="text-gray-800">Subscription Plans</span>
             </h2>
             {expandedSections.subscriptions && (
-              <div className="transform transition-all duration-300">
+              <div className="transform transition-all duration-300 pb-4 mt-2">
                 <SubscriptionGrid subscriptions={company.subscriptions} />
               </div>
             )}

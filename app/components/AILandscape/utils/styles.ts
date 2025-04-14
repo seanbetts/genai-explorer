@@ -294,9 +294,9 @@ export const containerStyles = {
   cardOutline: 'bg-white p-5 rounded-lg border border-gray-200 hover:border-blue-200 transition-all duration-200',
   cardFlat: 'bg-white p-5 rounded-lg border border-gray-100',
   
-  // Section containers
-  section: 'mb-10',
-  sectionDivider: 'border-t border-gray-100 my-10',
+  // Section containers with prominent styling
+  section: 'mb-12 bg-gray-50/70 rounded-lg p-6 border border-gray-200',
+  sectionDivider: 'border-t border-gray-200 my-10',
   
   // Modern grid layouts with improved spacing
   grid2col: 'grid grid-cols-1 md:grid-cols-2 gap-5',
