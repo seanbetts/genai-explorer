@@ -28,9 +28,12 @@ const SubscriptionGrid: React.FC<SubscriptionGridProps> = ({ subscriptions }) =>
         const emptyFeatures = Math.max(0, maxFeatures - featuresLength);
         
         return (
-          <div 
+          <a 
+            href={subscription.url || '#'}
+            target="_blank"
+            rel="noopener noreferrer"
             key={subscription.tier}
-            className={`bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex flex-col w-72 transform hover:scale-105 cursor-pointer ${
+            className={`bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex flex-col w-72 transform hover:scale-105 cursor-pointer no-underline ${
               subscription.type === 'enterprise' ? 'border-2 border-gray-200 hover:border-gray-300' : 'border border-gray-100 hover:border-gray-300'
             }`}
           >
@@ -69,7 +72,7 @@ const SubscriptionGrid: React.FC<SubscriptionGridProps> = ({ subscriptions }) =>
                 </li>
               ))}
             </ul>
-          </div>
+          </a>
         );
       })}
     </div>

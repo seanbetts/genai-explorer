@@ -59,6 +59,7 @@ export interface Subscription {
   billingCycle: string;
   perUser?: boolean;
   features: string[];
+  url?: string;
 }
 
 export interface Company {

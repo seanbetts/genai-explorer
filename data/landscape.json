@@ -146,6 +146,7 @@
           "type": "consumer",
           "price": 0,
           "billingCycle": "monthly",
+          "url": "https://openai.com/chatgpt",
           "features": [
             "GPT-4o mini",
             "Search",
@@ -160,6 +161,7 @@
           "type": "consumer",
           "price": 20,
           "billingCycle": "monthly",
+          "url": "https://openai.com/chatgpt/pricing",
           "features": [
             "Everything in Free tier",
             "Access to o1",
@@ -175,6 +177,7 @@
           "type": "consumer",
           "price": 200,
           "billingCycle": "monthly",
+          "url": "https://openai.com/chatgpt/pricing",
           "features": [
             "Everything in Plus tier",
             "Unlimited access to all text models",
@@ -187,6 +190,7 @@
           "type": "enterprise",
           "price": null,
           "billingCycle": "custom",
+          "url": "https://openai.com/enterprise",
           "features": [
             "Custom models",
             "Enhanced security",
