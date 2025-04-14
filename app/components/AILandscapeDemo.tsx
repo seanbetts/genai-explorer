@@ -355,61 +355,31 @@ const AILandscapeDemo = () => {
                 <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
                   <thead>
                     <tr className="bg-gray-50">
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Model</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Type</th>
-                      {selectedCompany.models.some(model => model.capabilities?.intelligence) && (
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">
-                          <div className="flex items-center">
-                            <i className="bi bi-circle-fill text-blue-600 mr-2"></i> Intelligence
-                          </div>
-                        </th>
-                      )}
-                      {selectedCompany.models.some(model => model.capabilities?.speed) && (
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">
-                          <div className="flex items-center">
-                            <i className="bi bi-lightning-charge-fill text-yellow-600 mr-2"></i> Speed
-                          </div>
-                        </th>
-                      )}
-                      {selectedCompany.models.some(model => model.capabilities?.reasoning) && (
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">
-                          <div className="flex items-center">
-                            <i className="bi bi-lightbulb-fill text-purple-600 mr-2"></i> Reasoning
-                          </div>
-                        </th>
-                      )}
-                      {selectedCompany.models.some(model => model.capabilities?.creativity) && (
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">
-                          <div className="flex items-center">
-                            <i className="bi bi-stars text-pink-600 mr-2"></i> Creativity
-                          </div>
-                        </th>
-                      )}
-                      {selectedCompany.models.some(model => model.specs?.inputFormats) && (
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Input Formats</th>
-                      )}
-                      {selectedCompany.models.some(model => model.specs?.outputFormats) && (
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Output Formats</th>
-                      )}
-                      {selectedCompany.models.some(model => model.specs?.maxInputTokens) && (
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Max Input</th>
-                      )}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {selectedCompany.models.map(model => (
-                      <tr key={model.id} className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">
+                      <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Feature</th>
+                      {selectedCompany.models.map(model => (
+                        <th key={model.id} className="py-3 px-4 text-left font-semibold text-gray-700 border-b">
                           <div className="font-semibold text-gray-900">{model.name}</div>
                           {model.featured && (
                             <span className="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded">
                               Featured
                             </span>
                           )}
+                          <div className="text-xs text-gray-500 capitalize mt-1">{model.type || "-"}</div>
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {/* Intelligence Row */}
+                    {selectedCompany.models.some(model => model.capabilities?.intelligence) && (
+                      <tr className="hover:bg-gray-50">
+                        <td className="py-3 px-4 border-b">
+                          <div className="flex items-center">
+                            <i className="bi bi-circle-fill text-blue-600 mr-2"></i> Intelligence
+                          </div>
                         </td>
-                        <td className="py-3 px-4 border-b capitalize">{model.type || "-"}</td>
-                        {selectedCompany.models.some(model => model.capabilities?.intelligence) && (
-                          <td className="py-3 px-4 border-b">
+                        {selectedCompany.models.map(model => (
+                          <td key={model.id} className="py-3 px-4 border-b">
                             {model.capabilities?.intelligence ? (
                               <div className="flex items-center text-blue-600">
                                 {[...Array(5)].map((_, i) => (
@@ -424,9 +394,20 @@ const AILandscapeDemo = () => {
                               </div>
                             ) : "-"}
                           </td>
-                        )}
-                        {selectedCompany.models.some(model => model.capabilities?.speed) && (
-                          <td className="py-3 px-4 border-b">
+                        ))}
+                      </tr>
+                    )}
+                    
+                    {/* Speed Row */}
+                    {selectedCompany.models.some(model => model.capabilities?.speed) && (
+                      <tr className="hover:bg-gray-50">
+                        <td className="py-3 px-4 border-b">
+                          <div className="flex items-center">
+                            <i className="bi bi-lightning-charge-fill text-yellow-600 mr-2"></i> Speed
+                          </div>
+                        </td>
+                        {selectedCompany.models.map(model => (
+                          <td key={model.id} className="py-3 px-4 border-b">
                             {model.capabilities?.speed ? (
                               <div className="flex items-center text-yellow-600">
                                 {[...Array(5)].map((_, i) => (
@@ -441,9 +422,20 @@ const AILandscapeDemo = () => {
                               </div>
                             ) : "-"}
                           </td>
-                        )}
-                        {selectedCompany.models.some(model => model.capabilities?.reasoning) && (
-                          <td className="py-3 px-4 border-b">
+                        ))}
+                      </tr>
+                    )}
+                    
+                    {/* Reasoning Row */}
+                    {selectedCompany.models.some(model => model.capabilities?.reasoning) && (
+                      <tr className="hover:bg-gray-50">
+                        <td className="py-3 px-4 border-b">
+                          <div className="flex items-center">
+                            <i className="bi bi-lightbulb-fill text-purple-600 mr-2"></i> Reasoning
+                          </div>
+                        </td>
+                        {selectedCompany.models.map(model => (
+                          <td key={model.id} className="py-3 px-4 border-b">
                             {model.capabilities?.reasoning ? (
                               <div className="flex items-center text-purple-600">
                                 {[...Array(5)].map((_, i) => (
@@ -458,9 +450,20 @@ const AILandscapeDemo = () => {
                               </div>
                             ) : "-"}
                           </td>
-                        )}
-                        {selectedCompany.models.some(model => model.capabilities?.creativity) && (
-                          <td className="py-3 px-4 border-b">
+                        ))}
+                      </tr>
+                    )}
+                    
+                    {/* Creativity Row */}
+                    {selectedCompany.models.some(model => model.capabilities?.creativity) && (
+                      <tr className="hover:bg-gray-50">
+                        <td className="py-3 px-4 border-b">
+                          <div className="flex items-center">
+                            <i className="bi bi-stars text-pink-600 mr-2"></i> Creativity
+                          </div>
+                        </td>
+                        {selectedCompany.models.map(model => (
+                          <td key={model.id} className="py-3 px-4 border-b">
                             {model.capabilities?.creativity ? (
                               <div className="flex items-center text-pink-600">
                                 {[...Array(5)].map((_, i) => (
@@ -475,9 +478,16 @@ const AILandscapeDemo = () => {
                               </div>
                             ) : "-"}
                           </td>
-                        )}
-                        {selectedCompany.models.some(model => model.specs?.inputFormats) && (
-                          <td className="py-3 px-4 border-b">
+                        ))}
+                      </tr>
+                    )}
+                    
+                    {/* Input Formats Row */}
+                    {selectedCompany.models.some(model => model.specs?.inputFormats) && (
+                      <tr className="hover:bg-gray-50">
+                        <td className="py-3 px-4 border-b">Input Formats</td>
+                        {selectedCompany.models.map(model => (
+                          <td key={model.id} className="py-3 px-4 border-b">
                             {model.specs?.inputFormats ? (
                               <div className="flex flex-wrap gap-1">
                                 {model.specs.inputFormats.map(format => (
@@ -488,9 +498,16 @@ const AILandscapeDemo = () => {
                               </div>
                             ) : "-"}
                           </td>
-                        )}
-                        {selectedCompany.models.some(model => model.specs?.outputFormats) && (
-                          <td className="py-3 px-4 border-b">
+                        ))}
+                      </tr>
+                    )}
+                    
+                    {/* Output Formats Row */}
+                    {selectedCompany.models.some(model => model.specs?.outputFormats) && (
+                      <tr className="hover:bg-gray-50">
+                        <td className="py-3 px-4 border-b">Output Formats</td>
+                        {selectedCompany.models.map(model => (
+                          <td key={model.id} className="py-3 px-4 border-b">
                             {model.specs?.outputFormats ? (
                               <div className="flex flex-wrap gap-1">
                                 {model.specs.outputFormats.map(format => (
@@ -501,16 +518,63 @@ const AILandscapeDemo = () => {
                               </div>
                             ) : "-"}
                           </td>
-                        )}
-                        {selectedCompany.models.some(model => model.specs?.maxInputTokens) && (
-                          <td className="py-3 px-4 border-b">
+                        ))}
+                      </tr>
+                    )}
+                    
+                    {/* Max Input Tokens Row */}
+                    {selectedCompany.models.some(model => model.specs?.maxInputTokens) && (
+                      <tr className="hover:bg-gray-50">
+                        <td className="py-3 px-4 border-b">Max Input</td>
+                        {selectedCompany.models.map(model => (
+                          <td key={model.id} className="py-3 px-4 border-b">
                             {model.specs?.maxInputTokens ? (
                               <span>{model.specs.maxInputTokens.toLocaleString()} tokens</span>
                             ) : "-"}
                           </td>
-                        )}
+                        ))}
                       </tr>
-                    ))}
+                    )}
+
+                    {/* Max Output Tokens Row */}
+                    {selectedCompany.models.some(model => model.specs?.maxOutputTokens) && (
+                      <tr className="hover:bg-gray-50">
+                        <td className="py-3 px-4 border-b">Max Output</td>
+                        {selectedCompany.models.map(model => (
+                          <td key={model.id} className="py-3 px-4 border-b">
+                            {model.specs?.maxOutputTokens ? (
+                              <span>{model.specs.maxOutputTokens.toLocaleString()} tokens</span>
+                            ) : "-"}
+                          </td>
+                        ))}
+                      </tr>
+                    )}
+
+                    {/* Knowledge Cutoff Row */}
+                    {selectedCompany.models.some(model => model.specs?.knowledgeCutoff) && (
+                      <tr className="hover:bg-gray-50">
+                        <td className="py-3 px-4 border-b">Knowledge Cutoff</td>
+                        {selectedCompany.models.map(model => (
+                          <td key={model.id} className="py-3 px-4 border-b">
+                            {model.specs?.knowledgeCutoff || "-"}
+                          </td>
+                        ))}
+                      </tr>
+                    )}
+
+                    {/* Reasoning Tokens Row */}
+                    {selectedCompany.models.some(model => model.specs?.reasoningTokens !== undefined) && (
+                      <tr className="hover:bg-gray-50">
+                        <td className="py-3 px-4 border-b">Reasoning Tokens</td>
+                        {selectedCompany.models.map(model => (
+                          <td key={model.id} className="py-3 px-4 border-b">
+                            {model.specs?.reasoningTokens !== undefined ? (
+                              model.specs.reasoningTokens ? "Yes" : "No"
+                            ) : "-"}
+                          </td>
+                        ))}
+                      </tr>
+                    )}
                   </tbody>
                 </table>
               </div>
