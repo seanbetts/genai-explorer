@@ -1,9 +1,9 @@
-import AILandscapeDemo from './components/AILandscapeDemo';
+import AILandscape from './components/AILandscape';
 
 export default function Home() {
   return (
     <main>
-      <AILandscapeDemo />
+      <AILandscape />
     </main>
   );
 }
