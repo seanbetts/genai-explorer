@@ -9,8 +9,16 @@ interface ModelTableProps {
 }
 
 const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
-  // We'll show up to 4 models
-  const displayModels = models.slice(0, 4);
+  // Sort models by release date (newest first) and show up to 4 models
+  const displayModels = [...models]
+    .sort((a, b) => {
+      // Convert dates to timestamps for comparison
+      const dateA = a.releaseDate ? new Date(a.releaseDate).getTime() : 0;
+      const dateB = b.releaseDate ? new Date(b.releaseDate).getTime() : 0;
+      // Sort descending (newest first)
+      return dateB - dateA;
+    })
+    .slice(0, 4);
   
   // Helper to check if any model has a specific capability or spec
   const hasAnyModelCapability = (key: string): boolean => {
