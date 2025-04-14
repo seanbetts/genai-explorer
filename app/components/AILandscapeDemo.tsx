@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import landscapeData from '@/data/landscape.json';
 
 const LandscapeVisualization = ({ data, onCompanySelect }) => {
@@ -357,16 +358,32 @@ const AILandscapeDemo = () => {
                       <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Model</th>
                       <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Type</th>
                       {selectedCompany.models.some(model => model.capabilities?.intelligence) && (
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Intelligence</th>
+                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">
+                          <div className="flex items-center">
+                            <i className="bi bi-circle-fill text-blue-600 mr-2"></i> Intelligence
+                          </div>
+                        </th>
                       )}
                       {selectedCompany.models.some(model => model.capabilities?.speed) && (
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Speed</th>
+                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">
+                          <div className="flex items-center">
+                            <i className="bi bi-lightning-charge-fill text-yellow-600 mr-2"></i> Speed
+                          </div>
+                        </th>
                       )}
                       {selectedCompany.models.some(model => model.capabilities?.reasoning) && (
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Reasoning</th>
+                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">
+                          <div className="flex items-center">
+                            <i className="bi bi-lightbulb-fill text-purple-600 mr-2"></i> Reasoning
+                          </div>
+                        </th>
                       )}
                       {selectedCompany.models.some(model => model.capabilities?.creativity) && (
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Creativity</th>
+                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">
+                          <div className="flex items-center">
+                            <i className="bi bi-stars text-pink-600 mr-2"></i> Creativity
+                          </div>
+                        </th>
                       )}
                       {selectedCompany.models.some(model => model.specs?.inputFormats) && (
                         <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Input Formats</th>
@@ -394,14 +411,16 @@ const AILandscapeDemo = () => {
                         {selectedCompany.models.some(model => model.capabilities?.intelligence) && (
                           <td className="py-3 px-4 border-b">
                             {model.capabilities?.intelligence ? (
-                              <div className="flex items-center">
-                                <div className="w-16 bg-gray-200 h-2 rounded-full mr-2">
-                                  <div 
-                                    className="bg-blue-500 h-full rounded-full" 
-                                    style={{ width: `${(model.capabilities.intelligence / 5) * 100}%` }}
-                                  />
-                                </div>
-                                <span className="text-sm">{model.capabilities.intelligence}/5</span>
+                              <div className="flex items-center text-blue-600">
+                                {[...Array(5)].map((_, i) => (
+                                  <i 
+                                    key={i} 
+                                    className={i < model.capabilities.intelligence 
+                                      ? "bi bi-circle-fill mx-0.5" 
+                                      : "bi bi-circle mx-0.5"
+                                    }
+                                  ></i>
+                                ))}
                               </div>
                             ) : "-"}
                           </td>
@@ -409,14 +428,16 @@ const AILandscapeDemo = () => {
                         {selectedCompany.models.some(model => model.capabilities?.speed) && (
                           <td className="py-3 px-4 border-b">
                             {model.capabilities?.speed ? (
-                              <div className="flex items-center">
-                                <div className="w-16 bg-gray-200 h-2 rounded-full mr-2">
-                                  <div 
-                                    className="bg-yellow-500 h-full rounded-full" 
-                                    style={{ width: `${(model.capabilities.speed / 5) * 100}%` }}
-                                  />
-                                </div>
-                                <span className="text-sm">{model.capabilities.speed}/5</span>
+                              <div className="flex items-center text-yellow-600">
+                                {[...Array(5)].map((_, i) => (
+                                  <i 
+                                    key={i} 
+                                    className={i < model.capabilities.speed 
+                                      ? "bi bi-lightning-charge-fill mx-0.5" 
+                                      : "bi bi-lightning-charge mx-0.5"
+                                    }
+                                  ></i>
+                                ))}
                               </div>
                             ) : "-"}
                           </td>
@@ -424,14 +445,16 @@ const AILandscapeDemo = () => {
                         {selectedCompany.models.some(model => model.capabilities?.reasoning) && (
                           <td className="py-3 px-4 border-b">
                             {model.capabilities?.reasoning ? (
-                              <div className="flex items-center">
-                                <div className="w-16 bg-gray-200 h-2 rounded-full mr-2">
-                                  <div 
-                                    className="bg-purple-500 h-full rounded-full" 
-                                    style={{ width: `${(model.capabilities.reasoning / 5) * 100}%` }}
-                                  />
-                                </div>
-                                <span className="text-sm">{model.capabilities.reasoning}/5</span>
+                              <div className="flex items-center text-purple-600">
+                                {[...Array(5)].map((_, i) => (
+                                  <i 
+                                    key={i} 
+                                    className={i < model.capabilities.reasoning 
+                                      ? "bi bi-lightbulb-fill mx-0.5" 
+                                      : "bi bi-lightbulb mx-0.5"
+                                    }
+                                  ></i>
+                                ))}
                               </div>
                             ) : "-"}
                           </td>
@@ -439,14 +462,16 @@ const AILandscapeDemo = () => {
                         {selectedCompany.models.some(model => model.capabilities?.creativity) && (
                           <td className="py-3 px-4 border-b">
                             {model.capabilities?.creativity ? (
-                              <div className="flex items-center">
-                                <div className="w-16 bg-gray-200 h-2 rounded-full mr-2">
-                                  <div 
-                                    className="bg-pink-500 h-full rounded-full" 
-                                    style={{ width: `${(model.capabilities.creativity / 5) * 100}%` }}
-                                  />
-                                </div>
-                                <span className="text-sm">{model.capabilities.creativity}/5</span>
+                              <div className="flex items-center text-pink-600">
+                                {[...Array(5)].map((_, i) => (
+                                  <i 
+                                    key={i} 
+                                    className={i < model.capabilities.creativity 
+                                      ? "bi bi-stars mx-0.5" 
+                                      : "bi bi-star mx-0.5"
+                                    }
+                                  ></i>
+                                ))}
                               </div>
                             ) : "-"}
                           </td>
