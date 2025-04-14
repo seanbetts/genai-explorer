@@ -378,8 +378,8 @@ export const containerStyles = {
 
 // Refined icon system with subtle interactions and improved visual balance
 export const iconStyles = {
-  // Base icon styles with improved spacing and transitions
-  base: 'text-gray-500 transition-all duration-200',
+  // Base icon styles with Material UI blue
+  base: 'text-blue-500 transition-all duration-200',
   action: 'text-gray-500 hover:text-blue-500 cursor-pointer transition-all duration-200',
   primary: 'text-blue-500',
   secondary: 'text-gray-400',
@@ -394,14 +394,14 @@ export const iconStyles = {
   '2xl': 'text-2xl',
   '3xl': 'text-3xl',
   
-  // Rating icons with consistent styling
-  ratingContainer: 'flex items-center justify-center text-amber-500',
-  ratingFilled: 'text-amber-500',
+  // Rating icons with Material UI blue
+  ratingContainer: 'flex items-center justify-center text-blue-500',
+  ratingFilled: 'text-blue-500',
   ratingEmpty: 'text-gray-300',
   iconSpacing: 'mx-0.5',
   
-  // Format indicators with improved contrast
-  activeFormat: 'text-blue-600',
+  // Format indicators with Material UI blue
+  activeFormat: 'text-blue-500',
   inactiveFormat: 'text-gray-300',
   formatContainer: 'flex gap-4 justify-center',
   formatItem: 'flex items-center mx-2',
