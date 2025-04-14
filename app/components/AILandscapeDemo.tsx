@@ -350,6 +350,32 @@ const AILandscapeDemo = () => {
             <p className="text-lg mb-8">{selectedCompany.description}</p>
             
             <h2 className="text-2xl font-bold mb-4">Models</h2>
+            
+            {/* Format Icons Legend */}
+            <div className="flex gap-5 mb-4 items-center justify-center bg-gray-50 p-3 rounded-lg">
+              <span className="text-sm text-gray-600">Format Icons:</span>
+              <div className="flex items-center">
+                <i className="bi bi-file-text-fill text-blue-600 mr-1"></i>
+                <span className="text-sm">Text</span>
+              </div>
+              <div className="flex items-center">
+                <i className="bi bi-image-fill text-green-600 mr-1"></i>
+                <span className="text-sm">Image</span>
+              </div>
+              <div className="flex items-center">
+                <i className="bi bi-mic-fill text-yellow-600 mr-1"></i>
+                <span className="text-sm">Audio</span>
+              </div>
+              <div className="flex items-center">
+                <i className="bi bi-camera-video-fill text-red-600 mr-1"></i>
+                <span className="text-sm">Video</span>
+              </div>
+              <div className="flex items-center">
+                <i className="bi bi-table text-purple-600 mr-1"></i>
+                <span className="text-sm">Data</span>
+              </div>
+            </div>
+            
             {selectedCompany.models && selectedCompany.models.length > 0 && (
               <div className="overflow-x-auto mb-8">
                 <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
@@ -510,15 +536,13 @@ const AILandscapeDemo = () => {
                         </td>
                         {selectedCompany.models.map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
-                            {model.specs?.inputFormats ? (
-                              <div className="flex flex-wrap gap-1 justify-center">
-                                {model.specs.inputFormats.map(format => (
-                                  <span key={format} className="bg-gray-100 text-gray-800 text-xs px-2 py-0.5 rounded">
-                                    {format}
-                                  </span>
-                                ))}
-                              </div>
-                            ) : "-"}
+                            <div className="flex gap-3 justify-center">
+                              <i className={`bi bi-file-text-fill text-lg ${model.specs?.inputFormats?.includes("text") ? "text-blue-600" : "text-gray-300"}`} title="Text"></i>
+                              <i className={`bi bi-image-fill text-lg ${model.specs?.inputFormats?.includes("image") ? "text-green-600" : "text-gray-300"}`} title="Image"></i>
+                              <i className={`bi bi-mic-fill text-lg ${model.specs?.inputFormats?.includes("audio") ? "text-yellow-600" : "text-gray-300"}`} title="Audio"></i>
+                              <i className={`bi bi-camera-video-fill text-lg ${model.specs?.inputFormats?.includes("video") ? "text-red-600" : "text-gray-300"}`} title="Video"></i>
+                              <i className={`bi bi-table text-lg ${model.specs?.inputFormats?.includes("data") ? "text-purple-600" : "text-gray-300"}`} title="Data"></i>
+                            </div>
                           </td>
                         ))}
                       </tr>
@@ -534,15 +558,13 @@ const AILandscapeDemo = () => {
                         </td>
                         {selectedCompany.models.map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
-                            {model.specs?.outputFormats ? (
-                              <div className="flex flex-wrap gap-1 justify-center">
-                                {model.specs.outputFormats.map(format => (
-                                  <span key={format} className="bg-gray-100 text-gray-800 text-xs px-2 py-0.5 rounded">
-                                    {format}
-                                  </span>
-                                ))}
-                              </div>
-                            ) : "-"}
+                            <div className="flex gap-3 justify-center">
+                              <i className={`bi bi-file-text-fill text-lg ${model.specs?.outputFormats?.includes("text") ? "text-blue-600" : "text-gray-300"}`} title="Text"></i>
+                              <i className={`bi bi-image-fill text-lg ${model.specs?.outputFormats?.includes("image") ? "text-green-600" : "text-gray-300"}`} title="Image"></i>
+                              <i className={`bi bi-mic-fill text-lg ${model.specs?.outputFormats?.includes("audio") ? "text-yellow-600" : "text-gray-300"}`} title="Audio"></i>
+                              <i className={`bi bi-camera-video-fill text-lg ${model.specs?.outputFormats?.includes("video") ? "text-red-600" : "text-gray-300"}`} title="Video"></i>
+                              <i className={`bi bi-table text-lg ${model.specs?.outputFormats?.includes("data") ? "text-purple-600" : "text-gray-300"}`} title="Data"></i>
+                            </div>
                           </td>
                         ))}
                       </tr>
