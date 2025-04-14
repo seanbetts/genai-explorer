@@ -319,7 +319,7 @@ export const containerStyles = {
   
   // Category section with refined styling and minimal shadows
   categorySection: 'bg-white rounded-lg shadow-sm p-5 border border-gray-200 transition-all duration-200',
-  categoryTitle: 'text-lg font-semibold mb-5 text-gray-800 flex items-center',
+  categoryTitle: 'text-lg font-semibold text-gray-800 flex items-center',
   categoryTitleInline: 'text-lg font-semibold text-gray-800 pr-4 flex items-center',
   categorySectionHover: 'hover:border-gray-300',
   categoryIcon: 'mr-2 text-gray-600 text-lg',

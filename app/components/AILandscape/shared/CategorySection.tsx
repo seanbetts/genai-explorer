@@ -51,12 +51,17 @@ const CategorySection: React.FC<CategorySectionProps> = ({
     
     return (
       <>
-        <div className={`${containerStyles.categoryTitle}`}>
-          {icon && (
-            <i className={`bi ${icon} ${iconColorClass} mr-2 text-lg`}></i>
-          )}
-          <span className="text-gray-800 font-semibold">{title}</span>
+        <div className="mb-4">
+          <div className={`${containerStyles.categoryTitle} mb-2`}>
+            {icon && (
+              <i className={`bi ${icon} ${iconColorClass} mr-2 text-lg`}></i>
+            )}
+            <span className="text-gray-800 font-semibold">{title}</span>
+          </div>
+          {/* Light divider line below the title */}
+          <div className="border-b border-gray-100 w-full"></div>
         </div>
+        
         <div className={getGridClass()}>
           {companies.map(company => (
             <CompanyCard 
