@@ -18,10 +18,31 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
   showModelCount,
   imageSize = { width: 100, height: 40 }
 }) => {
-  const featuredModels = company.models.filter(model => model.featured);
+  // Filter featured models and sort by release date (newest first)
+  const featuredModels = company.models
+    .filter(model => model.featured)
+    .sort((a, b) => {
+      // If release dates exist, sort by them (newest first)
+      if (a.releaseDate && b.releaseDate) {
+        return new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime();
+      }
+      // If only one has a release date, prioritize the one with date
+      if (a.releaseDate) return -1;
+      if (b.releaseDate) return 1;
+      // Default to keeping original order
+      return 0;
+    });
   
   // Models to display - if showModelCount is provided, limit to that number, otherwise show all
   const modelsToDisplay = showModelCount ? featuredModels.slice(0, showModelCount) : featuredModels;
+  
+  // Standardize logo dimensions for more consistency
+  const standardizedLogoStyle = {
+    objectFit: "contain" as "contain",
+    maxWidth: "90%",
+    height: "auto",
+    maxHeight: "100%"
+  };
   
   return (
     <div 
@@ -38,7 +59,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
           className={`${containerStyles.companyLogoImage} transition-all duration-300`}
           width={imageSize.width}
           height={imageSize.height}
-          style={{ objectFit: "contain" }}
+          style={standardizedLogoStyle}
         />
       </div>
       <div className="text-center w-full">

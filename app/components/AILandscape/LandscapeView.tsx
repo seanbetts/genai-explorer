@@ -43,7 +43,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
   // Category labels with improved naming
   const categoryLabels = {
     frontier: 'Frontier Models',
-    open: 'Open Source Models',
+    open: 'Open Models',
     enterprise: 'Enterprise AI Platforms',
     image: 'Image Generation',
     video: 'Video Generation',

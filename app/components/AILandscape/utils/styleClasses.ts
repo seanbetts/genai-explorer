@@ -27,7 +27,7 @@ export const styles = {
   companyCard: containerStyles.companyCardContainer,
   companyLogo: containerStyles.companyLogo,
   companyLogoImage: containerStyles.companyLogoImage,
-  companyModel: containerStyles.companyModel,
+  companyModel: containerStyles.companyModel, // Larger, bolder model names
   
   // Detail View
   detailCard: containerStyles.cardHover,

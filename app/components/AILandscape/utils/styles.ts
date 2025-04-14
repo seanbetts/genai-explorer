@@ -326,9 +326,9 @@ export const containerStyles = {
   
   // Company card with elegant hover state and top-aligned model names
   companyCardContainer: 'flex flex-col items-center h-full cursor-pointer p-4 rounded-lg border border-transparent hover:border-gray-200 hover:bg-gray-50/50 transition-all duration-200',
-  companyLogo: 'relative h-14 w-full flex items-center justify-center mb-2',
+  companyLogo: 'relative h-14 w-full flex items-center justify-center mb-3',
   companyLogoImage: 'mx-auto object-contain max-h-12',
-  companyModel: 'text-center text-xs text-gray-600 line-clamp-1 mb-1',
+  companyModel: 'text-center text-sm font-medium text-gray-700 line-clamp-1 mb-1',
   
   // Company grid layouts with improved spacing and specified column counts
   companyGridFull: 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5',
