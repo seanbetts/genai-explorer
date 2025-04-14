@@ -3,7 +3,7 @@
 import React from 'react';
 import { CategorizedCompanies, LandscapeData, Company, CategoryMap, CompanyCategory } from './types';
 import CategorySection from './shared/CategorySection';
-import { categoryStyles } from './utils/styles';
+import { categoryStyles, containerStyles } from './utils/styles';
 
 interface LandscapeViewProps {
   data: LandscapeData;
@@ -46,7 +46,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
   };
 
   return (
-    <div className="space-y-6">
+    <div className={containerStyles.landscapeContainer}>
       {/* Frontier Models Section */}
       <CategorySection
         title={categoryLabels.frontier}
@@ -59,7 +59,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
       />
       
       {/* Two-column layout for Open Models and Enterprise Platforms */}
-      <div className="grid grid-cols-2 gap-6">
+      <div className={containerStyles.landscapeRowTwo}>
         {/* Open Models */}
         <CategorySection
           title={categoryLabels.open}
@@ -84,7 +84,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
       </div>
       
       {/* Four-column layout for specialized categories */}
-      <div className="grid grid-cols-4 gap-6">
+      <div className={containerStyles.landscapeRowFour}>
         {/* Image */}
         <CategorySection
           title={categoryLabels.image}

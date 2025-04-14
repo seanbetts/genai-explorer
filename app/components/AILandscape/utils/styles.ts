@@ -61,6 +61,26 @@ export const containerStyles = {
   featureGrid: 'flex flex-wrap justify-center gap-6', 
   subscriptionGrid: 'flex flex-wrap justify-center gap-4',
   
+  // Landscape view layouts
+  landscapeContainer: 'space-y-6',
+  landscapeRowTwo: 'grid grid-cols-1 md:grid-cols-2 gap-6',
+  landscapeRowFour: 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6',
+  
+  // Category section layouts
+  categorySection: 'rounded-lg border-2 p-4',
+  categoryTitle: 'text-xl font-bold mb-4',
+  categoryTitleInline: 'text-xl font-bold w-1/6',
+  
+  // Company card layouts
+  companyCardContainer: 'flex flex-col items-center cursor-pointer hover:opacity-80',
+  companyLogo: 'relative h-10 w-full mb-2',
+  companyLogoImage: 'mx-auto object-contain',
+  
+  // Company grid layouts
+  companyGridFull: 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4',
+  companyGridHalf: 'grid grid-cols-2 sm:grid-cols-3 gap-4',
+  companyGridQuarter: 'space-y-3',
+  
   // Layout helpers
   flexCol: 'flex flex-col',
   flexRow: 'flex flex-row',

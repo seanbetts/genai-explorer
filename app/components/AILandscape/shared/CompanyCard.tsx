@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Company, Model } from '../types';
-import { textStyles } from '../utils/styles';
+import { textStyles, containerStyles } from '../utils/styles';
 
 interface CompanyCardProps {
   company: Company;
@@ -23,14 +23,14 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
   return (
     <div 
       key={company.id} 
-      className="flex flex-col items-center cursor-pointer hover:opacity-80"
+      className={containerStyles.companyCardContainer}
       onClick={() => onClick(company.id)}
     >
-      <div className="relative h-10 w-full mb-2">
+      <div className={containerStyles.companyLogo}>
         <Image 
           src={company.logo && company.logo.startsWith("/") ? company.logo : "/images/companies/placeholder.png"} 
           alt={`${company.name} logo`}
-          className="mx-auto"
+          className={containerStyles.companyLogoImage}
           width={imageSize.width}
           height={imageSize.height}
           style={{ objectFit: "contain" }}
