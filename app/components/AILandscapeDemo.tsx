@@ -47,8 +47,6 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-4xl font-bold text-center mb-8">THE CURRENT GENERATIVE AI LANDSCAPE</h1>
-      
       {/* Frontier Models Section */}
       <div className={`rounded-lg border-2 ${categoryStyles.frontier} p-4`}>
         <div className="flex items-center mb-4">
