@@ -24,13 +24,37 @@
         {
           "name": "Web Browsing",
           "description": "Enables ChatGPT to search and browse the internet",
-          "image": "/images/companies/openai/features/browsing.png",
+          "image": "/images/companies/openai/features/web-browsing.png",
           "url": "https://openai.com/chatgpt/web-browsing"
         },
         {
           "name": "GPTs",
           "description": "Custom versions of ChatGPT for specific use cases",
           "image": "/images/companies/openai/features/gpts.png",
+          "url": "https://openai.com/gpts"
+        },
+        {
+          "name": "Projects",
+          "description": "xxx",
+          "image": "/images/companies/openai/features/projects.png",
+          "url": "https://openai.com/gpts"
+        },
+        {
+          "name": "Tasks",
+          "description": "xxx",
+          "image": "/images/companies/openai/features/tasks.png",
+          "url": "https://openai.com/gpts"
+        },
+        {
+          "name": "Advanced Voice",
+          "description": "xxx",
+          "image": "/images/companies/openai/features/advanced-voice.png",
+          "url": "https://openai.com/gpts"
+        },
+        {
+          "name": "Connected Apps",
+          "description": "xxx",
+          "image": "/images/companies/openai/features/connected-apps.png",
           "url": "https://openai.com/gpts"
         }
       ],
