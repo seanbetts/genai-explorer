@@ -46,9 +46,20 @@ export const tableStyles = {
 export const containerStyles = {
   card: 'bg-white p-6 rounded-lg shadow-md',
   section: 'mb-8',
+  
+  // Regular grid layouts
   grid2col: 'grid grid-cols-1 md:grid-cols-2 gap-6',
   grid3col: 'grid grid-cols-1 md:grid-cols-3 gap-6',
   grid4col: 'grid grid-cols-1 md:grid-cols-4 gap-4',
+  
+  // Centered grid layouts (items will be centered in the row)
+  grid2colCentered: 'grid grid-cols-1 md:grid-cols-2 gap-6 md:place-content-center',
+  grid3colCentered: 'grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto md:place-content-center',
+  grid4colCentered: 'grid grid-cols-1 md:grid-cols-4 gap-4 mx-auto md:place-content-center',
+  
+  // Feature/card grids with auto-fit for better centering with fewer items
+  featureGrid: 'flex flex-wrap justify-center gap-6', 
+  subscriptionGrid: 'flex flex-wrap justify-center gap-4',
   
   // Layout helpers
   flexCol: 'flex flex-col',

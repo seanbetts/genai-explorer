@@ -10,10 +10,14 @@ interface FeatureGridProps {
 }
 
 const FeatureGrid: React.FC<FeatureGridProps> = ({ features }) => {
+  // Use a grid layout that adjusts items to be centered when fewer than full row
   return (
-    <div className={containerStyles.grid3col}>
+    <div className={containerStyles.featureGrid}>
       {features.map(feature => (
-        <div key={feature.name} className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
+        <div 
+          key={feature.name} 
+          className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow h-full flex flex-col w-full sm:w-[calc(50%-12px)] md:w-[calc(33.33%-16px)] max-w-md"
+        >
           <div className="relative h-36 bg-gray-200">
             <Image 
               src={feature.image && feature.image.startsWith("/") ? feature.image : "/images/companies/placeholder.png"} 
