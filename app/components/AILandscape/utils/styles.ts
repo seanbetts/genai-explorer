@@ -66,8 +66,8 @@ export const containerStyles = {
   landscapeRowTwo: 'grid grid-cols-1 md:grid-cols-2 gap-6',
   landscapeRowFour: 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6',
   
-  // Category section layouts
-  categorySection: 'rounded-lg border-2 p-4',
+  // Category section layouts - more consistent with card styling
+  categorySection: 'bg-white rounded-lg shadow-sm p-4',
   categoryTitle: 'text-xl font-bold mb-4',
   categoryTitleInline: 'text-xl font-bold w-1/6',
   
@@ -80,6 +80,20 @@ export const containerStyles = {
   companyGridFull: 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4',
   companyGridHalf: 'grid grid-cols-2 sm:grid-cols-3 gap-4',
   companyGridQuarter: 'space-y-3',
+  
+  // Company detail
+  companyDetailHeader: 'flex justify-between mb-8',
+  companyLogoContainer: 'relative block h-20 w-40 hover:opacity-80 transition-opacity mr-6 flex-shrink-0',
+  companyDescriptionContainer: 'flex-1',
+  
+  // App layout
+  appContainer: 'min-h-screen bg-gray-50',
+  header: 'bg-white shadow-md',
+  headerContent: 'container mx-auto px-4 py-4 flex items-center justify-between',
+  appTitle: 'text-2xl font-bold cursor-pointer',
+  mainContent: 'container mx-auto p-4',
+  footer: 'bg-gray-800 text-white mt-12 py-6',
+  footerContent: 'container mx-auto px-4',
   
   // Layout helpers
   flexCol: 'flex flex-col',
@@ -123,37 +137,37 @@ export const buttonStyles = {
   link: `${textStyles.highlight} hover:text-blue-800 transition-colors cursor-pointer`,
 };
 
-// Category styles
+// Category styles - simplified to use consistent gray tones like the company page
 export const categoryStyles = {
   frontier: {
-    bg: 'bg-blue-50',
-    border: 'border-blue-200',
-    full: 'bg-blue-50 border-blue-200'
+    bg: 'bg-gray-50',
+    border: 'border-gray-200',
+    full: 'bg-gray-50 border-gray-200'
   },
   open: { 
-    bg: 'bg-green-50',
-    border: 'border-green-200',
-    full: 'bg-green-50 border-green-200'
+    bg: 'bg-gray-50',
+    border: 'border-gray-200',
+    full: 'bg-gray-50 border-gray-200'
   },
   enterprise: { 
-    bg: 'bg-purple-50',
-    border: 'border-purple-200',
-    full: 'bg-purple-50 border-purple-200'
+    bg: 'bg-gray-50',
+    border: 'border-gray-200',
+    full: 'bg-gray-50 border-gray-200'
   },
   image: { 
-    bg: 'bg-yellow-50',
-    border: 'border-yellow-200',
-    full: 'bg-yellow-50 border-yellow-200'
+    bg: 'bg-gray-50',
+    border: 'border-gray-200',
+    full: 'bg-gray-50 border-gray-200'
   },
   video: { 
-    bg: 'bg-red-50',
-    border: 'border-red-200',
-    full: 'bg-red-50 border-red-200'
+    bg: 'bg-gray-50',
+    border: 'border-gray-200',
+    full: 'bg-gray-50 border-gray-200'
   },
   music: { 
-    bg: 'bg-pink-50',
-    border: 'border-pink-200',
-    full: 'bg-pink-50 border-pink-200'
+    bg: 'bg-gray-50',
+    border: 'border-gray-200',
+    full: 'bg-gray-50 border-gray-200'
   },
   other: { 
     bg: 'bg-gray-50',

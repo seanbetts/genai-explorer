@@ -74,7 +74,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({
   };
 
   return (
-    <div className={`${containerStyles.categorySection} ${styleName}`}>
+    <div className={containerStyles.categorySection}>
       {renderContent()}
     </div>
   );
