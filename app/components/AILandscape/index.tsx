@@ -59,8 +59,8 @@ const AILandscape: React.FC = () => {
           
           <div>
             {currentView === 'home' && (
-              <div className={`${textStyles.muted} text-sm`}>
-                Last updated: {new Date().toLocaleDateString('en-GB', { 
+              <div className={`${textStyles.secondary} text-xs pr-1`}>
+                Data last updated: {new Date().toLocaleDateString('en-GB', { 
                   day: 'numeric', 
                   month: 'long', 
                   year: 'numeric' 
@@ -81,7 +81,8 @@ const AILandscape: React.FC = () => {
             company={selectedCompany} 
             expandedSections={expandedSections} 
             onBack={handleBack}
-            onToggleSection={toggleSection}
+            // onToggleSection no longer needed
+            // onToggleSection={toggleSection}
           />
         )}
       </main>

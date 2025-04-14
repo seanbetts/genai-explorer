@@ -101,14 +101,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
   const renderTableRows = () => (
     <>
       {/* Release Date Row */}
-      <tr className={tableStyles.rowHover}>
-        <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
+      <tr className="cursor-pointer">
+        <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
           <div className={containerStyles.flexCenter}>
             <i className={`bi bi-calendar-date ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Date</span>
           </div>
         </td>
         {displayModels.map(model => (
-          <td key={model.id} className={tableStyles.cellCenter}>
+          <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
             {model.releaseDate ? (
               new Date(model.releaseDate).toLocaleDateString('en-GB', {
                 day: 'numeric',
@@ -121,14 +121,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       </tr>
 
       {/* Type Row */}
-      <tr className={tableStyles.rowHover}>
-        <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
+      <tr className="cursor-pointer">
+        <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
           <div className={containerStyles.flexCenter}>
             <i className={`bi bi-box ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Type</span>
           </div>
         </td>
         {displayModels.map(model => (
-          <td key={model.id} className={tableStyles.cellCenter}>
+          <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
             <span className={`capitalize ${textStyles.primary}`}>{model.type || "-"}</span>
           </td>
         ))}
@@ -136,14 +136,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       
       {/* Intelligence Row */}
       {hasAnyModelCapability("intelligence") && (
-        <tr className={tableStyles.rowHover}>
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-circle-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Intelligence</span>
             </div>
           </td>
           {displayModels.map(model => (
-            <td key={model.id} className={tableStyles.cellCenter}>
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {renderRating(model, "intelligence")}
             </td>
           ))}
@@ -152,14 +152,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       
       {/* Speed Row */}
       {hasAnyModelCapability("speed") && (
-        <tr className={tableStyles.rowHover}>
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-lightning-charge-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Speed</span>
             </div>
           </td>
           {displayModels.map(model => (
-            <td key={model.id} className={tableStyles.cellCenter}>
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {renderRating(model, "speed")}
             </td>
           ))}
@@ -168,14 +168,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       
       {/* Reasoning Row */}
       {hasAnyModelCapability("reasoning") && (
-        <tr className={tableStyles.rowHover}>
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-lightbulb-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Reasoning</span>
             </div>
           </td>
           {displayModels.map(model => (
-            <td key={model.id} className={tableStyles.cellCenter}>
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {renderRating(model, "reasoning")}
             </td>
           ))}
@@ -184,14 +184,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       
       {/* Reasoning Tokens Row */}
       {hasAnyModelSpec("reasoningTokens") && (
-        <tr className={tableStyles.rowHover}>
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-lightbulb ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Reasoning Tokens</span>
             </div>
           </td>
           {displayModels.map(model => (
-            <td key={model.id} className={tableStyles.cellCenter}>
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               <span className={textStyles.primary}>
                 {model.specs?.reasoningTokens !== undefined ? (
                   model.specs.reasoningTokens ? "Yes" : "No"
@@ -204,14 +204,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       
       {/* Creativity Row */}
       {hasAnyModelCapability("creativity") && (
-        <tr className={tableStyles.rowHover}>
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-stars ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Creativity</span>
             </div>
           </td>
           {displayModels.map(model => (
-            <td key={model.id} className={tableStyles.cellCenter}>
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {renderRating(model, "creativity")}
             </td>
           ))}
@@ -220,14 +220,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       
       {/* Input Formats Row */}
       {hasAnyModelSpec("inputFormats") && (
-        <tr className={tableStyles.rowHover}>
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-arrow-down-right-square-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Input Formats</span>
             </div>
           </td>
           {displayModels.map(model => (
-            <td key={model.id} className={tableStyles.cellCenter}>
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               <div className={iconStyles.formatContainer}>
                 <i className={`bi bi-file-text-fill ${iconStyles.textLg} ${model.specs?.inputFormats?.includes("text") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Text"></i>
                 <i className={`bi bi-mic-fill ${iconStyles.textLg} ${model.specs?.inputFormats?.includes("audio") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Audio"></i>
@@ -242,14 +242,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       
       {/* Output Formats Row */}
       {hasAnyModelSpec("outputFormats") && (
-        <tr className={tableStyles.rowHover}>
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-arrow-up-right-square-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Output Formats</span>
             </div>
           </td>
           {displayModels.map(model => (
-            <td key={model.id} className={tableStyles.cellCenter}>
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               <div className={iconStyles.formatContainer}>
                 <i className={`bi bi-file-text-fill ${iconStyles.textLg} ${model.specs?.outputFormats?.includes("text") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Text"></i>
                 <i className={`bi bi-mic-fill ${iconStyles.textLg} ${model.specs?.outputFormats?.includes("audio") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Audio"></i>
@@ -264,14 +264,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       
       {/* Max Input Tokens Row */}
       {hasAnyModelSpec("maxInputTokens") && (
-        <tr className={tableStyles.rowHover}>
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-sign-turn-right-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Max Input</span>
             </div>
           </td>
           {displayModels.map(model => (
-            <td key={model.id} className={tableStyles.cellCenter}>
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.maxInputTokens ? (
                 <span className={textStyles.primary}>{model.specs.maxInputTokens.toLocaleString()} tokens</span>
               ) : <span className={textStyles.primary}>-</span>}
@@ -282,14 +282,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
 
       {/* Max Output Tokens Row */}
       {hasAnyModelSpec("maxOutputTokens") && (
-        <tr className={tableStyles.rowHover}>
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-sign-turn-left-fill ${iconStyles.tableRowIcon} transform rotate-180`}></i> <span className={textStyles.primary}>Max Output</span>
             </div>
           </td>
           {displayModels.map(model => (
-            <td key={model.id} className={tableStyles.cellCenter}>
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.maxOutputTokens ? (
                 <span className={textStyles.primary}>{model.specs.maxOutputTokens.toLocaleString()} tokens</span>
               ) : <span className={textStyles.primary}>-</span>}
@@ -300,14 +300,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
 
       {/* Knowledge Cutoff Row */}
       {hasAnyModelSpec("knowledgeCutoff") && (
-        <tr className={tableStyles.rowHover}>
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-calendar-check-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Knowledge Cutoff</span>
             </div>
           </td>
           {displayModels.map(model => (
-            <td key={model.id} className={tableStyles.cellCenter}>
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               <span className={textStyles.primary}>{model.specs?.knowledgeCutoff || "-"}</span>
             </td>
           ))}
@@ -316,11 +316,22 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     </>
   );
 
+  // Add custom CSS for table hover behavior
+  const tableHoverStyles = `
+    .hover-highlight tr:hover td {
+      background-color: #f9fafb; /* gray-50 */
+    }
+    .hover-highlight tr:hover td.sticky-label {
+      background-color: #f9fafb; /* gray-50 */
+    }
+  `;
+  
   return (
     <div className={`${containerStyles.flexCol} transform transition-all duration-300`}>
+      <style>{tableHoverStyles}</style>
       <div style={tableContainerStyle}>
         <div className={needsScrolling ? "overflow-x-auto" : ""}>
-          <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300`}>
+          <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight`}>
             <thead>
               <tr className={tableStyles.header}>
                 <th className={`${tableStyles.headerCell} ${tableStyles.headerFixed}`} 

@@ -247,19 +247,19 @@ export const tableStyles = {
   // Base table styles - lighter shadow, more elegant borders
   table: 'w-full bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden',
   
-  // Header styles with subtle background and improved typography
-  header: 'bg-gray-50 border-b border-gray-200',
-  headerCell: 'py-3.5 px-4 text-left font-medium text-gray-700 tracking-wide text-sm',
-  headerCellCenter: 'py-3.5 px-4 text-center font-medium text-gray-700 tracking-wide text-sm',
-  headerFixed: 'sticky left-0 bg-gray-50 z-10',
+  // Header styles with improved contrast and typography
+  header: 'bg-white border-b border-gray-200',
+  headerCell: 'py-3.5 px-4 text-left font-semibold text-gray-800 tracking-wide text-sm',
+  headerCellCenter: 'py-3.5 px-4 text-center font-semibold text-gray-800 tracking-wide text-sm',
+  headerFixed: 'sticky left-0 bg-white z-10',
   
   // Cell styles with better typography and subtle borders
-  cell: 'py-3.5 px-4 border-b border-gray-100 text-gray-700',
-  cellCenter: 'py-3.5 px-4 border-b border-gray-100 text-center text-gray-700',
+  cell: 'py-3.5 px-4 border-b border-gray-100 text-gray-700 transition-colors duration-150',
+  cellCenter: 'py-3.5 px-4 border-b border-gray-100 text-center text-gray-700 transition-colors duration-150',
   cellHighlight: 'bg-blue-50',
   
-  // Row interactions
-  rowHover: 'hover:bg-gray-50 transition-colors duration-150',
+  // Row interactions with synchronized highlighting
+  rowHover: 'hover:bg-gray-50 hover:cursor-pointer transition-all duration-150',
   rowSelected: 'bg-blue-50',
   rowEven: 'bg-gray-50/40', // Subtle striping
   rowOdd: 'bg-white',
@@ -295,7 +295,7 @@ export const containerStyles = {
   cardFlat: 'bg-white p-5 rounded-lg border border-gray-100',
   
   // Section containers with prominent styling
-  section: 'mb-12 bg-gray-50/70 rounded-lg p-6 border border-gray-200',
+  section: 'bg-gray-50/70 rounded-lg p-6 border border-gray-200',
   sectionDivider: 'border-t border-gray-200 my-10',
   
   // Modern grid layouts with improved spacing
@@ -335,10 +335,10 @@ export const containerStyles = {
   companyGridHalf: 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5', // Now 4 columns for Open Source Models
   companyGridQuarter: 'grid grid-cols-1 sm:grid-cols-2 gap-4', // 2 columns for Enterprise and specialty categories
   
-  // Company detail with refined styling
-  companyDetailHeader: 'flex justify-between mb-6 p-5 bg-gray-50 rounded-lg border border-gray-200',
-  companyLogoContainer: 'relative block h-24 w-48 hover:opacity-90 transition-opacity mr-6 flex-shrink-0 flex items-center justify-center',
-  companyDescriptionContainer: 'flex-1',
+  // Company detail with refined styling and vertical alignment
+  companyDetailHeader: 'flex items-center mb-6 p-5 bg-gray-50 rounded-lg border border-gray-200',
+  companyLogoContainer: 'relative block h-24 w-48 hover:opacity-90 transition-opacity mr-8 flex-shrink-0',
+  companyDescriptionContainer: 'flex-1 flex items-center',
   companyDetailSection: 'mb-8',
   
   // App layout with subtle shadows and improved spacing
