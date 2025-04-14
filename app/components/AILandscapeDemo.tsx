@@ -357,10 +357,10 @@ const AILandscapeDemo = () => {
                     <tr className="bg-gray-50">
                       <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Feature</th>
                       {selectedCompany.models.map(model => (
-                        <th key={model.id} className="py-3 px-4 text-left font-semibold text-gray-700 border-b">
+                        <th key={model.id} className="py-3 px-4 text-center font-semibold text-gray-700 border-b">
                           <div className="font-semibold text-gray-900">{model.name}</div>
                           {model.featured && (
-                            <span className="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded">
+                            <span className="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded inline-block mt-1">
                               Featured
                             </span>
                           )}
@@ -379,9 +379,9 @@ const AILandscapeDemo = () => {
                           </div>
                         </td>
                         {selectedCompany.models.map(model => (
-                          <td key={model.id} className="py-3 px-4 border-b">
+                          <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.capabilities?.intelligence ? (
-                              <div className="flex items-center text-blue-600">
+                              <div className="flex items-center justify-center text-blue-600">
                                 {[...Array(5)].map((_, i) => (
                                   <i 
                                     key={i} 
@@ -407,9 +407,9 @@ const AILandscapeDemo = () => {
                           </div>
                         </td>
                         {selectedCompany.models.map(model => (
-                          <td key={model.id} className="py-3 px-4 border-b">
+                          <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.capabilities?.speed ? (
-                              <div className="flex items-center text-yellow-600">
+                              <div className="flex items-center justify-center text-yellow-600">
                                 {[...Array(5)].map((_, i) => (
                                   <i 
                                     key={i} 
@@ -435,9 +435,9 @@ const AILandscapeDemo = () => {
                           </div>
                         </td>
                         {selectedCompany.models.map(model => (
-                          <td key={model.id} className="py-3 px-4 border-b">
+                          <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.capabilities?.reasoning ? (
-                              <div className="flex items-center text-purple-600">
+                              <div className="flex items-center justify-center text-purple-600">
                                 {[...Array(5)].map((_, i) => (
                                   <i 
                                     key={i} 
@@ -459,7 +459,7 @@ const AILandscapeDemo = () => {
                       <tr className="hover:bg-gray-50">
                         <td className="py-3 px-4 border-b pl-8">Reasoning Tokens</td>
                         {selectedCompany.models.map(model => (
-                          <td key={model.id} className="py-3 px-4 border-b">
+                          <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.specs?.reasoningTokens !== undefined ? (
                               model.specs.reasoningTokens ? "Yes" : "No"
                             ) : "-"}
@@ -477,9 +477,9 @@ const AILandscapeDemo = () => {
                           </div>
                         </td>
                         {selectedCompany.models.map(model => (
-                          <td key={model.id} className="py-3 px-4 border-b">
+                          <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.capabilities?.creativity ? (
-                              <div className="flex items-center text-pink-600">
+                              <div className="flex items-center justify-center text-pink-600">
                                 {[...Array(5)].map((_, i) => (
                                   <i 
                                     key={i} 
@@ -501,9 +501,9 @@ const AILandscapeDemo = () => {
                       <tr className="hover:bg-gray-50">
                         <td className="py-3 px-4 border-b">Input Formats</td>
                         {selectedCompany.models.map(model => (
-                          <td key={model.id} className="py-3 px-4 border-b">
+                          <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.specs?.inputFormats ? (
-                              <div className="flex flex-wrap gap-1">
+                              <div className="flex flex-wrap gap-1 justify-center">
                                 {model.specs.inputFormats.map(format => (
                                   <span key={format} className="bg-gray-100 text-gray-800 text-xs px-2 py-0.5 rounded">
                                     {format}
@@ -521,9 +521,9 @@ const AILandscapeDemo = () => {
                       <tr className="hover:bg-gray-50">
                         <td className="py-3 px-4 border-b">Output Formats</td>
                         {selectedCompany.models.map(model => (
-                          <td key={model.id} className="py-3 px-4 border-b">
+                          <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.specs?.outputFormats ? (
-                              <div className="flex flex-wrap gap-1">
+                              <div className="flex flex-wrap gap-1 justify-center">
                                 {model.specs.outputFormats.map(format => (
                                   <span key={format} className="bg-gray-100 text-gray-800 text-xs px-2 py-0.5 rounded">
                                     {format}
@@ -541,7 +541,7 @@ const AILandscapeDemo = () => {
                       <tr className="hover:bg-gray-50">
                         <td className="py-3 px-4 border-b">Max Input</td>
                         {selectedCompany.models.map(model => (
-                          <td key={model.id} className="py-3 px-4 border-b">
+                          <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.specs?.maxInputTokens ? (
                               <span>{model.specs.maxInputTokens.toLocaleString()} tokens</span>
                             ) : "-"}
@@ -555,7 +555,7 @@ const AILandscapeDemo = () => {
                       <tr className="hover:bg-gray-50">
                         <td className="py-3 px-4 border-b">Max Output</td>
                         {selectedCompany.models.map(model => (
-                          <td key={model.id} className="py-3 px-4 border-b">
+                          <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.specs?.maxOutputTokens ? (
                               <span>{model.specs.maxOutputTokens.toLocaleString()} tokens</span>
                             ) : "-"}
@@ -569,7 +569,7 @@ const AILandscapeDemo = () => {
                       <tr className="hover:bg-gray-50">
                         <td className="py-3 px-4 border-b">Knowledge Cutoff</td>
                         {selectedCompany.models.map(model => (
-                          <td key={model.id} className="py-3 px-4 border-b">
+                          <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.specs?.knowledgeCutoff || "-"}
                           </td>
                         ))}
