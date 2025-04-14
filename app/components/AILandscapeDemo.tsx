@@ -5,15 +5,20 @@ import Image from 'next/image';
 import landscapeData from '@/data/landscape.json';
 
 const LandscapeVisualization = ({ data, onCompanySelect }) => {
-  // Group companies by category
+  // Helper to filter companies with at least one featured model
+  const hasFeaturedModel = (company) => {
+    return company.models && company.models.some(model => model.featured);
+  };
+
+  // Group companies by category (only include those with featured models)
   const categorizedCompanies = {
-    frontier: data.companies.filter(company => company.category === 'frontier'),
-    open: data.companies.filter(company => company.category === 'open'),
-    enterprise: data.companies.filter(company => company.category === 'enterprise'),
-    image: data.companies.filter(company => company.category === 'image'),
-    video: data.companies.filter(company => company.category === 'video'),
-    music: data.companies.filter(company => company.category === 'music'),
-    other: data.companies.filter(company => company.category === 'other')
+    frontier: data.companies.filter(company => company.category === 'frontier' && hasFeaturedModel(company)),
+    open: data.companies.filter(company => company.category === 'open' && hasFeaturedModel(company)),
+    enterprise: data.companies.filter(company => company.category === 'enterprise' && hasFeaturedModel(company)),
+    image: data.companies.filter(company => company.category === 'image' && hasFeaturedModel(company)),
+    video: data.companies.filter(company => company.category === 'video' && hasFeaturedModel(company)),
+    music: data.companies.filter(company => company.category === 'music' && hasFeaturedModel(company)),
+    other: data.companies.filter(company => company.category === 'other' && hasFeaturedModel(company))
   };
 
   // Category styling
