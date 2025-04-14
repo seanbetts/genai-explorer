@@ -1,0 +1,369 @@
+{
+  "companies": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "logo": "/images/companies/openai.png",
+      "website": "https://openai.com",
+      "category": "frontier",
+      "description": "Leading AI research lab focused on developing general-purpose AI systems",
+      "lastUpdated": "2025-04-14",
+      "models": [
+        {
+          "id": "gpt-4-5",
+          "name": "GPT-4.5",
+          "featured": true,
+          "type": "text",
+          "capabilities": {
+            "intelligence": 4,
+            "speed": 5,
+            "reasoning": 3
+          }
+        },
+        {
+          "id": "gpt-4o",
+          "name": "GPT-4o",
+          "featured": true,
+          "type": "multimodal",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 5,
+            "reasoning": 2
+          }
+        },
+        {
+          "id": "o1",
+          "name": "o1",
+          "featured": true,
+          "type": "text",
+          "capabilities": {
+            "intelligence": 4,
+            "speed": 4,
+            "reasoning": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "logo": "/images/companies/anthropic.png",
+      "website": "https://anthropic.com",
+      "category": "frontier",
+      "description": "AI safety company developing reliable, interpretable AI systems",
+      "lastUpdated": "2025-04-10",
+      "models": [
+        {
+          "id": "claude-3-7",
+          "name": "Claude 3.7",
+          "featured": true,
+          "type": "text",
+          "capabilities": {
+            "intelligence": 5,
+            "speed": 4,
+            "reasoning": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "google",
+      "name": "Google DeepMind",
+      "logo": "/images/companies/google-deepmind.png",
+      "website": "https://deepmind.google",
+      "category": "frontier",
+      "description": "A leader in AI research and applications",
+      "lastUpdated": "2025-04-12",
+      "models": [
+        {
+          "id": "gemini-2-5",
+          "name": "Gemini 2.5",
+          "featured": true,
+          "type": "multimodal",
+          "capabilities": {
+            "intelligence": 5,
+            "speed": 4,
+            "reasoning": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "logo": "/images/companies/amazon.png",
+      "website": "https://aws.amazon.com",
+      "category": "frontier",
+      "description": "Cloud and AI solutions provider",
+      "lastUpdated": "2025-04-08",
+      "models": [
+        {
+          "id": "nova-1-0",
+          "name": "Nova 1.0",
+          "featured": true,
+          "type": "text",
+          "capabilities": {
+            "intelligence": 4,
+            "speed": 3,
+            "reasoning": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "meta",
+      "name": "Meta",
+      "logo": "/images/companies/meta.png",
+      "website": "https://meta.com",
+      "category": "open",
+      "description": "Social media company developing open AI models",
+      "lastUpdated": "2025-04-05",
+      "models": [
+        {
+          "id": "llama-3-3",
+          "name": "LLaMA 3.3",
+          "featured": true,
+          "type": "text",
+          "capabilities": {
+            "intelligence": 4,
+            "speed": 4,
+            "reasoning": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral AI",
+      "logo": "/images/companies/mistral.png",
+      "website": "https://mistral.ai",
+      "category": "open",
+      "description": "Open-weight models with strong performance",
+      "lastUpdated": "2025-04-03",
+      "models": [
+        {
+          "id": "mistral",
+          "name": "Mistral",
+          "featured": true,
+          "type": "text"
+        },
+        {
+          "id": "mixtral",
+          "name": "Mixtral",
+          "featured": true,
+          "type": "text"
+        },
+        {
+          "id": "codestral",
+          "name": "Codestral",
+          "featured": true,
+          "type": "code"
+        }
+      ]
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "logo": "/images/companies/microsoft.png",
+      "website": "https://microsoft.com",
+      "category": "enterprise",
+      "description": "Enterprise AI and productivity solutions",
+      "lastUpdated": "2025-03-28",
+      "models": [
+        {
+          "id": "copilot",
+          "name": "Copilot",
+          "featured": true,
+          "type": "productivity"
+        }
+      ]
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere",
+      "logo": "/images/companies/cohere.png",
+      "website": "https://cohere.com",
+      "category": "enterprise",
+      "description": "Enterprise-focused AI solutions",
+      "lastUpdated": "2025-03-25",
+      "models": [
+        {
+          "id": "command",
+          "name": "Command",
+          "featured": true,
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "adobe",
+      "name": "Adobe",
+      "logo": "/images/companies/adobe.png",
+      "website": "https://adobe.com",
+      "category": "image",
+      "description": "Creative tools enhanced with generative AI",
+      "lastUpdated": "2025-03-20",
+      "models": [
+        {
+          "id": "firefly",
+          "name": "Firefly",
+          "featured": true,
+          "type": "image"
+        }
+      ]
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "logo": "/images/companies/midjourney.png",
+      "website": "https://midjourney.com",
+      "category": "image",
+      "description": "Advanced image generation platform",
+      "lastUpdated": "2025-03-15",
+      "models": [
+        {
+          "id": "midjourney-v7",
+          "name": "Midjourney v7",
+          "featured": true,
+          "type": "image"
+        }
+      ]
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "logo": "/images/companies/runway.png",
+      "website": "https://runwayml.com",
+      "category": "video",
+      "description": "AI-powered video editing and generation",
+      "lastUpdated": "2025-03-10",
+      "models": [
+        {
+          "id": "gen-3",
+          "name": "Gen-3",
+          "featured": true,
+          "type": "video"
+        }
+      ]
+    },
+    {
+      "id": "pika",
+      "name": "Pika",
+      "logo": "/images/companies/pika.png",
+      "website": "https://pika.art",
+      "category": "video",
+      "description": "AI video creation platform",
+      "lastUpdated": "2025-03-05",
+      "models": [
+        {
+          "id": "pika-1-0",
+          "name": "Pika 1.0",
+          "featured": true,
+          "type": "video"
+        }
+      ]
+    },
+    {
+      "id": "suno",
+      "name": "Suno",
+      "logo": "/images/companies/suno.png",
+      "website": "https://suno.ai",
+      "category": "music",
+      "description": "AI music generation platform",
+      "lastUpdated": "2025-02-28",
+      "models": [
+        {
+          "id": "suno-v3",
+          "name": "Suno v3",
+          "featured": true,
+          "type": "music"
+        }
+      ]
+    },
+    {
+      "id": "udio",
+      "name": "Udio",
+      "logo": "/images/companies/udio.png",
+      "website": "https://udio.com",
+      "category": "music",
+      "description": "High-quality music generation with AI",
+      "lastUpdated": "2025-02-25",
+      "models": [
+        {
+          "id": "udio-composer",
+          "name": "Udio Composer",
+          "featured": true,
+          "type": "music"
+        }
+      ]
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "logo": "/images/companies/perplexity.png",
+      "website": "https://perplexity.ai",
+      "category": "other",
+      "description": "AI-powered search and knowledge discovery",
+      "lastUpdated": "2025-02-20",
+      "models": [
+        {
+          "id": "perplexity-online",
+          "name": "Perplexity Online",
+          "featured": true,
+          "type": "search"
+        }
+      ]
+    },
+    {
+      "id": "character-ai",
+      "name": "Character.AI",
+      "logo": "/images/companies/character-ai.png",
+      "website": "https://character.ai",
+      "category": "other",
+      "description": "Platform for creating and interacting with AI characters",
+      "lastUpdated": "2025-02-15",
+      "models": [
+        {
+          "id": "character-engine",
+          "name": "Character Engine",
+          "featured": true,
+          "type": "conversation"
+        }
+      ]
+    },
+    {
+      "id": "descript",
+      "name": "Descript",
+      "logo": "/images/companies/descript.png",
+      "website": "https://descript.com",
+      "category": "other",
+      "description": "AI-powered audio and video editing",
+      "lastUpdated": "2025-02-10",
+      "models": [
+        {
+          "id": "overdub",
+          "name": "Overdub",
+          "featured": true,
+          "type": "audio"
+        }
+      ]
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "logo": "/images/companies/github.png",
+      "website": "https://github.com",
+      "category": "other",
+      "description": "Code hosting and collaboration platform with AI assistance",
+      "lastUpdated": "2025-02-05",
+      "models": [
+        {
+          "id": "copilot",
+          "name": "GitHub Copilot",
+          "featured": true,
+          "type": "code"
+        }
+      ]
+    }
+  ]
+}

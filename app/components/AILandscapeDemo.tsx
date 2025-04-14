@@ -1,209 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import landscapeData from '@/data/landscape.json';
 
-// Sample data - in a real app this would come from the API service
-const sampleData = {
-  "companies": [
-    {
-      "id": "openai",
-      "name": "OpenAI",
-      "logo": "/api/placeholder/100/50",
-      "website": "https://openai.com",
-      "category": "frontier",
-      "description": "Leading AI research lab focused on developing general-purpose AI systems",
-      "lastUpdated": "2025-04-14",
-      "models": [
-        {
-          "id": "gpt-4-5",
-          "name": "GPT-4.5",
-          "featured": true,
-          "type": "text",
-          "capabilities": {
-            "intelligence": 4,
-            "speed": 5,
-            "reasoning": 3
-          }
-        },
-        {
-          "id": "gpt-4o",
-          "name": "GPT-4o",
-          "featured": true,
-          "type": "multimodal",
-          "capabilities": {
-            "intelligence": 3,
-            "speed": 5,
-            "reasoning": 2
-          }
-        },
-        {
-          "id": "o1",
-          "name": "o1",
-          "featured": true,
-          "type": "text",
-          "capabilities": {
-            "intelligence": 4,
-            "speed": 4,
-            "reasoning": 4
-          }
-        }
-      ]
-    },
-    {
-      "id": "anthropic",
-      "name": "Anthropic",
-      "logo": "/api/placeholder/100/50",
-      "website": "https://anthropic.com",
-      "category": "frontier",
-      "description": "AI safety company developing reliable, interpretable AI systems",
-      "lastUpdated": "2025-04-10",
-      "models": [
-        {
-          "id": "claude-3-7",
-          "name": "Claude 3.7",
-          "featured": true,
-          "type": "text",
-          "capabilities": {
-            "intelligence": 5,
-            "speed": 4,
-            "reasoning": 5
-          }
-        }
-      ]
-    },
-    {
-      "id": "google",
-      "name": "Google DeepMind",
-      "logo": "/api/placeholder/100/50",
-      "website": "https://deepmind.google",
-      "category": "frontier",
-      "description": "A leader in AI research and applications",
-      "lastUpdated": "2025-04-12",
-      "models": [
-        {
-          "id": "gemini-2-5",
-          "name": "Gemini 2.5",
-          "featured": true,
-          "type": "multimodal",
-          "capabilities": {
-            "intelligence": 5,
-            "speed": 4,
-            "reasoning": 4
-          }
-        }
-      ]
-    },
-    {
-      "id": "amazon",
-      "name": "Amazon",
-      "logo": "/api/placeholder/100/50",
-      "website": "https://aws.amazon.com",
-      "category": "frontier",
-      "description": "Cloud and AI solutions provider",
-      "lastUpdated": "2025-04-08",
-      "models": [
-        {
-          "id": "nova-1-0",
-          "name": "Nova 1.0",
-          "featured": true,
-          "type": "text",
-          "capabilities": {
-            "intelligence": 4,
-            "speed": 3,
-            "reasoning": 4
-          }
-        }
-      ]
-    },
-    {
-      "id": "meta",
-      "name": "Meta",
-      "logo": "/api/placeholder/100/50",
-      "website": "https://meta.com",
-      "category": "open",
-      "description": "Social media company developing open AI models",
-      "lastUpdated": "2025-04-05",
-      "models": [
-        {
-          "id": "llama-3-3",
-          "name": "LLaMA 3.3",
-          "featured": true,
-          "type": "text",
-          "capabilities": {
-            "intelligence": 4,
-            "speed": 4,
-            "reasoning": 3
-          }
-        }
-      ]
-    },
-    {
-      "id": "mistral",
-      "name": "Mistral AI",
-      "logo": "/api/placeholder/100/50",
-      "website": "https://mistral.ai",
-      "category": "open",
-      "description": "Open-weight models with strong performance",
-      "lastUpdated": "2025-04-03",
-      "models": [
-        {
-          "id": "mistral",
-          "name": "Mistral",
-          "featured": true,
-          "type": "text"
-        },
-        {
-          "id": "mixtral",
-          "name": "Mixtral",
-          "featured": true,
-          "type": "text"
-        },
-        {
-          "id": "codestral",
-          "name": "Codestral",
-          "featured": true,
-          "type": "code"
-        }
-      ]
-    },
-    {
-      "id": "microsoft",
-      "name": "Microsoft",
-      "logo": "/api/placeholder/100/50",
-      "website": "https://microsoft.com",
-      "category": "enterprise",
-      "description": "Enterprise AI and productivity solutions",
-      "lastUpdated": "2025-03-28",
-      "models": [
-        {
-          "id": "copilot",
-          "name": "Copilot",
-          "featured": true,
-          "type": "productivity"
-        }
-      ]
-    },
-    {
-      "id": "cohere",
-      "name": "Cohere",
-      "logo": "/api/placeholder/100/50",
-      "website": "https://cohere.com",
-      "category": "enterprise",
-      "description": "Enterprise-focused AI solutions",
-      "lastUpdated": "2025-03-25",
-      "models": [
-        {
-          "id": "command",
-          "name": "Command",
-          "featured": true,
-          "type": "text"
-        }
-      ]
-    }
-  ]
-};
-
-// Landscape Visualization Component
 const LandscapeVisualization = ({ data, onCompanySelect }) => {
   // Group companies by category
   const categorizedCompanies = {
@@ -261,7 +61,16 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
                 onClick={() => handleCompanyClick(company.id)}
               >
                 <div className="w-full text-center">
-                  <img src={company.logo || "/api/placeholder/100/50"} alt={`${company.name} logo`} className="h-10 mx-auto mb-2" />
+                  <div className="relative h-10 w-full mb-2">
+                    <Image 
+                      src={company.logo || "/images/companies/placeholder.png"} 
+                      alt={`${company.name} logo`}
+                      className="mx-auto"
+                      width={100}
+                      height={40}
+                      objectFit="contain"
+                    />
+                  </div>
                   {company.models && company.models.filter(model => model.featured).map((model, idx) => (
                     <div key={model.id} className="text-sm font-medium">
                       {idx === 0 ? model.name : `& ${model.name}`}
@@ -286,7 +95,16 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
                 className="flex flex-col items-center cursor-pointer hover:opacity-80"
                 onClick={() => handleCompanyClick(company.id)}
               >
-                <img src={company.logo || "/api/placeholder/100/50"} alt={`${company.name} logo`} className="h-10 mb-2" />
+                <div className="relative h-10 w-full mb-2">
+                  <Image 
+                    src={company.logo || "/images/companies/placeholder.png"} 
+                    alt={`${company.name} logo`}
+                    className="mx-auto"
+                    width={100}
+                    height={40}
+                    objectFit="contain"
+                  />
+                </div>
                 <div className="text-center">
                   {company.models && company.models.filter(model => model.featured).map(model => (
                     <div key={model.id} className="text-sm font-medium">{model.name}</div>
@@ -307,7 +125,16 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
                 className="flex flex-col items-center cursor-pointer hover:opacity-80"
                 onClick={() => handleCompanyClick(company.id)}
               >
-                <img src={company.logo || "/api/placeholder/100/50"} alt={`${company.name} logo`} className="h-10 mb-2" />
+                <div className="relative h-10 w-full mb-2">
+                  <Image 
+                    src={company.logo || "/images/companies/placeholder.png"} 
+                    alt={`${company.name} logo`}
+                    className="mx-auto"
+                    width={100}
+                    height={40}
+                    objectFit="contain"
+                  />
+                </div>
                 <div className="text-center">
                   {company.models && company.models.filter(model => model.featured).map(model => (
                     <div key={model.id} className="text-sm font-medium">{model.name}</div>
@@ -331,28 +158,21 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
                 className="flex flex-col items-center cursor-pointer hover:opacity-80"
                 onClick={() => handleCompanyClick(company.id)}
               >
-                <img src={company.logo || "/api/placeholder/100/50"} alt={`${company.name} logo`} className="h-8 mb-1" />
+                <div className="relative h-8 w-full mb-1">
+                  <Image 
+                    src={company.logo || "/images/companies/placeholder.png"} 
+                    alt={`${company.name} logo`}
+                    className="mx-auto"
+                    width={80}
+                    height={32}
+                    objectFit="contain"
+                  />
+                </div>
                 {company.models && company.models.filter(model => model.featured).slice(0, 1).map(model => (
                   <div key={model.id} className="text-sm">{model.name}</div>
                 ))}
               </div>
             ))}
-            
-            {/* Special entries for image category */}
-            <div className="flex flex-col items-center cursor-pointer hover:opacity-80">
-              <img src="/api/placeholder/100/50" alt="Adobe logo" className="h-8 mb-1" />
-              <div className="text-sm">Firefly</div>
-            </div>
-            
-            <div className="flex flex-col items-center cursor-pointer hover:opacity-80">
-              <img src="/api/placeholder/100/50" alt="OpenAI logo" className="h-8 mb-1" />
-              <div className="text-sm">GPT-4o</div>
-            </div>
-            
-            <div className="flex flex-col items-center cursor-pointer hover:opacity-80">
-              <img src="/api/placeholder/100/50" alt="Midjourney logo" className="h-8 mb-1" />
-              <div className="text-sm">Midjourney</div>
-            </div>
           </div>
         </div>
         
@@ -366,28 +186,21 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
                 className="flex flex-col items-center cursor-pointer hover:opacity-80"
                 onClick={() => handleCompanyClick(company.id)}
               >
-                <img src={company.logo || "/api/placeholder/100/50"} alt={`${company.name} logo`} className="h-8 mb-1" />
+                <div className="relative h-8 w-full mb-1">
+                  <Image 
+                    src={company.logo || "/images/companies/placeholder.png"} 
+                    alt={`${company.name} logo`}
+                    className="mx-auto"
+                    width={80}
+                    height={32}
+                    objectFit="contain"
+                  />
+                </div>
                 {company.models && company.models.filter(model => model.featured).slice(0, 1).map(model => (
                   <div key={model.id} className="text-sm">{model.name}</div>
                 ))}
               </div>
             ))}
-            
-            {/* Special entries for video category */}
-            <div className="flex flex-col items-center cursor-pointer hover:opacity-80">
-              <img src="/api/placeholder/100/50" alt="OpenAI logo" className="h-8 mb-1" />
-              <div className="text-sm">SORA</div>
-            </div>
-            
-            <div className="flex flex-col items-center cursor-pointer hover:opacity-80">
-              <img src="/api/placeholder/100/50" alt="Runway logo" className="h-8 mb-1" />
-              <div className="text-sm">Runway</div>
-            </div>
-            
-            <div className="flex flex-col items-center cursor-pointer hover:opacity-80">
-              <img src="/api/placeholder/100/50" alt="Pika logo" className="h-8 mb-1" />
-              <div className="text-sm">Pika</div>
-            </div>
           </div>
         </div>
         
@@ -401,23 +214,21 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
                 className="flex flex-col items-center cursor-pointer hover:opacity-80"
                 onClick={() => handleCompanyClick(company.id)}
               >
-                <img src={company.logo || "/api/placeholder/100/50"} alt={`${company.name} logo`} className="h-8 mb-1" />
+                <div className="relative h-8 w-full mb-1">
+                  <Image 
+                    src={company.logo || "/images/companies/placeholder.png"} 
+                    alt={`${company.name} logo`}
+                    className="mx-auto"
+                    width={80}
+                    height={32}
+                    objectFit="contain"
+                  />
+                </div>
                 {company.models && company.models.filter(model => model.featured).slice(0, 1).map(model => (
                   <div key={model.id} className="text-sm">{model.name}</div>
                 ))}
               </div>
             ))}
-            
-            {/* Special entries for music category */}
-            <div className="flex flex-col items-center cursor-pointer hover:opacity-80">
-              <img src="/api/placeholder/100/50" alt="Udio logo" className="h-8 mb-1" />
-              <div className="text-sm">Udio</div>
-            </div>
-            
-            <div className="flex flex-col items-center cursor-pointer hover:opacity-80">
-              <img src="/api/placeholder/100/50" alt="Suno logo" className="h-8 mb-1" />
-              <div className="text-sm">Suno</div>
-            </div>
           </div>
         </div>
         
@@ -431,33 +242,21 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
                 className="flex flex-col items-center cursor-pointer hover:opacity-80"
                 onClick={() => handleCompanyClick(company.id)}
               >
-                <img src={company.logo || "/api/placeholder/100/50"} alt={`${company.name} logo`} className="h-8 mb-1" />
+                <div className="relative h-8 w-full mb-1">
+                  <Image 
+                    src={company.logo || "/images/companies/placeholder.png"} 
+                    alt={`${company.name} logo`}
+                    className="mx-auto"
+                    width={80}
+                    height={32}
+                    objectFit="contain"
+                  />
+                </div>
                 {company.models && company.models.filter(model => model.featured).slice(0, 1).map(model => (
                   <div key={model.id} className="text-sm">{model.name}</div>
                 ))}
               </div>
             ))}
-            
-            {/* Special entries for other category */}
-            <div className="flex flex-col items-center cursor-pointer hover:opacity-80">
-              <img src="/api/placeholder/100/50" alt="Perplexity logo" className="h-8 mb-1" />
-              <div className="text-sm">Perplexity</div>
-            </div>
-            
-            <div className="flex flex-col items-center cursor-pointer hover:opacity-80">
-              <img src="/api/placeholder/100/50" alt="Descript logo" className="h-8 mb-1" />
-              <div className="text-sm">Descript</div>
-            </div>
-            
-            <div className="flex flex-col items-center cursor-pointer hover:opacity-80">
-              <img src="/api/placeholder/100/50" alt="Character.ai logo" className="h-8 mb-1" />
-              <div className="text-sm">Character.ai</div>
-            </div>
-            
-            <div className="flex flex-col items-center cursor-pointer hover:opacity-80">
-              <img src="/api/placeholder/100/50" alt="GitHub logo" className="h-8 mb-1" />
-              <div className="text-sm">GitHub Copilot</div>
-            </div>
           </div>
         </div>
       </div>
@@ -470,7 +269,7 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
 };
 
 const AILandscapeDemo = () => {
-  const [data, setData] = useState(sampleData);
+  const [data, setData] = useState(landscapeData);
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
   const [currentView, setCurrentView] = useState('home'); // 'home', 'company', 'model'
@@ -548,7 +347,14 @@ const AILandscapeDemo = () => {
         {currentView === 'company' && selectedCompany && (
           <div className="bg-white p-6 rounded-lg shadow-md">
             <div className="flex items-center mb-6">
-              <img src={selectedCompany.logo} alt={`${selectedCompany.name} logo`} className="h-16 mr-4" />
+              <div className="relative h-16 w-40 mr-4">
+                <Image 
+                  src={selectedCompany.logo || "/images/companies/placeholder.png"} 
+                  alt={`${selectedCompany.name} logo`}
+                  fill
+                  objectFit="contain"
+                />
+              </div>
               <div>
                 <h1 className="text-3xl font-bold">{selectedCompany.name}</h1>
                 <div className="text-gray-600">
@@ -604,11 +410,12 @@ const AILandscapeDemo = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                   {selectedCompany.features.map(feature => (
                     <div key={feature.name} className="border rounded-lg overflow-hidden">
-                      <div className="h-48 bg-gray-200">
-                        <img 
-                          src={feature.image || "/api/placeholder/400/200"} 
+                      <div className="relative h-48 bg-gray-200">
+                        <Image 
+                          src={feature.image || "/images/companies/placeholder.png"} 
                           alt={feature.name}
-                          className="w-full h-full object-cover"
+                          fill
+                          objectFit="cover"
                         />
                       </div>
                       <div className="p-4">
@@ -678,7 +485,14 @@ const AILandscapeDemo = () => {
         {currentView === 'model' && selectedCompany && selectedModel && (
           <div className="bg-white p-6 rounded-lg shadow-md">
             <div className="flex items-center mb-6">
-              <img src={selectedCompany.logo} alt={`${selectedCompany.name} logo`} className="h-12 mr-4" />
+              <div className="relative h-12 w-32 mr-4">
+                <Image 
+                  src={selectedCompany.logo || "/images/companies/placeholder.png"} 
+                  alt={`${selectedCompany.name} logo`}
+                  fill
+                  objectFit="contain"
+                />
+              </div>
               <div>
                 <h1 className="text-3xl font-bold">{selectedModel.name}</h1>
                 <div className="text-gray-600">
