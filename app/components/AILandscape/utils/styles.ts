@@ -406,6 +406,9 @@ export const iconStyles = {
   formatContainer: 'flex gap-4 justify-center',
   formatItem: 'flex items-center mx-2',
   
+  // Table row label icons with Material UI blue
+  tableRowIcon: 'text-blue-500',
+  
   // Icon positioning utilities with increased spacing
   iconLeft: 'mr-3',
   iconRight: 'ml-3',

@@ -104,7 +104,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       <tr className={tableStyles.rowHover}>
         <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
           <div className={containerStyles.flexCenter}>
-            <i className={`bi bi-calendar-date ${iconStyles.base}`}></i> <span className={textStyles.primary}>Release Date</span>
+            <i className={`bi bi-calendar-date ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Date</span>
           </div>
         </td>
         {displayModels.map(model => (
@@ -124,7 +124,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       <tr className={tableStyles.rowHover}>
         <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
           <div className={containerStyles.flexCenter}>
-            <i className={`bi bi-box ${iconStyles.base}`}></i> <span className={textStyles.primary}>Type</span>
+            <i className={`bi bi-box ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Type</span>
           </div>
         </td>
         {displayModels.map(model => (
@@ -139,7 +139,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-circle-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Intelligence</span>
+              <i className={`bi bi-circle-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Intelligence</span>
             </div>
           </td>
           {displayModels.map(model => (
@@ -155,7 +155,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-lightning-charge-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Speed</span>
+              <i className={`bi bi-lightning-charge-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Speed</span>
             </div>
           </td>
           {displayModels.map(model => (
@@ -171,7 +171,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-lightbulb-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Reasoning</span>
+              <i className={`bi bi-lightbulb-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Reasoning</span>
             </div>
           </td>
           {displayModels.map(model => (
@@ -187,7 +187,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-lightbulb ${iconStyles.base}`}></i> <span className={textStyles.primary}>Reasoning Tokens</span>
+              <i className={`bi bi-lightbulb ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Reasoning Tokens</span>
             </div>
           </td>
           {displayModels.map(model => (
@@ -207,7 +207,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-stars ${iconStyles.base}`}></i> <span className={textStyles.primary}>Creativity</span>
+              <i className={`bi bi-stars ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Creativity</span>
             </div>
           </td>
           {displayModels.map(model => (
@@ -223,7 +223,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-arrow-down-right-square-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Input Formats</span>
+              <i className={`bi bi-arrow-down-right-square-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Input Formats</span>
             </div>
           </td>
           {displayModels.map(model => (
@@ -245,7 +245,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-arrow-up-right-square-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Output Formats</span>
+              <i className={`bi bi-arrow-up-right-square-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Output Formats</span>
             </div>
           </td>
           {displayModels.map(model => (
@@ -267,7 +267,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-sign-turn-right-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Max Input</span>
+              <i className={`bi bi-sign-turn-right-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Max Input</span>
             </div>
           </td>
           {displayModels.map(model => (
@@ -285,7 +285,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-sign-turn-left-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Max Output</span>
+              <i className={`bi bi-sign-turn-left-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Max Output</span>
             </div>
           </td>
           {displayModels.map(model => (
@@ -303,7 +303,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-calendar-check-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Knowledge Cutoff</span>
+              <i className={`bi bi-calendar-check-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Knowledge Cutoff</span>
             </div>
           </td>
           {displayModels.map(model => (
