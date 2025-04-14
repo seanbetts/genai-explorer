@@ -38,7 +38,7 @@ export const styles = {
   
   // Feature Grid
   featureGrid: containerStyles.featureGrid,
-  featureCard: 'border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col w-full hover:border-gray-300 hover:scale-105 transform',
+  featureCard: 'border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col w-full sm:w-96 hover:border-gray-300 hover:scale-105 transform',
   featureCardContent: 'p-3 flex-1 flex flex-col',
   featureTitle: 'text-lg font-semibold mb-1 text-gray-800',
   featureDescription: 'text-gray-600 text-sm mb-3 flex-1',
@@ -46,7 +46,7 @@ export const styles = {
   
   // Subscription Grid
   subscriptionGrid: containerStyles.subscriptionGrid,
-  subscriptionCard: 'bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex flex-col w-full transform hover:scale-105 border border-gray-100 hover:border-gray-300',
+  subscriptionCard: 'bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex flex-col w-72 transform hover:scale-105 border border-gray-100 hover:border-gray-300',
   subscriptionCardEnterprise: 'border-2 border-gray-200 hover:border-gray-300',
   subscriptionTitle: 'text-lg font-bold text-gray-800',
   subscriptionTag: 'px-2 py-0.5 bg-gray-100 rounded text-xs text-gray-800',

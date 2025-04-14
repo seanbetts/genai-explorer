@@ -21,7 +21,7 @@ const SubscriptionGrid: React.FC<SubscriptionGridProps> = ({ subscriptions }) =>
   }, [subscriptions]);
 
   return (
-    <div className={containerStyles.subscriptionGrid}>
+    <div className="flex flex-wrap justify-center gap-5">
       {subscriptions.map(subscription => {
         // Calculate how many empty features we need to add to match the tallest card
         const featuresLength = subscription.features?.length || 0;
@@ -30,7 +30,7 @@ const SubscriptionGrid: React.FC<SubscriptionGridProps> = ({ subscriptions }) =>
         return (
           <div 
             key={subscription.tier}
-            className={`bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex flex-col w-full transform hover:scale-105 ${
+            className={`bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex flex-col w-72 transform hover:scale-105 ${
               subscription.type === 'enterprise' ? 'border-2 border-gray-200 hover:border-gray-300' : 'border border-gray-100 hover:border-gray-300'
             }`}
           >
