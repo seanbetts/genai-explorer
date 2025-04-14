@@ -47,8 +47,8 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
     enterprise: 'Enterprise AI Platforms',
     image: 'Image Generation',
     video: 'Video Generation',
-    music: 'Music & Audio',
-    other: 'Other AI Solutions'
+    music: 'Music & Audio Generation',
+    other: 'Specialised AI Platforms'
   };
   
   // Get the appropriate category style object
