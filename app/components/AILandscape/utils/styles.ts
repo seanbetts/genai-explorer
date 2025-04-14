@@ -309,7 +309,7 @@ export const containerStyles = {
   gridAutoFitNarrow: 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4',
   
   // Feature/card grids with improved spacing
-  featureGrid: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5',
+  featureGrid: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6',
   subscriptionGrid: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5',
   
   // Landscape view layouts with consistent spacing

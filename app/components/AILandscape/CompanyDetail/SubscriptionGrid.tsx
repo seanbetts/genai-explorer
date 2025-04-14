@@ -30,7 +30,7 @@ const SubscriptionGrid: React.FC<SubscriptionGridProps> = ({ subscriptions }) =>
         return (
           <div 
             key={subscription.tier}
-            className={`bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex flex-col w-full sm:w-[calc(50%-8px)] md:w-[calc(33.33%-11px)] lg:w-[calc(25%-12px)] transform hover:scale-105 ${
+            className={`bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex flex-col w-full transform hover:scale-105 ${
               subscription.type === 'enterprise' ? 'border-2 border-gray-200 hover:border-gray-300' : 'border border-gray-100 hover:border-gray-300'
             }`}
           >
