@@ -792,10 +792,10 @@ const AILandscapeDemo: React.FC = () => {
                   Features
                 </h2>
                 {expandedSections.features && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {selectedCompany.features.map(feature => (
-                    <div key={feature.name} className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                      <div className="relative h-48 bg-gray-200">
+                    <div key={feature.name} className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
+                      <div className="relative h-36 bg-gray-200">
                         <Image 
                           src={feature.image && feature.image.startsWith("/") ? feature.image : "/images/companies/placeholder.png"} 
                           alt={feature.name}
@@ -803,14 +803,14 @@ const AILandscapeDemo: React.FC = () => {
                           style={{ objectFit: "cover" }}
                         />
                       </div>
-                      <div className="p-4">
-                        <h3 className="text-xl font-semibold mb-2">{feature.name}</h3>
-                        <p className="text-gray-700 mb-4">{feature.description}</p>
+                      <div className="p-3 flex-1 flex flex-col">
+                        <h3 className="text-lg font-semibold mb-1">{feature.name}</h3>
+                        <p className="text-gray-700 text-sm mb-3 flex-1">{feature.description}</p>
                         <a 
                           href={feature.url} 
                           target="_blank" 
                           rel="noopener"
-                          className="text-blue-600 hover:underline"
+                          className="text-blue-600 hover:underline text-sm mt-auto"
                         >
                           Learn more →
                         </a>
