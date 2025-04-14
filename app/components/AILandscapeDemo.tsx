@@ -1,1 +1,0 @@
-// This file has been refactored. See /app/components/AILandscape/index.tsx for the updated implementation.

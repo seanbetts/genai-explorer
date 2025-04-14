@@ -24,34 +24,24 @@ const CategorySection: React.FC<CategorySectionProps> = ({
   columns = 4,
   showModelCount = 1
 }) => {
-  // Layout configurations
-  const layoutConfigs = {
-    'full-width': {
-      containerClass: '',
-      gridClass: `grid-cols-${columns === 2 ? '2' : columns === 3 ? '3' : columns === 4 ? '4' : '4'} gap-4`,
-      titleClass: 'w-1/6'
-    },
-    'half-width': {
-      containerClass: '',
-      gridClass: `grid-cols-${columns === 2 ? '2' : columns === 3 ? '3' : '3'} gap-4`,
-      titleClass: ''
-    },
-    'quarter-width': {
-      containerClass: '',
-      gridClass: 'space-y-3',
-      titleClass: ''
+  // Get appropriate grid class based on layout and columns
+  const getGridClass = () => {
+    if (layout === 'full-width') {
+      return containerStyles.companyGridFull;
+    } else if (layout === 'half-width') {
+      return containerStyles.companyGridHalf;
+    } else {
+      return containerStyles.companyGridQuarter;
     }
   };
 
-  const config = layoutConfigs[layout];
-  
   // For full-width layout, we display the title with special formatting
   const renderContent = () => {
     if (layout === 'full-width') {
       return (
-        <div className="flex items-center mb-4">
-          <div className={`text-xl font-bold ${textStyles.primary} ${config.titleClass}`}>{title}</div>
-          <div className={`flex-1 grid ${config.gridClass}`}>
+        <div className={containerStyles.flexCenter + ' mb-4'}>
+          <div className={`${textStyles.primary} ${containerStyles.categoryTitleInline}`}>{title}</div>
+          <div className={`flex-1 ${getGridClass()}`}>
             {companies.map(company => (
               <CompanyCard 
                 key={company.id}
@@ -66,8 +56,8 @@ const CategorySection: React.FC<CategorySectionProps> = ({
     } else {
       return (
         <>
-          <div className={`text-xl font-bold mb-4 ${textStyles.primary}`}>{title}</div>
-          <div className={layout === 'half-width' ? `grid ${config.gridClass}` : config.gridClass}>
+          <div className={`${containerStyles.categoryTitle} ${textStyles.primary}`}>{title}</div>
+          <div className={getGridClass()}>
             {companies.map(company => (
               <CompanyCard 
                 key={company.id}
@@ -84,7 +74,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({
   };
 
   return (
-    <div className={`rounded-lg border-2 ${styleName} p-4 ${config.containerClass}`}>
+    <div className={`${containerStyles.categorySection} ${styleName}`}>
       {renderContent()}
     </div>
   );

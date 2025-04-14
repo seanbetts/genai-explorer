@@ -6,7 +6,7 @@
       "logo": "/images/companies/openai/logo.png",
       "website": "https://openai.com",
       "category": "frontier",
-      "description": "Leading AI research lab focused on developing general-purpose AI systems",
+      "description": "An AI research and deployment company. Their mission is to ensure that artificial general intelligence benefits all of humanity.",
       "lastUpdated": "2025-04-14",
       "features": [
         {
@@ -483,6 +483,39 @@
       ]
     },
     {
+      "id": "google-deepmind",
+      "name": "Google DeepMind",
+      "logo": "/images/companies/google-deepmind/logo.png",
+      "website": "https://deepmind.google",
+      "category": "open",
+      "description": "Social media company developing open AI models",
+      "lastUpdated": "2025-04-05",
+      "features": [],
+      "models": [
+        {
+          "id": "gemma-3",
+          "name": "Gemma 3",
+          "featured": true,
+          "type": "text",
+          "releaseDate": "2025-01-18",
+          "capabilities": {
+            "intelligence": 4,
+            "speed": 4,
+            "reasoning": 3
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": ["text"],
+            "outputFormats": ["text"],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 16000,
+            "knowledgeCutoff": "June 2023",
+            "openSource": true
+          }
+        }
+      ]
+    },
+    {
       "id": "mistral",
       "name": "Mistral AI",
       "logo": "/images/companies/mistral/logo.png",
@@ -550,6 +583,88 @@
             "maxInputTokens": 64000,
             "maxOutputTokens": 12000,
             "knowledgeCutoff": "May 2023",
+            "openSource": true
+          }
+        }
+      ],
+      "subscriptions": [
+        {
+          "tier": "Free",
+          "type": "consumer",
+          "price": 0,
+          "billingCycle": "monthly",
+          "features": [
+            "Limited access to open models",
+            "Community support",
+            "Rate limits apply"
+          ]
+        },
+        {
+          "tier": "Pro",
+          "type": "consumer",
+          "price": 15,
+          "billingCycle": "monthly",
+          "features": [
+            "Access to all models",
+            "Higher rate limits",
+            "Priority support",
+            "Advanced features"
+          ]
+        },
+        {
+          "tier": "Enterprise",
+          "type": "enterprise",
+          "price": null,
+          "billingCycle": "custom",
+          "features": [
+            "Full access to all models",
+            "Custom deployments",
+            "Dedicated support",
+            "Security features",
+            "SLA guarantees"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deepseek",
+      "name": "Deepseek",
+      "logo": "/images/companies/deepseek/logo.png",
+      "website": "https://www.deepseek.com",
+      "category": "open",
+      "description": "Open-weight models with strong performance",
+      "lastUpdated": "2025-04-03",
+      "features": [],
+      "models": [
+        {
+          "id": "deepseek-v3",
+          "name": "Deepseek V3",
+          "featured": true,
+          "type": "text",
+          "releaseDate": "2024-09-12",
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": ["text"],
+            "outputFormats": ["text"],
+            "maxInputTokens": 32000,
+            "maxOutputTokens": 8000,
+            "knowledgeCutoff": "March 2023",
+            "openSource": true
+          }
+        },
+        {
+          "id": "deepseek-r1",
+          "name": "Deepseek R1",
+          "featured": true,
+          "type": "text",
+          "releaseDate": "2024-12-20",
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": ["text"],
+            "outputFormats": ["text"],
+            "maxInputTokens": 64000,
+            "maxOutputTokens": 12000,
+            "knowledgeCutoff": "April 2023",
             "openSource": true
           }
         }
