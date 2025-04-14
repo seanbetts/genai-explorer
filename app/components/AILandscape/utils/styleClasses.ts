@@ -27,7 +27,6 @@ export const styles = {
   companyCard: containerStyles.companyCardContainer,
   companyLogo: containerStyles.companyLogo,
   companyLogoImage: containerStyles.companyLogoImage,
-  companyName: containerStyles.companyName,
   companyModel: containerStyles.companyModel,
   
   // Detail View
