@@ -321,21 +321,14 @@ const AILandscapeDemo = () => {
             Generative AI Landscape
           </div>
           
-          <div className="flex items-center">
-            {currentView !== 'home' && (
-              <button 
-                onClick={handleBack} 
-                className="mr-4 px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
-              >
-                Back
-              </button>
-            )}
-            <select className="p-2 border rounded">
-              <option>April 2025</option>
-              <option>March 2025</option>
-              <option>February 2025</option>
-            </select>
-          </div>
+          {currentView !== 'home' && (
+            <button 
+              onClick={handleBack} 
+              className="px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
+            >
+              Back
+            </button>
+          )}
         </div>
       </header>
 
