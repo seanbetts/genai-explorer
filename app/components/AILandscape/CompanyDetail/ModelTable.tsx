@@ -285,7 +285,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-sign-turn-left-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Max Output</span>
+              <i className={`bi bi-sign-turn-left-fill ${iconStyles.tableRowIcon} transform rotate-180`}></i> <span className={textStyles.primary}>Max Output</span>
             </div>
           </td>
           {displayModels.map(model => (
