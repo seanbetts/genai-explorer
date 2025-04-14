@@ -457,7 +457,11 @@ const AILandscapeDemo = () => {
                     {/* Reasoning Tokens Row */}
                     {selectedCompany.models.some(model => model.specs?.reasoningTokens !== undefined) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b pl-8">Reasoning Tokens</td>
+                        <td className="py-3 px-4 border-b pl-8">
+                          <div className="flex items-center">
+                            <i className="bi bi-cpu-fill text-purple-400 mr-2"></i> Reasoning Tokens
+                          </div>
+                        </td>
                         {selectedCompany.models.map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.specs?.reasoningTokens !== undefined ? (
@@ -499,7 +503,11 @@ const AILandscapeDemo = () => {
                     {/* Input Formats Row */}
                     {selectedCompany.models.some(model => model.specs?.inputFormats) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">Input Formats</td>
+                        <td className="py-3 px-4 border-b">
+                          <div className="flex items-center">
+                            <i className="bi bi-arrow-down-right-square-fill text-green-600 mr-2"></i> Input Formats
+                          </div>
+                        </td>
                         {selectedCompany.models.map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.specs?.inputFormats ? (
@@ -519,7 +527,11 @@ const AILandscapeDemo = () => {
                     {/* Output Formats Row */}
                     {selectedCompany.models.some(model => model.specs?.outputFormats) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">Output Formats</td>
+                        <td className="py-3 px-4 border-b">
+                          <div className="flex items-center">
+                            <i className="bi bi-arrow-up-right-square-fill text-teal-600 mr-2"></i> Output Formats
+                          </div>
+                        </td>
                         {selectedCompany.models.map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.specs?.outputFormats ? (
@@ -539,7 +551,11 @@ const AILandscapeDemo = () => {
                     {/* Max Input Tokens Row */}
                     {selectedCompany.models.some(model => model.specs?.maxInputTokens) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">Max Input</td>
+                        <td className="py-3 px-4 border-b">
+                          <div className="flex items-center">
+                            <i className="bi bi-sign-turn-right-fill text-indigo-600 mr-2"></i> Max Input
+                          </div>
+                        </td>
                         {selectedCompany.models.map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.specs?.maxInputTokens ? (
@@ -553,7 +569,11 @@ const AILandscapeDemo = () => {
                     {/* Max Output Tokens Row */}
                     {selectedCompany.models.some(model => model.specs?.maxOutputTokens) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">Max Output</td>
+                        <td className="py-3 px-4 border-b">
+                          <div className="flex items-center">
+                            <i className="bi bi-sign-turn-left-fill text-blue-500 mr-2"></i> Max Output
+                          </div>
+                        </td>
                         {selectedCompany.models.map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.specs?.maxOutputTokens ? (
@@ -567,7 +587,11 @@ const AILandscapeDemo = () => {
                     {/* Knowledge Cutoff Row */}
                     {selectedCompany.models.some(model => model.specs?.knowledgeCutoff) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">Knowledge Cutoff</td>
+                        <td className="py-3 px-4 border-b">
+                          <div className="flex items-center">
+                            <i className="bi bi-calendar-check-fill text-orange-500 mr-2"></i> Knowledge Cutoff
+                          </div>
+                        </td>
                         {selectedCompany.models.map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.specs?.knowledgeCutoff || "-"}
