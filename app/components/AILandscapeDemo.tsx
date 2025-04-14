@@ -457,9 +457,9 @@ const AILandscapeDemo = () => {
                     {/* Reasoning Tokens Row */}
                     {selectedCompany.models.some(model => model.specs?.reasoningTokens !== undefined) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b pl-8">
+                        <td className="py-3 px-4 border-b">
                           <div className="flex items-center">
-                            <i className="bi bi-cpu-fill text-purple-400 mr-2"></i> Reasoning Tokens
+                            <i className="bi bi-lightbulb text-gray-800 mr-2"></i> Reasoning Tokens
                           </div>
                         </td>
                         {selectedCompany.models.map(model => (
