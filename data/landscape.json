@@ -39,7 +39,8 @@
           "id": "gpt-4-5",
           "name": "GPT-4.5",
           "featured": true,
-          "type": "text",
+          "type": "Large Multimodal Model",
+          "releaseDate": "2025-01-25",
           "capabilities": {
             "intelligence": 4,
             "speed": 5,
@@ -58,7 +59,8 @@
           "id": "gpt-4o",
           "name": "GPT-4o",
           "featured": true,
-          "type": "multimodal",
+          "type": "Large Multimodal Model",
+          "releaseDate": "2024-11-05",
           "capabilities": {
             "intelligence": 3,
             "speed": 5,
@@ -77,10 +79,31 @@
           "id": "o1",
           "name": "o1",
           "featured": true,
-          "type": "text",
+          "type": "Large Reasoning Model",
+          "releaseDate": "2024-10-12",
           "capabilities": {
             "intelligence": 4,
-            "speed": 4,
+            "speed": 1,
+            "reasoning": 4
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": ["text", "audio"],
+            "outputFormats": ["text", "audio"],
+            "maxInputTokens": 200000,
+            "maxOutputTokens": 100000,
+            "knowledgeCutoff": "September 2023"
+          }
+        },
+        {
+          "id": "o3-mini",
+          "name": "o3-mini",
+          "featured": true,
+          "type": "Large Reasoning Model",
+          "releaseDate": "2025-02-15",
+          "capabilities": {
+            "intelligence": 4,
+            "speed": 3,
             "reasoning": 4
           },
           "specs": {
@@ -178,6 +201,7 @@
           "name": "Claude 3.7",
           "featured": true,
           "type": "text",
+          "releaseDate": "2025-01-15",
           "capabilities": {
             "intelligence": 5,
             "speed": 4,
@@ -261,6 +285,7 @@
           "name": "Gemini 2.5",
           "featured": true,
           "type": "multimodal",
+          "releaseDate": "2025-01-30",
           "capabilities": {
             "intelligence": 5,
             "speed": 4,
@@ -343,6 +368,7 @@
           "name": "Nova 1.0",
           "featured": true,
           "type": "text",
+          "releaseDate": "2025-01-05",
           "capabilities": {
             "intelligence": 4,
             "speed": 3,
@@ -414,6 +440,7 @@
           "name": "LLaMA 3.3",
           "featured": true,
           "type": "text",
+          "releaseDate": "2025-01-18",
           "capabilities": {
             "intelligence": 4,
             "speed": 4,
@@ -459,6 +486,7 @@
           "name": "Mistral",
           "featured": true,
           "type": "text",
+          "releaseDate": "2024-09-12",
           "specs": {
             "reasoningTokens": false,
             "inputFormats": ["text"],
@@ -474,6 +502,7 @@
           "name": "Mixtral",
           "featured": true,
           "type": "text",
+          "releaseDate": "2024-12-20",
           "specs": {
             "reasoningTokens": false,
             "inputFormats": ["text"],
@@ -489,6 +518,7 @@
           "name": "Codestral",
           "featured": true,
           "type": "code",
+          "releaseDate": "2025-02-05",
           "specs": {
             "reasoningTokens": false,
             "inputFormats": ["text", "code"],
@@ -567,6 +597,7 @@
           "name": "Copilot",
           "featured": true,
           "type": "productivity",
+          "releaseDate": "2024-10-25",
           "specs": {
             "reasoningTokens": true,
             "inputFormats": ["text", "image", "data"],
@@ -644,6 +675,7 @@
           "name": "Command",
           "featured": true,
           "type": "text",
+          "releaseDate": "2024-09-28",
           "capabilities": {
             "intelligence": 4,
             "speed": 4,
@@ -725,6 +757,7 @@
           "name": "Firefly",
           "featured": true,
           "type": "image",
+          "releaseDate": "2024-12-15",
           "capabilities": {
             "intelligence": 4,
             "speed": 5,
@@ -805,6 +838,7 @@
           "name": "Midjourney v7",
           "featured": true,
           "type": "image",
+          "releaseDate": "2024-11-15",
           "capabilities": {
             "intelligence": 4,
             "speed": 4,
@@ -885,6 +919,7 @@
           "name": "Gen-3",
           "featured": true,
           "type": "video",
+          "releaseDate": "2024-10-30",
           "capabilities": {
             "intelligence": 4,
             "speed": 3,
@@ -979,6 +1014,7 @@
           "name": "Pika 1.0",
           "featured": true,
           "type": "video",
+          "releaseDate": "2024-11-25",
           "capabilities": {
             "intelligence": 4,
             "speed": 4,
@@ -1063,6 +1099,7 @@
           "name": "Suno v3",
           "featured": true,
           "type": "music",
+          "releaseDate": "2024-12-05",
           "capabilities": {
             "intelligence": 4,
             "speed": 5,
@@ -1148,6 +1185,7 @@
           "name": "Udio Composer",
           "featured": true,
           "type": "music",
+          "releaseDate": "2025-01-20",
           "capabilities": {
             "intelligence": 5,
             "speed": 4,
@@ -1233,6 +1271,7 @@
           "name": "Perplexity Online",
           "featured": true,
           "type": "search",
+          "releaseDate": "2024-09-15",
           "capabilities": {
             "intelligence": 4,
             "speed": 5,
@@ -1317,6 +1356,7 @@
           "name": "Character Engine",
           "featured": true,
           "type": "conversation",
+          "releaseDate": "2024-10-05",
           "capabilities": {
             "intelligence": 4,
             "speed": 5,
@@ -1400,6 +1440,7 @@
           "name": "Overdub",
           "featured": true,
           "type": "audio",
+          "releaseDate": "2024-08-15",
           "capabilities": {
             "intelligence": 4,
             "speed": 5,
@@ -1497,6 +1538,7 @@
           "name": "GitHub Copilot",
           "featured": true,
           "type": "code",
+          "releaseDate": "2024-11-10",
           "capabilities": {
             "intelligence": 5,
             "speed": 5,

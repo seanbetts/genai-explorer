@@ -5,14 +5,99 @@ import Image from 'next/image';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import landscapeData from '@/data/landscape.json';
 
-const LandscapeVisualization = ({ data, onCompanySelect }) => {
+// Define types based on the JSON structure
+interface Feature {
+  name: string;
+  description: string;
+  image: string;
+  url: string;
+}
+
+interface Specs {
+  reasoningTokens?: boolean;
+  inputFormats?: string[];
+  outputFormats?: string[];
+  maxInputTokens?: number;
+  maxOutputTokens?: number;
+  knowledgeCutoff?: string;
+  openSource?: boolean;
+  techniques?: string[];
+  commercialUseAllowed?: boolean;
+  genres?: string[];
+  styles?: string[];
+  integrated?: string[];
+  maxDuration?: string;
+  voiceCloning?: boolean;
+  emotionControl?: boolean;
+  languageSupport?: string[];
+  personalityCustomization?: boolean;
+  voiceCapabilities?: boolean;
+  memoryCapacity?: string;
+  realTimeData?: boolean;
+  sourceAttribution?: boolean;
+  dataRetrieval?: string;
+}
+
+interface Capabilities {
+  intelligence?: number;
+  speed?: number;
+  reasoning?: number;
+  creativity?: number;
+  personality?: number;
+  naturalness?: number;
+  accuracy?: number;
+  codeQuality?: number;
+}
+
+interface Model {
+  id: string;
+  name: string;
+  featured?: boolean;
+  type?: string;
+  releaseDate?: string;
+  capabilities?: Capabilities;
+  specs?: Specs;
+}
+
+interface Subscription {
+  tier: string;
+  type: string;
+  price: number | null;
+  billingCycle: string;
+  perUser?: boolean;
+  features: string[];
+}
+
+interface Company {
+  id: string;
+  name: string;
+  logo: string;
+  website: string;
+  category: string;
+  description: string;
+  lastUpdated: string;
+  features?: Feature[];
+  models: Model[];
+  subscriptions?: Subscription[];
+}
+
+interface LandscapeData {
+  companies: Company[];
+}
+
+interface LandscapeVisualizationProps {
+  data: LandscapeData;
+  onCompanySelect: (companyId: string) => void;
+}
+
+const LandscapeVisualization: React.FC<LandscapeVisualizationProps> = ({ data, onCompanySelect }) => {
   // Helper to filter companies with at least one featured model
-  const hasFeaturedModel = (company) => {
+  const hasFeaturedModel = (company: Company): boolean => {
     return company.models && company.models.some(model => model.featured);
   };
 
   // Group companies by category (only include those with featured models)
-  const categorizedCompanies = {
+  const categorizedCompanies: Record<string, Company[]> = {
     frontier: data.companies.filter(company => company.category === 'frontier' && hasFeaturedModel(company)),
     open: data.companies.filter(company => company.category === 'open' && hasFeaturedModel(company)),
     enterprise: data.companies.filter(company => company.category === 'enterprise' && hasFeaturedModel(company)),
@@ -45,7 +130,7 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
   };
 
   // Handle company click
-  const handleCompanyClick = (companyId) => {
+  const handleCompanyClick = (companyId: string): void => {
     if (onCompanySelect) {
       onCompanySelect(companyId);
     }
@@ -264,21 +349,22 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
           </div>
         </div>
       </div>
-      
-      <div className="text-center text-gray-500 text-sm mt-4">
-        Data last updated: {new Date().toLocaleDateString()}
-      </div>
     </div>
   );
 };
 
-const AILandscapeDemo = () => {
-  const [data, setData] = useState(landscapeData);
-  const [selectedCompany, setSelectedCompany] = useState(null);
-  const [currentView, setCurrentView] = useState('home'); // 'home', 'company'
+const AILandscapeDemo: React.FC = () => {
+  const [data, setData] = useState<LandscapeData>(landscapeData as LandscapeData);
+  const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
+  const [currentView, setCurrentView] = useState<'home' | 'company'>('home');
+  const [expandedSections, setExpandedSections] = useState({
+    models: true,
+    features: true,
+    subscriptions: true
+  });
   
   // Handle company selection
-  const handleCompanySelect = (companyId) => {
+  const handleCompanySelect = (companyId: string): void => {
     const company = data.companies.find(c => c.id === companyId);
     if (company) {
       setSelectedCompany(company);
@@ -287,11 +373,19 @@ const AILandscapeDemo = () => {
   };
   
   // Handle back navigation
-  const handleBack = () => {
+  const handleBack = (): void => {
     if (currentView === 'company') {
       setCurrentView('home');
       setSelectedCompany(null);
     }
+  };
+  
+  // Toggle section expansion
+  const toggleSection = (section: 'models' | 'features' | 'subscriptions'): void => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
   };
   
   return (
@@ -308,14 +402,17 @@ const AILandscapeDemo = () => {
             Generative AI Landscape
           </div>
           
-          {currentView !== 'home' && (
-            <button 
-              onClick={handleBack} 
-              className="px-3 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
-            >
-              Back
-            </button>
-          )}
+          <div>
+            {currentView === 'home' && (
+              <div className="text-gray-600 text-sm">
+                Last updated: {new Date().toLocaleDateString('en-GB', { 
+                  day: 'numeric', 
+                  month: 'long', 
+                  year: 'numeric' 
+                })}
+              </div>
+            )}
+          </div>
         </div>
       </header>
 
@@ -325,93 +422,122 @@ const AILandscapeDemo = () => {
         )}
         
         {currentView === 'company' && selectedCompany && (
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="flex items-center mb-6">
-              <div className="relative h-16 w-40 mr-4">
+          <div>
+            <button 
+              onClick={handleBack} 
+              className="mb-4 flex items-center text-blue-600 hover:text-blue-800 transition-colors cursor-pointer"
+            >
+              <i className="bi bi-arrow-left mr-1"></i> Back to landscape
+            </button>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="flex justify-between items-start mb-6">
+              <a 
+                href={selectedCompany.website} 
+                target="_blank" 
+                rel="noopener" 
+                className="relative block h-20 w-40 hover:opacity-80 transition-opacity"
+                title="Visit website"
+              >
                 <Image 
                   src={selectedCompany.logo && selectedCompany.logo.startsWith("/") ? selectedCompany.logo : "/images/companies/placeholder.png"} 
                   alt={`${selectedCompany.name} logo`}
                   fill
                   style={{ objectFit: "contain" }}
                 />
-              </div>
-              <div>
-                <h1 className="text-3xl font-bold">{selectedCompany.name}</h1>
-                <div className="text-gray-600">
-                  <a href={selectedCompany.website} target="_blank" rel="noopener" className="text-blue-600 hover:underline">
-                    {selectedCompany.website}
-                  </a>
-                  <span className="mx-2">•</span>
-                  <span>Last updated: {selectedCompany.lastUpdated}</span>
-                </div>
-              </div>
-            </div>
-            
-            <p className="text-lg mb-8">{selectedCompany.description}</p>
-            
-            <h2 className="text-2xl font-bold mb-4">Models</h2>
-            
-            {/* Format Icons Legend */}
-            <div className="flex gap-5 mb-4 items-center justify-center bg-gray-50 p-3 rounded-lg">
-              <span className="text-sm text-gray-600">Format Icons:</span>
-              <div className="flex items-center">
-                <i className="bi bi-file-text-fill text-blue-600 mr-1"></i>
-                <span className="text-sm">Text</span>
-              </div>
-              <div className="flex items-center">
-                <i className="bi bi-image-fill text-green-600 mr-1"></i>
-                <span className="text-sm">Image</span>
-              </div>
-              <div className="flex items-center">
-                <i className="bi bi-mic-fill text-yellow-600 mr-1"></i>
-                <span className="text-sm">Audio</span>
-              </div>
-              <div className="flex items-center">
-                <i className="bi bi-camera-video-fill text-red-600 mr-1"></i>
-                <span className="text-sm">Video</span>
-              </div>
-              <div className="flex items-center">
-                <i className="bi bi-table text-purple-600 mr-1"></i>
-                <span className="text-sm">Data</span>
+              </a>
+              <div className="text-gray-600 text-sm">
+                Last updated: {
+                  new Date(selectedCompany.lastUpdated).toLocaleDateString('en-GB', { 
+                    day: 'numeric', 
+                    month: 'long', 
+                    year: 'numeric' 
+                  })
+                }
               </div>
             </div>
             
-            {selectedCompany.models && selectedCompany.models.length > 0 && (
-              <div className="overflow-x-auto mb-8">
-                <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
-                  <thead>
-                    <tr className="bg-gray-50">
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Feature</th>
-                      {selectedCompany.models.map(model => (
-                        <th key={model.id} className="py-3 px-4 text-center font-semibold text-gray-700 border-b">
-                          <div className="font-semibold text-gray-900">{model.name}</div>
-                          {model.featured && (
-                            <span className="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded inline-block mt-1">
-                              Featured
-                            </span>
-                          )}
-                          <div className="text-xs text-gray-500 capitalize mt-1">{model.type || "-"}</div>
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
+            <div className="mb-8">
+              <p className="text-lg">{selectedCompany.description}</p>
+            </div>
+            
+            <div className="mb-8">
+              <h2 
+                className="text-2xl font-bold mb-4 flex items-center cursor-pointer"
+                onClick={() => toggleSection('models')}
+              >
+                <i className={`bi ${expandedSections.models ? 'bi-chevron-down' : 'bi-chevron-right'} mr-2 text-blue-600`}></i>
+                Models
+              </h2>
+              
+              {selectedCompany.models && selectedCompany.models.length > 0 && expandedSections.models && (
+                <div className="flex flex-col">
+                <div className="overflow-x-auto w-full">
+                  <div style={{ 
+                    width: selectedCompany.models.length > 4
+                      ? `${(selectedCompany.models.length + 1) * 200}px` // For horizontal scrolling
+                      : `${Math.min(100, (selectedCompany.models.length + 1) * 20)}%` // Dynamic width based on model count
+                  }}>
+                    <table className="w-full bg-white border border-gray-200 rounded-lg shadow-sm">
+                      <thead>
+                        <tr className="bg-gray-50">
+                          <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b sticky left-0 bg-gray-50" style={{ width: '20%', minWidth: '160px' }}></th>
+                          {selectedCompany.models.slice(0, 4).map(model => (
+                            <th key={model.id} className="py-3 px-4 text-center font-semibold text-gray-700 border-b" style={{ width: '20%', minWidth: '160px' }}>
+                              <div className="font-semibold text-gray-900">{model.name}</div>
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {/* Release Date Row */}
+                        <tr className="hover:bg-gray-50">
+                          <td className="py-3 px-4 border-b sticky left-0 bg-white">
+                            <div className="flex items-center">
+                              <i className="bi bi-calendar-date text-blue-600 mr-2"></i> Release Date
+                            </div>
+                          </td>
+                          {selectedCompany.models.slice(0, 4).map(model => (
+                            <td key={model.id} className="py-3 px-4 border-b text-center">
+                              {model.releaseDate ? (
+                                new Date(model.releaseDate).toLocaleDateString('en-GB', {
+                                  day: 'numeric',
+                                  month: 'long',
+                                  year: 'numeric'
+                                })
+                              ) : "-"}
+                            </td>
+                          ))}
+                        </tr>
+
+                        {/* Type Row */}
+                        <tr className="hover:bg-gray-50">
+                          <td className="py-3 px-4 border-b sticky left-0 bg-white">
+                            <div className="flex items-center">
+                              <i className="bi bi-box text-blue-600 mr-2"></i> Type
+                            </div>
+                          </td>
+                          {selectedCompany.models.slice(0, 4).map(model => (
+                            <td key={model.id} className="py-3 px-4 border-b text-center">
+                              <span className="capitalize">{model.type || "-"}</span>
+                            </td>
+                          ))}
+                        </tr>
                     {/* Intelligence Row */}
                     {selectedCompany.models.some(model => model.capabilities?.intelligence) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">
+                        <td className="py-3 px-4 border-b sticky left-0 bg-white">
                           <div className="flex items-center">
                             <i className="bi bi-circle-fill text-blue-600 mr-2"></i> Intelligence
                           </div>
                         </td>
-                        {selectedCompany.models.map(model => (
+                        {selectedCompany.models.slice(0, 4).map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.capabilities?.intelligence ? (
                               <div className="flex items-center justify-center text-blue-600">
                                 {[...Array(5)].map((_, i) => (
                                   <i 
                                     key={i} 
-                                    className={i < model.capabilities.intelligence 
+                                    className={i < (model.capabilities?.intelligence || 0)
                                       ? "bi bi-circle-fill mx-0.5" 
                                       : "bi bi-circle mx-0.5"
                                     }
@@ -427,19 +553,19 @@ const AILandscapeDemo = () => {
                     {/* Speed Row */}
                     {selectedCompany.models.some(model => model.capabilities?.speed) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">
+                        <td className="py-3 px-4 border-b sticky left-0 bg-white">
                           <div className="flex items-center">
-                            <i className="bi bi-lightning-charge-fill text-yellow-600 mr-2"></i> Speed
+                            <i className="bi bi-lightning-charge-fill text-blue-600 mr-2"></i> Speed
                           </div>
                         </td>
-                        {selectedCompany.models.map(model => (
+                        {selectedCompany.models.slice(0, 4).map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.capabilities?.speed ? (
-                              <div className="flex items-center justify-center text-yellow-600">
+                              <div className="flex items-center justify-center text-blue-600">
                                 {[...Array(5)].map((_, i) => (
                                   <i 
                                     key={i} 
-                                    className={i < model.capabilities.speed 
+                                    className={i < (model.capabilities?.speed || 0)
                                       ? "bi bi-lightning-charge-fill mx-0.5" 
                                       : "bi bi-lightning-charge mx-0.5"
                                     }
@@ -455,19 +581,19 @@ const AILandscapeDemo = () => {
                     {/* Reasoning Row */}
                     {selectedCompany.models.some(model => model.capabilities?.reasoning) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">
+                        <td className="py-3 px-4 border-b sticky left-0 bg-white">
                           <div className="flex items-center">
-                            <i className="bi bi-lightbulb-fill text-purple-600 mr-2"></i> Reasoning
+                            <i className="bi bi-lightbulb-fill text-blue-600 mr-2"></i> Reasoning
                           </div>
                         </td>
-                        {selectedCompany.models.map(model => (
+                        {selectedCompany.models.slice(0, 4).map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.capabilities?.reasoning ? (
-                              <div className="flex items-center justify-center text-purple-600">
+                              <div className="flex items-center justify-center text-blue-600">
                                 {[...Array(5)].map((_, i) => (
                                   <i 
                                     key={i} 
-                                    className={i < model.capabilities.reasoning 
+                                    className={i < (model.capabilities?.reasoning || 0)
                                       ? "bi bi-lightbulb-fill mx-0.5" 
                                       : "bi bi-lightbulb mx-0.5"
                                     }
@@ -483,12 +609,12 @@ const AILandscapeDemo = () => {
                     {/* Reasoning Tokens Row */}
                     {selectedCompany.models.some(model => model.specs?.reasoningTokens !== undefined) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">
+                        <td className="py-3 px-4 border-b sticky left-0 bg-white">
                           <div className="flex items-center">
-                            <i className="bi bi-lightbulb text-gray-800 mr-2"></i> Reasoning Tokens
+                            <i className="bi bi-lightbulb text-blue-600 mr-2"></i> Reasoning Tokens
                           </div>
                         </td>
-                        {selectedCompany.models.map(model => (
+                        {selectedCompany.models.slice(0, 4).map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.specs?.reasoningTokens !== undefined ? (
                               model.specs.reasoningTokens ? "Yes" : "No"
@@ -501,19 +627,19 @@ const AILandscapeDemo = () => {
                     {/* Creativity Row */}
                     {selectedCompany.models.some(model => model.capabilities?.creativity) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">
+                        <td className="py-3 px-4 border-b sticky left-0 bg-white">
                           <div className="flex items-center">
-                            <i className="bi bi-stars text-pink-600 mr-2"></i> Creativity
+                            <i className="bi bi-stars text-blue-600 mr-2"></i> Creativity
                           </div>
                         </td>
-                        {selectedCompany.models.map(model => (
+                        {selectedCompany.models.slice(0, 4).map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.capabilities?.creativity ? (
-                              <div className="flex items-center justify-center text-pink-600">
+                              <div className="flex items-center justify-center text-blue-600">
                                 {[...Array(5)].map((_, i) => (
                                   <i 
                                     key={i} 
-                                    className={i < model.capabilities.creativity 
+                                    className={i < (model.capabilities?.creativity || 0)
                                       ? "bi bi-stars mx-0.5" 
                                       : "bi bi-star mx-0.5"
                                     }
@@ -529,19 +655,19 @@ const AILandscapeDemo = () => {
                     {/* Input Formats Row */}
                     {selectedCompany.models.some(model => model.specs?.inputFormats) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">
+                        <td className="py-3 px-4 border-b sticky left-0 bg-white">
                           <div className="flex items-center">
-                            <i className="bi bi-arrow-down-right-square-fill text-green-600 mr-2"></i> Input Formats
+                            <i className="bi bi-arrow-down-right-square-fill text-blue-600 mr-2"></i> Input Formats
                           </div>
                         </td>
-                        {selectedCompany.models.map(model => (
+                        {selectedCompany.models.slice(0, 4).map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
                             <div className="flex gap-3 justify-center">
                               <i className={`bi bi-file-text-fill text-lg ${model.specs?.inputFormats?.includes("text") ? "text-blue-600" : "text-gray-300"}`} title="Text"></i>
-                              <i className={`bi bi-image-fill text-lg ${model.specs?.inputFormats?.includes("image") ? "text-green-600" : "text-gray-300"}`} title="Image"></i>
-                              <i className={`bi bi-mic-fill text-lg ${model.specs?.inputFormats?.includes("audio") ? "text-yellow-600" : "text-gray-300"}`} title="Audio"></i>
-                              <i className={`bi bi-camera-video-fill text-lg ${model.specs?.inputFormats?.includes("video") ? "text-red-600" : "text-gray-300"}`} title="Video"></i>
-                              <i className={`bi bi-table text-lg ${model.specs?.inputFormats?.includes("data") ? "text-purple-600" : "text-gray-300"}`} title="Data"></i>
+                              <i className={`bi bi-mic-fill text-lg ${model.specs?.inputFormats?.includes("audio") ? "text-blue-600" : "text-gray-300"}`} title="Audio"></i>
+                              <i className={`bi bi-image-fill text-lg ${model.specs?.inputFormats?.includes("image") ? "text-blue-600" : "text-gray-300"}`} title="Image"></i>
+                              <i className={`bi bi-music-note-beamed text-lg ${model.specs?.inputFormats?.includes("music") ? "text-blue-600" : "text-gray-300"}`} title="Music"></i>
+                              <i className={`bi bi-camera-video-fill text-lg ${model.specs?.inputFormats?.includes("video") ? "text-blue-600" : "text-gray-300"}`} title="Video"></i>
                             </div>
                           </td>
                         ))}
@@ -551,19 +677,19 @@ const AILandscapeDemo = () => {
                     {/* Output Formats Row */}
                     {selectedCompany.models.some(model => model.specs?.outputFormats) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">
+                        <td className="py-3 px-4 border-b sticky left-0 bg-white">
                           <div className="flex items-center">
-                            <i className="bi bi-arrow-up-right-square-fill text-teal-600 mr-2"></i> Output Formats
+                            <i className="bi bi-arrow-up-right-square-fill text-blue-600 mr-2"></i> Output Formats
                           </div>
                         </td>
-                        {selectedCompany.models.map(model => (
+                        {selectedCompany.models.slice(0, 4).map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
                             <div className="flex gap-3 justify-center">
                               <i className={`bi bi-file-text-fill text-lg ${model.specs?.outputFormats?.includes("text") ? "text-blue-600" : "text-gray-300"}`} title="Text"></i>
-                              <i className={`bi bi-image-fill text-lg ${model.specs?.outputFormats?.includes("image") ? "text-green-600" : "text-gray-300"}`} title="Image"></i>
-                              <i className={`bi bi-mic-fill text-lg ${model.specs?.outputFormats?.includes("audio") ? "text-yellow-600" : "text-gray-300"}`} title="Audio"></i>
-                              <i className={`bi bi-camera-video-fill text-lg ${model.specs?.outputFormats?.includes("video") ? "text-red-600" : "text-gray-300"}`} title="Video"></i>
-                              <i className={`bi bi-table text-lg ${model.specs?.outputFormats?.includes("data") ? "text-purple-600" : "text-gray-300"}`} title="Data"></i>
+                              <i className={`bi bi-mic-fill text-lg ${model.specs?.outputFormats?.includes("audio") ? "text-blue-600" : "text-gray-300"}`} title="Audio"></i>
+                              <i className={`bi bi-image-fill text-lg ${model.specs?.outputFormats?.includes("image") ? "text-blue-600" : "text-gray-300"}`} title="Image"></i>
+                              <i className={`bi bi-music-note-beamed text-lg ${model.specs?.outputFormats?.includes("music") ? "text-blue-600" : "text-gray-300"}`} title="Music"></i>
+                              <i className={`bi bi-camera-video-fill text-lg ${model.specs?.outputFormats?.includes("video") ? "text-blue-600" : "text-gray-300"}`} title="Video"></i>
                             </div>
                           </td>
                         ))}
@@ -573,12 +699,12 @@ const AILandscapeDemo = () => {
                     {/* Max Input Tokens Row */}
                     {selectedCompany.models.some(model => model.specs?.maxInputTokens) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">
+                        <td className="py-3 px-4 border-b sticky left-0 bg-white">
                           <div className="flex items-center">
-                            <i className="bi bi-sign-turn-right-fill text-indigo-600 mr-2"></i> Max Input
+                            <i className="bi bi-sign-turn-right-fill text-blue-600 mr-2"></i> Max Input
                           </div>
                         </td>
-                        {selectedCompany.models.map(model => (
+                        {selectedCompany.models.slice(0, 4).map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.specs?.maxInputTokens ? (
                               <span>{model.specs.maxInputTokens.toLocaleString()} tokens</span>
@@ -591,12 +717,12 @@ const AILandscapeDemo = () => {
                     {/* Max Output Tokens Row */}
                     {selectedCompany.models.some(model => model.specs?.maxOutputTokens) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">
+                        <td className="py-3 px-4 border-b sticky left-0 bg-white">
                           <div className="flex items-center">
-                            <i className="bi bi-sign-turn-left-fill text-blue-500 mr-2"></i> Max Output
+                            <i className="bi bi-sign-turn-left-fill text-blue-600 mr-2"></i> Max Output
                           </div>
                         </td>
-                        {selectedCompany.models.map(model => (
+                        {selectedCompany.models.slice(0, 4).map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.specs?.maxOutputTokens ? (
                               <span>{model.specs.maxOutputTokens.toLocaleString()} tokens</span>
@@ -609,29 +735,66 @@ const AILandscapeDemo = () => {
                     {/* Knowledge Cutoff Row */}
                     {selectedCompany.models.some(model => model.specs?.knowledgeCutoff) && (
                       <tr className="hover:bg-gray-50">
-                        <td className="py-3 px-4 border-b">
+                        <td className="py-3 px-4 border-b sticky left-0 bg-white">
                           <div className="flex items-center">
-                            <i className="bi bi-calendar-check-fill text-orange-500 mr-2"></i> Knowledge Cutoff
+                            <i className="bi bi-calendar-check-fill text-blue-600 mr-2"></i> Knowledge Cutoff
                           </div>
                         </td>
-                        {selectedCompany.models.map(model => (
+                        {selectedCompany.models.slice(0, 4).map(model => (
                           <td key={model.id} className="py-3 px-4 border-b text-center">
                             {model.specs?.knowledgeCutoff || "-"}
                           </td>
                         ))}
                       </tr>
                     )}
-                  </tbody>
-                </table>
-              </div>
-            )}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                
+                {/* Format Icons Legend */}
+                <div className="mt-4 max-w-lg mx-auto">
+                  <div className="flex gap-5 items-center justify-center bg-gray-50 p-3 rounded-lg flex-wrap">
+                    <span className="text-sm text-gray-600">Legend:</span>
+                    <div className="flex items-center">
+                      <i className="bi bi-file-text-fill text-blue-600 mr-1"></i>
+                      <span className="text-sm">Text</span>
+                    </div>
+                    <div className="flex items-center">
+                      <i className="bi bi-mic-fill text-blue-600 mr-1"></i>
+                      <span className="text-sm">Audio</span>
+                    </div>
+                    <div className="flex items-center">
+                      <i className="bi bi-image-fill text-blue-600 mr-1"></i>
+                      <span className="text-sm">Image</span>
+                    </div>
+                    <div className="flex items-center">
+                      <i className="bi bi-music-note-beamed text-blue-600 mr-1"></i>
+                      <span className="text-sm">Music</span>
+                    </div>
+                    <div className="flex items-center">
+                      <i className="bi bi-camera-video-fill text-blue-600 mr-1"></i>
+                      <span className="text-sm">Video</span>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              )}
+            </div>
             
             {selectedCompany.features && (
-              <>
-                <h2 className="text-2xl font-bold mb-4">Features</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div className="mb-8">
+                <h2 
+                  className="text-2xl font-bold mb-4 flex items-center cursor-pointer"
+                  onClick={() => toggleSection('features')}
+                >
+                  <i className={`bi ${expandedSections.features ? 'bi-chevron-down' : 'bi-chevron-right'} mr-2 text-blue-600`}></i>
+                  Features
+                </h2>
+                {expandedSections.features && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {selectedCompany.features.map(feature => (
-                    <div key={feature.name} className="border rounded-lg overflow-hidden">
+                    <div key={feature.name} className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                       <div className="relative h-48 bg-gray-200">
                         <Image 
                           src={feature.image && feature.image.startsWith("/") ? feature.image : "/images/companies/placeholder.png"} 
@@ -654,14 +817,22 @@ const AILandscapeDemo = () => {
                       </div>
                     </div>
                   ))}
-                </div>
-              </>
+                  </div>
+                )}
+              </div>
             )}
             
             {selectedCompany.subscriptions && (
-              <>
-                <h2 className="text-2xl font-bold mb-4">Subscription Plans</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="mb-8">
+                <h2 
+                  className="text-2xl font-bold mb-4 flex items-center cursor-pointer"
+                  onClick={() => toggleSection('subscriptions')}
+                >
+                  <i className={`bi ${expandedSections.subscriptions ? 'bi-chevron-down' : 'bi-chevron-right'} mr-2 text-blue-600`}></i>
+                  Subscription Plans
+                </h2>
+                {expandedSections.subscriptions && (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {selectedCompany.subscriptions.map(subscription => (
                     <div 
                       key={subscription.tier}
@@ -698,9 +869,11 @@ const AILandscapeDemo = () => {
                       </ul>
                     </div>
                   ))}
-                </div>
-              </>
+                  </div>
+                )}
+              </div>
             )}
+            </div>
           </div>
         )}
         
