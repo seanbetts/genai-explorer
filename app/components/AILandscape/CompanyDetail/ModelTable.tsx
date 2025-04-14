@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Model } from '../types';
-import { textStyles, tableStyles, iconStyles } from '../utils/styles';
+import { textStyles, tableStyles, iconStyles, containerStyles } from '../utils/styles';
 
 interface ModelTableProps {
   models: Model[];
@@ -58,11 +58,11 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     }
     
     return (
-      <div className="flex items-center justify-center text-blue-600">
+      <div className={iconStyles.ratingContainer}>
         {[...Array(5)].map((_, i) => (
           <i 
             key={i} 
-            className={i < value ? `${filledIcon} mx-0.5` : `${icon} mx-0.5`}
+            className={i < value ? `${filledIcon} ${iconStyles.iconSpacing}` : `${icon} ${iconStyles.iconSpacing}`}
           ></i>
         ))}
       </div>
@@ -83,13 +83,19 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     overflowX: needsScrolling ? 'auto' : 'visible'
   };
 
+  // Column width styles for table headers and cells
+  const colStyle = {
+    width: '20%',
+    minWidth: '200px'
+  };
+
   // Generate table rows
   const renderTableRows = () => (
     <>
       {/* Release Date Row */}
       <tr className={tableStyles.rowHover}>
         <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
-          <div className="flex items-center">
+          <div className={containerStyles.flexCenter}>
             <i className={`bi bi-calendar-date ${iconStyles.base}`}></i> <span className={textStyles.primary}>Release Date</span>
           </div>
         </td>
@@ -109,7 +115,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Type Row */}
       <tr className={tableStyles.rowHover}>
         <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
-          <div className="flex items-center">
+          <div className={containerStyles.flexCenter}>
             <i className={`bi bi-box ${iconStyles.base}`}></i> <span className={textStyles.primary}>Type</span>
           </div>
         </td>
@@ -124,7 +130,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {hasAnyModelCapability("intelligence") && (
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
-            <div className="flex items-center">
+            <div className={containerStyles.flexCenter}>
               <i className={`bi bi-circle-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Intelligence</span>
             </div>
           </td>
@@ -140,7 +146,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {hasAnyModelCapability("speed") && (
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
-            <div className="flex items-center">
+            <div className={containerStyles.flexCenter}>
               <i className={`bi bi-lightning-charge-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Speed</span>
             </div>
           </td>
@@ -156,7 +162,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {hasAnyModelCapability("reasoning") && (
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
-            <div className="flex items-center">
+            <div className={containerStyles.flexCenter}>
               <i className={`bi bi-lightbulb-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Reasoning</span>
             </div>
           </td>
@@ -172,7 +178,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {hasAnyModelSpec("reasoningTokens") && (
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
-            <div className="flex items-center">
+            <div className={containerStyles.flexCenter}>
               <i className={`bi bi-lightbulb ${iconStyles.base}`}></i> <span className={textStyles.primary}>Reasoning Tokens</span>
             </div>
           </td>
@@ -192,7 +198,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {hasAnyModelCapability("creativity") && (
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
-            <div className="flex items-center">
+            <div className={containerStyles.flexCenter}>
               <i className={`bi bi-stars ${iconStyles.base}`}></i> <span className={textStyles.primary}>Creativity</span>
             </div>
           </td>
@@ -208,18 +214,18 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {hasAnyModelSpec("inputFormats") && (
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
-            <div className="flex items-center">
+            <div className={containerStyles.flexCenter}>
               <i className={`bi bi-arrow-down-right-square-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Input Formats</span>
             </div>
           </td>
           {displayModels.map(model => (
             <td key={model.id} className={tableStyles.cellCenter}>
-              <div className="flex gap-3 justify-center">
-                <i className={`bi bi-file-text-fill text-lg ${model.specs?.inputFormats?.includes("text") ? "text-blue-600" : "text-gray-300"}`} title="Text"></i>
-                <i className={`bi bi-mic-fill text-lg ${model.specs?.inputFormats?.includes("audio") ? "text-blue-600" : "text-gray-300"}`} title="Audio"></i>
-                <i className={`bi bi-image-fill text-lg ${model.specs?.inputFormats?.includes("image") ? "text-blue-600" : "text-gray-300"}`} title="Image"></i>
-                <i className={`bi bi-music-note-beamed text-lg ${model.specs?.inputFormats?.includes("music") ? "text-blue-600" : "text-gray-300"}`} title="Music"></i>
-                <i className={`bi bi-camera-video-fill text-lg ${model.specs?.inputFormats?.includes("video") ? "text-blue-600" : "text-gray-300"}`} title="Video"></i>
+              <div className={iconStyles.formatContainer}>
+                <i className={`bi bi-file-text-fill ${iconStyles.textLg} ${model.specs?.inputFormats?.includes("text") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Text"></i>
+                <i className={`bi bi-mic-fill ${iconStyles.textLg} ${model.specs?.inputFormats?.includes("audio") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Audio"></i>
+                <i className={`bi bi-image-fill ${iconStyles.textLg} ${model.specs?.inputFormats?.includes("image") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Image"></i>
+                <i className={`bi bi-music-note-beamed ${iconStyles.textLg} ${model.specs?.inputFormats?.includes("music") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Music"></i>
+                <i className={`bi bi-camera-video-fill ${iconStyles.textLg} ${model.specs?.inputFormats?.includes("video") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Video"></i>
               </div>
             </td>
           ))}
@@ -230,18 +236,18 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {hasAnyModelSpec("outputFormats") && (
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
-            <div className="flex items-center">
+            <div className={containerStyles.flexCenter}>
               <i className={`bi bi-arrow-up-right-square-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Output Formats</span>
             </div>
           </td>
           {displayModels.map(model => (
             <td key={model.id} className={tableStyles.cellCenter}>
-              <div className="flex gap-3 justify-center">
-                <i className={`bi bi-file-text-fill text-lg ${model.specs?.outputFormats?.includes("text") ? "text-blue-600" : "text-gray-300"}`} title="Text"></i>
-                <i className={`bi bi-mic-fill text-lg ${model.specs?.outputFormats?.includes("audio") ? "text-blue-600" : "text-gray-300"}`} title="Audio"></i>
-                <i className={`bi bi-image-fill text-lg ${model.specs?.outputFormats?.includes("image") ? "text-blue-600" : "text-gray-300"}`} title="Image"></i>
-                <i className={`bi bi-music-note-beamed text-lg ${model.specs?.outputFormats?.includes("music") ? "text-blue-600" : "text-gray-300"}`} title="Music"></i>
-                <i className={`bi bi-camera-video-fill text-lg ${model.specs?.outputFormats?.includes("video") ? "text-blue-600" : "text-gray-300"}`} title="Video"></i>
+              <div className={iconStyles.formatContainer}>
+                <i className={`bi bi-file-text-fill ${iconStyles.textLg} ${model.specs?.outputFormats?.includes("text") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Text"></i>
+                <i className={`bi bi-mic-fill ${iconStyles.textLg} ${model.specs?.outputFormats?.includes("audio") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Audio"></i>
+                <i className={`bi bi-image-fill ${iconStyles.textLg} ${model.specs?.outputFormats?.includes("image") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Image"></i>
+                <i className={`bi bi-music-note-beamed ${iconStyles.textLg} ${model.specs?.outputFormats?.includes("music") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Music"></i>
+                <i className={`bi bi-camera-video-fill ${iconStyles.textLg} ${model.specs?.outputFormats?.includes("video") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Video"></i>
               </div>
             </td>
           ))}
@@ -252,7 +258,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {hasAnyModelSpec("maxInputTokens") && (
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
-            <div className="flex items-center">
+            <div className={containerStyles.flexCenter}>
               <i className={`bi bi-sign-turn-right-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Max Input</span>
             </div>
           </td>
@@ -270,7 +276,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {hasAnyModelSpec("maxOutputTokens") && (
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
-            <div className="flex items-center">
+            <div className={containerStyles.flexCenter}>
               <i className={`bi bi-sign-turn-left-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Max Output</span>
             </div>
           </td>
@@ -288,7 +294,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {hasAnyModelSpec("knowledgeCutoff") && (
         <tr className={tableStyles.rowHover}>
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell}`}>
-            <div className="flex items-center">
+            <div className={containerStyles.flexCenter}>
               <i className={`bi bi-calendar-check-fill ${iconStyles.base}`}></i> <span className={textStyles.primary}>Knowledge Cutoff</span>
             </div>
           </td>
@@ -303,18 +309,18 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
   );
 
   return (
-    <div className="flex flex-col">
+    <div className={containerStyles.flexCol}>
       <div style={tableContainerStyle}>
         <div className={needsScrolling ? "overflow-x-auto" : ""}>
-          <table className="w-full bg-white border border-gray-200 rounded-lg shadow-sm">
+          <table className={tableStyles.table}>
             <thead>
-              <tr className="bg-gray-50">
-                <th className={`${tableStyles.headerCell} sticky left-0 bg-gray-50`} 
-                   style={{ width: '20%', minWidth: '200px' }}></th>
+              <tr className={tableStyles.header}>
+                <th className={`${tableStyles.headerCell} ${tableStyles.headerFixed}`} 
+                   style={colStyle}></th>
                 {displayModels.map(model => (
                   <th key={model.id} className={tableStyles.headerCellCenter} 
-                     style={{ width: '20%', minWidth: '200px' }}>
-                    <div className="font-semibold text-gray-900">{model.name}</div>
+                     style={colStyle}>
+                    <div className={tableStyles.modelName}>{model.name}</div>
                   </th>
                 ))}
               </tr>
@@ -327,28 +333,28 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       </div>
       
       {/* Format Icons Legend */}
-      <div className="mt-4 max-w-lg mx-auto">
-        <div className="flex gap-5 items-center justify-center bg-gray-50 p-3 rounded-lg flex-wrap">
-          <span className={`text-sm ${textStyles.secondary}`}>Legend:</span>
-          <div className="flex items-center">
-            <i className="bi bi-file-text-fill text-blue-600 mr-1"></i>
-            <span className={`text-sm ${textStyles.primary}`}>Text</span>
+      <div className={containerStyles.legend}>
+        <div className={containerStyles.legendBox}>
+          <span className={`${textStyles.small} ${textStyles.secondary}`}>Legend:</span>
+          <div className={iconStyles.formatItem}>
+            <i className={`bi bi-file-text-fill ${iconStyles.activeFormat} ${iconStyles.iconRight}`}></i>
+            <span className={`${textStyles.small} ${textStyles.primary}`}>Text</span>
           </div>
-          <div className="flex items-center">
-            <i className="bi bi-mic-fill text-blue-600 mr-1"></i>
-            <span className={`text-sm ${textStyles.primary}`}>Audio</span>
+          <div className={iconStyles.formatItem}>
+            <i className={`bi bi-mic-fill ${iconStyles.activeFormat} ${iconStyles.iconRight}`}></i>
+            <span className={`${textStyles.small} ${textStyles.primary}`}>Audio</span>
           </div>
-          <div className="flex items-center">
-            <i className="bi bi-image-fill text-blue-600 mr-1"></i>
-            <span className={`text-sm ${textStyles.primary}`}>Image</span>
+          <div className={iconStyles.formatItem}>
+            <i className={`bi bi-image-fill ${iconStyles.activeFormat} ${iconStyles.iconRight}`}></i>
+            <span className={`${textStyles.small} ${textStyles.primary}`}>Image</span>
           </div>
-          <div className="flex items-center">
-            <i className="bi bi-music-note-beamed text-blue-600 mr-1"></i>
-            <span className={`text-sm ${textStyles.primary}`}>Music</span>
+          <div className={iconStyles.formatItem}>
+            <i className={`bi bi-music-note-beamed ${iconStyles.activeFormat} ${iconStyles.iconRight}`}></i>
+            <span className={`${textStyles.small} ${textStyles.primary}`}>Music</span>
           </div>
-          <div className="flex items-center">
-            <i className="bi bi-camera-video-fill text-blue-600 mr-1"></i>
-            <span className={`text-sm ${textStyles.primary}`}>Video</span>
+          <div className={iconStyles.formatItem}>
+            <i className={`bi bi-camera-video-fill ${iconStyles.activeFormat} ${iconStyles.iconRight}`}></i>
+            <span className={`${textStyles.small} ${textStyles.primary}`}>Video</span>
           </div>
         </div>
       </div>

@@ -6,6 +6,8 @@ export const textStyles = {
   secondary: 'text-gray-700', // Secondary/supporting text (slightly darker for better readability)
   highlight: 'text-blue-600', // Highlighted/accent text
   muted: 'text-gray-500',     // Less prominent text
+  disabled: 'text-gray-300',  // Disabled/inactive text
+  small: 'text-sm',           // Small text
 };
 
 // Section headings
@@ -18,13 +20,26 @@ export const headingStyles = {
 
 // Table styles
 export const tableStyles = {
+  // Base table styles
+  table: 'w-full bg-white border border-gray-200 rounded-lg shadow-sm',
+  
+  // Header styles
+  header: 'bg-gray-50',
   headerCell: 'py-3 px-4 text-left font-semibold text-gray-700 border-b',
   headerCellCenter: 'py-3 px-4 text-center font-semibold text-gray-700 border-b',
+  headerFixed: 'sticky left-0 bg-gray-50',
+  
+  // Cell styles
   cell: `py-3 px-4 border-b ${textStyles.primary}`,
   cellCenter: `py-3 px-4 border-b text-center ${textStyles.primary}`,
   rowHover: 'hover:bg-gray-50',
   stickyCell: 'sticky left-0 bg-white',
-  content: `${textStyles.primary}`, // Content inside cells
+  
+  // Content inside cells
+  content: `${textStyles.primary}`,
+  
+  // Model name
+  modelName: 'font-semibold text-gray-900'
 };
 
 // Card and container styles
@@ -34,12 +49,40 @@ export const containerStyles = {
   grid2col: 'grid grid-cols-1 md:grid-cols-2 gap-6',
   grid3col: 'grid grid-cols-1 md:grid-cols-3 gap-6',
   grid4col: 'grid grid-cols-1 md:grid-cols-4 gap-4',
+  
+  // Layout helpers
+  flexCol: 'flex flex-col',
+  flexRow: 'flex flex-row',
+  flexCenter: 'flex items-center',
+  flexBetween: 'flex justify-between',
+  flexCentered: 'flex items-center justify-center',
+  
+  // Spacing
+  mt4: 'mt-4',
+  
+  // Legend container
+  legend: 'max-w-lg mx-auto mt-4',
+  legendBox: 'flex gap-5 items-center justify-center bg-gray-50 p-3 rounded-lg flex-wrap'
 };
 
 // Icon styles
 export const iconStyles = {
   base: `${textStyles.highlight} mr-2`,
   action: `${textStyles.highlight} hover:text-blue-800 cursor-pointer`,
+  
+  // Icon sizes
+  textLg: 'text-lg',
+  
+  // Rating icons
+  ratingContainer: 'flex items-center justify-center text-blue-600',
+  iconSpacing: 'mx-0.5',
+  
+  // Format icons
+  activeFormat: textStyles.highlight,
+  inactiveFormat: textStyles.disabled,
+  formatContainer: 'flex gap-3 justify-center',
+  formatItem: 'flex items-center',
+  iconRight: 'mr-1'
 };
 
 // Button styles
