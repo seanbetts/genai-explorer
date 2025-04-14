@@ -274,36 +274,20 @@ const LandscapeVisualization = ({ data, onCompanySelect }) => {
 const AILandscapeDemo = () => {
   const [data, setData] = useState(landscapeData);
   const [selectedCompany, setSelectedCompany] = useState(null);
-  const [selectedModel, setSelectedModel] = useState(null);
-  const [currentView, setCurrentView] = useState('home'); // 'home', 'company', 'model'
+  const [currentView, setCurrentView] = useState('home'); // 'home', 'company'
   
   // Handle company selection
   const handleCompanySelect = (companyId) => {
     const company = data.companies.find(c => c.id === companyId);
     if (company) {
       setSelectedCompany(company);
-      setSelectedModel(null);
       setCurrentView('company');
-    }
-  };
-  
-  // Handle model selection
-  const handleModelSelect = (modelId) => {
-    if (!selectedCompany) return;
-    
-    const model = selectedCompany.models.find(m => m.id === modelId);
-    if (model) {
-      setSelectedModel(model);
-      setCurrentView('model');
     }
   };
   
   // Handle back navigation
   const handleBack = () => {
-    if (currentView === 'model') {
-      setCurrentView('company');
-      setSelectedModel(null);
-    } else if (currentView === 'company') {
+    if (currentView === 'company') {
       setCurrentView('home');
       setSelectedCompany(null);
     }
@@ -318,7 +302,6 @@ const AILandscapeDemo = () => {
             onClick={() => {
               setCurrentView('home');
               setSelectedCompany(null);
-              setSelectedModel(null);
             }}
           >
             Generative AI Landscape
@@ -366,39 +349,147 @@ const AILandscapeDemo = () => {
             <p className="text-lg mb-8">{selectedCompany.description}</p>
             
             <h2 className="text-2xl font-bold mb-4">Models</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-              {selectedCompany.models && selectedCompany.models.map(model => (
-                <div 
-                  key={model.id}
-                  className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
-                  onClick={() => handleModelSelect(model.id)}
-                >
-                  <h3 className="text-xl font-semibold mb-2">{model.name}</h3>
-                  {model.featured && (
-                    <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">
-                      Featured
-                    </span>
-                  )}
-                  
-                  {model.capabilities && (
-                    <div className="mt-4 space-y-2">
-                      {Object.entries(model.capabilities).map(([key, value]) => (
-                        <div key={key} className="flex items-center">
-                          <span className="capitalize w-24 text-sm">{key}:</span>
-                          <div className="w-full bg-gray-200 h-2 rounded-full">
-                            <div 
-                              className="bg-blue-500 h-full rounded-full" 
-                              style={{ width: `${(value / 5) * 100}%` }}
-                            />
-                          </div>
-                          <span className="ml-2 text-sm">{value}/5</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
+            {selectedCompany.models && selectedCompany.models.length > 0 && (
+              <div className="overflow-x-auto mb-8">
+                <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
+                  <thead>
+                    <tr className="bg-gray-50">
+                      <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Model</th>
+                      <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Type</th>
+                      {selectedCompany.models.some(model => model.capabilities?.intelligence) && (
+                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Intelligence</th>
+                      )}
+                      {selectedCompany.models.some(model => model.capabilities?.speed) && (
+                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Speed</th>
+                      )}
+                      {selectedCompany.models.some(model => model.capabilities?.reasoning) && (
+                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Reasoning</th>
+                      )}
+                      {selectedCompany.models.some(model => model.capabilities?.creativity) && (
+                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Creativity</th>
+                      )}
+                      {selectedCompany.models.some(model => model.specs?.inputFormats) && (
+                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Input Formats</th>
+                      )}
+                      {selectedCompany.models.some(model => model.specs?.outputFormats) && (
+                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Output Formats</th>
+                      )}
+                      {selectedCompany.models.some(model => model.specs?.maxInputTokens) && (
+                        <th className="py-3 px-4 text-left font-semibold text-gray-700 border-b">Max Input</th>
+                      )}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {selectedCompany.models.map(model => (
+                      <tr key={model.id} className="hover:bg-gray-50">
+                        <td className="py-3 px-4 border-b">
+                          <div className="font-semibold text-gray-900">{model.name}</div>
+                          {model.featured && (
+                            <span className="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded">
+                              Featured
+                            </span>
+                          )}
+                        </td>
+                        <td className="py-3 px-4 border-b capitalize">{model.type || "-"}</td>
+                        {selectedCompany.models.some(model => model.capabilities?.intelligence) && (
+                          <td className="py-3 px-4 border-b">
+                            {model.capabilities?.intelligence ? (
+                              <div className="flex items-center">
+                                <div className="w-16 bg-gray-200 h-2 rounded-full mr-2">
+                                  <div 
+                                    className="bg-blue-500 h-full rounded-full" 
+                                    style={{ width: `${(model.capabilities.intelligence / 5) * 100}%` }}
+                                  />
+                                </div>
+                                <span className="text-sm">{model.capabilities.intelligence}/5</span>
+                              </div>
+                            ) : "-"}
+                          </td>
+                        )}
+                        {selectedCompany.models.some(model => model.capabilities?.speed) && (
+                          <td className="py-3 px-4 border-b">
+                            {model.capabilities?.speed ? (
+                              <div className="flex items-center">
+                                <div className="w-16 bg-gray-200 h-2 rounded-full mr-2">
+                                  <div 
+                                    className="bg-yellow-500 h-full rounded-full" 
+                                    style={{ width: `${(model.capabilities.speed / 5) * 100}%` }}
+                                  />
+                                </div>
+                                <span className="text-sm">{model.capabilities.speed}/5</span>
+                              </div>
+                            ) : "-"}
+                          </td>
+                        )}
+                        {selectedCompany.models.some(model => model.capabilities?.reasoning) && (
+                          <td className="py-3 px-4 border-b">
+                            {model.capabilities?.reasoning ? (
+                              <div className="flex items-center">
+                                <div className="w-16 bg-gray-200 h-2 rounded-full mr-2">
+                                  <div 
+                                    className="bg-purple-500 h-full rounded-full" 
+                                    style={{ width: `${(model.capabilities.reasoning / 5) * 100}%` }}
+                                  />
+                                </div>
+                                <span className="text-sm">{model.capabilities.reasoning}/5</span>
+                              </div>
+                            ) : "-"}
+                          </td>
+                        )}
+                        {selectedCompany.models.some(model => model.capabilities?.creativity) && (
+                          <td className="py-3 px-4 border-b">
+                            {model.capabilities?.creativity ? (
+                              <div className="flex items-center">
+                                <div className="w-16 bg-gray-200 h-2 rounded-full mr-2">
+                                  <div 
+                                    className="bg-pink-500 h-full rounded-full" 
+                                    style={{ width: `${(model.capabilities.creativity / 5) * 100}%` }}
+                                  />
+                                </div>
+                                <span className="text-sm">{model.capabilities.creativity}/5</span>
+                              </div>
+                            ) : "-"}
+                          </td>
+                        )}
+                        {selectedCompany.models.some(model => model.specs?.inputFormats) && (
+                          <td className="py-3 px-4 border-b">
+                            {model.specs?.inputFormats ? (
+                              <div className="flex flex-wrap gap-1">
+                                {model.specs.inputFormats.map(format => (
+                                  <span key={format} className="bg-gray-100 text-gray-800 text-xs px-2 py-0.5 rounded">
+                                    {format}
+                                  </span>
+                                ))}
+                              </div>
+                            ) : "-"}
+                          </td>
+                        )}
+                        {selectedCompany.models.some(model => model.specs?.outputFormats) && (
+                          <td className="py-3 px-4 border-b">
+                            {model.specs?.outputFormats ? (
+                              <div className="flex flex-wrap gap-1">
+                                {model.specs.outputFormats.map(format => (
+                                  <span key={format} className="bg-gray-100 text-gray-800 text-xs px-2 py-0.5 rounded">
+                                    {format}
+                                  </span>
+                                ))}
+                              </div>
+                            ) : "-"}
+                          </td>
+                        )}
+                        {selectedCompany.models.some(model => model.specs?.maxInputTokens) && (
+                          <td className="py-3 px-4 border-b">
+                            {model.specs?.maxInputTokens ? (
+                              <span>{model.specs.maxInputTokens.toLocaleString()} tokens</span>
+                            ) : "-"}
+                          </td>
+                        )}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
             
             {selectedCompany.features && (
               <>
@@ -478,98 +569,6 @@ const AILandscapeDemo = () => {
           </div>
         )}
         
-        {currentView === 'model' && selectedCompany && selectedModel && (
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="flex items-center mb-6">
-              <div className="relative h-12 w-32 mr-4">
-                <Image 
-                  src={selectedCompany.logo && selectedCompany.logo.startsWith("/") ? selectedCompany.logo : "/images/companies/placeholder.png"} 
-                  alt={`${selectedCompany.name} logo`}
-                  fill
-                  style={{ objectFit: "contain" }}
-                />
-              </div>
-              <div>
-                <h1 className="text-3xl font-bold">{selectedModel.name}</h1>
-                <div className="text-gray-600">
-                  <span>{selectedCompany.name}</span>
-                  <span className="mx-2">•</span>
-                  <span>Type: {selectedModel.type || "N/A"}</span>
-                </div>
-              </div>
-            </div>
-            
-            <div className="mb-8">
-              <div className="inline-flex space-x-2 mb-4">
-                {selectedModel.featured && (
-                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                    Featured Model
-                  </span>
-                )}
-                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
-                  {selectedModel.type || "Unknown type"}
-                </span>
-              </div>
-            </div>
-            
-            {selectedModel.capabilities && (
-              <div className="mb-8">
-                <h2 className="text-xl font-bold mb-4">Capabilities</h2>
-                <div className="space-y-4 max-w-2xl">
-                  {Object.entries(selectedModel.capabilities).map(([key, value]) => (
-                    <div key={key}>
-                      <div className="flex justify-between mb-1">
-                        <span className="capitalize font-medium">{key}</span>
-                        <span>{value}/5</span>
-                      </div>
-                      <div className="w-full bg-gray-200 h-3 rounded-full overflow-hidden">
-                        <div 
-                          className={`h-full ${
-                            key === 'intelligence' ? 'bg-blue-500' : 
-                            key === 'speed' ? 'bg-yellow-500' : 'bg-purple-500'
-                          }`}
-                          style={{ width: `${(value / 5) * 100}%` }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-            
-            {selectedModel.specs && (
-              <div>
-                <h2 className="text-xl font-bold mb-4">Specifications</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 max-w-3xl">
-                  {Object.entries(selectedModel.specs).map(([key, value]) => (
-                    <div key={key}>
-                      <h3 className="font-semibold text-gray-700 capitalize">
-                        {key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
-                      </h3>
-                      <div>
-                        {Array.isArray(value) ? (
-                          <div className="flex flex-wrap gap-2 mt-1">
-                            {value.map(item => (
-                              <span key={item} className="bg-gray-100 px-2 py-1 rounded text-sm">
-                                {item}
-                              </span>
-                            ))}
-                          </div>
-                        ) : typeof value === 'boolean' ? (
-                          value ? "Yes" : "No"
-                        ) : typeof value === 'number' ? (
-                          value.toLocaleString()
-                        ) : (
-                          value
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        )}
       </main>
 
       <footer className="bg-gray-800 text-white mt-12 py-6">
