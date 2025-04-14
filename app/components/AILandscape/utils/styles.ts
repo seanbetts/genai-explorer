@@ -353,7 +353,7 @@ export const containerStyles = {
   // Layout helpers for consistent patterns
   flexCol: 'flex flex-col',
   flexRow: 'flex flex-row',
-  flexCenter: 'flex items-center',
+  flexCenter: 'flex items-center gap-3',
   flexBetween: 'flex justify-between items-center',
   flexCentered: 'flex items-center justify-center',
   flexStart: 'flex justify-start items-center',
@@ -369,14 +369,17 @@ export const containerStyles = {
   spacerLg: 'h-8',
   
   // Legend container with refined styling
-  legend: 'max-w-lg mx-auto mt-8 bg-white rounded-lg border border-gray-200',
-  legendBox: 'flex gap-4 items-center justify-center p-4 rounded-lg flex-wrap'
+  legend: 'max-w-3xl mx-auto mt-8 bg-white rounded-lg border border-gray-200',
+  legendBox: 'flex items-center p-4 rounded-lg',
+  legendLabel: 'text-gray-500 text-sm mr-4',
+  legendItems: 'flex items-center flex-wrap gap-2',
+  legendItem: 'flex items-center gap-3 mr-3'
 };
 
 // Refined icon system with subtle interactions and improved visual balance
 export const iconStyles = {
-  // Base icon styles with consistent spacing and transitions
-  base: 'text-gray-500 mr-2 transition-all duration-200',
+  // Base icon styles with improved spacing and transitions
+  base: 'text-gray-500 transition-all duration-200',
   action: 'text-gray-500 hover:text-blue-500 cursor-pointer transition-all duration-200',
   primary: 'text-blue-500',
   secondary: 'text-gray-400',
@@ -400,12 +403,12 @@ export const iconStyles = {
   // Format indicators with improved contrast
   activeFormat: 'text-blue-600',
   inactiveFormat: 'text-gray-300',
-  formatContainer: 'flex gap-3 justify-center',
-  formatItem: 'flex items-center',
+  formatContainer: 'flex gap-4 justify-center',
+  formatItem: 'flex items-center mx-2',
   
-  // Icon positioning utilities
-  iconLeft: 'mr-2',
-  iconRight: 'ml-2',
+  // Icon positioning utilities with increased spacing
+  iconLeft: 'mr-3',
+  iconRight: 'ml-3',
   iconOnly: 'mx-auto',
   
   // Animation effects for interactive feedback
