@@ -54,7 +54,7 @@ const AILandscape: React.FC = () => {
               setSelectedCompany(null);
             }}
           >
-            Generative AI Landscape
+            Generative AI Model Explorer
           </div>
           
           <div>
@@ -89,11 +89,6 @@ const AILandscape: React.FC = () => {
         )}
       </main>
 
-      <footer className={containerStyles.footer}>
-        <div className={containerStyles.footerContent}>
-          <p>© 2025 AI Landscape Explorer</p>
-        </div>
-      </footer>
     </div>
   );
 };
