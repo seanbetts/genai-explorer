@@ -1,4 +1,4 @@
-# Generative AI Landscape Explorer
+# Generative AI Model Explorer
 
 An interactive web application that visualizes the current landscape of generative AI companies, models, and capabilities.
 

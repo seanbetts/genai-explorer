@@ -514,6 +514,10 @@ export const iconStyles = {
   warning: 'text-yellow-300',
   error: 'text-red-400',
   info: 'text-cyan-400',
+  
+  // Boolean indicator icons
+  booleanTrue: 'text-fuchsia-500 text-lg bi bi-check-circle-fill',
+  booleanFalse: 'text-gray-600 text-lg bi bi-x-circle-fill',
 };
 
 // Cyberpunk button system with neon colors and dark backgrounds

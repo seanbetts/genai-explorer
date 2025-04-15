@@ -47,7 +47,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
     enterprise: 'Enterprise AI Platforms',
     image: 'Image Generation',
     video: 'Video Generation',
-    music: 'Music & Audio Generation',
+    music: 'Audio Generation',
     other: 'Specialised AI Platforms'
   };
   

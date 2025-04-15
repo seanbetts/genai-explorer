@@ -192,11 +192,11 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           </td>
           {displayModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              <span className={textStyles.primary}>
-                {model.specs?.reasoningTokens !== undefined ? (
-                  model.specs.reasoningTokens ? "Yes" : "No"
-                ) : "-"}
-              </span>
+              {model.specs?.reasoningTokens !== undefined ? (
+                model.specs.reasoningTokens ? 
+                  <i className={iconStyles.booleanTrue} title="Yes"></i> : 
+                  <i className={iconStyles.booleanFalse} title="No"></i>
+              ) : <span className={textStyles.primary}>-</span>}
             </td>
           ))}
         </tr>
