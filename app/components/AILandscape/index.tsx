@@ -59,12 +59,14 @@ const AILandscape: React.FC = () => {
           
           <div>
             {currentView === 'home' && (
-              <div className={`${textStyles.secondary} text-xs pr-1`}>
-                Data last updated: {new Date().toLocaleDateString('en-GB', { 
-                  day: 'numeric', 
-                  month: 'long', 
-                  year: 'numeric' 
-                })}
+              <div className="text-xs pr-4 font-mono">
+                Data last updated: <span className="text-fuchsia-500 font-semibold">{
+                  new Date().toLocaleDateString('en-GB', { 
+                    day: 'numeric', 
+                    month: 'long', 
+                    year: 'numeric' 
+                  })
+                }</span>
               </div>
             )}
           </div>

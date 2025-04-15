@@ -36,19 +36,19 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
       <div className={`${containerStyles.flexBetween} mb-6`}>
         <button 
           onClick={onBack} 
-          className={`${buttonStyles.secondary} ${buttonStyles.withLeftIcon} hover:-translate-x-1`}
+          className={`${buttonStyles.secondary} ${buttonStyles.withLeftIcon} hover:-translate-x-1 cursor-pointer transition-all duration-300`}
         >
           <i className={`bi bi-chevron-left ${iconStyles.primary} ${iconStyles.lg}`}></i> 
           <span>Back</span>
         </button>
-        <div className={`${textStyles.secondary} ${textStyles.xs}`}>
-          Company data last updated: {
+        <div className="text-xs font-mono pr-4">
+          Company data last updated: <span className="text-fuchsia-500 font-semibold">{
             new Date(company.lastUpdated).toLocaleDateString('en-GB', { 
               day: 'numeric', 
               month: 'long', 
               year: 'numeric' 
             })
-          }
+          }</span>
         </div>
       </div>
       
