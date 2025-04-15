@@ -123,7 +123,7 @@ export const textStyles = {
   bodyLarge: 'text-lg leading-7 text-gray-800',
   
   // Interactive text elements
-  link: 'text-blue-600 hover:text-blue-700 transition-colors duration-150',
+  linkPrimary: 'text-blue-600 hover:text-blue-700 transition-colors duration-150',
   linkSubtle: 'text-gray-600 hover:text-gray-800 transition-colors duration-150',
 };
 
@@ -388,7 +388,7 @@ export const iconStyles = {
   // Icon sizes with meaningful scale progression
   xs: 'text-xs',
   sm: 'text-sm',
-  base: 'text-base',
+  baseSized: 'text-base',
   lg: 'text-lg',
   xl: 'text-xl',
   '2xl': 'text-2xl',

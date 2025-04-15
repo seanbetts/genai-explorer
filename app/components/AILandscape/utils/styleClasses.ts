@@ -70,7 +70,7 @@ export const styles = {
   legendBox: containerStyles.legendBox,
   
   // Icons
-  iconBase: iconStyles.base,
+  iconBase: iconStyles.primary, // Changed from iconStyles.base due to duplicate property
   activeFormat: iconStyles.activeFormat,
   inactiveFormat: iconStyles.inactiveFormat,
   formatContainer: iconStyles.formatContainer,
