@@ -384,10 +384,10 @@ export const containerStyles = {
   // Subscription card styles with cyberpunk styling to match feature cards
   subscriptionGrid: 'flex flex-wrap justify-center gap-6',
   subscriptionCard: 'flex flex-col rounded-lg border border-gray-600 bg-gray-200 overflow-hidden hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer no-underline w-72 relative',
-  subscriptionHeader: 'px-5 py-3 bg-gray-800 border-b border-gray-600',
+  subscriptionHeader: 'px-5 py-3 bg-[#2d3748] border-b border-gray-600', /* Match table header/label color */
   subscriptionContent: 'p-5 flex-1 flex flex-col overflow-hidden',
   subscriptionTier: 'text-lg font-semibold text-fuchsia-500 font-mono',
-  subscriptionType: 'px-2 py-0.5 bg-gray-700 rounded text-xs text-cyan-400 font-mono',
+  subscriptionType: 'px-2 py-0.5 bg-gray-600 rounded text-xs text-cyan-400 font-mono',
   subscriptionPrice: 'text-xl font-bold text-gray-800 font-mono mb-4',
   subscriptionPriceUnit: 'text-xs text-gray-600 font-normal font-mono',
   subscriptionFeatureList: 'space-y-2 text-sm flex-1',

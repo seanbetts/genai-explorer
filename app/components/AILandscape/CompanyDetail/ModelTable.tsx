@@ -97,8 +97,8 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     minWidth: '200px'
   } as React.CSSProperties;
 
-  // Generate table rows
-  const renderTableRows = () => (
+  // Generate main table rows - Capabilities and Formats
+  const renderCapabilitiesRows = () => (
     <>
       {/* Release Date Row */}
       <tr className="cursor-pointer">
@@ -202,22 +202,6 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         </tr>
       )}
       
-      {/* Creativity Row */}
-      {hasAnyModelCapability("creativity") && (
-        <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-            <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-stars ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Creativity</span>
-            </div>
-          </td>
-          {displayModels.map(model => (
-            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {renderRating(model, "creativity")}
-            </td>
-          ))}
-        </tr>
-      )}
-      
       {/* Input Formats Row */}
       {hasAnyModelSpec("inputFormats") && (
         <tr className="cursor-pointer">
@@ -261,7 +245,12 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           ))}
         </tr>
       )}
-      
+    </>
+  );
+
+  // Generate context table rows - Max Input/Output and Knowledge Cutoff
+  const renderContextRows = () => (
+    <>
       {/* Max Input Tokens Row */}
       {hasAnyModelSpec("maxInputTokens") && (
         <tr className="cursor-pointer">
@@ -298,13 +287,33 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         </tr>
       )}
 
+      {/* Knowledge Cutoff Row */}
+      {hasAnyModelSpec("knowledgeCutoff") && (
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-calendar-check-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Knowledge Cutoff</span>
+            </div>
+          </td>
+          {displayModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              <span className={textStyles.primary}>{model.specs?.knowledgeCutoff || "-"}</span>
+            </td>
+          ))}
+        </tr>
+      )}
+    </>
+  );
+
+  // Generate pricing table rows
+  const renderPricingRows = () => (
+    <>
       {/* Input Price Row */}
       {hasAnyModelSpec("pricingInputPerM") && (
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-currency-dollar ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Input Price</span>
-              <span className="text-xs text-gray-400 ml-2">(per 1M tokens)</span>
+              <i className={`bi bi-currency-dollar ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Input</span>
             </div>
           </td>
           {displayModels.map(model => (
@@ -323,7 +332,6 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-clock-history ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Cached Input</span>
-              <span className="text-xs text-gray-400 ml-2">(per 1M tokens)</span>
             </div>
           </td>
           {displayModels.map(model => (
@@ -341,8 +349,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-cash-stack ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Output Price</span>
-              <span className="text-xs text-gray-400 ml-2">(per 1M tokens)</span>
+              <i className={`bi bi-cash-stack ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Output</span>
             </div>
           </td>
           {displayModels.map(model => (
@@ -350,22 +357,6 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               {model.specs?.pricingOutputPerM !== undefined ? (
                 <span className={tableStyles.metric}>${model.specs.pricingOutputPerM.toFixed(2)}</span>
               ) : <span className={textStyles.primary}>-</span>}
-            </td>
-          ))}
-        </tr>
-      )}
-
-      {/* Knowledge Cutoff Row */}
-      {hasAnyModelSpec("knowledgeCutoff") && (
-        <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-            <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-calendar-check-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Knowledge Cutoff</span>
-            </div>
-          </td>
-          {displayModels.map(model => (
-            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              <span className={textStyles.primary}>{model.specs?.knowledgeCutoff || "-"}</span>
             </td>
           ))}
         </tr>
@@ -397,7 +388,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     }
     
     /* Ensure icons remain visible on hover */
-    .hover-highlight tbody tr:hover .text-gray-700.bi {
+    .hover-highlight tbody tr:hover .text-gray-600.bi {
       color: #4a5568 !important; /* Make inactive icons more visible on hover */
     }
     
@@ -411,34 +402,85 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       cursor: default;
     }
   `;
+
+  // Check if we need to show each table section
+  const hasContextData = hasAnyModelSpec("maxInputTokens") || hasAnyModelSpec("maxOutputTokens") || hasAnyModelSpec("knowledgeCutoff");
+  const hasPricingData = hasAnyModelSpec("pricingInputPerM") || hasAnyModelSpec("pricingCachedInputPerM") || hasAnyModelSpec("pricingOutputPerM");
+  
+  // Section titles with consistent styling
+  const sectionTitle = "text-lg font-semibold text-fuchsia-500 mt-6 mb-2 font-mono";
+
+  // Common table header component
+  const TableHeader = () => (
+    <thead>
+      <tr className={tableStyles.header}>
+        <th className={`${tableStyles.headerCell} ${tableStyles.headerFixed}`} 
+           style={colStyle}></th>
+        {displayModels.map(model => (
+          <th key={model.id} className={tableStyles.headerCellCenter} 
+             style={colStyle}>
+            <div className={tableStyles.modelName}>{model.name}</div>
+          </th>
+        ))}
+      </tr>
+    </thead>
+  );
   
   return (
     <div className={`${containerStyles.flexCol} transform transition-all duration-300`}>
       <style>{tableHoverStyles}</style>
+
+      {/* Main Capabilities and Formats Table */}
       <div style={tableContainerStyle}>
         <div className={needsScrolling ? tableStyles.comparison : ""}>
           <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight`}>
-            <thead>
-              <tr className={tableStyles.header}>
-                <th className={`${tableStyles.headerCell} ${tableStyles.headerFixed}`} 
-                   style={colStyle}></th>
-                {displayModels.map(model => (
-                  <th key={model.id} className={tableStyles.headerCellCenter} 
-                     style={colStyle}>
-                    <div className={tableStyles.modelName}>{model.name}</div>
-                  </th>
-                ))}
-              </tr>
-            </thead>
+            <TableHeader />
             <tbody>
-              {renderTableRows()}
+              {renderCapabilitiesRows()}
             </tbody>
           </table>
         </div>
       </div>
+
+      {/* Context Table (Max Input/Output and Knowledge Cutoff) */}
+      {hasContextData && (
+        <div className="mt-6">
+          <h3 className={sectionTitle}>Context & Limits</h3>
+          <div style={tableContainerStyle}>
+            <div className={needsScrolling ? tableStyles.comparison : ""}>
+              <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight`}>
+                <TableHeader />
+                <tbody>
+                  {renderContextRows()}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Pricing Table */}
+      {hasPricingData && (
+        <div className="mt-6">
+          <h3 className={sectionTitle}>
+            Pricing
+            <span className="text-xs text-gray-400 ml-2 font-normal">(per 1M tokens)</span>
+          </h3>
+          <div style={tableContainerStyle}>
+            <div className={needsScrolling ? tableStyles.comparison : ""}>
+              <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight`}>
+                <TableHeader />
+                <tbody>
+                  {renderPricingRows()}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      )}
       
       {/* Format Icons Legend */}
-      <div className={`${containerStyles.legend} transform transition-all duration-500`}>
+      <div className={`${containerStyles.legend} transform transition-all duration-500 mt-6`}>
         <div className={`${containerStyles.legendBox} hover:shadow-md transition-all duration-300 hover:border-fuchsia-700 legend-container`}>
           <span className={containerStyles.legendLabel}>Legend:</span>
           <div className={containerStyles.legendItems}>
