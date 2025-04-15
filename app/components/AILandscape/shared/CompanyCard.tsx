@@ -47,7 +47,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
   return (
     <div 
       key={company.id} 
-      className={containerStyles.companyCardContainer}
+      className={`group ${containerStyles.companyCardContainer}`}
       onClick={() => onClick(company.id)}
       title={`${company.name} - Click to view details`}
     >
