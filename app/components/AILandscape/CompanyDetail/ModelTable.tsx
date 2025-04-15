@@ -229,11 +229,11 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           {displayModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               <div className={iconStyles.formatContainer}>
-                <i className={`bi bi-file-text-fill ${iconStyles.textLg} ${model.specs?.inputFormats?.includes("text") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Text"></i>
-                <i className={`bi bi-mic-fill ${iconStyles.textLg} ${model.specs?.inputFormats?.includes("audio") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Audio"></i>
-                <i className={`bi bi-image-fill ${iconStyles.textLg} ${model.specs?.inputFormats?.includes("image") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Image"></i>
-                <i className={`bi bi-music-note-beamed ${iconStyles.textLg} ${model.specs?.inputFormats?.includes("music") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Music"></i>
-                <i className={`bi bi-camera-video-fill ${iconStyles.textLg} ${model.specs?.inputFormats?.includes("video") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Video"></i>
+                <i className={`bi bi-file-text-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("text") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Text"></i>
+                <i className={`bi bi-mic-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("audio") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Audio"></i>
+                <i className={`bi bi-image-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("image") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Image"></i>
+                <i className={`bi bi-music-note-beamed ${iconStyles.lg} ${model.specs?.inputFormats?.includes("music") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Music"></i>
+                <i className={`bi bi-camera-video-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("video") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Video"></i>
               </div>
             </td>
           ))}
@@ -251,11 +251,11 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           {displayModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               <div className={iconStyles.formatContainer}>
-                <i className={`bi bi-file-text-fill ${iconStyles.textLg} ${model.specs?.outputFormats?.includes("text") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Text"></i>
-                <i className={`bi bi-mic-fill ${iconStyles.textLg} ${model.specs?.outputFormats?.includes("audio") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Audio"></i>
-                <i className={`bi bi-image-fill ${iconStyles.textLg} ${model.specs?.outputFormats?.includes("image") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Image"></i>
-                <i className={`bi bi-music-note-beamed ${iconStyles.textLg} ${model.specs?.outputFormats?.includes("music") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Music"></i>
-                <i className={`bi bi-camera-video-fill ${iconStyles.textLg} ${model.specs?.outputFormats?.includes("video") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Video"></i>
+                <i className={`bi bi-file-text-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("text") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Text"></i>
+                <i className={`bi bi-mic-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("audio") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Audio"></i>
+                <i className={`bi bi-image-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("image") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Image"></i>
+                <i className={`bi bi-music-note-beamed ${iconStyles.lg} ${model.specs?.outputFormats?.includes("music") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Music"></i>
+                <i className={`bi bi-camera-video-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("video") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Video"></i>
               </div>
             </td>
           ))}
