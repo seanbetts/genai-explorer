@@ -88,14 +88,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
   const tableContainerStyle = {
     width: `${tableWidthPercent}%`,
     margin: tableWidthPercent < 100 ? '0 auto' : '0', // Center if less than 100% width
-    overflowX: needsScrolling ? 'auto' : 'visible'
-  };
+    overflowX: needsScrolling ? 'auto' : 'visible' as const
+  } as React.CSSProperties;
 
   // Column width styles for table headers and cells
   const colStyle = {
     width: '20%',
     minWidth: '200px'
-  };
+  } as React.CSSProperties;
 
   // Generate table rows
   const renderTableRows = () => (
@@ -223,7 +223,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-arrow-down-right-square-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Input Formats</span>
+              <i className={`bi bi-arrow-up-right-square-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Input Formats</span>
             </div>
           </td>
           {displayModels.map(model => (
@@ -245,7 +245,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-arrow-up-right-square-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Output Formats</span>
+              <i className={`bi bi-arrow-down-right-square-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Output Formats</span>
             </div>
           </td>
           {displayModels.map(model => (
