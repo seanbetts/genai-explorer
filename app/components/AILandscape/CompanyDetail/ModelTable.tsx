@@ -358,23 +358,23 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           <div className={containerStyles.legendItems}>
             <div className={containerStyles.legendItem}>
               <i className={`bi bi-file-text-fill ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.small} ${textStyles.primary}`}>Text</span>
+              <span className={`${textStyles.sm} ${textStyles.primary}`}>Text</span>
             </div>
             <div className={containerStyles.legendItem}>
               <i className={`bi bi-mic-fill ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.small} ${textStyles.primary}`}>Audio</span>
+              <span className={`${textStyles.sm} ${textStyles.primary}`}>Audio</span>
             </div>
             <div className={containerStyles.legendItem}>
               <i className={`bi bi-image-fill ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.small} ${textStyles.primary}`}>Image</span>
+              <span className={`${textStyles.sm} ${textStyles.primary}`}>Image</span>
             </div>
             <div className={containerStyles.legendItem}>
               <i className={`bi bi-music-note-beamed ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.small} ${textStyles.primary}`}>Music</span>
+              <span className={`${textStyles.sm} ${textStyles.primary}`}>Music</span>
             </div>
             <div className={containerStyles.legendItem}>
               <i className={`bi bi-camera-video-fill ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.small} ${textStyles.primary}`}>Video</span>
+              <span className={`${textStyles.sm} ${textStyles.primary}`}>Video</span>
             </div>
           </div>
         </div>
