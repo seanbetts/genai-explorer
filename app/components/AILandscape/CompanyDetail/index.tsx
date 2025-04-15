@@ -53,7 +53,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
       </div>
       
       <div className={`${containerStyles.flexCol} space-y-10`}>
-        <div className={`${containerStyles.detailHeader} transform transition-all duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-4'}`}>
+        <div className={`${containerStyles.companyDetailHeader} transform transition-all duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-4'}`}>
           <a 
             href={company.website} 
             target="_blank" 
@@ -64,12 +64,14 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
             <Image 
               src={company.logo && company.logo.startsWith("/") ? company.logo : "/images/companies/placeholder.png"} 
               alt={`${company.name} logo`}
-              fill
-              style={{ objectFit: "contain" }}
+              width={120}
+              height={60}
+              className={containerStyles.companyLogoImage}
+              style={{ objectFit: "contain", maxWidth: "90%", height: "auto", maxHeight: "100%" }}
             />
           </a>
           <div className={containerStyles.companyDescriptionContainer}>
-            <p className={textStyles.body}>{company.description}</p>
+            <p className={containerStyles.companyDescription}>{company.description}</p>
           </div>
         </div>
         

@@ -420,9 +420,10 @@ export const containerStyles = {
   companyGridQuarter: 'grid grid-cols-1 sm:grid-cols-2 gap-4', // 2 columns for Enterprise and specialty categories
   
   // Company detail with cyberpunk styling
-  companyDetailHeader: 'flex items-center p-6 bg-gray-800 rounded-lg border border-gray-700',
-  companyLogoContainer: 'relative block h-24 w-48 hover:opacity-90 transition-opacity mr-8 flex-shrink-0',
+  companyDetailHeader: 'flex flex-col md:flex-row items-center p-6 rounded-lg border border-gray-600 bg-gray-200 shadow-md',
+  companyLogoContainer: 'relative flex items-center justify-center h-24 w-48 flex-shrink-0 mb-4 md:mb-0 md:mr-8 bg-white rounded-md p-2 hover:opacity-90 transition-opacity',
   companyDescriptionContainer: 'flex-1 flex items-center',
+  companyDescription: 'text-gray-700 font-mono',
   companyDetailSection: 'mt-6 mb-4 space-y-4',
   
   // App layout with cyberpunk theme styling
@@ -488,7 +489,7 @@ export const iconStyles = {
   
   // Format indicators with neon cyan
   activeFormat: 'text-cyan-400',
-  inactiveFormat: 'text-gray-700',
+  inactiveFormat: 'text-gray-600', // Lighter gray to be more visible
   formatContainer: 'flex gap-4 justify-center',
   formatItem: 'flex items-center mx-2',
   

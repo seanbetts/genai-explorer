@@ -339,6 +339,11 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       background-color: #374151 !important; /* Match the row hover color */
     }
     
+    /* Ensure icons remain visible on hover */
+    .hover-highlight tbody tr:hover .text-gray-700.bi {
+      color: #4a5568 !important; /* Make inactive icons more visible on hover */
+    }
+    
     /* Remove hover effect from column headers */
     .hover-highlight thead tr th {
       background-color: #2d3748 !important; /* Keep headers at their normal color */
