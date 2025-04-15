@@ -298,6 +298,63 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         </tr>
       )}
 
+      {/* Input Price Row */}
+      {hasAnyModelSpec("pricingInputPerM") && (
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-currency-dollar ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Input Price</span>
+              <span className="text-xs text-gray-400 ml-2">(per 1M tokens)</span>
+            </div>
+          </td>
+          {displayModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              {model.specs?.pricingInputPerM !== undefined ? (
+                <span className={tableStyles.metric}>${model.specs.pricingInputPerM.toFixed(2)}</span>
+              ) : <span className={textStyles.primary}>-</span>}
+            </td>
+          ))}
+        </tr>
+      )}
+
+      {/* Cached Input Price Row */}
+      {hasAnyModelSpec("pricingCachedInputPerM") && (
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-clock-history ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Cached Input</span>
+              <span className="text-xs text-gray-400 ml-2">(per 1M tokens)</span>
+            </div>
+          </td>
+          {displayModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              {model.specs?.pricingCachedInputPerM !== undefined ? (
+                <span className={tableStyles.metric}>${model.specs.pricingCachedInputPerM.toFixed(2)}</span>
+              ) : <span className={textStyles.primary}>-</span>}
+            </td>
+          ))}
+        </tr>
+      )}
+
+      {/* Output Price Row */}
+      {hasAnyModelSpec("pricingOutputPerM") && (
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-cash-stack ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Output Price</span>
+              <span className="text-xs text-gray-400 ml-2">(per 1M tokens)</span>
+            </div>
+          </td>
+          {displayModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              {model.specs?.pricingOutputPerM !== undefined ? (
+                <span className={tableStyles.metric}>${model.specs.pricingOutputPerM.toFixed(2)}</span>
+              ) : <span className={textStyles.primary}>-</span>}
+            </td>
+          ))}
+        </tr>
+      )}
+
       {/* Knowledge Cutoff Row */}
       {hasAnyModelSpec("knowledgeCutoff") && (
         <tr className="cursor-pointer">

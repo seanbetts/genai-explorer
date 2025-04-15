@@ -76,6 +76,9 @@
             "outputFormats": ["text", "audio"],
             "maxInputTokens": 128000,
             "maxOutputTokens": 16384,
+            "pricingInputPerM": 0.50,
+            "pricingCachedInputPerM": 0.15,
+            "pricingOutputPerM": 1.50,
             "knowledgeCutoff": "September 2023"
           }
         },
@@ -96,6 +99,9 @@
             "outputFormats": ["text", "audio", "image"],
             "maxInputTokens": 128000,
             "maxOutputTokens": 16384,
+            "pricingInputPerM": 0.30,
+            "pricingCachedInputPerM": 0.10,
+            "pricingOutputPerM": 0.90,
             "knowledgeCutoff": "September 2023"
           }
         },
@@ -116,6 +122,9 @@
             "outputFormats": ["text", "audio"],
             "maxInputTokens": 200000,
             "maxOutputTokens": 100000,
+            "pricingInputPerM": 0.70,
+            "pricingCachedInputPerM": 0.25,
+            "pricingOutputPerM": 2.10,
             "knowledgeCutoff": "September 2023"
           }
         },
@@ -325,6 +334,9 @@
             "outputFormats": ["text", "image"],
             "maxInputTokens": 200000,
             "maxOutputTokens": 25000,
+            "pricingInputPerM": 0.35,
+            "pricingCachedInputPerM": 0.12,
+            "pricingOutputPerM": 1.20,
             "knowledgeCutoff": "December 2023"
           }
         }

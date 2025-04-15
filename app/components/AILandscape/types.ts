@@ -29,6 +29,11 @@ export interface Specs {
   realTimeData?: boolean;
   sourceAttribution?: boolean;
   dataRetrieval?: string;
+  
+  // Pricing data (dollars per 1 million tokens)
+  pricingInputPerM?: number;
+  pricingCachedInputPerM?: number;
+  pricingOutputPerM?: number;
 }
 
 export interface Capabilities {
