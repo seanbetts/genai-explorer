@@ -3,7 +3,7 @@
 import React from 'react';
 import { Company } from '../types';
 import CompanyCard from './CompanyCard';
-import { textStyles, containerStyles } from '../utils/styles';
+import { textStyles, containerStyles, iconStyles } from '../utils/styles';
 
 interface CategorySectionProps {
   title: string;
@@ -39,8 +39,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({
 
   // Render content with consistent layout for all categories
   const renderContent = () => {
-    // Use consistent styling for all icons
-    const iconColorClass = 'text-gray-600';
+    // Use styling from our centralized theme
     
     // Determine image size based on layout
     const imageSize = layout === 'quarter-width' 
@@ -51,15 +50,15 @@ const CategorySection: React.FC<CategorySectionProps> = ({
     
     return (
       <>
-        <div className="mb-4">
-          <div className={`${containerStyles.categoryTitle} mb-2`}>
+        <div className={textStyles.mb4}>
+          <div className={containerStyles.categoryTitle}>
             {icon && (
-              <i className={`bi ${icon} ${iconColorClass} mr-2 text-lg`}></i>
+              <i className={`bi ${icon} ${textStyles.accent} ${iconStyles.iconLeft}`}></i>
             )}
-            <span className="text-gray-800 font-semibold">{title}</span>
+            <span className={textStyles.primary}>{title}</span>
           </div>
-          {/* Light divider line below the title */}
-          <div className="border-b border-gray-100 w-full"></div>
+          {/* Divider line using centralized styles */}
+          <div className="w-full border-b border-fuchsia-800 my-2"></div>
         </div>
         
         <div className={getGridClass()}>

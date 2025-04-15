@@ -33,15 +33,15 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
   }, []);
   return (
     <div className={`transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-      <div className="flex items-center justify-between mb-6">
+      <div className={`${containerStyles.flexBetween} mb-6`}>
         <button 
           onClick={onBack} 
-          className="flex items-center gap-2 px-4 py-2 rounded-md bg-white border border-gray-200 text-gray-700 font-medium hover:bg-gray-50 hover:border-gray-300 hover:-translate-x-1 transform transition-all duration-300 shadow-sm cursor-pointer"
+          className={`${buttonStyles.secondary} ${buttonStyles.withLeftIcon} hover:-translate-x-1`}
         >
-          <i className="bi bi-chevron-left text-blue-500 text-lg"></i> 
+          <i className={`bi bi-chevron-left ${iconStyles.primary} ${iconStyles.lg}`}></i> 
           <span>Back</span>
         </button>
-        <div className={`${textStyles.secondary} text-xs pr-1`}>
+        <div className={`${textStyles.secondary} ${textStyles.xs}`}>
           Company data last updated: {
             new Date(company.lastUpdated).toLocaleDateString('en-GB', { 
               day: 'numeric', 
@@ -52,13 +52,13 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
         </div>
       </div>
       
-      <div className="space-y-8">
-        <div className={`flex items-center p-5 bg-gray-50 rounded-lg transform transition-all duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-4'}`}>
+      <div className={containerStyles.flexCol}>
+        <div className={`${containerStyles.detailHeader} transform transition-all duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-4'}`}>
           <a 
             href={company.website} 
             target="_blank" 
             rel="noopener" 
-            className="relative block h-24 w-48 hover:opacity-90 transition-opacity mr-8 flex-shrink-0"
+            className={containerStyles.companyLogoContainer}
             title="Visit website"
           >
             <Image 
@@ -68,18 +68,18 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
               style={{ objectFit: "contain" }}
             />
           </a>
-          <div className="flex-1 flex items-center">
-            <p className={`text-base ${textStyles.primary} leading-snug`}>{company.description}</p>
+          <div className={containerStyles.companyDescriptionContainer}>
+            <p className={textStyles.body}>{company.description}</p>
           </div>
         </div>
         
         <div className={`${containerStyles.section} transform transition-all duration-500 delay-100 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-          <h2 className="text-2xl font-semibold text-gray-800 py-2">
+          <h2 className={headingStyles.section}>
             <span>Models</span>
           </h2>
           
           {company.models && company.models.length > 0 && (
-            <div className="transform transition-all duration-300 pb-4 mt-2">
+            <div className={containerStyles.companyDetailSection}>
               <ModelTable models={company.models} />
             </div>
           )}
@@ -87,10 +87,10 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
         
         {company.features && company.features.length > 0 && (
           <div className={`${containerStyles.section} transform transition-all duration-500 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-            <h2 className="text-2xl font-semibold text-gray-800 py-2">
+            <h2 className={headingStyles.section}>
               <span>Features</span>
             </h2>
-            <div className="transform transition-all duration-300 pb-4 mt-2">
+            <div className={containerStyles.companyDetailSection}>
               <FeatureGrid features={company.features} />
             </div>
           </div>
@@ -98,10 +98,10 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
         
         {company.subscriptions && company.subscriptions.length > 0 && (
           <div className={`${containerStyles.section} transform transition-all duration-500 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-            <h2 className="text-2xl font-semibold text-gray-800 py-2">
+            <h2 className={headingStyles.section}>
               <span>Subscription Plans</span>
             </h2>
-            <div className="transform transition-all duration-300 pb-4 mt-2">
+            <div className={containerStyles.companyDetailSection}>
               <SubscriptionGrid subscriptions={company.subscriptions} />
             </div>
           </div>

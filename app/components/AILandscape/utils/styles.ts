@@ -58,88 +58,91 @@ interface TextTheme {
   bodyLarge: string;
 }
 
-// Color system with subtle accent colors and neutral base
+// Cyberpunk-themed color system with neon accents
 export const colors: ColorTheme = {
-  // Base neutrals for backgrounds and text
+  // Base neutrals for backgrounds and text - dark theme
   neutral: {
-    50: 'bg-gray-50',  // Lightest background
-    100: 'bg-gray-100', // Light background / hover states
-    200: 'bg-gray-200', // Dividers, borders
-    300: 'bg-gray-300', // Disabled states
+    50: 'bg-gray-800',  // Darker background (replaces lightest)
+    100: 'bg-gray-700', // Dark background / hover states
+    200: 'bg-gray-600', // Dividers, borders
+    300: 'bg-gray-500', // Disabled states
     400: 'bg-gray-400', // Secondary icons
-    500: 'bg-gray-500', // Secondary text
-    600: 'bg-gray-600', // Primary text (lighter)
-    700: 'bg-gray-700', // Primary text (standard)
-    800: 'bg-gray-800', // Headings
-    900: 'bg-gray-900', // High contrast text
+    500: 'bg-gray-300', // Secondary text
+    600: 'bg-gray-200', // Primary text (lighter)
+    700: 'bg-gray-100', // Primary text (standard)
+    800: 'bg-white',    // Headings
+    900: 'bg-white',    // High contrast text
   },
   
-  // Subtle accent colors for visual hierarchy and states
+  // Cyberpunk neon accent colors
   accent: {
+    // Neon pink (primary accent)
     blue: {
-      50: 'bg-blue-50', // Accent background / hover states
-      100: 'bg-blue-100', // Accent background (stronger)
-      200: 'bg-blue-200', // Light borders
-      500: 'bg-blue-500', // Primary accent
-      600: 'bg-blue-600', // Hover states
-      text: 'text-blue-600', // Accent text
-      border: 'border-blue-200', // Subtle borders
+      50: 'bg-fuchsia-900',    // Pink background / hover states
+      100: 'bg-fuchsia-800',   // Pink background (stronger)
+      200: 'bg-fuchsia-700',   // Light borders
+      500: 'bg-fuchsia-600',   // Primary accent
+      600: 'bg-fuchsia-500',   // Hover states
+      text: 'text-fuchsia-500', // Accent text (#EA00D9 equivalent)
+      border: 'border-fuchsia-500', // Neon borders
     },
+    // Neon cyan (secondary accent)
     amber: {
-      50: 'bg-amber-50',
-      100: 'bg-amber-100',
-      text: 'text-amber-600',
-      border: 'border-amber-200',
+      50: 'bg-cyan-900',
+      100: 'bg-cyan-800',
+      text: 'text-cyan-400',  // #0ABDC6 equivalent
+      border: 'border-cyan-400',
     },
+    // Additional neon accent
     emerald: {
-      50: 'bg-emerald-50',
-      100: 'bg-emerald-100',
-      text: 'text-emerald-600',
-      border: 'border-emerald-200',
+      50: 'bg-purple-900',
+      100: 'bg-purple-800',
+      text: 'text-purple-500',
+      border: 'border-purple-500',
     },
   },
   
   // Text colors
   text: {
-    primary: 'text-gray-800',
-    secondary: 'text-gray-600',
-    tertiary: 'text-gray-500',
-    light: 'text-gray-400',
-    inverted: 'text-white',
-    accent: 'text-blue-600',
-    link: 'text-blue-600 hover:text-blue-700',
+    primary: 'text-white',           // White text on dark background
+    secondary: 'text-gray-300',      // Light gray secondary text
+    tertiary: 'text-gray-400',       // Medium gray tertiary text
+    light: 'text-gray-500',          // Darker gray light text
+    inverted: 'text-gray-900',       // Dark text on light backgrounds
+    accent: 'text-fuchsia-500',      // Neon pink accent text (#EA00D9)
+    link: 'text-cyan-400 hover:text-cyan-300', // Cyan links (#0ABDC6)
   },
   
   // Border colors
   border: {
-    lightest: 'border-gray-100',
-    light: 'border-gray-200',
-    default: 'border-gray-300',
+    lightest: 'border-gray-700',
+    light: 'border-gray-600',
+    default: 'border-gray-500',
     medium: 'border-gray-400',
-    accent: 'border-blue-200',
+    accent: 'border-fuchsia-500',   // Neon pink borders
   },
   
   // Background colors
   bg: {
-    page: 'bg-white',
-    card: 'bg-white',
-    offset: 'bg-gray-50',
-    hover: 'bg-gray-50',
-    active: 'bg-gray-100',
-    accent: 'bg-blue-50',
-    accentHover: 'bg-blue-100',
+    page: 'bg-gray-900',            // Dark background (#1c1d1f)
+    card: 'bg-gray-800',            // Slightly lighter card background
+    offset: 'bg-gray-800',          // Offset background 
+    hover: 'bg-gray-700',           // Hover state
+    active: 'bg-gray-600',          // Active state
+    accent: 'bg-fuchsia-900',       // Pink accent bg
+    accentHover: 'bg-fuchsia-800',  // Pink accent hover
   },
   
-  // Status colors
+  // Status colors - cyberpunk neon variants
   status: {
-    success: { text: 'text-emerald-600', bg: 'bg-emerald-50', border: 'border-emerald-200' },
-    error: { text: 'text-red-600', bg: 'bg-red-50', border: 'border-red-200' },
-    warning: { text: 'text-amber-600', bg: 'bg-amber-50', border: 'border-amber-200' },
-    info: { text: 'text-blue-600', bg: 'bg-blue-50', border: 'border-blue-200' },
+    success: { text: 'text-green-400', bg: 'bg-green-900', border: 'border-green-500' },
+    error: { text: 'text-red-400', bg: 'bg-red-900', border: 'border-red-500' },
+    warning: { text: 'text-yellow-300', bg: 'bg-yellow-900', border: 'border-yellow-500' },
+    info: { text: 'text-cyan-400', bg: 'bg-cyan-900', border: 'border-cyan-500' },
   },
 };
 
-// Typography system with improved readability and elegant proportions
+// Typography system with cyberpunk styling
 export const textStyles: TextTheme = {
   // Color variants - semantic text styles
   primary: colors.text.primary,
@@ -150,19 +153,19 @@ export const textStyles: TextTheme = {
   disabled: colors.text.light,
   
   // Link variants
-  link: colors.text.link,           // Basic link style with hover state
-  linkAccent: 'text-blue-600 hover:text-blue-700 transition-colors duration-150',  // Renamed from linkPrimary
-  linkSubtle: 'text-gray-600 hover:text-gray-800 transition-colors duration-150',  // Subtle link style
+  link: colors.text.link,           // Cyan link style with hover state (#0ABDC6)
+  linkAccent: 'text-fuchsia-500 hover:text-fuchsia-400 transition-colors duration-150',  // Neon pink links (#EA00D9)
+  linkSubtle: 'text-gray-300 hover:text-white transition-colors duration-150',  // Subtle links
   
   // Size variants with optimized line heights
-  xs: 'text-xs leading-5 tracking-wide',
-  sm: 'text-sm leading-5 tracking-normal',
-  base: 'text-base leading-6 tracking-normal',
-  lg: 'text-lg leading-7 tracking-tight',
-  xl: 'text-xl leading-7 tracking-tight',
-  '2xl': 'text-2xl leading-8 tracking-tight',
-  '3xl': 'text-3xl leading-9 tracking-tight',
-  '4xl': 'text-4xl leading-10 tracking-tight',
+  xs: 'text-xs leading-5 tracking-wide font-mono',  // Added monospace font
+  sm: 'text-sm leading-5 tracking-normal font-mono',
+  base: 'text-base leading-6 tracking-normal font-mono',
+  lg: 'text-lg leading-7 tracking-tight font-mono',
+  xl: 'text-xl leading-7 tracking-tight font-mono',
+  '2xl': 'text-2xl leading-8 tracking-tight font-mono',
+  '3xl': 'text-3xl leading-9 tracking-tight font-mono',
+  '4xl': 'text-4xl leading-10 tracking-tight font-mono',
   
   // Weight variants
   light: 'font-light',
@@ -172,36 +175,40 @@ export const textStyles: TextTheme = {
   bold: 'font-bold',
   
   // Common utility text styles
-  caption: 'text-xs leading-5 text-gray-500',
-  overline: 'text-xs uppercase tracking-wider font-medium text-gray-500',
-  label: 'text-sm font-medium text-gray-700',
-  helper: 'text-xs text-gray-500 mt-1',
+  caption: 'text-xs leading-5 text-gray-400 font-mono',
+  overline: 'text-xs uppercase tracking-wider font-medium text-fuchsia-500 font-mono',  // Neon pink small text
+  label: 'text-sm font-medium text-gray-300 font-mono',
+  helper: 'text-xs text-gray-400 mt-1 font-mono',
+  
+  // Spacing utilities
+  mb4: 'mb-4',
+  xs: 'text-xs',
   
   // Body text convenience combinations
-  bodySmall: 'text-sm leading-5 text-gray-700',
-  body: 'text-base leading-6 text-gray-800',
-  bodyLarge: 'text-lg leading-7 text-gray-800',
+  bodySmall: 'text-sm leading-5 text-gray-300 font-mono',
+  body: 'text-base leading-6 text-white font-mono',            // White text
+  bodyLarge: 'text-lg leading-7 text-white font-mono',
 };
 
-// Refined heading system with elegant typography and proper vertical rhythm
+// Cyberpunk heading system with neon accent colors
 export const headingStyles = {
-  // Main headings with refined tracking and improved vertical spacing
-  h1: 'text-4xl font-bold text-gray-800 mb-8 tracking-tight',
-  h2: 'text-3xl font-bold text-gray-800 mb-6 tracking-tight',
-  h3: 'text-2xl font-semibold text-gray-800 mb-4 tracking-tight',
-  h4: 'text-xl font-semibold text-gray-800 mb-3 tracking-tight',
-  h5: 'text-lg font-semibold text-gray-800 mb-2',
-  h6: 'text-base font-semibold text-gray-800 mb-2',
+  // Main headings with neon pink accent color
+  h1: 'text-4xl font-bold text-fuchsia-500 mb-8 tracking-tight font-mono',  // Neon pink headings
+  h2: 'text-3xl font-bold text-fuchsia-500 mb-6 tracking-tight font-mono',
+  h3: 'text-2xl font-semibold text-fuchsia-500 mb-4 tracking-tight font-mono',
+  h4: 'text-xl font-semibold text-fuchsia-500 mb-3 tracking-tight font-mono',
+  h5: 'text-lg font-semibold text-fuchsia-500 mb-2 font-mono',
+  h6: 'text-base font-semibold text-fuchsia-500 mb-2 font-mono',
   
   // Semantic heading styles for specific uses
-  page: 'text-3xl font-bold text-gray-800 mb-6 tracking-tight',
-  section: 'text-2xl font-semibold text-gray-800 mb-4 tracking-tight',
-  subsection: 'text-xl font-semibold text-gray-800 mb-3',
-  card: 'text-lg font-medium text-gray-800 mb-2',
+  page: 'text-3xl font-bold text-fuchsia-500 mb-6 tracking-tight font-mono',
+  section: 'text-2xl font-semibold text-fuchsia-500 mb-4 tracking-tight font-mono',
+  subsection: 'text-xl font-semibold text-fuchsia-500 mb-3 font-mono',
+  card: 'text-lg font-medium text-fuchsia-500 mb-2 font-mono',
   
   // Variations with accent colors
-  accent: 'text-2xl font-semibold text-blue-600 mb-4 tracking-tight',
-  subtle: 'text-xl font-medium text-gray-500 mb-3',
+  accent: 'text-2xl font-semibold text-cyan-400 mb-4 tracking-tight font-mono',  // Cyan accent (#0ABDC6)
+  subtle: 'text-xl font-medium text-gray-300 mb-3 font-mono',
   
   // Heading with icon
   withIcon: 'flex items-center gap-2',
@@ -298,61 +305,61 @@ export const spacing = {
   container: 'px-4 md:px-8',
 };
 
-// Refined table styles with subtle borders and improved visual hierarchy
+// Cyberpunk table styles with dark backgrounds and neon accents
 export const tableStyles = {
-  // Base table styles - lighter shadow, more elegant borders
-  table: 'w-full bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden',
+  // Base table styles - dark background with neon borders
+  table: 'w-full bg-gray-900 border border-gray-700 rounded-lg shadow-md overflow-hidden font-mono',
   
-  // Header styles with improved contrast and typography
-  header: 'bg-white border-b border-gray-200',
-  headerCell: 'py-3.5 px-4 text-left font-semibold text-gray-800 tracking-wide text-sm',
-  headerCellCenter: 'py-3.5 px-4 text-center font-semibold text-gray-800 tracking-wide text-sm',
-  headerFixed: 'sticky left-0 bg-white z-10',
+  // Header styles with neon pink accent
+  header: 'bg-gray-800 border-b border-fuchsia-800',
+  headerCell: 'py-3.5 px-4 text-left font-semibold text-fuchsia-500 tracking-wide text-sm',
+  headerCellCenter: 'py-3.5 px-4 text-center font-semibold text-fuchsia-500 tracking-wide text-sm',
+  headerFixed: 'sticky left-0 bg-gray-800 z-10',
   
-  // Cell styles with better typography and subtle borders
-  cell: 'py-3.5 px-4 border-b border-gray-100 text-gray-700 transition-colors duration-150',
-  cellCenter: 'py-3.5 px-4 border-b border-gray-100 text-center text-gray-700 transition-colors duration-150',
-  cellHighlight: 'bg-blue-50',
+  // Cell styles with light text on dark background
+  cell: 'py-3.5 px-4 border-b border-gray-800 text-white transition-colors duration-150',
+  cellCenter: 'py-3.5 px-4 border-b border-gray-800 text-center text-white transition-colors duration-150',
+  cellHighlight: 'bg-fuchsia-900',
   
-  // Row interactions with synchronized highlighting
-  rowHover: 'hover:bg-gray-50 hover:cursor-pointer transition-all duration-150',
-  rowSelected: 'bg-blue-50',
-  rowEven: 'bg-gray-50/40', // Subtle striping
-  rowOdd: 'bg-white',
+  // Row interactions with neon hover effects
+  rowHover: 'hover:bg-gray-800 hover:cursor-pointer transition-all duration-150',
+  rowSelected: 'bg-fuchsia-900',
+  rowEven: 'bg-gray-800/40', // Subtle striping
+  rowOdd: 'bg-gray-900',
   
   // Sticky cells
-  stickyCell: 'sticky left-0 bg-white z-10',
-  stickyCellHover: 'sticky left-0 bg-gray-50 z-10',
+  stickyCell: 'sticky left-0 bg-gray-900 z-10',
+  stickyCellHover: 'sticky left-0 bg-gray-800 z-10',
   
   // Content formatting
-  content: 'text-gray-700',
-  contentSecondary: 'text-gray-500 text-sm',
+  content: 'text-white',
+  contentSecondary: 'text-gray-300 text-sm',
   
   // Special cell styles
-  modelName: 'font-medium text-gray-900',
-  metric: 'font-medium text-gray-900 tabular-nums',
+  modelName: 'font-medium text-cyan-400 font-mono',
+  metric: 'font-medium text-cyan-400 tabular-nums font-mono',
   
   // Border utilities
-  borderRight: 'border-r border-gray-100',
-  borderLeft: 'border-l border-gray-100',
+  borderRight: 'border-r border-gray-800',
+  borderLeft: 'border-l border-gray-800',
   
   // Tables for comparison
-  comparison: 'overflow-x-auto border border-gray-200 rounded-lg',
+  comparison: 'overflow-x-auto border border-gray-700 rounded-lg',
 };
 
-// Modern card and container styles with flat design principles
+// Cyberpunk card and container styles with neon borders and dark backgrounds
 export const containerStyles = {
-  // Card variants with minimal shadows and refined borders
-  card: 'bg-white p-5 rounded-lg shadow-sm border border-gray-200 hover:border-gray-300 transition-all duration-200',
-  cardHover: 'bg-white p-5 rounded-lg shadow-sm border border-gray-200 hover:border-blue-200 hover:bg-blue-50/30 transition-all duration-200',
-  cardActive: 'bg-white p-5 rounded-lg shadow-sm border-l-4 border-blue-400 border-t border-r border-b border-gray-200',
-  cardAccent: 'bg-white p-5 rounded-lg shadow-sm border border-blue-200 hover:border-blue-300 transition-all duration-200',
-  cardOutline: 'bg-white p-5 rounded-lg border border-gray-200 hover:border-blue-200 transition-all duration-200',
-  cardFlat: 'bg-white p-5 rounded-lg border border-gray-100',
+  // Card variants with neon borders and dark backgrounds
+  card: 'bg-gray-800 p-5 rounded-lg shadow-md border border-gray-700 hover:border-fuchsia-500 transition-all duration-200',
+  cardHover: 'bg-gray-800 p-5 rounded-lg shadow-md border border-gray-700 hover:border-cyan-400 hover:bg-gray-700 transition-all duration-200',
+  cardActive: 'bg-gray-800 p-5 rounded-lg shadow-md border-l-4 border-fuchsia-500 border-t border-r border-b border-gray-700',
+  cardAccent: 'bg-gray-800 p-5 rounded-lg shadow-md border border-fuchsia-500 hover:border-fuchsia-400 transition-all duration-200',
+  cardOutline: 'bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-cyan-400 transition-all duration-200',
+  cardFlat: 'bg-gray-800 p-5 rounded-lg border border-gray-700',
   
-  // Section containers with prominent styling
-  section: 'bg-gray-50/70 rounded-lg p-6 border border-gray-200',
-  sectionDivider: 'border-t border-gray-200 my-10',
+  // Section containers with cyberpunk styling
+  section: 'bg-gray-800 rounded-lg p-6 border border-gray-700',
+  sectionDivider: 'border-t border-fuchsia-900 my-10',
   
   // Modern grid layouts with improved spacing
   grid2col: 'grid grid-cols-1 md:grid-cols-2 gap-5',
@@ -373,38 +380,38 @@ export const containerStyles = {
   landscapeRowTwo: 'grid grid-cols-1 md:grid-cols-2 gap-5',
   landscapeRowFour: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5',
   
-  // Category section with refined styling and minimal shadows
-  categorySection: 'bg-white rounded-lg shadow-sm p-5 border border-gray-200 transition-all duration-200',
-  categoryTitle: 'text-lg font-semibold text-gray-800 flex items-center',
-  categoryTitleInline: 'text-lg font-semibold text-gray-800 pr-4 flex items-center',
-  categorySectionHover: 'hover:border-gray-300',
-  categoryIcon: 'mr-2 text-gray-600 text-lg',
+  // Category section with cyberpunk styling
+  categorySection: 'bg-gray-800 rounded-lg shadow-md p-5 border border-gray-700 transition-all duration-200',
+  categoryTitle: 'text-lg font-semibold text-fuchsia-500 flex items-center font-mono',
+  categoryTitleInline: 'text-lg font-semibold text-fuchsia-500 pr-4 flex items-center font-mono',
+  categorySectionHover: 'hover:border-fuchsia-900',
+  categoryIcon: 'mr-2 text-cyan-400 text-lg',
   
-  // Company card with elegant hover state and top-aligned model names
-  companyCardContainer: 'flex flex-col items-center h-full cursor-pointer p-4 rounded-lg border border-transparent hover:border-gray-200 hover:bg-gray-50/50 transition-all duration-200',
-  companyLogo: 'relative h-14 w-full flex items-center justify-center mb-3',
+  // Company card with cyberpunk neon styling and light background for contrast
+  companyCardContainer: 'flex flex-col items-center h-full cursor-pointer p-4 rounded-lg border border-gray-600 bg-gray-200 hover:border-fuchsia-500 hover:bg-gray-100 transition-all duration-200',
+  companyLogo: 'relative h-14 w-full flex items-center justify-center mb-3 bg-white rounded-md p-2',
   companyLogoImage: 'mx-auto object-contain max-h-12',
-  companyModel: 'text-center text-sm font-medium text-gray-700 line-clamp-1 mb-1',
+  companyModel: 'text-center text-sm font-medium text-gray-800 line-clamp-1 mb-1 font-mono',
   
   // Company grid layouts with improved spacing and specified column counts
   companyGridFull: 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5',
   companyGridHalf: 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5', // Now 4 columns for Open Source Models
   companyGridQuarter: 'grid grid-cols-1 sm:grid-cols-2 gap-4', // 2 columns for Enterprise and specialty categories
   
-  // Company detail with refined styling and vertical alignment
-  companyDetailHeader: 'flex items-center mb-6 p-5 bg-gray-50 rounded-lg border border-gray-200',
+  // Company detail with cyberpunk styling
+  companyDetailHeader: 'flex items-center mb-6 p-5 bg-gray-800 rounded-lg border border-gray-700',
   companyLogoContainer: 'relative block h-24 w-48 hover:opacity-90 transition-opacity mr-8 flex-shrink-0',
   companyDescriptionContainer: 'flex-1 flex items-center',
   companyDetailSection: 'mb-8',
   
-  // App layout with subtle shadows and improved spacing
-  appContainer: 'min-h-screen bg-gray-50',
-  header: 'bg-white shadow-sm sticky top-0 z-30 border-b border-gray-200',
+  // App layout with cyberpunk theme styling
+  appContainer: 'min-h-screen bg-gray-900',
+  header: 'bg-gray-800 shadow-md sticky top-0 z-30 border-b border-gray-700',
   headerContent: 'container mx-auto px-5 py-4 flex items-center justify-between',
-  appTitle: 'text-xl font-semibold cursor-pointer text-gray-800 hover:text-blue-600 transition-colors',
+  appTitle: 'text-xl font-semibold cursor-pointer text-fuchsia-500 hover:text-fuchsia-400 transition-colors font-mono',
   mainContent: 'container mx-auto p-5 md:p-6',
-  footer: 'bg-gray-800 text-white mt-16 py-10',
-  footerContent: 'container mx-auto px-5',
+  footer: 'bg-gray-800 text-cyan-400 mt-16 py-10 border-t border-fuchsia-900',
+  footerContent: 'container mx-auto px-5 font-mono',
   
   // Layout helpers for consistent patterns
   flexCol: 'flex flex-col',
@@ -432,40 +439,40 @@ export const containerStyles = {
   legendItem: 'flex items-center gap-3 mr-3'
 };
 
-// Refined icon system with subtle interactions and improved visual balance
+// Cyberpunk icon system with neon colors
 export const iconStyles = {
   // Color variants
-  primary: 'text-blue-500',
-  secondary: 'text-gray-400',
-  tertiary: 'text-gray-300',
+  primary: 'text-fuchsia-500',      // Neon pink primary
+  secondary: 'text-cyan-400',       // Neon cyan secondary
+  tertiary: 'text-gray-300',        // Light gray tertiary
   
   // Interactive variants
-  base: 'text-blue-500 transition-all duration-200', // Default blue with transition
-  action: 'text-gray-500 hover:text-blue-500 cursor-pointer transition-all duration-200',
+  base: 'text-fuchsia-500 transition-all duration-200', // Default neon pink with transition
+  action: 'text-gray-300 hover:text-fuchsia-500 cursor-pointer transition-all duration-200',
   
   // Size variants with meaningful scale progression
   xs: 'text-xs',
   sm: 'text-sm',
-  md: 'text-base', // Renamed from baseSized to md for consistency
+  md: 'text-base', // Medium size
   lg: 'text-lg',
   xl: 'text-xl',
   '2xl': 'text-2xl',
   '3xl': 'text-3xl',
   
-  // Rating icons with Material UI blue
-  ratingContainer: 'flex items-center justify-center text-blue-500',
-  ratingFilled: 'text-blue-500',
-  ratingEmpty: 'text-gray-300',
+  // Rating icons with neon pink
+  ratingContainer: 'flex items-center justify-center text-fuchsia-500',
+  ratingFilled: 'text-fuchsia-500',
+  ratingEmpty: 'text-gray-700',
   iconSpacing: 'mx-0.5',
   
-  // Format indicators with Material UI blue
-  activeFormat: 'text-blue-500',
-  inactiveFormat: 'text-gray-300',
+  // Format indicators with neon cyan
+  activeFormat: 'text-cyan-400',
+  inactiveFormat: 'text-gray-700',
   formatContainer: 'flex gap-4 justify-center',
   formatItem: 'flex items-center mx-2',
   
-  // Table row label icons with Material UI blue
-  tableRowIcon: 'text-blue-500',
+  // Table row label icons with neon pink
+  tableRowIcon: 'text-fuchsia-500',
   
   // Icon positioning utilities with increased spacing
   iconLeft: 'mr-3',
@@ -481,42 +488,42 @@ export const iconStyles = {
   iconWithText: 'inline-flex items-center gap-1.5',
   iconWithTextLarge: 'inline-flex items-center gap-2',
   
-  // Status icons
-  success: 'text-emerald-500',
-  warning: 'text-amber-500',
-  error: 'text-red-500',
-  info: 'text-blue-500',
+  // Status icons with neon colors
+  success: 'text-green-400',
+  warning: 'text-yellow-300',
+  error: 'text-red-400',
+  info: 'text-cyan-400',
 };
 
-// Modern button system with refined states and minimal shadows
+// Cyberpunk button system with neon colors and dark backgrounds
 export const buttonStyles = {
-  // Primary action buttons with clean states
-  primary: 'bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-medium py-2 px-4 rounded-md transition-colors duration-150',
-  secondary: 'bg-white hover:bg-gray-50 active:bg-gray-100 text-gray-700 border border-gray-300 font-medium py-2 px-4 rounded-md transition-all duration-150',
+  // Primary action buttons with neon pink (#EA00D9)
+  primary: 'bg-fuchsia-600 hover:bg-fuchsia-500 active:bg-fuchsia-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-150 font-mono',
+  secondary: 'bg-gray-800 hover:bg-gray-700 active:bg-gray-600 text-white border border-fuchsia-500 font-medium py-2 px-4 rounded-md transition-all duration-150 font-mono',
   
   // Additional button variants
-  tertiary: 'bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-md transition-colors duration-150',
-  danger: 'bg-red-600 hover:bg-red-700 active:bg-red-800 text-white font-medium py-2 px-4 rounded-md transition-colors duration-150',
-  success: 'bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-medium py-2 px-4 rounded-md transition-colors duration-150',
+  tertiary: 'bg-gray-700 hover:bg-gray-600 active:bg-gray-500 text-white font-medium py-2 px-4 rounded-md transition-colors duration-150 font-mono',
+  danger: 'bg-red-900 hover:bg-red-800 active:bg-red-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-150 font-mono',
+  success: 'bg-green-900 hover:bg-green-800 active:bg-green-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-150 font-mono',
   
   // Text button variants
-  text: 'text-gray-700 hover:text-gray-900 hover:bg-gray-100 py-2 px-3 rounded-md transition-all duration-150',
-  textPrimary: 'text-blue-600 hover:text-blue-700 hover:bg-blue-50 py-2 px-3 rounded-md transition-all duration-150',
+  text: 'text-white hover:text-fuchsia-500 hover:bg-gray-800 py-2 px-3 rounded-md transition-all duration-150 font-mono',
+  textPrimary: 'text-fuchsia-500 hover:text-fuchsia-400 hover:bg-gray-800 py-2 px-3 rounded-md transition-all duration-150 font-mono',
   
-  // Link style buttons with improved interaction
-  link: 'text-blue-600 hover:text-blue-800 transition-colors duration-150 cursor-pointer',
-  linkMuted: 'text-gray-600 hover:text-gray-800 transition-colors duration-150 cursor-pointer',
+  // Link style buttons with neon colors
+  link: 'text-cyan-400 hover:text-cyan-300 transition-colors duration-150 cursor-pointer font-mono',
+  linkMuted: 'text-gray-300 hover:text-white transition-colors duration-150 cursor-pointer font-mono',
   
-  // Button sizes with improved typography
-  xs: 'py-1 px-2 text-xs rounded',
-  sm: 'py-1.5 px-3 text-sm',
-  md: 'py-2 px-4 text-sm',
-  lg: 'py-2.5 px-5 text-base',
-  xl: 'py-3 px-6 text-base',
+  // Button sizes with cyberpunk styling
+  xs: 'py-1 px-2 text-xs rounded font-mono',
+  sm: 'py-1.5 px-3 text-sm font-mono',
+  md: 'py-2 px-4 text-sm font-mono',
+  lg: 'py-2.5 px-5 text-base font-mono',
+  xl: 'py-3 px-6 text-base font-mono',
   
   // Special button styles
-  iconButton: 'p-2 rounded-md hover:bg-gray-100 text-gray-700 hover:text-gray-900 transition-colors duration-150',
-  iconButtonPrimary: 'p-2 rounded-md hover:bg-blue-50 text-blue-600 hover:text-blue-700 transition-colors duration-150',
+  iconButton: 'p-2 rounded-md hover:bg-gray-800 text-gray-300 hover:text-white transition-colors duration-150',
+  iconButtonPrimary: 'p-2 rounded-md hover:bg-gray-800 text-fuchsia-500 hover:text-fuchsia-400 transition-colors duration-150',
   pill: 'rounded-full',
   outline: 'bg-transparent border border-current',
   
@@ -527,20 +534,23 @@ export const buttonStyles = {
   // Button with left icon
   withLeftIcon: 'inline-flex items-center',
   withRightIcon: 'inline-flex items-center justify-center',
+  
+  // Cyberpunk-specific button
+  subscribe: 'bg-fuchsia-600 text-white font-sans text-sm font-medium py-2 px-4 rounded transition-colors duration-150 hover:bg-fuchsia-500',
 };
 
-// Category styles with consistent neutral styling
+// Cyberpunk category styles with dark backgrounds and neon accents
 export const categoryStyles = {
-  // Common styles for all categories
+  // Common cyberpunk styles for all categories
   common: {
-    bg: 'bg-white',
-    border: 'border-gray-200',
-    full: 'bg-white border-gray-200',
-    title: 'text-gray-800',
-    shadow: 'shadow-sm',
+    bg: 'bg-gray-800',
+    border: 'border-gray-700',
+    full: 'bg-gray-800 border-gray-700',
+    title: 'text-fuchsia-500 font-mono',
+    shadow: 'shadow-md',
   },
   
-  // Category-specific icons
+  // Category-specific icons with neon style
   icons: {
     frontier: 'bi-stars',
     open: 'bi-unlock',

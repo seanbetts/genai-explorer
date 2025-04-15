@@ -50,19 +50,18 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
       className={containerStyles.companyCardContainer}
       onClick={() => onClick(company.id)}
       title={`${company.name} - Click to view details`}
-      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
     >
       <div className={containerStyles.companyLogo}>
         <Image 
           src={company.logo && company.logo.startsWith("/") ? company.logo : "/images/companies/placeholder.png"} 
           alt={`${company.name} logo`}
-          className={`${containerStyles.companyLogoImage} transition-all duration-300`}
+          className={containerStyles.companyLogoImage}
           width={imageSize.width}
           height={imageSize.height}
           style={standardizedLogoStyle}
         />
       </div>
-      <div className="text-center w-full">
+      <div className={containerStyles.flexCol}>
         {modelsToDisplay.map((model, idx) => (
           <div key={model.id} className={containerStyles.companyModel}>
             {model.name}
