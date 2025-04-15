@@ -52,7 +52,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
         </div>
       </div>
       
-      <div className={containerStyles.flexCol}>
+      <div className={`${containerStyles.flexCol} space-y-10`}>
         <div className={`${containerStyles.detailHeader} transform transition-all duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-4'}`}>
           <a 
             href={company.website} 

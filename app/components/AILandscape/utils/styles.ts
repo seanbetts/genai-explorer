@@ -202,9 +202,9 @@ export const headingStyles = {
   
   // Semantic heading styles for specific uses
   page: 'text-3xl font-bold text-fuchsia-500 mb-6 tracking-tight font-mono',
-  section: 'text-2xl font-semibold text-fuchsia-500 mb-4 tracking-tight font-mono',
-  subsection: 'text-xl font-semibold text-fuchsia-500 mb-3 font-mono',
-  card: 'text-lg font-medium text-fuchsia-500 mb-2 font-mono',
+  section: 'text-2xl font-semibold text-fuchsia-500 mb-6 mt-2 tracking-tight font-mono',
+  subsection: 'text-xl font-semibold text-fuchsia-500 mb-4 mt-1 font-mono',
+  card: 'text-lg font-medium text-fuchsia-500 mb-3 font-mono',
   
   // Variations with accent colors
   accent: 'text-2xl font-semibold text-cyan-400 mb-4 tracking-tight font-mono',  // Cyan accent (#0ABDC6)
@@ -359,7 +359,7 @@ export const containerStyles = {
   cardFlat: 'bg-gray-800 p-5 rounded-lg border border-gray-700',
   
   // Section containers with cyberpunk styling
-  section: 'bg-gray-800 rounded-lg p-6 border border-gray-700',
+  section: 'bg-gray-800 rounded-lg px-8 py-7 border border-gray-700',
   sectionDivider: 'border-t border-fuchsia-900 my-10',
   
   // Modern grid layouts with improved spacing
@@ -372,8 +372,15 @@ export const containerStyles = {
   gridAutoFitWide: 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5',
   gridAutoFitNarrow: 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4',
   
-  // Feature/card layouts with flex for better centering and responsive behavior
+  // Feature/card layouts with cyberpunk styling to match company cards
   featureGrid: 'flex flex-wrap justify-center gap-6',
+  featureCard: 'flex flex-col rounded-lg border border-gray-600 bg-gray-200 overflow-hidden hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer no-underline w-full sm:w-96 relative',
+  featureImage: 'relative h-36 bg-gray-800 flex-shrink-0 border-b border-gray-600',
+  featureContent: 'p-5 flex-1 flex flex-col overflow-hidden relative pb-16',
+  featureTitle: 'text-lg font-semibold mb-3 text-gray-800 font-mono group-hover:text-fuchsia-600',
+  featureDescription: 'text-gray-700 text-sm font-mono',
+  featureFooter: 'flex items-end justify-end',
+  featureLink: 'text-fuchsia-600 hover:text-fuchsia-500 text-sm flex items-center group font-mono',
   subscriptionGrid: 'flex flex-wrap justify-center gap-5',
   
   // Landscape view layouts with consistent spacing
@@ -400,10 +407,10 @@ export const containerStyles = {
   companyGridQuarter: 'grid grid-cols-1 sm:grid-cols-2 gap-4', // 2 columns for Enterprise and specialty categories
   
   // Company detail with cyberpunk styling
-  companyDetailHeader: 'flex items-center mb-6 p-5 bg-gray-800 rounded-lg border border-gray-700',
+  companyDetailHeader: 'flex items-center p-6 bg-gray-800 rounded-lg border border-gray-700',
   companyLogoContainer: 'relative block h-24 w-48 hover:opacity-90 transition-opacity mr-8 flex-shrink-0',
   companyDescriptionContainer: 'flex-1 flex items-center',
-  companyDetailSection: 'mb-8',
+  companyDetailSection: 'mt-6 mb-4 space-y-4',
   
   // App layout with cyberpunk theme styling
   appContainer: 'min-h-screen bg-gray-900',
