@@ -50,7 +50,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({
     
     return (
       <>
-        <div className={textStyles.mb4}>
+        <div className="mb-4">
           <div className={containerStyles.categoryTitle}>
             {icon && (
               <i className={`bi ${icon} ${textStyles.accent} ${iconStyles.iconLeft}`}></i>

@@ -180,9 +180,8 @@ export const textStyles: TextTheme = {
   label: 'text-sm font-medium text-gray-300 font-mono',
   helper: 'text-xs text-gray-400 mt-1 font-mono',
   
-  // Spacing utilities
-  mb4: 'mb-4',
-  xs: 'text-xs',
+  // Size variant (duplicate removed)
+  // xs already defined above
   
   // Body text convenience combinations
   bodySmall: 'text-sm leading-5 text-gray-300 font-mono',
