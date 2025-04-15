@@ -102,7 +102,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     <>
       {/* Release Date Row */}
       <tr className="cursor-pointer">
-        <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
+        <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
           <div className={containerStyles.flexCenter}>
             <i className={`bi bi-calendar-date ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Date</span>
           </div>
@@ -122,7 +122,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
 
       {/* Type Row */}
       <tr className="cursor-pointer">
-        <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
+        <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
           <div className={containerStyles.flexCenter}>
             <i className={`bi bi-box ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Type</span>
           </div>
@@ -137,7 +137,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Intelligence Row */}
       {hasAnyModelCapability("intelligence") && (
         <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-circle-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Intelligence</span>
             </div>
@@ -153,7 +153,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Speed Row */}
       {hasAnyModelCapability("speed") && (
         <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-lightning-charge-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Speed</span>
             </div>
@@ -169,7 +169,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Reasoning Row */}
       {hasAnyModelCapability("reasoning") && (
         <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-lightbulb-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Reasoning</span>
             </div>
@@ -185,7 +185,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Reasoning Tokens Row */}
       {hasAnyModelSpec("reasoningTokens") && (
         <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-lightbulb ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Reasoning Tokens</span>
             </div>
@@ -205,7 +205,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Creativity Row */}
       {hasAnyModelCapability("creativity") && (
         <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-stars ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Creativity</span>
             </div>
@@ -221,7 +221,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Input Formats Row */}
       {hasAnyModelSpec("inputFormats") && (
         <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-arrow-up-right-square-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Input Formats</span>
             </div>
@@ -243,7 +243,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Output Formats Row */}
       {hasAnyModelSpec("outputFormats") && (
         <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-arrow-down-right-square-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Output Formats</span>
             </div>
@@ -265,7 +265,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Max Input Tokens Row */}
       {hasAnyModelSpec("maxInputTokens") && (
         <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-sign-turn-right-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Max Input</span>
             </div>
@@ -283,7 +283,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Max Output Tokens Row */}
       {hasAnyModelSpec("maxOutputTokens") && (
         <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-sign-turn-left-fill ${iconStyles.tableRowIcon} transform rotate-180`}></i> <span className={textStyles.primary}>Max Output</span>
             </div>
@@ -301,7 +301,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Knowledge Cutoff Row */}
       {hasAnyModelSpec("knowledgeCutoff") && (
         <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyCell} bg-white sticky-label`}>
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
             <div className={containerStyles.flexCenter}>
               <i className={`bi bi-calendar-check-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Knowledge Cutoff</span>
             </div>
@@ -316,13 +316,37 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     </>
   );
 
-  // Add custom CSS for table hover behavior
+  // Add custom CSS for table hover behavior with cyberpunk styling
   const tableHoverStyles = `
-    .hover-highlight tr:hover td {
-      background-color: #f9fafb; /* gray-50 */
+    /* Set consistent background for labels, headers, and legend */
+    .sticky-label, thead th, .legend-container {
+      background-color: #2d3748; /* Dark blue-gray for labels and headers */
     }
-    .hover-highlight tr:hover td.sticky-label {
-      background-color: #f9fafb; /* gray-50 */
+    
+    /* Reset any default hover behaviors */
+    .hover-highlight tr td, .hover-highlight tr th {
+      transition: background-color 0.15s ease-in-out;
+    }
+    
+    /* Simple row hover effect that changes the entire row */
+    .hover-highlight tbody tr:hover td {
+      background-color: #374151 !important; /* Slightly lighter gray on hover */
+      cursor: pointer;
+    }
+    
+    /* Keep sticky label styling consistent on hover */
+    .hover-highlight tbody tr:hover td.sticky-label {
+      background-color: #374151 !important; /* Match the row hover color */
+    }
+    
+    /* Remove hover effect from column headers */
+    .hover-highlight thead tr th {
+      background-color: #2d3748 !important; /* Keep headers at their normal color */
+    }
+    
+    /* Ensure headers don't show cursor pointer */
+    .hover-highlight thead tr th {
+      cursor: default;
     }
   `;
   
@@ -330,7 +354,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     <div className={`${containerStyles.flexCol} transform transition-all duration-300`}>
       <style>{tableHoverStyles}</style>
       <div style={tableContainerStyle}>
-        <div className={needsScrolling ? "overflow-x-auto" : ""}>
+        <div className={needsScrolling ? tableStyles.comparison : ""}>
           <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight`}>
             <thead>
               <tr className={tableStyles.header}>
@@ -353,7 +377,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       
       {/* Format Icons Legend */}
       <div className={`${containerStyles.legend} transform transition-all duration-500`}>
-        <div className={`${containerStyles.legendBox} hover:shadow-md transition-all duration-300 hover:border-gray-300`}>
+        <div className={`${containerStyles.legendBox} hover:shadow-md transition-all duration-300 hover:border-fuchsia-700 legend-container`}>
           <span className={containerStyles.legendLabel}>Legend:</span>
           <div className={containerStyles.legendItems}>
             <div className={containerStyles.legendItem}>

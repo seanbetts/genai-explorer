@@ -311,9 +311,9 @@ export const tableStyles = {
   table: 'w-full bg-gray-900 border border-gray-700 rounded-lg shadow-md overflow-hidden font-mono',
   
   // Header styles with neon pink accent
-  header: 'bg-gray-800 border-b border-fuchsia-800',
-  headerCell: 'py-3.5 px-4 text-left font-semibold text-fuchsia-500 tracking-wide text-sm',
-  headerCellCenter: 'py-3.5 px-4 text-center font-semibold text-fuchsia-500 tracking-wide text-sm',
+  header: 'bg-gray-800 border-b border-fuchsia-800 sticky top-0',
+  headerCell: 'py-3.5 px-4 text-left font-semibold text-fuchsia-500 tracking-wide text-sm bg-gray-800',
+  headerCellCenter: 'py-3.5 px-4 text-center font-semibold text-fuchsia-500 tracking-wide text-sm bg-gray-800',
   headerFixed: 'sticky left-0 bg-gray-800 z-10',
   
   // Cell styles with light text on dark background
@@ -321,14 +321,15 @@ export const tableStyles = {
   cellCenter: 'py-3.5 px-4 border-b border-gray-800 text-center text-white transition-colors duration-150',
   cellHighlight: 'bg-fuchsia-900',
   
-  // Row interactions with neon hover effects
-  rowHover: 'hover:bg-gray-800 hover:cursor-pointer transition-all duration-150',
+  // Row interactions with cyberpunk effects
+  rowHover: 'hover:bg-gray-700 hover:cursor-pointer transition-all duration-150',
   rowSelected: 'bg-fuchsia-900',
   rowEven: 'bg-gray-800/40', // Subtle striping
   rowOdd: 'bg-gray-900',
   
   // Sticky cells
   stickyCell: 'sticky left-0 bg-gray-900 z-10',
+  stickyLabelCell: 'sticky left-0 bg-gray-800 z-10',
   stickyCellHover: 'sticky left-0 bg-gray-800 z-10',
   
   // Content formatting
@@ -431,12 +432,12 @@ export const containerStyles = {
   spacerMd: 'h-5',
   spacerLg: 'h-8',
   
-  // Legend container with refined styling
-  legend: 'max-w-3xl mx-auto mt-8 bg-white rounded-lg border border-gray-200',
+  // Legend container with cyberpunk styling that matches row labels
+  legend: 'max-w-3xl mx-auto mt-8 rounded-lg border border-gray-700',
   legendBox: 'flex items-center p-4 rounded-lg',
-  legendLabel: 'text-gray-500 text-sm mr-4',
-  legendItems: 'flex items-center flex-wrap gap-2',
-  legendItem: 'flex items-center gap-3 mr-3'
+  legendLabel: 'text-fuchsia-500 text-sm mr-4 font-mono',
+  legendItems: 'flex items-center flex-wrap gap-3',
+  legendItem: 'flex items-center gap-3 mr-4'
 };
 
 // Cyberpunk icon system with neon colors
