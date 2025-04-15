@@ -1,10 +1,100 @@
 // Import the existing Tailwind classes from styles.ts
 import { containerStyles, textStyles, tableStyles, iconStyles, categoryStyles } from './styles';
 
-// This file maps our existing styles.ts classes to standardized names
-// for easier component access and maintenance
+// This file provides a simplified interface to our style system
+// It maps styles.ts classes to component-friendly names and provides helper functions
 
-export const styles = {
+// TypeScript interface for our unified style API
+interface StyleAPI {
+  // Layout styles
+  container: string;
+  
+  // Category section styles
+  categorySection: string;
+  categorySectionBorder: string;
+  categoryTitle: string;
+  categoryTitleInline: string;
+  categoryIcon: string;
+  categorySectionHover: string;
+  
+  // Layout grids
+  gridLayoutTwo: string;
+  gridLayoutFour: string;
+  companyGridFull: string;
+  companyGridHalf: string;
+  companyGridQuarter: string;
+  
+  // Company card styles
+  companyCard: string;
+  companyLogo: string;
+  companyLogoImage: string;
+  companyModel: string;
+  
+  // Detail view styles
+  detailCard: string;
+  detailHeader: string;
+  detailSection: string;
+  sectionTitle: string;
+  backButton: string;
+  
+  // Feature grid styles
+  featureGrid: string;
+  featureCard: string;
+  featureCardContent: string;
+  featureTitle: string;
+  featureDescription: string;
+  featureLink: string;
+  
+  // Subscription styles
+  subscriptionGrid: string;
+  subscriptionCard: string;
+  subscriptionCardEnterprise: string;
+  subscriptionTitle: string;
+  subscriptionTag: string;
+  subscriptionPrice: string;
+  subscriptionBilling: string;
+  
+  // Model table styles
+  modelTable: string;
+  tableHeader: string;
+  tableHeaderCell: string;
+  tableHeaderCellCenter: string;
+  tableHeaderFixed: string;
+  tableCell: string;
+  tableCellCenter: string;
+  tableRowHover: string;
+  stickyCell: string;
+  modelName: string;
+  
+  // Legend styles
+  legend: string;
+  legendBox: string;
+  
+  // Icon styles
+  iconBase: string;
+  activeFormat: string;
+  inactiveFormat: string;
+  formatContainer: string;
+  formatItem: string;
+  iconRight: string;
+  
+  // Animation classes
+  fadeIn: string;
+  slideUp: string;
+  
+  // Layout utilities
+  flexCenter: string;
+  flexBetween: string;
+  flexCol: string;
+  
+  // Text styles
+  textPrimary: string;
+  textSecondary: string;
+  textMuted: string;
+}
+
+// Unified style API
+export const styles: StyleAPI = {
   // Layout
   container: containerStyles.landscapeContainer,
   
@@ -98,17 +188,7 @@ export const getCategoryStyle = (category: string): string => {
 };
 
 export const getCategoryIcon = (category: string): string => {
-  const iconMap: Record<string, string> = {
-    frontier: 'bi-stars',
-    open: 'bi-unlock',
-    enterprise: 'bi-building',
-    image: 'bi-image',
-    video: 'bi-camera-video',
-    music: 'bi-music-note',
-    other: 'bi-grid',
-  };
-  
-  return iconMap[category] || 'bi-grid';
+  return categoryStyles.icons[category as keyof typeof categoryStyles.icons] || 'bi-grid';
 };
 
 // Define shadow style helper

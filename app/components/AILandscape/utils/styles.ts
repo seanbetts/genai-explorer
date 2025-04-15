@@ -1,8 +1,65 @@
 // Centralized styles for an elegant, refined appearance across components
 // Modern design system inspired by Stripe/Airbnb aesthetics
 
+// TypeScript interfaces for theme objects
+interface ColorTheme {
+  neutral: Record<string, string>;
+  accent: {
+    blue: Record<string, string>;
+    amber: Record<string, string>;
+    emerald: Record<string, string>;
+  };
+  text: Record<string, string>;
+  border: Record<string, string>;
+  bg: Record<string, string>;
+  status: Record<string, Record<string, string>>;
+}
+
+interface TextTheme {
+  // Color variants
+  primary: string;
+  secondary: string;
+  tertiary: string;
+  accent: string;
+  muted: string;
+  disabled: string;
+  
+  // Link variants
+  link: string;
+  linkAccent: string;
+  linkSubtle: string;
+  
+  // Size variants
+  xs: string;
+  sm: string;
+  base: string;
+  lg: string;
+  xl: string;
+  '2xl': string;
+  '3xl': string;
+  '4xl': string;
+  
+  // Weight variants
+  light: string;
+  normal: string;
+  medium: string;
+  semibold: string;
+  bold: string;
+  
+  // Utility styles
+  caption: string;
+  overline: string;
+  label: string;
+  helper: string;
+  
+  // Body text combinations
+  bodySmall: string;
+  body: string;
+  bodyLarge: string;
+}
+
 // Color system with subtle accent colors and neutral base
-export const colors = {
+export const colors: ColorTheme = {
   // Base neutrals for backgrounds and text
   neutral: {
     50: 'bg-gray-50',  // Lightest background
@@ -83,18 +140,21 @@ export const colors = {
 };
 
 // Typography system with improved readability and elegant proportions
-export const textStyles = {
-  // Semantic text styles mapped to colors.text
+export const textStyles: TextTheme = {
+  // Color variants - semantic text styles
   primary: colors.text.primary,
   secondary: colors.text.secondary,
   tertiary: colors.text.tertiary,
   accent: colors.text.accent,
   muted: colors.text.tertiary,
   disabled: colors.text.light,
-  link: colors.text.link,
   
-  // Font sizes with optimized line heights for better readability
-  // Using improved vertical rhythm and letter spacing
+  // Link variants
+  link: colors.text.link,           // Basic link style with hover state
+  linkAccent: 'text-blue-600 hover:text-blue-700 transition-colors duration-150',  // Renamed from linkPrimary
+  linkSubtle: 'text-gray-600 hover:text-gray-800 transition-colors duration-150',  // Subtle link style
+  
+  // Size variants with optimized line heights
   xs: 'text-xs leading-5 tracking-wide',
   sm: 'text-sm leading-5 tracking-normal',
   base: 'text-base leading-6 tracking-normal',
@@ -104,27 +164,23 @@ export const textStyles = {
   '3xl': 'text-3xl leading-9 tracking-tight',
   '4xl': 'text-4xl leading-10 tracking-tight',
   
-  // Text weight variants using system fonts optimally
+  // Weight variants
   light: 'font-light',
   normal: 'font-normal',
   medium: 'font-medium',
   semibold: 'font-semibold',
   bold: 'font-bold',
   
-  // Common text styles for consistent usage patterns
+  // Common utility text styles
   caption: 'text-xs leading-5 text-gray-500',
   overline: 'text-xs uppercase tracking-wider font-medium text-gray-500',
   label: 'text-sm font-medium text-gray-700',
   helper: 'text-xs text-gray-500 mt-1',
   
-  // Body text variants with improved readability
+  // Body text convenience combinations
   bodySmall: 'text-sm leading-5 text-gray-700',
   body: 'text-base leading-6 text-gray-800',
   bodyLarge: 'text-lg leading-7 text-gray-800',
-  
-  // Interactive text elements
-  linkPrimary: 'text-blue-600 hover:text-blue-700 transition-colors duration-150',
-  linkSubtle: 'text-gray-600 hover:text-gray-800 transition-colors duration-150',
 };
 
 // Refined heading system with elegant typography and proper vertical rhythm
@@ -378,17 +434,19 @@ export const containerStyles = {
 
 // Refined icon system with subtle interactions and improved visual balance
 export const iconStyles = {
-  // Base icon styles with Material UI blue
-  base: 'text-blue-500 transition-all duration-200',
-  action: 'text-gray-500 hover:text-blue-500 cursor-pointer transition-all duration-200',
+  // Color variants
   primary: 'text-blue-500',
   secondary: 'text-gray-400',
   tertiary: 'text-gray-300',
   
-  // Icon sizes with meaningful scale progression
+  // Interactive variants
+  base: 'text-blue-500 transition-all duration-200', // Default blue with transition
+  action: 'text-gray-500 hover:text-blue-500 cursor-pointer transition-all duration-200',
+  
+  // Size variants with meaningful scale progression
   xs: 'text-xs',
   sm: 'text-sm',
-  baseSized: 'text-base',
+  md: 'text-base', // Renamed from baseSized to md for consistency
   lg: 'text-lg',
   xl: 'text-xl',
   '2xl': 'text-2xl',
@@ -473,73 +531,23 @@ export const buttonStyles = {
 
 // Category styles with consistent neutral styling
 export const categoryStyles = {
-  // Frontier models
-  frontier: {
+  // Common styles for all categories
+  common: {
     bg: 'bg-white',
     border: 'border-gray-200',
     full: 'bg-white border-gray-200',
-    icon: 'bi-stars',
     title: 'text-gray-800',
     shadow: 'shadow-sm',
   },
   
-  // Open source
-  open: { 
-    bg: 'bg-white',
-    border: 'border-gray-200',
-    full: 'bg-white border-gray-200',
-    icon: 'bi-unlock',
-    title: 'text-gray-800',
-    shadow: 'shadow-sm',
-  },
-  
-  // Enterprise
-  enterprise: { 
-    bg: 'bg-white',
-    border: 'border-gray-200',
-    full: 'bg-white border-gray-200',
-    icon: 'bi-building',
-    title: 'text-gray-800',
-    shadow: 'shadow-sm',
-  },
-  
-  // Image
-  image: { 
-    bg: 'bg-white',
-    border: 'border-gray-200',
-    full: 'bg-white border-gray-200',
-    icon: 'bi-image',
-    title: 'text-gray-800',
-    shadow: 'shadow-sm',
-  },
-  
-  // Video
-  video: { 
-    bg: 'bg-white',
-    border: 'border-gray-200',
-    full: 'bg-white border-gray-200',
-    icon: 'bi-camera-video',
-    title: 'text-gray-800',
-    shadow: 'shadow-sm',
-  },
-  
-  // Music
-  music: { 
-    bg: 'bg-white',
-    border: 'border-gray-200',
-    full: 'bg-white border-gray-200',
-    icon: 'bi-music-note',
-    title: 'text-gray-800',
-    shadow: 'shadow-sm',
-  },
-  
-  // Other
-  other: { 
-    bg: 'bg-white',
-    border: 'border-gray-200',
-    full: 'bg-white border-gray-200',
-    icon: 'bi-grid',
-    title: 'text-gray-800',
-    shadow: 'shadow-sm',
-  },
+  // Category-specific icons
+  icons: {
+    frontier: 'bi-stars',
+    open: 'bi-unlock',
+    enterprise: 'bi-building',
+    image: 'bi-image',
+    video: 'bi-camera-video',
+    music: 'bi-music-note',
+    other: 'bi-grid',
+  }
 };

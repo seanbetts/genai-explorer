@@ -53,17 +53,17 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
   
   // Get the appropriate category style object
   const getCategoryStyle = (category: CompanyCategory): string => {
-    return categoryStyles[category].full;
+    return categoryStyles.common.full;
   };
   
   // Get the appropriate category icon
   const getCategoryIcon = (category: CompanyCategory): string => {
-    return categoryStyles[category].icon;
+    return categoryStyles.icons[category];
   };
   
   // Get the appropriate category shadow (minimal in new design)
   const getCategoryShadow = (category: CompanyCategory): string => {
-    return categoryStyles[category].shadow;
+    return categoryStyles.common.shadow;
   };
 
   return (
