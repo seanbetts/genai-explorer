@@ -15,6 +15,9 @@ interface CompanyDetailProps {
   // onToggleSection no longer needed as sections are not collapsible
 }
 
+// Define tab types for the tabbed interface
+type TabType = 'models' | 'features' | 'subscriptions';
+
 const CompanyDetail: React.FC<CompanyDetailProps> = ({ 
   company, 
   expandedSections, 
@@ -22,6 +25,9 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
 }) => {
   // Animation related hooks
   const [isVisible, setIsVisible] = React.useState(false);
+  
+  // Tab state - default to 'models' tab
+  const [activeTab, setActiveTab] = React.useState<TabType>('models');
   
   React.useEffect(() => {
     // Small delay for animation effect
@@ -75,39 +81,72 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           </div>
         </div>
         
-        <div className={`${containerStyles.section} transform transition-all duration-500 delay-100 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-          <h2 className={headingStyles.section}>
-            <span>Models</span>
-          </h2>
+        {/* Tabs Navigation - Moved outside of the container */}
+        <div className={`flex border-b border-gray-700 mb-6 transform transition-all duration-500 delay-100 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+          <button
+            className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors focus:outline-none cursor-pointer ${
+              activeTab === 'models' 
+                ? 'border-cyan-400 text-cyan-400' 
+                : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
+            }`}
+            onClick={() => setActiveTab('models')}
+            disabled={!company.models || company.models.length === 0}
+          >
+            Models
+          </button>
           
-          {company.models && company.models.length > 0 && (
-            <div className={containerStyles.companyDetailSection}>
-              <ModelTable models={company.models} />
-            </div>
-          )}
+          <button
+            className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors focus:outline-none cursor-pointer ${
+              activeTab === 'features' 
+                ? 'border-cyan-400 text-cyan-400' 
+                : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
+            }`}
+            onClick={() => setActiveTab('features')}
+            disabled={!company.features || company.features.length === 0}
+          >
+            Features
+          </button>
+          
+          <button
+            className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors focus:outline-none cursor-pointer ${
+              activeTab === 'subscriptions' 
+                ? 'border-cyan-400 text-cyan-400' 
+                : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
+            }`}
+            onClick={() => setActiveTab('subscriptions')}
+            disabled={!company.subscriptions || company.subscriptions.length === 0}
+          >
+            Subscription Plans
+          </button>
         </div>
         
-        {company.features && company.features.length > 0 && (
-          <div className={`${containerStyles.section} transform transition-all duration-500 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-            <h2 className={headingStyles.section}>
-              <span>Features</span>
-            </h2>
-            <div className={containerStyles.companyDetailSection}>
-              <FeatureGrid features={company.features} />
-            </div>
+        {/* Content container */}
+        <div className={`${containerStyles.section} transform transition-all duration-500 delay-100 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+          
+          {/* Tab Content */}
+          <div className={containerStyles.companyDetailSection}>
+            {/* Models Tab */}
+            {activeTab === 'models' && company.models && company.models.length > 0 && (
+              <div className="transform transition-opacity duration-300">
+                <ModelTable models={company.models} />
+              </div>
+            )}
+            
+            {/* Features Tab */}
+            {activeTab === 'features' && company.features && company.features.length > 0 && (
+              <div className="transform transition-opacity duration-300">
+                <FeatureGrid features={company.features} />
+              </div>
+            )}
+            
+            {/* Subscriptions Tab */}
+            {activeTab === 'subscriptions' && company.subscriptions && company.subscriptions.length > 0 && (
+              <div className="transform transition-opacity duration-300">
+                <SubscriptionGrid subscriptions={company.subscriptions} />
+              </div>
+            )}
           </div>
-        )}
-        
-        {company.subscriptions && company.subscriptions.length > 0 && (
-          <div className={`${containerStyles.section} transform transition-all duration-500 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-            <h2 className={headingStyles.section}>
-              <span>Subscription Plans</span>
-            </h2>
-            <div className={containerStyles.companyDetailSection}>
-              <SubscriptionGrid subscriptions={company.subscriptions} />
-            </div>
-          </div>
-        )}
+        </div>
       </div>
     </div>
   );
