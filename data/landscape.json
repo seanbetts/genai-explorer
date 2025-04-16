@@ -204,7 +204,7 @@
             "reasoning": 2
           },
           "specs": {
-            "reasoningTokens": true,
+            "reasoningTokens": false,
             "inputFormats": ["text", "image"],
             "outputFormats": ["text"],
             "maxInputTokens": 1047576,
@@ -230,7 +230,7 @@
             "reasoning": 2
           },
           "specs": {
-            "reasoningTokens": true,
+            "reasoningTokens": false,
             "inputFormats": ["text", "image"],
             "outputFormats": ["text"],
             "maxInputTokens": 1047576,
@@ -256,7 +256,7 @@
             "reasoning": 2
           },
           "specs": {
-            "reasoningTokens": true,
+            "reasoningTokens": false,
             "inputFormats": ["text", "image"],
             "outputFormats": ["text"],
             "maxInputTokens": 1047576,
