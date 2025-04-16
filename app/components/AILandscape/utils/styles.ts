@@ -337,7 +337,7 @@ export const tableStyles = {
   
   // Special cell styles
   modelName: 'font-medium text-cyan-400 font-mono',
-  metric: 'font-medium text-cyan-400 tabular-nums font-mono',
+  metric: 'font-medium text-white tabular-nums font-mono',
   
   // Border utilities
   borderRight: 'border-r border-gray-800',
@@ -480,10 +480,10 @@ export const iconStyles = {
   '2xl': 'text-2xl',
   '3xl': 'text-3xl',
   
-  // Rating icons with neon pink
-  ratingContainer: 'flex items-center justify-center text-fuchsia-500',
-  ratingFilled: 'text-fuchsia-500',
-  ratingEmpty: 'text-gray-700',
+  // Rating icons with neon cyan (same as format icons)
+  ratingContainer: 'flex items-center justify-center',
+  ratingFilled: 'text-cyan-400', // Changed to cyan to match format icons
+  ratingEmpty: 'text-gray-600', // Changed to match inactiveFormat
   iconSpacing: 'mx-0.5',
   
   // Format indicators with neon cyan
@@ -516,7 +516,7 @@ export const iconStyles = {
   info: 'text-cyan-400',
   
   // Boolean indicator icons
-  booleanTrue: 'text-fuchsia-500 text-lg bi bi-check-circle-fill',
+  booleanTrue: 'text-cyan-400 text-lg bi bi-check-circle-fill',
   booleanFalse: 'text-gray-600 text-lg bi bi-x-circle-fill',
 };
 

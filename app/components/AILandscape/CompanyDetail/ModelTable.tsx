@@ -70,7 +70,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         {[...Array(5)].map((_, i) => (
           <i 
             key={i} 
-            className={i < value ? `${filledIcon} ${iconStyles.iconSpacing}` : `${icon} ${iconStyles.iconSpacing}`}
+            className={`${i < value ? filledIcon : icon} ${iconStyles.iconSpacing} ${i < value ? iconStyles.activeFormat : iconStyles.inactiveFormat}`}
           ></i>
         ))}
       </div>
@@ -441,6 +441,34 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           </table>
         </div>
       </div>
+      
+      {/* Format Icons Legend - Moved under first table */}
+      <div className={`${containerStyles.legend} transform transition-all duration-500 mt-3 mb-0`}>
+        <div className={`${containerStyles.legendBox} hover:shadow-md transition-all duration-300 hover:border-fuchsia-700 legend-container`}>
+          <div className={containerStyles.legendItems}>
+            <div className={containerStyles.legendItem}>
+              <i className={`bi bi-file-text-fill ${iconStyles.activeFormat}`}></i>
+              <span className={`${textStyles.sm} ${textStyles.primary}`}>Text</span>
+            </div>
+            <div className={containerStyles.legendItem}>
+              <i className={`bi bi-mic-fill ${iconStyles.activeFormat}`}></i>
+              <span className={`${textStyles.sm} ${textStyles.primary}`}>Audio</span>
+            </div>
+            <div className={containerStyles.legendItem}>
+              <i className={`bi bi-image-fill ${iconStyles.activeFormat}`}></i>
+              <span className={`${textStyles.sm} ${textStyles.primary}`}>Image</span>
+            </div>
+            <div className={containerStyles.legendItem}>
+              <i className={`bi bi-music-note-beamed ${iconStyles.activeFormat}`}></i>
+              <span className={`${textStyles.sm} ${textStyles.primary}`}>Music</span>
+            </div>
+            <div className={containerStyles.legendItem}>
+              <i className={`bi bi-camera-video-fill ${iconStyles.activeFormat}`}></i>
+              <span className={`${textStyles.sm} ${textStyles.primary}`}>Video</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Context Table (Max Input/Output and Knowledge Cutoff) */}
       {hasContextData && (
@@ -479,34 +507,6 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         </div>
       )}
       
-      {/* Format Icons Legend */}
-      <div className={`${containerStyles.legend} transform transition-all duration-500 mt-6`}>
-        <div className={`${containerStyles.legendBox} hover:shadow-md transition-all duration-300 hover:border-fuchsia-700 legend-container`}>
-          <span className={containerStyles.legendLabel}>Legend:</span>
-          <div className={containerStyles.legendItems}>
-            <div className={containerStyles.legendItem}>
-              <i className={`bi bi-file-text-fill ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.sm} ${textStyles.primary}`}>Text</span>
-            </div>
-            <div className={containerStyles.legendItem}>
-              <i className={`bi bi-mic-fill ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.sm} ${textStyles.primary}`}>Audio</span>
-            </div>
-            <div className={containerStyles.legendItem}>
-              <i className={`bi bi-image-fill ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.sm} ${textStyles.primary}`}>Image</span>
-            </div>
-            <div className={containerStyles.legendItem}>
-              <i className={`bi bi-music-note-beamed ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.sm} ${textStyles.primary}`}>Music</span>
-            </div>
-            <div className={containerStyles.legendItem}>
-              <i className={`bi bi-camera-video-fill ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.sm} ${textStyles.primary}`}>Video</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
