@@ -7,55 +7,55 @@
       "website": "https://openai.com",
       "category": "frontier",
       "description": "An AI research and deployment company. Their mission is to ensure that artificial general intelligence benefits all of humanity.",
-      "lastUpdated": "2025-04-14",
+      "lastUpdated": "2025-04-15",
       "features": [
         {
           "name": "Canvas",
-          "description": "Document creation and collaboration tool",
+          "description": "A new way of working with ChatGPT to write and code",
           "image": "/images/companies/openai/features/canvas.png",
-          "url": "https://openai.com/canvas"
+          "url": "https://openai.com/index/introducing-canvas/"
         },
         {
           "name": "Memory",
-          "description": "Allows AI to remember previous conversations and context",
+          "description": "ChatGPT can remember things you discuss to make future chats more helpful",
           "image": "/images/companies/openai/features/memory.png",
-          "url": "https://openai.com/memory"
+          "url": "https://openai.com/index/memory-and-new-controls-for-chatgpt/"
         },
         {
-          "name": "Web Browsing",
-          "description": "Enables ChatGPT to search and browse the internet",
+          "name": "Search",
+          "description": "Get fast, timely answers with links to relevant web sources.",
           "image": "/images/companies/openai/features/web-browsing.png",
-          "url": "https://openai.com/chatgpt/web-browsing"
+          "url": "https://openai.com/index/introducing-chatgpt-search/"
         },
         {
           "name": "GPTs",
-          "description": "Custom versions of ChatGPT for specific use cases",
+          "description": "Custom versions of ChatGPT that combine instructions, extra knowledge, and any combination of skills.",
           "image": "/images/companies/openai/features/gpts.png",
-          "url": "https://openai.com/gpts"
+          "url": "https://openai.com/index/introducing-gpts/"
         },
         {
           "name": "Projects",
-          "description": "xxx",
+          "description": "Provide a way to group files and chats for personal use, simplifying the management of work that involves multiple chats.",
           "image": "/images/companies/openai/features/projects.png",
-          "url": "https://openai.com/gpts"
+          "url": "https://help.openai.com/en/articles/10169521-using-projects-in-chatgpt"
         },
         {
           "name": "Tasks",
-          "description": "xxx",
+          "description": "Automate your work with scheduled tasks in ChatGPT.",
           "image": "/images/companies/openai/features/tasks.png",
-          "url": "https://openai.com/gpts"
+          "url": "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt"
         },
         {
           "name": "Advanced Voice",
-          "description": "xxx",
+          "description": "Voice conversations allow you to have a spoken conversation with ChatGPT, enabling a more conversational and natural interaction.",
           "image": "/images/companies/openai/features/advanced-voice.png",
-          "url": "https://openai.com/gpts"
+          "url": "https://help.openai.com/en/articles/8400625-voice-mode-faq"
         },
         {
           "name": "Connected Apps",
-          "description": "xxx",
+          "description": "ChatGPT can load files directly from their cloud storage services accounts into conversations with ChatGPT.",
           "image": "/images/companies/openai/features/connected-apps.png",
-          "url": "https://openai.com/gpts"
+          "url": "https://help.openai.com/en/articles/9309188-connected-apps-on-chatgpt"
         }
       ],
       "models": [
@@ -64,10 +64,13 @@
           "name": "GPT-4.5",
           "featured": true,
           "type": "Large Multimodal Model",
-          "releaseDate": "2025-01-25",
+          "releaseDate": "2025-02-27",
+          "modelPage": "https://platform.openai.com/docs/models/gpt-4.5-preview",
+          "releasePost": "https://openai.com/index/introducing-gpt-4-5/",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 4,
-            "speed": 5,
+            "speed": 3,
             "reasoning": 3
           },
           "specs": {
@@ -76,21 +79,24 @@
             "outputFormats": ["text", "audio"],
             "maxInputTokens": 128000,
             "maxOutputTokens": 16384,
-            "pricingInputPerM": 0.50,
-            "pricingCachedInputPerM": 0.15,
-            "pricingOutputPerM": 1.50,
+            "pricingInputPerM": 75.00,
+            "pricingCachedInputPerM": 37.50,
+            "pricingOutputPerM": 150.00,
             "knowledgeCutoff": "September 2023"
           }
         },
         {
           "id": "gpt-4o",
           "name": "GPT-4o",
-          "featured": true,
+          "featured": false,
           "type": "Large Multimodal Model",
-          "releaseDate": "2024-11-05",
+          "releaseDate": "2024-08-06",
+          "modelPage": "https://platform.openai.com/docs/models/gpt-4o",
+          "releasePost": "https://openai.com/index/hello-gpt-4o/",
+          "systemCard": "https://openai.com/index/gpt-4o-system-card/",
           "capabilities": {
             "intelligence": 3,
-            "speed": 5,
+            "speed": 3,
             "reasoning": 2
           },
           "specs": {
@@ -99,9 +105,35 @@
             "outputFormats": ["text", "audio", "image"],
             "maxInputTokens": 128000,
             "maxOutputTokens": 16384,
-            "pricingInputPerM": 0.30,
-            "pricingCachedInputPerM": 0.10,
-            "pricingOutputPerM": 0.90,
+            "pricingInputPerM": 2.50,
+            "pricingCachedInputPerM": 1.25,
+            "pricingOutputPerM": 10.00,
+            "knowledgeCutoff": "September 2023"
+          }
+        },
+        {
+          "id": "gpt-4o-mini",
+          "name": "GPT-4o Mini",
+          "featured": false,
+          "type": "Large Multimodal Model",
+          "releaseDate": "2024-08-06",
+          "modelPage": "https://platform.openai.com/docs/models/gpt-4o-mini",
+          "releasePost": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
+          "systemCard": "https://openai.com/index/gpt-4o-system-card/",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 4,
+            "reasoning": 2
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": ["text", "audio", "image"],
+            "outputFormats": ["text", "audio"],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 16384,
+            "pricingInputPerM": 0.15,
+            "pricingCachedInputPerM": 0.075,
+            "pricingOutputPerM": 0.60,
             "knowledgeCutoff": "September 2023"
           }
         },
@@ -110,7 +142,10 @@
           "name": "o1",
           "featured": true,
           "type": "Large Reasoning Model",
-          "releaseDate": "2024-10-12",
+          "releaseDate": "2024-12-17",
+          "modelPage": "https://platform.openai.com/docs/models/o1",
+          "releasePost": "https://openai.com/o1/",
+          "systemCard": "https://openai.com/index/openai-o1-system-card/",
           "capabilities": {
             "intelligence": 4,
             "speed": 1,
@@ -122,9 +157,9 @@
             "outputFormats": ["text", "audio"],
             "maxInputTokens": 200000,
             "maxOutputTokens": 100000,
-            "pricingInputPerM": 0.70,
-            "pricingCachedInputPerM": 0.25,
-            "pricingOutputPerM": 2.10,
+            "pricingInputPerM": 15.00,
+            "pricingCachedInputPerM": 7.50,
+            "pricingOutputPerM": 60.00,
             "knowledgeCutoff": "September 2023"
           }
         },
@@ -133,7 +168,10 @@
           "name": "o3-mini",
           "featured": true,
           "type": "Large Reasoning Model",
-          "releaseDate": "2025-02-15",
+          "releaseDate": "2025-01-31",
+          "modelPage": "https://platform.openai.com/docs/models/o3-mini",
+          "releasePost": "https://openai.com/index/openai-o3-mini/",
+          "systemCard": "https://openai.com/index/o3-mini-system-card/",
           "capabilities": {
             "intelligence": 4,
             "speed": 3,
@@ -145,7 +183,88 @@
             "outputFormats": ["text", "audio"],
             "maxInputTokens": 200000,
             "maxOutputTokens": 100000,
+            "pricingInputPerM": 1.10,
+            "pricingCachedInputPerM": 0.55,
+            "pricingOutputPerM": 4.40,
             "knowledgeCutoff": "September 2023"
+          }
+        },
+        {
+          "id": "gpt-4-1",
+          "name": "GPT 4.1",
+          "featured": true,
+          "type": "Large Language Model",
+          "releaseDate": "2025-04-14",
+          "modelPage": "https://platform.openai.com/docs/models/gpt-4.1",
+          "releasePost": "https://openai.com/index/gpt-4-1/",
+          "systemCard": "",
+          "capabilities": {
+            "intelligence": 4,
+            "speed": 3,
+            "reasoning": 2
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": ["text", "image"],
+            "outputFormats": ["text"],
+            "maxInputTokens": 1047576,
+            "maxOutputTokens": 32768,
+            "pricingInputPerM": 2.00,
+            "pricingCachedInputPerM": 0.50,
+            "pricingOutputPerM": 8.00,
+            "knowledgeCutoff": "May 2024"
+          }
+        },
+        {
+          "id": "gpt-4-1-mini",
+          "name": "GPT 4.1 Mini",
+          "featured": false,
+          "type": "Large Language Model",
+          "releaseDate": "2025-04-14",
+          "modelPage": "https://platform.openai.com/docs/models/gpt-4.1-mini",
+          "releasePost": "https://openai.com/index/gpt-4-1/",
+          "systemCard": "",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 4,
+            "reasoning": 2
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": ["text", "image"],
+            "outputFormats": ["text"],
+            "maxInputTokens": 1047576,
+            "maxOutputTokens": 32768,
+            "pricingInputPerM": 0.40,
+            "pricingCachedInputPerM": 0.10,
+            "pricingOutputPerM": 1.60,
+            "knowledgeCutoff": "May 2024"
+          }
+        },
+        {
+          "id": "gpt-4-1-nano",
+          "name": "GPT 4.1 Nano",
+          "featured": false,
+          "type": "Large Language Model",
+          "releaseDate": "2025-04-14",
+          "modelPage": "https://platform.openai.com/docs/models/gpt-4.1-nano",
+          "releasePost": "https://openai.com/index/gpt-4-1/",
+          "systemCard": "",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 5,
+            "reasoning": 2
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": ["text", "image"],
+            "outputFormats": ["text"],
+            "maxInputTokens": 1047576,
+            "maxOutputTokens": 32768,
+            "pricingInputPerM": 0.10,
+            "pricingCachedInputPerM": 0.025,
+            "pricingOutputPerM": 0.40,
+            "knowledgeCutoff": "May 2024"
           }
         }
       ],
@@ -195,11 +314,25 @@
           ]
         },
         {
+          "tier": "Team",
+          "type": "team",
+          "price": 30,
+          "billingCycle": "monthly",
+          "url": "https://openai.com/chatgpt/team/",
+          "features": [
+            "Everything in Plus tier",
+            "Internal knowledge from your organization’s Google Drive",
+            "Higher message limits than Plus for GPT‑4o",
+            "Secure and collaborative workspace",
+            "Create and share custom GPTs with your workspace"
+          ]
+        },
+        {
           "tier": "Enterprise",
           "type": "enterprise",
           "price": null,
           "billingCycle": "custom",
-          "url": "https://openai.com/enterprise",
+          "url": "https://openai.com/chatgpt/enterprise/",
           "features": [
             "Custom models",
             "Enhanced security",
@@ -216,41 +349,111 @@
       "logo": "/images/companies/anthropic/logo.png",
       "website": "https://anthropic.com",
       "category": "frontier",
-      "description": "AI safety company developing reliable, interpretable AI systems",
-      "lastUpdated": "2025-04-10",
+      "description": "AI research and products that put safety at the frontier",
+      "lastUpdated": "2025-04-15",
       "features": [
         {
-          "name": "Claude Web",
-          "description": "Web interface for interacting with Claude",
-          "image": "/images/companies/claude/features/web.png",
-          "url": "https://claude.ai"
+          "name": "Projects",
+          "description": "Brings together curated sets of knowledge and chat activity in one place",
+          "image": "/images/companies/anthropic/features/projects.png",
+          "url": "https://www.anthropic.com/news/projects"
         },
         {
-          "name": "Claude API",
-          "description": "API access to Claude models",
-          "image": "/images/companies/claude/features/api.png",
-          "url": "https://anthropic.com/api"
+          "name": "Artifacts",
+          "description": "Turn conversations with Claude into a more creative and collaborative experience. ",
+          "image": "/images/companies/anthropic/features/artifacts.png",
+          "url": "https://www.anthropic.com/news/artifacts"
+        },
+        {
+          "name": "Web Browsing",
+          "description": "Use Claude to search the internet to provide more up-to-date and relevant responses. ",
+          "image": "/images/companies/anthropic/features/web-browsing.png",
+          "url": "https://www.anthropic.com/news/web-search"
+        },
+        {
+          "name": "Connected Apps",
+          "description": "Allow you to seamlessly connect Claude with your existing tools and workflows",
+          "image": "/images/companies/anthropic/features/connected-apps.png",
+          "url": "https://support.anthropic.com/en/articles/10168395-setting-up-integrations-on-claude-ai"
         }
       ],
       "models": [
+        {
+          "id": "claude-3-5-haiku",
+          "name": "Claude 3.5 Haiku",
+          "featured": true,
+          "type": "text",
+          "releaseDate": "2024-10-22",
+          "modelPage": "https://www.anthropic.com/claude/haiku",
+          "releasePost": "https://www.anthropic.com/claude/haiku",
+          "systemCard": "https://assets.anthropic.com/m/61e7d27f8c8f5919/original/Claude-3-Model-Card.pdf",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 4,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": ["text", "image"],
+            "outputFormats": ["text"],
+            "maxInputTokens": 200000,
+            "maxOutputTokens": 8192,
+            "pricingInputPerM": 0,
+            "pricingCachedInputPerM": 0,
+            "pricingOutputPerM": 0,
+            "knowledgeCutoff": "July 2023"
+          }
+        },
+        {
+          "id": "claude-3-opus",
+          "name": "Claude 3 Opus",
+          "featured": true,
+          "type": "text",
+          "releaseDate": "2024-03-04",
+          "modelPage": "",
+          "releasePost": "https://www.anthropic.com/news/claude-3-family",
+          "systemCard": "https://assets.anthropic.com/m/61e7d27f8c8f5919/original/Claude-3-Model-Card.pdf",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 2,
+            "reasoning": 2
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": ["text", "image"],
+            "outputFormats": ["text"],
+            "maxInputTokens": 200000,
+            "maxOutputTokens": 4096,
+            "pricingInputPerM": 0,
+            "pricingCachedInputPerM": 0,
+            "pricingOutputPerM": 0,
+            "knowledgeCutoff": "August 2023"
+          }
+        },
         {
           "id": "claude-3-7",
           "name": "Claude 3.7",
           "featured": true,
           "type": "text",
-          "releaseDate": "2025-01-15",
+          "releaseDate": "2025-02-24",
+          "modelPage": "https://www.anthropic.com/claude/sonnet",
+          "releasePost": "https://www.anthropic.com/news/claude-3-7-sonnet",
+          "systemCard": "https://assets.anthropic.com/m/785e231869ea8b3b/original/claude-3-7-sonnet-system-card.pdf",
           "capabilities": {
-            "intelligence": 5,
-            "speed": 4,
-            "reasoning": 5
+            "intelligence": 4,
+            "speed": 3,
+            "reasoning": 4
           },
           "specs": {
             "reasoningTokens": true,
             "inputFormats": ["text", "image"],
             "outputFormats": ["text"],
-            "maxInputTokens": 150000,
-            "maxOutputTokens": 30000,
-            "knowledgeCutoff": "August 2023"
+            "maxInputTokens": 200000,
+            "maxOutputTokens": 64000,
+            "pricingInputPerM": 0,
+            "pricingCachedInputPerM": 0,
+            "pricingOutputPerM": 0,
+            "knowledgeCutoff": "November 2024"
           }
         }
       ],
@@ -260,23 +463,52 @@
           "type": "consumer",
           "price": 0,
           "billingCycle": "monthly",
+          "url": "https://www.anthropic.com/pricing",
           "features": [
-            "Limited access to Claude 3 Haiku",
-            "100 messages per day",
-            "5 file uploads per day",
-            "Web interface"
+            "Chat on web, iOS, and Android",
+            "Generate code and visualize data",
+            "Write, edit, and create content",
+            "Analyze text and images"
           ]
         },
         {
           "tier": "Pro",
           "type": "consumer",
-          "price": 20,
+          "price": 17,
           "billingCycle": "monthly",
+          "url": "https://www.anthropic.com/pricing",
           "features": [
-            "Full access to Claude 3.7 Haiku and Sonnet",
-            "Unlimited messages",
-            "Unlimited file uploads",
-            "Prioritized access during peak times"
+            "Everything in Free tier",
+            "Access to Projects to organize chats and documents",
+            "Ability to use more Claude models",
+            "Extended thinking for complex work"
+          ]
+        },
+        {
+          "tier": "Max",
+          "type": "consumer",
+          "price": 100,
+          "billingCycle": "monthly",
+          "url": "https://www.anthropic.com/pricing",
+          "features": [
+            "Everything in Pro tier",
+            "Substantially more usage of Claude",
+            "Scale usage based on specific needs",
+            "Higher output limits for all tasks",
+            "Early access to advanced Claude features",
+            "Priority access at high traffic times"
+          ]
+        },
+        {
+          "tier": "Team",
+          "type": "enterprise",
+          "price": null,
+          "billingCycle": "custom",
+          "url": "https://www.anthropic.com/team",
+          "features": [
+            "Use company knowledge",
+            "Create and share work",
+            "Secure your data"
           ]
         },
         {
@@ -284,12 +516,11 @@
           "type": "enterprise",
           "price": null,
           "billingCycle": "custom",
+          "url": "https://www.anthropic.com/enterprise",
           "features": [
-            "Full access to all Claude models",
-            "Custom model fine-tuning",
-            "Enhanced security",
-            "Dedicated support",
-            "SLA guarantees"
+            "Use company knowledge",
+            "Create and share work",
+            "Secure your data"
           ]
         }
       ]
