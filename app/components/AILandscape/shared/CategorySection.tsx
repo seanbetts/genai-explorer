@@ -41,12 +41,17 @@ const CategorySection: React.FC<CategorySectionProps> = ({
   const renderContent = () => {
     // Use styling from our centralized theme
     
-    // Determine image size based on layout
-    const imageSize = layout === 'quarter-width' 
+    // Determine image size based on layout and whether models will be shown
+    const baseImageSize = layout === 'quarter-width' 
       ? { width: 84, height: 36 } 
       : layout === 'half-width' 
         ? { width: 100, height: 42 }
         : { width: 110, height: 46 }; // Slightly larger for full-width
+        
+    // For categories where showModelCount is 0, use larger logo sizes
+    const imageSize = showModelCount === 0
+      ? { width: baseImageSize.width * 1.2, height: baseImageSize.height * 1.2 }
+      : baseImageSize;
     
     return (
       <>

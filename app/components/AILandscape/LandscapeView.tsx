@@ -107,7 +107,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
       
       {/* Four-column layout for specialized categories with staggered animations */}
       <div className={`${containerStyles.landscapeRowFour} transform transition-all duration-500 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-        {/* Image */}
+        {/* Image Generation (logos only, no model names) */}
         <CategorySection
           title={categoryLabels.image}
           companies={categorizedCompanies.image}
@@ -115,9 +115,10 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
           onCompanySelect={onCompanySelect}
           layout="quarter-width"
           icon={getCategoryIcon('image')}
+          showModelCount={0}
         />
         
-        {/* Video */}
+        {/* Video Generation (logos only, no model names) */}
         <CategorySection
           title={categoryLabels.video}
           companies={categorizedCompanies.video}
@@ -125,9 +126,10 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
           onCompanySelect={onCompanySelect}
           layout="quarter-width"
           icon={getCategoryIcon('video')}
+          showModelCount={0}
         />
         
-        {/* Music */}
+        {/* Audio Generation (logos only, no model names) */}
         <CategorySection
           title={categoryLabels.music}
           companies={categorizedCompanies.music}
@@ -135,9 +137,10 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
           onCompanySelect={onCompanySelect}
           layout="quarter-width"
           icon={getCategoryIcon('music')}
+          showModelCount={0}
         />
         
-        {/* Other */}
+        {/* Other - Specialized AI Platforms (logos only, no model names) */}
         <CategorySection
           title={categoryLabels.other}
           companies={categorizedCompanies.other}
@@ -145,6 +148,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
           onCompanySelect={onCompanySelect}
           layout="quarter-width"
           icon={getCategoryIcon('other')}
+          showModelCount={0}
         />
       </div>
     </div>
