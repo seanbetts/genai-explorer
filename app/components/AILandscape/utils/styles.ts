@@ -428,7 +428,7 @@ export const containerStyles = {
   // App layout with cyberpunk theme styling
   appContainer: 'min-h-screen bg-gray-900',
   header: 'bg-gray-800 shadow-md sticky top-0 z-30 border-b border-gray-700',
-  headerContent: 'container mx-auto px-5 py-4 flex items-center justify-between',
+  headerContent: 'container mx-auto px-5 py-6 flex items-center justify-between relative h-[90px]', /* Fixed height with padding */
   appTitle: 'text-xl font-semibold cursor-pointer text-fuchsia-500 hover:text-fuchsia-400 transition-colors font-mono',
   mainContent: 'container mx-auto p-5 md:p-6',
   footer: 'bg-gray-800 text-cyan-400 mt-16 py-10 border-t border-fuchsia-900',
@@ -453,7 +453,7 @@ export const containerStyles = {
   spacerLg: 'h-8',
   
   // Legend container with cyberpunk styling that matches row labels
-  legend: 'max-w-3xl mx-auto mt-8 rounded-lg border border-gray-700',
+  legend: 'max-w-3xl mx-auto mt-0 rounded-lg border border-gray-700',
   legendBox: 'flex items-center p-4 rounded-lg',
   legendLabel: 'text-fuchsia-500 text-sm mr-4 font-mono',
   legendItems: 'flex items-center flex-wrap gap-3',

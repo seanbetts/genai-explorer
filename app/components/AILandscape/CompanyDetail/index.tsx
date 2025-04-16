@@ -39,27 +39,9 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
   }, []);
   return (
     <div className={`transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-      <div className={`${containerStyles.flexBetween} mb-6`}>
-        <button 
-          onClick={onBack} 
-          className={`${buttonStyles.secondary} ${buttonStyles.withLeftIcon} hover:-translate-x-1 cursor-pointer transition-all duration-300`}
-        >
-          <i className={`bi bi-chevron-left ${iconStyles.primary} ${iconStyles.lg}`}></i> 
-          <span>Back</span>
-        </button>
-        <div className="text-xs font-mono pr-4">
-          Company data last updated: <span className="text-fuchsia-500 font-semibold">{
-            new Date(company.lastUpdated).toLocaleDateString('en-GB', { 
-              day: 'numeric', 
-              month: 'long', 
-              year: 'numeric' 
-            })
-          }</span>
-        </div>
-      </div>
       
       <div className={`${containerStyles.flexCol} space-y-10`}>
-        <div className={`${containerStyles.companyDetailHeader} transform transition-all duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-4'}`}>
+        <div className={`${containerStyles.companyDetailHeader} transform transition-all duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-4'} relative`}>
           <a 
             href={company.website} 
             target="_blank" 
@@ -78,6 +60,17 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           </a>
           <div className={containerStyles.companyDescriptionContainer}>
             <p className={containerStyles.companyDescription}>{company.description}</p>
+          </div>
+          
+          {/* Last updated date in bottom right corner */}
+          <div className="absolute bottom-2 right-3 text-xs font-mono text-gray-500">
+            Last updated: <span className="text-fuchsia-500 font-semibold">{
+              new Date(company.lastUpdated).toLocaleDateString('en-GB', { 
+                day: 'numeric', 
+                month: 'long', 
+                year: 'numeric' 
+              })
+            }</span>
           </div>
         </div>
         
@@ -120,8 +113,8 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           </button>
         </div>
         
-        {/* Content container */}
-        <div className={`${containerStyles.section} transform transition-all duration-500 delay-100 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+        {/* Content container with reduced top padding */}
+        <div className={`bg-gray-800 rounded-lg px-8 pt-3 pb-7 border border-gray-700 transform transition-all duration-500 delay-100 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
           
           {/* Tab Content */}
           <div className={containerStyles.companyDetailSection}>

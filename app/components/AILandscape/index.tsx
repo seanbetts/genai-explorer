@@ -47,20 +47,39 @@ const AILandscape: React.FC = () => {
     <div className={containerStyles.appContainer}>
       <header className={containerStyles.header}>
         <div className={containerStyles.headerContent}>
+          {/* Left section with back button */}
+          <div>
+            {currentView === 'company' && (
+              <button 
+                onClick={handleBack} 
+                className="flex items-center gap-1 text-gray-300 hover:text-cyan-400 transition-colors focus:outline-none cursor-pointer"
+              >
+                <i className="bi bi-chevron-left text-lg"></i> 
+                <span className="font-mono text-sm">Back</span>
+              </button>
+            )}
+          </div>
+          
+          {/* Centered logo */}
           <div
-            className={`${containerStyles.appTitle} ${textStyles.primary}`}
+            className="absolute left-1/2 transform -translate-x-1/2 cursor-pointer"
             onClick={() => {
               setCurrentView('home');
               setSelectedCompany(null);
             }}
           >
-            Generative AI Model Explorer
+            <img 
+              src="/images/logo.png" 
+              alt="Generative AI Model Explorer" 
+              className="h-14"
+            />
           </div>
           
+          {/* Right section with date (empty on company view) */}
           <div>
             {currentView === 'home' && (
               <div className="text-xs pr-4 font-mono">
-                Data last updated: <span className="text-fuchsia-500 font-semibold">{
+                Data last updated: <span className="text-cyan-400 font-semibold">{
                   new Date().toLocaleDateString('en-GB', { 
                     day: 'numeric', 
                     month: 'long', 

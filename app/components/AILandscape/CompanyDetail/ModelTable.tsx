@@ -430,20 +430,8 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     <div className={`${containerStyles.flexCol} transform transition-all duration-300`}>
       <style>{tableHoverStyles}</style>
 
-      {/* Main Capabilities and Formats Table */}
-      <div style={tableContainerStyle}>
-        <div className={needsScrolling ? tableStyles.comparison : ""}>
-          <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight`}>
-            <TableHeader />
-            <tbody>
-              {renderCapabilitiesRows()}
-            </tbody>
-          </table>
-        </div>
-      </div>
-      
-      {/* Format Icons Legend - Moved under first table */}
-      <div className={`${containerStyles.legend} transform transition-all duration-500 mt-3 mb-0`}>
+      {/* Format Icons Legend - Moved above first table with reduced top spacing */}
+      <div className={`${containerStyles.legend} transform transition-all duration-500 mb-3`}>
         <div className={`${containerStyles.legendBox} hover:shadow-md transition-all duration-300 hover:border-fuchsia-700 legend-container`}>
           <div className={containerStyles.legendItems}>
             <div className={containerStyles.legendItem}>
@@ -469,7 +457,18 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           </div>
         </div>
       </div>
-
+      
+      {/* Main Capabilities and Formats Table */}
+      <div style={tableContainerStyle}>
+        <div className={needsScrolling ? tableStyles.comparison : ""}>
+          <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight`}>
+            <TableHeader />
+            <tbody>
+              {renderCapabilitiesRows()}
+            </tbody>
+          </table>
+        </div>
+      </div>
       {/* Context Table (Max Input/Output and Knowledge Cutoff) */}
       {hasContextData && (
         <div className="mt-6">
@@ -500,6 +499,105 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                 <TableHeader />
                 <tbody>
                   {renderPricingRows()}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      {/* Resources Table - New table for external links */}
+      {displayModels.some(model => model.modelPage || model.releasePost || model.systemCard) && (
+        <div className="mt-6">
+          <h3 className={sectionTitle}>Resources</h3>
+          <div style={tableContainerStyle}>
+            <div className={needsScrolling ? tableStyles.comparison : ""}>
+              <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight`}>
+                <TableHeader />
+                <tbody>
+                  {/* Model Page Row */}
+                  {displayModels.some(model => model.modelPage) && (
+                    <tr className="cursor-pointer">
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                        <div className={containerStyles.flexCenter}>
+                          <i className={`bi bi-globe2 ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Model Page</span>
+                        </div>
+                      </td>
+                      {displayModels.map(model => (
+                        <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                          {model.modelPage ? (
+                            <a 
+                              href={model.modelPage} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                              title="Visit model page"
+                            >
+                              🔗 Link
+                            </a>
+                          ) : (
+                            <span className={textStyles.tertiary}>-</span>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  )}
+                  
+                  {/* Release Post Row */}
+                  {displayModels.some(model => model.releasePost) && (
+                    <tr className="cursor-pointer">
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                        <div className={containerStyles.flexCenter}>
+                          <i className={`bi bi-newspaper ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Post</span>
+                        </div>
+                      </td>
+                      {displayModels.map(model => (
+                        <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                          {model.releasePost ? (
+                            <a 
+                              href={model.releasePost} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                              title="Read release post"
+                            >
+                              🔗 Link
+                            </a>
+                          ) : (
+                            <span className={textStyles.tertiary}>-</span>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  )}
+                  
+                  {/* System Card Row */}
+                  {displayModels.some(model => model.systemCard) && (
+                    <tr className="cursor-pointer">
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                        <div className={containerStyles.flexCenter}>
+                          <i className={`bi bi-file-earmark-text ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>System Card</span>
+                        </div>
+                      </td>
+                      {displayModels.map(model => (
+                        <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                          {model.systemCard ? (
+                            <a 
+                              href={model.systemCard} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                              title="View system card"
+                            >
+                              🔗 Link
+                            </a>
+                          ) : (
+                            <span className={textStyles.tertiary}>-</span>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>

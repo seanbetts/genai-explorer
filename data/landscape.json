@@ -191,7 +191,7 @@
         },
         {
           "id": "gpt-4-1",
-          "name": "GPT 4.1",
+          "name": "GPT 4.1 (API only)",
           "featured": true,
           "type": "Large Language Model",
           "releaseDate": "2025-04-14",
@@ -217,7 +217,7 @@
         },
         {
           "id": "gpt-4-1-mini",
-          "name": "GPT 4.1 Mini",
+          "name": "GPT 4.1 Mini (API only)",
           "featured": false,
           "type": "Large Language Model",
           "releaseDate": "2025-04-14",
@@ -243,7 +243,7 @@
         },
         {
           "id": "gpt-4-1-nano",
-          "name": "GPT 4.1 Nano",
+          "name": "GPT 4.1 Nano (API only)",
           "featured": false,
           "type": "Large Language Model",
           "releaseDate": "2025-04-14",
@@ -381,7 +381,7 @@
         {
           "id": "claude-3-5-haiku",
           "name": "Claude 3.5 Haiku",
-          "featured": true,
+          "featured": false,
           "type": "text",
           "releaseDate": "2024-10-22",
           "modelPage": "https://www.anthropic.com/claude/haiku",
@@ -407,7 +407,7 @@
         {
           "id": "claude-3-opus",
           "name": "Claude 3 Opus",
-          "featured": true,
+          "featured": false,
           "type": "text",
           "releaseDate": "2024-03-04",
           "modelPage": "",

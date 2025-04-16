@@ -53,6 +53,9 @@ export interface Model {
   featured?: boolean;
   type?: string;
   releaseDate?: string;
+  modelPage?: string;
+  releasePost?: string;
+  systemCard?: string;
   capabilities?: Capabilities;
   specs?: Specs;
 }
