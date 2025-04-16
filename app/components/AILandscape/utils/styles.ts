@@ -383,7 +383,7 @@ export const containerStyles = {
   
   // Subscription card styles with cyberpunk styling to match feature cards
   subscriptionGrid: 'flex flex-wrap justify-center gap-6',
-  subscriptionCard: 'flex flex-col rounded-lg border border-gray-600 bg-gray-200 overflow-hidden hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer no-underline w-72 relative',
+  subscriptionCard: 'flex flex-col rounded-lg border border-gray-600 bg-gray-200 overflow-hidden hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer no-underline w-full sm:w-96 relative',
   subscriptionHeader: 'px-5 py-3 bg-[#2d3748] border-b border-gray-600', /* Match table header/label color */
   subscriptionContent: 'p-5 flex-1 flex flex-col overflow-hidden',
   subscriptionTier: 'text-lg font-semibold text-fuchsia-500 font-mono',
@@ -411,7 +411,7 @@ export const containerStyles = {
   companyCardContainer: 'flex flex-col items-center h-full cursor-pointer p-4 rounded-lg border border-gray-600 bg-gray-200 hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300',
   companyLogo: 'relative h-14 w-full flex items-center justify-center mb-3 bg-white rounded-md p-2',
   companyLogoImage: 'mx-auto object-contain max-h-12',
-  companyModel: 'text-center text-sm font-medium text-gray-800 line-clamp-1 mb-1 font-mono group-hover:text-fuchsia-600',
+  companyModel: 'text-center text-sm font-medium text-gray-800 mb-1 font-mono group-hover:text-fuchsia-600',
   
   // Company grid layouts with improved spacing and specified column counts
   companyGridFull: 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5',

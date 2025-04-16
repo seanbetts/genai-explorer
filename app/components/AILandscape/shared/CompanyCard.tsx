@@ -63,7 +63,22 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
       </div>
       <div className={containerStyles.flexCol}>
         {modelsToDisplay.map((model, idx) => (
-          <div key={model.id} className={containerStyles.companyModel}>
+          <div 
+            key={model.id} 
+            className={containerStyles.companyModel}
+            style={{ fontSize: '0.875rem' }}  // Start with default text-sm size
+            ref={(el) => {
+              if (el) {
+                // Check if content is larger than container and reduce font size if needed
+                if (el.scrollWidth > el.clientWidth) {
+                  el.style.fontSize = '0.75rem';  // Reduce to text-xs size
+                }
+                if (el.scrollWidth > el.clientWidth) {
+                  el.style.fontSize = '0.7rem';  // Further reduce if still overflowing
+                }
+              }
+            }}
+          >
             {model.name}
           </div>
         ))}
