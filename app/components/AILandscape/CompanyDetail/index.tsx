@@ -63,7 +63,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           </div>
           
           {/* Last updated date in bottom right corner */}
-          <div className="absolute bottom-2 right-3 text-xs font-mono text-gray-500">
+          <div className="absolute bottom-2 right-3 text-xs font-mono text-gray-400">
             Last updated: <span className="text-fuchsia-500 font-semibold">{
               new Date(company.lastUpdated).toLocaleDateString('en-GB', { 
                 day: 'numeric', 
@@ -109,7 +109,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
             onClick={() => setActiveTab('subscriptions')}
             disabled={!company.subscriptions || company.subscriptions.length === 0}
           >
-            Subscription Plans
+            Subscriptions
           </button>
         </div>
         

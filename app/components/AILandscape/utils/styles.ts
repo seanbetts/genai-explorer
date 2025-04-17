@@ -421,10 +421,10 @@ export const containerStyles = {
   companyGridQuarter: 'grid grid-cols-1 sm:grid-cols-2 gap-4', // 2 columns for Enterprise and specialty categories
   
   // Company detail with cyberpunk styling
-  companyDetailHeader: 'flex flex-col md:flex-row items-center p-6 rounded-lg border border-gray-600 bg-gray-200 shadow-md',
-  companyLogoContainer: 'relative flex items-center justify-center h-24 w-48 flex-shrink-0 mb-4 md:mb-0 md:mr-8 bg-white rounded-md p-2 hover:opacity-90 transition-opacity',
+  companyDetailHeader: 'flex flex-col md:flex-row items-center p-6 rounded-lg border border-gray-700 bg-gray-800 shadow-md',
+  companyLogoContainer: 'relative flex items-center justify-center h-24 w-48 flex-shrink-0 mb-4 md:mb-0 md:mr-8 bg-white rounded-md p-2 hover:border-fuchsia-400 transition-all duration-300 border border-fuchsia-500',
   companyDescriptionContainer: 'flex-1 flex items-center',
-  companyDescription: 'text-gray-700 font-mono',
+  companyDescription: 'text-gray-300 font-mono',
   companyDetailSection: 'mt-6 mb-4 space-y-4',
   
   // App layout with cyberpunk theme styling
