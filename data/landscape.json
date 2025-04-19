@@ -1933,15 +1933,15 @@
           "category": "open",
           "releaseDate": "2024-07-24",
           "modelPage": "https://mistral.ai/news/mistral-large-2407",
-          "releasePost": "",
+          "releasePost": "https://mistral.ai/news/mistral-large-2407",
           "releaseVideo": "",
           "systemCard": "",
-          "licenceType": "",
-          "licenceLink": "",
-          "huggingFace": "",
+          "licenceType": "Research",
+          "licenceLink": "https://mistral.ai/static/licenses/MRL-0.1.md",
+          "huggingFace": "https://huggingface.co/mistralai/Mistral-Large-Instruct-2407",
           "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
+            "intelligence": 3,
+            "speed": 3,
             "reasoning": 1
           },
           "specs": {
@@ -1952,7 +1952,7 @@
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": null,
+            "maxInputTokens": 128000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "",
             "pricingInputPerM": null,
@@ -1963,30 +1963,31 @@
           "id": "mistral-small-3-1",
           "name": "Mistral Small 3.1",
           "status": "primary",
-          "type": "Large Language Model",
+          "type": "Large Multimodal Model",
           "category": "open",
           "releaseDate": "2025-03-17",
           "modelPage": "https://mistral.ai/news/mistral-small-3-1",
-          "releasePost": "",
+          "releasePost": "https://mistral.ai/news/mistral-small-3-1",
           "releaseVideo": "",
           "systemCard": "",
-          "licenceType": "",
-          "licenceLink": "",
-          "huggingFace": "",
+          "licenceType": "Apache 2",
+          "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
+          "huggingFace": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503",
           "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
-            "reasoning": 1
+            "intelligence": 2,
+            "speed": 4,
+            "reasoning": 0
           },
           "specs": {
             "reasoningTokens": false,
             "inputFormats": [
-              "text"
+              "text",
+              "image"
             ],
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": null,
+            "maxInputTokens": 128000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "",
             "pricingInputPerM": null,
@@ -1996,21 +1997,21 @@
         {
           "id": "ministral-8B",
           "name": "Ministral 8B",
-          "status": "primary",
+          "status": "secondary",
           "type": "Large Language Model",
           "category": "open",
           "releaseDate": "2024-10-16",
           "modelPage": "https://mistral.ai/news/ministraux",
-          "releasePost": "",
+          "releasePost": "https://mistral.ai/news/ministraux",
           "releaseVideo": "",
           "systemCard": "",
-          "licenceType": "",
-          "licenceLink": "",
-          "huggingFace": "",
+          "licenceType": "Research",
+          "licenceLink": "https://mistral.ai/static/licenses/MRL-0.1.md",
+          "huggingFace": "https://huggingface.co/mistralai/Ministral-8B-Instruct-2410",
           "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
-            "reasoning": 1
+            "intelligence": 2,
+            "speed": 4,
+            "reasoning": 0
           },
           "specs": {
             "reasoningTokens": false,
@@ -2020,7 +2021,7 @@
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": null,
+            "maxInputTokens": 128000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "",
             "pricingInputPerM": null,
@@ -2035,16 +2036,16 @@
           "category": "open",
           "releaseDate": "2024-10-16",
           "modelPage": "https://mistral.ai/news/ministraux",
-          "releasePost": "",
+          "releasePost": "https://mistral.ai/news/ministraux",
           "releaseVideo": "",
           "systemCard": "",
-          "licenceType": "",
-          "licenceLink": "",
+          "licenceType": "Research",
+          "licenceLink": "https://mistral.ai/static/licenses/MRL-0.1.md",
           "huggingFace": "",
           "capabilities": {
             "intelligence": 1,
-            "speed": 1,
-            "reasoning": 1
+            "speed": 5,
+            "reasoning": 0
           },
           "specs": {
             "reasoningTokens": false,
@@ -2054,7 +2055,7 @@
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": null,
+            "maxInputTokens": 128000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "",
             "pricingInputPerM": null,
@@ -2069,15 +2070,15 @@
           "category": "open",
           "releaseDate": "2025-01-13",
           "modelPage": "https://mistral.ai/news/codestral-2501",
-          "releasePost": "",
+          "releasePost": "https://mistral.ai/news/codestral-2501",
           "releaseVideo": "",
           "systemCard": "",
-          "licenceType": "",
-          "licenceLink": "",
+          "licenceType": "Custom",
+          "licenceLink": "https://mistral.ai/static/licenses/MNPL-0.1.md",
           "huggingFace": "",
           "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
+            "intelligence": 3,
+            "speed": 4,
             "reasoning": 1
           },
           "specs": {
@@ -2088,7 +2089,7 @@
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": null,
+            "maxInputTokens": 256000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "",
             "pricingInputPerM": null,
@@ -2103,26 +2104,27 @@
           "category": "open",
           "releaseDate": "2024-11-18",
           "modelPage": "https://mistral.ai/news/pixtral-large",
-          "releasePost": "",
+          "releasePost": "https://mistral.ai/news/pixtral-large",
           "releaseVideo": "",
           "systemCard": "",
-          "licenceType": "",
-          "licenceLink": "",
-          "huggingFace": "",
+          "licenceType": "Research",
+          "licenceLink": "https://mistral.ai/static/licenses/MRL-0.1.md",
+          "huggingFace": "https://huggingface.co/mistralai/Pixtral-Large-Instruct-2411",
           "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
+            "intelligence": 3,
+            "speed": 2,
             "reasoning": 1
           },
           "specs": {
             "reasoningTokens": false,
             "inputFormats": [
-              "text"
+              "text",
+              "image"
             ],
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": null,
+            "maxInputTokens": 128000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "",
             "pricingInputPerM": null,
@@ -2133,18 +2135,74 @@
       "products": [
         {
           "name": "La Platforme",
-          "description": "",
+          "description": "Explore, customize, and deploy AI solutions with complete control. La Plateforme gives you all the tools you need.",
           "image": "/images/companies/mistral/products/la-platforme.png",
           "url": "https://mistral.ai/products/la-plateforme"
         },
         {
           "name": "Le Chat",
-          "description": "",
+          "description": "Combines powerful AI with extensive information access to help you get any job done, from cooking to coding.",
           "image": "/images/companies/mistral/products/le-chat.png",
           "url": "https://mistral.ai/products/le-chat"
         }
       ],
-      "subscriptions": []
+      "subscriptions": [
+        {
+          "tier": "Free",
+          "type": "consumer",
+          "price": 0,
+          "billingCycle": "month",
+          "url": "https://mistral.ai/products/le-chat#pricing",
+          "features": [
+            "Limited access to Mistral AI’s highest-performing models",
+            "Web browsing, news, file uploads, and data analysis",
+            "Image generation",
+            "Flash answers"
+          ]
+        },
+        {
+          "tier": "Pro",
+          "type": "consumer",
+          "price": 14.99,
+          "billingCycle": "month",
+          "url": "https://mistral.ai/products/le-chat#pricing",
+          "features": [
+            "Everything in Free tier",
+            "Unlimited web browsing",
+            "Unlimited number of messages per day",
+            "Extended access to news, file uploads, data analysis, and image generations",
+            "Extended access to Flash answers"
+          ]
+        },
+        {
+          "tier": "Team",
+          "type": "enterprise",
+          "price": 24.99,
+          "billingCycle": "user per month",
+          "url": "https://mistral.ai/products/le-chat#pricing",
+          "features": [
+            "Everything in Pro tier",
+            "More usage for live journalism with AFP news, file uploads, advanced data analysis, image generation, and Flash answers",
+            "Central billing and administration",
+            "Dedicated support",
+            "Data excluded from training by default"
+          ]
+        },
+        {
+          "tier": "Enterprise",
+          "type": "enterprise",
+          "price": null,
+          "billingCycle": "custom",
+          "url": "https://mistral.ai/products/le-chat#pricing",
+          "features": [
+            "Everything in Team tier",
+            "Secure deployment in your environment",
+            "Enhanced support and ongoing account management",
+            "Granular admin controls",
+            "Detailed analytics and observability"
+          ]
+        }
+      ]
     },
     {
       "id": "deepseek",
