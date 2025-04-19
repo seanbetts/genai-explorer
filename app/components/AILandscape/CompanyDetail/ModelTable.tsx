@@ -504,8 +504,8 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Context Table (Max Input/Output and Knowledge Cutoff) */}
       {hasContextData && (
         <div className="mt-6">
-          <h3 className={sectionTitle}>Context & Limits</h3>
           <div style={tableContainerStyle}>
+            <h3 className={sectionTitle}>Context & Limits</h3>
             <div className={needsScrolling ? tableStyles.comparison : ""}>
               <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight secondary-table`} 
                 data-model-count={displayModels.length}>
@@ -521,11 +521,11 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Pricing Table */}
       {hasPricingData && (
         <div className="mt-6">
-          <h3 className={sectionTitle}>
-            Pricing
-            <span className="text-xs text-gray-400 ml-2 font-normal">(per 1M tokens)</span>
-          </h3>
           <div style={tableContainerStyle}>
+            <h3 className={sectionTitle}>
+              Pricing
+              <span className="text-xs text-gray-400 ml-2 font-normal">(per 1M tokens)</span>
+            </h3>
             <div className={needsScrolling ? tableStyles.comparison : ""}>
               <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight secondary-table`}
                 data-model-count={displayModels.length}>
@@ -541,8 +541,8 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Resources Table - New table for external links */}
       {displayModels.some(model => model.modelPage || model.releasePost || model.releaseVideo || model.systemCard) && (
         <div className="mt-6">
-          <h3 className={sectionTitle}>Resources</h3>
           <div style={tableContainerStyle}>
+            <h3 className={sectionTitle}>Resources</h3>
             <div className={needsScrolling ? tableStyles.comparison : ""}>
               <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight secondary-table`}
                 data-model-count={displayModels.length}>

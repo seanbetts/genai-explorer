@@ -7,7 +7,7 @@
       "website": "https://openai.com",
       "category": "frontier",
       "description": "An AI research and deployment company. Their mission is to ensure that artificial general intelligence benefits all of humanity.",
-      "lastUpdated": "2025-04-15",
+      "lastUpdated": "2025-04-19",
       "features": [
         {
           "name": "Canvas",
@@ -334,9 +334,27 @@
       "products": [
         {
           "name": "ChatGPT",
-          "description": "A new way of working with ChatGPT to write and code",
-          "image": "/images/companies/openai/features/canvas.png",
-          "url": "https://openai.com/index/introducing-canvas/"
+          "description": "Free to use. Easy to try. Just ask and ChatGPT can help with writing, learning, brainstorming, and more.",
+          "image": "/images/companies/openai/products/chatgpt.png",
+          "url": "https://openai.com/chatgpt/overview/"
+        },
+        {
+          "name": "Sora",
+          "description": "Bring your imagination to life with text, image, or video.",
+          "image": "/images/companies/openai/products/sora.png",
+          "url": "https://openai.com/sora/"
+        },
+        {
+          "name": "Operator",
+          "description": "A research preview of an agent that can use its own browser to perform tasks for you.",
+          "image": "/images/companies/openai/products/operator.png",
+          "url": "https://openai.com/index/introducing-operator/"
+        },
+        {
+          "name": "Codex CLI",
+          "description": "An open‑source command‑line tool that brings the power of our latest reasoning models directly to your terminal.",
+          "image": "/images/companies/openai/products/codex-cli.png",
+          "url": "https://help.openai.com/en/articles/11096431-openai-codex-cli-getting-started"
         }
       ],
       "subscriptions": [
