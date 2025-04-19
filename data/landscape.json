@@ -1429,7 +1429,7 @@
           "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md",
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama4/license/",
-          "huggingFace": "",
+          "huggingFace": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct",
           "capabilities": {
             "intelligence": 3,
             "speed": 2,
@@ -1464,7 +1464,7 @@
           "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md",
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama4/license/",
-          "huggingFace": "",
+          "huggingFace": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct",
           "capabilities": {
             "intelligence": 2,
             "speed": 3,
@@ -1533,7 +1533,7 @@
           "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD.md",
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama3/license/",
-          "huggingFace": "",
+          "huggingFace": "https://huggingface.co/meta-llama/Llama-3.2-90B-Vision-Instruct",
           "capabilities": {
             "intelligence": 2,
             "speed": 3,
@@ -1550,7 +1550,7 @@
             ],
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
-            "knowledgeCutoff": "",
+            "knowledgeCutoff": "December 2023",
             "pricingInputPerM": 1.2,
             "pricingOutputPerM": 1.2
           }
@@ -1568,7 +1568,7 @@
           "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD.md",
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama3/license/",
-          "huggingFace": "",
+          "huggingFace": "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct",
           "capabilities": {
             "intelligence": 1,
             "speed": 5,
@@ -1585,7 +1585,7 @@
             ],
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
-            "knowledgeCutoff": "",
+            "knowledgeCutoff": "December 2023",
             "pricingInputPerM": 0.18,
             "pricingOutputPerM": 0.18
           }
@@ -1603,7 +1603,7 @@
           "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD.md",
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama3/license/",
-          "huggingFace": "",
+          "huggingFace": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct",
           "capabilities": {
             "intelligence": 1,
             "speed": 5,
@@ -1619,7 +1619,7 @@
             ],
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
-            "knowledgeCutoff": "",
+            "knowledgeCutoff": "December 2023",
             "pricingInputPerM": 0.06,
             "pricingOutputPerM": 0.06
           }
@@ -1637,7 +1637,7 @@
           "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD.md",
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama3/license/",
-          "huggingFace": "",
+          "huggingFace": "https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct",
           "capabilities": {
             "intelligence": 1,
             "speed": 5,
@@ -1653,7 +1653,7 @@
             ],
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
-            "knowledgeCutoff": "",
+            "knowledgeCutoff": "December 2023",
             "pricingInputPerM": 0.06,
             "pricingOutputPerM": 0.06
           }
@@ -1671,7 +1671,7 @@
           "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md",
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama3/license/",
-          "huggingFace": "",
+          "huggingFace": "https://huggingface.co/meta-llama/Llama-3.1-405B-Instruct",
           "capabilities": {
             "intelligence": 3,
             "speed": 2,
@@ -1687,7 +1687,7 @@
             ],
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
-            "knowledgeCutoff": "",
+            "knowledgeCutoff": "December 2023",
             "pricingInputPerM": 3.5,
             "pricingOutputPerM": 3.5
           }
@@ -1705,7 +1705,7 @@
           "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md",
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama3/license/",
-          "huggingFace": "",
+          "huggingFace": "https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct",
           "capabilities": {
             "intelligence": 2,
             "speed": 3,
@@ -1721,7 +1721,7 @@
             ],
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
-            "knowledgeCutoff": "",
+            "knowledgeCutoff": "December 2023",
             "pricingInputPerM": 0.88,
             "pricingOutputPerM": 0.88
           }
@@ -1739,7 +1739,7 @@
           "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md",
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama3/license/",
-          "huggingFace": "",
+          "huggingFace": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct",
           "capabilities": {
             "intelligence": 1,
             "speed": 5,
@@ -1755,7 +1755,7 @@
             ],
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
-            "knowledgeCutoff": "",
+            "knowledgeCutoff": "December 2023",
             "pricingInputPerM": 0.18,
             "pricingOutputPerM": 0.18
           }
