@@ -570,6 +570,26 @@
           }
         }
       ],
+      "products": [
+        {
+          "name": "Claude",
+          "description": "Claude is AI for all of us. Whether you're brainstorming alone or building with a team of thousands, Claude is here to help.",
+          "image": "/images/companies/anthropic/products/claude.png",
+          "url": "https://www.anthropic.com/claude"
+        },
+        {
+          "name": "Claude Code",
+          "description": "An agent that can search and read code, edit files, write and run tests, commit and push code to GitHub, and use command line tools.",
+          "image": "/images/companies/anthropic/products/claude-code.png",
+          "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/"
+        },
+        {
+          "name": "Computer Use",
+          "description": "An agent that emulates the way people interact with their own computer.",
+          "image": "/images/companies/anthropic/products/computer-use.png",
+          "url": "https://www.anthropic.com/news/developing-computer-use"
+        }
+      ],
       "subscriptions": [
         {
           "tier": "Free",
