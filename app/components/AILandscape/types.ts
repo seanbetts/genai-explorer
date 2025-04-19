@@ -61,6 +61,7 @@ export interface Model {
   name: string;
   status?: ModelStatus;
   type?: string;
+  category: CompanyCategory; // Required category field
   releaseDate?: string;
   modelPage?: string;
   releasePost?: string;
@@ -87,7 +88,6 @@ export interface Company {
   name: string;
   logo: string;
   website: string;
-  category: string;
   description: string;
   lastUpdated: string;
   features?: Feature[];

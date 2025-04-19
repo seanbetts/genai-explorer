@@ -5,6 +5,7 @@
       "name": "OpenAI",
       "logo": "/images/companies/openai/logo.png",
       "website": "https://openai.com",
+      "category": "frontier",
       "description": "An AI research and deployment company. Their mission is to ensure that artificial general intelligence benefits all of humanity.",
       "lastUpdated": "2025-04-19",
       "features": [
@@ -96,8 +97,7 @@
             "pricingInputPerM": 10,
             "pricingCachedInputPerM": 2.5,
             "pricingOutputPerM": 40
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "o4-mini",
@@ -131,8 +131,7 @@
             "pricingInputPerM": 1.1,
             "pricingCachedInputPerM": 0.28,
             "pricingOutputPerM": 4.4
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "gpt-4-5",
@@ -166,8 +165,7 @@
             "pricingInputPerM": 75,
             "pricingCachedInputPerM": 37.5,
             "pricingOutputPerM": 150
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "gpt-4o",
@@ -204,8 +202,7 @@
             "pricingInputPerM": 2.5,
             "pricingCachedInputPerM": 1.25,
             "pricingOutputPerM": 10
-          },
-          "category": "image"
+          }
         },
         {
           "id": "gpt-4o-mini",
@@ -241,8 +238,7 @@
             "pricingInputPerM": 0.15,
             "pricingCachedInputPerM": 0.075,
             "pricingOutputPerM": 0.6
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "o1",
@@ -277,8 +273,7 @@
             "pricingInputPerM": 15,
             "pricingCachedInputPerM": 7.5,
             "pricingOutputPerM": 60
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "o3-mini",
@@ -313,8 +308,7 @@
             "pricingInputPerM": 1.1,
             "pricingCachedInputPerM": 0.55,
             "pricingOutputPerM": 4.4
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "gpt-4-1",
@@ -348,8 +342,7 @@
             "pricingInputPerM": 2,
             "pricingCachedInputPerM": 0.5,
             "pricingOutputPerM": 8
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "gpt-4-1-mini",
@@ -383,8 +376,7 @@
             "pricingInputPerM": 0.4,
             "pricingCachedInputPerM": 0.1,
             "pricingOutputPerM": 1.6
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "gpt-4-1-nano",
@@ -418,8 +410,7 @@
             "pricingInputPerM": 0.1,
             "pricingCachedInputPerM": 0.025,
             "pricingOutputPerM": 0.4
-          },
-          "category": "frontier"
+          }
         }
       ],
       "products": [
@@ -528,6 +519,7 @@
       "name": "Anthropic",
       "logo": "/images/companies/anthropic/logo.png",
       "website": "https://anthropic.com",
+      "category": "frontier",
       "description": "AI research and products that put safety at the frontier",
       "lastUpdated": "2025-04-19",
       "features": [
@@ -595,8 +587,7 @@
             "pricingInputPerM": 0.8,
             "pricingCachedInputPerM": 0.08,
             "pricingOutputPerM": 4
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "claude-3-opus",
@@ -630,8 +621,7 @@
             "pricingInputPerM": 15,
             "pricingCachedInputPerM": 1.5,
             "pricingOutputPerM": 75
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "claude-3-7-sonnet",
@@ -665,8 +655,7 @@
             "pricingInputPerM": 3,
             "pricingCachedInputPerM": 0.3,
             "pricingOutputPerM": 15
-          },
-          "category": "frontier"
+          }
         }
       ],
       "products": [
@@ -767,6 +756,7 @@
       "name": "Google DeepMind",
       "logo": "/images/companies/google-deepmind/logo.png",
       "website": "https://deepmind.google",
+      "category": "frontier",
       "description": "A team of scientists, engineers, ethicists and more, working to build the next generation of AI systems safely and responsibly.",
       "lastUpdated": "2025-04-19",
       "features": [
@@ -848,8 +838,7 @@
             "pricingInputPerM": 0.1,
             "pricingCachedInputPerM": 0.025,
             "pricingOutputPerM": 0.4
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "gemini-2-5-flash",
@@ -884,8 +873,7 @@
             "knowledgeCutoff": "January 2025",
             "pricingInputPerM": 0.15,
             "pricingOutputPerM": 0.6
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "gemini-2-0-flash",
@@ -921,8 +909,7 @@
             "pricingInputPerM": 0.1,
             "pricingCachedInputPerM": 0.025,
             "pricingOutputPerM": 0.4
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "gemini-2-0-flash-light",
@@ -957,8 +944,7 @@
             "knowledgeCutoff": "June 2024",
             "pricingInputPerM": 0.075,
             "pricingOutputPerM": 0.3
-          },
-          "category": "frontier"
+          }
         }
       ],
       "products": [
@@ -1061,6 +1047,7 @@
       "name": "Amazon",
       "logo": "/images/companies/amazon/logo.png",
       "website": "https://aws.amazon.com",
+      "category": "frontier",
       "description": "An American multinational technology company engaged in e-commerce, cloud computing, online advertising, digital streaming, and artificial intelligence.",
       "lastUpdated": "2025-04-19",
       "features": [],
@@ -1098,8 +1085,7 @@
             "pricingInputPerM": 0.8,
             "pricingCachedInputPerM": 0.2,
             "pricingOutputPerM": 3.2
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "nova-lite-1-0",
@@ -1134,8 +1120,7 @@
             "pricingInputPerM": 0.06,
             "pricingCachedInputPerM": 0.015,
             "pricingOutputPerM": 0.24
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "nova-micro-1-0",
@@ -1168,8 +1153,7 @@
             "pricingInputPerM": 0.035,
             "pricingCachedInputPerM": 0.00875,
             "pricingOutputPerM": 0.14
-          },
-          "category": "frontier"
+          }
         }
       ],
       "products": [
@@ -1205,6 +1189,7 @@
       "name": "xAI",
       "logo": "/images/companies/xai/logo.png",
       "website": "https://x.ai",
+      "category": "frontier",
       "description": "AI’s knowledge should be all-encompassing and as far-reaching as possible. We build AI specifically to advance human comprehension and capabilities.",
       "lastUpdated": "2025-04-19",
       "features": [
@@ -1276,8 +1261,7 @@
             "knowledgeCutoff": "November 2024",
             "pricingInputPerM": 3,
             "pricingOutputPerM": 15
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "grok-3-mini",
@@ -1309,8 +1293,7 @@
             "knowledgeCutoff": "November 2024",
             "pricingInputPerM": 0.3,
             "pricingOutputPerM": 0.5
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "grok-2-vision",
@@ -1343,8 +1326,7 @@
             "knowledgeCutoff": "July 2024",
             "pricingInputPerM": 2,
             "pricingOutputPerM": 10
-          },
-          "category": "frontier"
+          }
         }
       ],
       "products": [
@@ -1399,6 +1381,7 @@
       "name": "Meta",
       "logo": "/images/companies/meta/logo.png",
       "website": "https://www.meta.ai",
+      "category": "open",
       "description": "Advancing AI for a more connected world.",
       "lastUpdated": "2025-04-19",
       "features": [
@@ -1447,8 +1430,7 @@
             "knowledgeCutoff": "August 2024",
             "pricingInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "open"
+          }
         },
         {
           "id": "llama-4-scout",
@@ -1481,8 +1463,7 @@
             "knowledgeCutoff": "August 2024",
             "pricingInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "open"
+          }
         }
       ],
       "products": [
@@ -1506,6 +1487,7 @@
       "name": "Google DeepMind",
       "logo": "/images/companies/google-deepmind/logo.png",
       "website": "https://deepmind.google",
+      "category": "open",
       "description": "Social media company developing open AI models",
       "lastUpdated": "2025-04-05",
       "features": [],
@@ -1539,8 +1521,7 @@
             "pricingInputPerM": null,
             "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "open"
+          }
         }
       ],
       "subscriptions": []
@@ -1550,6 +1531,7 @@
       "name": "Mistral AI",
       "logo": "/images/companies/mistral/logo.png",
       "website": "https://mistral.ai",
+      "category": "open",
       "description": "Open-weight models with strong performance",
       "lastUpdated": "2025-04-03",
       "features": [
@@ -1596,8 +1578,7 @@
             "pricingInputPerM": null,
             "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "open"
+          }
         },
         {
           "id": "mixtral",
@@ -1628,8 +1609,7 @@
             "pricingInputPerM": null,
             "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "open"
+          }
         },
         {
           "id": "codestral",
@@ -1662,8 +1642,7 @@
             "pricingInputPerM": null,
             "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "open"
+          }
         }
       ],
       "subscriptions": [
@@ -1710,6 +1689,7 @@
       "name": "Deepseek",
       "logo": "/images/companies/deepseek/logo.png",
       "website": "https://www.deepseek.com",
+      "category": "open",
       "description": "Open-weight models with strong performance",
       "lastUpdated": "2025-04-03",
       "features": [],
@@ -1743,8 +1723,7 @@
             "pricingInputPerM": null,
             "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "open"
+          }
         },
         {
           "id": "deepseek-r1",
@@ -1775,8 +1754,7 @@
             "pricingInputPerM": null,
             "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "open"
+          }
         }
       ],
       "subscriptions": [
@@ -1823,6 +1801,7 @@
       "name": "Microsoft",
       "logo": "/images/companies/microsoft/logo.png",
       "website": "https://microsoft.com",
+      "category": "enterprise",
       "description": "Enterprise AI and productivity solutions",
       "lastUpdated": "2025-03-28",
       "features": [
@@ -1879,8 +1858,7 @@
               "Dynamics",
               "GitHub"
             ]
-          },
-          "category": "enterprise"
+          }
         }
       ],
       "subscriptions": [
@@ -1929,6 +1907,7 @@
       "name": "Cohere",
       "logo": "/images/companies/cohere/logo.png",
       "website": "https://cohere.com",
+      "category": "enterprise",
       "description": "Enterprise-focused AI solutions",
       "lastUpdated": "2025-03-25",
       "features": [
@@ -1975,8 +1954,7 @@
             "pricingInputPerM": null,
             "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "enterprise"
+          }
         }
       ],
       "subscriptions": [
@@ -2022,6 +2000,7 @@
       "name": "Adobe",
       "logo": "/images/companies/adobe/logo.png",
       "website": "https://adobe.com",
+      "category": "image",
       "description": "Creative tools enhanced with generative AI",
       "lastUpdated": "2025-03-20",
       "features": [
@@ -2076,8 +2055,7 @@
               "outpainting"
             ],
             "commercialUseAllowed": true
-          },
-          "category": "image"
+          }
         }
       ],
       "subscriptions": [
@@ -2124,6 +2102,7 @@
       "name": "Midjourney",
       "logo": "/images/companies/midjourney/logo.png",
       "website": "https://midjourney.com",
+      "category": "image",
       "description": "Advanced image generation platform",
       "lastUpdated": "2025-03-15",
       "features": [
@@ -2183,8 +2162,7 @@
               "conceptual"
             ],
             "commercialUseAllowed": true
-          },
-          "category": "image"
+          }
         }
       ],
       "subscriptions": [
@@ -2230,6 +2208,7 @@
       "name": "Runway",
       "logo": "/images/companies/runway/logo.png",
       "website": "https://runwayml.com",
+      "category": "video",
       "description": "AI-powered video editing and generation",
       "lastUpdated": "2025-03-10",
       "features": [
@@ -2285,8 +2264,7 @@
               "video-to-video"
             ],
             "commercialUseAllowed": true
-          },
-          "category": "video"
+          }
         }
       ],
       "subscriptions": [
@@ -2346,6 +2324,7 @@
       "name": "Pika",
       "logo": "/images/companies/pika/logo.png",
       "website": "https://pika.art",
+      "category": "video",
       "description": "AI video creation platform",
       "lastUpdated": "2025-03-05",
       "features": [
@@ -2401,8 +2380,7 @@
               "video-editing"
             ],
             "commercialUseAllowed": true
-          },
-          "category": "video"
+          }
         }
       ],
       "subscriptions": [
@@ -2452,6 +2430,7 @@
       "name": "Suno",
       "logo": "/images/companies/suno/logo.png",
       "website": "https://suno.ai",
+      "category": "music",
       "description": "AI music generation platform",
       "lastUpdated": "2025-02-28",
       "features": [
@@ -2513,8 +2492,7 @@
               "hip-hop"
             ],
             "commercialUseAllowed": true
-          },
-          "category": "music"
+          }
         }
       ],
       "subscriptions": [
@@ -2564,6 +2542,7 @@
       "name": "Udio",
       "logo": "/images/companies/udio/logo.png",
       "website": "https://udio.com",
+      "category": "music",
       "description": "High-quality music generation with AI",
       "lastUpdated": "2025-02-25",
       "features": [
@@ -2622,8 +2601,7 @@
               "all major genres"
             ],
             "commercialUseAllowed": true
-          },
-          "category": "music"
+          }
         }
       ],
       "subscriptions": [
@@ -2673,6 +2651,7 @@
       "name": "Perplexity",
       "logo": "/images/companies/perplexity/logo.png",
       "website": "https://perplexity.ai",
+      "category": "other",
       "description": "AI-powered search and knowledge discovery",
       "lastUpdated": "2025-02-20",
       "features": [
@@ -2724,8 +2703,7 @@
             "realTimeData": true,
             "sourceAttribution": true,
             "dataRetrieval": "online search"
-          },
-          "category": "other"
+          }
         }
       ],
       "subscriptions": [
@@ -2775,6 +2753,7 @@
       "name": "Character.AI",
       "logo": "/images/companies/character-ai/logo.png",
       "website": "https://character.ai",
+      "category": "other",
       "description": "Platform for creating and interacting with AI characters",
       "lastUpdated": "2025-02-15",
       "features": [
@@ -2824,8 +2803,7 @@
             "memoryCapacity": "extensive",
             "personalityCustomization": true,
             "voiceCapabilities": true
-          },
-          "category": "other"
+          }
         }
       ],
       "subscriptions": [
@@ -2874,6 +2852,7 @@
       "name": "Descript",
       "logo": "/images/companies/descript/logo.png",
       "website": "https://descript.com",
+      "category": "other",
       "description": "AI-powered audio and video editing",
       "lastUpdated": "2025-02-10",
       "features": [
@@ -2930,8 +2909,7 @@
               "German",
               "Japanese"
             ]
-          },
-          "category": "other"
+          }
         }
       ],
       "subscriptions": [
@@ -2994,6 +2972,7 @@
       "name": "GitHub",
       "logo": "/images/companies/github/logo.png",
       "website": "https://github.com",
+      "category": "other",
       "description": "Code hosting and collaboration platform with AI assistance",
       "lastUpdated": "2025-02-05",
       "features": [
@@ -3054,8 +3033,7 @@
               "Neovim",
               "GitHub.com"
             ]
-          },
-          "category": "other"
+          }
         }
       ],
       "subscriptions": [

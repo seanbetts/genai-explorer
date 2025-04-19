@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { CategorizedCompanies, LandscapeData, Company, CategoryMap, CompanyCategory } from './types';
 import CategorySection from './shared/CategorySection';
 import { categoryStyles, containerStyles, headingStyles } from './utils/styles';
+import { getCompaniesByModelCategory } from './utils/landscapeUtils';
 
 interface LandscapeViewProps {
   data: LandscapeData;
@@ -24,21 +25,9 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
     return () => clearTimeout(timer);
   }, []);
   
-  // Helper to filter companies with at least one primary model
-  const hasPrimaryModel = (company: Company): boolean => {
-    return company.models && company.models.some(model => model.status === 'primary');
-  };
-
-  // Group companies by category (only include those with primary models)
-  const categorizedCompanies: CategorizedCompanies = {
-    frontier: data.companies.filter(company => company.category === 'frontier' && hasPrimaryModel(company)),
-    open: data.companies.filter(company => company.category === 'open' && hasPrimaryModel(company)),
-    enterprise: data.companies.filter(company => company.category === 'enterprise' && hasPrimaryModel(company)),
-    image: data.companies.filter(company => company.category === 'image' && hasPrimaryModel(company)),
-    video: data.companies.filter(company => company.category === 'video' && hasPrimaryModel(company)),
-    music: data.companies.filter(company => company.category === 'music' && hasPrimaryModel(company)),
-    other: data.companies.filter(company => company.category === 'other' && hasPrimaryModel(company))
-  };
+  // Get companies by model category
+  // This allows companies to appear in multiple categories if they have models in those categories
+  const categorizedCompanies = getCompaniesByModelCategory(data.companies);
 
   // Category labels with improved naming
   const categoryLabels = {

@@ -3,6 +3,7 @@
 import React from 'react';
 import { Model } from '../types';
 import { textStyles, tableStyles, iconStyles, containerStyles } from '../utils/styles';
+import { shouldShowTogetherPricing } from '../utils/modelUtils';
 
 interface ModelTableProps {
   models: Model[];
@@ -524,7 +525,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           <div style={tableContainerStyle}>
             <h3 className={sectionTitle}>
               Pricing
-              {displayModels.some(model => model.specs?.openSource) ? (
+              {displayModels.some(model => shouldShowTogetherPricing(model)) ? (
                 <span className="text-xs text-gray-400 ml-2 font-normal">
                   (per 1M tokens on <a 
                     href="https://www.together.ai/pricing#inference"
