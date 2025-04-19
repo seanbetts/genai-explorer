@@ -697,13 +697,14 @@
         {
           "tier": "Team",
           "type": "enterprise",
-          "price": null,
-          "billingCycle": "custom",
+          "price": 25,
+          "billingCycle": "user per month",
           "url": "https://www.anthropic.com/team",
           "features": [
-            "Use company knowledge",
-            "Create and share work",
-            "Secure your data"
+            "Everything in Pro tier",
+            "More usage",
+            "Central billing and administration",
+            "Early access to collaboration features"
           ]
         },
         {
@@ -713,9 +714,13 @@
           "billingCycle": "custom",
           "url": "https://www.anthropic.com/enterprise",
           "features": [
-            "Use company knowledge",
-            "Create and share work",
-            "Secure your data"
+            "Everything in Team tier",
+            "More usage",
+            "Enhanced context window",
+            "Single sign-on (SSO) and domain capture",
+            "Role-based access with fine grained permissioning",
+            "System for Cross-domain Identity Management (SCIM)",
+            "Audit logs"
           ]
         }
       ]
@@ -754,6 +759,12 @@
           "url": "https://gemini.google/overview/gems/"
         },
         {
+          "name": "Whisk",
+          "description": "Fast visual ideation without the need to deeply understand prompting.",
+          "image": "/images/companies/google-deepmind/features/whisk.png",
+          "url": "https://labs.google/fx/tools/whisk/"
+        },
+        {
           "name": "Code Assist",
           "description": "AI coding assistance for any language",
           "image": "/images/companies/google-deepmind/features/code-assist.png",
@@ -771,14 +782,48 @@
           "id": "gemini-2-5-pro",
           "name": "Gemini 2.5 Pro",
           "status": "primary",
-          "type": "multimodal",
-          "releaseDate": "2025-01-30",
-          "modelPage": "",
-          "releasePost": "",
+          "type": "Large Multimodal Model",
+          "releaseDate": "2025-03-25",
+          "modelPage": "https://deepmind.google/technologies/gemini/pro/",
+          "releasePost": "https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/",
+          "releaseVideo": "",
+          "systemCard": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf",
+          "capabilities": {
+            "intelligence": 5,
+            "speed": 3,
+            "reasoning": 3
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "image",
+              "speech",
+              "video"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 1000000,
+            "maxOutputTokens": 64000,
+            "knowledgeCutoff": "January 2025",
+            "pricingInputPerM": 0.1,
+            "pricingCachedInputPerM": 0.025,
+            "pricingOutputPerM": 0.4
+          }
+        },
+        {
+          "id": "gemini-2-5-flash",
+          "name": "Gemini 2.5 Flash",
+          "status": "primary",
+          "type": "Large Hybrid Model",
+          "releaseDate": "2025-04-17",
+          "modelPage": "https://deepmind.google/technologies/gemini/flash/",
+          "releasePost": "https://developers.googleblog.com/en/start-building-with-gemini-25-flash/",
           "releaseVideo": "",
           "systemCard": "",
           "capabilities": {
-            "intelligence": 5,
+            "intelligence": 4,
             "speed": 4,
             "reasoning": 4
           },
@@ -791,34 +836,32 @@
               "video"
             ],
             "outputFormats": [
-              "text",
-              "image"
+              "text"
             ],
-            "maxInputTokens": 200000,
-            "maxOutputTokens": 25000,
-            "knowledgeCutoff": "December 2023",
-            "pricingInputPerM": 0.35,
-            "pricingCachedInputPerM": 0.12,
-            "pricingOutputPerM": 1.2
+            "maxInputTokens": 1000000,
+            "maxOutputTokens": 64000,
+            "knowledgeCutoff": "January 2025",
+            "pricingInputPerM": 0.15,
+            "pricingOutputPerM": 0.6
           }
         },
         {
           "id": "gemini-2-0-flash",
           "name": "Gemini 2.0 FLash",
-          "status": "primary",
-          "type": "multimodal",
-          "releaseDate": "2025-01-30",
-          "modelPage": "",
-          "releasePost": "",
+          "status": "archived",
+          "type": "Large Hybrid Model",
+          "releaseDate": "2025-02-05",
+          "modelPage": "https://deepmind.google/technologies/gemini/flash/",
+          "releasePost": "https://developers.googleblog.com/en/gemini-2-family-expands/",
           "releaseVideo": "",
-          "systemCard": "",
+          "systemCard": "https://storage.googleapis.com/model-cards/documents/gemini-2-flash.pdf",
           "capabilities": {
-            "intelligence": 5,
+            "intelligence": 3,
             "speed": 4,
-            "reasoning": 4
+            "reasoning": 1
           },
           "specs": {
-            "reasoningTokens": true,
+            "reasoningTokens": false,
             "inputFormats": [
               "text",
               "image",
@@ -826,34 +869,33 @@
               "video"
             ],
             "outputFormats": [
-              "text",
-              "image"
+              "text"
             ],
-            "maxInputTokens": 200000,
-            "maxOutputTokens": 25000,
-            "knowledgeCutoff": "December 2023",
-            "pricingInputPerM": 0.35,
-            "pricingCachedInputPerM": 0.12,
-            "pricingOutputPerM": 1.2
+            "maxInputTokens": 1000000,
+            "maxOutputTokens": 8000,
+            "knowledgeCutoff": "June 2024",
+            "pricingInputPerM": 0.1,
+            "pricingCachedInputPerM": 0.025,
+            "pricingOutputPerM": 0.4
           }
         },
         {
-          "id": "gemini-2-0-flash-thinking",
-          "name": "Gemini 2.0 Flash Thinking",
-          "status": "primary",
-          "type": "multimodal",
-          "releaseDate": "2025-01-30",
-          "modelPage": "",
-          "releasePost": "",
+          "id": "gemini-2-0-flash-light",
+          "name": "Gemini 2.0 Flash Light",
+          "status": "secondary",
+          "type": "Large Language Model",
+          "releaseDate": "2025-02-05",
+          "modelPage": "https://deepmind.google/technologies/gemini/flash-lite/",
+          "releasePost": "https://developers.googleblog.com/en/gemini-2-family-expands/",
           "releaseVideo": "",
-          "systemCard": "",
+          "systemCard": "https://storage.googleapis.com/model-cards/documents/gemini-2-flash-lite.pdf",
           "capabilities": {
-            "intelligence": 5,
-            "speed": 4,
-            "reasoning": 4
+            "intelligence": 2,
+            "speed": 5,
+            "reasoning": 1
           },
           "specs": {
-            "reasoningTokens": true,
+            "reasoningTokens": false,
             "inputFormats": [
               "text",
               "image",
@@ -861,15 +903,13 @@
               "video"
             ],
             "outputFormats": [
-              "text",
-              "image"
+              "text"
             ],
-            "maxInputTokens": 200000,
-            "maxOutputTokens": 25000,
-            "knowledgeCutoff": "December 2023",
-            "pricingInputPerM": 0.35,
-            "pricingCachedInputPerM": 0.12,
-            "pricingOutputPerM": 1.2
+            "maxInputTokens": 1000000,
+            "maxOutputTokens": 8000,
+            "knowledgeCutoff": "June 2024",
+            "pricingInputPerM": 0.075,
+            "pricingOutputPerM": 0.3
           }
         }
       ],
@@ -974,37 +1014,90 @@
       "logo": "/images/companies/amazon/logo.png",
       "website": "https://aws.amazon.com",
       "category": "frontier",
-      "description": "Cloud and AI solutions provider",
-      "lastUpdated": "2025-04-08",
-      "features": [
-        {
-          "name": "Amazon Bedrock",
-          "description": "Fully managed service for foundation models",
-          "image": "/images/companies/amazon/features/bedrock.png",
-          "url": "https://aws.amazon.com/bedrock/"
-        },
-        {
-          "name": "Amazon Q",
-          "description": "Generative AI assistant for AWS",
-          "image": "/images/companies/amazon/features/q.png",
-          "url": "https://aws.amazon.com/q/"
-        }
-      ],
+      "description": "An American multinational technology company engaged in e-commerce, cloud computing, online advertising, digital streaming, and artificial intelligence.",
+      "lastUpdated": "2025-04-19",
+      "features": [],
       "models": [
         {
-          "id": "nova-1-0",
-          "name": "Nova 1.0",
+          "id": "nova-pro-1-0",
+          "name": "Nova Pro",
           "status": "primary",
-          "type": "text",
-          "releaseDate": "2025-01-05",
-          "modelPage": "",
-          "releasePost": "",
+          "type": "Large Multimodal Model",
+          "releaseDate": "2024-12-03",
+          "modelPage": "https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html",
+          "releasePost": "https://press.aboutamazon.com/2024/12/introducing-amazon-nova-a-new-generation-of-foundation-models",
           "releaseVideo": "",
-          "systemCard": "",
+          "systemCard": "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html",
           "capabilities": {
             "intelligence": 4,
             "speed": 3,
-            "reasoning": 4
+            "reasoning": 2
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "image",
+              "video"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 300000,
+            "maxOutputTokens": 5000,
+            "knowledgeCutoff": "n/a",
+            "pricingInputPerM": 0.8,
+            "pricingCachedInputPerM": 0.2,
+            "pricingOutputPerM": 3.2
+          }
+        },
+        {
+          "id": "nova-lite-1-0",
+          "name": "Nova Lite",
+          "status": "primary",
+          "type": "Large Multimodal Model",
+          "releaseDate": "2024-12-03",
+          "modelPage": "https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html",
+          "releasePost": "https://press.aboutamazon.com/2024/12/introducing-amazon-nova-a-new-generation-of-foundation-models",
+          "releaseVideo": "",
+          "systemCard": "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 4,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "image",
+              "video"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 300000,
+            "maxOutputTokens": 5000,
+            "knowledgeCutoff": "n/a",
+            "pricingInputPerM": 0.06,
+            "pricingCachedInputPerM": 0.015,
+            "pricingOutputPerM": 0.24
+          }
+        },
+        {
+          "id": "nova-micro-1-0",
+          "name": "Nova Micro",
+          "status": "primary",
+          "type": "Large Language Model",
+          "releaseDate": "2024-12-03",
+          "modelPage": "https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html",
+          "releasePost": "https://press.aboutamazon.com/2024/12/introducing-amazon-nova-a-new-generation-of-foundation-models",
+          "releaseVideo": "",
+          "systemCard": "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 5,
+            "reasoning": 1
           },
           "specs": {
             "reasoningTokens": false,
@@ -1014,44 +1107,180 @@
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": 100000,
-            "maxOutputTokens": 20000,
-            "knowledgeCutoff": "July 2023",
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 5000,
+            "knowledgeCutoff": "n/a",
+            "pricingInputPerM": 0.035,
+            "pricingCachedInputPerM": 0.00875,
+            "pricingOutputPerM": 0.14
+          }
+        }
+      ],
+      "products": [
+        {
+          "name": "Amazon Nova Canvas",
+          "description": "A cost-effective image generation model that creates professional-grade images from text or images provided in prompts.",
+          "image": "/images/companies/amazon/products/nova-canvas.png",
+          "url": "https://aws.amazon.com/ai/generative-ai/nova/creative/"
+        },
+        {
+          "name": "Amazon Nova Reel",
+          "description": "A cost-effective video generation model that allows customers to easily create high quality video from text and images.",
+          "image": "/images/companies/amazon/products/nova-reel.png",
+          "url": "https://aws.amazon.com/blogs/aws/amazon-nova-reel-1-1-featuring-up-to-2-minutes-multi-shot-videos/"
+        },
+        {
+          "name": "Amazon Nova Sonic",
+          "description": "A state-of-the-art speech understanding and generation model that delivers real-time, human-like voice-conversations with industry-leading price-performance.",
+          "image": "/images/companies/amazon/products/nova-sonic.png",
+          "url": "https://aws.amazon.com/blogs/aws/introducing-amazon-nova-sonic-human-like-voice-conversations-for-generative-ai-applications/"
+        },
+        {
+          "name": "Amazon Nova Act",
+          "description": "An AI model trained to perform actions within a web browser.",
+          "image": "/images/companies/amazon/products/nova-act.png",
+          "url": "https://labs.amazon.science/blog/nova-act"
+        }
+      ],
+      "subscriptions": []
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "logo": "/images/companies/xai/logo.png",
+      "website": "https://x.ai",
+      "category": "frontier",
+      "description": "AI’s knowledge should be all-encompassing and as far-reaching as possible. We build AI specifically to advance human comprehension and capabilities.",
+      "lastUpdated": "2025-04-19",
+      "features": [],
+      "models": [
+        {
+          "id": "grok-3",
+          "name": "Grok 3",
+          "status": "primary",
+          "type": "Large Language Model",
+          "releaseDate": "",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
+          "capabilities": {
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "n/a",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null
+          }
+        },
+        {
+          "id": "grok-3-mini",
+          "name": "Grok 3 Mini",
+          "status": "primary",
+          "type": "Large Language Model",
+          "releaseDate": "",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
+          "capabilities": {
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "n/a",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null
+          }
+        },
+        {
+          "id": "grok-2-vision",
+          "name": "Grok 2 Vision",
+          "status": "primary",
+          "type": "Large Language Model",
+          "releaseDate": "",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
+          "capabilities": {
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "n/a",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null
+          }
+        },
+        {
+          "id": "grok-2-image",
+          "name": "Grok 2 Image",
+          "status": "primary",
+          "type": "Large Language Model",
+          "releaseDate": "",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
+          "capabilities": {
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "n/a",
             "pricingInputPerM": null,
             "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
           }
         }
       ],
-      "subscriptions": [
-        {
-          "tier": "Pay-per-use",
-          "type": "consumer",
-          "price": null,
-          "billingCycle": "usage",
-          "url": "",
-          "features": [
-            "Pay only for what you use",
-            "Access to all models",
-            "No minimum commitment",
-            "Usage-based pricing"
-          ]
-        },
-        {
-          "tier": "Enterprise",
-          "type": "enterprise",
-          "price": null,
-          "billingCycle": "custom",
-          "url": "",
-          "features": [
-            "Custom pricing plans",
-            "Volume discounts",
-            "Dedicated support",
-            "SLA guarantees",
-            "Custom model deployment"
-          ]
-        }
-      ]
+      "products": [],
+      "subscriptions": []
     },
     {
       "id": "meta",
@@ -1108,6 +1337,7 @@
           }
         }
       ],
+      "products": [],
       "subscriptions": []
     },
     {

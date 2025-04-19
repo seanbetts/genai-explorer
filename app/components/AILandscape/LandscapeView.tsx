@@ -76,7 +76,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
           styleName={`${getCategoryStyle('frontier')} ${getCategoryShadow('frontier')} ${containerStyles.categorySectionHover}`}
           onCompanySelect={onCompanySelect}
           layout="full-width"
-          columns={4}
+          columns={5}
           icon={getCategoryIcon('frontier')}
         />
       </div>

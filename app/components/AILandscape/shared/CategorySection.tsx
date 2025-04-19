@@ -26,9 +26,13 @@ const CategorySection: React.FC<CategorySectionProps> = ({
   showModelCount, // No default value to show all models
   icon
 }) => {
-  // Get appropriate grid class based on layout
+  // Get appropriate grid class based on layout and columns prop
   const getGridClass = () => {
-    if (layout === 'full-width') {
+    // Use custom column count if specified and layout is full-width
+    if (layout === 'full-width' && columns === 5) {
+      // Custom grid with 5 columns for frontier models
+      return 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5';
+    } else if (layout === 'full-width') {
       return containerStyles.companyGridFull;
     } else if (layout === 'half-width') {
       return containerStyles.companyGridHalf; // 4 columns for Open Source Models
@@ -41,12 +45,15 @@ const CategorySection: React.FC<CategorySectionProps> = ({
   const renderContent = () => {
     // Use styling from our centralized theme
     
-    // Determine image size based on layout and whether models will be shown
+    // Determine image size based on layout, column count, and whether models will be shown
     const baseImageSize = layout === 'quarter-width' 
       ? { width: 84, height: 36 } 
       : layout === 'half-width' 
         ? { width: 100, height: 42 }
-        : { width: 110, height: 46 }; // Slightly larger for full-width
+        // For full-width with 5 columns, make logos a bit smaller
+        : columns === 5
+          ? { width: 100, height: 42 }
+          : { width: 110, height: 46 }; // Default size for full-width
         
     // For categories where showModelCount is 0, use larger logo sizes
     const imageSize = showModelCount === 0
