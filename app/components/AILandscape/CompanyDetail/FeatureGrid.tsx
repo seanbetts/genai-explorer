@@ -63,12 +63,10 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ features }) => {
     <div className="w-full flex justify-center">
       <div className={`${gridCols} ${gapClass} auto-rows-fr grid ${maxWidthClass} w-full`}>
       {features.map(feature => (
-        <a 
+        <div 
           key={feature.name}
-          href={feature.url}
-          target="_blank"
-          rel="noopener"
-          className={`${containerStyles.featureCard} group`}
+          className={`${containerStyles.featureCard} ${feature.url ? 'group cursor-pointer' : ''}`}
+          onClick={feature.url ? () => window.open(feature.url, '_blank', 'noopener') : undefined}
         >
           <div className={containerStyles.featureImage}>
             <ImageWithFallback 
@@ -85,15 +83,17 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ features }) => {
                 <p className={containerStyles.featureDescription}>{feature.description}</p>
               </div>
             </div>
-            {/* Absolute positioning ensures consistent footer placement */}
-            <div className="absolute bottom-0 right-0 left-0 px-5 pb-4 flex justify-end">
-              <div className={containerStyles.featureLink}>
-                <span>Learn more</span>
-                <i className="bi bi-arrow-right ml-1 group-hover:translate-x-1 transition-transform duration-300"></i>
+            {/* Absolute positioning ensures consistent footer placement - only shown if URL exists */}
+            {feature.url && (
+              <div className="absolute bottom-0 right-0 left-0 px-5 pb-4 flex justify-end">
+                <div className={containerStyles.featureLink}>
+                  <span>Learn more</span>
+                  <i className="bi bi-arrow-right ml-1 group-hover:translate-x-1 transition-transform duration-300"></i>
+                </div>
               </div>
-            </div>
+            )}
           </div>
-        </a>
+        </div>
       ))}
     </div>
     </div>

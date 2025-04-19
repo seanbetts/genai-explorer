@@ -63,12 +63,10 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
     <div className="w-full flex justify-center">
       <div className={`${gridCols} ${gapClass} auto-rows-fr grid ${maxWidthClass} w-full`}>
       {products.map(product => (
-        <a 
+        <div 
           key={product.name}
-          href={product.url}
-          target="_blank"
-          rel="noopener"
-          className={`${containerStyles.featureCard} group`}
+          className={`${containerStyles.featureCard} ${product.url ? 'group cursor-pointer' : ''}`}
+          onClick={product.url ? () => window.open(product.url, '_blank', 'noopener') : undefined}
         >
           <div className={containerStyles.featureImage}>
             <ImageWithFallback 
@@ -85,15 +83,17 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
                 <p className={containerStyles.featureDescription}>{product.description}</p>
               </div>
             </div>
-            {/* Absolute positioning ensures consistent footer placement */}
-            <div className="absolute bottom-0 right-0 left-0 px-5 pb-4 flex justify-end">
-              <div className={containerStyles.featureLink}>
-                <span>Learn more</span>
-                <i className="bi bi-arrow-right ml-1 group-hover:translate-x-1 transition-transform duration-300"></i>
+            {/* Absolute positioning ensures consistent footer placement - only shown if URL exists */}
+            {product.url && (
+              <div className="absolute bottom-0 right-0 left-0 px-5 pb-4 flex justify-end">
+                <div className={containerStyles.featureLink}>
+                  <span>Learn more</span>
+                  <i className="bi bi-arrow-right ml-1 group-hover:translate-x-1 transition-transform duration-300"></i>
+                </div>
               </div>
-            </div>
+            )}
           </div>
-        </a>
+        </div>
       ))}
     </div>
     </div>

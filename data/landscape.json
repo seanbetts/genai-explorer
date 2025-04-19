@@ -1152,22 +1152,53 @@
       "category": "frontier",
       "description": "AI’s knowledge should be all-encompassing and as far-reaching as possible. We build AI specifically to advance human comprehension and capabilities.",
       "lastUpdated": "2025-04-19",
-      "features": [],
+      "features": [
+        {
+          "name": "DeepSearch",
+          "description": "Explore the depths of information with DeepSearch, uncovering rare insights and buried data effortlessly.",
+          "image": "/images/companies/xai/features/deepsearch.png",
+          "url": ""
+        },
+        {
+          "name": "Think",
+          "description": "Discover profound insights with Grok Think, connecting dots and revealing truths in complex ideas.",
+          "image": "/images/companies/xai/features/think.png",
+          "url": "https://docs.x.ai/docs/guides/reasoning"
+        },
+        {
+          "name": "Voice",
+          "description": "Engage in seamless conversations with Grok Voice, experiencing natural, fluid dialogue like never before.",
+          "image": "/images/companies/xai/features/voice.png",
+          "url": ""
+        },
+        {
+          "name": "Personas",
+          "description": "Allows Grok to adopt distinct voices and perspectives, like a witty sidekick or a sage mentor, to tailor responses to your preferences and enhance our interactions.",
+          "image": "/images/companies/xai/features/personas.png",
+          "url": ""
+        },
+        {
+          "name": "Personalisation",
+          "description": "The Grok experience can be personalized if you allow your X data and interactions to be used for personalization.",
+          "image": "/images/companies/xai/features/personalisation.png",
+          "url": ""
+        }
+      ],
       "models": [
         {
           "id": "grok-3",
           "name": "Grok 3",
           "status": "primary",
           "type": "Large Language Model",
-          "releaseDate": "",
-          "modelPage": "",
-          "releasePost": "",
+          "releaseDate": "2025-02-19",
+          "modelPage": "https://docs.x.ai/docs/models?cluster=us-east-1#detailed-pricing-for-all-grok-models",
+          "releasePost": "https://x.ai/news/grok-3",
           "releaseVideo": "",
           "systemCard": "",
           "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
-            "reasoning": 1
+            "intelligence": 4,
+            "speed": 2,
+            "reasoning": 2
           },
           "specs": {
             "reasoningTokens": false,
@@ -1177,110 +1208,121 @@
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "n/a",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null
+            "maxInputTokens": 131072,
+            "maxOutputTokens": 16384,
+            "knowledgeCutoff": "November 2024",
+            "pricingInputPerM": 3,
+            "pricingOutputPerM": 15
           }
         },
         {
           "id": "grok-3-mini",
           "name": "Grok 3 Mini",
           "status": "primary",
-          "type": "Large Language Model",
-          "releaseDate": "",
-          "modelPage": "",
-          "releasePost": "",
+          "type": "Large Hybrid Model",
+          "releaseDate": "2025-02-19",
+          "modelPage": "https://docs.x.ai/docs/models?cluster=us-east-1#detailed-pricing-for-all-grok-models",
+          "releasePost": "https://x.ai/news/grok-3",
           "releaseVideo": "",
           "systemCard": "",
           "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
+            "intelligence": 3,
+            "speed": 3,
             "reasoning": 1
           },
           "specs": {
-            "reasoningTokens": false,
+            "reasoningTokens": true,
             "inputFormats": [
               "text"
             ],
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "n/a",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null
+            "maxInputTokens": 131072,
+            "maxOutputTokens": 16384,
+            "knowledgeCutoff": "November 2024",
+            "pricingInputPerM": 0.3,
+            "pricingOutputPerM": 0.5
           }
         },
         {
           "id": "grok-2-vision",
           "name": "Grok 2 Vision",
-          "status": "primary",
+          "status": "secondary",
           "type": "Large Language Model",
-          "releaseDate": "",
-          "modelPage": "",
-          "releasePost": "",
+          "releaseDate": "2024-08-13",
+          "modelPage": "https://docs.x.ai/docs/models?cluster=us-east-1#detailed-pricing-for-all-grok-models",
+          "releasePost": "https://x.ai/news/grok-2",
           "releaseVideo": "",
           "systemCard": "",
           "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
+            "intelligence": 3,
+            "speed": 2,
             "reasoning": 1
           },
           "specs": {
             "reasoningTokens": false,
             "inputFormats": [
-              "text"
+              "text",
+              "image"
             ],
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": null,
+            "maxInputTokens": 8192,
             "maxOutputTokens": null,
-            "knowledgeCutoff": "n/a",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null
-          }
-        },
-        {
-          "id": "grok-2-image",
-          "name": "Grok 2 Image",
-          "status": "primary",
-          "type": "Large Language Model",
-          "releaseDate": "",
-          "modelPage": "",
-          "releasePost": "",
-          "releaseVideo": "",
-          "systemCard": "",
-          "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
-            "reasoning": 1
-          },
-          "specs": {
-            "reasoningTokens": false,
-            "inputFormats": [
-              "text"
-            ],
-            "outputFormats": [
-              "text"
-            ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "n/a",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null
+            "knowledgeCutoff": "July 2024",
+            "pricingInputPerM": 2,
+            "pricingOutputPerM": 10
           }
         }
       ],
-      "products": [],
-      "subscriptions": []
+      "products": [
+        {
+          "name": "Grok",
+          "description": "An AI assistant created by xAI to provide helpful and truthful answers, drawing inspiration from the Hitchhiker's Guide to the Galaxy and JARVIS from Iron Man.",
+          "image": "/images/companies/xai/products/grok.png",
+          "url": "https://grok.com"
+        }
+      ],
+      "subscriptions": [
+        {
+          "tier": "Free",
+          "type": "consumer",
+          "price": 0,
+          "billingCycle": "monthly",
+          "url": "https://x.com/i/premium_sign_up",
+          "features": [
+            "Limited to 10 messages every 2 hours",
+            "Limited to 3 image analyses per day",
+            "Limited to 4 image generations per day"
+          ]
+        },
+        {
+          "tier": "Premium",
+          "type": "consumer",
+          "price": 8,
+          "billingCycle": "monthly",
+          "url": "https://x.com/i/premium_sign_up",
+          "features": [
+            "Everything in Free tier",
+            "Grok with increased limits"
+          ]
+        },
+        {
+          "tier": "Premium+",
+          "type": "consumer",
+          "price": 40,
+          "billingCycle": "monthly",
+          "url": "https://x.com/i/premium_sign_up",
+          "features": [
+            "Everything in Premium tier",
+            "Highest usage plimits",
+            "Unlock DeepSearch & Think",
+            "Early access to new features"
+          ]
+        }
+      ]
     },
     {
       "id": "meta",
