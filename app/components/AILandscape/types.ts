@@ -69,6 +69,7 @@ export interface Model {
   systemCard?: string;
   licenceType?: string;
   licenceLink?: string;
+  huggingFace?: string;
   capabilities?: Capabilities;
   specs?: Specs;
 }

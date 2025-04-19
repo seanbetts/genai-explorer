@@ -1429,10 +1429,11 @@
           "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md",
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama4/license/",
+          "huggingFace": "",
           "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
-            "reasoning": 1
+            "intelligence": 3,
+            "speed": 2,
+            "reasoning": 2
           },
           "specs": {
             "reasoningTokens": false,
@@ -1446,8 +1447,8 @@
             "maxInputTokens": 1000000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "August 2024",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 0.27,
+            "pricingOutputPerM": 0.85
           }
         },
         {
@@ -1463,9 +1464,10 @@
           "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md",
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama4/license/",
+          "huggingFace": "",
           "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
+            "intelligence": 2,
+            "speed": 3,
             "reasoning": 1
           },
           "specs": {
@@ -1480,8 +1482,282 @@
             "maxInputTokens": 10000000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "August 2024",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 0.18,
+            "pricingOutputPerM": 0.59
+          }
+        },
+        {
+          "id": "llama-3-3-70B",
+          "name": "Llama 3.3 70B",
+          "status": "secondary",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "2024-12-06",
+          "modelPage": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_3/",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_3/MODEL_CARD.md",
+          "licenceType": "Community",
+          "licenceLink": "https://www.llama.com/llama3/license/",
+          "huggingFace": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 3,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "December 2023",
+            "pricingInputPerM": 0.88,
+            "pricingOutputPerM": 0.88
+          }
+        },
+        {
+          "id": "llama-3-2-90B",
+          "name": "Llama 3.2 90B",
+          "status": "secondary",
+          "type": "Large Multimodal Model",
+          "category": "open",
+          "releaseDate": "2024-09-25",
+          "modelPage": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_2/",
+          "releasePost": "https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/",
+          "releaseVideo": "",
+          "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD.md",
+          "licenceType": "Community",
+          "licenceLink": "https://www.llama.com/llama3/license/",
+          "huggingFace": "",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 3,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": 1.2,
+            "pricingOutputPerM": 1.2
+          }
+        },
+        {
+          "id": "llama-3-2-11B",
+          "name": "Llama 3.2 11B",
+          "status": "secondary",
+          "type": "Large Multimodal Model",
+          "category": "open",
+          "releaseDate": "2024-09-25",
+          "modelPage": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_2/",
+          "releasePost": "https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/",
+          "releaseVideo": "",
+          "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD.md",
+          "licenceType": "Community",
+          "licenceLink": "https://www.llama.com/llama3/license/",
+          "huggingFace": "",
+          "capabilities": {
+            "intelligence": 1,
+            "speed": 5,
+            "reasoning": 0
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": 0.18,
+            "pricingOutputPerM": 0.18
+          }
+        },
+        {
+          "id": "llama-3-2-3B",
+          "name": "Llama 3.2 3B",
+          "status": "secondary",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "2024-09-25",
+          "modelPage": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_2/",
+          "releasePost": "https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/",
+          "releaseVideo": "",
+          "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD.md",
+          "licenceType": "Community",
+          "licenceLink": "https://www.llama.com/llama3/license/",
+          "huggingFace": "",
+          "capabilities": {
+            "intelligence": 1,
+            "speed": 5,
+            "reasoning": 0
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": 0.06,
+            "pricingOutputPerM": 0.06
+          }
+        },
+        {
+          "id": "llama-3-2-1B",
+          "name": "Llama 3.2 1B",
+          "status": "secondary",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "2024-09-25",
+          "modelPage": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_2/",
+          "releasePost": "https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/",
+          "releaseVideo": "",
+          "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD.md",
+          "licenceType": "Community",
+          "licenceLink": "https://www.llama.com/llama3/license/",
+          "huggingFace": "",
+          "capabilities": {
+            "intelligence": 1,
+            "speed": 5,
+            "reasoning": 0
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": 0.06,
+            "pricingOutputPerM": 0.06
+          }
+        },
+        {
+          "id": "llama-3-1-405B",
+          "name": "Llama 3.1 405B",
+          "status": "secondary",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "2024-07-23",
+          "modelPage": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_1/",
+          "releasePost": "https://ai.meta.com/blog/meta-llama-3-1/",
+          "releaseVideo": "",
+          "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md",
+          "licenceType": "Community",
+          "licenceLink": "https://www.llama.com/llama3/license/",
+          "huggingFace": "",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 2,
+            "reasoning": 2
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": 3.5,
+            "pricingOutputPerM": 3.5
+          }
+        },
+        {
+          "id": "llama-3-1-70B",
+          "name": "Llama 3.1 70B",
+          "status": "secondary",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "2024-07-23",
+          "modelPage": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_1/",
+          "releasePost": "https://ai.meta.com/blog/meta-llama-3-1/",
+          "releaseVideo": "",
+          "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md",
+          "licenceType": "Community",
+          "licenceLink": "https://www.llama.com/llama3/license/",
+          "huggingFace": "",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 3,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": 0.88,
+            "pricingOutputPerM": 0.88
+          }
+        },
+        {
+          "id": "llama-3-1-8B",
+          "name": "Llama 3.1 8B",
+          "status": "secondary",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "2024-07-23",
+          "modelPage": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_1/",
+          "releasePost": "https://ai.meta.com/blog/meta-llama-3-1/",
+          "releaseVideo": "",
+          "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/MODEL_CARD.md",
+          "licenceType": "Community",
+          "licenceLink": "https://www.llama.com/llama3/license/",
+          "huggingFace": "",
+          "capabilities": {
+            "intelligence": 1,
+            "speed": 5,
+            "reasoning": 0
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": 0.18,
+            "pricingOutputPerM": 0.18
           }
         }
       ],
