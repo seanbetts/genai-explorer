@@ -6,6 +6,13 @@ export interface Feature {
   url: string;
 }
 
+export interface Product {
+  name: string;
+  description: string;
+  image: string;
+  url: string;
+}
+
 export interface Specs {
   reasoningTokens?: boolean;
   inputFormats?: string[];
@@ -82,6 +89,7 @@ export interface Company {
   description: string;
   lastUpdated: string;
   features?: Feature[];
+  products?: Product[];
   models: Model[];
   subscriptions?: Subscription[];
 }

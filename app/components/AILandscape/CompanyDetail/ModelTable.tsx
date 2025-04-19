@@ -328,7 +328,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           </td>
           {displayModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {model.specs?.pricingInputPerM !== undefined ? (
+              {model.specs?.pricingInputPerM !== undefined && model.specs?.pricingInputPerM !== null ? (
                 <span className={tableStyles.metric}>${model.specs.pricingInputPerM.toFixed(2)}</span>
               ) : <span className={textStyles.primary}>-</span>}
             </td>
@@ -346,7 +346,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           </td>
           {displayModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {model.specs?.pricingCachedInputPerM !== undefined ? (
+              {model.specs?.pricingCachedInputPerM !== undefined && model.specs?.pricingCachedInputPerM !== null ? (
                 <span className={tableStyles.metric}>${model.specs.pricingCachedInputPerM.toFixed(2)}</span>
               ) : <span className={textStyles.primary}>-</span>}
             </td>
@@ -364,7 +364,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           </td>
           {displayModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {model.specs?.pricingOutputPerM !== undefined ? (
+              {model.specs?.pricingOutputPerM !== undefined && model.specs?.pricingOutputPerM !== null ? (
                 <span className={tableStyles.metric}>${model.specs.pricingOutputPerM.toFixed(2)}</span>
               ) : <span className={textStyles.primary}>-</span>}
             </td>

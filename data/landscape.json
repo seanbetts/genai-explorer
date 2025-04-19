@@ -28,6 +28,12 @@
           "url": "https://openai.com/index/introducing-chatgpt-search/"
         },
         {
+          "name": "Deep Research",
+          "description": "An agent that uses reasoning to synthesize large amounts of online information and complete multi-step research tasks for you.",
+          "image": "/images/companies/openai/features/deep-research.png",
+          "url": "https://openai.com/index/introducing-deep-research/"
+        },
+        {
           "name": "GPTs",
           "description": "Custom versions of ChatGPT that combine instructions, extra knowledge, and any combination of skills.",
           "image": "/images/companies/openai/features/gpts.png",
@@ -325,6 +331,14 @@
           }
         }
       ],
+      "products": [
+        {
+          "name": "ChatGPT",
+          "description": "A new way of working with ChatGPT to write and code",
+          "image": "/images/companies/openai/features/canvas.png",
+          "url": "https://openai.com/index/introducing-canvas/"
+        }
+      ],
       "subscriptions": [
         {
           "tier": "Free",
@@ -417,15 +431,21 @@
         },
         {
           "name": "Artifacts",
-          "description": "Turn conversations with Claude into a more creative and collaborative experience. ",
+          "description": "Turn conversations with Claude into a more creative and collaborative experience.",
           "image": "/images/companies/anthropic/features/artifacts.png",
           "url": "https://www.anthropic.com/news/artifacts"
         },
         {
           "name": "Web Browsing",
-          "description": "Use Claude to search the internet to provide more up-to-date and relevant responses. ",
+          "description": "Use Claude to search the internet to provide more up-to-date and relevant responses.",
           "image": "/images/companies/anthropic/features/web-browsing.png",
           "url": "https://www.anthropic.com/news/web-search"
+        },
+        {
+          "name": "Research",
+          "description": "Search across both your internal work context and the web to help you make decisions and take action faster than before.",
+          "image": "/images/companies/anthropic/features/research.png",
+          "url": "https://www.anthropic.com/news/research"
         },
         {
           "name": "Connected Apps",
@@ -500,14 +520,14 @@
           }
         },
         {
-          "id": "claude-3-7",
-          "name": "Claude 3.7",
+          "id": "claude-3-7-sonnet",
+          "name": "Claude 3.7 Sonnet",
           "status": "primary",
           "type": "text",
           "releaseDate": "2025-02-24",
           "modelPage": "https://www.anthropic.com/claude/sonnet",
           "releasePost": "https://www.anthropic.com/news/claude-3-7-sonnet",
-          "releaseVideo": "",
+          "releaseVideo": "https://youtu.be/t3nnDXa81Hs?si=89rl2mOy3PoElWJj",
           "systemCard": "https://assets.anthropic.com/m/785e231869ea8b3b/original/claude-3-7-sonnet-system-card.pdf",
           "capabilities": {
             "intelligence": 4,
