@@ -25,3 +25,33 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* Fallback styles for broken images */
+img[src*="error"],
+img:not([src]),
+img[src=""],
+img[src$=".png"]:not([src^="data:"]):not([src*="/"]),
+img[src$=".jpg"]:not([src^="data:"]):not([src*="/"]),
+img[src$=".jpeg"]:not([src^="data:"]):not([src*="/"]),
+img[src$=".svg"]:not([src^="data:"]):not([src*="/"]) {
+  visibility: hidden;
+}
+
+img[src*="error"]::before,
+img:not([src])::before,
+img[src=""]::before,
+img[src$=".png"]:not([src^="data:"]):not([src*="/"])::before,
+img[src$=".jpg"]:not([src^="data:"]):not([src*="/"])::before,
+img[src$=".jpeg"]:not([src^="data:"]):not([src*="/"])::before,
+img[src$=".svg"]:not([src^="data:"]):not([src*="/"])::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #2D3748;
+  background-image: linear-gradient(135deg, rgba(234, 0, 217, 0.2) 0%, rgba(10, 189, 198, 0.1) 100%);
+  visibility: visible;
+}

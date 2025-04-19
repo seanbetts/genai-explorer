@@ -9,26 +9,32 @@ interface SubscriptionGridProps {
 }
 
 const SubscriptionGrid: React.FC<SubscriptionGridProps> = ({ subscriptions }) => {
-  // Find the subscription with the most features to determine minimum height
-  const maxFeatures = useMemo(() => {
-    let max = 0;
-    subscriptions.forEach(sub => {
-      if (sub.features && sub.features.length > max) {
-        max = sub.features.length;
-      }
-    });
-    return max;
-  }, [subscriptions]);
+  // No need to calculate max features for height, as CSS Grid auto-rows-fr handles this now
 
-  // Set a fixed height for subscription cards
-  const cardHeight = 360; // Taller than feature cards to accommodate feature lists
+  // Calculate grid layout based on number of items
+  const itemCount = subscriptions.length;
+  
+  // For 1 item: single column at all screen sizes
+  // For 2 items: single column on mobile, 2 columns on larger screens
+  // For 3+ items: responsive grid with max 3 columns
+  const gridCols = itemCount === 1 ? 'grid-cols-1' : 
+                  itemCount === 2 ? 'grid-cols-1 sm:grid-cols-2' : 
+                  'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3';
+  
+  // Control max width based on number of items
+  // This ensures the grid doesn't stretch too wide with few items
+  const maxWidthClass = itemCount === 1 ? 'max-w-md' : 
+                      itemCount === 2 ? 'max-w-2xl' : 
+                      'max-w-6xl';
+                      
+  // We use a consistent gap for all layouts
+  const gapClass = 'gap-6';
 
   return (
-    <div className={containerStyles.subscriptionGrid}>
+    <div className="w-full flex justify-center">
+      <div className={`${gridCols} ${gapClass} auto-rows-fr grid ${maxWidthClass} w-full`}>
       {subscriptions.map(subscription => {
-        // Calculate how many empty features we need to add to match the tallest card
-        const featuresLength = subscription.features?.length || 0;
-        const emptyFeatures = Math.max(0, maxFeatures - featuresLength);
+        // No need to add empty features for height matching, as CSS Grid auto-rows-fr handles this now
         
         return (
           <a 
@@ -36,8 +42,7 @@ const SubscriptionGrid: React.FC<SubscriptionGridProps> = ({ subscriptions }) =>
             target="_blank"
             rel="noopener noreferrer"
             key={subscription.tier}
-            className={`${containerStyles.subscriptionCard} group`}
-            style={{ height: `${cardHeight}px` }}
+            className={`${containerStyles.subscriptionCard} group h-full`}
           >
             <div className={containerStyles.subscriptionHeader}>
               <div className="flex justify-between items-center">
@@ -60,7 +65,7 @@ const SubscriptionGrid: React.FC<SubscriptionGridProps> = ({ subscriptions }) =>
                   <div className={containerStyles.subscriptionPrice}>Custom pricing</div>
                 )}
                 
-                <ul className={containerStyles.subscriptionFeatureList}>
+                <ul className={`${containerStyles.subscriptionFeatureList} mb-3`}>
                   {subscription.features && subscription.features.map((feature, index) => (
                     <li key={index} className={containerStyles.subscriptionFeatureItem}>
                       <span className={containerStyles.subscriptionFeatureCheck}>✓</span>
@@ -68,19 +73,14 @@ const SubscriptionGrid: React.FC<SubscriptionGridProps> = ({ subscriptions }) =>
                     </li>
                   ))}
                   
-                  {/* Add empty features to make all cards the same height */}
-                  {Array.from({ length: emptyFeatures }).map((_, index) => (
-                    <li key={`empty-${index}`} className={`${containerStyles.subscriptionFeatureItem} opacity-0 pointer-events-none`}>
-                      <span className={containerStyles.subscriptionFeatureCheck}>✓</span>
-                      <span className={containerStyles.subscriptionFeatureText}>Empty space</span>
-                    </li>
-                  ))}
+                  {/* No longer need empty features - grid handles equal heights */}
                 </ul>
               </div>
             </div>
           </a>
         );
       })}
+    </div>
     </div>
   );
 };

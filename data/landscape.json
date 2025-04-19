@@ -730,16 +730,40 @@
       "lastUpdated": "2025-04-19",
       "features": [
         {
-          "name": "Gemini",
-          "description": "Mobile and desktop app for interacting with Gemini",
-          "image": "",
-          "url": "https://gemini.google.com/app"
+          "name": "Canvas",
+          "description": "Write, code, create – all in one interactive space.",
+          "image": "/images/companies/google-deepmind/features/canvas.png",
+          "url": "https://gemini.google/overview/canvas/"
         },
         {
-          "name": "Gemini API",
-          "description": "API access to Gemini models",
-          "image": "",
-          "url": "https://ai.google.dev/docs"
+          "name": "Personalisation",
+          "description": "Get help from AI that gets you.",
+          "image": "/images/companies/google-deepmind/features/personalisation.png",
+          "url": "https://gemini.google/overview/personalization//"
+        },
+        {
+          "name": "Deep Research",
+          "description": "Save hours of work with Deep Research as your personal research assistant.",
+          "image": "/images/companies/google-deepmind/features/deep-research.png",
+          "url": "https://gemini.google/overview/deep-research/"
+        },
+        {
+          "name": "Gems",
+          "description": "Gems are your custom AI experts for help on any topic.",
+          "image": "/images/companies/google-deepmind/features/gems.png",
+          "url": "https://gemini.google/overview/gems/"
+        },
+        {
+          "name": "Code Assist",
+          "description": "AI coding assistance for any language",
+          "image": "/images/companies/google-deepmind/features/code-assist.png",
+          "url": "https://codeassist.google/products/individual"
+        },
+        {
+          "name": "Connected Apps",
+          "description": "Get summaries from your Gmail, add items to your grocery list in, instantly plot travel tips on Google Maps, curate a custom playlist on YouTube Music, and more.",
+          "image": "/images/companies/google-deepmind/features/connected-apps.png",
+          "url": "https://gemini.google/overview/apps/"
         }
       ],
       "models": [
@@ -853,56 +877,62 @@
         {
           "name": "Gemini",
           "description": "Their most intelligent AI models, built for the agentic era",
-          "image": "",
+          "image": "/images/companies/google-deepmind/products/gemini.png",
           "url": "https://deepmind.google/technologies/gemini/"
         },
         {
           "name": "Gemma",
           "description": "A collection of lightweight, state-of-the-art open models built from the same research and technology that powers our Gemini 2.0 models",
-          "image": "",
+          "image": "/images/companies/google-deepmind/products/gemma.png",
           "url": "https://ai.google.dev/gemma/"
         },
         {
+          "name": "NotebookLM",
+          "description": "The ultimate tool for understanding the information that matters most to you, built with Gemini 2.0",
+          "image": "/images/companies/google-deepmind/products/notebooklm.png",
+          "url": "https://notebooklm.google"
+        },
+        {
           "name": "Project Astra",
-          "description": "",
-          "image": "",
-          "url": ""
+          "description": "A research prototype exploring future capabilities of a universal AI assistant",
+          "image": "/images/companies/google-deepmind/products/project-astra.png",
+          "url": "https://deepmind.google/technologies/project-astra/"
         },
         {
           "name": "Project Mariner",
-          "description": "",
-          "image": "",
-          "url": ""
+          "description": "A research prototype exploring the future of human-agent interaction, starting with your browser",
+          "image": "/images/companies/google-deepmind/products/project-mariner.png",
+          "url": "https://deepmind.google/technologies/project-mariner/"
         },
         {
           "name": "Imagen",
           "description": "Their highest quality text-to-image model",
-          "image": "",
+          "image": "/images/companies/google-deepmind/products/imagen.png",
           "url": "https://deepmind.google/technologies/imagen-3/"
         },
         {
           "name": "Veo",
           "description": "Their state-of-the-art video generation model",
-          "image": "",
+          "image": "/images/companies/google-deepmind/products/veo.png",
           "url": "https://deepmind.google/technologies/veo/veo-2/"
         },
         {
           "name": "Alpha Fold",
-          "description": "",
-          "image": "",
-          "url": ""
+          "description": "Accelerating breakthroughs in biology with AI",
+          "image": "/images/companies/google-deepmind/products/alphafold.png",
+          "url": "https://deepmind.google/technologies/alphafold/"
         },
         {
           "name": "Gemini Robotics",
-          "description": "",
-          "image": "",
-          "url": ""
+          "description": "Their advanced Gemini 2.0-based models designed for the next generation of helpful robots",
+          "image": "/images/companies/google-deepmind/products/gemini-robotics.png",
+          "url": "https://deepmind.google/technologies/gemini-robotics/"
         },
         {
           "name": "Weather Next",
-          "description": "",
-          "image": "",
-          "url": ""
+          "description": "Their most advanced weather forecasting AI technology",
+          "image": "/images/companies/google-deepmind/products/weathernext.png",
+          "url": "https://deepmind.google/technologies/weathernext/"
         }
       ],
       "subscriptions": [
@@ -911,10 +941,14 @@
           "type": "consumer",
           "price": 0,
           "billingCycle": "monthly",
+          "url": "https://gemini.google/about/#plans",
           "features": [
-            "Access to Gemini 1.5 Flash",
-            "Limited usage",
-            "Basic web integration"
+            "Access to 2.0 Flash model and experimental models, including 2.5 Pro",
+            "Have free-flowing voice conversations on the go with Gemini Live",
+            "Generate comprehensive reports with limited access to Deep Research",
+            "Build and use custom AI experts for any topic with Gems",
+            "Get help with tasks on multiple Google apps at once",
+            "Write, code, and create - all in one interactive space with Gemini Canvas"
           ]
         },
         {
@@ -922,24 +956,14 @@
           "type": "consumer",
           "price": 20,
           "billingCycle": "monthly",
+          "url": "https://gemini.google/about/#plans",
           "features": [
-            "Access to Gemini 2.5 Pro",
-            "Increased usage limits",
-            "Advanced features",
-            "Extended memory"
-          ]
-        },
-        {
-          "tier": "Enterprise",
-          "type": "enterprise",
-          "price": null,
-          "billingCycle": "custom",
-          "features": [
-            "Full access to all Gemini models",
-            "Custom model fine-tuning",
-            "Advanced security features",
-            "Dedicated support",
-            "SLA guarantees"
+            "Everything in Free tier",
+            "Extended limits to 2.5 Pro, NotebookLM & Deep Research",
+            "Create high-quality videos with Veo 2, our latest video generation model",
+            "Understand large books and reports with 1,500 pages of file uploads",
+            "Code smarter and faster by uploading your code repository",
+            "Bring your ideas to life with access to Whisk Animate"
           ]
         }
       ]
@@ -1005,6 +1029,7 @@
           "type": "consumer",
           "price": null,
           "billingCycle": "usage",
+          "url": "",
           "features": [
             "Pay only for what you use",
             "Access to all models",
@@ -1017,6 +1042,7 @@
           "type": "enterprise",
           "price": null,
           "billingCycle": "custom",
+          "url": "",
           "features": [
             "Custom pricing plans",
             "Volume discounts",

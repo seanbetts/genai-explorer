@@ -1,28 +1,67 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Feature } from '../types';
 import { textStyles, containerStyles, buttonStyles } from '../utils/styles';
+import { getValidImageUrl, PLACEHOLDER_IMAGE } from '../utils/imageUtils';
+
+// Component to handle image loading with fallback
+const ImageWithFallback = ({ src, alt, ...props }: {
+  src: string;
+  alt: string;
+  [key: string]: any;
+}) => {
+  const [imgSrc, setImgSrc] = useState(src);
+  const [imgError, setImgError] = useState(false);
+  
+  return (
+    <Image
+      {...props}
+      src={imgSrc}
+      alt={alt}
+      quality={imgError ? 100 : 85} // Higher quality for placeholder
+      unoptimized={imgError} // Skip optimization for placeholder
+      onError={() => {
+        setImgSrc(PLACEHOLDER_IMAGE);
+        setImgError(true);
+      }}
+    />
+  );
+};
+
 
 interface FeatureGridProps {
   features: Feature[];
 }
 
 const FeatureGrid: React.FC<FeatureGridProps> = ({ features }) => {
-  // Set a fixed height that's tall enough for feature cards
-  const cardHeight = 320; // Increased height to ensure consistent sizing
+  // Card heights will be automatically equalized by CSS Grid
   
-  // Helper to validate image URL is proper and exists
-  const getValidImageUrl = (imagePath: string | undefined): string => {
-    if (!imagePath || !imagePath.startsWith("/") || imagePath.length <= 1) {
-      return "/images/placeholder.svg";
-    }
-    return imagePath;
-  };
+  // Using the shared utility function from imageUtils.ts
   
+  // Calculate grid layout based on number of items
+  const itemCount = features.length;
+  
+  // For 1 item: single column at all screen sizes
+  // For 2 items: single column on mobile, 2 columns on larger screens
+  // For 3+ items: responsive grid with max 3 columns
+  const gridCols = itemCount === 1 ? 'grid-cols-1' : 
+                  itemCount === 2 ? 'grid-cols-1 sm:grid-cols-2' : 
+                  'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3';
+  
+  // Control max width based on number of items
+  // This ensures the grid doesn't stretch too wide with few items
+  const maxWidthClass = itemCount === 1 ? 'max-w-md' : 
+                      itemCount === 2 ? 'max-w-2xl' : 
+                      'max-w-6xl';
+                      
+  // We use a consistent gap for all layouts
+  const gapClass = 'gap-6';
+
   return (
-    <div className={containerStyles.featureGrid}>
+    <div className="w-full flex justify-center">
+      <div className={`${gridCols} ${gapClass} auto-rows-fr grid ${maxWidthClass} w-full`}>
       {features.map(feature => (
         <a 
           key={feature.name}
@@ -30,19 +69,13 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ features }) => {
           target="_blank"
           rel="noopener"
           className={`${containerStyles.featureCard} group`}
-          style={{ height: `${cardHeight}px` }}
         >
           <div className={containerStyles.featureImage}>
-            <Image 
+            <ImageWithFallback 
               src={getValidImageUrl(feature.image)} 
               alt={feature.name}
               fill
               style={{ objectFit: "cover" }}
-              onError={() => {
-                // The getValidImageUrl already handles missing images,
-                // but this is a fallback for network errors
-                console.error("Failed to load image, using placeholder");
-              }}
             />
           </div>
           <div className={containerStyles.featureContent}>
@@ -62,6 +95,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ features }) => {
           </div>
         </a>
       ))}
+    </div>
     </div>
   );
 };

@@ -8,4 +8,11 @@
   </defs>
   <rect width="800" height="400" fill="#2D3748" />
   <rect width="800" height="400" fill="url(#grad)" />
+  
+  <!-- Simple image icon -->
+  <g opacity="0.3" fill="#FFFFFF">
+    <rect x="300" y="150" width="200" height="100" rx="8" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+    <circle cx="335" cy="185" r="15" fill="#FFFFFF" />
+    <path d="M300,220 L380,180 L440,210 L500,170 L500,250 L300,250 Z" fill="#FFFFFF" />
+  </g>
 </svg>
