@@ -62,6 +62,7 @@
         {
           "id": "gpt-4-5",
           "name": "GPT-4.5",
+          "status": "primary",
           "type": "Large Multimodal Model",
           "releaseDate": "2025-02-27",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4.5-preview",
@@ -86,16 +87,16 @@
             ],
             "maxInputTokens": 128000,
             "maxOutputTokens": 16384,
-            "pricingInputPerM": 75.00,
-            "pricingCachedInputPerM": 37.50,
-            "pricingOutputPerM": 150.00,
-            "knowledgeCutoff": "September 2023"
-          },
-          "status": "primary"
+            "knowledgeCutoff": "September 2023",
+            "pricingInputPerM": 75,
+            "pricingCachedInputPerM": 37.5,
+            "pricingOutputPerM": 150
+          }
         },
         {
           "id": "gpt-4o",
           "name": "GPT-4o",
+          "status": "primary",
           "type": "Large Multimodal Model",
           "releaseDate": "2024-08-06",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4o",
@@ -121,16 +122,16 @@
             ],
             "maxInputTokens": 128000,
             "maxOutputTokens": 16384,
-            "pricingInputPerM": 2.50,
+            "knowledgeCutoff": "September 2023",
+            "pricingInputPerM": 2.5,
             "pricingCachedInputPerM": 1.25,
-            "pricingOutputPerM": 10.00,
-            "knowledgeCutoff": "September 2023"
-          },
-          "status": "primary"
+            "pricingOutputPerM": 10
+          }
         },
         {
           "id": "gpt-4o-mini",
           "name": "GPT-4o Mini",
+          "status": "secondary",
           "type": "Large Multimodal Model",
           "releaseDate": "2024-08-06",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4o-mini",
@@ -155,16 +156,16 @@
             ],
             "maxInputTokens": 128000,
             "maxOutputTokens": 16384,
+            "knowledgeCutoff": "September 2023",
             "pricingInputPerM": 0.15,
             "pricingCachedInputPerM": 0.075,
-            "pricingOutputPerM": 0.60,
-            "knowledgeCutoff": "September 2023"
-          },
-          "status": "secondary"
+            "pricingOutputPerM": 0.6
+          }
         },
         {
           "id": "o1",
           "name": "o1",
+          "status": "secondary",
           "type": "Large Reasoning Model",
           "releaseDate": "2024-12-17",
           "modelPage": "https://platform.openai.com/docs/models/o1",
@@ -188,16 +189,16 @@
             ],
             "maxInputTokens": 200000,
             "maxOutputTokens": 100000,
-            "pricingInputPerM": 15.00,
-            "pricingCachedInputPerM": 7.50,
-            "pricingOutputPerM": 60.00,
-            "knowledgeCutoff": "September 2023"
-          },
-          "status": "secondary"
+            "knowledgeCutoff": "September 2023",
+            "pricingInputPerM": 15,
+            "pricingCachedInputPerM": 7.5,
+            "pricingOutputPerM": 60
+          }
         },
         {
           "id": "o3-mini",
           "name": "o3-mini",
+          "status": "primary",
           "type": "Large Reasoning Model",
           "releaseDate": "2025-01-31",
           "modelPage": "https://platform.openai.com/docs/models/o3-mini",
@@ -221,16 +222,16 @@
             ],
             "maxInputTokens": 200000,
             "maxOutputTokens": 100000,
-            "pricingInputPerM": 1.10,
+            "knowledgeCutoff": "September 2023",
+            "pricingInputPerM": 1.1,
             "pricingCachedInputPerM": 0.55,
-            "pricingOutputPerM": 4.40,
-            "knowledgeCutoff": "September 2023"
-          },
-          "status": "primary"
+            "pricingOutputPerM": 4.4
+          }
         },
         {
           "id": "gpt-4-1",
           "name": "GPT 4.1 (API only)",
+          "status": "primary",
           "type": "Large Language Model",
           "releaseDate": "2025-04-14",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4.1",
@@ -253,16 +254,16 @@
             ],
             "maxInputTokens": 1047576,
             "maxOutputTokens": 32768,
-            "pricingInputPerM": 2.00,
-            "pricingCachedInputPerM": 0.50,
-            "pricingOutputPerM": 8.00,
-            "knowledgeCutoff": "May 2024"
-          },
-          "status": "primary"
+            "knowledgeCutoff": "May 2024",
+            "pricingInputPerM": 2,
+            "pricingCachedInputPerM": 0.5,
+            "pricingOutputPerM": 8
+          }
         },
         {
           "id": "gpt-4-1-mini",
           "name": "GPT 4.1 Mini (API only)",
+          "status": "secondary",
           "type": "Large Language Model",
           "releaseDate": "2025-04-14",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4.1-mini",
@@ -285,16 +286,16 @@
             ],
             "maxInputTokens": 1047576,
             "maxOutputTokens": 32768,
-            "pricingInputPerM": 0.40,
-            "pricingCachedInputPerM": 0.10,
-            "pricingOutputPerM": 1.60,
-            "knowledgeCutoff": "May 2024"
-          },
-          "status": "secondary"
+            "knowledgeCutoff": "May 2024",
+            "pricingInputPerM": 0.4,
+            "pricingCachedInputPerM": 0.1,
+            "pricingOutputPerM": 1.6
+          }
         },
         {
           "id": "gpt-4-1-nano",
           "name": "GPT 4.1 Nano (API only)",
+          "status": "secondary",
           "type": "Large Language Model",
           "releaseDate": "2025-04-14",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4.1-nano",
@@ -317,12 +318,11 @@
             ],
             "maxInputTokens": 1047576,
             "maxOutputTokens": 32768,
-            "pricingInputPerM": 0.10,
+            "knowledgeCutoff": "May 2024",
+            "pricingInputPerM": 0.1,
             "pricingCachedInputPerM": 0.025,
-            "pricingOutputPerM": 0.40,
-            "knowledgeCutoff": "May 2024"
-          },
-          "status": "secondary"
+            "pricingOutputPerM": 0.4
+          }
         }
       ],
       "subscriptions": [
@@ -438,6 +438,7 @@
         {
           "id": "claude-3-5-haiku",
           "name": "Claude 3.5 Haiku",
+          "status": "primary",
           "type": "text",
           "releaseDate": "2024-10-22",
           "modelPage": "https://www.anthropic.com/claude/haiku",
@@ -460,16 +461,16 @@
             ],
             "maxInputTokens": 200000,
             "maxOutputTokens": 8192,
-            "pricingInputPerM": 0.80,
+            "knowledgeCutoff": "July 2024",
+            "pricingInputPerM": 0.8,
             "pricingCachedInputPerM": 0.08,
-            "pricingOutputPerM": 4.00,
-            "knowledgeCutoff": "July 2024"
-          },
-          "status": "primary"
+            "pricingOutputPerM": 4
+          }
         },
         {
           "id": "claude-3-opus",
           "name": "Claude 3 Opus",
+          "status": "primary",
           "type": "text",
           "releaseDate": "2024-03-04",
           "modelPage": "",
@@ -492,16 +493,16 @@
             ],
             "maxInputTokens": 200000,
             "maxOutputTokens": 4096,
-            "pricingInputPerM": 15.00,
-            "pricingCachedInputPerM": 1.50,
-            "pricingOutputPerM": 75.00,
-            "knowledgeCutoff": "August 2023"
-          },
-          "status": "primary"
+            "knowledgeCutoff": "August 2023",
+            "pricingInputPerM": 15,
+            "pricingCachedInputPerM": 1.5,
+            "pricingOutputPerM": 75
+          }
         },
         {
           "id": "claude-3-7",
           "name": "Claude 3.7",
+          "status": "primary",
           "type": "text",
           "releaseDate": "2025-02-24",
           "modelPage": "https://www.anthropic.com/claude/sonnet",
@@ -524,12 +525,11 @@
             ],
             "maxInputTokens": 200000,
             "maxOutputTokens": 64000,
-            "pricingInputPerM": 3.00,
-            "pricingCachedInputPerM": 0.30,
-            "pricingOutputPerM": 15.00,
-            "knowledgeCutoff": "November 2024"
-          },
-          "status": "primary"
+            "knowledgeCutoff": "November 2024",
+            "pricingInputPerM": 3,
+            "pricingCachedInputPerM": 0.3,
+            "pricingOutputPerM": 15
+          }
         }
       ],
       "subscriptions": [
@@ -626,8 +626,13 @@
         {
           "id": "gemini-2-5-pro",
           "name": "Gemini 2.5 Pro",
+          "status": "primary",
           "type": "multimodal",
           "releaseDate": "2025-01-30",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 5,
             "speed": 4,
@@ -647,18 +652,22 @@
             ],
             "maxInputTokens": 200000,
             "maxOutputTokens": 25000,
+            "knowledgeCutoff": "December 2023",
             "pricingInputPerM": 0.35,
             "pricingCachedInputPerM": 0.12,
-            "pricingOutputPerM": 1.20,
-            "knowledgeCutoff": "December 2023"
-          },
-          "status": "primary"
+            "pricingOutputPerM": 1.2
+          }
         },
         {
           "id": "gemini-2-0-flash",
           "name": "Gemini 2.0 FLash",
+          "status": "primary",
           "type": "multimodal",
           "releaseDate": "2025-01-30",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 5,
             "speed": 4,
@@ -678,18 +687,22 @@
             ],
             "maxInputTokens": 200000,
             "maxOutputTokens": 25000,
+            "knowledgeCutoff": "December 2023",
             "pricingInputPerM": 0.35,
             "pricingCachedInputPerM": 0.12,
-            "pricingOutputPerM": 1.20,
-            "knowledgeCutoff": "December 2023"
-          },
-          "status": "primary"
+            "pricingOutputPerM": 1.2
+          }
         },
         {
           "id": "gemini-2-0-flash-thinking",
           "name": "Gemini 2.0 Flash Thinking",
+          "status": "primary",
           "type": "multimodal",
           "releaseDate": "2025-01-30",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 5,
             "speed": 4,
@@ -709,12 +722,11 @@
             ],
             "maxInputTokens": 200000,
             "maxOutputTokens": 25000,
+            "knowledgeCutoff": "December 2023",
             "pricingInputPerM": 0.35,
             "pricingCachedInputPerM": 0.12,
-            "pricingOutputPerM": 1.20,
-            "knowledgeCutoff": "December 2023"
-          },
-          "status": "primary"
+            "pricingOutputPerM": 1.2
+          }
         }
       ],
       "subscriptions": [
@@ -782,8 +794,13 @@
         {
           "id": "nova-1-0",
           "name": "Nova 1.0",
+          "status": "primary",
           "type": "text",
           "releaseDate": "2025-01-05",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 4,
             "speed": 3,
@@ -799,9 +816,11 @@
             ],
             "maxInputTokens": 100000,
             "maxOutputTokens": 20000,
-            "knowledgeCutoff": "July 2023"
-          },
-          "status": "primary"
+            "knowledgeCutoff": "July 2023",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null
+          }
         }
       ],
       "subscriptions": [
@@ -858,8 +877,13 @@
         {
           "id": "llama-3-3",
           "name": "LLaMA 3.3",
+          "status": "primary",
           "type": "text",
           "releaseDate": "2025-01-18",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 4,
             "speed": 4,
@@ -876,11 +900,13 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": 16000,
             "knowledgeCutoff": "June 2023",
-            "openSource": true
-          },
-          "status": "primary"
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null
+          }
         }
-      ]
+      ],
+      "subscriptions": []
     },
     {
       "id": "google-deepmind",
@@ -895,8 +921,13 @@
         {
           "id": "gemma-3",
           "name": "Gemma 3",
+          "status": "primary",
           "type": "text",
           "releaseDate": "2025-01-18",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 4,
             "speed": 4,
@@ -913,11 +944,13 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": 16000,
             "knowledgeCutoff": "June 2023",
-            "openSource": true
-          },
-          "status": "primary"
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null
+          }
         }
-      ]
+      ],
+      "subscriptions": []
     },
     {
       "id": "mistral",
@@ -945,8 +978,18 @@
         {
           "id": "mistral",
           "name": "Mistral",
+          "status": "primary",
           "type": "text",
           "releaseDate": "2024-09-12",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
+          "capabilities": {
+            "intelligence": 0,
+            "speed": 0,
+            "reasoning": 0
+          },
           "specs": {
             "reasoningTokens": false,
             "inputFormats": [
@@ -958,15 +1001,26 @@
             "maxInputTokens": 32000,
             "maxOutputTokens": 8000,
             "knowledgeCutoff": "March 2023",
-            "openSource": true
-          },
-          "status": "primary"
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null
+          }
         },
         {
           "id": "mixtral",
           "name": "Mixtral",
+          "status": "primary",
           "type": "text",
           "releaseDate": "2024-12-20",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
+          "capabilities": {
+            "intelligence": 0,
+            "speed": 0,
+            "reasoning": 0
+          },
           "specs": {
             "reasoningTokens": false,
             "inputFormats": [
@@ -978,15 +1032,26 @@
             "maxInputTokens": 64000,
             "maxOutputTokens": 12000,
             "knowledgeCutoff": "April 2023",
-            "openSource": true
-          },
-          "status": "primary"
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null
+          }
         },
         {
           "id": "codestral",
           "name": "Codestral",
+          "status": "primary",
           "type": "code",
           "releaseDate": "2025-02-05",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
+          "capabilities": {
+            "intelligence": 0,
+            "speed": 0,
+            "reasoning": 0
+          },
           "specs": {
             "reasoningTokens": false,
             "inputFormats": [
@@ -1000,9 +1065,10 @@
             "maxInputTokens": 64000,
             "maxOutputTokens": 12000,
             "knowledgeCutoff": "May 2023",
-            "openSource": true
-          },
-          "status": "primary"
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null
+          }
         }
       ],
       "subscriptions": [
@@ -1057,8 +1123,18 @@
         {
           "id": "deepseek-v3",
           "name": "Deepseek V3",
+          "status": "primary",
           "type": "text",
           "releaseDate": "2024-09-12",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
+          "capabilities": {
+            "intelligence": 0,
+            "speed": 0,
+            "reasoning": 0
+          },
           "specs": {
             "reasoningTokens": false,
             "inputFormats": [
@@ -1070,15 +1146,26 @@
             "maxInputTokens": 32000,
             "maxOutputTokens": 8000,
             "knowledgeCutoff": "March 2023",
-            "openSource": true
-          },
-          "status": "primary"
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null
+          }
         },
         {
           "id": "deepseek-r1",
           "name": "Deepseek R1",
+          "status": "primary",
           "type": "text",
           "releaseDate": "2024-12-20",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
+          "capabilities": {
+            "intelligence": 0,
+            "speed": 0,
+            "reasoning": 0
+          },
           "specs": {
             "reasoningTokens": false,
             "inputFormats": [
@@ -1090,9 +1177,10 @@
             "maxInputTokens": 64000,
             "maxOutputTokens": 12000,
             "knowledgeCutoff": "April 2023",
-            "openSource": true
-          },
-          "status": "primary"
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null
+          }
         }
       ],
       "subscriptions": [
@@ -1160,8 +1248,18 @@
         {
           "id": "copilot",
           "name": "Copilot",
+          "status": "primary",
           "type": "productivity",
           "releaseDate": "2024-10-25",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
+          "capabilities": {
+            "intelligence": 0,
+            "speed": 0,
+            "reasoning": 0
+          },
           "specs": {
             "reasoningTokens": true,
             "inputFormats": [
@@ -1173,6 +1271,12 @@
               "text",
               "data"
             ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null,
             "integrated": [
               "Office",
               "Windows",
@@ -1180,8 +1284,7 @@
               "Dynamics",
               "GitHub"
             ]
-          },
-          "status": "primary"
+          }
         }
       ],
       "subscriptions": [
@@ -1251,8 +1354,13 @@
         {
           "id": "command",
           "name": "Command",
+          "status": "primary",
           "type": "text",
           "releaseDate": "2024-09-28",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 4,
             "speed": 4,
@@ -1268,9 +1376,11 @@
             ],
             "maxInputTokens": 128000,
             "maxOutputTokens": 16000,
-            "knowledgeCutoff": "June 2023"
-          },
-          "status": "primary"
+            "knowledgeCutoff": "June 2023",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null
+          }
         }
       ],
       "subscriptions": [
@@ -1337,14 +1447,20 @@
         {
           "id": "firefly",
           "name": "Firefly",
+          "status": "primary",
           "type": "image",
           "releaseDate": "2024-12-15",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 4,
             "speed": 5,
-            "creativity": 5
+            "reasoning": 0
           },
           "specs": {
+            "reasoningTokens": false,
             "inputFormats": [
               "text",
               "image"
@@ -1352,6 +1468,12 @@
             "outputFormats": [
               "image"
             ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null,
             "techniques": [
               "text-to-image",
               "image-to-image",
@@ -1359,8 +1481,7 @@
               "outpainting"
             ],
             "commercialUseAllowed": true
-          },
-          "status": "primary"
+          }
         }
       ],
       "subscriptions": [
@@ -1428,14 +1549,20 @@
         {
           "id": "midjourney-v7",
           "name": "Midjourney v7",
+          "status": "primary",
           "type": "image",
           "releaseDate": "2024-11-15",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 4,
             "speed": 4,
-            "creativity": 5
+            "reasoning": 0
           },
           "specs": {
+            "reasoningTokens": false,
             "inputFormats": [
               "text",
               "image"
@@ -1443,6 +1570,12 @@
             "outputFormats": [
               "image"
             ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null,
             "techniques": [
               "text-to-image",
               "image-to-image",
@@ -1455,8 +1588,7 @@
               "conceptual"
             ],
             "commercialUseAllowed": true
-          },
-          "status": "primary"
+          }
         }
       ],
       "subscriptions": [
@@ -1523,14 +1655,20 @@
         {
           "id": "gen-3",
           "name": "Gen-3",
+          "status": "primary",
           "type": "video",
           "releaseDate": "2024-10-30",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 4,
             "speed": 3,
-            "creativity": 5
+            "reasoning": 0
           },
           "specs": {
+            "reasoningTokens": false,
             "inputFormats": [
               "text",
               "image",
@@ -1539,6 +1677,12 @@
             "outputFormats": [
               "video"
             ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null,
             "maxDuration": "30 seconds",
             "techniques": [
               "text-to-video",
@@ -1546,8 +1690,7 @@
               "video-to-video"
             ],
             "commercialUseAllowed": true
-          },
-          "status": "primary"
+          }
         }
       ],
       "subscriptions": [
@@ -1628,14 +1771,20 @@
         {
           "id": "pika-1-0",
           "name": "Pika 1.0",
+          "status": "primary",
           "type": "video",
           "releaseDate": "2024-11-25",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 4,
             "speed": 4,
-            "creativity": 4
+            "reasoning": 0
           },
           "specs": {
+            "reasoningTokens": false,
             "inputFormats": [
               "text",
               "image",
@@ -1644,6 +1793,12 @@
             "outputFormats": [
               "video"
             ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null,
             "maxDuration": "15 seconds",
             "techniques": [
               "text-to-video",
@@ -1651,8 +1806,7 @@
               "video-editing"
             ],
             "commercialUseAllowed": true
-          },
-          "status": "primary"
+          }
         }
       ],
       "subscriptions": [
@@ -1723,20 +1877,32 @@
         {
           "id": "suno-v3",
           "name": "Suno v3",
+          "status": "primary",
           "type": "music",
           "releaseDate": "2024-12-05",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 4,
             "speed": 5,
-            "creativity": 5
+            "reasoning": 0
           },
           "specs": {
+            "reasoningTokens": false,
             "inputFormats": [
               "text"
             ],
             "outputFormats": [
               "speech"
             ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null,
             "maxDuration": "3 minutes",
             "techniques": [
               "text-to-music",
@@ -1752,8 +1918,7 @@
               "hip-hop"
             ],
             "commercialUseAllowed": true
-          },
-          "status": "primary"
+          }
         }
       ],
       "subscriptions": [
@@ -1824,14 +1989,20 @@
         {
           "id": "udio-composer",
           "name": "Udio Composer",
+          "status": "primary",
           "type": "music",
           "releaseDate": "2025-01-20",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 5,
             "speed": 4,
-            "creativity": 5
+            "reasoning": 0
           },
           "specs": {
+            "reasoningTokens": false,
             "inputFormats": [
               "text",
               "midi",
@@ -1840,6 +2011,12 @@
             "outputFormats": [
               "speech"
             ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null,
             "maxDuration": "5 minutes",
             "techniques": [
               "text-to-music",
@@ -1850,8 +2027,7 @@
               "all major genres"
             ],
             "commercialUseAllowed": true
-          },
-          "status": "primary"
+          }
         }
       ],
       "subscriptions": [
@@ -1922,14 +2098,20 @@
         {
           "id": "perplexity-online",
           "name": "Perplexity Online",
+          "status": "primary",
           "type": "search",
           "releaseDate": "2024-09-15",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 4,
             "speed": 5,
-            "accuracy": 4
+            "reasoning": 0
           },
           "specs": {
+            "reasoningTokens": false,
             "inputFormats": [
               "text",
               "url"
@@ -1938,11 +2120,16 @@
               "text",
               "citations"
             ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null,
             "realTimeData": true,
             "sourceAttribution": true,
             "dataRetrieval": "online search"
-          },
-          "status": "primary"
+          }
         }
       ],
       "subscriptions": [
@@ -2013,25 +2200,36 @@
         {
           "id": "character-engine",
           "name": "Character Engine",
+          "status": "primary",
           "type": "conversation",
           "releaseDate": "2024-10-05",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 4,
             "speed": 5,
-            "personality": 5
+            "reasoning": 0
           },
           "specs": {
+            "reasoningTokens": false,
             "inputFormats": [
               "text"
             ],
             "outputFormats": [
               "text"
             ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null,
             "memoryCapacity": "extensive",
             "personalityCustomization": true,
             "voiceCapabilities": true
-          },
-          "status": "primary"
+          }
         }
       ],
       "subscriptions": [
@@ -2101,14 +2299,20 @@
         {
           "id": "overdub",
           "name": "Overdub",
+          "status": "primary",
           "type": "audio",
           "releaseDate": "2024-08-15",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 4,
             "speed": 5,
-            "naturalness": 5
+            "reasoning": 0
           },
           "specs": {
+            "reasoningTokens": false,
             "inputFormats": [
               "text",
               "speech"
@@ -2116,6 +2320,12 @@
             "outputFormats": [
               "speech"
             ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null,
             "voiceCloning": true,
             "emotionControl": true,
             "languageSupport": [
@@ -2125,8 +2335,7 @@
               "German",
               "Japanese"
             ]
-          },
-          "status": "primary"
+          }
         }
       ],
       "subscriptions": [
@@ -2210,14 +2419,20 @@
         {
           "id": "copilot",
           "name": "GitHub Copilot",
+          "status": "primary",
           "type": "code",
           "releaseDate": "2024-11-10",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
           "capabilities": {
             "intelligence": 5,
             "speed": 5,
-            "codeQuality": 4
+            "reasoning": 0
           },
           "specs": {
+            "reasoningTokens": false,
             "inputFormats": [
               "code",
               "text",
@@ -2227,6 +2442,12 @@
               "code",
               "documentation"
             ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null,
             "languageSupport": [
               "Most major programming languages"
             ],
@@ -2238,8 +2459,7 @@
               "Neovim",
               "GitHub.com"
             ]
-          },
-          "status": "primary"
+          }
         }
       ],
       "subscriptions": [
