@@ -66,6 +66,8 @@ export interface Model {
   releasePost?: string;
   releaseVideo?: string;
   systemCard?: string;
+  licenceType?: string;
+  licenceLink?: string;
   capabilities?: Capabilities;
   specs?: Specs;
 }

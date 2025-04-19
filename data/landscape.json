@@ -71,10 +71,12 @@
           "status": "primary",
           "type": "Large Reasoning Model",
           "releaseDate": "2025-04-16",
-          "modelPage": "",
+          "modelPage": "https://platform.openai.com/docs/models/o3",
           "releasePost": "https://openai.com/index/introducing-o3-and-o4-mini/",
-          "releaseVideo": "",
+          "releaseVideo": "https://www.youtube.com/live/sq8GBPUb3rk?si=yhXfie25g5z0Kni8",
           "systemCard": "",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://openai.com/policies/terms-of-use/",
           "capabilities": {
             "intelligence": 5,
             "speed": 1,
@@ -103,10 +105,12 @@
           "status": "primary",
           "type": "Large Reasoning Model",
           "releaseDate": "2025-04-16",
-          "modelPage": "",
+          "modelPage": "https://platform.openai.com/docs/models/o4-mini",
           "releasePost": "https://openai.com/index/introducing-o3-and-o4-mini/",
-          "releaseVideo": "",
+          "releaseVideo": "https://www.youtube.com/live/sq8GBPUb3rk?si=yhXfie25g5z0Kni8",
           "systemCard": "",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://openai.com/policies/terms-of-use/",
           "capabilities": {
             "intelligence": 4,
             "speed": 3,
@@ -139,6 +143,8 @@
           "releasePost": "https://openai.com/index/introducing-gpt-4-5/",
           "releaseVideo": "https://www.youtube.com/live/cfRYp0nItZ8?si=2uzRe9gTCfklMw9u",
           "systemCard": "",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://openai.com/policies/terms-of-use/",
           "capabilities": {
             "intelligence": 4,
             "speed": 3,
@@ -171,6 +177,8 @@
           "releasePost": "https://openai.com/index/hello-gpt-4o/",
           "releaseVideo": "https://www.youtube.com/live/DQacCB9tDaw?si=ZEwN1_UQUIITKVg1",
           "systemCard": "https://openai.com/index/gpt-4o-system-card/",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://openai.com/policies/terms-of-use/",
           "capabilities": {
             "intelligence": 3,
             "speed": 3,
@@ -206,6 +214,8 @@
           "releasePost": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
           "releaseVideo": "https://www.youtube.com/live/DQacCB9tDaw?si=ZEwN1_UQUIITKVg1",
           "systemCard": "https://openai.com/index/gpt-4o-system-card/",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://openai.com/policies/terms-of-use/",
           "capabilities": {
             "intelligence": 2,
             "speed": 4,
@@ -240,6 +250,8 @@
           "releasePost": "https://openai.com/o1/",
           "releaseVideo": "https://youtu.be/iBfQTnA2n2s?si=AFRQmMzYfFHlHi9A",
           "systemCard": "https://openai.com/index/openai-o1-system-card/",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://openai.com/policies/terms-of-use/",
           "capabilities": {
             "intelligence": 4,
             "speed": 1,
@@ -273,6 +285,8 @@
           "releasePost": "https://openai.com/index/openai-o3-mini/",
           "releaseVideo": "https://www.youtube.com/live/SKBG1sqdyIU?si=osDmdNGr5xZfVXqq",
           "systemCard": "https://openai.com/index/o3-mini-system-card/",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://openai.com/policies/terms-of-use/",
           "capabilities": {
             "intelligence": 4,
             "speed": 3,
@@ -306,6 +320,8 @@
           "releasePost": "https://openai.com/index/gpt-4-1/",
           "releaseVideo": "https://www.youtube.com/live/kA-P9ood-cE?si=n0p9vle2cjWooQtj",
           "systemCard": "",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://openai.com/policies/terms-of-use/",
           "capabilities": {
             "intelligence": 4,
             "speed": 3,
@@ -338,6 +354,8 @@
           "releasePost": "https://openai.com/index/gpt-4-1/",
           "releaseVideo": "https://www.youtube.com/live/kA-P9ood-cE?si=n0p9vle2cjWooQtj",
           "systemCard": "",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://openai.com/policies/terms-of-use/",
           "capabilities": {
             "intelligence": 3,
             "speed": 4,
@@ -370,6 +388,8 @@
           "releasePost": "https://openai.com/index/gpt-4-1/",
           "releaseVideo": "https://www.youtube.com/live/kA-P9ood-cE?si=n0p9vle2cjWooQtj",
           "systemCard": "",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://openai.com/policies/terms-of-use/",
           "capabilities": {
             "intelligence": 2,
             "speed": 5,
@@ -545,6 +565,8 @@
           "releasePost": "https://www.anthropic.com/claude/haiku",
           "releaseVideo": "",
           "systemCard": "https://assets.anthropic.com/m/61e7d27f8c8f5919/original/Claude-3-Model-Card.pdf",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://www.anthropic.com/legal/consumer-terms",
           "capabilities": {
             "intelligence": 3,
             "speed": 4,
@@ -577,6 +599,8 @@
           "releasePost": "https://www.anthropic.com/news/claude-3-family",
           "releaseVideo": "",
           "systemCard": "https://assets.anthropic.com/m/61e7d27f8c8f5919/original/Claude-3-Model-Card.pdf",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://www.anthropic.com/legal/consumer-terms",
           "capabilities": {
             "intelligence": 3,
             "speed": 2,
@@ -609,6 +633,8 @@
           "releasePost": "https://www.anthropic.com/news/claude-3-7-sonnet",
           "releaseVideo": "https://youtu.be/t3nnDXa81Hs?si=89rl2mOy3PoElWJj",
           "systemCard": "https://assets.anthropic.com/m/785e231869ea8b3b/original/claude-3-7-sonnet-system-card.pdf",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://www.anthropic.com/legal/consumer-terms",
           "capabilities": {
             "intelligence": 4,
             "speed": 3,
@@ -788,6 +814,8 @@
           "releasePost": "https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/",
           "releaseVideo": "",
           "systemCard": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://ai.google.dev/gemini-api/terms",
           "capabilities": {
             "intelligence": 5,
             "speed": 3,
@@ -822,6 +850,8 @@
           "releasePost": "https://developers.googleblog.com/en/start-building-with-gemini-25-flash/",
           "releaseVideo": "",
           "systemCard": "",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://ai.google.dev/gemini-api/terms",
           "capabilities": {
             "intelligence": 4,
             "speed": 4,
@@ -855,6 +885,8 @@
           "releasePost": "https://developers.googleblog.com/en/gemini-2-family-expands/",
           "releaseVideo": "",
           "systemCard": "https://storage.googleapis.com/model-cards/documents/gemini-2-flash.pdf",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://ai.google.dev/gemini-api/terms",
           "capabilities": {
             "intelligence": 3,
             "speed": 4,
@@ -889,6 +921,8 @@
           "releasePost": "https://developers.googleblog.com/en/gemini-2-family-expands/",
           "releaseVideo": "",
           "systemCard": "https://storage.googleapis.com/model-cards/documents/gemini-2-flash-lite.pdf",
+          "licenceType": "Proprietary",
+          "licenceLink": "",
           "capabilities": {
             "intelligence": 2,
             "speed": 5,
@@ -1028,6 +1062,8 @@
           "releasePost": "https://press.aboutamazon.com/2024/12/introducing-amazon-nova-a-new-generation-of-foundation-models",
           "releaseVideo": "",
           "systemCard": "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://aws.amazon.com/service-terms/",
           "capabilities": {
             "intelligence": 4,
             "speed": 3,
@@ -1061,6 +1097,8 @@
           "releasePost": "https://press.aboutamazon.com/2024/12/introducing-amazon-nova-a-new-generation-of-foundation-models",
           "releaseVideo": "",
           "systemCard": "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://aws.amazon.com/service-terms/",
           "capabilities": {
             "intelligence": 3,
             "speed": 4,
@@ -1094,6 +1132,8 @@
           "releasePost": "https://press.aboutamazon.com/2024/12/introducing-amazon-nova-a-new-generation-of-foundation-models",
           "releaseVideo": "",
           "systemCard": "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://aws.amazon.com/service-terms/",
           "capabilities": {
             "intelligence": 2,
             "speed": 5,
@@ -1182,6 +1222,12 @@
           "description": "The Grok experience can be personalized if you allow your X data and interactions to be used for personalization.",
           "image": "/images/companies/xai/features/personalisation.png",
           "url": ""
+        },
+        {
+          "name": "Studio",
+          "description": "Generates documents, code, reports, and browser games in collaboration with you.",
+          "image": "/images/companies/xai/features/studio.png",
+          "url": ""
         }
       ],
       "models": [
@@ -1195,6 +1241,8 @@
           "releasePost": "https://x.ai/news/grok-3",
           "releaseVideo": "",
           "systemCard": "",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://x.ai/legal/terms-of-service",
           "capabilities": {
             "intelligence": 4,
             "speed": 2,
@@ -1225,6 +1273,8 @@
           "releasePost": "https://x.ai/news/grok-3",
           "releaseVideo": "",
           "systemCard": "",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://x.ai/legal/terms-of-service",
           "capabilities": {
             "intelligence": 3,
             "speed": 3,
@@ -1255,6 +1305,8 @@
           "releasePost": "https://x.ai/news/grok-2",
           "releaseVideo": "",
           "systemCard": "",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://x.ai/legal/terms-of-service",
           "capabilities": {
             "intelligence": 3,
             "speed": 2,
@@ -1328,58 +1380,106 @@
       "id": "meta",
       "name": "Meta",
       "logo": "/images/companies/meta/logo.png",
-      "website": "https://meta.com",
+      "website": "https://www.meta.ai",
       "category": "open",
-      "description": "Social media company developing open AI models",
-      "lastUpdated": "2025-04-05",
+      "description": "Advancing AI for a more connected world.",
+      "lastUpdated": "2025-04-19",
       "features": [
         {
-          "name": "Meta AI",
-          "description": "AI assistant available across Meta's apps",
-          "image": "/images/companies/meta/features/ai.png",
-          "url": "https://ai.meta.com/"
+          "name": "Canvas",
+          "description": "Allows uers to colalborate on content",
+          "image": "/images/companies/meta/features/canvas.png",
+          "url": ""
         },
         {
-          "name": "LLaMA",
-          "description": "Open foundation models for research and commercial use",
-          "image": "/images/companies/meta/features/llama.png",
-          "url": "https://ai.meta.com/llama/"
+          "name": "Imagine",
+          "description": "Allows users to generate images from text prompts",
+          "image": "/images/companies/meta/features/imagine.png",
+          "url": ""
         }
       ],
       "models": [
         {
-          "id": "llama-3-3",
-          "name": "LLaMA 3.3",
+          "id": "llama-4-maverick",
+          "name": "Llama 4 Maverick",
           "status": "primary",
-          "type": "text",
-          "releaseDate": "2025-01-18",
-          "modelPage": "",
-          "releasePost": "",
+          "type": "Large Multimodal Model",
+          "releaseDate": "2025-04-05",
+          "modelPage": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama4_omni/",
+          "releasePost": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
           "releaseVideo": "",
-          "systemCard": "",
+          "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md",
+          "licenceType": "Community",
+          "licenceLink": "https://www.llama.com/llama4/license/",
           "capabilities": {
-            "intelligence": 4,
-            "speed": 4,
-            "reasoning": 3
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
           },
           "specs": {
             "reasoningTokens": false,
             "inputFormats": [
-              "text"
+              "text",
+              "image"
             ],
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": 128000,
-            "maxOutputTokens": 16000,
-            "knowledgeCutoff": "June 2023",
+            "maxInputTokens": 1000000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "August 2024",
             "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null
+          }
+        },
+        {
+          "id": "llama-4-scout",
+          "name": "Llama 4 Scout",
+          "status": "secondary",
+          "type": "Large Multimodal Model",
+          "releaseDate": "2025-04-05",
+          "modelPage": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama4_omni/",
+          "releasePost": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+          "releaseVideo": "",
+          "systemCard": "https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md",
+          "licenceType": "Community",
+          "licenceLink": "https://www.llama.com/llama4/license/",
+          "capabilities": {
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 10000000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "August 2024",
+            "pricingInputPerM": null,
             "pricingOutputPerM": null
           }
         }
       ],
-      "products": [],
+      "products": [
+        {
+          "name": "Meta AI",
+          "description": "Meta AI is built for getting things done. Learn about new topics, create and edit images, write documents, and more.",
+          "image": "/images/companies/meta/products/meta-ai.png",
+          "url": "https://ai.meta.com/meta-ai/"
+        },
+        {
+          "name": "AI Studio",
+          "description": "Now anyone can create an AI character based on their interests, and creators can even build an AI extension of themselves. Start chatting with these AIs on Messenger, Instagram and WhatsApp.",
+          "image": "/images/companies/meta/products/ai-studio.png",
+          "url": "https://ai.meta.com/ai-studio/"
+        }
+      ],
       "subscriptions": []
     },
     {

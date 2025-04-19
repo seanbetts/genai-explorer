@@ -524,7 +524,18 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           <div style={tableContainerStyle}>
             <h3 className={sectionTitle}>
               Pricing
-              <span className="text-xs text-gray-400 ml-2 font-normal">(per 1M tokens)</span>
+              {displayModels.some(model => model.specs?.openSource) ? (
+                <span className="text-xs text-gray-400 ml-2 font-normal">
+                  (per 1M tokens on <a 
+                    href="https://www.together.ai/pricing#inference"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
+                  >Together.ai</a>)
+                </span>
+              ) : (
+                <span className="text-xs text-gray-400 ml-2 font-normal">(per 1M tokens)</span>
+              )}
             </h3>
             <div className={needsScrolling ? tableStyles.comparison : ""}>
               <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight secondary-table`}
@@ -539,7 +550,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       )}
       
       {/* Resources Table - New table for external links */}
-      {displayModels.some(model => model.modelPage || model.releasePost || model.releaseVideo || model.systemCard) && (
+      {displayModels.some(model => model.modelPage || model.releasePost || model.releaseVideo || model.systemCard || model.licenceType) && (
         <div className="mt-6">
           <div style={tableContainerStyle}>
             <h3 className={sectionTitle}>Resources</h3>
@@ -651,6 +662,42 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                             >
                               🔗 Link
                             </a>
+                          ) : (
+                            <span className={textStyles.tertiary}>-</span>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  )}
+                  
+                  {/* Licence Row */}
+                  {displayModels.some(model => model.licenceType) && (
+                    <tr className="cursor-pointer">
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                        <div className={containerStyles.flexCenter}>
+                          <i className={`bi bi-shield-check ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Licence</span>
+                        </div>
+                      </td>
+                      {displayModels.map(model => (
+                        <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                          {model.licenceType ? (
+                            <div className="flex items-center justify-center">
+                              {model.licenceLink ? (
+                                <a 
+                                  href={model.licenceLink} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer" 
+                                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                                  title={`${model.licenceType} licence details`}
+                                >
+                                  🔗 {model.licenceType}
+                                </a>
+                              ) : (
+                                <span className="px-3 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded inline-block">
+                                  {model.licenceType}
+                                </span>
+                              )}
+                            </div>
                           ) : (
                             <span className={textStyles.tertiary}>-</span>
                           )}
