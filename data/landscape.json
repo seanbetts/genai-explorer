@@ -1927,7 +1927,7 @@
       "models": [
         {
           "id": "mistral-large-2",
-          "name": "Mistral Large 2",
+          "name": "Mistral Large",
           "status": "primary",
           "type": "Large Language Model",
           "category": "open",
@@ -1955,13 +1955,13 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 2,
+            "pricingOutputPerM": 6
           }
         },
         {
           "id": "mistral-small-3-1",
-          "name": "Mistral Small 3.1",
+          "name": "Mistral Small",
           "status": "primary",
           "type": "Large Multimodal Model",
           "category": "open",
@@ -1990,8 +1990,8 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 0.1,
+            "pricingOutputPerM": 0.3
           }
         },
         {
@@ -2024,8 +2024,8 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 0.1,
+            "pricingOutputPerM": 0.1
           }
         },
         {
@@ -2058,13 +2058,13 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 0.04,
+            "pricingOutputPerM": 0.04
           }
         },
         {
           "id": "codestral-25-01",
-          "name": "Codestral 25.01",
+          "name": "Codestral",
           "status": "primary",
           "type": "Large Language Model",
           "category": "open",
@@ -2092,8 +2092,8 @@
             "maxInputTokens": 256000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 0.3,
+            "pricingOutputPerM": 0.9
           }
         },
         {
@@ -2127,8 +2127,8 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 2,
+            "pricingOutputPerM": 6
           }
         }
       ],
