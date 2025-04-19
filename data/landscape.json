@@ -2330,6 +2330,60 @@
       "subscriptions": []
     },
     {
+      "id": "kilng",
+      "name": "KlingAI",
+      "logo": "/images/companies/kling/logo.png",
+      "website": "https://www.klingai.com/",
+      "description": "AI video creation platform",
+      "lastUpdated": "2025-03-05",
+      "features": [],
+      "models": [
+        {
+          "id": "pika-1-0",
+          "name": "Pika 1.0",
+          "status": "primary",
+          "type": "video",
+          "category": "video",
+          "releaseDate": "2024-11-25",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
+          "capabilities": {
+            "intelligence": 4,
+            "speed": 4,
+            "reasoning": 0
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "image",
+              "video"
+            ],
+            "outputFormats": [
+              "video"
+            ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null,
+            "maxDuration": "15 seconds",
+            "techniques": [
+              "text-to-video",
+              "image-to-video",
+              "video-editing"
+            ],
+            "commercialUseAllowed": true
+          }
+        }
+      ],
+      "products": [],
+      "subscriptions": []
+    },
+    {
       "id": "suno",
       "name": "Suno",
       "logo": "/images/companies/suno/logo.png",

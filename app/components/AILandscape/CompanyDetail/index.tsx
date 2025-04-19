@@ -8,6 +8,7 @@ import ProductGrid from './ProductGrid';
 import FeatureGrid from './FeatureGrid';
 import SubscriptionGrid from './SubscriptionGrid';
 import { textStyles, containerStyles, headingStyles, buttonStyles, iconStyles } from '../utils/styles';
+import { getModelTabName } from '../utils/modelUtils';
 
 interface CompanyDetailProps {
   company: Company;
@@ -103,7 +104,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
               }`}
               onClick={() => setActiveTab('models')}
             >
-              Models
+              {getModelTabName(company.models)}
             </button>
           )}
           
