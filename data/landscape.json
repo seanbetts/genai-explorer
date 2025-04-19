@@ -101,7 +101,7 @@
         },
         {
           "id": "o4-mini",
-          "name": "o4-mini",
+          "name": "o4 Mini",
           "status": "primary",
           "type": "Large Reasoning Model",
           "category": "frontier",
@@ -174,7 +174,7 @@
           "name": "GPT-4o",
           "status": "primary",
           "type": "Large Multimodal Model",
-          "category": "image",
+          "category": "frontier",
           "releaseDate": "2024-08-06",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4o",
           "releasePost": "https://openai.com/index/hello-gpt-4o/",
@@ -1819,6 +1819,7 @@
           }
         }
       ],
+      "products": [],
       "subscriptions": []
     },
     {
@@ -1828,20 +1829,7 @@
       "website": "https://mistral.ai",
       "description": "Open-weight models with strong performance",
       "lastUpdated": "2025-04-03",
-      "features": [
-        {
-          "name": "Mistral Platform",
-          "description": "Cloud platform for using Mistral's models",
-          "image": "/images/companies/mistral/features/platform.png",
-          "url": "https://console.mistral.ai/"
-        },
-        {
-          "name": "Le Chat",
-          "description": "Conversational interface for Mistral models",
-          "image": "/images/companies/mistral/features/le-chat.png",
-          "url": "https://chat.mistral.ai/"
-        }
-      ],
+      "features": [],
       "models": [
         {
           "id": "mistral",
@@ -1942,44 +1930,8 @@
           }
         }
       ],
-      "subscriptions": [
-        {
-          "tier": "Free",
-          "type": "consumer",
-          "price": 0,
-          "billingCycle": "monthly",
-          "features": [
-            "Limited access to open models",
-            "Community support",
-            "Rate limits apply"
-          ]
-        },
-        {
-          "tier": "Pro",
-          "type": "consumer",
-          "price": 15,
-          "billingCycle": "monthly",
-          "features": [
-            "Access to all models",
-            "Higher rate limits",
-            "Priority support",
-            "Advanced features"
-          ]
-        },
-        {
-          "tier": "Enterprise",
-          "type": "enterprise",
-          "price": null,
-          "billingCycle": "custom",
-          "features": [
-            "Full access to all models",
-            "Custom deployments",
-            "Dedicated support",
-            "Security features",
-            "SLA guarantees"
-          ]
-        }
-      ]
+      "products": [],
+      "subscriptions": []
     },
     {
       "id": "deepseek",
@@ -2055,44 +2007,8 @@
           }
         }
       ],
-      "subscriptions": [
-        {
-          "tier": "Free",
-          "type": "consumer",
-          "price": 0,
-          "billingCycle": "monthly",
-          "features": [
-            "Limited access to open models",
-            "Community support",
-            "Rate limits apply"
-          ]
-        },
-        {
-          "tier": "Pro",
-          "type": "consumer",
-          "price": 15,
-          "billingCycle": "monthly",
-          "features": [
-            "Access to all models",
-            "Higher rate limits",
-            "Priority support",
-            "Advanced features"
-          ]
-        },
-        {
-          "tier": "Enterprise",
-          "type": "enterprise",
-          "price": null,
-          "billingCycle": "custom",
-          "features": [
-            "Full access to all models",
-            "Custom deployments",
-            "Dedicated support",
-            "Security features",
-            "SLA guarantees"
-          ]
-        }
-      ]
+      "products": [],
+      "subscriptions": []
     },
     {
       "id": "microsoft",
@@ -2101,20 +2017,7 @@
       "website": "https://microsoft.com",
       "description": "Enterprise AI and productivity solutions",
       "lastUpdated": "2025-03-28",
-      "features": [
-        {
-          "name": "Microsoft Copilot",
-          "description": "AI assistant integrated into Microsoft products",
-          "image": "/images/companies/microsoft/features/copilot.png",
-          "url": "https://microsoft.com/copilot"
-        },
-        {
-          "name": "Azure AI",
-          "description": "AI services and infrastructure on Azure",
-          "image": "/images/companies/azure/features/ai.png",
-          "url": "https://azure.microsoft.com/products/ai-services"
-        }
-      ],
+      "features": [],
       "models": [
         {
           "id": "copilot",
@@ -2159,46 +2062,8 @@
           }
         }
       ],
-      "subscriptions": [
-        {
-          "tier": "Personal",
-          "type": "consumer",
-          "price": 20,
-          "billingCycle": "monthly",
-          "features": [
-            "Copilot integration in personal productivity apps",
-            "Limited usage",
-            "Basic features"
-          ]
-        },
-        {
-          "tier": "Microsoft 365",
-          "type": "enterprise",
-          "price": 30,
-          "billingCycle": "monthly",
-          "perUser": true,
-          "features": [
-            "Full Copilot integration in all Microsoft 365 apps",
-            "Enhanced productivity features",
-            "Team collaboration capabilities",
-            "Standard support"
-          ]
-        },
-        {
-          "tier": "Enterprise",
-          "type": "enterprise",
-          "price": null,
-          "billingCycle": "custom",
-          "features": [
-            "Custom deployments",
-            "Advanced security features",
-            "Admin controls",
-            "Compliance features",
-            "Enterprise support",
-            "SLA guarantees"
-          ]
-        }
-      ]
+      "products": [],
+      "subscriptions": []
     },
     {
       "id": "cohere",
@@ -2207,20 +2072,7 @@
       "website": "https://cohere.com",
       "description": "Enterprise-focused AI solutions",
       "lastUpdated": "2025-03-25",
-      "features": [
-        {
-          "name": "Command R+",
-          "description": "Production-ready LLM with reasoning capabilities",
-          "image": "/images/companies/cohere/features/command.png",
-          "url": "https://cohere.com/command"
-        },
-        {
-          "name": "Embed",
-          "description": "Text embedding models for search and retrieval",
-          "image": "/images/companies/cohere/features/embed.png",
-          "url": "https://cohere.com/embed"
-        }
-      ],
+      "features": [],
       "models": [
         {
           "id": "command",
@@ -2255,43 +2107,8 @@
           }
         }
       ],
-      "subscriptions": [
-        {
-          "tier": "Free",
-          "type": "consumer",
-          "price": 0,
-          "billingCycle": "monthly",
-          "features": [
-            "Limited access to models",
-            "Rate limits apply",
-            "Community support"
-          ]
-        },
-        {
-          "tier": "Growth",
-          "type": "enterprise",
-          "price": null,
-          "billingCycle": "usage",
-          "features": [
-            "Pay-as-you-go access to all models",
-            "Standard rate limits",
-            "Basic support"
-          ]
-        },
-        {
-          "tier": "Enterprise",
-          "type": "enterprise",
-          "price": null,
-          "billingCycle": "custom",
-          "features": [
-            "Custom pricing",
-            "High-performance infrastructure",
-            "Dedicated support",
-            "Custom deployments",
-            "SLA guarantees"
-          ]
-        }
-      ]
+      "products": [],
+      "subscriptions": []
     },
     {
       "id": "adobe",
@@ -2300,20 +2117,7 @@
       "website": "https://adobe.com",
       "description": "Creative tools enhanced with generative AI",
       "lastUpdated": "2025-03-20",
-      "features": [
-        {
-          "name": "Firefly",
-          "description": "Generative AI for creating images, text effects, and more",
-          "image": "/images/companies/adobe/features/firefly.png",
-          "url": "https://adobe.com/firefly"
-        },
-        {
-          "name": "Photoshop AI",
-          "description": "AI-powered features in Photoshop",
-          "image": "/images/companies/adobe/features/photoshop.png",
-          "url": "https://adobe.com/photoshop"
-        }
-      ],
+      "features": [],
       "models": [
         {
           "id": "firefly",
@@ -2356,44 +2160,8 @@
           }
         }
       ],
-      "subscriptions": [
-        {
-          "tier": "Free",
-          "type": "consumer",
-          "price": 0,
-          "billingCycle": "monthly",
-          "features": [
-            "Limited Firefly credits",
-            "Basic features",
-            "Web-only access"
-          ]
-        },
-        {
-          "tier": "Creative Cloud",
-          "type": "consumer",
-          "price": 55,
-          "billingCycle": "monthly",
-          "features": [
-            "Full Firefly integration in all Creative Cloud apps",
-            "Unlimited credits",
-            "Commercial usage rights",
-            "All Creative Cloud apps"
-          ]
-        },
-        {
-          "tier": "Enterprise",
-          "type": "enterprise",
-          "price": null,
-          "billingCycle": "custom",
-          "features": [
-            "Custom deployments",
-            "Team management",
-            "Custom templates",
-            "Enterprise support",
-            "Custom branding"
-          ]
-        }
-      ]
+      "products": [],
+      "subscriptions": []
     },
     {
       "id": "midjourney",
@@ -2402,20 +2170,7 @@
       "website": "https://midjourney.com",
       "description": "Advanced image generation platform",
       "lastUpdated": "2025-03-15",
-      "features": [
-        {
-          "name": "Discord Bot",
-          "description": "Midjourney accessed through Discord",
-          "image": "/images/companies/midjourney/features/discord.png",
-          "url": "https://discord.gg/midjourney"
-        },
-        {
-          "name": "Web Interface",
-          "description": "Alternative web interface for Midjourney",
-          "image": "/images/companies/midjourney/features/web.png",
-          "url": "https://midjourney.com/app"
-        }
-      ],
+      "features": [],
       "models": [
         {
           "id": "midjourney-v7",
@@ -2463,43 +2218,8 @@
           }
         }
       ],
-      "subscriptions": [
-        {
-          "tier": "Basic",
-          "type": "consumer",
-          "price": 10,
-          "billingCycle": "monthly",
-          "features": [
-            "3.5 hours of GPU time per month",
-            "Standard queue",
-            "Basic features"
-          ]
-        },
-        {
-          "tier": "Standard",
-          "type": "consumer",
-          "price": 30,
-          "billingCycle": "monthly",
-          "features": [
-            "15 hours of GPU time per month",
-            "Fast queue",
-            "Relaxed content filter",
-            "Private image visibility"
-          ]
-        },
-        {
-          "tier": "Pro",
-          "type": "consumer",
-          "price": 60,
-          "billingCycle": "monthly",
-          "features": [
-            "30 hours of GPU time per month",
-            "Turbo queue",
-            "Stealth mode",
-            "All advanced features"
-          ]
-        }
-      ]
+      "products": [],
+      "subscriptions": []
     },
     {
       "id": "runway",
@@ -2508,20 +2228,7 @@
       "website": "https://runwayml.com",
       "description": "AI-powered video editing and generation",
       "lastUpdated": "2025-03-10",
-      "features": [
-        {
-          "name": "Text to Video",
-          "description": "Generate videos from text descriptions",
-          "image": "/images/companies/runway/features/text-to-video.png",
-          "url": "https://runwayml.com/text-to-video"
-        },
-        {
-          "name": "Motion Brush",
-          "description": "Add motion to still images",
-          "image": "/images/companies/runway/features/motion-brush.png",
-          "url": "https://runwayml.com/motion-brush"
-        }
-      ],
+      "features": [],
       "models": [
         {
           "id": "gen-3",
@@ -2565,57 +2272,8 @@
           }
         }
       ],
-      "subscriptions": [
-        {
-          "tier": "Free",
-          "type": "consumer",
-          "price": 0,
-          "billingCycle": "monthly",
-          "features": [
-            "Limited Gen-1 access",
-            "Low resolution outputs",
-            "Standard processing speed"
-          ]
-        },
-        {
-          "tier": "Standard",
-          "type": "consumer",
-          "price": 15,
-          "billingCycle": "monthly",
-          "features": [
-            "Access to Gen-2",
-            "HD resolution",
-            "Fast processing",
-            "Basic editing tools"
-          ]
-        },
-        {
-          "tier": "Pro",
-          "type": "consumer",
-          "price": 35,
-          "billingCycle": "monthly",
-          "features": [
-            "Priority access to Gen-3",
-            "4K resolution",
-            "Turbo processing",
-            "All editing tools",
-            "Commercial usage"
-          ]
-        },
-        {
-          "tier": "Enterprise",
-          "type": "enterprise",
-          "price": null,
-          "billingCycle": "custom",
-          "features": [
-            "Custom API access",
-            "Private models",
-            "Enhanced security",
-            "Dedicated support",
-            "Custom workflows"
-          ]
-        }
-      ]
+      "products": [],
+      "subscriptions": []
     },
     {
       "id": "pika",
@@ -2624,20 +2282,7 @@
       "website": "https://pika.art",
       "description": "AI video creation platform",
       "lastUpdated": "2025-03-05",
-      "features": [
-        {
-          "name": "Pika Create",
-          "description": "Generate videos from text or images",
-          "image": "/images/companies/pika/features/create.png",
-          "url": "https://pika.art/create"
-        },
-        {
-          "name": "Pika Edit",
-          "description": "Edit and enhance existing videos",
-          "image": "/images/companies/pika/features/edit.png",
-          "url": "https://pika.art/edit"
-        }
-      ],
+      "features": [],
       "models": [
         {
           "id": "pika-1-0",
@@ -2681,47 +2326,8 @@
           }
         }
       ],
-      "subscriptions": [
-        {
-          "tier": "Free",
-          "type": "consumer",
-          "price": 0,
-          "billingCycle": "monthly",
-          "features": [
-            "5 videos per month",
-            "HD resolution",
-            "Standard processing",
-            "Basic editing tools"
-          ]
-        },
-        {
-          "tier": "Pro",
-          "type": "consumer",
-          "price": 20,
-          "billingCycle": "monthly",
-          "features": [
-            "100 videos per month",
-            "4K resolution",
-            "Faster processing",
-            "Advanced editing tools",
-            "No watermark"
-          ]
-        },
-        {
-          "tier": "Studio",
-          "type": "enterprise",
-          "price": 99,
-          "billingCycle": "monthly",
-          "features": [
-            "Unlimited videos",
-            "Highest resolution",
-            "Fastest processing",
-            "All tools and features",
-            "Commercial license",
-            "Priority support"
-          ]
-        }
-      ]
+      "products": [],
+      "subscriptions": []
     },
     {
       "id": "suno",
@@ -2730,20 +2336,7 @@
       "website": "https://suno.ai",
       "description": "AI music generation platform",
       "lastUpdated": "2025-02-28",
-      "features": [
-        {
-          "name": "Create Music",
-          "description": "Generate complete songs from text descriptions",
-          "image": "/images/companies/suno/features/create.png",
-          "url": "https://suno.ai/create"
-        },
-        {
-          "name": "Instrument Control",
-          "description": "Fine-tune instrumentation of generated music",
-          "image": "/images/companies/suno/features/instruments.png",
-          "url": "https://suno.ai/instruments"
-        }
-      ],
+      "features": [],
       "models": [
         {
           "id": "suno-v3",
@@ -2793,47 +2386,8 @@
           }
         }
       ],
-      "subscriptions": [
-        {
-          "tier": "Free",
-          "type": "consumer",
-          "price": 0,
-          "billingCycle": "monthly",
-          "features": [
-            "10 songs per month",
-            "Standard quality",
-            "Basic editing",
-            "Non-commercial use only"
-          ]
-        },
-        {
-          "tier": "Plus",
-          "type": "consumer",
-          "price": 20,
-          "billingCycle": "monthly",
-          "features": [
-            "100 songs per month",
-            "High quality",
-            "Advanced editing",
-            "Commercial use",
-            "Offline access"
-          ]
-        },
-        {
-          "tier": "Pro",
-          "type": "consumer",
-          "price": 100,
-          "billingCycle": "monthly",
-          "features": [
-            "Unlimited songs",
-            "Highest quality",
-            "All editing features",
-            "Commercial license",
-            "Priority generation",
-            "Stem export"
-          ]
-        }
-      ]
+      "products": [],
+      "subscriptions": []
     },
     {
       "id": "udio",
@@ -2842,20 +2396,7 @@
       "website": "https://udio.com",
       "description": "High-quality music generation with AI",
       "lastUpdated": "2025-02-25",
-      "features": [
-        {
-          "name": "Udio Composer",
-          "description": "Create music with textual descriptions",
-          "image": "/images/companies/udio/features/composer.png",
-          "url": "https://udio.com/composer"
-        },
-        {
-          "name": "Udio Studio",
-          "description": "Advanced music editing and production",
-          "image": "/images/companies/udio/features/studio.png",
-          "url": "https://udio.com/studio"
-        }
-      ],
+      "features": [],
       "models": [
         {
           "id": "udio-composer",
@@ -2902,47 +2443,8 @@
           }
         }
       ],
-      "subscriptions": [
-        {
-          "tier": "Free",
-          "type": "consumer",
-          "price": 0,
-          "billingCycle": "monthly",
-          "features": [
-            "5 songs per month",
-            "Standard quality",
-            "Basic editing",
-            "Web access only"
-          ]
-        },
-        {
-          "tier": "Creator",
-          "type": "consumer",
-          "price": 25,
-          "billingCycle": "monthly",
-          "features": [
-            "50 songs per month",
-            "High quality",
-            "Advanced editing",
-            "Stem export",
-            "Web and desktop access"
-          ]
-        },
-        {
-          "tier": "Professional",
-          "type": "enterprise",
-          "price": 100,
-          "billingCycle": "monthly",
-          "features": [
-            "Unlimited songs",
-            "Studio quality",
-            "All professional features",
-            "Commercial license",
-            "Priority support",
-            "DAW integration"
-          ]
-        }
-      ]
+      "products": [],
+      "subscriptions": []
     },
     {
       "id": "perplexity",
@@ -2951,20 +2453,7 @@
       "website": "https://perplexity.ai",
       "description": "AI-powered search and knowledge discovery",
       "lastUpdated": "2025-02-20",
-      "features": [
-        {
-          "name": "Search",
-          "description": "AI-powered search with accurate, cited answers",
-          "image": "/images/companies/perplexity/features/search.png",
-          "url": "https://perplexity.ai/search"
-        },
-        {
-          "name": "Collections",
-          "description": "Organize and share research findings",
-          "image": "/images/companies/perplexity/features/collections.png",
-          "url": "https://perplexity.ai/collections"
-        }
-      ],
+      "features": [],
       "models": [
         {
           "id": "perplexity-online",
@@ -3004,47 +2493,8 @@
           }
         }
       ],
-      "subscriptions": [
-        {
-          "tier": "Free",
-          "type": "consumer",
-          "price": 0,
-          "billingCycle": "monthly",
-          "features": [
-            "Basic search",
-            "Standard models",
-            "Limited queries per day",
-            "Web access"
-          ]
-        },
-        {
-          "tier": "Pro",
-          "type": "consumer",
-          "price": 20,
-          "billingCycle": "monthly",
-          "features": [
-            "Advanced search",
-            "DALL-E image generation",
-            "Unlimited queries",
-            "Priority access",
-            "Collections"
-          ]
-        },
-        {
-          "tier": "Enterprise",
-          "type": "enterprise",
-          "price": null,
-          "billingCycle": "custom",
-          "features": [
-            "Custom search domains",
-            "Private collections",
-            "Team management",
-            "Custom integrations",
-            "Analytics",
-            "Dedicated support"
-          ]
-        }
-      ]
+      "products": [],
+      "subscriptions": []
     },
     {
       "id": "character-ai",
@@ -3053,20 +2503,7 @@
       "website": "https://character.ai",
       "description": "Platform for creating and interacting with AI characters",
       "lastUpdated": "2025-02-15",
-      "features": [
-        {
-          "name": "Character Creator",
-          "description": "Create custom AI characters",
-          "image": "/images/companies/character/features/creator.png",
-          "url": "https://character.ai/creator"
-        },
-        {
-          "name": "Character Explorer",
-          "description": "Browse and chat with thousands of characters",
-          "image": "/images/companies/character/features/explorer.png",
-          "url": "https://character.ai/explore"
-        }
-      ],
+      "features": [],
       "models": [
         {
           "id": "character-engine",
@@ -3104,46 +2541,8 @@
           }
         }
       ],
-      "subscriptions": [
-        {
-          "tier": "Free",
-          "type": "consumer",
-          "price": 0,
-          "billingCycle": "monthly",
-          "features": [
-            "Basic access to public characters",
-            "Limited chats per day",
-            "Standard response speed"
-          ]
-        },
-        {
-          "tier": "Plus",
-          "type": "consumer",
-          "price": 10,
-          "billingCycle": "monthly",
-          "features": [
-            "Unlimited chats",
-            "Create unlimited characters",
-            "Priority access",
-            "Voice conversations",
-            "No ads"
-          ]
-        },
-        {
-          "tier": "Business",
-          "type": "enterprise",
-          "price": null,
-          "billingCycle": "custom",
-          "features": [
-            "Commercial character creation",
-            "API access",
-            "White-label options",
-            "Analytics",
-            "Team management",
-            "Dedicated support"
-          ]
-        }
-      ]
+      "products": [],
+      "subscriptions": []
     },
     {
       "id": "descript",
@@ -3152,20 +2551,7 @@
       "website": "https://descript.com",
       "description": "AI-powered audio and video editing",
       "lastUpdated": "2025-02-10",
-      "features": [
-        {
-          "name": "Overdub",
-          "description": "Create realistic AI voice clones",
-          "image": "/images/companies/descript/features/overdub.png",
-          "url": "https://descript.com/overdub"
-        },
-        {
-          "name": "Studio Sound",
-          "description": "Enhance audio quality with AI",
-          "image": "/images/companies/descript/features/studio-sound.png",
-          "url": "https://descript.com/studio-sound"
-        }
-      ],
+      "features": [],
       "models": [
         {
           "id": "overdub",
@@ -3210,60 +2596,8 @@
           }
         }
       ],
-      "subscriptions": [
-        {
-          "tier": "Free",
-          "type": "consumer",
-          "price": 0,
-          "billingCycle": "monthly",
-          "features": [
-            "Limited projects",
-            "1 hour export per month",
-            "Basic editing features",
-            "Standard stock media"
-          ]
-        },
-        {
-          "tier": "Creator",
-          "type": "consumer",
-          "price": 15,
-          "billingCycle": "monthly",
-          "features": [
-            "Unlimited projects",
-            "10 hours export per month",
-            "Overdub (3 voices)",
-            "Full editing features",
-            "4K export"
-          ]
-        },
-        {
-          "tier": "Pro",
-          "type": "consumer",
-          "price": 30,
-          "billingCycle": "monthly",
-          "features": [
-            "Everything in Creator",
-            "Unlimited export hours",
-            "Custom Overdub voices",
-            "Advanced AI features",
-            "Priority rendering"
-          ]
-        },
-        {
-          "tier": "Enterprise",
-          "type": "enterprise",
-          "price": null,
-          "billingCycle": "custom",
-          "features": [
-            "Team management",
-            "Custom branding",
-            "Advanced security",
-            "Dedicated support",
-            "API access",
-            "Custom workflows"
-          ]
-        }
-      ]
+      "products": [],
+      "subscriptions": []
     },
     {
       "id": "github",
@@ -3272,20 +2606,7 @@
       "website": "https://github.com",
       "description": "Code hosting and collaboration platform with AI assistance",
       "lastUpdated": "2025-02-05",
-      "features": [
-        {
-          "name": "Copilot",
-          "description": "AI pair programmer for code completion and generation",
-          "image": "/images/companies/github/features/copilot.png",
-          "url": "https://github.com/features/copilot"
-        },
-        {
-          "name": "Advanced Security",
-          "description": "AI-powered code security scanning",
-          "image": "/images/companies/github/features/security.png",
-          "url": "https://github.com/features/security"
-        }
-      ],
+      "features": [],
       "models": [
         {
           "id": "copilot",
@@ -3334,60 +2655,8 @@
           }
         }
       ],
-      "subscriptions": [
-        {
-          "tier": "Free",
-          "type": "consumer",
-          "price": 0,
-          "billingCycle": "monthly",
-          "features": [
-            "Unlimited public repositories",
-            "Basic GitHub features",
-            "Limited Actions minutes",
-            "GitHub Community Support"
-          ]
-        },
-        {
-          "tier": "Copilot Individual",
-          "type": "consumer",
-          "price": 10,
-          "billingCycle": "monthly",
-          "features": [
-            "Copilot in IDE",
-            "Copilot in GitHub.com",
-            "Limited Copilot Chat"
-          ]
-        },
-        {
-          "tier": "Copilot Business",
-          "type": "enterprise",
-          "price": 19,
-          "billingCycle": "monthly",
-          "perUser": true,
-          "features": [
-            "Everything in Individual",
-            "Advanced Copilot Chat",
-            "IP indemnity",
-            "Team management",
-            "Enterprise security"
-          ]
-        },
-        {
-          "tier": "Enterprise",
-          "type": "enterprise",
-          "price": 21,
-          "billingCycle": "monthly",
-          "perUser": true,
-          "features": [
-            "Everything in Copilot Business",
-            "Enterprise support",
-            "SAML SSO",
-            "Advanced security",
-            "Audit logs",
-            "Self-hosted option"
-          ]
-        }
-      ]
+      "products": [],
+      "subscriptions": []
     }
   ]
 }
