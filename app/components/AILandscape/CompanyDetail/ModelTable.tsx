@@ -330,7 +330,9 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           {displayModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.pricingInputPerM !== undefined && model.specs?.pricingInputPerM !== null ? (
-                <span className={tableStyles.metric}>${model.specs.pricingInputPerM.toFixed(2)}</span>
+                <span className={shouldShowTogetherPricing(model) ? 'text-cyan-400 font-medium tabular-nums font-mono' : tableStyles.metric}>
+                  ${model.specs.pricingInputPerM.toFixed(2)}
+                </span>
               ) : <span className={textStyles.primary}>-</span>}
             </td>
           ))}
@@ -348,7 +350,9 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           {displayModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.pricingCachedInputPerM !== undefined && model.specs?.pricingCachedInputPerM !== null ? (
-                <span className={tableStyles.metric}>${model.specs.pricingCachedInputPerM.toFixed(2)}</span>
+                <span className={shouldShowTogetherPricing(model) ? 'text-cyan-400 font-medium tabular-nums font-mono' : tableStyles.metric}>
+                  ${model.specs.pricingCachedInputPerM.toFixed(2)}
+                </span>
               ) : <span className={textStyles.primary}>-</span>}
             </td>
           ))}
@@ -366,7 +370,9 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           {displayModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.pricingOutputPerM !== undefined && model.specs?.pricingOutputPerM !== null ? (
-                <span className={tableStyles.metric}>${model.specs.pricingOutputPerM.toFixed(2)}</span>
+                <span className={shouldShowTogetherPricing(model) ? 'text-cyan-400 font-medium tabular-nums font-mono' : tableStyles.metric}>
+                  ${model.specs.pricingOutputPerM.toFixed(2)}
+                </span>
               ) : <span className={textStyles.primary}>-</span>}
             </td>
           ))}
@@ -525,18 +531,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           <div style={tableContainerStyle}>
             <h3 className={sectionTitle}>
               Pricing
-              {displayModels.some(model => shouldShowTogetherPricing(model)) ? (
-                <span className="text-xs text-gray-400 ml-2 font-normal">
-                  (per 1M tokens on <a 
-                    href="https://www.together.ai/pricing#inference"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
-                  >Together.ai</a>)
-                </span>
-              ) : (
-                <span className="text-xs text-gray-400 ml-2 font-normal">(per 1M tokens)</span>
-              )}
+              <span className="text-xs text-gray-400 ml-2 font-normal">
+                (per 1M tokens direct or on <a 
+                  href="https://www.together.ai/pricing#inference"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
+                >Together.ai</a>)
+              </span>
             </h3>
             <div className={needsScrolling ? tableStyles.comparison : ""}>
               <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight secondary-table`}

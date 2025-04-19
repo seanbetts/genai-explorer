@@ -318,7 +318,7 @@
         },
         {
           "id": "gpt-4-1",
-          "name": "GPT 4.1 (API only)",
+          "name": "GPT-4.1 (API only)",
           "status": "primary",
           "type": "Large Language Model",
           "category": "frontier",
@@ -565,7 +565,7 @@
       "models": [
         {
           "id": "claude-3-5-haiku",
-          "name": "Claude 3.5 Haiku",
+          "name": "Claude-3.5 Haiku",
           "status": "primary",
           "type": "Large Language Model",
           "category": "frontier",
@@ -600,7 +600,7 @@
         },
         {
           "id": "claude-3-opus",
-          "name": "Claude 3 Opus",
+          "name": "Claude-3 Opus",
           "status": "primary",
           "type": "Large Language Model",
           "category": "frontier",
@@ -635,7 +635,7 @@
         },
         {
           "id": "claude-3-7-sonnet",
-          "name": "Claude 3.7 Sonnet",
+          "name": "Claude-3.7 Sonnet",
           "status": "primary",
           "type": "Large Hybrid Model",
           "category": "frontier",
@@ -816,7 +816,7 @@
       "models": [
         {
           "id": "gemini-2-5-pro",
-          "name": "Gemini 2.5 Pro",
+          "name": "Gemini-2.5 Pro",
           "status": "primary",
           "type": "Large Multimodal Model",
           "category": "frontier",
@@ -853,7 +853,7 @@
         },
         {
           "id": "gemini-2-5-flash",
-          "name": "Gemini 2.5 Flash",
+          "name": "Gemini-2.5 Flash",
           "status": "primary",
           "type": "Large Hybrid Model",
           "category": "frontier",
@@ -889,7 +889,7 @@
         },
         {
           "id": "gemini-2-0-flash",
-          "name": "Gemini 2.0 FLash",
+          "name": "Gemini-2.0 FLash",
           "status": "archived",
           "type": "Large Hybrid Model",
           "category": "frontier",
@@ -926,7 +926,7 @@
         },
         {
           "id": "gemini-2-0-flash-light",
-          "name": "Gemini 2.0 Flash Light",
+          "name": "Gemini-2.0 Flash Light",
           "status": "secondary",
           "type": "Large Language Model",
           "category": "frontier",
@@ -958,6 +958,145 @@
             "knowledgeCutoff": "June 2024",
             "pricingInputPerM": 0.075,
             "pricingOutputPerM": 0.3
+          }
+        },
+        {
+          "id": "gemma-3-27b",
+          "name": "Gemma-3 27B",
+          "status": "primary",
+          "type": "Large Multimodal Model",
+          "category": "open",
+          "releaseDate": "2025-03-12",
+          "modelPage": "https://ai.google.dev/gemma/docs/core",
+          "releasePost": "https://blog.google/technology/developers/gemma-3/",
+          "releaseVideo": "https://www.youtube.com/watch?v=UU13FN2Xpyw",
+          "systemCard": "https://ai.google.dev/gemma/docs/core/model_card_3",
+          "licenceType": "Custom",
+          "licenceLink": "https://ai.google.dev/gemma/terms",
+          "huggingFace": "https://huggingface.co/google/gemma-3-27b-it",
+          "capabilities": {
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "images"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "August 2024",
+            "pricingInputPerM": null,
+            "pricingOutputPerM": null
+          }
+        },
+        {
+          "id": "gemma-3-12b",
+          "name": "Gemma-3 12B",
+          "status": "primary",
+          "type": "Large Multimodal Model",
+          "category": "open",
+          "releaseDate": "2025-03-12",
+          "modelPage": "https://ai.google.dev/gemma/docs/core",
+          "releasePost": "https://blog.google/technology/developers/gemma-3/",
+          "releaseVideo": "https://www.youtube.com/watch?v=UU13FN2Xpyw",
+          "systemCard": "https://ai.google.dev/gemma/docs/core/model_card_3",
+          "licenceType": "Custom",
+          "licenceLink": "https://ai.google.dev/gemma/terms",
+          "huggingFace": "https://huggingface.co/google/gemma-3-12b-it",
+          "capabilities": {
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "images"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "August 2024",
+            "pricingInputPerM": null,
+            "pricingOutputPerM": null
+          }
+        },
+        {
+          "id": "gemma-3-4b",
+          "name": "Gemma-3 4B",
+          "status": "primary",
+          "type": "Large Multimodal Model",
+          "category": "open",
+          "releaseDate": "2025-03-12",
+          "modelPage": "https://ai.google.dev/gemma/docs/core",
+          "releasePost": "https://blog.google/technology/developers/gemma-3/",
+          "releaseVideo": "https://www.youtube.com/watch?v=UU13FN2Xpyw",
+          "systemCard": "https://ai.google.dev/gemma/docs/core/model_card_3",
+          "licenceType": "Custom",
+          "licenceLink": "https://ai.google.dev/gemma/terms",
+          "huggingFace": "https://huggingface.co/google/gemma-3-4b-it",
+          "capabilities": {
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "images"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "August 2024",
+            "pricingInputPerM": null,
+            "pricingOutputPerM": null
+          }
+        },
+        {
+          "id": "gemma-3-1b",
+          "name": "Gemma-3 1B",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "2025-03-12",
+          "modelPage": "https://ai.google.dev/gemma/docs/core",
+          "releasePost": "https://blog.google/technology/developers/gemma-3/",
+          "releaseVideo": "https://www.youtube.com/watch?v=UU13FN2Xpyw",
+          "systemCard": "https://ai.google.dev/gemma/docs/core/model_card_3",
+          "licenceType": "Custom",
+          "licenceLink": "https://ai.google.dev/gemma/terms",
+          "huggingFace": "https://huggingface.co/google/gemma-3-1b-it",
+          "capabilities": {
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 32000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "August 2024",
+            "pricingInputPerM": null,
+            "pricingOutputPerM": null
           }
         }
       ],
@@ -1248,7 +1387,7 @@
       "models": [
         {
           "id": "grok-3",
-          "name": "Grok 3",
+          "name": "Grok-3",
           "status": "primary",
           "type": "Large Language Model",
           "category": "frontier",
@@ -1281,7 +1420,7 @@
         },
         {
           "id": "grok-3-mini",
-          "name": "Grok 3 Mini",
+          "name": "Grok-3 Mini",
           "status": "primary",
           "type": "Large Hybrid Model",
           "category": "frontier",
@@ -1418,7 +1557,7 @@
       "models": [
         {
           "id": "llama-4-maverick",
-          "name": "Llama 4 Maverick",
+          "name": "Llama-4 Maverick",
           "status": "primary",
           "type": "Large Multimodal Model",
           "category": "open",
@@ -1453,7 +1592,7 @@
         },
         {
           "id": "llama-4-scout",
-          "name": "Llama 4 Scout",
+          "name": "Llama-4 Scout",
           "status": "primary",
           "type": "Large Multimodal Model",
           "category": "open",
@@ -1488,7 +1627,7 @@
         },
         {
           "id": "llama-3-3-70B",
-          "name": "Llama 3.3 70B",
+          "name": "Llama-3.3 70B",
           "status": "secondary",
           "type": "Large Language Model",
           "category": "open",
@@ -1522,7 +1661,7 @@
         },
         {
           "id": "llama-3-2-90B",
-          "name": "Llama 3.2 90B",
+          "name": "Llama-3.2 90B",
           "status": "secondary",
           "type": "Large Multimodal Model",
           "category": "open",
@@ -1557,7 +1696,7 @@
         },
         {
           "id": "llama-3-2-11B",
-          "name": "Llama 3.2 11B",
+          "name": "Llama-3.2 11B",
           "status": "secondary",
           "type": "Large Multimodal Model",
           "category": "open",
@@ -1592,7 +1731,7 @@
         },
         {
           "id": "llama-3-2-3B",
-          "name": "Llama 3.2 3B",
+          "name": "Llama-3.2 3B",
           "status": "secondary",
           "type": "Large Language Model",
           "category": "open",
@@ -1626,7 +1765,7 @@
         },
         {
           "id": "llama-3-2-1B",
-          "name": "Llama 3.2 1B",
+          "name": "Llama-3.2 1B",
           "status": "secondary",
           "type": "Large Language Model",
           "category": "open",
@@ -1660,7 +1799,7 @@
         },
         {
           "id": "llama-3-1-405B",
-          "name": "Llama 3.1 405B",
+          "name": "Llama-3.1 405B",
           "status": "secondary",
           "type": "Large Language Model",
           "category": "open",
@@ -1694,7 +1833,7 @@
         },
         {
           "id": "llama-3-1-70B",
-          "name": "Llama 3.1 70B",
+          "name": "Llama-3.1 70B",
           "status": "secondary",
           "type": "Large Language Model",
           "category": "open",
@@ -1728,7 +1867,7 @@
         },
         {
           "id": "llama-3-1-8B",
-          "name": "Llama 3.1 8B",
+          "name": "Llama-3.1 8B",
           "status": "secondary",
           "type": "Large Language Model",
           "category": "open",
@@ -1778,51 +1917,6 @@
       "subscriptions": []
     },
     {
-      "id": "google-deepmind",
-      "name": "Google DeepMind",
-      "logo": "/images/companies/google-deepmind/logo.png",
-      "website": "https://deepmind.google",
-      "description": "Social media company developing open AI models",
-      "lastUpdated": "2025-04-05",
-      "features": [],
-      "models": [
-        {
-          "id": "gemma-3",
-          "name": "Gemma 3",
-          "status": "primary",
-          "type": "text",
-          "category": "open",
-          "releaseDate": "2025-01-18",
-          "modelPage": "",
-          "releasePost": "",
-          "releaseVideo": "",
-          "systemCard": "",
-          "capabilities": {
-            "intelligence": 4,
-            "speed": 4,
-            "reasoning": 3
-          },
-          "specs": {
-            "reasoningTokens": false,
-            "inputFormats": [
-              "text"
-            ],
-            "outputFormats": [
-              "text"
-            ],
-            "maxInputTokens": 128000,
-            "maxOutputTokens": 16000,
-            "knowledgeCutoff": "June 2023",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null
-          }
-        }
-      ],
-      "products": [],
-      "subscriptions": []
-    },
-    {
       "id": "mistral",
       "name": "Mistral AI",
       "logo": "/images/companies/mistral/logo.png",
@@ -1835,17 +1929,20 @@
           "id": "mistral",
           "name": "Mistral",
           "status": "primary",
-          "type": "text",
+          "type": "Large Language Model",
           "category": "open",
-          "releaseDate": "2024-09-12",
+          "releaseDate": "",
           "modelPage": "",
           "releasePost": "",
           "releaseVideo": "",
           "systemCard": "",
+          "licenceType": "",
+          "licenceLink": "",
+          "huggingFace": "",
           "capabilities": {
-            "intelligence": 0,
-            "speed": 0,
-            "reasoning": 0
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
           },
           "specs": {
             "reasoningTokens": false,
@@ -1855,11 +1952,10 @@
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": 32000,
-            "maxOutputTokens": 8000,
-            "knowledgeCutoff": "March 2023",
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
             "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
           }
         },
@@ -1867,17 +1963,20 @@
           "id": "mixtral",
           "name": "Mixtral",
           "status": "primary",
-          "type": "text",
+          "type": "Large Language Model",
           "category": "open",
-          "releaseDate": "2024-12-20",
+          "releaseDate": "",
           "modelPage": "",
           "releasePost": "",
           "releaseVideo": "",
           "systemCard": "",
+          "licenceType": "",
+          "licenceLink": "",
+          "huggingFace": "",
           "capabilities": {
-            "intelligence": 0,
-            "speed": 0,
-            "reasoning": 0
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
           },
           "specs": {
             "reasoningTokens": false,
@@ -1887,11 +1986,10 @@
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": 64000,
-            "maxOutputTokens": 12000,
-            "knowledgeCutoff": "April 2023",
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
             "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
           }
         },
@@ -1899,33 +1997,33 @@
           "id": "codestral",
           "name": "Codestral",
           "status": "primary",
-          "type": "code",
+          "type": "Large Language Model",
           "category": "open",
-          "releaseDate": "2025-02-05",
+          "releaseDate": "",
           "modelPage": "",
           "releasePost": "",
           "releaseVideo": "",
           "systemCard": "",
+          "licenceType": "",
+          "licenceLink": "",
+          "huggingFace": "",
           "capabilities": {
-            "intelligence": 0,
-            "speed": 0,
-            "reasoning": 0
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
           },
           "specs": {
             "reasoningTokens": false,
             "inputFormats": [
-              "text",
-              "code"
+              "text"
             ],
             "outputFormats": [
-              "text",
-              "code"
+              "text"
             ],
-            "maxInputTokens": 64000,
-            "maxOutputTokens": 12000,
-            "knowledgeCutoff": "May 2023",
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
             "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
           }
         }
@@ -1943,20 +2041,23 @@
       "features": [],
       "models": [
         {
-          "id": "deepseek-v3",
-          "name": "Deepseek V3",
+          "id": "v3",
+          "name": "V3",
           "status": "primary",
-          "type": "text",
+          "type": "Large Language Model",
           "category": "open",
-          "releaseDate": "2024-09-12",
+          "releaseDate": "",
           "modelPage": "",
           "releasePost": "",
           "releaseVideo": "",
           "systemCard": "",
+          "licenceType": "",
+          "licenceLink": "",
+          "huggingFace": "",
           "capabilities": {
-            "intelligence": 0,
-            "speed": 0,
-            "reasoning": 0
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
           },
           "specs": {
             "reasoningTokens": false,
@@ -1966,29 +2067,31 @@
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": 32000,
-            "maxOutputTokens": 8000,
-            "knowledgeCutoff": "March 2023",
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
             "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
           }
         },
         {
-          "id": "deepseek-r1",
-          "name": "Deepseek R1",
+          "id": "r1",
+          "name": "R1",
           "status": "primary",
-          "type": "text",
+          "type": "Large Language Model",
           "category": "open",
-          "releaseDate": "2024-12-20",
+          "releaseDate": "",
           "modelPage": "",
           "releasePost": "",
           "releaseVideo": "",
           "systemCard": "",
+          "licenceType": "",
+          "licenceLink": "",
+          "huggingFace": "",
           "capabilities": {
-            "intelligence": 0,
-            "speed": 0,
-            "reasoning": 0
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
           },
           "specs": {
             "reasoningTokens": false,
@@ -1998,11 +2101,10 @@
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": 64000,
-            "maxOutputTokens": 12000,
-            "knowledgeCutoff": "April 2023",
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
             "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
           }
         }
