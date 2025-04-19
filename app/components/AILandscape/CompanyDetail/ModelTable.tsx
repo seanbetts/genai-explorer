@@ -46,11 +46,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
 
   // Render the rating indicators (circles, lightning, etc)
   const renderRating = (model: Model, type: string) => {
-    if (!model.capabilities || !(type in model.capabilities) || !model.capabilities[type as keyof typeof model.capabilities]) {
+    // Check if capabilities exist for this model
+    if (!model.capabilities || !(type in model.capabilities)) {
       return <span className={textStyles.primary}>-</span>;
     }
     
     const value = model.capabilities[type as keyof typeof model.capabilities] as number;
+    
+    // Get icons based on the capability type
     let icon = "";
     let filledIcon = "";
     
@@ -76,6 +79,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         filledIcon = "bi-circle-fill";
     }
     
+    // Always render the icons, even if value is 0
     return (
       <div className={iconStyles.ratingContainer}>
         {[...Array(5)].map((_, i) => (

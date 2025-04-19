@@ -975,8 +975,8 @@
           "licenceLink": "https://ai.google.dev/gemma/terms",
           "huggingFace": "https://huggingface.co/google/gemma-3-27b-it",
           "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
+            "intelligence": 2,
+            "speed": 4,
             "reasoning": 1
           },
           "specs": {
@@ -1011,8 +1011,8 @@
           "huggingFace": "https://huggingface.co/google/gemma-3-12b-it",
           "capabilities": {
             "intelligence": 1,
-            "speed": 1,
-            "reasoning": 1
+            "speed": 5,
+            "reasoning": 0
           },
           "specs": {
             "reasoningTokens": false,
@@ -1046,8 +1046,8 @@
           "huggingFace": "https://huggingface.co/google/gemma-3-4b-it",
           "capabilities": {
             "intelligence": 1,
-            "speed": 1,
-            "reasoning": 1
+            "speed": 5,
+            "reasoning": 0
           },
           "specs": {
             "reasoningTokens": false,
@@ -1081,8 +1081,8 @@
           "huggingFace": "https://huggingface.co/google/gemma-3-1b-it",
           "capabilities": {
             "intelligence": 1,
-            "speed": 1,
-            "reasoning": 1
+            "speed": 5,
+            "reasoning": 0
           },
           "specs": {
             "reasoningTokens": false,
@@ -1921,18 +1921,18 @@
       "name": "Mistral AI",
       "logo": "/images/companies/mistral/logo.png",
       "website": "https://mistral.ai",
-      "description": "Open-weight models with strong performance",
-      "lastUpdated": "2025-04-03",
+      "description": "We exist to make frontier AI accessible to everyone.",
+      "lastUpdated": "2025-04-19",
       "features": [],
       "models": [
         {
-          "id": "mistral",
-          "name": "Mistral",
+          "id": "mistral-large-2",
+          "name": "Mistral Large 2",
           "status": "primary",
           "type": "Large Language Model",
           "category": "open",
-          "releaseDate": "",
-          "modelPage": "",
+          "releaseDate": "2024-07-24",
+          "modelPage": "https://mistral.ai/news/mistral-large-2407",
           "releasePost": "",
           "releaseVideo": "",
           "systemCard": "",
@@ -1960,13 +1960,13 @@
           }
         },
         {
-          "id": "mixtral",
-          "name": "Mixtral",
+          "id": "mistral-small-3-1",
+          "name": "Mistral Small 3.1",
           "status": "primary",
           "type": "Large Language Model",
           "category": "open",
-          "releaseDate": "",
-          "modelPage": "",
+          "releaseDate": "2025-03-17",
+          "modelPage": "https://mistral.ai/news/mistral-small-3-1",
           "releasePost": "",
           "releaseVideo": "",
           "systemCard": "",
@@ -1994,13 +1994,115 @@
           }
         },
         {
-          "id": "codestral",
-          "name": "Codestral",
+          "id": "ministral-8B",
+          "name": "Ministral 8B",
           "status": "primary",
           "type": "Large Language Model",
           "category": "open",
-          "releaseDate": "",
-          "modelPage": "",
+          "releaseDate": "2024-10-16",
+          "modelPage": "https://mistral.ai/news/ministraux",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "",
+          "licenceLink": "",
+          "huggingFace": "",
+          "capabilities": {
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": null,
+            "pricingOutputPerM": null
+          }
+        },
+        {
+          "id": "ministral-3B",
+          "name": "Ministral 3B",
+          "status": "secondary",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "2024-10-16",
+          "modelPage": "https://mistral.ai/news/ministraux",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "",
+          "licenceLink": "",
+          "huggingFace": "",
+          "capabilities": {
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": null,
+            "pricingOutputPerM": null
+          }
+        },
+        {
+          "id": "codestral-25-01",
+          "name": "Codestral 25.01",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "2025-01-13",
+          "modelPage": "https://mistral.ai/news/codestral-2501",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "",
+          "licenceLink": "",
+          "huggingFace": "",
+          "capabilities": {
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": null,
+            "pricingOutputPerM": null
+          }
+        },
+        {
+          "id": "pixtral-large",
+          "name": "Pixtral Large",
+          "status": "primary",
+          "type": "Large Multimodal Model",
+          "category": "open",
+          "releaseDate": "2024-11-18",
+          "modelPage": "https://mistral.ai/news/pixtral-large",
           "releasePost": "",
           "releaseVideo": "",
           "systemCard": "",
@@ -2028,7 +2130,20 @@
           }
         }
       ],
-      "products": [],
+      "products": [
+        {
+          "name": "La Platforme",
+          "description": "",
+          "image": "/images/companies/mistral/products/la-platforme.png",
+          "url": "https://mistral.ai/products/la-plateforme"
+        },
+        {
+          "name": "Le Chat",
+          "description": "",
+          "image": "/images/companies/mistral/products/le-chat.png",
+          "url": "https://mistral.ai/products/le-chat"
+        }
+      ],
       "subscriptions": []
     },
     {
