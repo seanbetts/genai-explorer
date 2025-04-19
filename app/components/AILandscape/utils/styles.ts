@@ -410,6 +410,7 @@ export const containerStyles = {
   // Company card with refined cyberpunk hover effects
   companyCardContainer: 'flex flex-col items-center h-full min-h-[168px] cursor-pointer p-4 rounded-lg border border-gray-600 bg-gray-200 hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300',
   companyCardLogoOnly: 'flex items-center justify-center h-full min-h-[168px] cursor-pointer p-4 rounded-lg border border-gray-600 bg-gray-200 hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300',
+  companyCardLogoOnlyMedia: 'flex items-center justify-center h-full cursor-pointer p-4 rounded-lg border border-gray-600 bg-gray-200 hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300',
   companyLogo: 'relative h-14 w-full flex items-center justify-center mb-3 bg-white rounded-md p-2',
   companyLogoLarge: 'relative h-16 w-full flex items-center justify-center bg-white rounded-md p-2',
   companyLogoImage: 'mx-auto object-contain max-h-12 max-w-full',

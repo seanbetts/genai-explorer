@@ -53,10 +53,22 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
   // Determine if we should show models or just the logo
   const showLogoOnly = modelsToDisplay.length === 0;
 
+  // Determine if this is a media company (image, video, audio, or specialty)
+  const isMediaCompany = company.models.some(model => 
+    ['image', 'video', 'music', 'other'].includes(model.category)
+  );
+
+  // Use different card styles based on company type
+  const cardClassName = showLogoOnly 
+    ? isMediaCompany 
+      ? containerStyles.companyCardLogoOnlyMedia  // Media category with logo only
+      : containerStyles.companyCardLogoOnly       // Regular logo-only card
+    : containerStyles.companyCardContainer;       // Card with models
+
   return (
     <div 
       key={company.id} 
-      className={`group ${showLogoOnly ? containerStyles.companyCardLogoOnly : containerStyles.companyCardContainer}`}
+      className={`group ${cardClassName}`}
       onClick={() => onClick(company.id)}
       title={`${company.name} - Click to view details`}
     >
