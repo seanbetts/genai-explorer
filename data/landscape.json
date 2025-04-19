@@ -69,6 +69,7 @@
           "name": "o3",
           "status": "primary",
           "type": "Large Reasoning Model",
+          "category": "frontier",
           "releaseDate": "2025-04-16",
           "modelPage": "https://platform.openai.com/docs/models/o3",
           "releasePost": "https://openai.com/index/introducing-o3-and-o4-mini/",
@@ -96,14 +97,14 @@
             "pricingInputPerM": 10,
             "pricingCachedInputPerM": 2.5,
             "pricingOutputPerM": 40
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "o4-mini",
           "name": "o4-mini",
           "status": "primary",
           "type": "Large Reasoning Model",
+          "category": "frontier",
           "releaseDate": "2025-04-16",
           "modelPage": "https://platform.openai.com/docs/models/o4-mini",
           "releasePost": "https://openai.com/index/introducing-o3-and-o4-mini/",
@@ -131,14 +132,14 @@
             "pricingInputPerM": 1.1,
             "pricingCachedInputPerM": 0.28,
             "pricingOutputPerM": 4.4
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "gpt-4-5",
           "name": "GPT-4.5",
           "status": "primary",
           "type": "Large Multimodal Model",
+          "category": "frontier",
           "releaseDate": "2025-02-27",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4.5-preview",
           "releasePost": "https://openai.com/index/introducing-gpt-4-5/",
@@ -166,14 +167,14 @@
             "pricingInputPerM": 75,
             "pricingCachedInputPerM": 37.5,
             "pricingOutputPerM": 150
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "gpt-4o",
           "name": "GPT-4o",
           "status": "primary",
           "type": "Large Multimodal Model",
+          "category": "image",
           "releaseDate": "2024-08-06",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4o",
           "releasePost": "https://openai.com/index/hello-gpt-4o/",
@@ -204,14 +205,14 @@
             "pricingInputPerM": 2.5,
             "pricingCachedInputPerM": 1.25,
             "pricingOutputPerM": 10
-          },
-          "category": "image"
+          }
         },
         {
           "id": "gpt-4o-mini",
           "name": "GPT-4o Mini",
           "status": "secondary",
           "type": "Large Multimodal Model",
+          "category": "frontier",
           "releaseDate": "2024-08-06",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4o-mini",
           "releasePost": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
@@ -241,14 +242,14 @@
             "pricingInputPerM": 0.15,
             "pricingCachedInputPerM": 0.075,
             "pricingOutputPerM": 0.6
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "o1",
           "name": "o1",
           "status": "secondary",
           "type": "Large Reasoning Model",
+          "category": "frontier",
           "releaseDate": "2024-12-17",
           "modelPage": "https://platform.openai.com/docs/models/o1",
           "releasePost": "https://openai.com/o1/",
@@ -277,14 +278,14 @@
             "pricingInputPerM": 15,
             "pricingCachedInputPerM": 7.5,
             "pricingOutputPerM": 60
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "o3-mini",
           "name": "o3-mini",
           "status": "secondary",
           "type": "Large Reasoning Model",
+          "category": "frontier",
           "releaseDate": "2025-01-31",
           "modelPage": "https://platform.openai.com/docs/models/o3-mini",
           "releasePost": "https://openai.com/index/openai-o3-mini/",
@@ -313,14 +314,14 @@
             "pricingInputPerM": 1.1,
             "pricingCachedInputPerM": 0.55,
             "pricingOutputPerM": 4.4
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "gpt-4-1",
           "name": "GPT 4.1 (API only)",
           "status": "primary",
           "type": "Large Language Model",
+          "category": "frontier",
           "releaseDate": "2025-04-14",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4.1",
           "releasePost": "https://openai.com/index/gpt-4-1/",
@@ -348,14 +349,14 @@
             "pricingInputPerM": 2,
             "pricingCachedInputPerM": 0.5,
             "pricingOutputPerM": 8
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "gpt-4-1-mini",
           "name": "GPT 4.1 Mini (API only)",
           "status": "secondary",
           "type": "Large Language Model",
+          "category": "frontier",
           "releaseDate": "2025-04-14",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4.1-mini",
           "releasePost": "https://openai.com/index/gpt-4-1/",
@@ -383,14 +384,14 @@
             "pricingInputPerM": 0.4,
             "pricingCachedInputPerM": 0.1,
             "pricingOutputPerM": 1.6
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "gpt-4-1-nano",
           "name": "GPT 4.1 Nano (API only)",
           "status": "secondary",
           "type": "Large Language Model",
+          "category": "frontier",
           "releaseDate": "2025-04-14",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4.1-nano",
           "releasePost": "https://openai.com/index/gpt-4-1/",
@@ -418,8 +419,7 @@
             "pricingInputPerM": 0.1,
             "pricingCachedInputPerM": 0.025,
             "pricingOutputPerM": 0.4
-          },
-          "category": "frontier"
+          }
         }
       ],
       "products": [
@@ -568,6 +568,7 @@
           "name": "Claude 3.5 Haiku",
           "status": "primary",
           "type": "Large Language Model",
+          "category": "frontier",
           "releaseDate": "2024-10-22",
           "modelPage": "https://www.anthropic.com/claude/haiku",
           "releasePost": "https://www.anthropic.com/claude/haiku",
@@ -595,14 +596,14 @@
             "pricingInputPerM": 0.8,
             "pricingCachedInputPerM": 0.08,
             "pricingOutputPerM": 4
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "claude-3-opus",
           "name": "Claude 3 Opus",
           "status": "primary",
           "type": "Large Language Model",
+          "category": "frontier",
           "releaseDate": "2024-03-04",
           "modelPage": "",
           "releasePost": "https://www.anthropic.com/news/claude-3-family",
@@ -630,14 +631,14 @@
             "pricingInputPerM": 15,
             "pricingCachedInputPerM": 1.5,
             "pricingOutputPerM": 75
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "claude-3-7-sonnet",
           "name": "Claude 3.7 Sonnet",
           "status": "primary",
           "type": "Large Hybrid Model",
+          "category": "frontier",
           "releaseDate": "2025-02-24",
           "modelPage": "https://www.anthropic.com/claude/sonnet",
           "releasePost": "https://www.anthropic.com/news/claude-3-7-sonnet",
@@ -665,8 +666,7 @@
             "pricingInputPerM": 3,
             "pricingCachedInputPerM": 0.3,
             "pricingOutputPerM": 15
-          },
-          "category": "frontier"
+          }
         }
       ],
       "products": [
@@ -819,6 +819,7 @@
           "name": "Gemini 2.5 Pro",
           "status": "primary",
           "type": "Large Multimodal Model",
+          "category": "frontier",
           "releaseDate": "2025-03-25",
           "modelPage": "https://deepmind.google/technologies/gemini/pro/",
           "releasePost": "https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/",
@@ -848,14 +849,14 @@
             "pricingInputPerM": 0.1,
             "pricingCachedInputPerM": 0.025,
             "pricingOutputPerM": 0.4
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "gemini-2-5-flash",
           "name": "Gemini 2.5 Flash",
           "status": "primary",
           "type": "Large Hybrid Model",
+          "category": "frontier",
           "releaseDate": "2025-04-17",
           "modelPage": "https://deepmind.google/technologies/gemini/flash/",
           "releasePost": "https://developers.googleblog.com/en/start-building-with-gemini-25-flash/",
@@ -884,14 +885,14 @@
             "knowledgeCutoff": "January 2025",
             "pricingInputPerM": 0.15,
             "pricingOutputPerM": 0.6
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "gemini-2-0-flash",
           "name": "Gemini 2.0 FLash",
           "status": "archived",
           "type": "Large Hybrid Model",
+          "category": "frontier",
           "releaseDate": "2025-02-05",
           "modelPage": "https://deepmind.google/technologies/gemini/flash/",
           "releasePost": "https://developers.googleblog.com/en/gemini-2-family-expands/",
@@ -921,14 +922,14 @@
             "pricingInputPerM": 0.1,
             "pricingCachedInputPerM": 0.025,
             "pricingOutputPerM": 0.4
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "gemini-2-0-flash-light",
           "name": "Gemini 2.0 Flash Light",
           "status": "secondary",
           "type": "Large Language Model",
+          "category": "frontier",
           "releaseDate": "2025-02-05",
           "modelPage": "https://deepmind.google/technologies/gemini/flash-lite/",
           "releasePost": "https://developers.googleblog.com/en/gemini-2-family-expands/",
@@ -957,8 +958,7 @@
             "knowledgeCutoff": "June 2024",
             "pricingInputPerM": 0.075,
             "pricingOutputPerM": 0.3
-          },
-          "category": "frontier"
+          }
         }
       ],
       "products": [
@@ -1070,6 +1070,7 @@
           "name": "Nova Pro",
           "status": "primary",
           "type": "Large Multimodal Model",
+          "category": "frontier",
           "releaseDate": "2024-12-03",
           "modelPage": "https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html",
           "releasePost": "https://press.aboutamazon.com/2024/12/introducing-amazon-nova-a-new-generation-of-foundation-models",
@@ -1098,14 +1099,14 @@
             "pricingInputPerM": 0.8,
             "pricingCachedInputPerM": 0.2,
             "pricingOutputPerM": 3.2
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "nova-lite-1-0",
           "name": "Nova Lite",
           "status": "primary",
           "type": "Large Multimodal Model",
+          "category": "frontier",
           "releaseDate": "2024-12-03",
           "modelPage": "https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html",
           "releasePost": "https://press.aboutamazon.com/2024/12/introducing-amazon-nova-a-new-generation-of-foundation-models",
@@ -1134,14 +1135,14 @@
             "pricingInputPerM": 0.06,
             "pricingCachedInputPerM": 0.015,
             "pricingOutputPerM": 0.24
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "nova-micro-1-0",
           "name": "Nova Micro",
           "status": "primary",
           "type": "Large Language Model",
+          "category": "frontier",
           "releaseDate": "2024-12-03",
           "modelPage": "https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html",
           "releasePost": "https://press.aboutamazon.com/2024/12/introducing-amazon-nova-a-new-generation-of-foundation-models",
@@ -1168,8 +1169,7 @@
             "pricingInputPerM": 0.035,
             "pricingCachedInputPerM": 0.00875,
             "pricingOutputPerM": 0.14
-          },
-          "category": "frontier"
+          }
         }
       ],
       "products": [
@@ -1251,6 +1251,7 @@
           "name": "Grok 3",
           "status": "primary",
           "type": "Large Language Model",
+          "category": "frontier",
           "releaseDate": "2025-02-19",
           "modelPage": "https://docs.x.ai/docs/models?cluster=us-east-1#detailed-pricing-for-all-grok-models",
           "releasePost": "https://x.ai/news/grok-3",
@@ -1276,14 +1277,14 @@
             "knowledgeCutoff": "November 2024",
             "pricingInputPerM": 3,
             "pricingOutputPerM": 15
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "grok-3-mini",
           "name": "Grok 3 Mini",
           "status": "primary",
           "type": "Large Hybrid Model",
+          "category": "frontier",
           "releaseDate": "2025-02-19",
           "modelPage": "https://docs.x.ai/docs/models?cluster=us-east-1#detailed-pricing-for-all-grok-models",
           "releasePost": "https://x.ai/news/grok-3",
@@ -1309,14 +1310,14 @@
             "knowledgeCutoff": "November 2024",
             "pricingInputPerM": 0.3,
             "pricingOutputPerM": 0.5
-          },
-          "category": "frontier"
+          }
         },
         {
           "id": "grok-2-vision",
           "name": "Grok 2 Vision",
           "status": "secondary",
           "type": "Large Language Model",
+          "category": "frontier",
           "releaseDate": "2024-08-13",
           "modelPage": "https://docs.x.ai/docs/models?cluster=us-east-1#detailed-pricing-for-all-grok-models",
           "releasePost": "https://x.ai/news/grok-2",
@@ -1343,8 +1344,7 @@
             "knowledgeCutoff": "July 2024",
             "pricingInputPerM": 2,
             "pricingOutputPerM": 10
-          },
-          "category": "frontier"
+          }
         }
       ],
       "products": [
@@ -1421,6 +1421,7 @@
           "name": "Llama 4 Maverick",
           "status": "primary",
           "type": "Large Multimodal Model",
+          "category": "open",
           "releaseDate": "2025-04-05",
           "modelPage": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama4_omni/",
           "releasePost": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
@@ -1447,14 +1448,14 @@
             "knowledgeCutoff": "August 2024",
             "pricingInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "open"
+          }
         },
         {
           "id": "llama-4-scout",
           "name": "Llama 4 Scout",
           "status": "secondary",
           "type": "Large Multimodal Model",
+          "category": "open",
           "releaseDate": "2025-04-05",
           "modelPage": "https://www.llama.com/docs/model-cards-and-prompt-formats/llama4_omni/",
           "releasePost": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
@@ -1481,8 +1482,7 @@
             "knowledgeCutoff": "August 2024",
             "pricingInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "open"
+          }
         }
       ],
       "products": [
@@ -1515,6 +1515,7 @@
           "name": "Gemma 3",
           "status": "primary",
           "type": "text",
+          "category": "open",
           "releaseDate": "2025-01-18",
           "modelPage": "",
           "releasePost": "",
@@ -1539,8 +1540,7 @@
             "pricingInputPerM": null,
             "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "open"
+          }
         }
       ],
       "subscriptions": []
@@ -1572,6 +1572,7 @@
           "name": "Mistral",
           "status": "primary",
           "type": "text",
+          "category": "open",
           "releaseDate": "2024-09-12",
           "modelPage": "",
           "releasePost": "",
@@ -1596,14 +1597,14 @@
             "pricingInputPerM": null,
             "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "open"
+          }
         },
         {
           "id": "mixtral",
           "name": "Mixtral",
           "status": "primary",
           "type": "text",
+          "category": "open",
           "releaseDate": "2024-12-20",
           "modelPage": "",
           "releasePost": "",
@@ -1628,14 +1629,14 @@
             "pricingInputPerM": null,
             "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "open"
+          }
         },
         {
           "id": "codestral",
           "name": "Codestral",
           "status": "primary",
           "type": "code",
+          "category": "open",
           "releaseDate": "2025-02-05",
           "modelPage": "",
           "releasePost": "",
@@ -1662,8 +1663,7 @@
             "pricingInputPerM": null,
             "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "open"
+          }
         }
       ],
       "subscriptions": [
@@ -1719,6 +1719,7 @@
           "name": "Deepseek V3",
           "status": "primary",
           "type": "text",
+          "category": "open",
           "releaseDate": "2024-09-12",
           "modelPage": "",
           "releasePost": "",
@@ -1743,14 +1744,14 @@
             "pricingInputPerM": null,
             "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "open"
+          }
         },
         {
           "id": "deepseek-r1",
           "name": "Deepseek R1",
           "status": "primary",
           "type": "text",
+          "category": "open",
           "releaseDate": "2024-12-20",
           "modelPage": "",
           "releasePost": "",
@@ -1775,8 +1776,7 @@
             "pricingInputPerM": null,
             "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "open"
+          }
         }
       ],
       "subscriptions": [
@@ -1845,6 +1845,7 @@
           "name": "Copilot",
           "status": "primary",
           "type": "productivity",
+          "category": "enterprise",
           "releaseDate": "2024-10-25",
           "modelPage": "",
           "releasePost": "",
@@ -1879,8 +1880,7 @@
               "Dynamics",
               "GitHub"
             ]
-          },
-          "category": "enterprise"
+          }
         }
       ],
       "subscriptions": [
@@ -1951,6 +1951,7 @@
           "name": "Command",
           "status": "primary",
           "type": "text",
+          "category": "enterprise",
           "releaseDate": "2024-09-28",
           "modelPage": "",
           "releasePost": "",
@@ -1975,8 +1976,7 @@
             "pricingInputPerM": null,
             "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
-          },
-          "category": "enterprise"
+          }
         }
       ],
       "subscriptions": [
@@ -2044,6 +2044,7 @@
           "name": "Firefly",
           "status": "primary",
           "type": "image",
+          "category": "image",
           "releaseDate": "2024-12-15",
           "modelPage": "",
           "releasePost": "",
@@ -2076,8 +2077,7 @@
               "outpainting"
             ],
             "commercialUseAllowed": true
-          },
-          "category": "image"
+          }
         }
       ],
       "subscriptions": [
@@ -2146,6 +2146,7 @@
           "name": "Midjourney v7",
           "status": "primary",
           "type": "image",
+          "category": "image",
           "releaseDate": "2024-11-15",
           "modelPage": "",
           "releasePost": "",
@@ -2183,8 +2184,7 @@
               "conceptual"
             ],
             "commercialUseAllowed": true
-          },
-          "category": "image"
+          }
         }
       ],
       "subscriptions": [
@@ -2252,6 +2252,7 @@
           "name": "Gen-3",
           "status": "primary",
           "type": "video",
+          "category": "video",
           "releaseDate": "2024-10-30",
           "modelPage": "",
           "releasePost": "",
@@ -2285,8 +2286,7 @@
               "video-to-video"
             ],
             "commercialUseAllowed": true
-          },
-          "category": "video"
+          }
         }
       ],
       "subscriptions": [
@@ -2368,6 +2368,7 @@
           "name": "Pika 1.0",
           "status": "primary",
           "type": "video",
+          "category": "video",
           "releaseDate": "2024-11-25",
           "modelPage": "",
           "releasePost": "",
@@ -2401,8 +2402,7 @@
               "video-editing"
             ],
             "commercialUseAllowed": true
-          },
-          "category": "video"
+          }
         }
       ],
       "subscriptions": [
@@ -2474,6 +2474,7 @@
           "name": "Suno v3",
           "status": "primary",
           "type": "music",
+          "category": "music",
           "releaseDate": "2024-12-05",
           "modelPage": "",
           "releasePost": "",
@@ -2513,8 +2514,7 @@
               "hip-hop"
             ],
             "commercialUseAllowed": true
-          },
-          "category": "music"
+          }
         }
       ],
       "subscriptions": [
@@ -2586,6 +2586,7 @@
           "name": "Udio Composer",
           "status": "primary",
           "type": "music",
+          "category": "music",
           "releaseDate": "2025-01-20",
           "modelPage": "",
           "releasePost": "",
@@ -2622,8 +2623,7 @@
               "all major genres"
             ],
             "commercialUseAllowed": true
-          },
-          "category": "music"
+          }
         }
       ],
       "subscriptions": [
@@ -2695,6 +2695,7 @@
           "name": "Perplexity Online",
           "status": "primary",
           "type": "search",
+          "category": "other",
           "releaseDate": "2024-09-15",
           "modelPage": "",
           "releasePost": "",
@@ -2724,8 +2725,7 @@
             "realTimeData": true,
             "sourceAttribution": true,
             "dataRetrieval": "online search"
-          },
-          "category": "other"
+          }
         }
       ],
       "subscriptions": [
@@ -2797,6 +2797,7 @@
           "name": "Character Engine",
           "status": "primary",
           "type": "conversation",
+          "category": "other",
           "releaseDate": "2024-10-05",
           "modelPage": "",
           "releasePost": "",
@@ -2824,8 +2825,7 @@
             "memoryCapacity": "extensive",
             "personalityCustomization": true,
             "voiceCapabilities": true
-          },
-          "category": "other"
+          }
         }
       ],
       "subscriptions": [
@@ -2896,6 +2896,7 @@
           "name": "Overdub",
           "status": "primary",
           "type": "audio",
+          "category": "other",
           "releaseDate": "2024-08-15",
           "modelPage": "",
           "releasePost": "",
@@ -2930,8 +2931,7 @@
               "German",
               "Japanese"
             ]
-          },
-          "category": "other"
+          }
         }
       ],
       "subscriptions": [
@@ -3016,6 +3016,7 @@
           "name": "GitHub Copilot",
           "status": "primary",
           "type": "code",
+          "category": "other",
           "releaseDate": "2024-11-10",
           "modelPage": "",
           "releasePost": "",
@@ -3054,8 +3055,7 @@
               "Neovim",
               "GitHub.com"
             ]
-          },
-          "category": "other"
+          }
         }
       ],
       "subscriptions": [
