@@ -47,7 +47,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({
     
     // Determine image size based on layout, column count, and whether models will be shown
     const baseImageSize = layout === 'quarter-width' 
-      ? { width: 84, height: 36 } 
+      ? { width: 100, height: 42 } // Make Enterprise cards use same image size as Open Models
       : layout === 'half-width' 
         ? { width: 100, height: 42 }
         // For full-width with 5 columns, make logos a bit smaller

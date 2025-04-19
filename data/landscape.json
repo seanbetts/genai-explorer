@@ -1454,7 +1454,7 @@
         {
           "id": "llama-4-scout",
           "name": "Llama 4 Scout",
-          "status": "secondary",
+          "status": "primary",
           "type": "Large Multimodal Model",
           "category": "open",
           "releaseDate": "2025-04-05",
