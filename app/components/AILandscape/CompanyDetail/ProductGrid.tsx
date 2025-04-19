@@ -13,6 +13,14 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
   // Set a fixed height that's tall enough for product cards
   const cardHeight = 320; // Increased height to ensure consistent sizing
   
+  // Helper to validate image URL is proper and exists
+  const getValidImageUrl = (imagePath: string | undefined): string => {
+    if (!imagePath || !imagePath.startsWith("/") || imagePath.length <= 1) {
+      return "/images/placeholder.svg";
+    }
+    return imagePath;
+  };
+  
   return (
     <div className={containerStyles.featureGrid}>
       {products.map(product => (
@@ -26,10 +34,15 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
         >
           <div className={containerStyles.featureImage}>
             <Image 
-              src={product.image && product.image.startsWith("/") ? product.image : "/images/companies/placeholder.png"} 
+              src={getValidImageUrl(product.image)} 
               alt={product.name}
               fill
               style={{ objectFit: "cover" }}
+              onError={() => {
+                // The getValidImageUrl already handles missing images,
+                // but this is a fallback for network errors
+                console.error("Failed to load image, using placeholder");
+              }}
             />
           </div>
           <div className={containerStyles.featureContent}>
