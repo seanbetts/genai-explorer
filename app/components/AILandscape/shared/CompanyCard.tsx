@@ -18,11 +18,12 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
   showModelCount,
   imageSize = { width: 100, height: 40 }
 }) => {
-  // Filter featured models and sort by release date (newest first)
-  const featuredModels = company.models
-    .filter(model => model.featured)
+  // Filter primary models and sort by release date (newest first)
+  const primaryModels = company.models
+    .filter(model => model.status === 'primary')
     .sort((a, b) => {
-      // If release dates exist, sort by them (newest first)
+      
+      // Then sort by release date (newest first)
       if (a.releaseDate && b.releaseDate) {
         return new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime();
       }
@@ -38,8 +39,8 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
   // - If showModelCount is a positive number, limit to that number
   // - If showModelCount is undefined, show all
   const modelsToDisplay = showModelCount === 0 ? [] : 
-                          showModelCount ? featuredModels.slice(0, showModelCount) : 
-                          featuredModels;
+                          showModelCount ? primaryModels.slice(0, showModelCount) : 
+                          primaryModels;
   
   // Standardize logo dimensions for more consistency
   const standardizedLogoStyle = {

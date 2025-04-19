@@ -62,11 +62,11 @@
         {
           "id": "gpt-4-5",
           "name": "GPT-4.5",
-          "featured": true,
           "type": "Large Multimodal Model",
           "releaseDate": "2025-02-27",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4.5-preview",
           "releasePost": "https://openai.com/index/introducing-gpt-4-5/",
+          "releaseVideo": "",
           "systemCard": "",
           "capabilities": {
             "intelligence": 4,
@@ -75,24 +75,32 @@
           },
           "specs": {
             "reasoningTokens": false,
-            "inputFormats": ["text", "audio", "image"],
-            "outputFormats": ["text", "audio"],
+            "inputFormats": [
+              "text",
+              "speech",
+              "image"
+            ],
+            "outputFormats": [
+              "text",
+              "speech"
+            ],
             "maxInputTokens": 128000,
             "maxOutputTokens": 16384,
             "pricingInputPerM": 75.00,
             "pricingCachedInputPerM": 37.50,
             "pricingOutputPerM": 150.00,
             "knowledgeCutoff": "September 2023"
-          }
+          },
+          "status": "primary"
         },
         {
           "id": "gpt-4o",
           "name": "GPT-4o",
-          "featured": false,
           "type": "Large Multimodal Model",
           "releaseDate": "2024-08-06",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4o",
           "releasePost": "https://openai.com/index/hello-gpt-4o/",
+          "releaseVideo": "",
           "systemCard": "https://openai.com/index/gpt-4o-system-card/",
           "capabilities": {
             "intelligence": 3,
@@ -101,24 +109,33 @@
           },
           "specs": {
             "reasoningTokens": false,
-            "inputFormats": ["text", "audio", "image"],
-            "outputFormats": ["text", "audio", "image"],
+            "inputFormats": [
+              "text",
+              "speech",
+              "image"
+            ],
+            "outputFormats": [
+              "text",
+              "speech",
+              "image"
+            ],
             "maxInputTokens": 128000,
             "maxOutputTokens": 16384,
             "pricingInputPerM": 2.50,
             "pricingCachedInputPerM": 1.25,
             "pricingOutputPerM": 10.00,
             "knowledgeCutoff": "September 2023"
-          }
+          },
+          "status": "primary"
         },
         {
           "id": "gpt-4o-mini",
           "name": "GPT-4o Mini",
-          "featured": false,
           "type": "Large Multimodal Model",
           "releaseDate": "2024-08-06",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4o-mini",
           "releasePost": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
+          "releaseVideo": "",
           "systemCard": "https://openai.com/index/gpt-4o-system-card/",
           "capabilities": {
             "intelligence": 2,
@@ -127,24 +144,32 @@
           },
           "specs": {
             "reasoningTokens": false,
-            "inputFormats": ["text", "audio", "image"],
-            "outputFormats": ["text", "audio"],
+            "inputFormats": [
+              "text",
+              "speech",
+              "image"
+            ],
+            "outputFormats": [
+              "text",
+              "speech"
+            ],
             "maxInputTokens": 128000,
             "maxOutputTokens": 16384,
             "pricingInputPerM": 0.15,
             "pricingCachedInputPerM": 0.075,
             "pricingOutputPerM": 0.60,
             "knowledgeCutoff": "September 2023"
-          }
+          },
+          "status": "secondary"
         },
         {
           "id": "o1",
           "name": "o1",
-          "featured": true,
           "type": "Large Reasoning Model",
           "releaseDate": "2024-12-17",
           "modelPage": "https://platform.openai.com/docs/models/o1",
           "releasePost": "https://openai.com/o1/",
+          "releaseVideo": "",
           "systemCard": "https://openai.com/index/openai-o1-system-card/",
           "capabilities": {
             "intelligence": 4,
@@ -153,24 +178,31 @@
           },
           "specs": {
             "reasoningTokens": true,
-            "inputFormats": ["text", "audio"],
-            "outputFormats": ["text", "audio"],
+            "inputFormats": [
+              "text",
+              "speech"
+            ],
+            "outputFormats": [
+              "text",
+              "speech"
+            ],
             "maxInputTokens": 200000,
             "maxOutputTokens": 100000,
             "pricingInputPerM": 15.00,
             "pricingCachedInputPerM": 7.50,
             "pricingOutputPerM": 60.00,
             "knowledgeCutoff": "September 2023"
-          }
+          },
+          "status": "secondary"
         },
         {
           "id": "o3-mini",
           "name": "o3-mini",
-          "featured": true,
           "type": "Large Reasoning Model",
           "releaseDate": "2025-01-31",
           "modelPage": "https://platform.openai.com/docs/models/o3-mini",
           "releasePost": "https://openai.com/index/openai-o3-mini/",
+          "releaseVideo": "",
           "systemCard": "https://openai.com/index/o3-mini-system-card/",
           "capabilities": {
             "intelligence": 4,
@@ -179,24 +211,31 @@
           },
           "specs": {
             "reasoningTokens": true,
-            "inputFormats": ["text", "audio"],
-            "outputFormats": ["text", "audio"],
+            "inputFormats": [
+              "text",
+              "speech"
+            ],
+            "outputFormats": [
+              "text",
+              "speech"
+            ],
             "maxInputTokens": 200000,
             "maxOutputTokens": 100000,
             "pricingInputPerM": 1.10,
             "pricingCachedInputPerM": 0.55,
             "pricingOutputPerM": 4.40,
             "knowledgeCutoff": "September 2023"
-          }
+          },
+          "status": "primary"
         },
         {
           "id": "gpt-4-1",
           "name": "GPT 4.1 (API only)",
-          "featured": true,
           "type": "Large Language Model",
           "releaseDate": "2025-04-14",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4.1",
           "releasePost": "https://openai.com/index/gpt-4-1/",
+          "releaseVideo": "",
           "systemCard": "",
           "capabilities": {
             "intelligence": 4,
@@ -205,24 +244,30 @@
           },
           "specs": {
             "reasoningTokens": false,
-            "inputFormats": ["text", "image"],
-            "outputFormats": ["text"],
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
             "maxInputTokens": 1047576,
             "maxOutputTokens": 32768,
             "pricingInputPerM": 2.00,
             "pricingCachedInputPerM": 0.50,
             "pricingOutputPerM": 8.00,
             "knowledgeCutoff": "May 2024"
-          }
+          },
+          "status": "primary"
         },
         {
           "id": "gpt-4-1-mini",
           "name": "GPT 4.1 Mini (API only)",
-          "featured": false,
           "type": "Large Language Model",
           "releaseDate": "2025-04-14",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4.1-mini",
           "releasePost": "https://openai.com/index/gpt-4-1/",
+          "releaseVideo": "",
           "systemCard": "",
           "capabilities": {
             "intelligence": 3,
@@ -231,24 +276,30 @@
           },
           "specs": {
             "reasoningTokens": false,
-            "inputFormats": ["text", "image"],
-            "outputFormats": ["text"],
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
             "maxInputTokens": 1047576,
             "maxOutputTokens": 32768,
             "pricingInputPerM": 0.40,
             "pricingCachedInputPerM": 0.10,
             "pricingOutputPerM": 1.60,
             "knowledgeCutoff": "May 2024"
-          }
+          },
+          "status": "secondary"
         },
         {
           "id": "gpt-4-1-nano",
           "name": "GPT 4.1 Nano (API only)",
-          "featured": false,
           "type": "Large Language Model",
           "releaseDate": "2025-04-14",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4.1-nano",
           "releasePost": "https://openai.com/index/gpt-4-1/",
+          "releaseVideo": "",
           "systemCard": "",
           "capabilities": {
             "intelligence": 2,
@@ -257,15 +308,21 @@
           },
           "specs": {
             "reasoningTokens": false,
-            "inputFormats": ["text", "image"],
-            "outputFormats": ["text"],
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
             "maxInputTokens": 1047576,
             "maxOutputTokens": 32768,
             "pricingInputPerM": 0.10,
             "pricingCachedInputPerM": 0.025,
             "pricingOutputPerM": 0.40,
             "knowledgeCutoff": "May 2024"
-          }
+          },
+          "status": "secondary"
         }
       ],
       "subscriptions": [
@@ -381,11 +438,11 @@
         {
           "id": "claude-3-5-haiku",
           "name": "Claude 3.5 Haiku",
-          "featured": false,
           "type": "text",
           "releaseDate": "2024-10-22",
           "modelPage": "https://www.anthropic.com/claude/haiku",
           "releasePost": "https://www.anthropic.com/claude/haiku",
+          "releaseVideo": "",
           "systemCard": "https://assets.anthropic.com/m/61e7d27f8c8f5919/original/Claude-3-Model-Card.pdf",
           "capabilities": {
             "intelligence": 3,
@@ -394,24 +451,30 @@
           },
           "specs": {
             "reasoningTokens": false,
-            "inputFormats": ["text", "image"],
-            "outputFormats": ["text"],
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
             "maxInputTokens": 200000,
             "maxOutputTokens": 8192,
             "pricingInputPerM": 0.80,
             "pricingCachedInputPerM": 0.08,
             "pricingOutputPerM": 4.00,
             "knowledgeCutoff": "July 2024"
-          }
+          },
+          "status": "primary"
         },
         {
           "id": "claude-3-opus",
           "name": "Claude 3 Opus",
-          "featured": false,
           "type": "text",
           "releaseDate": "2024-03-04",
           "modelPage": "",
           "releasePost": "https://www.anthropic.com/news/claude-3-family",
+          "releaseVideo": "",
           "systemCard": "https://assets.anthropic.com/m/61e7d27f8c8f5919/original/Claude-3-Model-Card.pdf",
           "capabilities": {
             "intelligence": 3,
@@ -420,24 +483,30 @@
           },
           "specs": {
             "reasoningTokens": false,
-            "inputFormats": ["text", "image"],
-            "outputFormats": ["text"],
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
             "maxInputTokens": 200000,
             "maxOutputTokens": 4096,
             "pricingInputPerM": 15.00,
             "pricingCachedInputPerM": 1.50,
             "pricingOutputPerM": 75.00,
             "knowledgeCutoff": "August 2023"
-          }
+          },
+          "status": "primary"
         },
         {
           "id": "claude-3-7",
           "name": "Claude 3.7",
-          "featured": true,
           "type": "text",
           "releaseDate": "2025-02-24",
           "modelPage": "https://www.anthropic.com/claude/sonnet",
           "releasePost": "https://www.anthropic.com/news/claude-3-7-sonnet",
+          "releaseVideo": "",
           "systemCard": "https://assets.anthropic.com/m/785e231869ea8b3b/original/claude-3-7-sonnet-system-card.pdf",
           "capabilities": {
             "intelligence": 4,
@@ -446,15 +515,21 @@
           },
           "specs": {
             "reasoningTokens": true,
-            "inputFormats": ["text", "image"],
-            "outputFormats": ["text"],
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
             "maxInputTokens": 200000,
             "maxOutputTokens": 64000,
             "pricingInputPerM": 3.00,
             "pricingCachedInputPerM": 0.30,
             "pricingOutputPerM": 15.00,
             "knowledgeCutoff": "November 2024"
-          }
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [
@@ -551,7 +626,6 @@
         {
           "id": "gemini-2-5-pro",
           "name": "Gemini 2.5 Pro",
-          "featured": true,
           "type": "multimodal",
           "releaseDate": "2025-01-30",
           "capabilities": {
@@ -561,20 +635,28 @@
           },
           "specs": {
             "reasoningTokens": true,
-            "inputFormats": ["text", "image", "audio", "video"],
-            "outputFormats": ["text", "image"],
+            "inputFormats": [
+              "text",
+              "image",
+              "speech",
+              "video"
+            ],
+            "outputFormats": [
+              "text",
+              "image"
+            ],
             "maxInputTokens": 200000,
             "maxOutputTokens": 25000,
             "pricingInputPerM": 0.35,
             "pricingCachedInputPerM": 0.12,
             "pricingOutputPerM": 1.20,
             "knowledgeCutoff": "December 2023"
-          }
+          },
+          "status": "primary"
         },
         {
           "id": "gemini-2-0-flash",
           "name": "Gemini 2.0 FLash",
-          "featured": true,
           "type": "multimodal",
           "releaseDate": "2025-01-30",
           "capabilities": {
@@ -584,20 +666,28 @@
           },
           "specs": {
             "reasoningTokens": true,
-            "inputFormats": ["text", "image", "audio", "video"],
-            "outputFormats": ["text", "image"],
+            "inputFormats": [
+              "text",
+              "image",
+              "speech",
+              "video"
+            ],
+            "outputFormats": [
+              "text",
+              "image"
+            ],
             "maxInputTokens": 200000,
             "maxOutputTokens": 25000,
             "pricingInputPerM": 0.35,
             "pricingCachedInputPerM": 0.12,
             "pricingOutputPerM": 1.20,
             "knowledgeCutoff": "December 2023"
-          }
+          },
+          "status": "primary"
         },
         {
           "id": "gemini-2-0-flash-thinking",
           "name": "Gemini 2.0 Flash Thinking",
-          "featured": true,
           "type": "multimodal",
           "releaseDate": "2025-01-30",
           "capabilities": {
@@ -607,15 +697,24 @@
           },
           "specs": {
             "reasoningTokens": true,
-            "inputFormats": ["text", "image", "audio", "video"],
-            "outputFormats": ["text", "image"],
+            "inputFormats": [
+              "text",
+              "image",
+              "speech",
+              "video"
+            ],
+            "outputFormats": [
+              "text",
+              "image"
+            ],
             "maxInputTokens": 200000,
             "maxOutputTokens": 25000,
             "pricingInputPerM": 0.35,
             "pricingCachedInputPerM": 0.12,
             "pricingOutputPerM": 1.20,
             "knowledgeCutoff": "December 2023"
-          }
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [
@@ -683,7 +782,6 @@
         {
           "id": "nova-1-0",
           "name": "Nova 1.0",
-          "featured": true,
           "type": "text",
           "releaseDate": "2025-01-05",
           "capabilities": {
@@ -693,12 +791,17 @@
           },
           "specs": {
             "reasoningTokens": false,
-            "inputFormats": ["text"],
-            "outputFormats": ["text"],
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
             "maxInputTokens": 100000,
             "maxOutputTokens": 20000,
             "knowledgeCutoff": "July 2023"
-          }
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [
@@ -755,7 +858,6 @@
         {
           "id": "llama-3-3",
           "name": "LLaMA 3.3",
-          "featured": true,
           "type": "text",
           "releaseDate": "2025-01-18",
           "capabilities": {
@@ -765,13 +867,18 @@
           },
           "specs": {
             "reasoningTokens": false,
-            "inputFormats": ["text"],
-            "outputFormats": ["text"],
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
             "maxInputTokens": 128000,
             "maxOutputTokens": 16000,
             "knowledgeCutoff": "June 2023",
             "openSource": true
-          }
+          },
+          "status": "primary"
         }
       ]
     },
@@ -788,7 +895,6 @@
         {
           "id": "gemma-3",
           "name": "Gemma 3",
-          "featured": true,
           "type": "text",
           "releaseDate": "2025-01-18",
           "capabilities": {
@@ -798,13 +904,18 @@
           },
           "specs": {
             "reasoningTokens": false,
-            "inputFormats": ["text"],
-            "outputFormats": ["text"],
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
             "maxInputTokens": 128000,
             "maxOutputTokens": 16000,
             "knowledgeCutoff": "June 2023",
             "openSource": true
-          }
+          },
+          "status": "primary"
         }
       ]
     },
@@ -834,50 +945,64 @@
         {
           "id": "mistral",
           "name": "Mistral",
-          "featured": true,
           "type": "text",
           "releaseDate": "2024-09-12",
           "specs": {
             "reasoningTokens": false,
-            "inputFormats": ["text"],
-            "outputFormats": ["text"],
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
             "maxInputTokens": 32000,
             "maxOutputTokens": 8000,
             "knowledgeCutoff": "March 2023",
             "openSource": true
-          }
+          },
+          "status": "primary"
         },
         {
           "id": "mixtral",
           "name": "Mixtral",
-          "featured": true,
           "type": "text",
           "releaseDate": "2024-12-20",
           "specs": {
             "reasoningTokens": false,
-            "inputFormats": ["text"],
-            "outputFormats": ["text"],
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
             "maxInputTokens": 64000,
             "maxOutputTokens": 12000,
             "knowledgeCutoff": "April 2023",
             "openSource": true
-          }
+          },
+          "status": "primary"
         },
         {
           "id": "codestral",
           "name": "Codestral",
-          "featured": true,
           "type": "code",
           "releaseDate": "2025-02-05",
           "specs": {
             "reasoningTokens": false,
-            "inputFormats": ["text", "code"],
-            "outputFormats": ["text", "code"],
+            "inputFormats": [
+              "text",
+              "code"
+            ],
+            "outputFormats": [
+              "text",
+              "code"
+            ],
             "maxInputTokens": 64000,
             "maxOutputTokens": 12000,
             "knowledgeCutoff": "May 2023",
             "openSource": true
-          }
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [
@@ -932,34 +1057,42 @@
         {
           "id": "deepseek-v3",
           "name": "Deepseek V3",
-          "featured": true,
           "type": "text",
           "releaseDate": "2024-09-12",
           "specs": {
             "reasoningTokens": false,
-            "inputFormats": ["text"],
-            "outputFormats": ["text"],
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
             "maxInputTokens": 32000,
             "maxOutputTokens": 8000,
             "knowledgeCutoff": "March 2023",
             "openSource": true
-          }
+          },
+          "status": "primary"
         },
         {
           "id": "deepseek-r1",
           "name": "Deepseek R1",
-          "featured": true,
           "type": "text",
           "releaseDate": "2024-12-20",
           "specs": {
             "reasoningTokens": false,
-            "inputFormats": ["text"],
-            "outputFormats": ["text"],
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
             "maxInputTokens": 64000,
             "maxOutputTokens": 12000,
             "knowledgeCutoff": "April 2023",
             "openSource": true
-          }
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [
@@ -1027,15 +1160,28 @@
         {
           "id": "copilot",
           "name": "Copilot",
-          "featured": true,
           "type": "productivity",
           "releaseDate": "2024-10-25",
           "specs": {
             "reasoningTokens": true,
-            "inputFormats": ["text", "image", "data"],
-            "outputFormats": ["text", "data"],
-            "integrated": ["Office", "Windows", "Teams", "Dynamics", "GitHub"]
-          }
+            "inputFormats": [
+              "text",
+              "image",
+              "data"
+            ],
+            "outputFormats": [
+              "text",
+              "data"
+            ],
+            "integrated": [
+              "Office",
+              "Windows",
+              "Teams",
+              "Dynamics",
+              "GitHub"
+            ]
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [
@@ -1105,7 +1251,6 @@
         {
           "id": "command",
           "name": "Command",
-          "featured": true,
           "type": "text",
           "releaseDate": "2024-09-28",
           "capabilities": {
@@ -1115,12 +1260,17 @@
           },
           "specs": {
             "reasoningTokens": true,
-            "inputFormats": ["text"],
-            "outputFormats": ["text"],
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
             "maxInputTokens": 128000,
             "maxOutputTokens": 16000,
             "knowledgeCutoff": "June 2023"
-          }
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [
@@ -1187,7 +1337,6 @@
         {
           "id": "firefly",
           "name": "Firefly",
-          "featured": true,
           "type": "image",
           "releaseDate": "2024-12-15",
           "capabilities": {
@@ -1196,11 +1345,22 @@
             "creativity": 5
           },
           "specs": {
-            "inputFormats": ["text", "image"],
-            "outputFormats": ["image"],
-            "techniques": ["text-to-image", "image-to-image", "inpainting", "outpainting"],
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "image"
+            ],
+            "techniques": [
+              "text-to-image",
+              "image-to-image",
+              "inpainting",
+              "outpainting"
+            ],
             "commercialUseAllowed": true
-          }
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [
@@ -1268,7 +1428,6 @@
         {
           "id": "midjourney-v7",
           "name": "Midjourney v7",
-          "featured": true,
           "type": "image",
           "releaseDate": "2024-11-15",
           "capabilities": {
@@ -1277,12 +1436,27 @@
             "creativity": 5
           },
           "specs": {
-            "inputFormats": ["text", "image"],
-            "outputFormats": ["image"],
-            "techniques": ["text-to-image", "image-to-image", "variations"],
-            "styles": ["photorealistic", "artistic", "stylized", "conceptual"],
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "image"
+            ],
+            "techniques": [
+              "text-to-image",
+              "image-to-image",
+              "variations"
+            ],
+            "styles": [
+              "photorealistic",
+              "artistic",
+              "stylized",
+              "conceptual"
+            ],
             "commercialUseAllowed": true
-          }
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [
@@ -1349,7 +1523,6 @@
         {
           "id": "gen-3",
           "name": "Gen-3",
-          "featured": true,
           "type": "video",
           "releaseDate": "2024-10-30",
           "capabilities": {
@@ -1358,12 +1531,23 @@
             "creativity": 5
           },
           "specs": {
-            "inputFormats": ["text", "image", "video"],
-            "outputFormats": ["video"],
+            "inputFormats": [
+              "text",
+              "image",
+              "video"
+            ],
+            "outputFormats": [
+              "video"
+            ],
             "maxDuration": "30 seconds",
-            "techniques": ["text-to-video", "image-to-video", "video-to-video"],
+            "techniques": [
+              "text-to-video",
+              "image-to-video",
+              "video-to-video"
+            ],
             "commercialUseAllowed": true
-          }
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [
@@ -1444,7 +1628,6 @@
         {
           "id": "pika-1-0",
           "name": "Pika 1.0",
-          "featured": true,
           "type": "video",
           "releaseDate": "2024-11-25",
           "capabilities": {
@@ -1453,12 +1636,23 @@
             "creativity": 4
           },
           "specs": {
-            "inputFormats": ["text", "image", "video"],
-            "outputFormats": ["video"],
+            "inputFormats": [
+              "text",
+              "image",
+              "video"
+            ],
+            "outputFormats": [
+              "video"
+            ],
             "maxDuration": "15 seconds",
-            "techniques": ["text-to-video", "image-to-video", "video-editing"],
+            "techniques": [
+              "text-to-video",
+              "image-to-video",
+              "video-editing"
+            ],
             "commercialUseAllowed": true
-          }
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [
@@ -1529,7 +1723,6 @@
         {
           "id": "suno-v3",
           "name": "Suno v3",
-          "featured": true,
           "type": "music",
           "releaseDate": "2024-12-05",
           "capabilities": {
@@ -1538,13 +1731,29 @@
             "creativity": 5
           },
           "specs": {
-            "inputFormats": ["text"],
-            "outputFormats": ["audio"],
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "speech"
+            ],
             "maxDuration": "3 minutes",
-            "techniques": ["text-to-music", "lyrics-generation", "melody-generation"],
-            "genres": ["pop", "rock", "electronic", "classical", "jazz", "hip-hop"],
+            "techniques": [
+              "text-to-music",
+              "lyrics-generation",
+              "melody-generation"
+            ],
+            "genres": [
+              "pop",
+              "rock",
+              "electronic",
+              "classical",
+              "jazz",
+              "hip-hop"
+            ],
             "commercialUseAllowed": true
-          }
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [
@@ -1615,7 +1824,6 @@
         {
           "id": "udio-composer",
           "name": "Udio Composer",
-          "featured": true,
           "type": "music",
           "releaseDate": "2025-01-20",
           "capabilities": {
@@ -1624,13 +1832,26 @@
             "creativity": 5
           },
           "specs": {
-            "inputFormats": ["text", "midi", "audio"],
-            "outputFormats": ["audio"],
+            "inputFormats": [
+              "text",
+              "midi",
+              "speech"
+            ],
+            "outputFormats": [
+              "speech"
+            ],
             "maxDuration": "5 minutes",
-            "techniques": ["text-to-music", "audio-to-audio", "style-transfer"],
-            "genres": ["all major genres"],
+            "techniques": [
+              "text-to-music",
+              "audio-to-audio",
+              "style-transfer"
+            ],
+            "genres": [
+              "all major genres"
+            ],
             "commercialUseAllowed": true
-          }
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [
@@ -1701,7 +1922,6 @@
         {
           "id": "perplexity-online",
           "name": "Perplexity Online",
-          "featured": true,
           "type": "search",
           "releaseDate": "2024-09-15",
           "capabilities": {
@@ -1710,12 +1930,19 @@
             "accuracy": 4
           },
           "specs": {
-            "inputFormats": ["text", "url"],
-            "outputFormats": ["text", "citations"],
+            "inputFormats": [
+              "text",
+              "url"
+            ],
+            "outputFormats": [
+              "text",
+              "citations"
+            ],
             "realTimeData": true,
             "sourceAttribution": true,
             "dataRetrieval": "online search"
-          }
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [
@@ -1786,7 +2013,6 @@
         {
           "id": "character-engine",
           "name": "Character Engine",
-          "featured": true,
           "type": "conversation",
           "releaseDate": "2024-10-05",
           "capabilities": {
@@ -1795,12 +2021,17 @@
             "personality": 5
           },
           "specs": {
-            "inputFormats": ["text"],
-            "outputFormats": ["text"],
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
             "memoryCapacity": "extensive",
             "personalityCustomization": true,
             "voiceCapabilities": true
-          }
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [
@@ -1870,7 +2101,6 @@
         {
           "id": "overdub",
           "name": "Overdub",
-          "featured": true,
           "type": "audio",
           "releaseDate": "2024-08-15",
           "capabilities": {
@@ -1879,12 +2109,24 @@
             "naturalness": 5
           },
           "specs": {
-            "inputFormats": ["text", "audio"],
-            "outputFormats": ["audio"],
+            "inputFormats": [
+              "text",
+              "speech"
+            ],
+            "outputFormats": [
+              "speech"
+            ],
             "voiceCloning": true,
             "emotionControl": true,
-            "languageSupport": ["English", "Spanish", "French", "German", "Japanese"]
-          }
+            "languageSupport": [
+              "English",
+              "Spanish",
+              "French",
+              "German",
+              "Japanese"
+            ]
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [
@@ -1968,7 +2210,6 @@
         {
           "id": "copilot",
           "name": "GitHub Copilot",
-          "featured": true,
           "type": "code",
           "releaseDate": "2024-11-10",
           "capabilities": {
@@ -1977,12 +2218,28 @@
             "codeQuality": 4
           },
           "specs": {
-            "inputFormats": ["code", "text", "comments"],
-            "outputFormats": ["code", "documentation"],
-            "languageSupport": ["Most major programming languages"],
+            "inputFormats": [
+              "code",
+              "text",
+              "comments"
+            ],
+            "outputFormats": [
+              "code",
+              "documentation"
+            ],
+            "languageSupport": [
+              "Most major programming languages"
+            ],
             "contextAwareness": true,
-            "integrations": ["VS Code", "Visual Studio", "JetBrains IDEs", "Neovim", "GitHub.com"]
-          }
+            "integrations": [
+              "VS Code",
+              "Visual Studio",
+              "JetBrains IDEs",
+              "Neovim",
+              "GitHub.com"
+            ]
+          },
+          "status": "primary"
         }
       ],
       "subscriptions": [

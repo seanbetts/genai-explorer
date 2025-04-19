@@ -9,13 +9,23 @@ interface ModelTableProps {
 }
 
 const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
-  // Sort models by release date (newest first) and show up to 4 models
+  // Filter out archived models, then sort by status (primary first, then secondary) and then by release date (newest first)
+  // Show up to 4 models
   const displayModels = [...models]
+    .filter(model => model.status !== 'archived') // Filter out archived models
     .sort((a, b) => {
-      // Convert dates to timestamps for comparison
+      // First sort by status (primary before secondary)
+      const statusA = a.status || 'primary'; // Default to primary if not specified
+      const statusB = b.status || 'primary'; // Default to primary if not specified
+      
+      if (statusA !== statusB) {
+        // 'primary' should come before 'secondary'
+        return statusA === 'primary' ? -1 : 1;
+      }
+      
+      // Then sort by release date (newest first)
       const dateA = a.releaseDate ? new Date(a.releaseDate).getTime() : 0;
       const dateB = b.releaseDate ? new Date(b.releaseDate).getTime() : 0;
-      // Sort descending (newest first)
       return dateB - dateA;
     })
     .slice(0, 4);
@@ -214,9 +224,9 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               <div className={iconStyles.formatContainer}>
                 <i className={`bi bi-file-text-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("text") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Text"></i>
-                <i className={`bi bi-mic-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("audio") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Audio"></i>
+                <i className={`bi bi-mic-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("speech") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Speech"></i>
                 <i className={`bi bi-image-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("image") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Image"></i>
-                <i className={`bi bi-music-note-beamed ${iconStyles.lg} ${model.specs?.inputFormats?.includes("music") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Music"></i>
+                <i className={`bi bi-music-note-beamed ${iconStyles.lg} ${model.specs?.inputFormats?.includes("audio") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Audio"></i>
                 <i className={`bi bi-camera-video-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("video") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Video"></i>
               </div>
             </td>
@@ -236,9 +246,9 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               <div className={iconStyles.formatContainer}>
                 <i className={`bi bi-file-text-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("text") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Text"></i>
-                <i className={`bi bi-mic-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("audio") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Audio"></i>
+                <i className={`bi bi-mic-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("speech") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Speech"></i>
                 <i className={`bi bi-image-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("image") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Image"></i>
-                <i className={`bi bi-music-note-beamed ${iconStyles.lg} ${model.specs?.outputFormats?.includes("music") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Music"></i>
+                <i className={`bi bi-music-note-beamed ${iconStyles.lg} ${model.specs?.outputFormats?.includes("audio") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Audio"></i>
                 <i className={`bi bi-camera-video-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("video") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Video"></i>
               </div>
             </td>
@@ -364,7 +374,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     </>
   );
 
-  // Add custom CSS for table hover behavior with cyberpunk styling
+  // Add custom CSS for table hover behavior with cyberpunk styling and consistent column widths
   const tableHoverStyles = `
     /* Set consistent background for labels, headers, and legend */
     .sticky-label, thead th, .legend-container {
@@ -401,6 +411,27 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     .hover-highlight thead tr th {
       cursor: default;
     }
+    
+    /* Ensure consistent column widths across all tables */
+    .main-table th,
+    .secondary-table td {
+      width: calc(100% / var(--model-count, 5));
+    }
+    
+    /* First column (labels) should have fixed width */
+    .main-table th:first-child,
+    .secondary-table td:first-child {
+      width: 200px;
+    }
+    
+    /* Set CSS variable for model count */
+    .main-table {
+      --model-count: ${displayModels.length + 1};
+    }
+    
+    .secondary-table {
+      --model-count: ${displayModels.length + 1};
+    }
   `;
 
   // Check if we need to show each table section
@@ -410,7 +441,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
   // Section titles with consistent styling
   const sectionTitle = "text-lg font-semibold text-fuchsia-500 mt-6 mb-2 font-mono";
 
-  // Common table header component
+  // Table header component for the main table
   const TableHeader = () => (
     <thead>
       <tr className={tableStyles.header}>
@@ -440,7 +471,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
             </div>
             <div className={containerStyles.legendItem}>
               <i className={`bi bi-mic-fill ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.sm} ${textStyles.primary}`}>Audio</span>
+              <span className={`${textStyles.sm} ${textStyles.primary}`}>Speech</span>
             </div>
             <div className={containerStyles.legendItem}>
               <i className={`bi bi-image-fill ${iconStyles.activeFormat}`}></i>
@@ -448,7 +479,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
             </div>
             <div className={containerStyles.legendItem}>
               <i className={`bi bi-music-note-beamed ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.sm} ${textStyles.primary}`}>Music</span>
+              <span className={`${textStyles.sm} ${textStyles.primary}`}>Audio</span>
             </div>
             <div className={containerStyles.legendItem}>
               <i className={`bi bi-camera-video-fill ${iconStyles.activeFormat}`}></i>
@@ -461,7 +492,8 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Main Capabilities and Formats Table */}
       <div style={tableContainerStyle}>
         <div className={needsScrolling ? tableStyles.comparison : ""}>
-          <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight`}>
+          <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight main-table`}
+            data-model-count={displayModels.length}>
             <TableHeader />
             <tbody>
               {renderCapabilitiesRows()}
@@ -475,8 +507,8 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           <h3 className={sectionTitle}>Context & Limits</h3>
           <div style={tableContainerStyle}>
             <div className={needsScrolling ? tableStyles.comparison : ""}>
-              <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight`}>
-                <TableHeader />
+              <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight secondary-table`} 
+                data-model-count={displayModels.length}>
                 <tbody>
                   {renderContextRows()}
                 </tbody>
@@ -495,8 +527,8 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           </h3>
           <div style={tableContainerStyle}>
             <div className={needsScrolling ? tableStyles.comparison : ""}>
-              <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight`}>
-                <TableHeader />
+              <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight secondary-table`}
+                data-model-count={displayModels.length}>
                 <tbody>
                   {renderPricingRows()}
                 </tbody>
@@ -512,8 +544,8 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           <h3 className={sectionTitle}>Resources</h3>
           <div style={tableContainerStyle}>
             <div className={needsScrolling ? tableStyles.comparison : ""}>
-              <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight`}>
-                <TableHeader />
+              <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight secondary-table`}
+                data-model-count={displayModels.length}>
                 <tbody>
                   {/* Model Page Row */}
                   {displayModels.some(model => model.modelPage) && (

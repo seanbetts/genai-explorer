@@ -24,20 +24,20 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
     return () => clearTimeout(timer);
   }, []);
   
-  // Helper to filter companies with at least one featured model
-  const hasFeaturedModel = (company: Company): boolean => {
-    return company.models && company.models.some(model => model.featured);
+  // Helper to filter companies with at least one primary model
+  const hasPrimaryModel = (company: Company): boolean => {
+    return company.models && company.models.some(model => model.status === 'primary');
   };
 
-  // Group companies by category (only include those with featured models)
+  // Group companies by category (only include those with primary models)
   const categorizedCompanies: CategorizedCompanies = {
-    frontier: data.companies.filter(company => company.category === 'frontier' && hasFeaturedModel(company)),
-    open: data.companies.filter(company => company.category === 'open' && hasFeaturedModel(company)),
-    enterprise: data.companies.filter(company => company.category === 'enterprise' && hasFeaturedModel(company)),
-    image: data.companies.filter(company => company.category === 'image' && hasFeaturedModel(company)),
-    video: data.companies.filter(company => company.category === 'video' && hasFeaturedModel(company)),
-    music: data.companies.filter(company => company.category === 'music' && hasFeaturedModel(company)),
-    other: data.companies.filter(company => company.category === 'other' && hasFeaturedModel(company))
+    frontier: data.companies.filter(company => company.category === 'frontier' && hasPrimaryModel(company)),
+    open: data.companies.filter(company => company.category === 'open' && hasPrimaryModel(company)),
+    enterprise: data.companies.filter(company => company.category === 'enterprise' && hasPrimaryModel(company)),
+    image: data.companies.filter(company => company.category === 'image' && hasPrimaryModel(company)),
+    video: data.companies.filter(company => company.category === 'video' && hasPrimaryModel(company)),
+    music: data.companies.filter(company => company.category === 'music' && hasPrimaryModel(company)),
+    other: data.companies.filter(company => company.category === 'other' && hasPrimaryModel(company))
   };
 
   // Category labels with improved naming

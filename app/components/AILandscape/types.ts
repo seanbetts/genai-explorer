@@ -47,14 +47,17 @@ export interface Capabilities {
   codeQuality?: number;
 }
 
+export type ModelStatus = 'primary' | 'secondary' | 'archived';
+
 export interface Model {
   id: string;
   name: string;
-  featured?: boolean;
+  status?: ModelStatus;
   type?: string;
   releaseDate?: string;
   modelPage?: string;
   releasePost?: string;
+  releaseVideo?: string;
   systemCard?: string;
   capabilities?: Capabilities;
   specs?: Specs;
