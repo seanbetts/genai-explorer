@@ -67,7 +67,7 @@
           "releaseDate": "2025-02-27",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4.5-preview",
           "releasePost": "https://openai.com/index/introducing-gpt-4-5/",
-          "releaseVideo": "",
+          "releaseVideo": "https://www.youtube.com/live/cfRYp0nItZ8?si=2uzRe9gTCfklMw9u",
           "systemCard": "",
           "capabilities": {
             "intelligence": 4,
@@ -101,7 +101,7 @@
           "releaseDate": "2024-08-06",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4o",
           "releasePost": "https://openai.com/index/hello-gpt-4o/",
-          "releaseVideo": "",
+          "releaseVideo": "https://www.youtube.com/live/DQacCB9tDaw?si=ZEwN1_UQUIITKVg1",
           "systemCard": "https://openai.com/index/gpt-4o-system-card/",
           "capabilities": {
             "intelligence": 3,
@@ -136,7 +136,7 @@
           "releaseDate": "2024-08-06",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4o-mini",
           "releasePost": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
-          "releaseVideo": "",
+          "releaseVideo": "https://www.youtube.com/live/DQacCB9tDaw?si=ZEwN1_UQUIITKVg1",
           "systemCard": "https://openai.com/index/gpt-4o-system-card/",
           "capabilities": {
             "intelligence": 2,
@@ -170,7 +170,7 @@
           "releaseDate": "2024-12-17",
           "modelPage": "https://platform.openai.com/docs/models/o1",
           "releasePost": "https://openai.com/o1/",
-          "releaseVideo": "",
+          "releaseVideo": "https://youtu.be/iBfQTnA2n2s?si=AFRQmMzYfFHlHi9A",
           "systemCard": "https://openai.com/index/openai-o1-system-card/",
           "capabilities": {
             "intelligence": 4,
@@ -203,7 +203,7 @@
           "releaseDate": "2025-01-31",
           "modelPage": "https://platform.openai.com/docs/models/o3-mini",
           "releasePost": "https://openai.com/index/openai-o3-mini/",
-          "releaseVideo": "",
+          "releaseVideo": "https://www.youtube.com/live/SKBG1sqdyIU?si=osDmdNGr5xZfVXqq",
           "systemCard": "https://openai.com/index/o3-mini-system-card/",
           "capabilities": {
             "intelligence": 4,
@@ -236,7 +236,7 @@
           "releaseDate": "2025-04-14",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4.1",
           "releasePost": "https://openai.com/index/gpt-4-1/",
-          "releaseVideo": "",
+          "releaseVideo": "https://www.youtube.com/live/kA-P9ood-cE?si=n0p9vle2cjWooQtj",
           "systemCard": "",
           "capabilities": {
             "intelligence": 4,
@@ -268,7 +268,7 @@
           "releaseDate": "2025-04-14",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4.1-mini",
           "releasePost": "https://openai.com/index/gpt-4-1/",
-          "releaseVideo": "",
+          "releaseVideo": "https://www.youtube.com/live/kA-P9ood-cE?si=n0p9vle2cjWooQtj",
           "systemCard": "",
           "capabilities": {
             "intelligence": 3,
@@ -300,7 +300,7 @@
           "releaseDate": "2025-04-14",
           "modelPage": "https://platform.openai.com/docs/models/gpt-4.1-nano",
           "releasePost": "https://openai.com/index/gpt-4-1/",
-          "releaseVideo": "",
+          "releaseVideo": "https://www.youtube.com/live/kA-P9ood-cE?si=n0p9vle2cjWooQtj",
           "systemCard": "",
           "capabilities": {
             "intelligence": 2,

@@ -539,7 +539,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       )}
       
       {/* Resources Table - New table for external links */}
-      {displayModels.some(model => model.modelPage || model.releasePost || model.systemCard) && (
+      {displayModels.some(model => model.modelPage || model.releasePost || model.releaseVideo || model.systemCard) && (
         <div className="mt-6">
           <h3 className={sectionTitle}>Resources</h3>
           <div style={tableContainerStyle}>
@@ -547,34 +547,6 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight secondary-table`}
                 data-model-count={displayModels.length}>
                 <tbody>
-                  {/* Model Page Row */}
-                  {displayModels.some(model => model.modelPage) && (
-                    <tr className="cursor-pointer">
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-                        <div className={containerStyles.flexCenter}>
-                          <i className={`bi bi-globe2 ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Model Page</span>
-                        </div>
-                      </td>
-                      {displayModels.map(model => (
-                        <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-                          {model.modelPage ? (
-                            <a 
-                              href={model.modelPage} 
-                              target="_blank" 
-                              rel="noopener noreferrer" 
-                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                              title="Visit model page"
-                            >
-                              🔗 Link
-                            </a>
-                          ) : (
-                            <span className={textStyles.tertiary}>-</span>
-                          )}
-                        </td>
-                      ))}
-                    </tr>
-                  )}
-                  
                   {/* Release Post Row */}
                   {displayModels.some(model => model.releasePost) && (
                     <tr className="cursor-pointer">
@@ -592,6 +564,62 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                               rel="noopener noreferrer" 
                               className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
                               title="Read release post"
+                            >
+                              🔗 Link
+                            </a>
+                          ) : (
+                            <span className={textStyles.tertiary}>-</span>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  )}
+                  
+                  {/* Release Video Row */}
+                  {displayModels.some(model => model.releaseVideo) && (
+                    <tr className="cursor-pointer">
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                        <div className={containerStyles.flexCenter}>
+                          <i className={`bi bi-play-btn ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Video</span>
+                        </div>
+                      </td>
+                      {displayModels.map(model => (
+                        <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                          {model.releaseVideo ? (
+                            <a 
+                              href={model.releaseVideo} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                              title="Watch release video"
+                            >
+                              🔗 Link
+                            </a>
+                          ) : (
+                            <span className={textStyles.tertiary}>-</span>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  )}
+                  
+                  {/* Model Page Row */}
+                  {displayModels.some(model => model.modelPage) && (
+                    <tr className="cursor-pointer">
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                        <div className={containerStyles.flexCenter}>
+                          <i className={`bi bi-globe2 ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Model Page</span>
+                        </div>
+                      </td>
+                      {displayModels.map(model => (
+                        <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                          {model.modelPage ? (
+                            <a 
+                              href={model.modelPage} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                              title="Visit model page"
                             >
                               🔗 Link
                             </a>
