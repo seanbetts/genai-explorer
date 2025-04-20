@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Company, ExpandedSections } from '../types';
+import { Company } from '../types';
 import ModelTable from './ModelTable';
 import ProductGrid from './ProductGrid';
 import FeatureGrid from './FeatureGrid';
@@ -12,18 +12,15 @@ import { getModelTabName } from '../utils/modelUtils';
 
 interface CompanyDetailProps {
   company: Company;
-  expandedSections: ExpandedSections;
   onBack: () => void;
-  // onToggleSection no longer needed as sections are not collapsible
 }
 
 // Define tab types for the tabbed interface
 type TabType = 'models' | 'products' | 'features' | 'subscriptions';
 
-const CompanyDetail: React.FC<CompanyDetailProps> = ({ 
-  company, 
-  expandedSections, 
-  onBack
+const CompanyDetail: React.FC<CompanyDetailProps> = ({
+  company,
+  onBack,
 }) => {
   // Animation related hooks
   const [isVisible, setIsVisible] = React.useState(false);

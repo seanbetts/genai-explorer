@@ -101,11 +101,6 @@ export interface LandscapeData {
   companies: Company[];
 }
 
-export type ExpandedSections = {
-  models: boolean;
-  features: boolean;
-  subscriptions: boolean;
-};
 
 export interface CategoryStyle {
   bgClass: string;

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { LandscapeData, Company, ExpandedSections } from './types';
+import { LandscapeData, Company } from './types';
 import LandscapeView from './LandscapeView';
 import CompanyDetail from './CompanyDetail';
 import { textStyles, containerStyles } from './utils/styles';
@@ -14,11 +14,6 @@ const AILandscape: React.FC<AILandscapeProps> = ({ initialData }) => {
   const data: LandscapeData = initialData;
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [currentView, setCurrentView] = useState<'home' | 'company'>('home');
-  const [expandedSections, setExpandedSections] = useState<ExpandedSections>({
-    models: true,
-    features: true,
-    subscriptions: true
-  });
   
   // Handle company selection
   const handleCompanySelect = (companyId: string): void => {
@@ -37,13 +32,6 @@ const AILandscape: React.FC<AILandscapeProps> = ({ initialData }) => {
     }
   };
   
-  // Toggle section expansion
-  const toggleSection = (section: keyof ExpandedSections): void => {
-    setExpandedSections(prev => ({
-      ...prev,
-      [section]: !prev[section]
-    }));
-  };
   
   return (
     <div className={containerStyles.appContainer}>
@@ -104,12 +92,9 @@ const AILandscape: React.FC<AILandscapeProps> = ({ initialData }) => {
         )}
         
         {currentView === 'company' && selectedCompany && (
-          <CompanyDetail 
-            company={selectedCompany} 
-            expandedSections={expandedSections} 
+          <CompanyDetail
+            company={selectedCompany}
             onBack={handleBack}
-            // onToggleSection no longer needed
-            // onToggleSection={toggleSection}
           />
         )}
       </main>
