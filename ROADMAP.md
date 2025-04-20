@@ -14,11 +14,11 @@
  ## Phase 2: Data Fetching & State Lift
  **Goal:** Move JSON load off the client, prepare for live API
  **Tasks:**
- - Import `landscape.json` directly in `app/page.tsx` (a server component by default) and cast it to `LandscapeData`.
- - Pass the imported data as an `initialData` prop to `<AILandscape initialData={data} />` in `app/page.tsx`.
- - Remove the JSON import and initial `useState(landscapeData…)` from the client component (`AILandscape`).
- - Keep all interactivity client‑side under the existing `'use client'` directive in `AILandscape`.
- - (Optional) Encapsulate data retrieval in a `useLandscapeData()` hook stub for future API integration.
+ - [x] Import `landscape.json` directly in `app/page.tsx` (a server component by default) and cast it to `LandscapeData`.
+ - [x] Pass the imported data as an `initialData` prop to `<AILandscape initialData={data} />` in `app/page.tsx`.
+ - [x] Remove the JSON import and initial `useState(landscapeData…)` from the client component (`AILandscape`).
+ - [x] Keep all interactivity client‑side under the existing `'use client'` directive in `AILandscape`.
+ - [ ] (Optional) Encapsulate data retrieval in a `useLandscapeData()` hook stub for future API integration.
 
  ## Phase 3: Dead‑Code Removal & Type Safety
  **Goal:** Clean up unused state and strengthen types
