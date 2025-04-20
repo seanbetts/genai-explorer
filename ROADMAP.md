@@ -26,7 +26,7 @@
  - [x] Remove `expandedSections`, `toggleSection`, and related types (sections no longer collapsible).
  - [x] In `CategorySection`, accept a `CompanyCategory` enum instead of inferring from `title`.
  - [x] Remove string‑parsing logic for media categories; drive layout from a `category` prop.
- - [ ] Tighten component prop types and add defaults where needed.
+ - [x] Tighten component prop types and add defaults where needed.
 
  ## Phase 4: Code Organization & DRY
  **Goal:** Collapse repetitive JSX and centralize configurations
