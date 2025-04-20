@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef, useEffect } from 'react';
 import { Subscription } from '../types';
 import { textStyles } from '../utils/theme';
 import { containerStyles } from '../utils/layout';
@@ -13,19 +13,38 @@ const SubscriptionGrid: React.FC<SubscriptionGridProps> = ({ subscriptions }) =>
   // No need to calculate max features for height, as CSS Grid auto-rows-fr handles this now
 
 
+  const gridRef = useRef<HTMLDivElement>(null);
+  // Equalize subscription card heights for consistency
+  useEffect(() => {
+    const container = gridRef.current;
+    if (!container) return;
+    const cards = Array.from(
+      container.querySelectorAll('.subscription-card')
+    ) as HTMLElement[];
+    if (cards.length === 0) return;
+    const adjustHeights = () => {
+      cards.forEach(card => { card.style.height = 'auto'; });
+      const maxH = cards.reduce(
+        (max, card) => Math.max(max, card.getBoundingClientRect().height),
+        0
+      );
+      cards.forEach(card => { card.style.height = `${maxH}px`; });
+    };
+    adjustHeights();
+    window.addEventListener('resize', adjustHeights);
+    return () => { window.removeEventListener('resize', adjustHeights); };
+  }, [subscriptions]);
+
   return (
     <div className="w-full flex justify-center">
-      <div className="flex flex-wrap justify-center gap-6">
-      {subscriptions.map(subscription => {
-        // No need to add empty features for height matching, as CSS Grid auto-rows-fr handles this now
-        
-        return (
-          <a 
+      <div ref={gridRef} className="flex flex-wrap justify-center gap-6">
+      {subscriptions.map(subscription => (
+        <div key={subscription.tier} className="flex-shrink-0 mb-6">
+          <a
             href={subscription.url || '#'}
             target="_blank"
             rel="noopener noreferrer"
-            key={subscription.tier}
-            className={`${containerStyles.subscriptionCard} group h-full`}
+            className={`${containerStyles.subscriptionCard} group subscription-card`}
           >
             <div className={containerStyles.subscriptionHeader}>
               <div className="flex justify-between items-center">
@@ -61,8 +80,8 @@ const SubscriptionGrid: React.FC<SubscriptionGridProps> = ({ subscriptions }) =>
               </div>
             </div>
           </a>
-        );
-      })}
+        </div>
+      ))}
     </div>
     </div>
   );
