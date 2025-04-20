@@ -11,7 +11,6 @@ interface ModelTableProps {
 
 const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
   // Filter out archived models, then sort by status (primary first, then secondary) and then by release date (newest first)
-  // Show up to 4 models
   const displayModels = [...models]
     .filter(model => model.status !== 'archived') // Filter out archived models
     .sort((a, b) => {
@@ -28,10 +27,22 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       const dateA = a.releaseDate ? new Date(a.releaseDate).getTime() : 0;
       const dateB = b.releaseDate ? new Date(b.releaseDate).getTime() : 0;
       return dateB - dateA;
-    })
-    .slice(0, 4);
+    });
+    
+  // State for the current page of models to display
+  const [currentPage, setCurrentPage] = React.useState(0);
+  const modelsPerPage = 4;
   
-  // Helper to check if any model has a specific capability or spec
+  // Calculate total number of pages
+  const totalPages = Math.ceil(displayModels.length / modelsPerPage);
+  
+  // Get models for the current page
+  const currentModels = displayModels.slice(
+    currentPage * modelsPerPage, 
+    (currentPage + 1) * modelsPerPage
+  );
+  
+  // Helper to check if any model has a specific capability or spec - checking all models, not just current page
   const hasAnyModelCapability = (key: string): boolean => {
     return displayModels.some(model => 
       model.capabilities && key in model.capabilities && model.capabilities[key as keyof typeof model.capabilities]
@@ -92,25 +103,36 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     );
   };
   
-  // Calculate table width as a percentage based on number of columns (20% per column)
-  const totalColumns = 1 + displayModels.length; // Label column + model columns
-  const tableWidthPercent = Math.min(totalColumns * 20, 100); // 20% per column, max 100%
+  // Define a shared ref to control scroll position of all tables
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
   
-  // Determine if we need horizontal scrolling (when more than 5 columns)
-  const needsScrolling = totalColumns > 5;
+  // Function to handle scrolling all tables together
+  const handleTableScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const scrollLeft = e.currentTarget.scrollLeft;
+    
+    // Apply the same scrollLeft to all tables with the scrollContainerRef class
+    document.querySelectorAll('.table-scroll-container').forEach((container) => {
+      if (container !== e.currentTarget && container instanceof HTMLElement) {
+        container.scrollLeft = scrollLeft;
+      }
+    });
+  };
   
-  // Table container styling
-  const tableContainerStyle = {
-    width: `${tableWidthPercent}%`,
-    margin: tableWidthPercent < 100 ? '0 auto' : '0', // Center if less than 100% width
-    overflowX: needsScrolling ? 'auto' : 'visible' as const
-  } as React.CSSProperties;
-
-  // Column width styles for table headers and cells
-  const colStyle = {
-    width: '20%',
-    minWidth: '200px'
-  } as React.CSSProperties;
+  // Function to handle navigation
+  const handleNextPage = () => {
+    if (currentPage < totalPages - 1) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+  
+  const handlePrevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+  
+  // Check if we need navigation controls
+  const showNavigation = displayModels.length > modelsPerPage;
 
   // Generate main table rows - Capabilities and Formats
   const renderCapabilitiesRows = () => (
@@ -122,7 +144,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
             <i className={`bi bi-calendar-date ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Date</span>
           </div>
         </td>
-        {displayModels.map(model => (
+        {currentModels.map(model => (
           <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
             {model.releaseDate ? (
               new Date(model.releaseDate).toLocaleDateString('en-GB', {
@@ -142,7 +164,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
             <i className={`bi bi-box ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Type</span>
           </div>
         </td>
-        {displayModels.map(model => (
+        {currentModels.map(model => (
           <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
             <span className={`capitalize ${textStyles.primary}`}>{model.type || "-"}</span>
           </td>
@@ -157,7 +179,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               <i className={`bi bi-circle-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Intelligence</span>
             </div>
           </td>
-          {displayModels.map(model => (
+          {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {renderRating(model, "intelligence")}
             </td>
@@ -173,7 +195,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               <i className={`bi bi-lightning-charge-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Speed</span>
             </div>
           </td>
-          {displayModels.map(model => (
+          {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {renderRating(model, "speed")}
             </td>
@@ -189,7 +211,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               <i className={`bi bi-lightbulb-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Reasoning</span>
             </div>
           </td>
-          {displayModels.map(model => (
+          {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {renderRating(model, "reasoning")}
             </td>
@@ -205,7 +227,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               <i className={`bi bi-lightbulb ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Reasoning Tokens</span>
             </div>
           </td>
-          {displayModels.map(model => (
+          {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.reasoningTokens !== undefined ? (
                 model.specs.reasoningTokens ? 
@@ -225,7 +247,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               <i className={`bi bi-arrow-up-right-square-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Input Formats</span>
             </div>
           </td>
-          {displayModels.map(model => (
+          {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               <div className={iconStyles.formatContainer}>
                 <i className={`bi bi-file-text-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("text") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Text"></i>
@@ -247,7 +269,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               <i className={`bi bi-arrow-down-right-square-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Output Formats</span>
             </div>
           </td>
-          {displayModels.map(model => (
+          {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               <div className={iconStyles.formatContainer}>
                 <i className={`bi bi-file-text-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("text") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Text"></i>
@@ -274,7 +296,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               <i className={`bi bi-sign-turn-right-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Max Input</span>
             </div>
           </td>
-          {displayModels.map(model => (
+          {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.maxInputTokens ? (
                 <span className={textStyles.primary}>{model.specs.maxInputTokens.toLocaleString()} tokens</span>
@@ -292,7 +314,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               <i className={`bi bi-sign-turn-left-fill ${iconStyles.tableRowIcon} transform rotate-180`}></i> <span className={textStyles.primary}>Max Output</span>
             </div>
           </td>
-          {displayModels.map(model => (
+          {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.maxOutputTokens ? (
                 <span className={textStyles.primary}>{model.specs.maxOutputTokens.toLocaleString()} tokens</span>
@@ -310,7 +332,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               <i className={`bi bi-calendar-check-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Knowledge Cutoff</span>
             </div>
           </td>
-          {displayModels.map(model => (
+          {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               <span className={textStyles.primary}>{model.specs?.knowledgeCutoff || "-"}</span>
             </td>
@@ -331,7 +353,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               <i className={`bi bi-currency-dollar ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Input</span>
             </div>
           </td>
-          {displayModels.map(model => (
+          {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.pricingInputPerM !== undefined && model.specs?.pricingInputPerM !== null ? (
                 <span className={shouldShowTogetherPricing(model) ? 'text-cyan-400 font-medium tabular-nums font-mono' : tableStyles.metric}>
@@ -351,7 +373,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               <i className={`bi bi-clock-history ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Cached Input</span>
             </div>
           </td>
-          {displayModels.map(model => (
+          {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.pricingCachedInputPerM !== undefined && model.specs?.pricingCachedInputPerM !== null ? (
                 <span className={shouldShowTogetherPricing(model) ? 'text-cyan-400 font-medium tabular-nums font-mono' : tableStyles.metric}>
@@ -371,7 +393,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               <i className={`bi bi-cash-stack ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Output</span>
             </div>
           </td>
-          {displayModels.map(model => (
+          {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.pricingOutputPerM !== undefined && model.specs?.pricingOutputPerM !== null ? (
                 <span className={shouldShowTogetherPricing(model) ? 'text-cyan-400 font-medium tabular-nums font-mono' : tableStyles.metric}>
@@ -387,9 +409,56 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
 
   // Add custom CSS for table hover behavior with cyberpunk styling and consistent column widths
   const tableHoverStyles = `
+    /* Table layout and scrolling */
+    .table-scroll-container {
+      overflow-x: auto;
+      position: relative;
+      scrollbar-width: thin;
+      border-radius: 0.5rem;
+      border: 1px solid #4a5568;
+      margin-bottom: 0.5rem;
+    }
+    
+    .table-wrapper {
+      position: relative;
+      width: 100%;
+    }
+    
+    .model-table {
+      table-layout: fixed;
+      border-collapse: separate;
+      border-spacing: 0;
+      width: 100%;
+    }
+    
     /* Set consistent background for labels, headers, and legend */
     .sticky-label, thead th, .legend-container {
       background-color: #2d3748; /* Dark blue-gray for labels and headers */
+    }
+    
+    /* Make first column sticky */
+    .sticky-label {
+      position: sticky;
+      left: 0;
+      z-index: 10;
+      width: 250px;
+      background-color: #2d3748;
+      box-shadow: 4px 0 4px -2px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Make header sticky */
+    .table-header-cell {
+      position: sticky;
+      top: 0;
+      z-index: 9;
+    }
+    
+    /* Sticky header corner cell (top left) */
+    .sticky-header-corner {
+      position: sticky;
+      left: 0;
+      z-index: 11;
+      background-color: #2d3748;
     }
     
     /* Reset any default hover behaviors */
@@ -423,25 +492,52 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       cursor: default;
     }
     
-    /* Ensure consistent column widths across all tables */
-    .main-table th,
-    .secondary-table td {
-      width: calc(100% / var(--model-count, 5));
+    /* Header area with legend and pagination */
+    .header-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+      width: 100%;
+      position: relative;
     }
     
-    /* First column (labels) should have fixed width */
-    .main-table th:first-child,
-    .secondary-table td:first-child {
-      width: 200px;
+    /* Pagination controls */
+    .pagination-controls {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.25rem;
     }
     
-    /* Set CSS variable for model count */
-    .main-table {
-      --model-count: ${displayModels.length + 1};
+    .pagination-button {
+      background-color: #2d3748;
+      color: white;
+      border: 1px solid #4a5568;
+      border-radius: 0.375rem;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
     }
     
-    .secondary-table {
-      --model-count: ${displayModels.length + 1};
+    .pagination-button:hover:not(:disabled) {
+      border-color: #f0abfc; /* fuchsia-400 */
+      background-color: #374151;
+    }
+    
+    .pagination-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .pagination-info {
+      color: #a0aec0; /* gray-400 */
+      font-size: 0.75rem;
+      margin: 0 0.25rem;
     }
   `;
 
@@ -456,11 +552,11 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
   const TableHeader = () => (
     <thead>
       <tr className={tableStyles.header}>
-        <th className={`${tableStyles.headerCell} ${tableStyles.headerFixed}`} 
-           style={colStyle}></th>
-        {displayModels.map(model => (
-          <th key={model.id} className={tableStyles.headerCellCenter} 
-             style={colStyle}>
+        <th className={`${tableStyles.headerCell} ${tableStyles.headerFixed} sticky-header-corner`} 
+           style={{width: '250px', minWidth: '250px'}}>
+        </th>
+        {currentModels.map(model => (
+          <th key={model.id} className={`${tableStyles.headerCellCenter} table-header-cell`}>
             <div className={tableStyles.modelName}>{model.name}</div>
           </th>
         ))}
@@ -468,58 +564,104 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     </thead>
   );
   
+  // Pagination controls
+  const PaginationControls = () => {
+    if (!showNavigation) return null;
+    
+    return (
+      <div className="pagination-controls">
+        <button 
+          className="pagination-button"
+          onClick={handlePrevPage}
+          disabled={currentPage === 0}
+          aria-label="Previous page"
+        >
+          <i className="bi bi-chevron-left"></i>
+        </button>
+        <span className="pagination-info">
+          {currentPage + 1} / {totalPages}
+        </span>
+        <button 
+          className="pagination-button"
+          onClick={handleNextPage} 
+          disabled={currentPage >= totalPages - 1}
+          aria-label="Next page"
+        >
+          <i className="bi bi-chevron-right"></i>
+        </button>
+      </div>
+    );
+  };
+  
   return (
     <div className={`${containerStyles.flexCol} transform transition-all duration-300`}>
       <style>{tableHoverStyles}</style>
 
-      {/* Format Icons Legend - Moved above first table with reduced top spacing */}
-      <div className={`${containerStyles.legend} transform transition-all duration-500 mb-3`}>
-        <div className={`${containerStyles.legendBox} hover:shadow-md transition-all duration-300 hover:border-fuchsia-700 legend-container`}>
-          <div className={containerStyles.legendItems}>
-            <div className={containerStyles.legendItem}>
-              <i className={`bi bi-file-text-fill ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.sm} ${textStyles.primary}`}>Text</span>
-            </div>
-            <div className={containerStyles.legendItem}>
-              <i className={`bi bi-mic-fill ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.sm} ${textStyles.primary}`}>Speech</span>
-            </div>
-            <div className={containerStyles.legendItem}>
-              <i className={`bi bi-image-fill ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.sm} ${textStyles.primary}`}>Image</span>
-            </div>
-            <div className={containerStyles.legendItem}>
-              <i className={`bi bi-music-note-beamed ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.sm} ${textStyles.primary}`}>Audio</span>
-            </div>
-            <div className={containerStyles.legendItem}>
-              <i className={`bi bi-camera-video-fill ${iconStyles.activeFormat}`}></i>
-              <span className={`${textStyles.sm} ${textStyles.primary}`}>Video</span>
+      <div className="header-area">
+        {/* Format Icons Legend (centered) */}
+        <div className={`${containerStyles.legend} transform transition-all duration-500 mb-3`}>
+          <div className={`${containerStyles.legendBox} hover:shadow-md transition-all duration-300 hover:border-fuchsia-700 legend-container`}>
+            <div className={containerStyles.legendItems}>
+              <div className={containerStyles.legendItem}>
+                <i className={`bi bi-file-text-fill ${iconStyles.activeFormat}`}></i>
+                <span className={`${textStyles.sm} ${textStyles.primary}`}>Text</span>
+              </div>
+              <div className={containerStyles.legendItem}>
+                <i className={`bi bi-mic-fill ${iconStyles.activeFormat}`}></i>
+                <span className={`${textStyles.sm} ${textStyles.primary}`}>Speech</span>
+              </div>
+              <div className={containerStyles.legendItem}>
+                <i className={`bi bi-image-fill ${iconStyles.activeFormat}`}></i>
+                <span className={`${textStyles.sm} ${textStyles.primary}`}>Image</span>
+              </div>
+              <div className={containerStyles.legendItem}>
+                <i className={`bi bi-music-note-beamed ${iconStyles.activeFormat}`}></i>
+                <span className={`${textStyles.sm} ${textStyles.primary}`}>Audio</span>
+              </div>
+              <div className={containerStyles.legendItem}>
+                <i className={`bi bi-camera-video-fill ${iconStyles.activeFormat}`}></i>
+                <span className={`${textStyles.sm} ${textStyles.primary}`}>Video</span>
+              </div>
             </div>
           </div>
         </div>
+        
+        {/* Pagination controls (positioned to the right and vertically centered) */}
+        {showNavigation && (
+          <div className="absolute top-1/2 right-8 -translate-y-1/2">
+            <PaginationControls />
+          </div>
+        )}
       </div>
       
       {/* Main Capabilities and Formats Table */}
-      <div style={tableContainerStyle}>
-        <div className={needsScrolling ? tableStyles.comparison : ""}>
-          <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight main-table`}
-            data-model-count={displayModels.length}>
-            <TableHeader />
-            <tbody>
-              {renderCapabilitiesRows()}
-            </tbody>
-          </table>
+      <div className="mb-6">
+        <div className="table-wrapper">
+          <div 
+            className="table-scroll-container" 
+            ref={scrollContainerRef}
+            onScroll={handleTableScroll}
+          >
+            <table className="model-table hover:shadow-md transition-all duration-300 hover-highlight">
+              <TableHeader />
+              <tbody>
+                {renderCapabilitiesRows()}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
+
       {/* Context Table (Max Input/Output and Knowledge Cutoff) */}
       {hasContextData && (
-        <div className="mt-6">
-          <div style={tableContainerStyle}>
-            <h3 className={sectionTitle}>Context & Limits</h3>
-            <div className={needsScrolling ? tableStyles.comparison : ""}>
-              <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight secondary-table`} 
-                data-model-count={displayModels.length}>
+        <div className="mb-6">
+          <h3 className={sectionTitle}>Context & Limits</h3>
+          <div className="table-wrapper">
+            <div 
+              className="table-scroll-container" 
+              onScroll={handleTableScroll}
+            >
+              <table className="model-table hover:shadow-md transition-all duration-300 hover-highlight">
                 <tbody>
                   {renderContextRows()}
                 </tbody>
@@ -531,22 +673,24 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
 
       {/* Pricing Table */}
       {hasPricingData && (
-        <div className="mt-6">
-          <div style={tableContainerStyle}>
-            <h3 className={sectionTitle}>
-              Pricing
-              <span className="text-xs text-gray-400 ml-2 font-normal">
-                (per 1M tokens direct or on <a 
-                  href="https://www.together.ai/pricing#inference"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
-                >Together.ai</a>)
-              </span>
-            </h3>
-            <div className={needsScrolling ? tableStyles.comparison : ""}>
-              <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight secondary-table`}
-                data-model-count={displayModels.length}>
+        <div className="mb-6">
+          <h3 className={sectionTitle}>
+            Pricing
+            <span className="text-xs text-gray-400 ml-2 font-normal">
+              (per 1M tokens direct or on <a 
+                href="https://www.together.ai/pricing#inference"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
+              >Together.ai</a>)
+            </span>
+          </h3>
+          <div className="table-wrapper">
+            <div 
+              className="table-scroll-container" 
+              onScroll={handleTableScroll}
+            >
+              <table className="model-table hover:shadow-md transition-all duration-300 hover-highlight">
                 <tbody>
                   {renderPricingRows()}
                 </tbody>
@@ -558,12 +702,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       
       {/* Resources Table - New table for external links */}
       {displayModels.some(model => model.modelPage || model.releasePost || model.releaseVideo || model.systemCard || model.licenceType || model.huggingFace) && (
-        <div className="mt-6">
-          <div style={tableContainerStyle}>
-            <h3 className={sectionTitle}>Resources</h3>
-            <div className={needsScrolling ? tableStyles.comparison : ""}>
-              <table className={`${tableStyles.table} hover:shadow-md transition-all duration-300 hover-highlight secondary-table`}
-                data-model-count={displayModels.length}>
+        <div className="mb-6">
+          <h3 className={sectionTitle}>Resources</h3>
+          <div className="table-wrapper">
+            <div 
+              className="table-scroll-container" 
+              onScroll={handleTableScroll}
+            >
+              <table className="model-table hover:shadow-md transition-all duration-300 hover-highlight">
                 <tbody>
                   {/* Release Post Row */}
                   {displayModels.some(model => model.releasePost) && (
@@ -573,7 +719,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                           <i className={`bi bi-newspaper ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Post</span>
                         </div>
                       </td>
-                      {displayModels.map(model => (
+                      {currentModels.map(model => (
                         <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
                           {model.releasePost ? (
                             <a 
@@ -601,7 +747,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                           <i className={`bi bi-play-btn ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Video</span>
                         </div>
                       </td>
-                      {displayModels.map(model => (
+                      {currentModels.map(model => (
                         <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
                           {model.releaseVideo ? (
                             <a 
@@ -629,7 +775,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                           <i className={`bi bi-globe2 ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Model Page</span>
                         </div>
                       </td>
-                      {displayModels.map(model => (
+                      {currentModels.map(model => (
                         <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
                           {model.modelPage ? (
                             <a 
@@ -657,7 +803,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                           <i className={`bi bi-file-earmark-text ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>System Card</span>
                         </div>
                       </td>
-                      {displayModels.map(model => (
+                      {currentModels.map(model => (
                         <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
                           {model.systemCard ? (
                             <a 
@@ -685,7 +831,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                           <i className={`bi bi-shield-check ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Licence</span>
                         </div>
                       </td>
-                      {displayModels.map(model => (
+                      {currentModels.map(model => (
                         <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
                           {model.licenceType ? (
                             <div className="flex items-center justify-center">
@@ -721,7 +867,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                           <span className={iconStyles.tableRowIcon}>🤗</span> <span className={textStyles.primary}>Hugging Face</span>
                         </div>
                       </td>
-                      {displayModels.map(model => (
+                      {currentModels.map(model => (
                         <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
                           {model.huggingFace ? (
                             <a 
@@ -746,7 +892,6 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           </div>
         </div>
       )}
-      
     </div>
   );
 };

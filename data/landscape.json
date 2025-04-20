@@ -101,7 +101,7 @@
         },
         {
           "id": "o4-mini",
-          "name": "o4 Mini",
+          "name": "o4-mini",
           "status": "primary",
           "type": "Large Reasoning Model",
           "category": "frontier",
