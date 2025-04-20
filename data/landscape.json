@@ -2210,7 +2210,7 @@
       "logo": "/images/companies/deepseek/logo.png",
       "website": "https://www.deepseek.com",
       "description": "Open-weight models with strong performance",
-      "lastUpdated": "2025-04-03",
+      "lastUpdated": "2025-04-20",
       "features": [],
       "models": [
         {
@@ -2219,18 +2219,18 @@
           "status": "primary",
           "type": "Large Language Model",
           "category": "open",
-          "releaseDate": "",
-          "modelPage": "",
-          "releasePost": "",
+          "releaseDate": "2024-12-26",
+          "modelPage": "https://github.com/deepseek-ai/DeepSeek-V3",
+          "releasePost": "https://api-docs.deepseek.com/news/news1226",
           "releaseVideo": "",
           "systemCard": "",
-          "licenceType": "",
-          "licenceLink": "",
-          "huggingFace": "",
+          "licenceType": "MIT",
+          "licenceLink": "https://github.com/deepseek-ai/DeepSeek-V3/blob/main/LICENSE-MODEL",
+          "huggingFace": "https://huggingface.co/deepseek-ai/DeepSeek-V3",
           "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
-            "reasoning": 1
+            "intelligence": 3,
+            "speed": 3,
+            "reasoning": 2
           },
           "specs": {
             "reasoningTokens": false,
@@ -2240,49 +2240,64 @@
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 8000,
+            "knowledgeCutoff": "July 2024",
+            "pricingInputPerM": 0.27,
+            "pricingCachedInputPerM": 0.07,
+            "pricingOutputPerM": 1.1
           }
         },
         {
           "id": "r1",
           "name": "R1",
           "status": "primary",
-          "type": "Large Language Model",
+          "type": "Large Reasoning Model",
           "category": "open",
-          "releaseDate": "",
-          "modelPage": "",
-          "releasePost": "",
+          "releaseDate": "2025-01-20",
+          "modelPage": "https://github.com/deepseek-ai/DeepSeek-R1",
+          "releasePost": "https://api-docs.deepseek.com/news/news250120",
           "releaseVideo": "",
           "systemCard": "",
-          "licenceType": "",
-          "licenceLink": "",
-          "huggingFace": "",
+          "licenceType": "MIT",
+          "licenceLink": "https://github.com/deepseek-ai/DeepSeek-R1/blob/main/LICENSE",
+          "huggingFace": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
           "capabilities": {
-            "intelligence": 1,
+            "intelligence": 4,
             "speed": 1,
-            "reasoning": 1
+            "reasoning": 4
           },
           "specs": {
-            "reasoningTokens": false,
+            "reasoningTokens": true,
             "inputFormats": [
               "text"
             ],
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 8000,
+            "knowledgeCutoff": "July 2024",
+            "pricingInputPerM": 0.55,
+            "pricingCachedInputPerM": 0.14,
+            "pricingOutputPerM": 2.19
           }
         }
       ],
-      "products": [],
+      "products": [
+        {
+          "name": "Chat",
+          "description": "An intelligent assistant for coding, content creation, file reading, and more.",
+          "image": "/images/companies/deepseek/products/chat.png",
+          "url": "https://chat.deepseek.com/"
+        },
+        {
+          "name": "Platform",
+          "description": "For accessing their AI models, developer resources and API documentation.",
+          "image": "/images/companies/deepseek/products/platform.png",
+          "url": "https://platform.deepseek.com/"
+        }
+      ],
       "subscriptions": []
     },
     {
@@ -2291,7 +2306,7 @@
       "logo": "/images/companies/microsoft/logo.png",
       "website": "https://microsoft.com",
       "description": "Enterprise AI and productivity solutions",
-      "lastUpdated": "2025-03-28",
+      "lastUpdated": "2025-04-20",
       "features": [],
       "models": [
         {
@@ -2300,40 +2315,29 @@
           "status": "primary",
           "type": "productivity",
           "category": "enterprise",
-          "releaseDate": "2024-10-25",
+          "releaseDate": "",
           "modelPage": "",
           "releasePost": "",
           "releaseVideo": "",
           "systemCard": "",
           "capabilities": {
-            "intelligence": 0,
-            "speed": 0,
-            "reasoning": 0
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
           },
           "specs": {
-            "reasoningTokens": true,
+            "reasoningTokens": false,
             "inputFormats": [
-              "text",
-              "image",
-              "data"
+              "text"
             ],
             "outputFormats": [
-              "text",
-              "data"
+              "text"
             ],
             "maxInputTokens": null,
             "maxOutputTokens": null,
             "knowledgeCutoff": "",
             "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null,
-            "integrated": [
-              "Office",
-              "Windows",
-              "Teams",
-              "Dynamics",
-              "GitHub"
-            ]
+            "pricingOutputPerM": null
           }
         }
       ],
@@ -2346,7 +2350,7 @@
       "logo": "/images/companies/cohere/logo.png",
       "website": "https://cohere.com",
       "description": "Enterprise-focused AI solutions",
-      "lastUpdated": "2025-03-25",
+      "lastUpdated": "2025-04-20",
       "features": [],
       "models": [
         {
@@ -2355,27 +2359,27 @@
           "status": "primary",
           "type": "text",
           "category": "enterprise",
-          "releaseDate": "2024-09-28",
+          "releaseDate": "",
           "modelPage": "",
           "releasePost": "",
           "releaseVideo": "",
           "systemCard": "",
           "capabilities": {
-            "intelligence": 4,
-            "speed": 4,
-            "reasoning": 4
+            "intelligence": 1,
+            "speed": 1,
+            "reasoning": 1
           },
           "specs": {
-            "reasoningTokens": true,
+            "reasoningTokens": false,
             "inputFormats": [
               "text"
             ],
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": 128000,
-            "maxOutputTokens": 16000,
-            "knowledgeCutoff": "June 2023",
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
             "pricingInputPerM": null,
             "pricingCachedInputPerM": null,
             "pricingOutputPerM": null
