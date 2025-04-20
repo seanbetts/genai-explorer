@@ -31,10 +31,10 @@
  ## Phase 4: Code Organization & DRY
  **Goal:** Collapse repetitive JSX and centralize configurations
  **Tasks:**
- - Create `categoryConfig.ts` with an array of `{ key, label, icon, layout, columns?, showModelCount? }`.
- - Refactor `LandscapeView` to map over `categoryConfig` instead of seven hard‑coded sections.
- - Consolidate Tailwind constants into two modules: `styles/layout.ts` and `styles/theme.ts`.
- - Centralize logo‑size presets into a `logoPresets.ts` lookup keyed by layout + category.
+ - [x] Create `categoryConfig.ts` with an array of `{ key, label, icon, layout, columns?, showModelCount? }`.
+ - [x] Refactor `LandscapeView` to map over `categoryConfig` instead of seven hard‑coded sections.
+ - [ ] Consolidate Tailwind constants into two modules: `styles/layout.ts` and `styles/theme.ts`.
+ - [ ] Centralize logo‑size presets into a `logoPresets.ts` lookup keyed by layout + category.
 
  ## Phase 5: Performance & Code‑Splitting
  **Goal:** Reduce initial bundle and avoid wasted recomputations
