@@ -66,10 +66,19 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
     : containerStyles.companyCardContainer;       // Card with models
 
   return (
-    <div 
-      key={company.id} 
+    <div
+      key={company.id}
+      role="button"
+      tabIndex={0}
       className={`group ${cardClassName}`}
       onClick={() => onClick(company.id)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick(company.id);
+        }
+      }}
+      aria-label={`${company.name} - Click to view details`}
       title={`${company.name} - Click to view details`}
     >
       <div className={showLogoOnly ? containerStyles.companyLogoLarge : containerStyles.companyLogo}>

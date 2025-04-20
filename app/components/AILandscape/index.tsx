@@ -49,31 +49,35 @@ const AILandscape: React.FC = () => {
         <div className={containerStyles.headerContent}>
           {/* Left section with back button */}
           <div>
-            {currentView === 'company' && (
-              <button 
-                onClick={handleBack} 
-                className="flex items-center gap-1 text-gray-300 hover:text-cyan-400 transition-colors focus:outline-none cursor-pointer"
-              >
-                <i className="bi bi-chevron-left text-lg"></i> 
-                <span className="font-mono text-sm">Back</span>
-              </button>
-            )}
+          {currentView === 'company' && (
+            <button
+              type="button"
+              onClick={handleBack}
+              className="flex items-center gap-1 text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer focus:ring-2 focus:ring-cyan-400 focus:ring-offset-0"
+              aria-label="Go back"
+            >
+              <i className="bi bi-chevron-left text-lg"></i>
+              <span className="font-mono text-sm">Back</span>
+            </button>
+          )}
           </div>
           
-          {/* Centered logo */}
-          <div
-            className="absolute left-1/2 transform -translate-x-1/2 cursor-pointer"
+          {/* Centered logo (clickable home) */}
+          <button
+            type="button"
+            className="absolute left-1/2 transform -translate-x-1/2 cursor-pointer p-0 m-0 border-0 bg-transparent"
             onClick={() => {
               setCurrentView('home');
               setSelectedCompany(null);
             }}
+            aria-label="Home"
           >
-            <img 
-              src="/images/logo.png" 
-              alt="Generative AI Model Explorer" 
+            <img
+              src="/images/logo.png"
+              alt="Generative AI Model Explorer"
               className="h-14"
             />
-          </div>
+          </button>
           
           {/* Right section with date (empty on company view) */}
           <div>

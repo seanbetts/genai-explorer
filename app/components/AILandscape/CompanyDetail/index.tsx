@@ -97,7 +97,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Models tab if company has models */}
           {company.models && company.models.length > 0 && (
             <button
-              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors focus:outline-none cursor-pointer ${
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:ring-2 focus:ring-cyan-400 ${
                 activeTab === 'models' 
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
@@ -111,7 +111,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Products tab if company has products */}
           {company.products && company.products.length > 0 && (
             <button
-              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors focus:outline-none cursor-pointer ${
+          className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:ring-2 focus:ring-cyan-400 ${
                 activeTab === 'products' 
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
@@ -125,7 +125,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Features tab if company has features */}
           {company.features && company.features.length > 0 && (
             <button
-              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors focus:outline-none cursor-pointer ${
+          className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:ring-2 focus:ring-cyan-400 ${
                 activeTab === 'features' 
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
@@ -139,7 +139,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Subscriptions tab if company has subscriptions */}
           {company.subscriptions && company.subscriptions.length > 0 && (
             <button
-              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors focus:outline-none cursor-pointer ${
+          className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:ring-2 focus:ring-cyan-400 ${
                 activeTab === 'subscriptions' 
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
