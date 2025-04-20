@@ -415,7 +415,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       position: relative;
       scrollbar-width: thin;
       border-radius: 0.5rem;
-      border: 1px solid #4a5568;
+      border: 0.2px solid #101828;
       margin-bottom: 0.5rem;
     }
     
