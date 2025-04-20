@@ -33,7 +33,7 @@
  **Tasks:**
  - [x] Create `categoryConfig.ts` with an array of `{ key, label, icon, layout, columns?, showModelCount? }`.
  - [x] Refactor `LandscapeView` to map over `categoryConfig` instead of seven hard‑coded sections.
- - [ ] Consolidate Tailwind constants into two modules: `styles/layout.ts` and `styles/theme.ts`.
+- [x] Consolidate Tailwind constants into two modules: `styles/layout.ts` and `styles/theme.ts`.
  - [x] Centralize logo‑size presets into a `logoPresets.ts` lookup keyed by layout + category.
 
  ## Phase 5: Performance & Code‑Splitting
