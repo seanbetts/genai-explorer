@@ -23,10 +23,10 @@
  ## Phase 3: Dead‑Code Removal & Type Safety
  **Goal:** Clean up unused state and strengthen types
  **Tasks:**
- - Remove `expandedSections`, `toggleSection`, and related types (sections no longer collapsible).
- - In `CategorySection`, accept a `CompanyCategory` enum instead of inferring from `title`.
- - Remove string‑parsing logic for media categories; drive layout from a `category` prop.
- - Tighten component prop types and add defaults where needed.
+ - [x] Remove `expandedSections`, `toggleSection`, and related types (sections no longer collapsible).
+ - [ ] In `CategorySection`, accept a `CompanyCategory` enum instead of inferring from `title`.
+ - [ ] Remove string‑parsing logic for media categories; drive layout from a `category` prop.
+ - [ ] Tighten component prop types and add defaults where needed.
 
  ## Phase 4: Code Organization & DRY
  **Goal:** Collapse repetitive JSX and centralize configurations
