@@ -39,15 +39,9 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
   // On mount, check URL for tab deep-link
   React.useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const rawTab = params.get('tab');
-    let tab: TabType | null = null;
-    if (rawTab === 'explorer') {
-      tab = 'models';
-    } else if (rawTab && ['products', 'features', 'subscriptions'].includes(rawTab)) {
-      tab = rawTab as TabType;
-    }
-    if (tab) {
-      setActiveTab(tab);
+    const tabParam = params.get('tab');
+    if (tabParam && ['models', 'products', 'features', 'subscriptions'].includes(tabParam)) {
+      setActiveTab(tabParam as TabType);
     }
   }, []);
   
@@ -63,9 +57,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
   
   // Persist activeTab in URL
   React.useEffect(() => {
-    // Map internal 'models' tab to 'explorer' param
-    const paramValue = activeTab === 'models' ? 'explorer' : activeTab;
-    updateQuery('tab', paramValue);
+    updateQuery('tab', activeTab);
   }, [activeTab]);
   
   React.useEffect(() => {
