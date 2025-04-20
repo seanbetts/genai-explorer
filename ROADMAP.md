@@ -47,9 +47,8 @@
  ## Phase 6: UX Refinements & Skeletons
  **Goal:** Provide clear loading feedback and filtering
  **Tasks:**
- - Add skeleton loaders for `LandscapeView` hydration and `CompanyDetail` dynamic imports.
- - Implement a search/filter bar on the landscape overview.
- - Persist `currentView` and `activeTab` in the URL (query params) for deep‑links.
+ - [x] Add skeleton loaders for `LandscapeView` hydration and `CompanyDetail` dynamic imports.
+ - [x] Persist `currentView` and `activeTab` in the URL (query params) for deep‑links.
 
  ## Phase 7: Testing & CI
  **Goal:** Prevent regressions with unit, component, and e2e tests

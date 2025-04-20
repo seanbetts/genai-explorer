@@ -43,6 +43,51 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
   const getCategoryIcon = (category: CompanyCategory): string => categoryStyles.icons[category];
   const getCategoryShadow = (category: CompanyCategory): string => categoryStyles.common.shadow;
 
+  // Skeleton loaders while loading
+  if (!isLoaded) {
+    return (
+      <div className={`${containerStyles.landscapeContainer} animate-pulse`}>  
+        {/* Single-row skeletons */}
+        {singleRow.map(entry => (
+          <div key={`skeleton-${entry.key}`} className="mb-6">
+            <div className="h-6 bg-gray-700 rounded w-1/4 mb-4"></div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
+              {Array(entry.columns ?? 4).fill(0).map((_, i) => (
+                <div key={i} className="h-24 bg-gray-700 rounded"></div>
+              ))}
+            </div>
+          </div>
+        ))}
+        {/* Two-column row skeletons */}
+        <div className={`${containerStyles.landscapeRowTwo} mb-6`}>  
+          {doubleRow.map(entry => (
+            <div key={`skeleton-double-${entry.key}`} className="mb-6 flex flex-col">
+              <div className="h-6 bg-gray-700 rounded w-1/4 mb-4"></div>
+              <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-5">
+                {Array(3).fill(0).map((_, i) => (
+                  <div key={i} className="h-24 bg-gray-700 rounded"></div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* Four-column row skeletons */}
+        <div className={containerStyles.landscapeRowFour}>
+          {quadRow.map(entry => (
+            <div key={`skeleton-quad-${entry.key}`} className="mb-6 flex flex-col">
+              <div className="h-6 bg-gray-700 rounded w-1/4 mb-4"></div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {Array(4).fill(0).map((_, i) => (
+                  <div key={i} className="h-24 bg-gray-700 rounded"></div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  // Main content after load
   return (
     <div className={`${containerStyles.landscapeContainer} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
       {/* Single-row categories */}

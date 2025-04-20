@@ -36,6 +36,38 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
   };
   const [activeTab, setActiveTab] = React.useState<TabType>(getInitialTab());
   
+  // On mount, check URL for tab deep-link
+  React.useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const rawTab = params.get('tab');
+    let tab: TabType | null = null;
+    if (rawTab === 'explorer') {
+      tab = 'models';
+    } else if (rawTab && ['products', 'features', 'subscriptions'].includes(rawTab)) {
+      tab = rawTab as TabType;
+    }
+    if (tab) {
+      setActiveTab(tab);
+    }
+  }, []);
+  
+  // Utility to update query params without reload
+  const updateQuery = (key: string, value?: string) => {
+    const params = new URLSearchParams(window.location.search);
+    if (value) params.set(key, value);
+    else params.delete(key);
+    const query = params.toString();
+    const newUrl = query ? `${window.location.pathname}?${query}` : window.location.pathname;
+    window.history.pushState({}, '', newUrl);
+  };
+  
+  // Persist activeTab in URL
+  React.useEffect(() => {
+    // Map internal 'models' tab to 'explorer' param
+    const paramValue = activeTab === 'models' ? 'explorer' : activeTab;
+    updateQuery('tab', paramValue);
+  }, [activeTab]);
+  
   React.useEffect(() => {
     // Small delay for animation effect
     const timer = setTimeout(() => {

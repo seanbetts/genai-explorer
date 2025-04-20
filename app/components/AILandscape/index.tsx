@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { LandscapeData, Company } from './types';
 import LandscapeView from './LandscapeView';
 // Dynamically load CompanyDetail to reduce initial bundle size
@@ -17,20 +17,46 @@ const AILandscape: React.FC<AILandscapeProps> = ({ initialData }) => {
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [currentView, setCurrentView] = useState<'home' | 'company'>('home');
   
-  // Handle company selection
+  // On mount, check URL for deep-link to a company
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const companyId = params.get('company');
+    if (companyId) {
+      const company = data.companies.find(c => c.id === companyId);
+      if (company) {
+        setSelectedCompany(company);
+        setCurrentView('company');
+      }
+    }
+  }, []);
+  
+  // Utility to update query params without reload
+  const updateQuery = (key: string, value?: string) => {
+    const params = new URLSearchParams(window.location.search);
+    if (value) params.set(key, value);
+    else params.delete(key);
+    const query = params.toString();
+    const newUrl = query ? `${window.location.pathname}?${query}` : window.location.pathname;
+    window.history.pushState({}, '', newUrl);
+  };
+  
+  // Handle company selection and persist in URL
   const handleCompanySelect = (companyId: string): void => {
     const company = data.companies.find(c => c.id === companyId);
     if (company) {
       setSelectedCompany(company);
       setCurrentView('company');
+      updateQuery('company', companyId);
     }
   };
   
   // Handle back navigation
+  // Handle back navigation and clear URL param
   const handleBack = (): void => {
     if (currentView === 'company') {
       setCurrentView('home');
       setSelectedCompany(null);
+      updateQuery('company');
     }
   };
   
@@ -94,7 +120,13 @@ const AILandscape: React.FC<AILandscapeProps> = ({ initialData }) => {
         )}
         
         {currentView === 'company' && selectedCompany && (
-          <Suspense fallback={<div className="text-center">Loading company details...</div>}>
+          <Suspense fallback={
+            <div className="animate-pulse p-6 space-y-6">
+              <div className="h-6 bg-gray-700 rounded w-32 mx-auto"></div>
+              <div className="h-48 bg-gray-700 rounded"></div>
+              <div className="h-48 bg-gray-700 rounded"></div>
+            </div>
+          }>
             <CompanyDetail
               company={selectedCompany}
               onBack={handleBack}
