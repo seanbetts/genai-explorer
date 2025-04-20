@@ -74,7 +74,7 @@
           "modelPage": "https://platform.openai.com/docs/models/o3",
           "releasePost": "https://openai.com/index/introducing-o3-and-o4-mini/",
           "releaseVideo": "https://www.youtube.com/live/sq8GBPUb3rk?si=yhXfie25g5z0Kni8",
-          "systemCard": "",
+          "systemCard": "https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf",
           "licenceType": "Proprietary",
           "licenceLink": "https://openai.com/policies/terms-of-use/",
           "capabilities": {
@@ -109,7 +109,7 @@
           "modelPage": "https://platform.openai.com/docs/models/o4-mini",
           "releasePost": "https://openai.com/index/introducing-o3-and-o4-mini/",
           "releaseVideo": "https://www.youtube.com/live/sq8GBPUb3rk?si=yhXfie25g5z0Kni8",
-          "systemCard": "",
+          "systemCard": "https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf",
           "licenceType": "Proprietary",
           "licenceLink": "https://openai.com/policies/terms-of-use/",
           "capabilities": {
