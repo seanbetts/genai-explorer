@@ -12,28 +12,10 @@ interface SubscriptionGridProps {
 const SubscriptionGrid: React.FC<SubscriptionGridProps> = ({ subscriptions }) => {
   // No need to calculate max features for height, as CSS Grid auto-rows-fr handles this now
 
-  // Calculate grid layout based on number of items
-  const itemCount = subscriptions.length;
-  
-  // For 1 item: single column at all screen sizes
-  // For 2 items: single column on mobile, 2 columns on larger screens
-  // For 3+ items: responsive grid with max 3 columns
-  const gridCols = itemCount === 1 ? 'grid-cols-1' : 
-                  itemCount === 2 ? 'grid-cols-1 sm:grid-cols-2' : 
-                  'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3';
-  
-  // Control max width based on number of items
-  // This ensures the grid doesn't stretch too wide with few items
-  const maxWidthClass = itemCount === 1 ? 'max-w-md' : 
-                      itemCount === 2 ? 'max-w-2xl' : 
-                      'max-w-6xl';
-                      
-  // We use a consistent gap for all layouts
-  const gapClass = 'gap-6';
 
   return (
     <div className="w-full flex justify-center">
-      <div className={`${gridCols} ${gapClass} auto-rows-fr grid ${maxWidthClass} w-full`}>
+      <div className="flex flex-wrap justify-center gap-6">
       {subscriptions.map(subscription => {
         // No need to add empty features for height matching, as CSS Grid auto-rows-fr handles this now
         

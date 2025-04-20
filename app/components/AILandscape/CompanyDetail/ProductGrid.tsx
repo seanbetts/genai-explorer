@@ -41,62 +41,44 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
   
   // Using the shared utility function from imageUtils.ts
   
-  // Calculate grid layout based on number of items
-  const itemCount = products.length;
-  
-  // For 1 item: single column at all screen sizes
-  // For 2 items: single column on mobile, 2 columns on larger screens
-  // For 3+ items: responsive grid with max 3 columns
-  const gridCols = itemCount === 1 ? 'grid-cols-1' : 
-                  itemCount === 2 ? 'grid-cols-1 sm:grid-cols-2' : 
-                  'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3';
-  
-  // Control max width based on number of items
-  // This ensures the grid doesn't stretch too wide with few items
-  const maxWidthClass = itemCount === 1 ? 'max-w-md' : 
-                      itemCount === 2 ? 'max-w-2xl' : 
-                      'max-w-6xl';
-                      
-  // We use a consistent gap for all layouts
-  const gapClass = 'gap-6';
 
   return (
     <div className="w-full flex justify-center">
-      <div className={`${gridCols} ${gapClass} auto-rows-fr grid ${maxWidthClass} w-full`}>
-      {products.map(product => (
-        <div 
-          key={product.name}
-          className={`${containerStyles.featureCard} ${product.url ? 'group cursor-pointer' : ''}`}
-          onClick={product.url ? () => window.open(product.url, '_blank', 'noopener') : undefined}
-        >
-          <div className={containerStyles.featureImage}>
-            <ImageWithFallback 
-              src={getValidImageUrl(product.image)} 
-              alt={product.name}
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-          <div className={containerStyles.featureContent}>
-            <div className="flex-1">
-              <h3 className={containerStyles.featureTitle}>{product.name}</h3>
-              <div className="flex-1 min-h-[80px] overflow-auto">
-                <p className={containerStyles.featureDescription}>{product.description}</p>
+      <div className="flex flex-wrap justify-center gap-6">
+        {products.map(product => (
+          <div key={product.name} className="flex-shrink-0 w-80 mb-6">
+            <div
+              className={`${containerStyles.featureCard} ${product.url ? 'group cursor-pointer' : ''}`}
+              onClick={product.url ? () => window.open(product.url, '_blank', 'noopener') : undefined}
+            >
+              <div className={containerStyles.featureImage}>
+                <ImageWithFallback
+                  src={getValidImageUrl(product.image)}
+                  alt={product.name}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <div className={containerStyles.featureContent}>
+                <div className="flex-1">
+                  <h3 className={containerStyles.featureTitle}>{product.name}</h3>
+                  <div className="flex-1 min-h-[80px] overflow-auto">
+                    <p className={containerStyles.featureDescription}>{product.description}</p>
+                  </div>
+                </div>
+                {product.url && (
+                  <div className="absolute bottom-0 right-0 left-0 px-5 pb-4 flex justify-end">
+                    <div className={containerStyles.featureLink}>
+                      <span>Learn more</span>
+                      <i className="bi bi-arrow-right ml-1 group-hover:translate-x-1 transition-transform duration-300"></i>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
-            {/* Absolute positioning ensures consistent footer placement - only shown if URL exists */}
-            {product.url && (
-              <div className="absolute bottom-0 right-0 left-0 px-5 pb-4 flex justify-end">
-                <div className={containerStyles.featureLink}>
-                  <span>Learn more</span>
-                  <i className="bi bi-arrow-right ml-1 group-hover:translate-x-1 transition-transform duration-300"></i>
-                </div>
-              </div>
-            )}
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
     </div>
   );
 };
