@@ -39,10 +39,10 @@
  ## Phase 5: Performance & Code‑Splitting
  **Goal:** Reduce initial bundle and avoid wasted recomputations
  **Tasks:**
- - Use `React.useMemo` around heavy derived data (e.g., categorization).
- - Dynamically import (`next/dynamic`) heavy components (ModelTable, CompanyDetail).
- - Audit `'use client'` directives and push static parts into server components.
- - Tighten `next.config.ts` `remotePatterns` to allowed domains only.
+ - [x] Use `React.useMemo` around heavy derived data (e.g., categorization).
+ - [x] Dynamically import (`next/dynamic`) heavy components (ModelTable, CompanyDetail).
+ - [x] Audit `'use client'` directives and push static parts into server components.
+ - [x] Tighten `next.config.ts` `remotePatterns` to allowed domains only.
 
  ## Phase 6: UX Refinements & Skeletons
  **Goal:** Provide clear loading feedback and filtering

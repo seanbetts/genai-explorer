@@ -1,12 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import Image from 'next/image';
 import { Company } from '../types';
-import ModelTable from './ModelTable';
-import ProductGrid from './ProductGrid';
-import FeatureGrid from './FeatureGrid';
-import SubscriptionGrid from './SubscriptionGrid';
+// Dynamically import heavy components per tab
+const ModelTable = React.lazy(() => import('./ModelTable'));
+const ProductGrid = React.lazy(() => import('./ProductGrid'));
+const FeatureGrid = React.lazy(() => import('./FeatureGrid'));
+const SubscriptionGrid = React.lazy(() => import('./SubscriptionGrid'));
 import { textStyles, headingStyles } from '../utils/theme';
 import { containerStyles, buttonStyles, iconStyles } from '../utils/layout';
 import { getModelTabName } from '../utils/modelUtils';
@@ -175,28 +176,36 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
             {/* Models Tab */}
             {activeTab === 'models' && company.models && company.models.length > 0 && (
               <div className="transform transition-opacity duration-300">
-                <ModelTable models={company.models} />
+                <Suspense fallback={<div className="text-center py-4">Loading models...</div>}>
+                  <ModelTable models={company.models} />
+                </Suspense>
               </div>
             )}
             
             {/* Products Tab */}
             {activeTab === 'products' && company.products && company.products.length > 0 && (
               <div className="transform transition-opacity duration-300">
-                <ProductGrid products={company.products} />
+                <Suspense fallback={<div className="text-center py-4">Loading products...</div>}>
+                  <ProductGrid products={company.products} />
+                </Suspense>
               </div>
             )}
             
             {/* Features Tab */}
             {activeTab === 'features' && company.features && company.features.length > 0 && (
               <div className="transform transition-opacity duration-300">
-                <FeatureGrid features={company.features} />
+                <Suspense fallback={<div className="text-center py-4">Loading features...</div>}>
+                  <FeatureGrid features={company.features} />
+                </Suspense>
               </div>
             )}
             
             {/* Subscriptions Tab */}
             {activeTab === 'subscriptions' && company.subscriptions && company.subscriptions.length > 0 && (
               <div className="transform transition-opacity duration-300">
-                <SubscriptionGrid subscriptions={company.subscriptions} />
+                <Suspense fallback={<div className="text-center py-4">Loading subscriptions...</div>}>
+                  <SubscriptionGrid subscriptions={company.subscriptions} />
+                </Suspense>
               </div>
             )}
           </div>

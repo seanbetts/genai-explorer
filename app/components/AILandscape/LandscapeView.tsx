@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { CategorizedCompanies, LandscapeData, Company, CompanyCategory } from './types';
 import { categoryConfig, CategoryConfigEntry } from './categoryConfig';
 import CategorySection from './shared/CategorySection';
@@ -27,9 +27,11 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
     return () => clearTimeout(timer);
   }, []);
   
-  // Get companies by model category
-  // This allows companies to appear in multiple categories if they have models in those categories
-  const categorizedCompanies = getCompaniesByModelCategory(data.companies);
+  // Memoize company categorization to avoid recomputing on every render
+  const categorizedCompanies = useMemo(
+    () => getCompaniesByModelCategory(data.companies),
+    [data.companies]
+  );
 
   // Extract rows of categories from config
   const singleRow = categoryConfig.filter(c => c.rowType === 'single');

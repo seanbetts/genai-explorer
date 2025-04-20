@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { LandscapeData, Company } from './types';
 import LandscapeView from './LandscapeView';
-import CompanyDetail from './CompanyDetail';
+// Dynamically load CompanyDetail to reduce initial bundle size
+const CompanyDetail = lazy(() => import('./CompanyDetail'));
 import { textStyles } from './utils/theme';
 import { containerStyles } from './utils/layout';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -93,10 +94,12 @@ const AILandscape: React.FC<AILandscapeProps> = ({ initialData }) => {
         )}
         
         {currentView === 'company' && selectedCompany && (
-          <CompanyDetail
-            company={selectedCompany}
-            onBack={handleBack}
-          />
+          <Suspense fallback={<div className="text-center">Loading company details...</div>}>
+            <CompanyDetail
+              company={selectedCompany}
+              onBack={handleBack}
+            />
+          </Suspense>
         )}
       </main>
 
