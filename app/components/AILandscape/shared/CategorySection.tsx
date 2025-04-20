@@ -4,6 +4,7 @@ import React from 'react';
 import { Company, CompanyCategory } from '../types';
 import CompanyCard from './CompanyCard';
 import { textStyles, containerStyles, iconStyles } from '../utils/styles';
+import { getLogoSize } from '../utils/logoPresets';
 
 interface CategorySectionProps {
   category: CompanyCategory;
@@ -53,25 +54,8 @@ const CategorySection: React.FC<CategorySectionProps> = ({
   const renderContent = () => {
     // Use styling from our centralized theme
     
-    // Determine if this is a media category
-    const isMediaCategory = ['image', 'video', 'music', 'other'].includes(title.toLowerCase().split(' ')[0].toLowerCase());
-    
-    // Determine image size based on category, layout, column count, and whether models will be shown
-    const baseImageSize = isMediaCategory
-      ? { width: 84, height: 36 } // Smaller for media categories
-      : layout === 'quarter-width' 
-        ? { width: 100, height: 42 } // Make Enterprise cards use same image size as Open Models
-        : layout === 'half-width' 
-          ? { width: 100, height: 42 }
-          // For full-width with 5 columns, make logos a bit smaller
-          : columns === 5
-            ? { width: 100, height: 42 }
-            : { width: 110, height: 46 }; // Default size for full-width
-        
-    // For categories where showModelCount is 0, use larger logo sizes
-    const imageSize = showModelCount === 0
-      ? { width: baseImageSize.width * 1.2, height: baseImageSize.height * 1.2 }
-      : baseImageSize;
+    // Determine logo size using centralized presets
+    const imageSize = getLogoSize(category, layout, columns, showModelCount);
     
     return (
       <>
