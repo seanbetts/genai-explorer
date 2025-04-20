@@ -642,7 +642,9 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
             ref={scrollContainerRef}
             onScroll={handleTableScroll}
           >
-            <table className="model-table hover:shadow-md transition-all duration-300 hover-highlight">
+            <table
+              className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight`}
+            >
               <TableHeader />
               <tbody>
                 {renderCapabilitiesRows()}
@@ -661,7 +663,9 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               className="table-scroll-container" 
               onScroll={handleTableScroll}
             >
-              <table className="model-table hover:shadow-md transition-all duration-300 hover-highlight">
+              <table
+                className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight`}
+              >
                 <tbody>
                   {renderContextRows()}
                 </tbody>
@@ -690,7 +694,9 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               className="table-scroll-container" 
               onScroll={handleTableScroll}
             >
-              <table className="model-table hover:shadow-md transition-all duration-300 hover-highlight">
+              <table
+                className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight`}
+              >
                 <tbody>
                   {renderPricingRows()}
                 </tbody>
@@ -709,7 +715,9 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               className="table-scroll-container" 
               onScroll={handleTableScroll}
             >
-              <table className="model-table hover:shadow-md transition-all duration-300 hover-highlight">
+              <table
+                className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight`}
+              >
                 <tbody>
                   {/* Release Post Row */}
                   {displayModels.some(model => model.releasePost) && (
