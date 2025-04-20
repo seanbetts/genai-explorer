@@ -71,7 +71,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
       key={company.id}
       role="button"
       tabIndex={0}
-      className={`group ${cardClassName}`}
+      className={`company-card group ${cardClassName}`}
       onClick={() => onClick(company.id)}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {

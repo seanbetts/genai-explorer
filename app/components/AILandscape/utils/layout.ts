@@ -51,11 +51,11 @@ export const containerStyles = {
     // Landscape view layouts with consistent spacing
     landscapeContainer: 'space-y-6',
     // Two-column layout: mobile single column; on md+ first column 5/8 width, second column 3/8 width
-    landscapeRowTwo: 'grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-5',
-    landscapeRowFour: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5',
+    landscapeRowTwo: 'grid items-stretch grid-cols-1 md:grid-cols-[5fr_3fr] gap-5',
+    landscapeRowFour: 'grid items-stretch grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5',
     
     // Category section with cyberpunk styling
-    categorySection: 'bg-gray-800 rounded-lg shadow-md p-5 border border-gray-700 transition-all duration-200',
+    categorySection: 'h-full bg-gray-800 rounded-lg shadow-md p-5 border border-gray-700 transition-all duration-200',
     categoryTitle: 'text-lg font-semibold text-fuchsia-500 flex items-center font-mono',
     categoryTitleInline: 'text-lg font-semibold text-fuchsia-500 pr-4 flex items-center font-mono',
     categorySectionHover: 'hover:border-fuchsia-900',
@@ -71,9 +71,9 @@ export const containerStyles = {
     companyModel: 'text-center text-sm font-medium text-gray-800 mb-1 font-mono group-hover:text-fuchsia-600',
     
     // Company grid layouts with improved spacing and specified column counts
-    companyGridFull: 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5',
-    companyGridHalf: 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5', // Now 4 columns for Open Source Models
-    companyGridQuarter: 'grid grid-cols-1 sm:grid-cols-2 gap-5', // Matched gap-5 to be consistent with Open Models
+    companyGridFull: 'grid items-stretch grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5',
+    companyGridHalf: 'grid items-stretch grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5', // Now 4 columns for Open Source Models
+    companyGridQuarter: 'grid items-stretch grid-cols-1 sm:grid-cols-2 gap-5', // Matched gap-5 to be consistent with Open Models
     
     // Company detail with cyberpunk styling
     companyDetailHeader: 'flex flex-col md:flex-row items-center p-6 rounded-lg border border-gray-700 bg-gray-800 shadow-md',

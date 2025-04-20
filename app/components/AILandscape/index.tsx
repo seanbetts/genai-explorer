@@ -27,10 +27,12 @@ const AILandscape: React.FC<AILandscapeProps> = ({ initialData }) => {
 
   // Handlers to update URL using Next.js shallow routing
   const handleCompanySelect = (id: string) => {
-    router.push(`/?company=${id}`, { shallow: true });
+    // Navigate to company view
+    router.push(`/?company=${id}`);
   };
   const handleBack = () => {
-    router.push('/', { shallow: true });
+    // Navigate back to home view
+    router.push('/');
   };
   
   

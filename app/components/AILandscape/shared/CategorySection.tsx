@@ -38,19 +38,20 @@ const CategorySection: React.FC<CategorySectionProps> = ({
     // Use custom column count if specified and layout is full-width
     if (layout === 'full-width' && columns === 5) {
       // Custom grid with 5 columns for frontier models
-      return 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5';
+      return 'grid items-stretch grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5';
     } else if (layout === 'full-width') {
       return containerStyles.companyGridFull;
     } else if (layout === 'half-width') {
       return containerStyles.companyGridHalf; // 4 columns for Open Source Models
     } else if (isMediaCategory) {
       // Use a more compact grid for media categories
-      return 'grid grid-cols-1 sm:grid-cols-2 gap-4'; // More compact for media categories
+      return 'grid items-stretch grid-cols-1 sm:grid-cols-2 gap-4'; // More compact for media categories
     } else {
       return containerStyles.companyGridQuarter; // 2 columns for Enterprise category
     }
   };
 
+  
   // Render content with consistent layout for all categories
   const renderContent = () => {
     // Use styling from our centralized theme
