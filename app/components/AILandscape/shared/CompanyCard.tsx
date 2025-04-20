@@ -12,11 +12,11 @@ interface CompanyCardProps {
   imageSize?: { width: number; height: number };
 }
 
-const CompanyCard: React.FC<CompanyCardProps> = ({ 
-  company, 
-  onClick, 
-  showModelCount,
-  imageSize = { width: 100, height: 40 }
+const CompanyCard: React.FC<CompanyCardProps> = ({
+  company,
+  onClick,
+  showModelCount = undefined,
+  imageSize = { width: 100, height: 40 },
 }) => {
   // Filter primary models and sort by release date (newest first)
   const primaryModels = company.models

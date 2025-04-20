@@ -26,7 +26,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({
   layout,
   columns = 4,
   showModelCount, // undefined = show all, 0 = none
-  icon,
+  icon = '',
 }) => {
   // Get appropriate grid class based on layout and columns prop
   const getGridClass = () => {
