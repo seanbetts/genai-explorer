@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { CategorizedCompanies, LandscapeData, Company, CompanyCategory } from './types';
 import { categoryConfig, CategoryConfigEntry } from './categoryConfig';
 import CategorySection from './shared/CategorySection';
-import { categoryStyles, containerStyles } from './utils/styles';
+import { categoryStyles } from './utils/theme';
+import { containerStyles } from './utils/layout';
 import { getCompaniesByModelCategory } from './utils/landscapeUtils';
 
 interface LandscapeViewProps {

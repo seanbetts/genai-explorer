@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Product } from '../types';
-import { textStyles, containerStyles, buttonStyles } from '../utils/styles';
+import { textStyles } from '../utils/theme';
+import { containerStyles, buttonStyles } from '../utils/layout';
 import { getValidImageUrl, PLACEHOLDER_IMAGE } from '../utils/imageUtils';
 
 // Component to handle image loading with fallback

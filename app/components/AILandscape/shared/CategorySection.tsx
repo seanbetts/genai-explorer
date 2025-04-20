@@ -3,7 +3,8 @@
 import React from 'react';
 import { Company, CompanyCategory } from '../types';
 import CompanyCard from './CompanyCard';
-import { textStyles, containerStyles, iconStyles } from '../utils/styles';
+import { textStyles } from '../utils/theme';
+import { containerStyles, iconStyles } from '../utils/layout';
 import { getLogoSize } from '../utils/logoPresets';
 
 interface CategorySectionProps {

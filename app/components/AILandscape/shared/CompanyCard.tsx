@@ -3,7 +3,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { Company, Model } from '../types';
-import { textStyles, containerStyles } from '../utils/styles';
+import { textStyles } from '../utils/theme';
+import { containerStyles } from '../utils/layout';
 
 interface CompanyCardProps {
   company: Company;

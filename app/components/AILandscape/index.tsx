@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import { LandscapeData, Company } from './types';
 import LandscapeView from './LandscapeView';
 import CompanyDetail from './CompanyDetail';
-import { textStyles, containerStyles } from './utils/styles';
+import { textStyles } from './utils/theme';
+import { containerStyles } from './utils/layout';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 interface AILandscapeProps {

@@ -2,7 +2,8 @@
 
 import React, { useMemo } from 'react';
 import { Subscription } from '../types';
-import { textStyles, containerStyles } from '../utils/styles';
+import { textStyles } from '../utils/theme';
+import { containerStyles } from '../utils/layout';
 
 interface SubscriptionGridProps {
   subscriptions: Subscription[];

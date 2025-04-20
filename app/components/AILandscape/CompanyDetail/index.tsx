@@ -7,7 +7,8 @@ import ModelTable from './ModelTable';
 import ProductGrid from './ProductGrid';
 import FeatureGrid from './FeatureGrid';
 import SubscriptionGrid from './SubscriptionGrid';
-import { textStyles, containerStyles, headingStyles, buttonStyles, iconStyles } from '../utils/styles';
+import { textStyles, headingStyles } from '../utils/theme';
+import { containerStyles, buttonStyles, iconStyles } from '../utils/layout';
 import { getModelTabName } from '../utils/modelUtils';
 
 interface CompanyDetailProps {

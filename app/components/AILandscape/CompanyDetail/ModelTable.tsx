@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { Model } from '../types';
-import { textStyles, tableStyles, iconStyles, containerStyles } from '../utils/styles';
+import { textStyles } from '../utils/theme';
+import { tableStyles, iconStyles, containerStyles } from '../utils/layout';
 import { shouldShowTogetherPricing } from '../utils/modelUtils';
 
 interface ModelTableProps {
