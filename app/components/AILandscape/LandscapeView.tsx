@@ -60,6 +60,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
       {/* Frontier Models Section - Full width with elegant design */}
       <div className={`transform transition-all duration-500 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
         <CategorySection
+          category="frontier"
           title={categoryLabels.frontier}
           companies={categorizedCompanies.frontier}
           styleName={`${getCategoryStyle('frontier')} ${getCategoryShadow('frontier')} ${containerStyles.categorySectionHover}`}
@@ -74,6 +75,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
       <div className={`${containerStyles.landscapeRowTwo} transform transition-all duration-500 delay-100 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
         {/* Open Models */}
         <CategorySection
+          category="open"
           title={categoryLabels.open}
           companies={categorizedCompanies.open}
           styleName={`${getCategoryStyle('open')} ${getCategoryShadow('open')} ${containerStyles.categorySectionHover}`}
@@ -85,6 +87,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
         
         {/* Enterprise Platforms */}
         <CategorySection
+          category="enterprise"
           title={categoryLabels.enterprise}
           companies={categorizedCompanies.enterprise}
           styleName={`${getCategoryStyle('enterprise')} ${getCategoryShadow('enterprise')} ${containerStyles.categorySectionHover}`}
@@ -98,6 +101,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
       <div className={`${containerStyles.landscapeRowFour} transform transition-all duration-500 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
         {/* Image Generation (logos only, no model names) */}
         <CategorySection
+          category="image"
           title={categoryLabels.image}
           companies={categorizedCompanies.image}
           styleName={`${getCategoryStyle('image')} ${getCategoryShadow('image')} ${containerStyles.categorySectionHover}`}
@@ -109,6 +113,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
         
         {/* Video Generation (logos only, no model names) */}
         <CategorySection
+          category="video"
           title={categoryLabels.video}
           companies={categorizedCompanies.video}
           styleName={`${getCategoryStyle('video')} ${getCategoryShadow('video')} ${containerStyles.categorySectionHover}`}
@@ -120,6 +125,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
         
         {/* Audio Generation (logos only, no model names) */}
         <CategorySection
+          category="music"
           title={categoryLabels.music}
           companies={categorizedCompanies.music}
           styleName={`${getCategoryStyle('music')} ${getCategoryShadow('music')} ${containerStyles.categorySectionHover}`}
@@ -131,6 +137,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
         
         {/* Other - Specialized AI Platforms (logos only, no model names) */}
         <CategorySection
+          category="other"
           title={categoryLabels.other}
           companies={categorizedCompanies.other}
           styleName={`${getCategoryStyle('other')} ${getCategoryShadow('other')} ${containerStyles.categorySectionHover}`}

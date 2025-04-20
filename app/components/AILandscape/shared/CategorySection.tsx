@@ -1,11 +1,12 @@
 'use client';
 
 import React from 'react';
-import { Company } from '../types';
+import { Company, CompanyCategory } from '../types';
 import CompanyCard from './CompanyCard';
 import { textStyles, containerStyles, iconStyles } from '../utils/styles';
 
 interface CategorySectionProps {
+  category: CompanyCategory;
   title: string;
   companies: Company[];
   styleName: string;
@@ -16,20 +17,21 @@ interface CategorySectionProps {
   icon?: string; // Bootstrap icon class
 }
 
-const CategorySection: React.FC<CategorySectionProps> = ({ 
-  title, 
-  companies, 
-  styleName, 
+const CategorySection: React.FC<CategorySectionProps> = ({
+  category,
+  title,
+  companies,
+  styleName,
   onCompanySelect,
   layout,
   columns = 4,
-  showModelCount, // No default value to show all models
-  icon
+  showModelCount, // undefined = show all, 0 = none
+  icon,
 }) => {
   // Get appropriate grid class based on layout and columns prop
   const getGridClass = () => {
-    // Determine if this is a media category (image, video, audio, specialty)
-    const isMediaCategory = ['image', 'video', 'music', 'other'].includes(title.toLowerCase().split(' ')[0].toLowerCase());
+    // Determine if this is a media category (image, video, audio, or other specialty)
+    const isMediaCategory = ['image', 'video', 'music', 'other'].includes(category);
     
     // Use custom column count if specified and layout is full-width
     if (layout === 'full-width' && columns === 5) {
