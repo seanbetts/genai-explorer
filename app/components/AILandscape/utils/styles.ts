@@ -397,7 +397,8 @@ export const containerStyles = {
   
   // Landscape view layouts with consistent spacing
   landscapeContainer: 'space-y-6',
-  landscapeRowTwo: 'grid grid-cols-1 md:grid-cols-2 gap-5',
+  // Two-column layout: mobile single column; on md+ first column 5/8 width, second column 3/8 width
+  landscapeRowTwo: 'grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-5',
   landscapeRowFour: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5',
   
   // Category section with cyberpunk styling
