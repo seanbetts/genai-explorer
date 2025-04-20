@@ -1,6 +1,6 @@
 // Import the existing Tailwind classes from styles.ts
 import { textStyles, headingStyles, categoryStyles, colors } from './theme';
-import { containerStyles, tableStyles, iconStyles, buttonStyles } from './layout';
+import { containerStyles, tableStyles, iconStyles } from './layout';
 
 // This file provides a simplified interface to our style system
 // It maps styles.ts classes to component-friendly names and provides helper functions
