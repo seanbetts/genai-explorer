@@ -24,8 +24,8 @@
  **Goal:** Clean up unused state and strengthen types
  **Tasks:**
  - [x] Remove `expandedSections`, `toggleSection`, and related types (sections no longer collapsible).
- - [ ] In `CategorySection`, accept a `CompanyCategory` enum instead of inferring from `title`.
- - [ ] Remove string‑parsing logic for media categories; drive layout from a `category` prop.
+ - [x] In `CategorySection`, accept a `CompanyCategory` enum instead of inferring from `title`.
+ - [x] Remove string‑parsing logic for media categories; drive layout from a `category` prop.
  - [ ] Tighten component prop types and add defaults where needed.
 
  ## Phase 4: Code Organization & DRY
