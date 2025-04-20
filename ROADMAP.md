@@ -5,11 +5,11 @@
  ## Phase 1: Accessibility & Semantic HTML
  **Goal:** Make every interactive element keyboard‑ and screen‑reader‑friendly
  **Tasks:**
- - Replace non‑semantic `<div onClick>` wrappers with `<button>` or `<a>` as appropriate.
- - Add `tabIndex={0}` and `onKeyDown` handlers (Enter/Space) where a `<button>` is infeasible.
- - Audit all icons and buttons for meaningful `aria-label` or `aria-labelledby`.
- - Ensure focus rings appear on cards, tabs, back‑button, etc. (remove `focus:outline-none` where it hides native focus).
- - Run Lighthouse/Axe to validate and fix any remaining violations.
+ - [x] Replace non‑semantic `<div onClick>` wrappers with `<button>` or `<a>` as appropriate.
+ - [x] Add `tabIndex={0}` and `onKeyDown` handlers (Enter/Space) where a `<button>` is infeasible.
+ - [x] Audit all icons and buttons for meaningful `aria-label` or `aria-labelledby`.
+ - [x] Ensure focus rings appear on cards, tabs, back‑button, etc. (remove `focus:outline-none` where it hides native focus).
+ - [x] Run Lighthouse/Axe to validate and fix any remaining violations.
 
  ## Phase 2: Data Fetching & State Lift
  **Goal:** Move JSON load off the client, prepare for live API
