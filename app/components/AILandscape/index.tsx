@@ -1,15 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
-import landscapeData from '@/data/landscape.json';
 import { LandscapeData, Company, ExpandedSections } from './types';
 import LandscapeView from './LandscapeView';
 import CompanyDetail from './CompanyDetail';
 import { textStyles, containerStyles } from './utils/styles';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-const AILandscape: React.FC = () => {
-  const [data, setData] = useState<LandscapeData>(landscapeData as LandscapeData);
+interface AILandscapeProps {
+  initialData: LandscapeData;
+}
+const AILandscape: React.FC<AILandscapeProps> = ({ initialData }) => {
+  const data: LandscapeData = initialData;
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [currentView, setCurrentView] = useState<'home' | 'company'>('home');
   const [expandedSections, setExpandedSections] = useState<ExpandedSections>({
