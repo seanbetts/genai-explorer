@@ -1,15 +1,15 @@
 import React, { Suspense } from 'react';
-import AILandscape from './components/AILandscape';
-import type { LandscapeData } from './components/AILandscape/types';
-import landscapeData from '@/data/landscape.json';
+import AIExplorer from './components';
+import type { ExplorerData } from './components/types';
+import explorerData from '@/data/data.json';
 
 export default function Home() {
-  // Load static landscape data at build time
-  const data = landscapeData as LandscapeData;
+  // Load static explorer data at build time
+  const data = explorerData as ExplorerData;
   return (
     <main>
       <Suspense fallback={<div className="animate-pulse text-center py-10">Loading app...</div>}>
-        <AILandscape initialData={data} />
+        <AIExplorer initialData={data} />
       </Suspense>
     </main>
   );

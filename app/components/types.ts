@@ -97,7 +97,7 @@ export interface Company {
   subscriptions?: Subscription[];
 }
 
-export interface LandscapeData {
+export interface ExplorerData {
   companies: Company[];
 }
 

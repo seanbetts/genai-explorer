@@ -48,11 +48,11 @@ export const containerStyles = {
     subscriptionFeatureCheck: 'text-fuchsia-500 mr-2 flex-shrink-0',
     subscriptionFeatureText: 'text-gray-700 font-mono',
     
-    // Landscape view layouts with consistent spacing
-    landscapeContainer: 'space-y-6',
+    // Explorer view layouts with consistent spacing
+    explorerContainer: 'space-y-6',
     // Two-column layout: mobile single column; on md+ first column 5/8 width, second column 3/8 width
-    landscapeRowTwo: 'grid items-stretch grid-cols-1 md:grid-cols-[5fr_3fr] gap-5',
-    landscapeRowFour: 'grid items-stretch grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5',
+    explorerRowTwo: 'grid items-stretch grid-cols-1 md:grid-cols-[5fr_3fr] gap-5',
+    explorerRowFour: 'grid items-stretch grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5',
     
     // Category section with cyberpunk styling
     categorySection: 'h-full bg-gray-800 rounded-lg shadow-md p-5 border border-gray-700 transition-all duration-200',

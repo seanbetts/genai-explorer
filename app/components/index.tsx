@@ -2,19 +2,19 @@
 
 import React, { lazy, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { LandscapeData, Company } from './types';
-import LandscapeView from './LandscapeView';
+import { ExplorerData, Company } from './types';
+import ExplorerView from './ExplorerView';
 // Dynamically load CompanyDetail to reduce initial bundle size
 const CompanyDetail = lazy(() => import('./CompanyDetail'));
 import { textStyles } from './utils/theme';
 import { containerStyles } from './utils/layout';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-interface AILandscapeProps {
-  initialData: LandscapeData;
+interface AIExplorerProps {
+  initialData: ExplorerData;
 }
-const AILandscape: React.FC<AILandscapeProps> = ({ initialData }) => {
-  const data: LandscapeData = initialData;
+const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
+  const data: ExplorerData = initialData;
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -88,7 +88,7 @@ const AILandscape: React.FC<AILandscapeProps> = ({ initialData }) => {
 
       <main className={containerStyles.mainContent}>
         {currentView === 'home' && (
-          <LandscapeView data={data} onCompanySelect={handleCompanySelect} />
+          <ExplorerView data={data} onCompanySelect={handleCompanySelect} />
         )}
         
         {currentView === 'company' && selectedCompany && (
@@ -111,4 +111,4 @@ const AILandscape: React.FC<AILandscapeProps> = ({ initialData }) => {
   );
 };
 
-export default AILandscape;
+export default AIExplorer;

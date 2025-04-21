@@ -1,19 +1,19 @@
 'use client';
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { CategorizedCompanies, LandscapeData, Company, CompanyCategory } from './types';
+import { CategorizedCompanies, ExplorerData, Company, CompanyCategory } from './types';
 import { categoryConfig, CategoryConfigEntry } from './categoryConfig';
 import CategorySection from './shared/CategorySection';
 import { categoryStyles } from './utils/theme';
 import { containerStyles } from './utils/layout';
-import { getCompaniesByModelCategory } from './utils/landscapeUtils';
+import { getCompaniesByModelCategory } from './utils/explorerUtils';
 
-interface LandscapeViewProps {
-  data: LandscapeData;
+interface ExplorerViewProps {
+  data: ExplorerData;
   onCompanySelect: (companyId: string) => void;
 }
 
-const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) => {
+const ExplorerView: React.FC<ExplorerViewProps> = ({ data, onCompanySelect }) => {
   // State for animations when components mount
   const [isLoaded, setIsLoaded] = useState(false);
   
@@ -69,7 +69,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
   // Skeleton loaders while loading
   if (!isLoaded) {
     return (
-      <div className={`${containerStyles.landscapeContainer} animate-pulse`}>  
+      <div className={`${containerStyles.explorerContainer} animate-pulse`}>  
         {/* Single-row skeletons */}
         {singleRow.map(entry => (
           <div key={`skeleton-${entry.key}`} className="mb-6">
@@ -82,7 +82,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
           </div>
         ))}
         {/* Two-column row skeletons */}
-        <div className={`${containerStyles.landscapeRowTwo} mb-6`}>  
+        <div className={`${containerStyles.explorerRowTwo} mb-6`}>  
           {doubleRow.map(entry => (
             <div key={`skeleton-double-${entry.key}`} className="mb-6 flex flex-col">
               <div className="h-6 bg-gray-700 rounded w-1/4 mb-4"></div>
@@ -95,7 +95,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
           ))}
         </div>
         {/* Four-column row skeletons */}
-        <div className={containerStyles.landscapeRowFour}>
+        <div className={containerStyles.explorerRowFour}>
           {quadRow.map(entry => (
             <div key={`skeleton-quad-${entry.key}`} className="mb-6 flex flex-col">
               <div className="h-6 bg-gray-700 rounded w-1/4 mb-4"></div>
@@ -114,7 +114,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
   
   // Main content after load
   return (
-    <div className={`${containerStyles.landscapeContainer} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
+    <div className={`${containerStyles.explorerContainer} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
       {/* Single-row categories */}
       {singleRow.map((entry: CategoryConfigEntry) => (
         <div
@@ -138,7 +138,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
       {/* Two-column row (open & enterprise) */}
       <div
         ref={twoColRef}
-        className={`${containerStyles.landscapeRowTwo} transform transition-all duration-500 delay-100 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+        className={`${containerStyles.explorerRowTwo} transform transition-all duration-500 delay-100 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
       >
         {doubleRow.map(entry => (
           <CategorySection
@@ -158,7 +158,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
       
       {/* Four-column row */}
       <div
-        className={`${containerStyles.landscapeRowFour} transform transition-all duration-500 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+        className={`${containerStyles.explorerRowFour} transform transition-all duration-500 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
       >
         {quadRow.map(entry => (
           <CategorySection
@@ -179,4 +179,4 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
   );
 };
 
-export default LandscapeView;
+export default ExplorerView;

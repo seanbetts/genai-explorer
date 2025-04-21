@@ -97,7 +97,7 @@ interface StyleAPI {
 // Unified style API
 export const styles: StyleAPI = {
   // Layout
-  container: containerStyles.landscapeContainer,
+  container: containerStyles.explorerContainer,
   
   // Category Sections
   categorySection: containerStyles.categorySection,
@@ -108,8 +108,8 @@ export const styles: StyleAPI = {
   categorySectionHover: containerStyles.categorySectionHover,
   
   // Layouts
-  gridLayoutTwo: containerStyles.landscapeRowTwo,
-  gridLayoutFour: containerStyles.landscapeRowFour,
+  gridLayoutTwo: containerStyles.explorerRowTwo,
+  gridLayoutFour: containerStyles.explorerRowFour,
   companyGridFull: containerStyles.companyGridFull,
   companyGridHalf: containerStyles.companyGridHalf,
   companyGridQuarter: containerStyles.companyGridQuarter,

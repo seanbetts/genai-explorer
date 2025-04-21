@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Generative AI Explorer",
-  description: "Explore the current landscape of generative AI models and companies",
+  description: "Explore the ecosystem of generative AI models and companies",
 };
 
 export default function RootLayout({
