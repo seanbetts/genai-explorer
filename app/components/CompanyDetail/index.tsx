@@ -18,7 +18,7 @@ interface CompanyDetailProps {
 }
 
 // Define tab types for the tabbed interface
-type TabType = 'frontier-models' | 'open-models' | 'products' | 'features' | 'subscriptions';
+type TabType = 'frontier-models' | 'open-models' | 'enterprise-models' | 'image-models' | 'video-models' | 'audio-models' | 'specialised-models' | 'products' | 'features' | 'subscriptions';
 
 const CompanyDetail: React.FC<CompanyDetailProps> = ({
   company,
@@ -40,6 +40,36 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
     );
   };
 
+  const hasEnterpriseModels = (): boolean => {
+    return company.models && company.models.some(model => 
+      model.category === 'enterprise' && model.status !== 'archived'
+    );
+  };
+
+  const hasImageModels = (): boolean => {
+    return company.models && company.models.some(model => 
+      model.category === 'image' && model.status !== 'archived'
+    );
+  };
+
+  const hasVideoModels = (): boolean => {
+    return company.models && company.models.some(model => 
+      model.category === 'video' && model.status !== 'archived'
+    );
+  };
+
+  const hasAudioModels = (): boolean => {
+    return company.models && company.models.some(model => 
+      model.category === 'music' && model.status !== 'archived'
+    );
+  };
+
+  const hasSpecialisedModels = (): boolean => {
+    return company.models && company.models.some(model => 
+      model.category === 'other' && model.status !== 'archived'
+    );
+  };
+
   // Initialize with a fallback value, we'll set it properly in useEffect
   const [activeTab, setActiveTab] = React.useState<TabType>('frontier-models');
   
@@ -53,7 +83,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
     initialRender.current = true;
     
     // If URL contains a valid tab parameter, use it
-    if (tabParam && ['frontier-models', 'open-models', 'products', 'features', 'subscriptions'].includes(tabParam)) {
+    if (tabParam && ['frontier-models', 'open-models', 'enterprise-models', 'image-models', 'video-models', 'audio-models', 'specialised-models', 'products', 'features', 'subscriptions'].includes(tabParam)) {
       console.log('Setting tab from URL:', tabParam);
       setActiveTab(tabParam as TabType);
       return;
@@ -76,6 +106,16 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
       setActiveTab('frontier-models');
     } else if (hasOpenModels()) {
       setActiveTab('open-models');
+    } else if (hasEnterpriseModels()) {
+      setActiveTab('enterprise-models');
+    } else if (hasImageModels()) {
+      setActiveTab('image-models');
+    } else if (hasVideoModels()) {
+      setActiveTab('video-models');
+    } else if (hasAudioModels()) {
+      setActiveTab('audio-models');
+    } else if (hasSpecialisedModels()) {
+      setActiveTab('specialised-models');
     } else if (company.products && company.products.length > 0) {
       setActiveTab('products');
     } else if (company.features && company.features.length > 0) {
@@ -218,6 +258,96 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
             </button>
           )}
           
+          {/* Only render Enterprise Models tab if company has enterprise models */}
+          {hasEnterpriseModels() && (
+            <button
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                activeTab === 'enterprise-models' 
+                  ? 'border-cyan-400 text-cyan-400' 
+                  : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
+              }`}
+              onClick={() => {
+                // Enable URL updates on user click
+                initialRender.current = false;
+                setActiveTab('enterprise-models');
+              }}
+            >
+              Enterprise Models
+            </button>
+          )}
+          
+          {/* Only render Image Models tab if company has image models */}
+          {hasImageModels() && (
+            <button
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                activeTab === 'image-models' 
+                  ? 'border-cyan-400 text-cyan-400' 
+                  : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
+              }`}
+              onClick={() => {
+                // Enable URL updates on user click
+                initialRender.current = false;
+                setActiveTab('image-models');
+              }}
+            >
+              Image Models
+            </button>
+          )}
+          
+          {/* Only render Video Models tab if company has video models */}
+          {hasVideoModels() && (
+            <button
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                activeTab === 'video-models' 
+                  ? 'border-cyan-400 text-cyan-400' 
+                  : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
+              }`}
+              onClick={() => {
+                // Enable URL updates on user click
+                initialRender.current = false;
+                setActiveTab('video-models');
+              }}
+            >
+              Video Models
+            </button>
+          )}
+          
+          {/* Only render Audio Models tab if company has audio models */}
+          {hasAudioModels() && (
+            <button
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                activeTab === 'audio-models' 
+                  ? 'border-cyan-400 text-cyan-400' 
+                  : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
+              }`}
+              onClick={() => {
+                // Enable URL updates on user click
+                initialRender.current = false;
+                setActiveTab('audio-models');
+              }}
+            >
+              Audio Models
+            </button>
+          )}
+          
+          {/* Only render Specialised Models tab if company has specialised models */}
+          {hasSpecialisedModels() && (
+            <button
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                activeTab === 'specialised-models' 
+                  ? 'border-cyan-400 text-cyan-400' 
+                  : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
+              }`}
+              onClick={() => {
+                // Enable URL updates on user click
+                initialRender.current = false;
+                setActiveTab('specialised-models');
+              }}
+            >
+              Specialised Models
+            </button>
+          )}
+          
           {/* Only render Products tab if company has products */}
           {company.products && company.products.length > 0 && (
             <button
@@ -316,6 +446,71 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
                   <ModelTable 
                     models={company.models.filter(model => 
                       model.category === 'open' && model.status !== 'archived'
+                    )} 
+                  />
+                </Suspense>
+              </div>
+            )}
+            
+            {/* Enterprise Models Tab */}
+            {activeTab === 'enterprise-models' && hasEnterpriseModels() && (
+              <div className="transform transition-opacity duration-300">
+                <Suspense fallback={<div className="text-center py-4">Loading enterprise models...</div>}>
+                  <ModelTable 
+                    models={company.models.filter(model => 
+                      model.category === 'enterprise' && model.status !== 'archived'
+                    )} 
+                  />
+                </Suspense>
+              </div>
+            )}
+            
+            {/* Image Models Tab */}
+            {activeTab === 'image-models' && hasImageModels() && (
+              <div className="transform transition-opacity duration-300">
+                <Suspense fallback={<div className="text-center py-4">Loading image models...</div>}>
+                  <ModelTable 
+                    models={company.models.filter(model => 
+                      model.category === 'image' && model.status !== 'archived'
+                    )} 
+                  />
+                </Suspense>
+              </div>
+            )}
+            
+            {/* Video Models Tab */}
+            {activeTab === 'video-models' && hasVideoModels() && (
+              <div className="transform transition-opacity duration-300">
+                <Suspense fallback={<div className="text-center py-4">Loading video models...</div>}>
+                  <ModelTable 
+                    models={company.models.filter(model => 
+                      model.category === 'video' && model.status !== 'archived'
+                    )} 
+                  />
+                </Suspense>
+              </div>
+            )}
+            
+            {/* Audio Models Tab */}
+            {activeTab === 'audio-models' && hasAudioModels() && (
+              <div className="transform transition-opacity duration-300">
+                <Suspense fallback={<div className="text-center py-4">Loading audio models...</div>}>
+                  <ModelTable 
+                    models={company.models.filter(model => 
+                      model.category === 'music' && model.status !== 'archived'
+                    )} 
+                  />
+                </Suspense>
+              </div>
+            )}
+            
+            {/* Specialised Models Tab */}
+            {activeTab === 'specialised-models' && hasSpecialisedModels() && (
+              <div className="transform transition-opacity duration-300">
+                <Suspense fallback={<div className="text-center py-4">Loading specialised models...</div>}>
+                  <ModelTable 
+                    models={company.models.filter(model => 
+                      model.category === 'other' && model.status !== 'archived'
                     )} 
                   />
                 </Suspense>

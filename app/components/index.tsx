@@ -38,6 +38,21 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
     } else if (category === 'frontier') {
       url += '&tab=frontier-models';
       console.log('Opening company in Frontier Models tab');
+    } else if (category === 'enterprise') {
+      url += '&tab=enterprise-models';
+      console.log('Opening company in Enterprise Models tab');
+    } else if (category === 'image') {
+      url += '&tab=image-models';
+      console.log('Opening company in Image Models tab');
+    } else if (category === 'video') {
+      url += '&tab=video-models';
+      console.log('Opening company in Video Models tab');
+    } else if (category === 'music') {
+      url += '&tab=audio-models';
+      console.log('Opening company in Audio Models tab');
+    } else if (category === 'other') {
+      url += '&tab=specialised-models';
+      console.log('Opening company in Specialised Models tab');
     } else {
       console.log('Category not recognized:', category);
     }
