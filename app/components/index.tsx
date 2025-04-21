@@ -97,11 +97,11 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
           </button>
           
           {/* Right section with subscribe button and date */}
-          <div className="flex flex-col items-end">
+          <div className="flex flex-col items-end pr-8">
             {/* Subscribe button - always visible */}
-            <div className="w-[140px]">
-              <a href="https://www.the-blueprint.ai" target="_blank" rel="noopener noreferrer">
-                <div className="flex font-sans text-[0.6em] font-medium w-[90px] h-[22px] bg-fuchsia-600 p-2 text-white rounded justify-center items-center cursor-pointer hover:bg-fuchsia-500 transition-colors">
+            <div className="flex justify-end">
+              <a href="https://www.the-blueprint.ai" target="_blank" rel="noopener noreferrer" className="no-underline">
+                <div className="flex font-mono text-[0.9em] font-medium w-[130px] h-[32px] bg-[#EA00D9] p-2 text-white rounded-[5px] justify-center items-center cursor-pointer hover:bg-opacity-90 transition-colors">
                   Subscribe
                 </div>
               </a>
@@ -109,7 +109,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
             
             {/* Data last updated text - only on home view */}
             {currentView === 'home' && (
-              <div className="text-xs font-mono mt-2">
+              <div className="text-[10px] font-mono mt-1 text-right">
                 Data last updated: <span className="text-cyan-400 font-semibold">{
                   new Date().toLocaleDateString('en-GB', { 
                     day: 'numeric', 
