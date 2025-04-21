@@ -2307,7 +2307,56 @@
       "website": "https://microsoft.com",
       "description": "Enterprise AI and productivity solutions",
       "lastUpdated": "2025-04-20",
-      "features": [],
+      "features": [
+        {
+          "name": "Search",
+          "description": "Cross‑checks information across multiple sites to deliver detailed, comprehensive responses right in Bing, complete with cited sources and suggestions for further exploration.",
+          "image": "/images/companies/microsoft/features/search.png",
+          "url": "https://blogs.bing.com/search/April-2025/Introducing-Copilot-Search-in-Bing"
+        },
+        {
+          "name": "Memory",
+          "description": "Copilot now remembers your preferences and past interactions, tailoring responses to your unique style and reducing repetitive prompts.",
+          "image": "/images/companies/microsoft/features/memory.png",
+          "url": "https://blogs.microsoft.com/blog/2025/04/04/your-ai-companion/"
+        },
+        {
+          "name": "Actions",
+          "description": "Autonomously execute multi‑step tasks—like booking travel or managing reservations—by calling out to partner services without leaving the chat.",
+          "image": "/images/companies/microsoft/features/actions.png",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-business-applications/"
+        },
+        {
+          "name": "Vision",
+          "description": "Analyze images and live screen content via Copilot Vision on Windows and mobile to get contextual, multimodal assistance.",
+          "image": "/images/companies/microsoft/features/vision.png",
+          "url": "https://support.microsoft.com/en-gb/topic/using-copilot-vision-with-microsoft-copilot-3c67686f-fa97-40f6-8a3e-0e45265d425f"
+        },
+        {
+          "name": "Pages",
+          "description": "A persistent, shareable canvas within Copilot Chat that turns AI responses into editable pages for collaborative planning and tracking.",
+          "image": "/images/companies/microsoft/features/pages.png",
+          "url": "https://support.microsoft.com/en-gb/topic/introducing-microsoft-365-copilot-pages-6674bd51-9ff5-42c4-9256-44d9428a726f"
+        },
+        {
+          "name": "Podcast Generator",
+          "description": "Automatically generate a podcast‑style audio summary of key insights from your documents or chats.",
+          "image": "/images/companies/microsoft/features/podcasts.png",
+          "url": "https://blogs.microsoft.com/blog/2025/04/04/your-ai-companion/"
+        },
+        {
+          "name": "Shopping",
+          "description": "Researches products, builds comparisons, offers impartial advice, tracks price drops and sales, and lets you purchase directly in the app—making it easy to find and buy the products and services you love.",
+          "image": "/images/companies/microsoft/features/shopping.png",
+          "url": "https://blogs.microsoft.com/blog/2025/04/04/your-ai-companion/"
+        },
+        {
+          "name": "Deep Research",
+          "description": "Synthesize and summarise large documents or web sources using advanced reasoning chains, ideal for multi‑step research workflows.",
+          "image": "/images/companies/microsoft/features/deep-research.png",
+          "url": "https://support.microsoft.com/en-gb/topic/conversation-modes-quick-think-deeper-deep-research-575efe12-eb34-4437-885a-440f7623cffb"
+        }
+      ],
       "models": [
         {
           "id": "m365-copilot",
