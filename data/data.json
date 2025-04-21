@@ -2342,14 +2342,11 @@
             "groundingSources": ["Microsoft Graph","Bing Web"],
             "integrations": [
               "Word","Excel","PowerPoint","Outlook","Teams",
-              "OneNote","Whiteboard","SharePoint","Forms","Loop",
-              "Microsoft 365 Admin Center","Copilot Studio",
-              "Copilot Chat sidebar","Windows taskbar","Edge browser",
-              "Viva Insights"
+              "OneNote","Whiteboard","SharePoint","Forms","Loop","Copilot Studio"
             ],
             "dataPrivacy": {
               "usesCustomerDataForTraining": false,
-              "dataRetentionPolicy": "Managed under Microsoft 365; user data isn’t used to train the LLM."
+              "dataRetentionPolicy": ["Managed under Microsoft 365"]
             },
             "securityFeatures": {
               "Encryption in transit": true,
@@ -2392,7 +2389,7 @@
             "integrations": [],
             "dataPrivacy": {
               "usesCustomerDataForTraining": false,
-              "dataRetentionPolicy": "Managed under Microsoft 365; user data isn’t used to train the LLM."
+              "dataRetentionPolicy": ["Managed under Microsoft 365"]
             },
             "securityFeatures": {
               "Encryption in transit": true,
