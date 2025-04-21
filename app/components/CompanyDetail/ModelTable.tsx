@@ -750,6 +750,16 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       cursor: default;
     }
     
+    /* Remove border from the last row of each table */
+    .hover-highlight tbody tr:last-child td {
+      border-bottom: none !important;
+    }
+    
+    /* Also ensure the border stays removed on hover */
+    .hover-highlight tbody tr:last-child:hover td {
+      border-bottom: none !important;
+    }
+    
     /* Header area with legend and pagination */
     .header-area {
       display: flex;
