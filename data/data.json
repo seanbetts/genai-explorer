@@ -2516,6 +2516,214 @@
               "Third party cloud deployments": false
             }
           }
+        },
+        {
+          "id": "phi-4-mm",
+          "name": "Phi-4 Multimodal",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "2024-12-13",
+          "modelPage": "https://ai.azure.com/explore/models/Phi-4-multimodal-instruct/version/1/registry/azureml",
+          "releasePost": "https://techcommunity.microsoft.com/blog/aiplatformblog/introducing-phi-4-microsoft’s-newest-small-language-model-specializing-in-comple/4357090",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "MIT",
+          "licenceLink": "https://choosealicense.com/licenses/mit/",
+          "huggingFace": "https://huggingface.co/microsoft/Phi-4-multimodal-instruct",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 5,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "speech",
+              "image",
+              "audio"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 131072,
+            "maxOutputTokens": 4096,
+            "knowledgeCutoff": "June 2024",
+            "pricingInputPerM": 0.13,
+            "pricingOutputPerM": 0.52
+          }
+        },
+        {
+          "id": "phi-4",
+          "name": "Phi-4",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "2024-12-13",
+          "modelPage": "https://ai.azure.com/explore/models/Phi-4/version/2/registry/azureml",
+          "releasePost": "https://techcommunity.microsoft.com/blog/aiplatformblog/introducing-phi-4-microsoft’s-newest-small-language-model-specializing-in-comple/4357090",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "MIT",
+          "licenceLink": "https://choosealicense.com/licenses/mit/",
+          "huggingFace": "https://huggingface.co/microsoft/phi-4",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 5,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 16384,
+            "maxOutputTokens": 16384,
+            "knowledgeCutoff": "June 2024",
+            "pricingInputPerM": 0.13,
+            "pricingOutputPerM": 0.52
+          }
+        },
+        {
+          "id": "phi-4-mini",
+          "name": "Phi-4 Mini",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "2024-12-13",
+          "modelPage": "https://ai.azure.com/explore/models/Phi-4-mini-instruct/version/1/registry/azureml",
+          "releasePost": "https://techcommunity.microsoft.com/blog/aiplatformblog/introducing-phi-4-microsoft’s-newest-small-language-model-specializing-in-comple/4357090",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "MIT",
+          "licenceLink": "https://choosealicense.com/licenses/mit/",
+          "huggingFace": "https://huggingface.co/microsoft/Phi-4-mini-instruct",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 5,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 131072,
+            "maxOutputTokens": 4096,
+            "knowledgeCutoff": "June 2024",
+            "pricingInputPerM": 0.13,
+            "pricingOutputPerM": 0.52
+          }
+        },
+        {
+          "id": "phi-3-5-mini",
+          "name": "Phi-3.5 Mini",
+          "status": "archived",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "",
+          "modelPage": "https://ai.azure.com/explore/models/Phi-3.5-mini-instruct/version/6/registry/azureml",
+          "releasePost": "https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "MIT",
+          "licenceLink": "https://choosealicense.com/licenses/mit/",
+          "huggingFace": "https://huggingface.co/microsoft/Phi-3.5-mini-instruct",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 5,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4096,
+            "knowledgeCutoff": "August 2024",
+            "pricingInputPerM": 0.13,
+            "pricingOutputPerM": 0.52
+          }
+        },
+        {
+          "id": "phi-3-5-moe",
+          "name": "Phi-3.5 MoE",
+          "status": "archived",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "",
+          "modelPage": "https://ai.azure.com/explore/models/Phi-3.5-MoE-instruct/version/5/registry/azureml",
+          "releasePost": "https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "MIT",
+          "licenceLink": "https://choosealicense.com/licenses/mit/",
+          "huggingFace": "https://huggingface.co/microsoft/Phi-3.5-MoE-instruct",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 5,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4096,
+            "knowledgeCutoff": "August 2024",
+            "pricingInputPerM": 0.16,
+            "pricingOutputPerM": 0.64
+          }
+        },
+        {
+          "id": "phi-3-5-vision",
+          "name": "Phi-3.5 Vision",
+          "status": "archived",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "",
+          "modelPage": "https://ai.azure.com/explore/models/Phi-3.5-vision-instruct/version/2/registry/azureml",
+          "releasePost": "https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "MIT",
+          "licenceLink": "https://choosealicense.com/licenses/mit/",
+          "huggingFace": "https://huggingface.co/microsoft/Phi-3.5-vision-instruct",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 5,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4096,
+            "knowledgeCutoff": "August 2024",
+            "pricingInputPerM": 0.13,
+            "pricingOutputPerM": 0.52
+          }
         }
       ],
       "products": [
@@ -2610,7 +2818,20 @@
       "website": "https://cohere.com",
       "description": "The secure AI platform",
       "lastUpdated": "2025-04-21",
-      "features": [],
+      "features": [
+        {
+          "name": "Retrieval Augmented Generation (RAG)",
+          "description": "Retrieval Augmented Generation (RAG) is a method for generating text using additional information fetched from an external data source, which can greatly increase the accuracy of the response. ",
+          "image": "/images/companies/cohere/features/rag.png",
+          "url": "https://docs.cohere.com/docs/retrieval-augmented-generation-rag"
+        },
+        {
+          "name": "Fine‑Tuning",
+          "description": "Fine-tuning is recommended when you want to teach the model a new task, or leverage your company’s unique knowledge base.",
+          "image": "/images/companies/cohere/features/fine-tuning.png",
+          "url": "https://docs.cohere.com/docs/fine-tuning"
+        }
+      ],
       "models": [
         {
           "id": "command-r",
@@ -2644,7 +2865,7 @@
             "pricingInputPerM": 0.15,
             "pricingOutputPerM": 0.6,
             "groundingSources": ["RAG"],
-            "integrations": ["API"],
+            "integrations": ["Elastisearch","MongoDB","Redis","Haystack","Open Search","Vespa","Chroma","Qdrant","Weaviate","Pinecone","Milvus"],
             "dataPrivacy": {
               "usesCustomerDataForTraining": true,
               "dataRetentionPolicy": ["Opt Out"],
@@ -2696,7 +2917,7 @@
             "pricingInputPerM": 2.5,
             "pricingOutputPerM": 10,
             "groundingSources": ["RAG"],
-            "integrations": ["API"],
+            "integrations": ["Elastisearch","MongoDB","Redis","Haystack","Open Search","Vespa","Chroma","Qdrant","Weaviate","Pinecone","Milvus"],
             "dataPrivacy": {
               "usesCustomerDataForTraining": true,
               "dataRetentionPolicy": ["Opt Out"],
@@ -2748,7 +2969,7 @@
             "pricingInputPerM": 0.0375,
             "pricingOutputPerM": 0.15,
             "groundingSources": ["RAG"],
-            "integrations": ["API"],
+            "integrations": ["Elastisearch","MongoDB","Redis","Haystack","Open Search","Vespa","Chroma","Qdrant","Weaviate","Pinecone","Milvus"],
             "dataPrivacy": {
               "usesCustomerDataForTraining": true,
               "dataRetentionPolicy": ["Opt Out"],
@@ -2800,7 +3021,7 @@
             "pricingInputPerM": 2.5,
             "pricingOutputPerM": 10,
             "groundingSources": ["RAG"],
-            "integrations": ["API"],
+            "integrations": ["Elastisearch","MongoDB","Redis","Haystack","Open Search","Vespa","Chroma","Qdrant","Weaviate","Pinecone","Milvus"],
             "dataPrivacy": {
               "usesCustomerDataForTraining": true,
               "dataRetentionPolicy": ["Opt Out"],
@@ -2875,7 +3096,32 @@
           }
         }
       ],
-      "products": [],
+      "products": [
+        {
+          "name": "API",
+          "description": "Cohere’s API allows developers to integrate natural language processing and generation into their products with minimal code, offering endpoints for chat, embed, rerank, classify and more.",
+          "image": "/images/companies/cohere/products/api.png",
+          "url": "https://docs.cohere.com/reference/about"
+        },
+        {
+          "name": "Platform",
+          "description": "Cohere’s secure AI platform provides world‑class multilingual models, advanced retrieval, and an AI workspace tailored for the modern enterprise.",
+          "image": "/images/companies/cohere/products/platform.png",
+          "url": "https://docs.cohere.com/docs/the-cohere-platform"
+        },
+        {
+          "name": "North",
+          "description": "An integrated AI workspace where work gets done—unifying generative models, advanced retrieval tools, and workplace systems in one secure interface.",
+          "image": "/images/companies/cohere/products/north.png",
+          "url": "https://cohere.com/north"
+        },
+        {
+          "name": "Compass",
+          "description": "An intelligent search and discovery system that surfaces business insights from complex enterprise data using generative AI and advanced embeddings.",
+          "image": "/images/companies/cohere/products/compass.png",
+          "url": "https://cohere.com/compass"
+        }
+      ],
       "subscriptions": []
     },
     {
