@@ -37,9 +37,9 @@ export const containerStyles = {
     // Subscription card styles with fixed width so incomplete rows center correctly
     subscriptionGrid: 'flex flex-wrap justify-center gap-6',
     subscriptionCard: 'flex flex-col rounded-lg border border-gray-600 bg-gray-200 overflow-hidden hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer no-underline w-80 relative',
-    subscriptionHeader: 'px-5 py-3 bg-[#2d3748] border-b border-gray-600', /* Match table header/label color */
+    subscriptionHeader: 'px-5 py-3 bg-[#2d3748] border-b border-gray-600 h-[70px] flex flex-col justify-center', /* Fixed height header for consistency */
     subscriptionContent: 'px-5 pt-5 pb-10 flex-1 flex flex-col overflow-hidden', /* Increased bottom padding further */
-    subscriptionTier: 'text-lg font-semibold text-fuchsia-500 font-mono',
+    subscriptionTier: 'text-lg font-semibold text-fuchsia-500 font-mono leading-tight',
     subscriptionType: 'px-2 py-0.5 bg-gray-600 rounded text-xs text-cyan-400 font-mono',
     subscriptionPrice: 'text-xl font-bold text-gray-800 font-mono mb-4',
     subscriptionPriceUnit: 'text-xs text-gray-600 font-normal font-mono',

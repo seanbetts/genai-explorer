@@ -663,7 +663,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       position: relative;
       scrollbar-width: thin;
       border-radius: 0.5rem;
-      border: 0.2px solid #101828;
+      border: 1px solid #101828; /* Original border color */
       margin-bottom: 0.5rem;
     }
     
@@ -904,7 +904,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
             onScroll={handleTableScroll}
           >
             <table
-              className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight`}
+              className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}
             >
               <TableHeader />
               <tbody>

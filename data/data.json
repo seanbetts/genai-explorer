@@ -2339,10 +2339,58 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": 4096,
             "knowledgeCutoff": "November 2023",
-            "groundingSources": ["Microsoft Graph","Bing Web"],
+            "groundingSources": ["Bing Web","Microsoft Graph"],
             "integrations": [
               "Word","Excel","PowerPoint","Outlook","Teams",
-              "OneNote","Whiteboard","SharePoint","Forms","Loop","Copilot Studio"
+              "OneNote","Designer","Whiteboard","SharePoint","Forms","Loop","Copilot Studio"
+            ],
+            "dataPrivacy": {
+              "usesCustomerDataForTraining": false,
+              "dataRetentionPolicy": ["Managed under Microsoft 365"],
+              "documentation": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy",
+              "termsOfUse": "https://www.microsoft.com/licensing/terms/"
+            },
+            "securityFeatures": {
+              "In transit": true,
+              "At rest": true,
+              "RBAC": true
+            }
+          }
+        },
+        {
+          "id": "copilot-pro-chat",
+          "name": "Copilot Pro Chat",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "enterprise",
+          "releaseDate": "2025-01-15",
+          "modelVersion": "GPT‑4o",
+          "modelPage": "https://support.microsoft.com/en-gb/copilot-microsoft365-chat",
+          "releasePost": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/",
+          "releaseVideo": "https://www.youtube.com/watch?v=rc-fc7pT9nw",
+          "releaseNotes": "https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes?tabs=all",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 3,
+            "reasoning": 2
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text",
+              "image"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 16384,
+            "knowledgeCutoff": "September 2023",
+            "groundingSources": ["Bing Web", "Microsoft Graph"],
+            "integrations": [
+              "Word","Excel","PowerPoint","Outlook","Teams",
+              "OneNote","Designer","Whiteboard","SharePoint","Forms","Loop","Copilot Studio"
             ],
             "dataPrivacy": {
               "usesCustomerDataForTraining": false,
@@ -2387,8 +2435,8 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": 16384,
             "knowledgeCutoff": "September 2023",
-            "groundingSources": ["Microsoft Graph","Bing Web"],
-            "integrations": [],
+            "groundingSources": ["Bing Web"],
+            "integrations": ["Designer"],
             "dataPrivacy": {
               "usesCustomerDataForTraining": false,
               "dataRetentionPolicy": ["Managed under Microsoft 365"],
@@ -2404,7 +2452,52 @@
         }
       ],
       "products": [],
-      "subscriptions": []
+      "subscriptions": [
+        {
+          "tier": "Microsoft Copilot",
+          "type": "consumer",
+          "price": 0,
+          "billingCycle": "month",
+          "url": "https://m365copilot.com/",
+          "features": [
+            "Limited usage",
+            "AI credits for use with Designer",
+            "Advanced AI grounding to provide up-to-date information",
+            "15 boosts per day for image generation",
+            "Use Copilot on the web, in the mobile app, and in Windows and Microsoft Edge",
+            "Turn your curiosity and interests into personalized podcasts"
+          ]
+        },
+        {
+          "tier": "Microsoft Copilot Pro",
+          "type": "consumer",
+          "price": 20,
+          "billingCycle": "month",
+          "url": "https://www.microsoft.com/en-us/store/b/copilotpro",
+          "features": [
+            "Everything in free tier",
+            "Extensive usage",
+            "Preferred access",
+            "100 boosts per day for image generation",
+            "Be the first to experience new AI features",
+            "Use Copilot in Word, Excel, PowerPoint, OneNote, and Outlook"
+          ]
+        },
+        {
+          "tier": "Microsoft 365 Copilot",
+          "type": "enterprise",
+          "price": 30,
+          "billingCycle": "user per month",
+          "url": "https://www.microsoft.com/en-us/microsoft-365/copilot/business",
+          "features": [
+            "Seamlessly integrate Copilot into the Microsoft 365 apps you already use",
+            "Combine your business data with AI using Microsoft 365 Copilot Chat and Copilot Pages",
+            "Build custom agents for your business with Microsoft Copilot Studio",
+            "Gain actionable insights from a pre-built dashboard measuring Copilot adoption and impact",
+            "Enjoy enterprise-grade security, privacy, and compliance tailored for businesses of all sizes"
+          ]
+        }
+      ]
     },
     {
       "id": "cohere",

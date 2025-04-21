@@ -47,11 +47,15 @@ const SubscriptionGrid: React.FC<SubscriptionGridProps> = ({ subscriptions }) =>
             className={`${containerStyles.subscriptionCard} group subscription-card`}
           >
             <div className={containerStyles.subscriptionHeader}>
-              <div className="flex justify-between items-center">
-                <h3 className={containerStyles.subscriptionTier}>{subscription.tier}</h3>
-                <span className={containerStyles.subscriptionType}>
-                  {subscription.type === 'enterprise' ? 'Enterprise' : 'Consumer'}
-                </span>
+              <div className="flex justify-between h-full">
+                <div className="flex items-center h-full max-w-[75%]">
+                  <h3 className={`${containerStyles.subscriptionTier} break-words line-clamp-2`}>{subscription.tier}</h3>
+                </div>
+                <div className="flex-shrink-0 self-start mt-1">
+                  <span className={containerStyles.subscriptionType}>
+                    {subscription.type === 'enterprise' ? 'Enterprise' : 'Consumer'}
+                  </span>
+                </div>
               </div>
             </div>
             
