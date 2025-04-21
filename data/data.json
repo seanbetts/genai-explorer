@@ -2346,12 +2346,14 @@
             ],
             "dataPrivacy": {
               "usesCustomerDataForTraining": false,
-              "dataRetentionPolicy": ["Managed under Microsoft 365"]
+              "dataRetentionPolicy": ["Managed under Microsoft 365"],
+              "documentation": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy",
+              "termsOfUse": "https://www.microsoft.com/licensing/terms/"
             },
             "securityFeatures": {
-              "Encryption in transit": true,
-              "Encryption at rest": true,
-              "Role‑based access control": true
+              "In transit": true,
+              "At rest": true,
+              "RBAC": true
             }
           }
         },
@@ -2389,12 +2391,14 @@
             "integrations": [],
             "dataPrivacy": {
               "usesCustomerDataForTraining": false,
-              "dataRetentionPolicy": ["Managed under Microsoft 365"]
+              "dataRetentionPolicy": ["Managed under Microsoft 365"],
+              "documentation": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy",
+              "termsOfUse": "https://www.microsoft.com/licensing/terms/"
             },
             "securityFeatures": {
-              "Encryption in transit": true,
-              "Encryption at rest": true,
-              "Role‑based access control": true
+              "In transit": true,
+              "At rest": true,
+              "RBAC": true
             }
           }
         }

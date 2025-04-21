@@ -16,6 +16,8 @@ export interface Product {
 export interface DataPrivacy {
   usesCustomerDataForTraining?: boolean;
   dataRetentionPolicy?: string[];
+  documentation?: string;
+  termsOfUse?: string;
 }
 
 export interface SecurityFeatures {

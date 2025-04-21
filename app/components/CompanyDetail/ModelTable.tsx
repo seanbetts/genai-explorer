@@ -159,7 +159,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                               {model.specs.integrations.map((integration, i) => (
                                 <span 
                                   key={i} 
-                                  className="bg-gray-700 px-1.5 py-0.5 rounded text-[9px] font-mono inline-block whitespace-nowrap overflow-hidden text-ellipsis" 
+                                  className="bg-gray-700 px-1.5 py-0.5 rounded text-xs font-mono inline-block whitespace-nowrap overflow-hidden text-ellipsis" 
                                   title={integration}
                                   style={{maxWidth: '100%'}}
                                 >
@@ -201,6 +201,36 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                                 {model.specs.dataPrivacy.dataRetentionPolicy.map((policy, i) => (
                                   <div key={i} className="mb-1 text-xs font-mono">{policy}</div>
                                 ))}
+                              </div>
+                            )}
+                            
+                            {/* Documentation Link */}
+                            {model.specs.dataPrivacy.documentation && (
+                              <div className="mb-1 mt-1">
+                                <a 
+                                  href={model.specs.dataPrivacy.documentation} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer" 
+                                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                                  title="View data privacy documentation"
+                                >
+                                  🔗 Documentation
+                                </a>
+                              </div>
+                            )}
+                            
+                            {/* Terms of Use Link */}
+                            {model.specs.dataPrivacy.termsOfUse && (
+                              <div className="mb-1 mt-1">
+                                <a 
+                                  href={model.specs.dataPrivacy.termsOfUse} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer" 
+                                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                                  title="View terms of use"
+                                >
+                                  🔗 Terms of Use
+                                </a>
                               </div>
                             )}
                           </div>
