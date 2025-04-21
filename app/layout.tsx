@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Generative AI Landscape Explorer",
+  title: "Generative AI Explorer",
   description: "Explore the current landscape of generative AI models and companies",
 };
 

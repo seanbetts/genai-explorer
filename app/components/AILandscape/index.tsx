@@ -64,7 +64,7 @@ const AILandscape: React.FC<AILandscapeProps> = ({ initialData }) => {
           >
             <img
               src="/images/logo.png"
-              alt="Generative AI Model Explorer"
+              alt="Generative AI Explorer"
               className="h-14"
             />
           </button>

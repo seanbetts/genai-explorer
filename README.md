@@ -1,4 +1,4 @@
-# Generative AI Model Explorer
+# Generative AI Explorer
 
 An interactive web application that visualizes the current landscape of generative AI companies, models, and capabilities.
 
@@ -19,8 +19,8 @@ An interactive web application that visualizes the current landscape of generati
 
 1. Clone the repository
 ```bash
-git clone https://github.com/seanbetts/genai-landscape.git
-cd genai-landscape
+git clone https://github.com/seanbetts/genai-explorer.git
+cd genai-explorer
 ```
 
 2. Install dependencies
