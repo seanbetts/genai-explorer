@@ -18,7 +18,7 @@ interface CompanyDetailProps {
 }
 
 // Define tab types for the tabbed interface
-type TabType = 'models' | 'products' | 'features' | 'subscriptions';
+type TabType = 'frontier-models' | 'open-models' | 'products' | 'features' | 'subscriptions';
 
 const CompanyDetail: React.FC<CompanyDetailProps> = ({
   company,
@@ -27,9 +27,23 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
   // Animation related hooks
   const [isVisible, setIsVisible] = React.useState(false);
   
-  // Set initial active tab, defaulting to 'models' if available, otherwise to the first available tab
+  // Helper functions to check for model types
+  const hasFrontierModels = (): boolean => {
+    return company.models && company.models.some(model => 
+      model.category === 'frontier' && model.status !== 'archived'
+    );
+  };
+
+  const hasOpenModels = (): boolean => {
+    return company.models && company.models.some(model => 
+      model.category === 'open' && model.status !== 'archived'
+    );
+  };
+
+  // Set initial active tab, defaulting to frontier-models or open-models if available
   const getInitialTab = (): TabType => {
-    if (company.models && company.models.length > 0) return 'models';
+    if (hasFrontierModels()) return 'frontier-models';
+    if (hasOpenModels()) return 'open-models';
     if (company.products && company.products.length > 0) return 'products';
     if (company.features && company.features.length > 0) return 'features';
     return 'subscriptions';
@@ -40,8 +54,15 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
   React.useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const tabParam = params.get('tab');
-    if (tabParam && ['models', 'products', 'features', 'subscriptions'].includes(tabParam)) {
+    if (tabParam && ['frontier-models', 'open-models', 'products', 'features', 'subscriptions'].includes(tabParam)) {
       setActiveTab(tabParam as TabType);
+    } else if (tabParam === 'models') {
+      // Handle legacy 'models' parameter - redirect to frontier-models or open-models
+      if (hasFrontierModels()) {
+        setActiveTab('frontier-models');
+      } else if (hasOpenModels()) {
+        setActiveTab('open-models');
+      }
     }
   }, []);
   
@@ -117,17 +138,31 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
             </button>
           )}
           
-          {/* Only render Models tab if company has models */}
-          {company.models && company.models.length > 0 && (
+          {/* Only render Frontier Models tab if company has frontier models */}
+          {hasFrontierModels() && (
             <button
               className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
-                activeTab === 'models' 
+                activeTab === 'frontier-models' 
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
               }`}
-              onClick={() => setActiveTab('models')}
+              onClick={() => setActiveTab('frontier-models')}
             >
-              {getModelTabName(company.models)}
+              Frontier Models
+            </button>
+          )}
+          
+          {/* Only render Open Models tab if company has open models */}
+          {hasOpenModels() && (
+            <button
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                activeTab === 'open-models' 
+                  ? 'border-cyan-400 text-cyan-400' 
+                  : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
+              }`}
+              onClick={() => setActiveTab('open-models')}
+            >
+              Open Models
             </button>
           )}
           
@@ -197,11 +232,28 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
               </div>
             )}
             
-            {/* Models Tab */}
-            {activeTab === 'models' && company.models && company.models.length > 0 && (
+            {/* Frontier Models Tab */}
+            {activeTab === 'frontier-models' && hasFrontierModels() && (
               <div className="transform transition-opacity duration-300">
-                <Suspense fallback={<div className="text-center py-4">Loading models...</div>}>
-                  <ModelTable models={company.models} />
+                <Suspense fallback={<div className="text-center py-4">Loading frontier models...</div>}>
+                  <ModelTable 
+                    models={company.models.filter(model => 
+                      model.category === 'frontier' && model.status !== 'archived'
+                    )} 
+                  />
+                </Suspense>
+              </div>
+            )}
+            
+            {/* Open Models Tab */}
+            {activeTab === 'open-models' && hasOpenModels() && (
+              <div className="transform transition-opacity duration-300">
+                <Suspense fallback={<div className="text-center py-4">Loading open models...</div>}>
+                  <ModelTable 
+                    models={company.models.filter(model => 
+                      model.category === 'open' && model.status !== 'archived'
+                    )} 
+                  />
                 </Suspense>
               </div>
             )}

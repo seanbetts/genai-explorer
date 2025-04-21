@@ -357,7 +357,11 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.pricingInputPerM !== undefined && model.specs?.pricingInputPerM !== null ? (
-                <span className={shouldShowTogetherPricing(model) ? 'text-cyan-400 font-medium tabular-nums font-mono' : tableStyles.metric}>
+                <span className={
+                  model.category === 'frontier' 
+                    ? tableStyles.metric 
+                    : 'text-cyan-400 font-medium tabular-nums font-mono'
+                }>
                   ${model.specs.pricingInputPerM.toFixed(2)}
                 </span>
               ) : <span className={textStyles.primary}>-</span>}
@@ -377,7 +381,11 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.pricingCachedInputPerM !== undefined && model.specs?.pricingCachedInputPerM !== null ? (
-                <span className={shouldShowTogetherPricing(model) ? 'text-cyan-400 font-medium tabular-nums font-mono' : tableStyles.metric}>
+                <span className={
+                  model.category === 'frontier' 
+                    ? tableStyles.metric 
+                    : 'text-cyan-400 font-medium tabular-nums font-mono'
+                }>
                   ${model.specs.pricingCachedInputPerM.toFixed(2)}
                 </span>
               ) : <span className={textStyles.primary}>-</span>}
@@ -397,7 +405,11 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.pricingOutputPerM !== undefined && model.specs?.pricingOutputPerM !== null ? (
-                <span className={shouldShowTogetherPricing(model) ? 'text-cyan-400 font-medium tabular-nums font-mono' : tableStyles.metric}>
+                <span className={
+                  model.category === 'frontier' 
+                    ? tableStyles.metric 
+                    : 'text-cyan-400 font-medium tabular-nums font-mono'
+                }>
                   ${model.specs.pricingOutputPerM.toFixed(2)}
                 </span>
               ) : <span className={textStyles.primary}>-</span>}
@@ -546,6 +558,10 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
   const hasContextData = hasAnyModelSpec("maxInputTokens") || hasAnyModelSpec("maxOutputTokens") || hasAnyModelSpec("knowledgeCutoff");
   const hasPricingData = hasAnyModelSpec("pricingInputPerM") || hasAnyModelSpec("pricingCachedInputPerM") || hasAnyModelSpec("pricingOutputPerM");
   
+  // Determine if we're showing only frontier models or only open models
+  const isAllFrontierModels = displayModels.every(model => model.category === 'frontier');
+  const isAllOpenModels = displayModels.every(model => model.category === 'open');
+  
   // Section titles with consistent styling
   const sectionTitle = "text-lg font-semibold text-fuchsia-500 mt-6 mb-2 font-mono";
 
@@ -682,12 +698,23 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           <h3 className={sectionTitle}>
             Pricing
             <span className="text-xs text-gray-400 ml-2 font-normal">
-              (per 1M tokens direct or on <a 
-                href="https://www.together.ai/pricing#inference"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
-              >Together.ai</a>)
+              {isAllFrontierModels ? (
+                "(per 1M tokens)"
+              ) : isAllOpenModels ? (
+                <>(per 1M tokens direct or on <a 
+                  href="https://www.together.ai/pricing#inference" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
+                >Together.ai</a>)</>
+              ) : (
+                <>(per 1M tokens direct or on <a 
+                  href="https://www.together.ai/pricing#inference" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
+                >Together.ai</a> for open models)</>
+              )}
             </span>
           </h3>
           <div className="table-wrapper">
