@@ -991,8 +991,8 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "August 2024",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 0.8,
+            "pricingOutputPerM": 0.8
           }
         },
         {
@@ -1026,8 +1026,8 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "August 2024",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 0.3,
+            "pricingOutputPerM": 0.3
           }
         },
         {
@@ -1061,8 +1061,8 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "August 2024",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 0.1,
+            "pricingOutputPerM": 0.1
           }
         },
         {
@@ -1095,8 +1095,8 @@
             "maxInputTokens": 32000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "August 2024",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 0.1,
+            "pricingOutputPerM": 0.1
           }
         }
       ],

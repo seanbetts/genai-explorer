@@ -12,7 +12,7 @@ interface CategorySectionProps {
   title: string;
   companies: Company[];
   styleName: string;
-  onCompanySelect: (companyId: string) => void;
+  onCompanySelect: (companyId: string, category?: string) => void;
   layout: 'full-width' | 'half-width' | 'quarter-width';
   columns?: number;
   showModelCount?: number;
@@ -77,9 +77,10 @@ const CategorySection: React.FC<CategorySectionProps> = ({
             <CompanyCard 
               key={company.id}
               company={company}
-              onClick={onCompanySelect}
+              onClick={(id, modelCategory) => onCompanySelect(id, modelCategory || category)}
               showModelCount={showModelCount}
               imageSize={imageSize}
+              sectionCategory={category}
             />
           ))}
         </div>

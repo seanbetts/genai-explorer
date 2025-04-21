@@ -10,7 +10,7 @@ import { getCompaniesByModelCategory } from './utils/explorerUtils';
 
 interface ExplorerViewProps {
   data: ExplorerData;
-  onCompanySelect: (companyId: string) => void;
+  onCompanySelect: (companyId: string, category?: string) => void;
 }
 
 const ExplorerView: React.FC<ExplorerViewProps> = ({ data, onCompanySelect }) => {

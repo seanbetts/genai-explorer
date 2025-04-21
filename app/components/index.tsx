@@ -26,9 +26,22 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
   const currentView = selectedCompany ? 'company' : 'home';
 
   // Handlers to update URL using Next.js shallow routing
-  const handleCompanySelect = (id: string) => {
-    // Navigate to company view
-    router.push(`/?company=${id}`);
+  const handleCompanySelect = (id: string, category?: string) => {
+    // Navigate to company view with appropriate tab based on category
+    let url = `/?company=${id}`;
+    
+    // Add tab parameter for specific categories
+    if (category === 'open') {
+      url += '&tab=open-models';
+      console.log('Opening company in Open Models tab');
+    } else if (category === 'frontier') {
+      url += '&tab=frontier-models';
+      console.log('Opening company in Frontier Models tab');
+    } else {
+      console.log('Category not recognized:', category);
+    }
+    
+    router.push(url);
   };
   const handleBack = () => {
     // Navigate back to home view

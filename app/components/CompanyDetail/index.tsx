@@ -40,29 +40,48 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
     );
   };
 
-  // Set initial active tab, defaulting to frontier-models or open-models if available
-  const getInitialTab = (): TabType => {
-    if (hasFrontierModels()) return 'frontier-models';
-    if (hasOpenModels()) return 'open-models';
-    if (company.products && company.products.length > 0) return 'products';
-    if (company.features && company.features.length > 0) return 'features';
-    return 'subscriptions';
-  };
-  const [activeTab, setActiveTab] = React.useState<TabType>(getInitialTab());
+  // Initialize with a fallback value, we'll set it properly in useEffect
+  const [activeTab, setActiveTab] = React.useState<TabType>('frontier-models');
   
-  // On mount, check URL for tab deep-link
+  // On mount, properly set the active tab based on URL or company data
   React.useEffect(() => {
+    // First check if URL has a tab parameter
     const params = new URLSearchParams(window.location.search);
     const tabParam = params.get('tab');
+    
+    // Force disable URL updates during initialization
+    initialRender.current = true;
+    
+    // If URL contains a valid tab parameter, use it
     if (tabParam && ['frontier-models', 'open-models', 'products', 'features', 'subscriptions'].includes(tabParam)) {
+      console.log('Setting tab from URL:', tabParam);
       setActiveTab(tabParam as TabType);
-    } else if (tabParam === 'models') {
-      // Handle legacy 'models' parameter - redirect to frontier-models or open-models
+      return;
+    }
+    
+    // Handle legacy 'models' parameter
+    if (tabParam === 'models') {
       if (hasFrontierModels()) {
         setActiveTab('frontier-models');
-      } else if (hasOpenModels()) {
-        setActiveTab('open-models');
+        return;
       }
+      if (hasOpenModels()) {
+        setActiveTab('open-models');
+        return;
+      }
+    }
+    
+    // Fallback to default order if no tab parameter or invalid value
+    if (hasFrontierModels()) {
+      setActiveTab('frontier-models');
+    } else if (hasOpenModels()) {
+      setActiveTab('open-models');
+    } else if (company.products && company.products.length > 0) {
+      setActiveTab('products');
+    } else if (company.features && company.features.length > 0) {
+      setActiveTab('features');
+    } else {
+      setActiveTab('subscriptions');
     }
   }, []);
   
@@ -76,10 +95,35 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
     window.history.pushState({}, '', newUrl);
   };
   
-  // Persist activeTab in URL
+  // Persist activeTab in URL, but only after deliberate user interaction
+  const initialRender = React.useRef(true);
+  const initialLoad = React.useRef(true);
+  
   React.useEffect(() => {
+    if (initialLoad.current) {
+      // Skip completely on first render of the component
+      initialLoad.current = false;
+      return;
+    }
+    
+    // This ensures we only update the URL when the tab is changed by user interaction
+    // not during initial loading or parameter setting
+    if (initialRender.current) {
+      initialRender.current = false;
+      return;
+    }
+    
+    console.log('Updating URL to tab:', activeTab);
     updateQuery('tab', activeTab);
   }, [activeTab]);
+  
+  // Reset initialRender ref when component unmounts
+  React.useEffect(() => {
+    return () => {
+      initialRender.current = true;
+      initialLoad.current = true;
+    };
+  }, []);
   
   React.useEffect(() => {
     // Small delay for animation effect
@@ -146,7 +190,11 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
               }`}
-              onClick={() => setActiveTab('frontier-models')}
+              onClick={() => {
+                // Enable URL updates on user click
+                initialRender.current = false;
+                setActiveTab('frontier-models');
+              }}
             >
               Frontier Models
             </button>
@@ -160,7 +208,11 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
               }`}
-              onClick={() => setActiveTab('open-models')}
+              onClick={() => {
+                // Enable URL updates on user click
+                initialRender.current = false;
+                setActiveTab('open-models');
+              }}
             >
               Open Models
             </button>
@@ -174,7 +226,11 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
               }`}
-              onClick={() => setActiveTab('products')}
+              onClick={() => {
+                // Enable URL updates on user click
+                initialRender.current = false;
+                setActiveTab('products');
+              }}
             >
               Products
             </button>
@@ -188,7 +244,11 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
               }`}
-              onClick={() => setActiveTab('features')}
+              onClick={() => {
+                // Enable URL updates on user click
+                initialRender.current = false;
+                setActiveTab('features');
+              }}
             >
               Features
             </button>
@@ -202,7 +262,11 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
               }`}
-              onClick={() => setActiveTab('subscriptions')}
+              onClick={() => {
+                // Enable URL updates on user click
+                initialRender.current = false;
+                setActiveTab('subscriptions');
+              }}
             >
               Subscriptions
             </button>
