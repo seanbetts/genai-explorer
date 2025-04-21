@@ -116,7 +116,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
             {/* Subscribe button - always visible */}
             <div className="flex justify-end">
               <a href="https://www.the-blueprint.ai" target="_blank" rel="noopener noreferrer" className="no-underline">
-                <div className="flex font-mono text-[0.9em] font-medium w-[130px] h-[32px] bg-[#EA00D9] p-2 text-white rounded-[5px] justify-center items-center cursor-pointer hover:bg-opacity-90 transition-colors">
+                <div className="flex font-mono text-[1em] font-medium w-[150px] h-[36px] bg-[#EA00D9] p-2 text-white rounded-[5px] justify-center items-center cursor-pointer hover:-translate-y-[2px] hover:scale-105 transition-all duration-200">
                   Subscribe
                 </div>
               </a>
@@ -124,7 +124,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
             
             {/* Data last updated text - only on home view */}
             {currentView === 'home' && (
-              <div className="text-[10px] font-mono mt-1 text-right">
+              <div className="text-[10px] font-mono mt-2 text-right">
                 Data last updated: <span className="text-cyan-400 font-semibold">{
                   new Date().toLocaleDateString('en-GB', { 
                     day: 'numeric', 
