@@ -131,6 +131,21 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     });
     const securityFeaturesList = Array.from(allSecurityFeatures).sort();
 
+    // Calculate column width for consistency across tables
+    const columnWidth = currentModels.length > 0 ? `${100 / currentModels.length}%` : 'auto';
+
+    // Hidden colgroup to control column widths consistently
+    const EnterpriseTableColGroup = () => {
+      return (
+        <colgroup>
+          <col style={{width: '250px'}} />
+          {currentModels.map((model, index) => (
+            <col key={`col-${model.id}`} style={{width: columnWidth}} />
+          ))}
+        </colgroup>
+      );
+    };
+
     return (
       <div className="mb-6">
         <h3 className={sectionTitle}>Enterprise Features</h3>
@@ -140,8 +155,9 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
             onScroll={handleTableScroll}
           >
             <table
-              className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight`}
+              className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}
             >
+              <EnterpriseTableColGroup />
               <tbody>
                 {/* Integrations Row */}
                 {hasIntegrations && (
@@ -154,7 +170,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                     {currentModels.map(model => (
                       <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
                         {model.specs?.integrations && model.specs.integrations.length > 0 ? (
-                          <div className="w-full max-w-[250px] mx-auto overflow-hidden">
+                          <div className="w-full mx-auto overflow-hidden">
                             <div className="flex flex-wrap justify-center gap-x-1 gap-y-1">
                               {model.specs.integrations.map((integration, i) => (
                                 <span 
@@ -197,7 +213,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                               ) : <span className={textStyles.primary}>-</span>}
                             </div>
                             {model.specs.dataPrivacy.dataRetentionPolicy && model.specs.dataPrivacy.dataRetentionPolicy.length > 0 && (
-                              <div className="text-gray-300 text-xs max-w-[250px] text-center">
+                              <div className="text-gray-300 text-xs text-center">
                                 {model.specs.dataPrivacy.dataRetentionPolicy.map((policy, i) => (
                                   <div key={i} className="mb-1 text-xs font-mono">{policy}</div>
                                 ))}
