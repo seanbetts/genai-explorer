@@ -2500,7 +2500,44 @@
           }
         }
       ],
-      "products": [],
+      "products": [
+        {
+          "name": "Copilot",
+          "description": "A chat interface that can be grounded in both your work content (Microsoft Graph) and the web, available across the Microsoft 365 app, Teams, Outlook, Windows 11 taskbar and Edge sidebar.",
+          "image": "/images/companies/microsoft/products/copilot.png",
+          "url": "https://www.microsoft.com/en-gb/microsoft-copilot/organizations"
+        },
+        {
+          "name": "Copilot Studio",
+          "description": "A low‑code/no‑code platform for organisations to build, test, and publish custom AI agents that integrate into Microsoft 365 and external apps.",
+          "image": "/images/companies/microsoft/products/copilot-studio.png",
+          "url": "https://www.microsoft.com/en-gb/microsoft-copilot/microsoft-copilot-studio"
+        },
+        {
+          "name": "Windows Copilot",
+          "description": "A built‑in companion in Windows 11—pinned to the taskbar—that provides system‑level assistance, voice and text chat, and access to your Copilot history and features.",
+          "image": "/images/companies/microsoft/products/windows-copilot.png",
+          "url": "https://www.microsoft.com/en-gb/windows/ai-features"
+        },
+        {
+          "name": "Edge Copilot",
+          "description": "An AI‑powered sidebar in Edge for summarising webpages, answering browsing questions, generating content and voice‑enabled assistance without leaving the page.",
+          "image": "/images/companies/microsoft/products/edge-copilot.png",
+          "url": "https://www.microsoft.com/en-us/edge/features/copilot?form=MA13FJ"
+        },
+        {
+          "name": "Researcher",
+          "description": "An AI agent that tackles complex, multi‑step research tasks by combining enterprise and web data with deep search capabilities to deliver high‑quality, accurate insights.",
+          "image": "/images/companies/microsoft/products/researcher.png",
+          "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/03/25/introducing-researcher-and-analyst-in-microsoft-365-copilot/"
+        },
+        {
+          "name": "Analyst",
+          "description": "An AI agent that thinks like a data scientist, enabling visualization, analysis, and interpretation of data—such as customer segmentation or revenue projections—directly within Copilot.",
+          "image": "/images/companies/microsoft/products/analyst.png",
+          "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/03/25/introducing-researcher-and-analyst-in-microsoft-365-copilot/"
+        }
+      ],
       "subscriptions": [
         {
           "tier": "Microsoft Copilot",
