@@ -13,6 +13,17 @@ export interface Product {
   url: string;
 }
 
+export interface DataPrivacy {
+  usesCustomerDataForTraining?: boolean;
+  dataRetentionPolicy?: string[];
+  documentation?: string;
+  termsOfUse?: string;
+}
+
+export interface SecurityFeatures {
+  [key: string]: boolean;
+}
+
 export interface Specs {
   reasoningTokens?: boolean;
   inputFormats?: string[];
@@ -36,6 +47,10 @@ export interface Specs {
   realTimeData?: boolean;
   sourceAttribution?: boolean;
   dataRetrieval?: string;
+  groundingSources?: string[];
+  integrations?: string[];
+  dataPrivacy?: DataPrivacy;
+  securityFeatures?: SecurityFeatures;
   
   // Pricing data (dollars per 1 million tokens)
   pricingInputPerM?: number;
@@ -63,9 +78,11 @@ export interface Model {
   type?: string;
   category: CompanyCategory; // Required category field
   releaseDate?: string;
+  modelVersion?: string;
   modelPage?: string;
   releasePost?: string;
   releaseVideo?: string;
+  releaseNotes?: string;
   systemCard?: string;
   licenceType?: string;
   licenceLink?: string;
@@ -97,7 +114,7 @@ export interface Company {
   subscriptions?: Subscription[];
 }
 
-export interface LandscapeData {
+export interface ExplorerData {
   companies: Company[];
 }
 

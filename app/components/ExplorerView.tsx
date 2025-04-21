@@ -1,19 +1,19 @@
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
-import { CategorizedCompanies, LandscapeData, Company, CompanyCategory } from './types';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { CategorizedCompanies, ExplorerData, Company, CompanyCategory } from './types';
 import { categoryConfig, CategoryConfigEntry } from './categoryConfig';
 import CategorySection from './shared/CategorySection';
 import { categoryStyles } from './utils/theme';
 import { containerStyles } from './utils/layout';
-import { getCompaniesByModelCategory } from './utils/landscapeUtils';
+import { getCompaniesByModelCategory } from './utils/explorerUtils';
 
-interface LandscapeViewProps {
-  data: LandscapeData;
-  onCompanySelect: (companyId: string) => void;
+interface ExplorerViewProps {
+  data: ExplorerData;
+  onCompanySelect: (companyId: string, category?: string) => void;
 }
 
-const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) => {
+const ExplorerView: React.FC<ExplorerViewProps> = ({ data, onCompanySelect }) => {
   // State for animations when components mount
   const [isLoaded, setIsLoaded] = useState(false);
   
@@ -37,6 +37,29 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
   const singleRow = categoryConfig.filter(c => c.rowType === 'single');
   const doubleRow = categoryConfig.filter(c => c.rowType === 'double');
   const quadRow = categoryConfig.filter(c => c.rowType === 'quad');
+  // Ref for the two-column (open/enterprise) row
+  const twoColRef = useRef<HTMLDivElement>(null);
+
+  // Equalize heights of open & enterprise cards after load
+  useEffect(() => {
+    if (!isLoaded || !twoColRef.current) return;
+    const container = twoColRef.current;
+    const cards: HTMLElement[] = Array.from(
+      container.querySelectorAll('.company-card')
+    );
+    if (cards.length === 0) return;
+    const adjustHeights = () => {
+      cards.forEach(card => { card.style.height = 'auto'; });
+      const maxH = cards.reduce(
+        (max, card) => Math.max(max, card.getBoundingClientRect().height),
+        0
+      );
+      cards.forEach(card => { card.style.height = `${maxH}px`; });
+    };
+    adjustHeights();
+    window.addEventListener('resize', adjustHeights);
+    return () => { window.removeEventListener('resize', adjustHeights); };
+  }, [isLoaded]);
   
   // Helpers to derive styles/icons remain
   const getCategoryStyle = (category: CompanyCategory): string => categoryStyles.common.full;
@@ -46,7 +69,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
   // Skeleton loaders while loading
   if (!isLoaded) {
     return (
-      <div className={`${containerStyles.landscapeContainer} animate-pulse`}>  
+      <div className={`${containerStyles.explorerContainer} animate-pulse`}>  
         {/* Single-row skeletons */}
         {singleRow.map(entry => (
           <div key={`skeleton-${entry.key}`} className="mb-6">
@@ -59,7 +82,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
           </div>
         ))}
         {/* Two-column row skeletons */}
-        <div className={`${containerStyles.landscapeRowTwo} mb-6`}>  
+        <div className={`${containerStyles.explorerRowTwo} mb-6`}>  
           {doubleRow.map(entry => (
             <div key={`skeleton-double-${entry.key}`} className="mb-6 flex flex-col">
               <div className="h-6 bg-gray-700 rounded w-1/4 mb-4"></div>
@@ -72,7 +95,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
           ))}
         </div>
         {/* Four-column row skeletons */}
-        <div className={containerStyles.landscapeRowFour}>
+        <div className={containerStyles.explorerRowFour}>
           {quadRow.map(entry => (
             <div key={`skeleton-quad-${entry.key}`} className="mb-6 flex flex-col">
               <div className="h-6 bg-gray-700 rounded w-1/4 mb-4"></div>
@@ -87,9 +110,11 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
       </div>
     );
   }
+  /* Adjusting heights logic is now handled above to keep hook ordering consistent */
+  
   // Main content after load
   return (
-    <div className={`${containerStyles.landscapeContainer} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
+    <div className={`${containerStyles.explorerContainer} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
       {/* Single-row categories */}
       {singleRow.map((entry: CategoryConfigEntry) => (
         <div
@@ -110,9 +135,10 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
         </div>
       ))}
       
-      {/* Two-column row */}
+      {/* Two-column row (open & enterprise) */}
       <div
-        className={`${containerStyles.landscapeRowTwo} transform transition-all duration-500 delay-100 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+        ref={twoColRef}
+        className={`${containerStyles.explorerRowTwo} transform transition-all duration-500 delay-100 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
       >
         {doubleRow.map(entry => (
           <CategorySection
@@ -132,7 +158,7 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
       
       {/* Four-column row */}
       <div
-        className={`${containerStyles.landscapeRowFour} transform transition-all duration-500 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+        className={`${containerStyles.explorerRowFour} transform transition-all duration-500 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
       >
         {quadRow.map(entry => (
           <CategorySection
@@ -153,4 +179,4 @@ const LandscapeView: React.FC<LandscapeViewProps> = ({ data, onCompanySelect }) 
   );
 };
 
-export default LandscapeView;
+export default ExplorerView;

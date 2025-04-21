@@ -56,6 +56,248 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     );
   };
 
+  // Helper to check if we're showing enterprise models
+  const isEnterpriseModels = displayModels.every(model => model.category === 'enterprise');
+
+  // Function to render enterprise-specific fields
+  const renderEnterpriseSpecificFields = () => {
+    if (!isEnterpriseModels) return null;
+
+    const hasGroundingSources = hasAnyModelSpec('groundingSources');
+
+    return (
+      <>
+        {/* Model Version Row */}
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-tag-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Model Version</span>
+            </div>
+          </td>
+          {currentModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              <span className={textStyles.primary}>{model.modelVersion || "-"}</span>
+            </td>
+          ))}
+        </tr>
+
+        {/* Grounding Sources Row */}
+        {hasGroundingSources && (
+          <tr className="cursor-pointer">
+            <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+              <div className={containerStyles.flexCenter}>
+                <i className={`bi bi-database-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Grounding Sources</span>
+              </div>
+            </td>
+            {currentModels.map(model => (
+              <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                {model.specs?.groundingSources && model.specs.groundingSources.length > 0 ? (
+                  <div className="flex flex-wrap justify-center gap-1">
+                    {model.specs.groundingSources.map((source, i) => (
+                      <span key={i} className="px-2 py-1 bg-gray-700 text-xs font-mono rounded inline-block m-0.5">
+                        {source}
+                      </span>
+                    ))}
+                  </div>
+                ) : (
+                  <span className={textStyles.tertiary}>-</span>
+                )}
+              </td>
+            ))}
+          </tr>
+        )}
+      </>
+    );
+  };
+
+  // Function to render privacy and security table
+  const renderPrivacyAndSecurityTable = () => {
+    if (!isEnterpriseModels) return null;
+
+    const hasIntegrations = hasAnyModelSpec('integrations');
+    const hasDataPrivacy = displayModels.some(model => model.specs?.dataPrivacy);
+    const hasSecurityFeatures = displayModels.some(model => model.specs?.securityFeatures);
+    
+    if (!hasIntegrations && !hasDataPrivacy && !hasSecurityFeatures) {
+      return null;
+    }
+
+    // Get all security feature keys across all models and preserve original order
+    const allSecurityFeatures = new Set<string>();
+    // First, collect all feature keys to maintain order as they appear in models
+    const orderedSecurityKeys: string[] = [];
+    displayModels.forEach(model => {
+      if (model.specs?.securityFeatures) {
+        Object.keys(model.specs.securityFeatures).forEach(key => {
+          if (!allSecurityFeatures.has(key)) {
+            allSecurityFeatures.add(key);
+            orderedSecurityKeys.push(key);
+          }
+        });
+      }
+    });
+    // Use the orderedSecurityKeys to maintain the original order from the JSON
+    const securityFeaturesList = orderedSecurityKeys;
+
+    // Calculate column width for consistency across tables
+    const columnWidth = currentModels.length > 0 ? `${100 / currentModels.length}%` : 'auto';
+
+    // Hidden colgroup to control column widths consistently
+    const EnterpriseTableColGroup = () => {
+      return (
+        <colgroup>
+          <col style={{width: '250px'}} />
+          {currentModels.map((model, index) => (
+            <col key={`col-${model.id}`} style={{width: columnWidth}} />
+          ))}
+        </colgroup>
+      );
+    };
+
+    return (
+      <div className="mb-6">
+        <h3 className={sectionTitle}>Enterprise Features</h3>
+        <div className="table-wrapper">
+          <div 
+            className="table-scroll-container" 
+            onScroll={handleTableScroll}
+          >
+            <table
+              className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}
+            >
+              <EnterpriseTableColGroup />
+              <tbody>
+                {/* Integrations Row */}
+                {hasIntegrations && (
+                  <tr className="cursor-pointer">
+                    <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                      <div className={containerStyles.flexCenter}>
+                        <i className={`bi bi-puzzle-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Integrations</span>
+                      </div>
+                    </td>
+                    {currentModels.map(model => (
+                      <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                        {model.specs?.integrations && model.specs.integrations.length > 0 ? (
+                          <div className="w-full mx-auto overflow-hidden">
+                            <div className="flex flex-wrap justify-center gap-x-1 gap-y-1">
+                              {model.specs.integrations.map((integration, i) => (
+                                <span 
+                                  key={i} 
+                                  className="bg-gray-700 px-1.5 py-0.5 rounded text-xs font-mono inline-block whitespace-nowrap overflow-hidden text-ellipsis" 
+                                  title={integration}
+                                  style={{maxWidth: '100%'}}
+                                >
+                                  {integration}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        ) : (
+                          <span className={textStyles.tertiary}>-</span>
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                )}
+
+                {/* Data Privacy Row */}
+                {hasDataPrivacy && (
+                  <tr className="cursor-pointer">
+                    <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                      <div className={containerStyles.flexCenter}>
+                        <i className={`bi bi-shield-lock-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Data Privacy</span>
+                      </div>
+                    </td>
+                    {currentModels.map(model => (
+                      <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                        {model.specs?.dataPrivacy ? (
+                          <div className="flex flex-col items-center text-left">
+                            <div className="mb-1 flex items-center">
+                              <span className="text-sm text-white font-mono mr-2">Uses data for training:</span>
+                              {model.specs.dataPrivacy.usesCustomerDataForTraining !== undefined ? (
+                                model.specs.dataPrivacy.usesCustomerDataForTraining ? 
+                                  <i className={iconStyles.booleanTrue} title="Yes"></i> : 
+                                  <i className={iconStyles.booleanFalse} title="No"></i>
+                              ) : <span className={textStyles.primary}>-</span>}
+                            </div>
+                            {model.specs.dataPrivacy.dataRetentionPolicy && model.specs.dataPrivacy.dataRetentionPolicy.length > 0 && (
+                              <div className="text-gray-300 text-xs text-center">
+                                {model.specs.dataPrivacy.dataRetentionPolicy.map((policy, i) => (
+                                  <div key={i} className="mb-1 text-xs font-mono">{policy}</div>
+                                ))}
+                              </div>
+                            )}
+                            
+                            {/* Documentation Link */}
+                            {model.specs.dataPrivacy.documentation && (
+                              <div className="mb-1 mt-1">
+                                <a 
+                                  href={model.specs.dataPrivacy.documentation} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer" 
+                                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                                  title="View data privacy documentation"
+                                >
+                                  🔗 Documentation
+                                </a>
+                              </div>
+                            )}
+                            
+                            {/* Terms of Use Link */}
+                            {model.specs.dataPrivacy.termsOfUse && (
+                              <div className="mb-1 mt-1">
+                                <a 
+                                  href={model.specs.dataPrivacy.termsOfUse} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer" 
+                                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                                  title="View terms of use"
+                                >
+                                  🔗 Terms of Use
+                                </a>
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <span className={textStyles.tertiary}>-</span>
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                )}
+
+                {/* Security Features - One row per feature with consistent double height */}
+                {hasSecurityFeatures && securityFeaturesList.map(feature => (
+                  <tr className="cursor-pointer h-[60px]" key={feature}>
+                    <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                      <div className="flex items-center gap-3 h-full">
+                        <i className={`bi bi-shield-check ${iconStyles.tableRowIcon}`}></i> 
+                        <span className={textStyles.primary}>{feature}</span>
+                      </div>
+                    </td>
+                    {currentModels.map(model => (
+                      <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                        <div className="flex items-center justify-center h-full">
+                          {model.specs?.securityFeatures && feature in model.specs.securityFeatures ? (
+                            model.specs.securityFeatures[feature] ? 
+                              <i className={iconStyles.booleanTrue} title="Yes"></i> : 
+                              <i className={iconStyles.booleanFalse} title="No"></i>
+                          ) : (
+                            <span className={textStyles.tertiary}>-</span>
+                          )}
+                        </div>
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   // Render the rating indicators (circles, lightning, etc)
   const renderRating = (model: Model, type: string) => {
     // Check if capabilities exist for this model
@@ -132,7 +374,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     }
   };
   
-  // Check if we need navigation controls
+  // Check if we need to show navigation controls
   const showNavigation = displayModels.length > modelsPerPage;
 
   // Generate main table rows - Capabilities and Formats
@@ -171,6 +413,9 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           </td>
         ))}
       </tr>
+      
+      {/* Enterprise-specific fields */}
+      {renderEnterpriseSpecificFields()}
       
       {/* Intelligence Row */}
       {hasAnyModelCapability("intelligence") && (
@@ -357,7 +602,11 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.pricingInputPerM !== undefined && model.specs?.pricingInputPerM !== null ? (
-                <span className={shouldShowTogetherPricing(model) ? 'text-cyan-400 font-medium tabular-nums font-mono' : tableStyles.metric}>
+                <span className={
+                  model.category === 'frontier' 
+                    ? tableStyles.metric 
+                    : 'text-cyan-400 font-medium tabular-nums font-mono'
+                }>
                   ${model.specs.pricingInputPerM.toFixed(2)}
                 </span>
               ) : <span className={textStyles.primary}>-</span>}
@@ -377,7 +626,11 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.pricingCachedInputPerM !== undefined && model.specs?.pricingCachedInputPerM !== null ? (
-                <span className={shouldShowTogetherPricing(model) ? 'text-cyan-400 font-medium tabular-nums font-mono' : tableStyles.metric}>
+                <span className={
+                  model.category === 'frontier' 
+                    ? tableStyles.metric 
+                    : 'text-cyan-400 font-medium tabular-nums font-mono'
+                }>
                   ${model.specs.pricingCachedInputPerM.toFixed(2)}
                 </span>
               ) : <span className={textStyles.primary}>-</span>}
@@ -397,7 +650,11 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.pricingOutputPerM !== undefined && model.specs?.pricingOutputPerM !== null ? (
-                <span className={shouldShowTogetherPricing(model) ? 'text-cyan-400 font-medium tabular-nums font-mono' : tableStyles.metric}>
+                <span className={
+                  model.category === 'frontier' 
+                    ? tableStyles.metric 
+                    : 'text-cyan-400 font-medium tabular-nums font-mono'
+                }>
                   ${model.specs.pricingOutputPerM.toFixed(2)}
                 </span>
               ) : <span className={textStyles.primary}>-</span>}
@@ -416,7 +673,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       position: relative;
       scrollbar-width: thin;
       border-radius: 0.5rem;
-      border: 0.2px solid #101828;
+      border: 1px solid #101828; /* Original border color */
       margin-bottom: 0.5rem;
     }
     
@@ -425,7 +682,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       width: 100%;
     }
     
-    .model-table {
+    .model-table, .table-fixed {
       table-layout: fixed;
       border-collapse: separate;
       border-spacing: 0;
@@ -493,6 +750,16 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       cursor: default;
     }
     
+    /* Remove border from the last row of each table */
+    .hover-highlight tbody tr:last-child td {
+      border-bottom: none !important;
+    }
+    
+    /* Also ensure the border stays removed on hover */
+    .hover-highlight tbody tr:last-child:hover td {
+      border-bottom: none !important;
+    }
+    
     /* Header area with legend and pagination */
     .header-area {
       display: flex;
@@ -546,24 +813,37 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
   const hasContextData = hasAnyModelSpec("maxInputTokens") || hasAnyModelSpec("maxOutputTokens") || hasAnyModelSpec("knowledgeCutoff");
   const hasPricingData = hasAnyModelSpec("pricingInputPerM") || hasAnyModelSpec("pricingCachedInputPerM") || hasAnyModelSpec("pricingOutputPerM");
   
+  // Determine if we're showing only frontier models or only open models
+  const isAllFrontierModels = displayModels.every(model => model.category === 'frontier');
+  const isAllOpenModels = displayModels.every(model => model.category === 'open');
+  
   // Section titles with consistent styling
   const sectionTitle = "text-lg font-semibold text-fuchsia-500 mt-6 mb-2 font-mono";
 
   // Table header component for the main table
-  const TableHeader = () => (
-    <thead>
-      <tr className={tableStyles.header}>
-        <th className={`${tableStyles.headerCell} ${tableStyles.headerFixed} sticky-header-corner`} 
-           style={{width: '250px', minWidth: '250px'}}>
-        </th>
-        {currentModels.map(model => (
-          <th key={model.id} className={`${tableStyles.headerCellCenter} table-header-cell`}>
-            <div className={tableStyles.modelName}>{model.name}</div>
+  const TableHeader = () => {
+    // Calculate width percentage for model columns
+    const columnWidth = currentModels.length > 0 ? `${100 / currentModels.length}%` : 'auto';
+    
+    return (
+      <thead>
+        <tr className={tableStyles.header}>
+          <th className={`${tableStyles.headerCell} ${tableStyles.headerFixed} sticky-header-corner`} 
+             style={{width: '250px', minWidth: '250px'}}>
           </th>
-        ))}
-      </tr>
-    </thead>
-  );
+          {currentModels.map(model => (
+            <th 
+              key={model.id} 
+              className={`${tableStyles.headerCellCenter} table-header-cell`}
+              style={{width: columnWidth}}
+            >
+              <div className={tableStyles.modelName}>{model.name}</div>
+            </th>
+          ))}
+        </tr>
+      </thead>
+    );
+  };
   
   // Pagination controls
   const PaginationControls = () => {
@@ -644,7 +924,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
             onScroll={handleTableScroll}
           >
             <table
-              className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight`}
+              className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}
             >
               <TableHeader />
               <tbody>
@@ -665,7 +945,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               onScroll={handleTableScroll}
             >
               <table
-                className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight`}
+                className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}
               >
                 <tbody>
                   {renderContextRows()}
@@ -682,12 +962,23 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           <h3 className={sectionTitle}>
             Pricing
             <span className="text-xs text-gray-400 ml-2 font-normal">
-              (per 1M tokens direct or on <a 
-                href="https://www.together.ai/pricing#inference"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
-              >Together.ai</a>)
+              {isAllFrontierModels ? (
+                "(per 1M tokens)"
+              ) : isAllOpenModels ? (
+                <>(per 1M tokens direct or on <a 
+                  href="https://www.together.ai/pricing#inference" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
+                >Together.ai</a>)</>
+              ) : (
+                <>(per 1M tokens direct or on <a 
+                  href="https://www.together.ai/pricing#inference" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
+                >Together.ai</a> for open models)</>
+              )}
             </span>
           </h3>
           <div className="table-wrapper">
@@ -696,7 +987,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               onScroll={handleTableScroll}
             >
               <table
-                className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight`}
+                className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}
               >
                 <tbody>
                   {renderPricingRows()}
@@ -707,8 +998,11 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         </div>
       )}
       
+      {/* Enterprise-specific section for privacy and security */}
+      {renderPrivacyAndSecurityTable()}
+      
       {/* Resources Table - New table for external links */}
-      {displayModels.some(model => model.modelPage || model.releasePost || model.releaseVideo || model.systemCard || model.licenceType || model.huggingFace) && (
+      {displayModels.some(model => model.modelPage || model.releasePost || model.releaseVideo || model.releaseNotes || model.systemCard || model.licenceType || model.huggingFace) && (
         <div className="mb-6">
           <h3 className={sectionTitle}>Resources</h3>
           <div className="table-wrapper">
@@ -717,7 +1011,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               onScroll={handleTableScroll}
             >
               <table
-                className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight`}
+                className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}
               >
                 <tbody>
                   {/* Release Post Row */}
@@ -765,6 +1059,34 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                               rel="noopener noreferrer" 
                               className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
                               title="Watch release video"
+                            >
+                              🔗 Link
+                            </a>
+                          ) : (
+                            <span className={textStyles.tertiary}>-</span>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  )}
+                  
+                  {/* Release Notes Row */}
+                  {displayModels.some(model => model.releaseNotes) && (
+                    <tr className="cursor-pointer">
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                        <div className={containerStyles.flexCenter}>
+                          <i className={`bi bi-list-check ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Notes</span>
+                        </div>
+                      </td>
+                      {currentModels.map(model => (
+                        <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                          {model.releaseNotes ? (
+                            <a 
+                              href={model.releaseNotes} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                              title="View release notes"
                             >
                               🔗 Link
                             </a>

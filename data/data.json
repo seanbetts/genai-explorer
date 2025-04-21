@@ -983,7 +983,7 @@
             "reasoningTokens": false,
             "inputFormats": [
               "text",
-              "images"
+              "image"
             ],
             "outputFormats": [
               "text"
@@ -991,8 +991,8 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "August 2024",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 0.8,
+            "pricingOutputPerM": 0.8
           }
         },
         {
@@ -1018,7 +1018,7 @@
             "reasoningTokens": false,
             "inputFormats": [
               "text",
-              "images"
+              "image"
             ],
             "outputFormats": [
               "text"
@@ -1026,8 +1026,8 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "August 2024",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 0.3,
+            "pricingOutputPerM": 0.3
           }
         },
         {
@@ -1053,7 +1053,7 @@
             "reasoningTokens": false,
             "inputFormats": [
               "text",
-              "images"
+              "image"
             ],
             "outputFormats": [
               "text"
@@ -1061,8 +1061,8 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "August 2024",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 0.1,
+            "pricingOutputPerM": 0.1
           }
         },
         {
@@ -1095,8 +1095,8 @@
             "maxInputTokens": 32000,
             "maxOutputTokens": null,
             "knowledgeCutoff": "August 2024",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 0.1,
+            "pricingOutputPerM": 0.1
           }
         }
       ],
@@ -1626,7 +1626,7 @@
           }
         },
         {
-          "id": "llama-3-3-70B",
+          "id": "llama-3-3-70b",
           "name": "Llama-3.3 70B",
           "status": "secondary",
           "type": "Large Language Model",
@@ -1660,7 +1660,7 @@
           }
         },
         {
-          "id": "llama-3-2-90B",
+          "id": "llama-3-2-90b",
           "name": "Llama-3.2 90B",
           "status": "secondary",
           "type": "Large Multimodal Model",
@@ -1695,7 +1695,7 @@
           }
         },
         {
-          "id": "llama-3-2-11B",
+          "id": "llama-3-2-11b",
           "name": "Llama-3.2 11B",
           "status": "secondary",
           "type": "Large Multimodal Model",
@@ -1730,7 +1730,7 @@
           }
         },
         {
-          "id": "llama-3-2-3B",
+          "id": "llama-3-2-3b",
           "name": "Llama-3.2 3B",
           "status": "secondary",
           "type": "Large Language Model",
@@ -1764,7 +1764,7 @@
           }
         },
         {
-          "id": "llama-3-2-1B",
+          "id": "llama-3-2-1b",
           "name": "Llama-3.2 1B",
           "status": "secondary",
           "type": "Large Language Model",
@@ -1798,7 +1798,7 @@
           }
         },
         {
-          "id": "llama-3-1-405B",
+          "id": "llama-3-1-405b",
           "name": "Llama-3.1 405B",
           "status": "secondary",
           "type": "Large Language Model",
@@ -1832,7 +1832,7 @@
           }
         },
         {
-          "id": "llama-3-1-70B",
+          "id": "llama-3-1-70b",
           "name": "Llama-3.1 70B",
           "status": "secondary",
           "type": "Large Language Model",
@@ -1866,7 +1866,7 @@
           }
         },
         {
-          "id": "llama-3-1-8B",
+          "id": "llama-3-1-8b",
           "name": "Llama-3.1 8B",
           "status": "secondary",
           "type": "Large Language Model",
@@ -2306,23 +2306,271 @@
       "logo": "/images/companies/microsoft/logo.png",
       "website": "https://microsoft.com",
       "description": "Enterprise AI and productivity solutions",
-      "lastUpdated": "2025-04-20",
-      "features": [],
+      "lastUpdated": "2025-04-21",
+      "features": [
+        {
+          "name": "Search",
+          "description": "Cross‑checks information across multiple sites to deliver detailed, comprehensive responses right in Bing, complete with cited sources and suggestions for further exploration.",
+          "image": "/images/companies/microsoft/features/search.png",
+          "url": "https://blogs.bing.com/search/April-2025/Introducing-Copilot-Search-in-Bing"
+        },
+        {
+          "name": "Memory",
+          "description": "Copilot now remembers your preferences and past interactions, tailoring responses to your unique style and reducing repetitive prompts.",
+          "image": "/images/companies/microsoft/features/memory.png",
+          "url": "https://blogs.microsoft.com/blog/2025/04/04/your-ai-companion/"
+        },
+        {
+          "name": "Actions",
+          "description": "Autonomously execute multi‑step tasks—like booking travel or managing reservations—by calling out to partner services without leaving the chat.",
+          "image": "/images/companies/microsoft/features/actions.png",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-business-applications/"
+        },
+        {
+          "name": "Vision",
+          "description": "Analyze images and live screen content via Copilot Vision on Windows and mobile to get contextual, multimodal assistance.",
+          "image": "/images/companies/microsoft/features/vision.png",
+          "url": "https://support.microsoft.com/en-gb/topic/using-copilot-vision-with-microsoft-copilot-3c67686f-fa97-40f6-8a3e-0e45265d425f"
+        },
+        {
+          "name": "Pages",
+          "description": "A persistent, shareable canvas within Copilot Chat that turns AI responses into editable pages for collaborative planning and tracking.",
+          "image": "/images/companies/microsoft/features/pages.png",
+          "url": "https://support.microsoft.com/en-gb/topic/introducing-microsoft-365-copilot-pages-6674bd51-9ff5-42c4-9256-44d9428a726f"
+        },
+        {
+          "name": "Podcast Generator",
+          "description": "Automatically generate a podcast‑style audio summary of key insights from your documents or chats.",
+          "image": "/images/companies/microsoft/features/podcasts.png",
+          "url": "https://blogs.microsoft.com/blog/2025/04/04/your-ai-companion/"
+        },
+        {
+          "name": "Shopping",
+          "description": "Researches products, builds comparisons, offers impartial advice, tracks price drops and sales, and lets you purchase directly in the app—making it easy to find and buy the products and services you love.",
+          "image": "/images/companies/microsoft/features/shopping.png",
+          "url": "https://blogs.microsoft.com/blog/2025/04/04/your-ai-companion/"
+        },
+        {
+          "name": "Deep Research",
+          "description": "Synthesize and summarise large documents or web sources using advanced reasoning chains, ideal for multi‑step research workflows.",
+          "image": "/images/companies/microsoft/features/deep-research.png",
+          "url": "https://support.microsoft.com/en-gb/topic/conversation-modes-quick-think-deeper-deep-research-575efe12-eb34-4437-885a-440f7623cffb"
+        }
+      ],
       "models": [
         {
-          "id": "copilot",
-          "name": "Copilot",
+          "id": "m365-copilot",
+          "name": "Microsoft 365 Copilot",
           "status": "primary",
-          "type": "productivity",
+          "type": "Large Language Model",
           "category": "enterprise",
-          "releaseDate": "",
-          "modelPage": "",
-          "releasePost": "",
+          "releaseDate": "2023-03-16",
+          "modelVersion": "GPT‑4 Turbo",
+          "modelPage": "https://learn.microsoft.com/en-us/copilot/microsoft-365/",
+          "releasePost": "https://www.microsoft.com/en-us/microsoft-365/blog/2023/03/16/introducing-microsoft-365-copilot-a-whole-new-way-to-work/",
+          "releaseVideo": "https://www.youtube.com/watch?v=S7xTBa93TX8",
+          "releaseNotes": "https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes?tabs=all",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 3,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text",
+              "image"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4096,
+            "knowledgeCutoff": "November 2023",
+            "groundingSources": ["Bing Web","Microsoft Graph"],
+            "integrations": [
+              "Word","Excel","PowerPoint","Outlook","Teams",
+              "OneNote","Designer","Whiteboard","SharePoint","Forms","Loop","Copilot Studio"
+            ],
+            "dataPrivacy": {
+              "usesCustomerDataForTraining": false,
+              "dataRetentionPolicy": ["Managed under Microsoft 365"],
+              "documentation": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy",
+              "termsOfUse": "https://www.microsoft.com/licensing/terms/"
+            },
+            "securityFeatures": {
+              "GDPR Compliance": true,
+              "CCPA Compliance": true,
+              "SOC 2 Type 2": true,
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "RBAC": true,
+              "Hosted deployment": true,
+              "Private deployments": false,
+              "Third party cloud deployments": false
+            }
+          }
+        },
+        {
+          "id": "copilot-pro-chat",
+          "name": "Copilot Pro Chat",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "enterprise",
+          "releaseDate": "2025-01-15",
+          "modelVersion": "GPT‑4o",
+          "modelPage": "https://support.microsoft.com/en-gb/copilot-microsoft365-chat",
+          "releasePost": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/",
+          "releaseVideo": "https://www.youtube.com/watch?v=rc-fc7pT9nw",
+          "releaseNotes": "https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes?tabs=all",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 3,
+            "reasoning": 2
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text",
+              "image"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 16384,
+            "knowledgeCutoff": "September 2023",
+            "groundingSources": ["Bing Web", "Microsoft Graph"],
+            "integrations": [
+              "Word","Excel","PowerPoint","Outlook","Teams",
+              "OneNote","Designer","Whiteboard","SharePoint","Forms","Loop","Copilot Studio"
+            ],
+            "dataPrivacy": {
+              "usesCustomerDataForTraining": false,
+              "dataRetentionPolicy": ["Managed under Microsoft 365"],
+              "documentation": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy",
+              "termsOfUse": "https://www.microsoft.com/licensing/terms/"
+            },
+            "securityFeatures": {
+              "GDPR Compliance": true,
+              "CCPA Compliance": true,
+              "SOC 2 Type 2": true,
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "RBAC": true,
+              "Hosted deployment": true,
+              "Private deployments": false,
+              "Third party cloud deployments": false
+            }
+          }
+        },
+        {
+          "id": "copilot-chat",
+          "name": "Copilot Chat",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "enterprise",
+          "releaseDate": "2025-01-15",
+          "modelVersion": "GPT‑4o",
+          "modelPage": "https://support.microsoft.com/en-gb/copilot-microsoft365-chat",
+          "releasePost": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/",
+          "releaseVideo": "https://www.youtube.com/watch?v=rc-fc7pT9nw",
+          "releaseNotes": "https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes?tabs=all",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 3,
+            "reasoning": 2
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text",
+              "image"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 16384,
+            "knowledgeCutoff": "September 2023",
+            "groundingSources": ["Bing Web"],
+            "integrations": ["Designer"],
+            "dataPrivacy": {
+              "usesCustomerDataForTraining": false,
+              "dataRetentionPolicy": ["Managed under Microsoft 365"],
+              "documentation": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy",
+              "termsOfUse": "https://www.microsoft.com/licensing/terms/"
+            },
+            "securityFeatures": {
+              "GDPR Compliance": true,
+              "CCPA Compliance": true,
+              "SOC 2 Type 2": true,
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "RBAC": true,
+              "Hosted deployment": true,
+              "Private deployments": false,
+              "Third party cloud deployments": false
+            }
+          }
+        },
+        {
+          "id": "phi-4-mm",
+          "name": "Phi-4 Multimodal",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "2024-12-13",
+          "modelPage": "https://ai.azure.com/explore/models/Phi-4-multimodal-instruct/version/1/registry/azureml",
+          "releasePost": "https://techcommunity.microsoft.com/blog/aiplatformblog/introducing-phi-4-microsoft’s-newest-small-language-model-specializing-in-comple/4357090",
           "releaseVideo": "",
           "systemCard": "",
+          "licenceType": "MIT",
+          "licenceLink": "https://choosealicense.com/licenses/mit/",
+          "huggingFace": "https://huggingface.co/microsoft/Phi-4-multimodal-instruct",
           "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
+            "intelligence": 3,
+            "speed": 5,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "speech",
+              "image",
+              "audio"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 131072,
+            "maxOutputTokens": 4096,
+            "knowledgeCutoff": "June 2024",
+            "pricingInputPerM": 0.13,
+            "pricingOutputPerM": 0.52
+          }
+        },
+        {
+          "id": "phi-4",
+          "name": "Phi-4",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "2024-12-13",
+          "modelPage": "https://ai.azure.com/explore/models/Phi-4/version/2/registry/azureml",
+          "releasePost": "https://techcommunity.microsoft.com/blog/aiplatformblog/introducing-phi-4-microsoft’s-newest-small-language-model-specializing-in-comple/4357090",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "MIT",
+          "licenceLink": "https://choosealicense.com/licenses/mit/",
+          "huggingFace": "https://huggingface.co/microsoft/phi-4",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 5,
             "reasoning": 1
           },
           "specs": {
@@ -2333,60 +2581,547 @@
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "maxInputTokens": 16384,
+            "maxOutputTokens": 16384,
+            "knowledgeCutoff": "June 2024",
+            "pricingInputPerM": 0.13,
+            "pricingOutputPerM": 0.52
+          }
+        },
+        {
+          "id": "phi-4-mini",
+          "name": "Phi-4 Mini",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "2024-12-13",
+          "modelPage": "https://ai.azure.com/explore/models/Phi-4-mini-instruct/version/1/registry/azureml",
+          "releasePost": "https://techcommunity.microsoft.com/blog/aiplatformblog/introducing-phi-4-microsoft’s-newest-small-language-model-specializing-in-comple/4357090",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "MIT",
+          "licenceLink": "https://choosealicense.com/licenses/mit/",
+          "huggingFace": "https://huggingface.co/microsoft/Phi-4-mini-instruct",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 5,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 131072,
+            "maxOutputTokens": 4096,
+            "knowledgeCutoff": "June 2024",
+            "pricingInputPerM": 0.13,
+            "pricingOutputPerM": 0.52
+          }
+        },
+        {
+          "id": "phi-3-5-mini",
+          "name": "Phi-3.5 Mini",
+          "status": "archived",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "",
+          "modelPage": "https://ai.azure.com/explore/models/Phi-3.5-mini-instruct/version/6/registry/azureml",
+          "releasePost": "https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "MIT",
+          "licenceLink": "https://choosealicense.com/licenses/mit/",
+          "huggingFace": "https://huggingface.co/microsoft/Phi-3.5-mini-instruct",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 5,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4096,
+            "knowledgeCutoff": "August 2024",
+            "pricingInputPerM": 0.13,
+            "pricingOutputPerM": 0.52
+          }
+        },
+        {
+          "id": "phi-3-5-moe",
+          "name": "Phi-3.5 MoE",
+          "status": "archived",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "",
+          "modelPage": "https://ai.azure.com/explore/models/Phi-3.5-MoE-instruct/version/5/registry/azureml",
+          "releasePost": "https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "MIT",
+          "licenceLink": "https://choosealicense.com/licenses/mit/",
+          "huggingFace": "https://huggingface.co/microsoft/Phi-3.5-MoE-instruct",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 5,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4096,
+            "knowledgeCutoff": "August 2024",
+            "pricingInputPerM": 0.16,
+            "pricingOutputPerM": 0.64
+          }
+        },
+        {
+          "id": "phi-3-5-vision",
+          "name": "Phi-3.5 Vision",
+          "status": "archived",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "",
+          "modelPage": "https://ai.azure.com/explore/models/Phi-3.5-vision-instruct/version/2/registry/azureml",
+          "releasePost": "https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "MIT",
+          "licenceLink": "https://choosealicense.com/licenses/mit/",
+          "huggingFace": "https://huggingface.co/microsoft/Phi-3.5-vision-instruct",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 5,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4096,
+            "knowledgeCutoff": "August 2024",
+            "pricingInputPerM": 0.13,
+            "pricingOutputPerM": 0.52
           }
         }
       ],
-      "products": [],
-      "subscriptions": []
+      "products": [
+        {
+          "name": "Copilot",
+          "description": "A chat interface that can be grounded in both your work content (Microsoft Graph) and the web, available across the Microsoft 365 app, Teams, Outlook, Windows 11 taskbar and Edge sidebar.",
+          "image": "/images/companies/microsoft/products/copilot.png",
+          "url": "https://www.microsoft.com/en-gb/microsoft-copilot/organizations"
+        },
+        {
+          "name": "Copilot Studio",
+          "description": "A low‑code/no‑code platform for organisations to build, test, and publish custom AI agents that integrate into Microsoft 365 and external apps.",
+          "image": "/images/companies/microsoft/products/copilot-studio.png",
+          "url": "https://www.microsoft.com/en-gb/microsoft-copilot/microsoft-copilot-studio"
+        },
+        {
+          "name": "Windows Copilot",
+          "description": "A built‑in companion in Windows 11—pinned to the taskbar—that provides system‑level assistance, voice and text chat, and access to your Copilot history and features.",
+          "image": "/images/companies/microsoft/products/windows-copilot.png",
+          "url": "https://www.microsoft.com/en-gb/windows/ai-features"
+        },
+        {
+          "name": "Edge Copilot",
+          "description": "An AI‑powered sidebar in Edge for summarising webpages, answering browsing questions, generating content and voice‑enabled assistance without leaving the page.",
+          "image": "/images/companies/microsoft/products/edge-copilot.png",
+          "url": "https://www.microsoft.com/en-us/edge/features/copilot?form=MA13FJ"
+        },
+        {
+          "name": "Researcher",
+          "description": "An AI agent that tackles complex, multi‑step research tasks by combining enterprise and web data with deep search capabilities to deliver high‑quality, accurate insights.",
+          "image": "/images/companies/microsoft/products/researcher.png",
+          "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/03/25/introducing-researcher-and-analyst-in-microsoft-365-copilot/"
+        },
+        {
+          "name": "Analyst",
+          "description": "An AI agent that thinks like a data scientist, enabling visualization, analysis, and interpretation of data—such as customer segmentation or revenue projections—directly within Copilot.",
+          "image": "/images/companies/microsoft/products/analyst.png",
+          "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/03/25/introducing-researcher-and-analyst-in-microsoft-365-copilot/"
+        }
+      ],
+      "subscriptions": [
+        {
+          "tier": "Microsoft Copilot",
+          "type": "consumer",
+          "price": 0,
+          "billingCycle": "month",
+          "url": "https://m365copilot.com/",
+          "features": [
+            "Limited usage",
+            "AI credits for use with Designer",
+            "Advanced AI grounding to provide up-to-date information",
+            "15 boosts per day for image generation",
+            "Use Copilot on the web, in the mobile app, and in Windows and Microsoft Edge",
+            "Turn your curiosity and interests into personalized podcasts"
+          ]
+        },
+        {
+          "tier": "Microsoft Copilot Pro",
+          "type": "consumer",
+          "price": 20,
+          "billingCycle": "month",
+          "url": "https://www.microsoft.com/en-us/store/b/copilotpro",
+          "features": [
+            "Everything in free tier",
+            "Extensive usage",
+            "Preferred access",
+            "100 boosts per day for image generation",
+            "Be the first to experience new AI features",
+            "Use Copilot in Word, Excel, PowerPoint, OneNote, and Outlook"
+          ]
+        },
+        {
+          "tier": "Microsoft 365 Copilot",
+          "type": "enterprise",
+          "price": 30,
+          "billingCycle": "user per month",
+          "url": "https://www.microsoft.com/en-us/microsoft-365/copilot/business",
+          "features": [
+            "Seamlessly integrate Copilot into the Microsoft 365 apps you already use",
+            "Combine your business data with AI using Microsoft 365 Copilot Chat and Copilot Pages",
+            "Build custom agents for your business with Microsoft Copilot Studio",
+            "Gain actionable insights from a pre-built dashboard measuring Copilot adoption and impact",
+            "Enjoy enterprise-grade security, privacy, and compliance tailored for businesses of all sizes"
+          ]
+        }
+      ]
     },
     {
       "id": "cohere",
       "name": "Cohere",
       "logo": "/images/companies/cohere/logo.png",
       "website": "https://cohere.com",
-      "description": "Enterprise-focused AI solutions",
-      "lastUpdated": "2025-04-20",
-      "features": [],
+      "description": "The secure AI platform",
+      "lastUpdated": "2025-04-21",
+      "features": [
+        {
+          "name": "Retrieval Augmented Generation (RAG)",
+          "description": "Retrieval Augmented Generation (RAG) is a method for generating text using additional information fetched from an external data source, which can greatly increase the accuracy of the response. ",
+          "image": "/images/companies/cohere/features/rag.png",
+          "url": "https://docs.cohere.com/docs/retrieval-augmented-generation-rag"
+        },
+        {
+          "name": "Fine‑Tuning",
+          "description": "Fine-tuning is recommended when you want to teach the model a new task, or leverage your company’s unique knowledge base.",
+          "image": "/images/companies/cohere/features/fine-tuning.png",
+          "url": "https://docs.cohere.com/docs/fine-tuning"
+        }
+      ],
       "models": [
         {
-          "id": "command",
-          "name": "Command",
-          "status": "primary",
-          "type": "text",
+          "id": "command-r",
+          "name": "Command R",
+          "status": "secondary",
+          "type": "Large Language Model",
           "category": "enterprise",
-          "releaseDate": "",
-          "modelPage": "",
-          "releasePost": "",
+          "releaseDate": "2024-08-30",
+          "modelVersion": "command-r-08-2024",
+          "modelPage": "https://docs.cohere.com/docs/command-r",
+          "systemCard": "https://docs.cohere.com/docs/responsible-use",
+          "releasePost": "https://cohere.com/blog/command-series-0824",
           "releaseVideo": "",
-          "systemCard": "",
+          "releaseNotes": "https://docs.cohere.com/changelog",
           "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
+            "intelligence": 3,
+            "speed": 3,
             "reasoning": 1
           },
           "specs": {
-            "reasoningTokens": false,
+            "reasoningTokens": null,
             "inputFormats": [
               "text"
             ],
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4000,
             "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 0.15,
+            "pricingOutputPerM": 0.6,
+            "groundingSources": ["RAG"],
+            "integrations": ["Elastisearch","MongoDB","Redis","Haystack","Open Search","Vespa","Chroma","Qdrant","Weaviate","Pinecone","Milvus"],
+            "dataPrivacy": {
+              "usesCustomerDataForTraining": true,
+              "dataRetentionPolicy": ["Opt Out"],
+              "documentation": "https://cohere.com/enterprise-data-commitments",
+              "termsOfUse": "https://docs.cohere.com/docs/usage-policy"
+            },
+            "securityFeatures": {
+              "GDPR Compliance": true,
+              "CCPA Compliance": true,
+              "SOC 2 Type 2": true,
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "RBAC": true,
+              "Hosted deployment": true,
+              "Private deployments": true,
+              "Third party cloud deployments": true
+            }
+          }
+        },
+        {
+          "id": "command-r-plus",
+          "name": "Command R+",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "enterprise",
+          "releaseDate": "2024-08-30",
+          "modelVersion": "command-r-plus-04-2024",
+          "modelPage": "https://docs.cohere.com/docs/command-r-plus",
+          "systemCard": "https://docs.cohere.com/docs/responsible-use",
+          "releasePost": "https://cohere.com/blog/command-series-0824",
+          "releaseVideo": "",
+          "releaseNotes": "https://docs.cohere.com/changelog",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 3,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": null,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4000,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": 2.5,
+            "pricingOutputPerM": 10,
+            "groundingSources": ["RAG"],
+            "integrations": ["Elastisearch","MongoDB","Redis","Haystack","Open Search","Vespa","Chroma","Qdrant","Weaviate","Pinecone","Milvus"],
+            "dataPrivacy": {
+              "usesCustomerDataForTraining": true,
+              "dataRetentionPolicy": ["Opt Out"],
+              "documentation": "https://cohere.com/enterprise-data-commitments",
+              "termsOfUse": "https://docs.cohere.com/docs/usage-policy"
+            },
+            "securityFeatures": {
+              "GDPR Compliance": true,
+              "CCPA Compliance": true,
+              "SOC 2 Type 2": true,
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "RBAC": true,
+              "Hosted deployment": true,
+              "Private deployments": true,
+              "Third party cloud deployments": true
+            }
+          }
+        },
+        {
+          "id": "command-r7b",
+          "name": "Command R7B",
+          "status": "secondary",
+          "type": "Large Language Model",
+          "category": "enterprise",
+          "releaseDate": "2024-12-13",
+          "modelVersion": "command-r7b-12-2024",
+          "modelPage": "https://docs.cohere.com/docs/command-r7b",
+          "systemCard": "",
+          "releasePost": "https://cohere.com/blog/command-r7b",
+          "releaseVideo": "",
+          "releaseNotes": "https://docs.cohere.com/changelog",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 3,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": null,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4000,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": 0.0375,
+            "pricingOutputPerM": 0.15,
+            "groundingSources": ["RAG"],
+            "integrations": ["Elastisearch","MongoDB","Redis","Haystack","Open Search","Vespa","Chroma","Qdrant","Weaviate","Pinecone","Milvus"],
+            "dataPrivacy": {
+              "usesCustomerDataForTraining": true,
+              "dataRetentionPolicy": ["Opt Out"],
+              "documentation": "https://cohere.com/enterprise-data-commitments",
+              "termsOfUse": "https://docs.cohere.com/docs/usage-policy"
+            },
+            "securityFeatures": {
+              "GDPR Compliance": true,
+              "CCPA Compliance": true,
+              "SOC 2 Type 2": true,
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "RBAC": true,
+              "Hosted deployment": true,
+              "Private deployments": true,
+              "Third party cloud deployments": true
+            }
+          }
+        },
+        {
+          "id": "command-a",
+          "name": "Command A",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "enterprise",
+          "releaseDate": "2025-03-13",
+          "modelVersion": "command-a-03-2025",
+          "modelPage": "https://docs.cohere.com/docs/command-a",
+          "systemCard": "",
+          "releasePost": "https://cohere.com/blog/command-a",
+          "releaseVideo": "",
+          "releaseNotes": "https://docs.cohere.com/changelog",
+          "capabilities": {
+            "intelligence": 4,
+            "speed": 3,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": null,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 256000,
+            "maxOutputTokens": 8000,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": 2.5,
+            "pricingOutputPerM": 10,
+            "groundingSources": ["RAG"],
+            "integrations": ["Elastisearch","MongoDB","Redis","Haystack","Open Search","Vespa","Chroma","Qdrant","Weaviate","Pinecone","Milvus"],
+            "dataPrivacy": {
+              "usesCustomerDataForTraining": true,
+              "dataRetentionPolicy": ["Opt Out"],
+              "documentation": "https://cohere.com/enterprise-data-commitments",
+              "termsOfUse": "https://docs.cohere.com/docs/usage-policy"
+            },
+            "securityFeatures": {
+              "GDPR Compliance": true,
+              "CCPA Compliance": true,
+              "SOC 2 Type 2": true,
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "RBAC": true,
+              "Hosted deployment": true,
+              "Private deployments": true,
+              "Third party cloud deployments": true
+            }
+          }
+        },
+        {
+          "id": "aya-vision",
+          "name": "Aya Vision",
+          "status": "primary",
+          "type": "Large Multimodal Model",
+          "category": "open",
+          "releaseDate": "2025-03-04",
+          "modelVersion": "c4ai-aya-vision-32b",
+          "modelPage": "https://docs.cohere.com/docs/aya-vision",
+          "systemCard": "",
+          "licenceType": "Creative Commons",
+          "licenceLink": "https://docs.cohere.com/docs/cohere-labs-acceptable-use-policy",
+          "huggingFace": "https://huggingface.co/collections/CohereLabs/cohere-labs-aya-vision-67c4ccd395ca064308ee1484",
+          "releasePost": "https://cohere.com/blog/aya-vision",
+          "releaseVideo": "https://youtu.be/WNig1E2el0I?si=72um25j1-80npoB0",
+          "releaseNotes": "https://docs.cohere.com/changelog",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 2,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": null,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 16000,
+            "maxOutputTokens": 4000,
+            "knowledgeCutoff": "",
+            "groundingSources": ["RAG"],
+            "integrations": ["API"],
+            "dataPrivacy": {
+              "usesCustomerDataForTraining": true,
+              "dataRetentionPolicy": ["Opt Out"],
+              "documentation": "https://cohere.com/enterprise-data-commitments",
+              "termsOfUse": "https://docs.cohere.com/docs/usage-policy"
+            },
+            "securityFeatures": {
+              "GDPR Compliance": true,
+              "CCPA Compliance": true,
+              "SOC 2 Type 2": true,
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "RBAC": true,
+              "Hosted deployment": true,
+              "Private deployments": true,
+              "Third party cloud deployments": true
+            }
           }
         }
       ],
-      "products": [],
+      "products": [
+        {
+          "name": "API",
+          "description": "Cohere’s API allows developers to integrate natural language processing and generation into their products with minimal code, offering endpoints for chat, embed, rerank, classify and more.",
+          "image": "/images/companies/cohere/products/api.png",
+          "url": "https://docs.cohere.com/reference/about"
+        },
+        {
+          "name": "Platform",
+          "description": "Cohere’s secure AI platform provides world‑class multilingual models, advanced retrieval, and an AI workspace tailored for the modern enterprise.",
+          "image": "/images/companies/cohere/products/platform.png",
+          "url": "https://docs.cohere.com/docs/the-cohere-platform"
+        },
+        {
+          "name": "North",
+          "description": "An integrated AI workspace where work gets done—unifying generative models, advanced retrieval tools, and workplace systems in one secure interface.",
+          "image": "/images/companies/cohere/products/north.png",
+          "url": "https://cohere.com/north"
+        },
+        {
+          "name": "Compass",
+          "description": "An intelligent search and discovery system that surfaces business insights from complex enterprise data using generative AI and advanced embeddings.",
+          "image": "/images/companies/cohere/products/compass.png",
+          "url": "https://cohere.com/compass"
+        }
+      ],
       "subscriptions": []
     },
     {

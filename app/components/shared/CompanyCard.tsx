@@ -8,9 +8,10 @@ import { containerStyles } from '../utils/layout';
 
 interface CompanyCardProps {
   company: Company;
-  onClick: (companyId: string) => void;
+  onClick: (companyId: string, category?: string) => void;
   showModelCount?: number;
   imageSize?: { width: number; height: number };
+  sectionCategory?: string; // Added to pass the section's category
 }
 
 const CompanyCard: React.FC<CompanyCardProps> = ({
@@ -18,6 +19,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
   onClick,
   showModelCount = undefined,
   imageSize = { width: 100, height: 40 },
+  sectionCategory,
 }) => {
   // Filter primary models and sort by release date (newest first)
   const primaryModels = company.models
@@ -71,12 +73,18 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
       key={company.id}
       role="button"
       tabIndex={0}
-      className={`group ${cardClassName}`}
-      onClick={() => onClick(company.id)}
+      className={`company-card group ${cardClassName}`}
+      onClick={() => {
+        // Use the section category if provided, otherwise fallback to first model category
+        const category = sectionCategory || (company.models.length > 0 ? company.models[0].category : undefined);
+        onClick(company.id, category);
+      }}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          onClick(company.id);
+          // Use the section category if provided, otherwise fallback to first model category
+          const category = sectionCategory || (company.models.length > 0 ? company.models[0].category : undefined);
+          onClick(company.id, category);
         }
       }}
       aria-label={`${company.name} - Click to view details`}

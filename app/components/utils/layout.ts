@@ -34,12 +34,12 @@ export const containerStyles = {
     featureFooter: 'flex items-end justify-end',
     featureLink: 'text-fuchsia-600 hover:text-fuchsia-500 text-sm flex items-center group font-mono',
     
-    // Subscription card styles with cyberpunk styling to match feature cards
-    subscriptionGrid: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr mx-auto',
-    subscriptionCard: 'flex flex-col rounded-lg border border-gray-600 bg-gray-200 overflow-hidden hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer no-underline w-full relative',
-    subscriptionHeader: 'px-5 py-3 bg-[#2d3748] border-b border-gray-600', /* Match table header/label color */
+    // Subscription card styles with fixed width so incomplete rows center correctly
+    subscriptionGrid: 'flex flex-wrap justify-center gap-6',
+    subscriptionCard: 'flex flex-col rounded-lg border border-gray-600 bg-gray-200 overflow-hidden hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer no-underline w-80 relative',
+    subscriptionHeader: 'px-5 py-3 bg-[#2d3748] border-b border-gray-600 h-[70px] flex flex-col justify-center', /* Fixed height header for consistency */
     subscriptionContent: 'px-5 pt-5 pb-10 flex-1 flex flex-col overflow-hidden', /* Increased bottom padding further */
-    subscriptionTier: 'text-lg font-semibold text-fuchsia-500 font-mono',
+    subscriptionTier: 'text-lg font-semibold text-fuchsia-500 font-mono leading-tight',
     subscriptionType: 'px-2 py-0.5 bg-gray-600 rounded text-xs text-cyan-400 font-mono',
     subscriptionPrice: 'text-xl font-bold text-gray-800 font-mono mb-4',
     subscriptionPriceUnit: 'text-xs text-gray-600 font-normal font-mono',
@@ -48,14 +48,14 @@ export const containerStyles = {
     subscriptionFeatureCheck: 'text-fuchsia-500 mr-2 flex-shrink-0',
     subscriptionFeatureText: 'text-gray-700 font-mono',
     
-    // Landscape view layouts with consistent spacing
-    landscapeContainer: 'space-y-6',
+    // Explorer view layouts with consistent spacing
+    explorerContainer: 'space-y-6',
     // Two-column layout: mobile single column; on md+ first column 5/8 width, second column 3/8 width
-    landscapeRowTwo: 'grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-5',
-    landscapeRowFour: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5',
+    explorerRowTwo: 'grid items-stretch grid-cols-1 md:grid-cols-[5fr_3fr] gap-5',
+    explorerRowFour: 'grid items-stretch grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5',
     
     // Category section with cyberpunk styling
-    categorySection: 'bg-gray-800 rounded-lg shadow-md p-5 border border-gray-700 transition-all duration-200',
+    categorySection: 'h-full bg-gray-800 rounded-lg shadow-md p-5 border border-gray-700 transition-all duration-200',
     categoryTitle: 'text-lg font-semibold text-fuchsia-500 flex items-center font-mono',
     categoryTitleInline: 'text-lg font-semibold text-fuchsia-500 pr-4 flex items-center font-mono',
     categorySectionHover: 'hover:border-fuchsia-900',
@@ -71,9 +71,9 @@ export const containerStyles = {
     companyModel: 'text-center text-sm font-medium text-gray-800 mb-1 font-mono group-hover:text-fuchsia-600',
     
     // Company grid layouts with improved spacing and specified column counts
-    companyGridFull: 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5',
-    companyGridHalf: 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5', // Now 4 columns for Open Source Models
-    companyGridQuarter: 'grid grid-cols-1 sm:grid-cols-2 gap-5', // Matched gap-5 to be consistent with Open Models
+    companyGridFull: 'grid items-stretch grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5',
+    companyGridHalf: 'grid items-stretch grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5', // Now 4 columns for Open Source Models
+    companyGridQuarter: 'grid items-stretch grid-cols-1 sm:grid-cols-2 gap-5', // Matched gap-5 to be consistent with Open Models
     
     // Company detail with cyberpunk styling
     companyDetailHeader: 'flex flex-col md:flex-row items-center p-6 rounded-lg border border-gray-700 bg-gray-800 shadow-md',
