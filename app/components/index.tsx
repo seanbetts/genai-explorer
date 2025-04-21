@@ -2,6 +2,7 @@
 
 import React, { lazy, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { ExplorerData, Company } from './types';
 import ExplorerView from './ExplorerView';
 // Dynamically load CompanyDetail to reduce initial bundle size
@@ -53,19 +54,29 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
     <div className={containerStyles.appContainer}>
       <header className={containerStyles.header}>
         <div className={containerStyles.headerContent}>
-          {/* Left section with back button */}
-          <div>
-          {currentView === 'company' && (
-            <button
-              type="button"
-              onClick={handleBack}
-              className="flex items-center gap-1 text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer focus:ring-2 focus:ring-cyan-400 focus:ring-offset-0"
-              aria-label="Go back"
-            >
-              <i className="bi bi-chevron-left text-lg"></i>
-              <span className="font-mono text-sm">Back</span>
-            </button>
-          )}
+          {/* Left section with back button and bulb image */}
+          <div className="flex items-center">
+            {/* Bulb image (always visible) */}
+            <Image 
+              src="/images/bulb.png" 
+              alt="Bulb" 
+              width={48}
+              height={48}
+              className="mr-4"
+            />
+            
+            {/* Back button (only visible in company view) */}
+            {currentView === 'company' && (
+              <button
+                type="button"
+                onClick={handleBack}
+                className="flex items-center gap-1 text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer focus:ring-2 focus:ring-cyan-400 focus:ring-offset-0"
+                aria-label="Go back"
+              >
+                <i className="bi bi-chevron-left text-lg"></i>
+                <span className="font-mono text-sm">Back</span>
+              </button>
+            )}
           </div>
           
           {/* Centered logo (clickable home) */}
@@ -75,17 +86,30 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
             onClick={handleBack}
             aria-label="Home"
           >
-            <img
+            <Image
               src="/images/logo.png"
               alt="Generative AI Explorer"
-              className="h-14"
+              width={200}
+              height={56}
+              priority
+              className="h-14 w-auto"
             />
           </button>
           
-          {/* Right section with date (empty on company view) */}
-          <div>
+          {/* Right section with subscribe button and date */}
+          <div className="flex flex-col items-end">
+            {/* Subscribe button - always visible */}
+            <div className="w-[140px]">
+              <a href="https://www.the-blueprint.ai" target="_blank" rel="noopener noreferrer">
+                <div className="flex font-sans text-[0.6em] font-medium w-[90px] h-[22px] bg-fuchsia-600 p-2 text-white rounded justify-center items-center cursor-pointer hover:bg-fuchsia-500 transition-colors">
+                  Subscribe
+                </div>
+              </a>
+            </div>
+            
+            {/* Data last updated text - only on home view */}
             {currentView === 'home' && (
-              <div className="text-xs pr-4 font-mono">
+              <div className="text-xs font-mono mt-2">
                 Data last updated: <span className="text-cyan-400 font-semibold">{
                   new Date().toLocaleDateString('en-GB', { 
                     day: 'numeric', 
