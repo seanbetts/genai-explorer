@@ -6,7 +6,7 @@ This roadmap outlines the step-by-step plan for integrating benchmark data into 
 
 ### 1.1 Define Type Definitions
 
-- [ ] Add Benchmark interface to types.ts:
+- [x] Add Benchmark interface to types.ts:
   ```typescript
   export interface Benchmark {
     benchmark_id: string;
@@ -16,7 +16,7 @@ This roadmap outlines the step-by-step plan for integrating benchmark data into 
   }
   ```
 
-- [ ] Add BenchmarkScore interface to types.ts:
+- [x] Add BenchmarkScore interface to types.ts:
   ```typescript
   export interface BenchmarkScore {
     model_id: string;
@@ -30,31 +30,35 @@ This roadmap outlines the step-by-step plan for integrating benchmark data into 
   }
   ```
 
-- [ ] Add BenchmarkCategory type to types.ts:
+- [x] Add BenchmarkCategory type to types.ts:
   ```typescript
   export type BenchmarkCategory = 'agentic' | 'coding' | 'conversational' | 'factuality' | 'maths' | 'multimodal' | 'reasoning' | 'research' | 'science';
   ```
 
-- [ ] Extend existing types as needed to incorporate benchmarks
+- [x] Extend existing types as needed to incorporate benchmarks
 
 ### 1.2 Create Benchmark Utilities
 
-- [ ] Create a new file `utils/benchmarkUtils.ts` with these functions:
-  - [ ] `loadBenchmarkMetadata()`: Load benchmark metadata from JSON
-  - [ ] `loadBenchmarkScores()`: Load benchmark scores from CSV
-  - [ ] `groupBenchmarksByCategory()`: Group benchmarks by their category
-  - [ ] `getBenchmarkScoresForModel()`: Get all benchmark scores for a specific model
-  - [ ] `getBenchmarkScoresForCompany()`: Get all benchmark scores for a company's models
-  - [ ] `calculateModelRanking()`: Calculate how a model ranks compared to others for a benchmark
-  - [ ] `getLatestScoreForModelAndBenchmark()`: Get the latest score for a specific model and benchmark
+- [x] Create a new file `utils/benchmarkUtils.ts` with these functions:
+  - [x] `loadBenchmarkMetadata()`: Load benchmark metadata directly from JSON
+  - [x] `loadBenchmarkScores()`: Load benchmark scores from CSV using client-side fetch
+  - [x] `loadBenchmarkScoresServerSide()`: Server-side function to load benchmark scores
+  - [x] `groupBenchmarksByCategory()`: Group benchmarks by their category
+  - [x] `getBenchmarkScoresForModel()`: Get all benchmark scores for a specific model
+  - [x] `getBenchmarkScoresForCompany()`: Get all benchmark scores for a company's models
+  - [x] `calculateModelRanking()`: Calculate how a model ranks compared to others for a benchmark
+  - [x] `getLatestScoreForModelAndBenchmark()`: Get the latest score for a specific model and benchmark
+  - [x] `getModelsWithBenchmarkScores()`: Get all models that have scores for a specific benchmark
+  - [x] `getAverageBenchmarkScores()`: Get the average score for each benchmark
+  - [x] `associateBenchmarkScoresWithModels()`: Associate benchmark scores with models
 
 ### 1.3 Implement Data Processing
 
-- [ ] Create data preprocessing logic to:
-  - [ ] Parse CSV data efficiently
-  - [ ] Create lookup tables for faster access
-  - [ ] Associate benchmark scores with models
-  - [ ] Calculate industry rankings and averages
+- [x] Create data processing logic:
+  - [x] Use direct data import approach (no API routes needed)
+  - [x] Implement CSV parsing using PapaParse
+  - [x] Create helper functions for benchmark data access
+  - [x] Build functions to calculate rankings and averages
 
 ## Phase 2: Component Refactoring
 

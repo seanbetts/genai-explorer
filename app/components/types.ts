@@ -1,4 +1,25 @@
 // Define types based on the JSON structure
+
+// Benchmark related interfaces
+export interface Benchmark {
+  benchmark_id: string;
+  benchmark_name: string;
+  benchmark_category: string;
+  benchmark_paper: string | null;
+}
+
+export interface BenchmarkScore {
+  model_id: string;
+  company_id: string;
+  benchmark_id: string;
+  score: number;
+  date: string;
+  notes?: string;
+  source_name?: string;
+  source?: string;
+}
+
+export type BenchmarkCategory = 'agentic' | 'coding' | 'conversational' | 'factuality' | 'maths' | 'multimodal' | 'reasoning' | 'research' | 'science';
 export interface Feature {
   name: string;
   description: string;
@@ -89,6 +110,7 @@ export interface Model {
   huggingFace?: string;
   capabilities?: Capabilities;
   specs?: Specs;
+  benchmarkScores?: BenchmarkScore[]; // Benchmark scores for this model
 }
 
 export interface Subscription {
