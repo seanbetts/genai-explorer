@@ -1626,7 +1626,7 @@
           }
         },
         {
-          "id": "llama-3-3-70B",
+          "id": "llama-3-3-70b",
           "name": "Llama-3.3 70B",
           "status": "secondary",
           "type": "Large Language Model",
@@ -1660,7 +1660,7 @@
           }
         },
         {
-          "id": "llama-3-2-90B",
+          "id": "llama-3-2-90b",
           "name": "Llama-3.2 90B",
           "status": "secondary",
           "type": "Large Multimodal Model",
@@ -1695,7 +1695,7 @@
           }
         },
         {
-          "id": "llama-3-2-11B",
+          "id": "llama-3-2-11b",
           "name": "Llama-3.2 11B",
           "status": "secondary",
           "type": "Large Multimodal Model",
@@ -1730,7 +1730,7 @@
           }
         },
         {
-          "id": "llama-3-2-3B",
+          "id": "llama-3-2-3b",
           "name": "Llama-3.2 3B",
           "status": "secondary",
           "type": "Large Language Model",
@@ -1764,7 +1764,7 @@
           }
         },
         {
-          "id": "llama-3-2-1B",
+          "id": "llama-3-2-1b",
           "name": "Llama-3.2 1B",
           "status": "secondary",
           "type": "Large Language Model",
@@ -1798,7 +1798,7 @@
           }
         },
         {
-          "id": "llama-3-1-405B",
+          "id": "llama-3-1-405b",
           "name": "Llama-3.1 405B",
           "status": "secondary",
           "type": "Large Language Model",
@@ -1832,7 +1832,7 @@
           }
         },
         {
-          "id": "llama-3-1-70B",
+          "id": "llama-3-1-70b",
           "name": "Llama-3.1 70B",
           "status": "secondary",
           "type": "Large Language Model",
@@ -1866,7 +1866,7 @@
           }
         },
         {
-          "id": "llama-3-1-8B",
+          "id": "llama-3-1-8b",
           "name": "Llama-3.1 8B",
           "status": "secondary",
           "type": "Large Language Model",
