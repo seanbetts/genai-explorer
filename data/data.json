@@ -2310,34 +2310,95 @@
       "features": [],
       "models": [
         {
-          "id": "copilot",
-          "name": "Copilot",
+          "id": "m365-copilot",
+          "name": "Microsoft 365 Copilot",
           "status": "primary",
-          "type": "productivity",
+          "type": "Large Language Model",
           "category": "enterprise",
-          "releaseDate": "",
-          "modelPage": "",
-          "releasePost": "",
-          "releaseVideo": "",
-          "systemCard": "",
+          "releaseDate": "2023-03-16",
+          "modelVersion": "GPT‑4 Turbo",
+          "modelPage": "https://learn.microsoft.com/en-us/copilot/microsoft-365/",
+          "releasePost": "https://www.microsoft.com/en-us/microsoft-365/blog/2023/03/16/introducing-microsoft-365-copilot-a-whole-new-way-to-work/",
+          "releaseVideo": "https://www.youtube.com/watch?v=S7xTBa93TX8",
+          "releaseNotes": "https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes?tabs=all",
           "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
+            "intelligence": 2,
+            "speed": 3,
             "reasoning": 1
           },
           "specs": {
             "reasoningTokens": false,
             "inputFormats": [
-              "text"
+              "text",
+              "image"
             ],
             "outputFormats": [
-              "text"
+              "text",
+              "image"
             ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingOutputPerM": null
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4096,
+            "knowledgeCutoff": "November 2023",
+            "groundingSources": ["Microsoft Graph","Bing Web"],
+            "integrations": [
+              "Word","Excel","PowerPoint","Outlook","Teams",
+              "OneNote","Whiteboard","SharePoint","Forms","Loop",
+              "Microsoft 365 Admin Center","Copilot Studio",
+              "Copilot Chat sidebar","Windows taskbar","Edge browser",
+              "Viva Insights"
+            ],
+            "dataPrivacy": {
+              "usesCustomerDataForTraining": false,
+              "dataRetentionPolicy": "Managed under Microsoft 365; user data isn’t used to train the LLM."
+            },
+            "securityFeatures": {
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "Role‑based access control": true
+            }
+          }
+        },
+        {
+          "id": "copilot-chat",
+          "name": "Copilot Chat",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "enterprise",
+          "releaseDate": "2025-01-15",
+          "modelVersion": "GPT‑4o",
+          "modelPage": "https://support.microsoft.com/en-gb/copilot-microsoft365-chat",
+          "releasePost": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/",
+          "releaseVideo": "https://www.youtube.com/watch?v=rc-fc7pT9nw",
+          "releaseNotes": "https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes?tabs=all",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 3,
+            "reasoning": 2
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text",
+              "image"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 16384,
+            "knowledgeCutoff": "September 2023",
+            "groundingSources": ["Microsoft Graph","Bing Web"],
+            "integrations": [],
+            "dataPrivacy": {
+              "usesCustomerDataForTraining": false,
+              "dataRetentionPolicy": "Managed under Microsoft 365; user data isn’t used to train the LLM."
+            },
+            "securityFeatures": {
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "Role‑based access control": true
+            }
           }
         }
       ],
