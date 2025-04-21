@@ -122,14 +122,22 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       return null;
     }
 
-    // Get all security feature keys across all models
+    // Get all security feature keys across all models and preserve original order
     const allSecurityFeatures = new Set<string>();
+    // First, collect all feature keys to maintain order as they appear in models
+    const orderedSecurityKeys: string[] = [];
     displayModels.forEach(model => {
       if (model.specs?.securityFeatures) {
-        Object.keys(model.specs.securityFeatures).forEach(key => allSecurityFeatures.add(key));
+        Object.keys(model.specs.securityFeatures).forEach(key => {
+          if (!allSecurityFeatures.has(key)) {
+            allSecurityFeatures.add(key);
+            orderedSecurityKeys.push(key);
+          }
+        });
       }
     });
-    const securityFeaturesList = Array.from(allSecurityFeatures).sort();
+    // Use the orderedSecurityKeys to maintain the original order from the JSON
+    const securityFeaturesList = orderedSecurityKeys;
 
     // Calculate column width for consistency across tables
     const columnWidth = currentModels.length > 0 ? `${100 / currentModels.length}%` : 'auto';
@@ -205,10 +213,10 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                         {model.specs?.dataPrivacy ? (
                           <div className="flex flex-col items-center text-left">
                             <div className="mb-1 flex items-center">
-                              <span className={`${textStyles.primary} mr-2`}>Uses customer data for training:</span>
+                              <span className="text-sm text-white font-mono mr-2">Uses data for training:</span>
                               {model.specs.dataPrivacy.usesCustomerDataForTraining !== undefined ? (
                                 model.specs.dataPrivacy.usesCustomerDataForTraining ? 
-                                  <i className={iconStyles.booleanFalse} title="Yes"></i> : 
+                                  <i className={iconStyles.booleanTrue} title="Yes"></i> : 
                                   <i className={iconStyles.booleanFalse} title="No"></i>
                               ) : <span className={textStyles.primary}>-</span>}
                             </div>
@@ -258,24 +266,26 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                   </tr>
                 )}
 
-                {/* Security Features - One row per feature */}
+                {/* Security Features - One row per feature with consistent double height */}
                 {hasSecurityFeatures && securityFeaturesList.map(feature => (
-                  <tr className="cursor-pointer" key={feature}>
+                  <tr className="cursor-pointer h-[60px]" key={feature}>
                     <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-                      <div className={containerStyles.flexCenter}>
+                      <div className="flex items-center gap-3 h-full">
                         <i className={`bi bi-shield-check ${iconStyles.tableRowIcon}`}></i> 
                         <span className={textStyles.primary}>{feature}</span>
                       </div>
                     </td>
                     {currentModels.map(model => (
                       <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-                        {model.specs?.securityFeatures && feature in model.specs.securityFeatures ? (
-                          model.specs.securityFeatures[feature] ? 
-                            <i className={iconStyles.booleanTrue} title="Yes"></i> : 
-                            <i className={iconStyles.booleanFalse} title="No"></i>
-                        ) : (
-                          <span className={textStyles.tertiary}>-</span>
-                        )}
+                        <div className="flex items-center justify-center h-full">
+                          {model.specs?.securityFeatures && feature in model.specs.securityFeatures ? (
+                            model.specs.securityFeatures[feature] ? 
+                              <i className={iconStyles.booleanTrue} title="Yes"></i> : 
+                              <i className={iconStyles.booleanFalse} title="No"></i>
+                          ) : (
+                            <span className={textStyles.tertiary}>-</span>
+                          )}
+                        </div>
                       </td>
                     ))}
                   </tr>

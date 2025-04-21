@@ -983,7 +983,7 @@
             "reasoningTokens": false,
             "inputFormats": [
               "text",
-              "images"
+              "image"
             ],
             "outputFormats": [
               "text"
@@ -1018,7 +1018,7 @@
             "reasoningTokens": false,
             "inputFormats": [
               "text",
-              "images"
+              "image"
             ],
             "outputFormats": [
               "text"
@@ -1053,7 +1053,7 @@
             "reasoningTokens": false,
             "inputFormats": [
               "text",
-              "images"
+              "image"
             ],
             "outputFormats": [
               "text"
@@ -2306,7 +2306,7 @@
       "logo": "/images/companies/microsoft/logo.png",
       "website": "https://microsoft.com",
       "description": "Enterprise AI and productivity solutions",
-      "lastUpdated": "2025-04-20",
+      "lastUpdated": "2025-04-21",
       "features": [
         {
           "name": "Search",
@@ -2400,9 +2400,15 @@
               "termsOfUse": "https://www.microsoft.com/licensing/terms/"
             },
             "securityFeatures": {
-              "In transit": true,
-              "At rest": true,
-              "RBAC": true
+              "GDPR Compliance": true,
+              "CCPA Compliance": true,
+              "SOC 2 Type 2": true,
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "RBAC": true,
+              "Hosted deployment": true,
+              "Private deployments": false,
+              "Third party cloud deployments": false
             }
           }
         },
@@ -2448,9 +2454,15 @@
               "termsOfUse": "https://www.microsoft.com/licensing/terms/"
             },
             "securityFeatures": {
-              "In transit": true,
-              "At rest": true,
-              "RBAC": true
+              "GDPR Compliance": true,
+              "CCPA Compliance": true,
+              "SOC 2 Type 2": true,
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "RBAC": true,
+              "Hosted deployment": true,
+              "Private deployments": false,
+              "Third party cloud deployments": false
             }
           }
         },
@@ -2493,9 +2505,15 @@
               "termsOfUse": "https://www.microsoft.com/licensing/terms/"
             },
             "securityFeatures": {
-              "In transit": true,
-              "At rest": true,
-              "RBAC": true
+              "GDPR Compliance": true,
+              "CCPA Compliance": true,
+              "SOC 2 Type 2": true,
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "RBAC": true,
+              "Hosted deployment": true,
+              "Private deployments": false,
+              "Third party cloud deployments": false
             }
           }
         }
@@ -2590,40 +2608,270 @@
       "name": "Cohere",
       "logo": "/images/companies/cohere/logo.png",
       "website": "https://cohere.com",
-      "description": "Enterprise-focused AI solutions",
-      "lastUpdated": "2025-04-20",
+      "description": "The secure AI platform",
+      "lastUpdated": "2025-04-21",
       "features": [],
       "models": [
         {
-          "id": "command",
-          "name": "Command",
-          "status": "primary",
-          "type": "text",
+          "id": "command-r",
+          "name": "Command R",
+          "status": "secondary",
+          "type": "Large Language Model",
           "category": "enterprise",
-          "releaseDate": "",
-          "modelPage": "",
-          "releasePost": "",
+          "releaseDate": "2024-08-30",
+          "modelVersion": "command-r-08-2024",
+          "modelPage": "https://docs.cohere.com/docs/command-r",
+          "systemCard": "https://docs.cohere.com/docs/responsible-use",
+          "releasePost": "https://cohere.com/blog/command-series-0824",
           "releaseVideo": "",
-          "systemCard": "",
+          "releaseNotes": "https://docs.cohere.com/changelog",
           "capabilities": {
-            "intelligence": 1,
-            "speed": 1,
+            "intelligence": 3,
+            "speed": 3,
             "reasoning": 1
           },
           "specs": {
-            "reasoningTokens": false,
+            "reasoningTokens": null,
             "inputFormats": [
               "text"
             ],
             "outputFormats": [
               "text"
             ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4000,
             "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null
+            "pricingInputPerM": 0.15,
+            "pricingOutputPerM": 0.6,
+            "groundingSources": ["RAG"],
+            "integrations": ["API"],
+            "dataPrivacy": {
+              "usesCustomerDataForTraining": true,
+              "dataRetentionPolicy": ["Opt Out"],
+              "documentation": "https://cohere.com/enterprise-data-commitments",
+              "termsOfUse": "https://docs.cohere.com/docs/usage-policy"
+            },
+            "securityFeatures": {
+              "GDPR Compliance": true,
+              "CCPA Compliance": true,
+              "SOC 2 Type 2": true,
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "RBAC": true,
+              "Hosted deployment": true,
+              "Private deployments": true,
+              "Third party cloud deployments": true
+            }
+          }
+        },
+        {
+          "id": "command-r-plus",
+          "name": "Command R+",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "enterprise",
+          "releaseDate": "2024-08-30",
+          "modelVersion": "command-r-plus-04-2024",
+          "modelPage": "https://docs.cohere.com/docs/command-r-plus",
+          "systemCard": "https://docs.cohere.com/docs/responsible-use",
+          "releasePost": "https://cohere.com/blog/command-series-0824",
+          "releaseVideo": "",
+          "releaseNotes": "https://docs.cohere.com/changelog",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 3,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": null,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4000,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": 2.5,
+            "pricingOutputPerM": 10,
+            "groundingSources": ["RAG"],
+            "integrations": ["API"],
+            "dataPrivacy": {
+              "usesCustomerDataForTraining": true,
+              "dataRetentionPolicy": ["Opt Out"],
+              "documentation": "https://cohere.com/enterprise-data-commitments",
+              "termsOfUse": "https://docs.cohere.com/docs/usage-policy"
+            },
+            "securityFeatures": {
+              "GDPR Compliance": true,
+              "CCPA Compliance": true,
+              "SOC 2 Type 2": true,
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "RBAC": true,
+              "Hosted deployment": true,
+              "Private deployments": true,
+              "Third party cloud deployments": true
+            }
+          }
+        },
+        {
+          "id": "command-r7b",
+          "name": "Command R7B",
+          "status": "secondary",
+          "type": "Large Language Model",
+          "category": "enterprise",
+          "releaseDate": "2024-12-13",
+          "modelVersion": "command-r7b-12-2024",
+          "modelPage": "https://docs.cohere.com/docs/command-r7b",
+          "systemCard": "",
+          "releasePost": "https://cohere.com/blog/command-r7b",
+          "releaseVideo": "",
+          "releaseNotes": "https://docs.cohere.com/changelog",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 3,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": null,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4000,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": 0.0375,
+            "pricingOutputPerM": 0.15,
+            "groundingSources": ["RAG"],
+            "integrations": ["API"],
+            "dataPrivacy": {
+              "usesCustomerDataForTraining": true,
+              "dataRetentionPolicy": ["Opt Out"],
+              "documentation": "https://cohere.com/enterprise-data-commitments",
+              "termsOfUse": "https://docs.cohere.com/docs/usage-policy"
+            },
+            "securityFeatures": {
+              "GDPR Compliance": true,
+              "CCPA Compliance": true,
+              "SOC 2 Type 2": true,
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "RBAC": true,
+              "Hosted deployment": true,
+              "Private deployments": true,
+              "Third party cloud deployments": true
+            }
+          }
+        },
+        {
+          "id": "command-a",
+          "name": "Command A",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "enterprise",
+          "releaseDate": "2025-03-13",
+          "modelVersion": "command-a-03-2025",
+          "modelPage": "https://docs.cohere.com/docs/command-a",
+          "systemCard": "",
+          "releasePost": "https://cohere.com/blog/command-a",
+          "releaseVideo": "",
+          "releaseNotes": "https://docs.cohere.com/changelog",
+          "capabilities": {
+            "intelligence": 4,
+            "speed": 3,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": null,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 256000,
+            "maxOutputTokens": 8000,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": 2.5,
+            "pricingOutputPerM": 10,
+            "groundingSources": ["RAG"],
+            "integrations": ["API"],
+            "dataPrivacy": {
+              "usesCustomerDataForTraining": true,
+              "dataRetentionPolicy": ["Opt Out"],
+              "documentation": "https://cohere.com/enterprise-data-commitments",
+              "termsOfUse": "https://docs.cohere.com/docs/usage-policy"
+            },
+            "securityFeatures": {
+              "GDPR Compliance": true,
+              "CCPA Compliance": true,
+              "SOC 2 Type 2": true,
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "RBAC": true,
+              "Hosted deployment": true,
+              "Private deployments": true,
+              "Third party cloud deployments": true
+            }
+          }
+        },
+        {
+          "id": "aya-vision",
+          "name": "Aya Vision",
+          "status": "primary",
+          "type": "Large Multimodal Model",
+          "category": "open",
+          "releaseDate": "2025-03-04",
+          "modelVersion": "c4ai-aya-vision-32b",
+          "modelPage": "https://docs.cohere.com/docs/aya-vision",
+          "systemCard": "",
+          "licenceType": "Creative Commons",
+          "licenceLink": "https://docs.cohere.com/docs/cohere-labs-acceptable-use-policy",
+          "huggingFace": "https://huggingface.co/collections/CohereLabs/cohere-labs-aya-vision-67c4ccd395ca064308ee1484",
+          "releasePost": "https://cohere.com/blog/aya-vision",
+          "releaseVideo": "https://youtu.be/WNig1E2el0I?si=72um25j1-80npoB0",
+          "releaseNotes": "https://docs.cohere.com/changelog",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 2,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": null,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 16000,
+            "maxOutputTokens": 4000,
+            "knowledgeCutoff": "",
+            "groundingSources": ["RAG"],
+            "integrations": ["API"],
+            "dataPrivacy": {
+              "usesCustomerDataForTraining": true,
+              "dataRetentionPolicy": ["Opt Out"],
+              "documentation": "https://cohere.com/enterprise-data-commitments",
+              "termsOfUse": "https://docs.cohere.com/docs/usage-policy"
+            },
+            "securityFeatures": {
+              "GDPR Compliance": true,
+              "CCPA Compliance": true,
+              "SOC 2 Type 2": true,
+              "Encryption in transit": true,
+              "Encryption at rest": true,
+              "RBAC": true,
+              "Hosted deployment": true,
+              "Private deployments": true,
+              "Third party cloud deployments": true
+            }
           }
         }
       ],
