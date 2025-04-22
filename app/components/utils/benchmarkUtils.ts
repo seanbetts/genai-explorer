@@ -22,15 +22,30 @@ export const loadBenchmarkScores = async (): Promise<BenchmarkScore[]> => {
   if (benchmarkScoresCache) return benchmarkScoresCache;
   
   try {
+    console.log("Fetching benchmark scores from CSV...");
     const response = await fetch('/data/benchmarks.csv');
+    if (!response.ok) {
+      console.error("Failed to fetch benchmarks.csv:", response.status, response.statusText);
+      return [];
+    }
     const csvText = await response.text();
+    console.log("Got CSV text, length:", csvText.length, "First 100 chars:", csvText.substring(0, 100));
     
     const parseResult = Papa.parse(csvText, {
       header: true,
       dynamicTyping: true, // Automatically convert numeric values
     });
     
-    benchmarkScoresCache = parseResult.data as BenchmarkScore[];
+    console.log("Parse result:", parseResult);
+    if (parseResult.errors && parseResult.errors.length > 0) {
+      console.error("CSV parsing errors:", parseResult.errors);
+    }
+    
+    // Filter out any empty rows (rows with no model_id or benchmark_id)
+    benchmarkScoresCache = parseResult.data
+      .filter((row: any) => row.model_id && row.benchmark_id) as BenchmarkScore[];
+    console.log("Parsed scores length:", benchmarkScoresCache.length);
+    console.log("First score:", benchmarkScoresCache[0]);
     return benchmarkScoresCache;
   } catch (error) {
     console.error('Error loading benchmark scores:', error);

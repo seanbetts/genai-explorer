@@ -6,9 +6,7 @@ import { textStyles } from '../utils/theme';
 import { tableStyles, iconStyles, containerStyles } from '../utils/layout';
 import { 
   SharedTable, 
-  TableHeader,
-  ScoreBar,
-  RankIndicator
+  TableHeader
 } from '../shared/TableComponents';
 import { calculateModelRanking, getLatestScoreForModelAndBenchmark } from '../utils/benchmarkUtils';
 
@@ -37,6 +35,9 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
       );
     });
   });
+
+  console.log(`Category ${category}: Found ${modelsWithScores.length} models with scores`);
+  console.log(`Category ${category}: Benchmarks in this category: ${benchmarks.map(b => b.benchmark_name).join(', ')}`);
 
   // Skip rendering if no models have scores for this category
   if (modelsWithScores.length === 0) {
@@ -83,20 +84,25 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
     }
 
     const ranking = calculateModelRanking(benchmarkScores, model.id, benchmark.benchmark_id);
+    let rankBadge = null;
+    
+    if (ranking) {
+      if (ranking.rank === 1) {
+        rankBadge = <span className="ml-1 text-yellow-500">🥇</span>;
+      } else if (ranking.rank === 2) {
+        rankBadge = <span className="ml-1 text-gray-300">🥈</span>;
+      } else if (ranking.rank === 3) {
+        rankBadge = <span className="ml-1 text-amber-700">🥉</span>;
+      }
+    }
     
     return (
-      <div className="flex flex-col gap-2 items-center">
-        <div className="flex items-center gap-2">
-          <span className="font-medium font-mono text-cyan-400">{score.score.toFixed(2)}</span>
-          {ranking && (
-            <RankIndicator rank={ranking.rank} total={ranking.total} />
-          )}
-        </div>
-        <div className="w-full px-2">
-          <ScoreBar score={score.score} maxScore={100} colorScale="blue-purple" />
+      <div className="flex flex-col items-center">
+        <div className="font-medium font-mono text-cyan-400 flex items-center">
+          {score.score.toFixed(1)}{rankBadge}
         </div>
         {score.date && (
-          <div className="text-xs text-gray-400">
+          <div className="text-xs text-gray-400 mt-1">
             {new Date(score.date).toLocaleDateString('en-GB', {
               month: 'short',
               year: 'numeric'
