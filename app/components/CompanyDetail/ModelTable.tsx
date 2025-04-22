@@ -5,6 +5,15 @@ import { Model } from '../types';
 import { textStyles } from '../utils/theme';
 import { tableStyles, iconStyles, containerStyles } from '../utils/layout';
 import { shouldShowTogetherPricing } from '../utils/modelUtils';
+import { 
+  SharedTable, 
+  TableHeader, 
+  TableColGroup,
+  PaginationControls, 
+  SectionTitle, 
+  handleTableScroll,
+  tableHoverStyles
+} from '../shared/TableComponents';
 
 interface ModelTableProps {
   models: Model[];
@@ -142,158 +151,143 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     // Calculate column width for consistency across tables
     const columnWidth = currentModels.length > 0 ? `${100 / currentModels.length}%` : 'auto';
 
-    // Hidden colgroup to control column widths consistently
-    const EnterpriseTableColGroup = () => {
-      return (
-        <colgroup>
-          <col style={{width: '250px'}} />
-          {currentModels.map((model, index) => (
-            <col key={`col-${model.id}`} style={{width: columnWidth}} />
-          ))}
-        </colgroup>
-      );
-    };
+    // Format current models for table header
+    const headerItems = currentModels.map(model => ({
+      id: model.id,
+      name: model.name
+    }));
 
     return (
       <div className="mb-6">
-        <h3 className={sectionTitle}>Enterprise Features</h3>
-        <div className="table-wrapper">
-          <div 
-            className="table-scroll-container" 
-            onScroll={handleTableScroll}
-          >
-            <table
-              className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}
-            >
-              <EnterpriseTableColGroup />
-              <tbody>
-                {/* Integrations Row */}
-                {hasIntegrations && (
-                  <tr className="cursor-pointer">
-                    <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-                      <div className={containerStyles.flexCenter}>
-                        <i className={`bi bi-puzzle-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Integrations</span>
+        <SectionTitle>Enterprise Features</SectionTitle>
+        <SharedTable>
+          <TableColGroup items={headerItems} />
+          <tbody>
+            {/* Integrations Row */}
+            {hasIntegrations && (
+              <tr className="cursor-pointer">
+                <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                  <div className={containerStyles.flexCenter}>
+                    <i className={`bi bi-puzzle-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Integrations</span>
+                  </div>
+                </td>
+                {currentModels.map(model => (
+                  <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                    {model.specs?.integrations && model.specs.integrations.length > 0 ? (
+                      <div className="w-full mx-auto overflow-hidden">
+                        <div className="flex flex-wrap justify-center gap-x-1 gap-y-1">
+                          {model.specs.integrations.map((integration, i) => (
+                            <span 
+                              key={i} 
+                              className="bg-gray-700 px-1.5 py-0.5 rounded text-xs font-mono inline-block whitespace-nowrap overflow-hidden text-ellipsis" 
+                              title={integration}
+                              style={{maxWidth: '100%'}}
+                            >
+                              {integration}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                    </td>
-                    {currentModels.map(model => (
-                      <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-                        {model.specs?.integrations && model.specs.integrations.length > 0 ? (
-                          <div className="w-full mx-auto overflow-hidden">
-                            <div className="flex flex-wrap justify-center gap-x-1 gap-y-1">
-                              {model.specs.integrations.map((integration, i) => (
-                                <span 
-                                  key={i} 
-                                  className="bg-gray-700 px-1.5 py-0.5 rounded text-xs font-mono inline-block whitespace-nowrap overflow-hidden text-ellipsis" 
-                                  title={integration}
-                                  style={{maxWidth: '100%'}}
-                                >
-                                  {integration}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        ) : (
-                          <span className={textStyles.tertiary}>-</span>
-                        )}
-                      </td>
-                    ))}
-                  </tr>
-                )}
+                    ) : (
+                      <span className={textStyles.tertiary}>-</span>
+                    )}
+                  </td>
+                ))}
+              </tr>
+            )}
 
-                {/* Data Privacy Row */}
-                {hasDataPrivacy && (
-                  <tr className="cursor-pointer">
-                    <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-                      <div className={containerStyles.flexCenter}>
-                        <i className={`bi bi-shield-lock-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Data Privacy</span>
-                      </div>
-                    </td>
-                    {currentModels.map(model => (
-                      <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-                        {model.specs?.dataPrivacy ? (
-                          <div className="flex flex-col items-center text-left">
-                            <div className="mb-1 flex items-center">
-                              <span className="text-sm text-white font-mono mr-2">Uses data for training:</span>
-                              {model.specs.dataPrivacy.usesCustomerDataForTraining !== undefined ? (
-                                model.specs.dataPrivacy.usesCustomerDataForTraining ? 
-                                  <i className={iconStyles.booleanTrue} title="Yes"></i> : 
-                                  <i className={iconStyles.booleanFalse} title="No"></i>
-                              ) : <span className={textStyles.primary}>-</span>}
-                            </div>
-                            {model.specs.dataPrivacy.dataRetentionPolicy && model.specs.dataPrivacy.dataRetentionPolicy.length > 0 && (
-                              <div className="text-gray-300 text-xs text-center">
-                                {model.specs.dataPrivacy.dataRetentionPolicy.map((policy, i) => (
-                                  <div key={i} className="mb-1 text-xs font-mono">{policy}</div>
-                                ))}
-                              </div>
-                            )}
-                            
-                            {/* Documentation Link */}
-                            {model.specs.dataPrivacy.documentation && (
-                              <div className="mb-1 mt-1">
-                                <a 
-                                  href={model.specs.dataPrivacy.documentation} 
-                                  target="_blank" 
-                                  rel="noopener noreferrer" 
-                                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                                  title="View data privacy documentation"
-                                >
-                                  🔗 Documentation
-                                </a>
-                              </div>
-                            )}
-                            
-                            {/* Terms of Use Link */}
-                            {model.specs.dataPrivacy.termsOfUse && (
-                              <div className="mb-1 mt-1">
-                                <a 
-                                  href={model.specs.dataPrivacy.termsOfUse} 
-                                  target="_blank" 
-                                  rel="noopener noreferrer" 
-                                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                                  title="View terms of use"
-                                >
-                                  🔗 Terms of Use
-                                </a>
-                              </div>
-                            )}
-                          </div>
-                        ) : (
-                          <span className={textStyles.tertiary}>-</span>
-                        )}
-                      </td>
-                    ))}
-                  </tr>
-                )}
-
-                {/* Security Features - One row per feature with consistent double height */}
-                {hasSecurityFeatures && securityFeaturesList.map(feature => (
-                  <tr className="cursor-pointer h-[60px]" key={feature}>
-                    <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-                      <div className="flex items-center gap-3 h-full">
-                        <i className={`bi bi-shield-check ${iconStyles.tableRowIcon}`}></i> 
-                        <span className={textStyles.primary}>{feature}</span>
-                      </div>
-                    </td>
-                    {currentModels.map(model => (
-                      <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-                        <div className="flex items-center justify-center h-full">
-                          {model.specs?.securityFeatures && feature in model.specs.securityFeatures ? (
-                            model.specs.securityFeatures[feature] ? 
+            {/* Data Privacy Row */}
+            {hasDataPrivacy && (
+              <tr className="cursor-pointer">
+                <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                  <div className={containerStyles.flexCenter}>
+                    <i className={`bi bi-shield-lock-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Data Privacy</span>
+                  </div>
+                </td>
+                {currentModels.map(model => (
+                  <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                    {model.specs?.dataPrivacy ? (
+                      <div className="flex flex-col items-center text-left">
+                        <div className="mb-1 flex items-center">
+                          <span className="text-sm text-white font-mono mr-2">Uses data for training:</span>
+                          {model.specs.dataPrivacy.usesCustomerDataForTraining !== undefined ? (
+                            model.specs.dataPrivacy.usesCustomerDataForTraining ? 
                               <i className={iconStyles.booleanTrue} title="Yes"></i> : 
                               <i className={iconStyles.booleanFalse} title="No"></i>
-                          ) : (
-                            <span className={textStyles.tertiary}>-</span>
-                          )}
+                          ) : <span className={textStyles.primary}>-</span>}
                         </div>
-                      </td>
-                    ))}
-                  </tr>
+                        {model.specs.dataPrivacy.dataRetentionPolicy && model.specs.dataPrivacy.dataRetentionPolicy.length > 0 && (
+                          <div className="text-gray-300 text-xs text-center">
+                            {model.specs.dataPrivacy.dataRetentionPolicy.map((policy, i) => (
+                              <div key={i} className="mb-1 text-xs font-mono">{policy}</div>
+                            ))}
+                          </div>
+                        )}
+                        
+                        {/* Documentation Link */}
+                        {model.specs.dataPrivacy.documentation && (
+                          <div className="mb-1 mt-1">
+                            <a 
+                              href={model.specs.dataPrivacy.documentation} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                              title="View data privacy documentation"
+                            >
+                              🔗 Documentation
+                            </a>
+                          </div>
+                        )}
+                        
+                        {/* Terms of Use Link */}
+                        {model.specs.dataPrivacy.termsOfUse && (
+                          <div className="mb-1 mt-1">
+                            <a 
+                              href={model.specs.dataPrivacy.termsOfUse} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                              title="View terms of use"
+                            >
+                              🔗 Terms of Use
+                            </a>
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <span className={textStyles.tertiary}>-</span>
+                    )}
+                  </td>
                 ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+              </tr>
+            )}
+
+            {/* Security Features - One row per feature with consistent double height */}
+            {hasSecurityFeatures && securityFeaturesList.map(feature => (
+              <tr className="cursor-pointer h-[60px]" key={feature}>
+                <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                  <div className="flex items-center gap-3 h-full">
+                    <i className={`bi bi-shield-check ${iconStyles.tableRowIcon}`}></i> 
+                    <span className={textStyles.primary}>{feature}</span>
+                  </div>
+                </td>
+                {currentModels.map(model => (
+                  <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                    <div className="flex items-center justify-center h-full">
+                      {model.specs?.securityFeatures && feature in model.specs.securityFeatures ? (
+                        model.specs.securityFeatures[feature] ? 
+                          <i className={iconStyles.booleanTrue} title="Yes"></i> : 
+                          <i className={iconStyles.booleanFalse} title="No"></i>
+                      ) : (
+                        <span className={textStyles.tertiary}>-</span>
+                      )}
+                    </div>
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </SharedTable>
       </div>
     );
   };
@@ -344,21 +338,6 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         ))}
       </div>
     );
-  };
-  
-  // Define a shared ref to control scroll position of all tables
-  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
-  
-  // Function to handle scrolling all tables together
-  const handleTableScroll = (e: React.UIEvent<HTMLDivElement>) => {
-    const scrollLeft = e.currentTarget.scrollLeft;
-    
-    // Apply the same scrollLeft to all tables with the scrollContainerRef class
-    document.querySelectorAll('.table-scroll-container').forEach((container) => {
-      if (container !== e.currentTarget && container instanceof HTMLElement) {
-        container.scrollLeft = scrollLeft;
-      }
-    });
   };
   
   // Function to handle navigation
@@ -665,150 +644,6 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     </>
   );
 
-  // Add custom CSS for table hover behavior with cyberpunk styling and consistent column widths
-  const tableHoverStyles = `
-    /* Table layout and scrolling */
-    .table-scroll-container {
-      overflow-x: auto;
-      position: relative;
-      scrollbar-width: thin;
-      border-radius: 0.5rem;
-      border: 1px solid #101828; /* Original border color */
-      margin-bottom: 0.5rem;
-    }
-    
-    .table-wrapper {
-      position: relative;
-      width: 100%;
-    }
-    
-    .model-table, .table-fixed {
-      table-layout: fixed;
-      border-collapse: separate;
-      border-spacing: 0;
-      width: 100%;
-    }
-    
-    /* Set consistent background for labels, headers, and legend */
-    .sticky-label, thead th, .legend-container {
-      background-color: #2d3748; /* Dark blue-gray for labels and headers */
-    }
-    
-    /* Make first column sticky */
-    .sticky-label {
-      position: sticky;
-      left: 0;
-      z-index: 10;
-      width: 250px;
-      background-color: #2d3748;
-      box-shadow: 4px 0 4px -2px rgba(0, 0, 0, 0.3);
-    }
-    
-    /* Make header sticky */
-    .table-header-cell {
-      position: sticky;
-      top: 0;
-      z-index: 9;
-    }
-    
-    /* Sticky header corner cell (top left) */
-    .sticky-header-corner {
-      position: sticky;
-      left: 0;
-      z-index: 11;
-      background-color: #2d3748;
-    }
-    
-    /* Reset any default hover behaviors */
-    .hover-highlight tr td, .hover-highlight tr th {
-      transition: background-color 0.15s ease-in-out;
-    }
-    
-    /* Simple row hover effect that changes the entire row */
-    .hover-highlight tbody tr:hover td {
-      background-color: #374151 !important; /* Slightly lighter gray on hover */
-      cursor: pointer;
-    }
-    
-    /* Keep sticky label styling consistent on hover */
-    .hover-highlight tbody tr:hover td.sticky-label {
-      background-color: #374151 !important; /* Match the row hover color */
-    }
-    
-    /* Ensure icons remain visible on hover */
-    .hover-highlight tbody tr:hover .text-gray-600.bi {
-      color: #4a5568 !important; /* Make inactive icons more visible on hover */
-    }
-    
-    /* Remove hover effect from column headers */
-    .hover-highlight thead tr th {
-      background-color: #2d3748 !important; /* Keep headers at their normal color */
-    }
-    
-    /* Ensure headers don't show cursor pointer */
-    .hover-highlight thead tr th {
-      cursor: default;
-    }
-    
-    /* Remove border from the last row of each table */
-    .hover-highlight tbody tr:last-child td {
-      border-bottom: none !important;
-    }
-    
-    /* Also ensure the border stays removed on hover */
-    .hover-highlight tbody tr:last-child:hover td {
-      border-bottom: none !important;
-    }
-    
-    /* Header area with legend and pagination */
-    .header-area {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 1rem;
-      width: 100%;
-      position: relative;
-    }
-    
-    /* Pagination controls */
-    .pagination-controls {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 0.25rem;
-    }
-    
-    .pagination-button {
-      background-color: #2d3748;
-      color: white;
-      border: 1px solid #4a5568;
-      border-radius: 0.375rem;
-      padding: 0.25rem 0.5rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-    }
-    
-    .pagination-button:hover:not(:disabled) {
-      border-color: #f0abfc; /* fuchsia-400 */
-      background-color: #374151;
-    }
-    
-    .pagination-button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    
-    .pagination-info {
-      color: #a0aec0; /* gray-400 */
-      font-size: 0.75rem;
-      margin: 0 0.25rem;
-    }
-  `;
-
   // Check if we need to show each table section
   const hasContextData = hasAnyModelSpec("maxInputTokens") || hasAnyModelSpec("maxOutputTokens") || hasAnyModelSpec("knowledgeCutoff");
   const hasPricingData = hasAnyModelSpec("pricingInputPerM") || hasAnyModelSpec("pricingCachedInputPerM") || hasAnyModelSpec("pricingOutputPerM");
@@ -817,63 +652,12 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
   const isAllFrontierModels = displayModels.every(model => model.category === 'frontier');
   const isAllOpenModels = displayModels.every(model => model.category === 'open');
   
-  // Section titles with consistent styling
-  const sectionTitle = "text-lg font-semibold text-fuchsia-500 mt-6 mb-2 font-mono";
+  // Format current models for table header
+  const headerItems = currentModels.map(model => ({
+    id: model.id,
+    name: model.name
+  }));
 
-  // Table header component for the main table
-  const TableHeader = () => {
-    // Calculate width percentage for model columns
-    const columnWidth = currentModels.length > 0 ? `${100 / currentModels.length}%` : 'auto';
-    
-    return (
-      <thead>
-        <tr className={tableStyles.header}>
-          <th className={`${tableStyles.headerCell} ${tableStyles.headerFixed} sticky-header-corner`} 
-             style={{width: '250px', minWidth: '250px'}}>
-          </th>
-          {currentModels.map(model => (
-            <th 
-              key={model.id} 
-              className={`${tableStyles.headerCellCenter} table-header-cell`}
-              style={{width: columnWidth}}
-            >
-              <div className={tableStyles.modelName}>{model.name}</div>
-            </th>
-          ))}
-        </tr>
-      </thead>
-    );
-  };
-  
-  // Pagination controls
-  const PaginationControls = () => {
-    if (!showNavigation) return null;
-    
-    return (
-      <div className="pagination-controls">
-        <button 
-          className="pagination-button"
-          onClick={handlePrevPage}
-          disabled={currentPage === 0}
-          aria-label="Previous page"
-        >
-          <i className="bi bi-chevron-left"></i>
-        </button>
-        <span className="pagination-info">
-          {currentPage + 1} / {totalPages}
-        </span>
-        <button 
-          className="pagination-button"
-          onClick={handleNextPage} 
-          disabled={currentPage >= totalPages - 1}
-          aria-label="Next page"
-        >
-          <i className="bi bi-chevron-right"></i>
-        </button>
-      </div>
-    );
-  };
-  
   return (
     <div className={`${containerStyles.flexCol} transform transition-all duration-300`}>
       <style>{tableHoverStyles}</style>
@@ -910,56 +694,43 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         {/* Pagination controls (positioned to the right and vertically centered) */}
         {showNavigation && (
           <div className="absolute top-1/2 right-8 -translate-y-1/2">
-            <PaginationControls />
+            <PaginationControls 
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onNextPage={handleNextPage}
+              onPrevPage={handlePrevPage}
+              showNavigation={showNavigation}
+            />
           </div>
         )}
       </div>
       
       {/* Main Capabilities and Formats Table */}
       <div className="mb-6">
-        <div className="table-wrapper">
-          <div 
-            className="table-scroll-container" 
-            ref={scrollContainerRef}
-            onScroll={handleTableScroll}
-          >
-            <table
-              className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}
-            >
-              <TableHeader />
-              <tbody>
-                {renderCapabilitiesRows()}
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <SharedTable>
+          <TableHeader items={headerItems} />
+          <tbody>
+            {renderCapabilitiesRows()}
+          </tbody>
+        </SharedTable>
       </div>
 
       {/* Context Table (Max Input/Output and Knowledge Cutoff) */}
       {hasContextData && (
         <div className="mb-6">
-          <h3 className={sectionTitle}>Context & Limits</h3>
-          <div className="table-wrapper">
-            <div 
-              className="table-scroll-container" 
-              onScroll={handleTableScroll}
-            >
-              <table
-                className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}
-              >
-                <tbody>
-                  {renderContextRows()}
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <SectionTitle>Context & Limits</SectionTitle>
+          <SharedTable>
+            <tbody>
+              {renderContextRows()}
+            </tbody>
+          </SharedTable>
         </div>
       )}
 
       {/* Pricing Table */}
       {hasPricingData && (
         <div className="mb-6">
-          <h3 className={sectionTitle}>
+          <SectionTitle>
             Pricing
             <span className="text-xs text-gray-400 ml-2 font-normal">
               {isAllFrontierModels ? (
@@ -980,21 +751,12 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                 >Together.ai</a> for open models)</>
               )}
             </span>
-          </h3>
-          <div className="table-wrapper">
-            <div 
-              className="table-scroll-container" 
-              onScroll={handleTableScroll}
-            >
-              <table
-                className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}
-              >
-                <tbody>
-                  {renderPricingRows()}
-                </tbody>
-              </table>
-            </div>
-          </div>
+          </SectionTitle>
+          <SharedTable>
+            <tbody>
+              {renderPricingRows()}
+            </tbody>
+          </SharedTable>
         </div>
       )}
       
@@ -1004,223 +766,216 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       {/* Resources Table - New table for external links */}
       {displayModels.some(model => model.modelPage || model.releasePost || model.releaseVideo || model.releaseNotes || model.systemCard || model.licenceType || model.huggingFace) && (
         <div className="mb-6">
-          <h3 className={sectionTitle}>Resources</h3>
-          <div className="table-wrapper">
-            <div 
-              className="table-scroll-container" 
-              onScroll={handleTableScroll}
-            >
-              <table
-                className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}
-              >
-                <tbody>
-                  {/* Release Post Row */}
-                  {displayModels.some(model => model.releasePost) && (
-                    <tr className="cursor-pointer">
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-                        <div className={containerStyles.flexCenter}>
-                          <i className={`bi bi-newspaper ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Post</span>
-                        </div>
-                      </td>
-                      {currentModels.map(model => (
-                        <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-                          {model.releasePost ? (
+          <SectionTitle>Resources</SectionTitle>
+          <SharedTable>
+            <tbody>
+              {/* Release Post Row */}
+              {displayModels.some(model => model.releasePost) && (
+                <tr className="cursor-pointer">
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                    <div className={containerStyles.flexCenter}>
+                      <i className={`bi bi-newspaper ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Post</span>
+                    </div>
+                  </td>
+                  {currentModels.map(model => (
+                    <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                      {model.releasePost ? (
+                        <a 
+                          href={model.releasePost} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                          title="Read release post"
+                        >
+                          🔗 Link
+                        </a>
+                      ) : (
+                        <span className={textStyles.tertiary}>-</span>
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              )}
+              
+              {/* Release Video Row */}
+              {displayModels.some(model => model.releaseVideo) && (
+                <tr className="cursor-pointer">
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                    <div className={containerStyles.flexCenter}>
+                      <i className={`bi bi-play-btn ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Video</span>
+                    </div>
+                  </td>
+                  {currentModels.map(model => (
+                    <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                      {model.releaseVideo ? (
+                        <a 
+                          href={model.releaseVideo} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                          title="Watch release video"
+                        >
+                          🔗 Link
+                        </a>
+                      ) : (
+                        <span className={textStyles.tertiary}>-</span>
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              )}
+              
+              {/* Additional resource rows */}
+              {/* ...other resource rows remain unchanged... */}
+              {/* Release Notes Row */}
+              {displayModels.some(model => model.releaseNotes) && (
+                <tr className="cursor-pointer">
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                    <div className={containerStyles.flexCenter}>
+                      <i className={`bi bi-list-check ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Notes</span>
+                    </div>
+                  </td>
+                  {currentModels.map(model => (
+                    <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                      {model.releaseNotes ? (
+                        <a 
+                          href={model.releaseNotes} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                          title="View release notes"
+                        >
+                          🔗 Link
+                        </a>
+                      ) : (
+                        <span className={textStyles.tertiary}>-</span>
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              )}
+              
+              {/* Model Page Row */}
+              {displayModels.some(model => model.modelPage) && (
+                <tr className="cursor-pointer">
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                    <div className={containerStyles.flexCenter}>
+                      <i className={`bi bi-globe2 ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Model Page</span>
+                    </div>
+                  </td>
+                  {currentModels.map(model => (
+                    <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                      {model.modelPage ? (
+                        <a 
+                          href={model.modelPage} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                          title="Visit model page"
+                        >
+                          🔗 Link
+                        </a>
+                      ) : (
+                        <span className={textStyles.tertiary}>-</span>
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              )}
+              
+              {/* System Card Row */}
+              {displayModels.some(model => model.systemCard) && (
+                <tr className="cursor-pointer">
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                    <div className={containerStyles.flexCenter}>
+                      <i className={`bi bi-file-earmark-text ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>System Card</span>
+                    </div>
+                  </td>
+                  {currentModels.map(model => (
+                    <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                      {model.systemCard ? (
+                        <a 
+                          href={model.systemCard} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                          title="View system card"
+                        >
+                          🔗 Link
+                        </a>
+                      ) : (
+                        <span className={textStyles.tertiary}>-</span>
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              )}
+              
+              {/* Licence Row */}
+              {displayModels.some(model => model.licenceType) && (
+                <tr className="cursor-pointer">
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                    <div className={containerStyles.flexCenter}>
+                      <i className={`bi bi-shield-check ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Licence</span>
+                    </div>
+                  </td>
+                  {currentModels.map(model => (
+                    <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                      {model.licenceType ? (
+                        <div className="flex items-center justify-center">
+                          {model.licenceLink ? (
                             <a 
-                              href={model.releasePost} 
+                              href={model.licenceLink} 
                               target="_blank" 
                               rel="noopener noreferrer" 
                               className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                              title="Read release post"
+                              title={`${model.licenceType} licence details`}
                             >
-                              🔗 Link
+                              🔗 {model.licenceType}
                             </a>
                           ) : (
-                            <span className={textStyles.tertiary}>-</span>
+                            <span className="px-3 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded inline-block">
+                              {model.licenceType}
+                            </span>
                           )}
-                        </td>
-                      ))}
-                    </tr>
-                  )}
-                  
-                  {/* Release Video Row */}
-                  {displayModels.some(model => model.releaseVideo) && (
-                    <tr className="cursor-pointer">
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-                        <div className={containerStyles.flexCenter}>
-                          <i className={`bi bi-play-btn ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Video</span>
                         </div>
-                      </td>
-                      {currentModels.map(model => (
-                        <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-                          {model.releaseVideo ? (
-                            <a 
-                              href={model.releaseVideo} 
-                              target="_blank" 
-                              rel="noopener noreferrer" 
-                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                              title="Watch release video"
-                            >
-                              🔗 Link
-                            </a>
-                          ) : (
-                            <span className={textStyles.tertiary}>-</span>
-                          )}
-                        </td>
-                      ))}
-                    </tr>
-                  )}
-                  
-                  {/* Release Notes Row */}
-                  {displayModels.some(model => model.releaseNotes) && (
-                    <tr className="cursor-pointer">
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-                        <div className={containerStyles.flexCenter}>
-                          <i className={`bi bi-list-check ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Notes</span>
-                        </div>
-                      </td>
-                      {currentModels.map(model => (
-                        <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-                          {model.releaseNotes ? (
-                            <a 
-                              href={model.releaseNotes} 
-                              target="_blank" 
-                              rel="noopener noreferrer" 
-                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                              title="View release notes"
-                            >
-                              🔗 Link
-                            </a>
-                          ) : (
-                            <span className={textStyles.tertiary}>-</span>
-                          )}
-                        </td>
-                      ))}
-                    </tr>
-                  )}
-                  
-                  {/* Model Page Row */}
-                  {displayModels.some(model => model.modelPage) && (
-                    <tr className="cursor-pointer">
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-                        <div className={containerStyles.flexCenter}>
-                          <i className={`bi bi-globe2 ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Model Page</span>
-                        </div>
-                      </td>
-                      {currentModels.map(model => (
-                        <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-                          {model.modelPage ? (
-                            <a 
-                              href={model.modelPage} 
-                              target="_blank" 
-                              rel="noopener noreferrer" 
-                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                              title="Visit model page"
-                            >
-                              🔗 Link
-                            </a>
-                          ) : (
-                            <span className={textStyles.tertiary}>-</span>
-                          )}
-                        </td>
-                      ))}
-                    </tr>
-                  )}
-                  
-                  {/* System Card Row */}
-                  {displayModels.some(model => model.systemCard) && (
-                    <tr className="cursor-pointer">
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-                        <div className={containerStyles.flexCenter}>
-                          <i className={`bi bi-file-earmark-text ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>System Card</span>
-                        </div>
-                      </td>
-                      {currentModels.map(model => (
-                        <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-                          {model.systemCard ? (
-                            <a 
-                              href={model.systemCard} 
-                              target="_blank" 
-                              rel="noopener noreferrer" 
-                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                              title="View system card"
-                            >
-                              🔗 Link
-                            </a>
-                          ) : (
-                            <span className={textStyles.tertiary}>-</span>
-                          )}
-                        </td>
-                      ))}
-                    </tr>
-                  )}
-                  
-                  {/* Licence Row */}
-                  {displayModels.some(model => model.licenceType) && (
-                    <tr className="cursor-pointer">
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-                        <div className={containerStyles.flexCenter}>
-                          <i className={`bi bi-shield-check ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Licence</span>
-                        </div>
-                      </td>
-                      {currentModels.map(model => (
-                        <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-                          {model.licenceType ? (
-                            <div className="flex items-center justify-center">
-                              {model.licenceLink ? (
-                                <a 
-                                  href={model.licenceLink} 
-                                  target="_blank" 
-                                  rel="noopener noreferrer" 
-                                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                                  title={`${model.licenceType} licence details`}
-                                >
-                                  🔗 {model.licenceType}
-                                </a>
-                              ) : (
-                                <span className="px-3 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded inline-block">
-                                  {model.licenceType}
-                                </span>
-                              )}
-                            </div>
-                          ) : (
-                            <span className={textStyles.tertiary}>-</span>
-                          )}
-                        </td>
-                      ))}
-                    </tr>
-                  )}
-                  
-                  {/* Hugging Face Row */}
-                  {displayModels.some(model => model.huggingFace) && (
-                    <tr className="cursor-pointer">
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-                        <div className={containerStyles.flexCenter}>
-                          <span className={iconStyles.tableRowIcon}>🤗</span> <span className={textStyles.primary}>Hugging Face</span>
-                        </div>
-                      </td>
-                      {currentModels.map(model => (
-                        <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-                          {model.huggingFace ? (
-                            <a 
-                              href={model.huggingFace} 
-                              target="_blank" 
-                              rel="noopener noreferrer" 
-                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                              title="View on Hugging Face"
-                            >
-                              🔗 Link
-                            </a>
-                          ) : (
-                            <span className={textStyles.tertiary}>-</span>
-                          )}
-                        </td>
-                      ))}
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-          </div>
+                      ) : (
+                        <span className={textStyles.tertiary}>-</span>
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              )}
+              
+              {/* Hugging Face Row */}
+              {displayModels.some(model => model.huggingFace) && (
+                <tr className="cursor-pointer">
+                  <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                    <div className={containerStyles.flexCenter}>
+                      <span className={iconStyles.tableRowIcon}>🤗</span> <span className={textStyles.primary}>Hugging Face</span>
+                    </div>
+                  </td>
+                  {currentModels.map(model => (
+                    <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                      {model.huggingFace ? (
+                        <a 
+                          href={model.huggingFace} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                          title="View on Hugging Face"
+                        >
+                          🔗 Link
+                        </a>
+                      ) : (
+                        <span className={textStyles.tertiary}>-</span>
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              )}
+            </tbody>
+          </SharedTable>
         </div>
       )}
     </div>

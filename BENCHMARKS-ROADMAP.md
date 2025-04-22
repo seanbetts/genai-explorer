@@ -64,33 +64,33 @@ This roadmap outlines the step-by-step plan for integrating benchmark data into 
 
 ### 2.1 Extract Shared Table Components
 
-- [ ] Create `components/shared/TableComponents.tsx`:
-  - [ ] Extract `SharedTable` component from ModelTable:
-    - [ ] Table layout and structure
-    - [ ] Scrolling synchronization
-    - [ ] Table borders and styling
-  - [ ] Extract `TableHeader` component:
-    - [ ] Header row rendering
-    - [ ] Column width calculation
-  - [ ] Extract `PaginationControls` component:
-    - [ ] Pagination logic
-    - [ ] Next/previous buttons
-  - [ ] Extract table styling and layout utilities
+- [x] Create `components/shared/TableComponents.tsx`:
+  - [x] Extract `SharedTable` component from ModelTable:
+    - [x] Table layout and structure
+    - [x] Scrolling synchronization
+    - [x] Table borders and styling
+  - [x] Extract `TableHeader` component:
+    - [x] Header row rendering
+    - [x] Column width calculation
+  - [x] Extract `PaginationControls` component:
+    - [x] Pagination logic
+    - [x] Next/previous buttons
+  - [x] Extract table styling and layout utilities
 
 ### 2.2 Refactor ModelTable Component
 
-- [ ] Update ModelTable.tsx to use shared components:
-  - [ ] Replace table implementation with SharedTable
-  - [ ] Use extracted TableHeader component
-  - [ ] Use extracted PaginationControls
-  - [ ] Keep model-specific rendering logic separate
+- [x] Update ModelTable.tsx to use shared components:
+  - [x] Replace table implementation with SharedTable
+  - [x] Use extracted TableHeader component
+  - [x] Use extracted PaginationControls
+  - [x] Keep model-specific rendering logic separate
 
 ### 2.3 Create Shared Visualization Components
 
-- [ ] Create score visualization components:
-  - [ ] `ScoreBar` component to visualize numeric scores
-  - [ ] `RankIndicator` component to show rankings
-  - [ ] `ScoreChange` component to show score changes over time
+- [x] Create score visualization components:
+  - [x] `ScoreBar` component to visualize numeric scores
+  - [x] `RankIndicator` component to show rankings
+  - [x] `ScoreChange` component to show score changes over time
 
 ## Phase 3: Benchmarks Table Implementation
 
