@@ -96,54 +96,54 @@ This roadmap outlines the step-by-step plan for integrating benchmark data into 
 
 ### 3.1 Create BenchmarkCategorySection Component
 
-- [ ] Create BenchmarkCategorySection.tsx component:
-  - [ ] Implement section header with category name
-  - [ ] Create table for benchmarks in a category
-  - [ ] Add pagination for many benchmarks
-  - [ ] Implement column headers for models
+- [x] Create BenchmarkCategorySection.tsx component:
+  - [x] Implement section header with category name
+  - [x] Create table for benchmarks in a category
+  - [x] Add pagination for many benchmarks
+  - [x] Implement column headers for models
 
 ### 3.2 Create BenchmarksTable Component
 
-- [ ] Create main BenchmarksTable.tsx component:
-  - [ ] Initialize with models and company ID
-  - [ ] Load benchmark data for the company
-  - [ ] Group benchmarks by category
-  - [ ] Render BenchmarkCategorySection for each category
-  - [ ] Implement pagination if needed
-  - [ ] Add loading state and error handling
+- [x] Create main BenchmarksTable.tsx component:
+  - [x] Initialize with models and company ID
+  - [x] Load benchmark data for the company
+  - [x] Group benchmarks by category
+  - [x] Render BenchmarkCategorySection for each category
+  - [x] Implement pagination if needed
+  - [x] Add loading state and error handling
 
 ### 3.3 Implement Benchmark Row Rendering
 
-- [ ] Create benchmark row rendering:
-  - [ ] Display benchmark name with link to paper
-  - [ ] Show scores for each model
-  - [ ] Add visual indicators for good/bad scores
-  - [ ] Include date of benchmark
-  - [ ] Add tooltips with additional info
+- [x] Create benchmark row rendering:
+  - [x] Display benchmark name with link to paper
+  - [x] Show scores for each model
+  - [x] Add visual indicators for good/bad scores
+  - [x] Include date of benchmark
+  - [x] Add tooltips with additional info
 
 ### 3.4 Add Sorting and Filtering
 
-- [ ] Add sorting functionality:
-  - [ ] Sort benchmarks by name
-  - [ ] Sort benchmarks by score
-  - [ ] Sort benchmarks by date
-- [ ] Add filtering functionality:
-  - [ ] Filter by benchmark subcategory
-  - [ ] Filter by score threshold
-  - [ ] Filter by date range
+- [x] Add sorting functionality:
+  - [x] Sort benchmarks by name
+  - [x] Sort benchmarks by score
+  - [x] Sort benchmarks by date
+- [x] Add filtering functionality:
+  - [x] Filter by benchmark subcategory
+  - [x] Filter by score threshold
+  - [x] Filter by date range
 
 ## Phase 4: CompanyDetail Integration
 
 ### 4.1 Update Types and State
 
-- [ ] Update TabType in CompanyDetail/index.tsx:
+- [x] Update TabType in CompanyDetail/index.tsx:
   ```typescript
   type TabType = 'frontier-models' | 'open-models' | 'enterprise-models' | 'image-models' | 'video-models' | 'audio-models' | 'specialised-models' | 'products' | 'features' | 'subscriptions' | 'benchmarks';
   ```
 
 ### 4.2 Add Benchmarks Tab Button
 
-- [ ] Add benchmarks tab button to the tabs navigation:
+- [x] Add benchmarks tab button to the tabs navigation:
   ```tsx
   <button
     className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
@@ -163,7 +163,7 @@ This roadmap outlines the step-by-step plan for integrating benchmark data into 
 
 ### 4.3 Add Benchmarks Tab Content
 
-- [ ] Add benchmarks tab content rendering:
+- [x] Add benchmarks tab content rendering:
   ```tsx
   {/* Benchmarks Tab */}
   {activeTab === 'benchmarks' && (
@@ -180,10 +180,10 @@ This roadmap outlines the step-by-step plan for integrating benchmark data into 
 
 ### 4.4 Update Tab Selection Logic
 
-- [ ] Update URL handling for benchmarks tab:
-  - [ ] Add 'benchmarks' to the valid tab parameters list
-  - [ ] Update URL parameter handling
-  - [ ] Update fallback selection logic
+- [x] Update URL handling for benchmarks tab:
+  - [x] Add 'benchmarks' to the valid tab parameters list
+  - [x] Update URL parameter handling
+  - [x] Update fallback selection logic
 
 ## Phase 5: Data Visualization Enhancements
 

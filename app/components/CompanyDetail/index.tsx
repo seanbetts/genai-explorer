@@ -8,6 +8,7 @@ const ModelTable = React.lazy(() => import('./ModelTable'));
 const ProductGrid = React.lazy(() => import('./ProductGrid'));
 const FeatureGrid = React.lazy(() => import('./FeatureGrid'));
 const SubscriptionGrid = React.lazy(() => import('./SubscriptionGrid'));
+const BenchmarksTable = React.lazy(() => import('./BenchmarksTable'));
 import { textStyles, headingStyles } from '../utils/theme';
 import { containerStyles, buttonStyles, iconStyles } from '../utils/layout';
 import { getModelTabName } from '../utils/modelUtils';
@@ -18,7 +19,7 @@ interface CompanyDetailProps {
 }
 
 // Define tab types for the tabbed interface
-type TabType = 'frontier-models' | 'open-models' | 'enterprise-models' | 'image-models' | 'video-models' | 'audio-models' | 'specialised-models' | 'products' | 'features' | 'subscriptions';
+type TabType = 'frontier-models' | 'open-models' | 'enterprise-models' | 'image-models' | 'video-models' | 'audio-models' | 'specialised-models' | 'products' | 'features' | 'subscriptions' | 'benchmarks';
 
 const CompanyDetail: React.FC<CompanyDetailProps> = ({
   company,
@@ -83,7 +84,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
     initialRender.current = true;
     
     // If URL contains a valid tab parameter, use it
-    if (tabParam && ['frontier-models', 'open-models', 'enterprise-models', 'image-models', 'video-models', 'audio-models', 'specialised-models', 'products', 'features', 'subscriptions'].includes(tabParam)) {
+    if (tabParam && ['frontier-models', 'open-models', 'enterprise-models', 'image-models', 'video-models', 'audio-models', 'specialised-models', 'products', 'features', 'subscriptions', 'benchmarks'].includes(tabParam)) {
       console.log('Setting tab from URL:', tabParam);
       setActiveTab(tabParam as TabType);
       return;
@@ -422,6 +423,24 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
               Subscriptions
             </button>
           )}
+          
+          {/* Benchmarks Tab - Show if company has any models */}
+          {company.models && company.models.length > 0 && (
+            <button
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                activeTab === 'benchmarks' 
+                  ? 'border-cyan-400 text-cyan-400' 
+                  : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
+              }`}
+              onClick={() => {
+                // Enable URL updates on user click
+                initialRender.current = false;
+                setActiveTab('benchmarks');
+              }}
+            >
+              Benchmarks
+            </button>
+          )}
         </div>
         
         {/* Content container with reduced top padding */}
@@ -561,6 +580,18 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
               <div className="transform transition-opacity duration-300">
                 <Suspense fallback={<div className="text-center py-4">Loading subscriptions...</div>}>
                   <SubscriptionGrid subscriptions={company.subscriptions} />
+                </Suspense>
+              </div>
+            )}
+            
+            {/* Benchmarks Tab */}
+            {activeTab === 'benchmarks' && company.models && company.models.length > 0 && (
+              <div className="transform transition-opacity duration-300">
+                <Suspense fallback={<div className="text-center py-4">Loading benchmarks...</div>}>
+                  <BenchmarksTable 
+                    models={company.models.filter(model => model.status !== 'archived')} 
+                    companyId={company.id}
+                  />
                 </Suspense>
               </div>
             )}

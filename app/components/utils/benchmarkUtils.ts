@@ -3,8 +3,6 @@ import benchmarksMetaData from '../../../data/benchmarks-meta.json';
 
 // We'll need to parse the CSV data when importing
 import Papa from 'papaparse';
-import fs from 'fs';
-import path from 'path';
 
 // Cache for benchmark data
 let benchmarkScoresCache: BenchmarkScore[] | null = null;
@@ -14,27 +12,6 @@ let benchmarkScoresCache: BenchmarkScore[] | null = null;
  */
 export const loadBenchmarkMetadata = (): Benchmark[] => {
   return benchmarksMetaData as Benchmark[];
-};
-
-/**
- * Load benchmark scores from CSV file
- * This is a server-side function and should be used in getStaticProps or similar
- */
-export const loadBenchmarkScoresServerSide = (): BenchmarkScore[] => {
-  try {
-    const csvFilePath = path.join(process.cwd(), 'data', 'benchmarks.csv');
-    const csvData = fs.readFileSync(csvFilePath, 'utf8');
-    
-    const parseResult = Papa.parse(csvData, {
-      header: true,
-      dynamicTyping: true, // Automatically convert numeric values
-    });
-    
-    return parseResult.data as BenchmarkScore[];
-  } catch (error) {
-    console.error('Error loading benchmark scores:', error);
-    return [];
-  }
 };
 
 /**
