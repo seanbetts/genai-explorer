@@ -119,27 +119,13 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
     <div className="transform transition-opacity duration-300">
       <style>{tableHoverStyles}</style>
       
-      {/* Benchmarks info box at the top */}
-      <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4 mb-6">
-        <div className="flex items-start gap-3">
-          <i className="bi bi-info-circle-fill text-cyan-500 text-xl mt-0.5"></i>
-          <div className="w-full">
-            <h3 className="text-lg font-medium text-cyan-400 mb-2">About Benchmarks</h3>
-            <p className="text-gray-300 text-sm">
-              Benchmarks provide standardized tests to compare model capabilities across different dimensions. 
-              Scores shown are raw benchmark scores reported by the model providers.
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      {/* Ranking legend */}
+      {/* Ranking legend - simplified */}
       <div className="header-area mb-6">
         <Legend 
           items={[
-            { icon: <span className="text-yellow-500 text-lg">🥇</span>, label: "1st place" },
-            { icon: <span className="text-gray-300 text-lg">🥈</span>, label: "2nd place" },
-            { icon: <span className="text-amber-700 text-lg">🥉</span>, label: "3rd place" }
+            { icon: <span className="text-yellow-500 text-lg">🥇</span>, label: "1st" },
+            { icon: <span className="text-gray-300 text-lg">🥈</span>, label: "2nd" },
+            { icon: <span className="text-amber-700 text-lg">🥉</span>, label: "3rd" }
           ]}
         />
       </div>
@@ -157,12 +143,25 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
         />
       ))}
       
-      {/* Sources and methodology footer */}
-      <div className="mt-8 text-sm text-gray-400 border-t border-gray-700 pt-4">
-        <p className="mb-2">
-          <strong className="text-gray-300">Sources:</strong> Benchmark data is collected from research papers, model provider documentation, and published evaluations.
-          For detailed methodology, click the paper links next to each benchmark.
-        </p>
+      {/* About Benchmarks and Sources - moved to bottom */}
+      <div className="mt-8 bg-gray-800/50 border border-gray-700 rounded-lg p-4">
+        <div className="flex items-start gap-3">
+          <i className="bi bi-info-circle-fill text-cyan-500 text-xl mt-0.5"></i>
+          <div className="w-full">
+            <h3 className="text-lg font-medium text-cyan-400 mb-2">About Benchmarks</h3>
+            <p className="text-gray-300 text-sm mb-3">
+              Benchmarks provide standardized tests to compare model capabilities across different dimensions. 
+              Scores shown are raw benchmark scores reported by the model providers.
+            </p>
+            
+            <div className="text-sm text-gray-400 border-t border-gray-700 pt-3 mt-2">
+              <p>
+                <strong className="text-gray-300">Sources:</strong> Benchmark data is collected from research papers, model provider documentation, and published evaluations.
+                Click on a benchmark name to view its paper, or click on a score to see the source of the benchmark result.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

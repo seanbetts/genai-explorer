@@ -48,37 +48,14 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
   // Use all models to maintain consistency across categories
   const modelsToDisplay = models;
 
-  // State for the current page of benchmarks to display
-  const [currentPage, setCurrentPage] = React.useState(0);
-  const benchmarksPerPage = 5;
-  
-  // Calculate total number of pages
-  const totalPages = Math.ceil(benchmarks.length / benchmarksPerPage);
-  
-  // Get benchmarks for the current page
-  const currentBenchmarks = benchmarks.slice(
-    currentPage * benchmarksPerPage, 
-    (currentPage + 1) * benchmarksPerPage
-  );
+  // Use all benchmarks rather than paginating
+  const currentBenchmarks = benchmarks;
 
   // Format model items for table header
   const headerItems = modelsToDisplay.map(model => ({
     id: model.id,
     name: model.name
   }));
-
-  // Function to handle pagination
-  const handleNextPage = () => {
-    if (currentPage < totalPages - 1) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-  
-  const handlePrevPage = () => {
-    if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
 
   // Function to render a benchmark score for a model
   const renderBenchmarkScore = (model: Model, benchmark: Benchmark) => {
@@ -100,11 +77,36 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
       }
     }
     
+    // Create tooltip content
+    let tooltipContent = '';
+    if (score.source_name) {
+      tooltipContent += `Source: ${score.source_name}`;
+    }
+    if (score.notes) {
+      tooltipContent += tooltipContent ? '\n' : '';
+      tooltipContent += `Notes: ${score.notes}`;
+    }
+    
     return (
       <div className="flex flex-col items-center">
-        <div className="font-medium font-mono text-cyan-400 flex items-center">
-          {score.score.toFixed(1)}{rankBadge}
-        </div>
+        {score.source ? (
+          <a 
+            href={score.source} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="font-medium font-mono text-cyan-400 hover:text-fuchsia-500 transition-colors flex items-center"
+            title={tooltipContent}
+          >
+            {score.score.toFixed(1)}{rankBadge}
+          </a>
+        ) : (
+          <div 
+            className="font-medium font-mono text-cyan-400 flex items-center"
+            title={tooltipContent}
+          >
+            {score.score.toFixed(1)}{rankBadge}
+          </div>
+        )}
         {score.date && (
           <div className="text-xs text-gray-400 mt-1">
             {new Date(score.date).toLocaleDateString('en-GB', {
@@ -157,32 +159,6 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
         </tbody>
       </SharedTable>
       
-      {/* Pagination controls if needed */}
-      {totalPages > 1 && (
-        <div className="mt-3 flex justify-end">
-          <div className="pagination-controls">
-            <button 
-              className="pagination-button"
-              onClick={handlePrevPage}
-              disabled={currentPage === 0}
-              aria-label="Previous page"
-            >
-              <i className="bi bi-chevron-left"></i>
-            </button>
-            <span className="pagination-info">
-              {currentPage + 1} / {totalPages}
-            </span>
-            <button 
-              className="pagination-button"
-              onClick={handleNextPage} 
-              disabled={currentPage >= totalPages - 1}
-              aria-label="Next page"
-            >
-              <i className="bi bi-chevron-right"></i>
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
