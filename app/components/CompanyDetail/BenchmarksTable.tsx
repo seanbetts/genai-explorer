@@ -195,9 +195,11 @@ const BenchmarkScore: React.FC<BenchmarkScoreProps> = React.memo(({
     // Deep comparison for the specific ranking that matters for this model/benchmark
     (
       !prevProps.rankingsLoaded ||
+      !prevProps.globalRankings ||
       !prevProps.globalRankings[prevProps.benchmark.benchmark_id] ||
       !prevProps.globalRankings[prevProps.benchmark.benchmark_id][prevProps.model.id] ||
       !nextProps.rankingsLoaded ||
+      !nextProps.globalRankings ||
       !nextProps.globalRankings[nextProps.benchmark.benchmark_id] ||
       !nextProps.globalRankings[nextProps.benchmark.benchmark_id][nextProps.model.id] ||
       (
