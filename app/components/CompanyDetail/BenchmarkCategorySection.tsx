@@ -80,15 +80,15 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
   // Get description for benchmark categories
   const getCategoryDescription = (category: string): string => {
     const descriptions: Record<string, string> = {
-      'agentic': 'Measures ability to act autonomously and complete complex tasks involving multiple steps and tools.',
-      'coding': 'Evaluates code generation, understanding, and software engineering capabilities.',
-      'conversational': 'Tests general knowledge, helpfulness, and conversational abilities.',
-      'factuality': 'Assesses accuracy of information and resistance to hallucination.',
-      'maths': 'Evaluates mathematical problem-solving and reasoning abilities.',
-      'multimodal': 'Tests capabilities across multiple modalities (text, images, audio, video).',
-      'reasoning': 'Measures logical reasoning, common sense, and problem-solving abilities.',
-      'research': 'Evaluates ability to conduct and understand academic research.',
-      'science': 'Tests scientific knowledge and understanding across various disciplines.'
+      'agentic': 'Measures the ability to act autonomously to complete complex real-world tasks involving multiple steps, tool use, and web browsing.',
+      'coding': 'Evaluates code generation, editing, debugging, and software engineering capabilities across various programming tasks and languages.',
+      'conversational': 'Tests general knowledge, helpfulness, instruction-following, and human-like interaction qualities through human preference ratings.',
+      'factuality': 'Assesses accuracy of information retrieval and generation, especially with long contexts, and resistance to hallucination.',
+      'maths': 'Evaluates mathematical problem-solving from grade school to competition-level problems, including complex reasoning and multi-step calculations.',
+      'multimodal': 'Tests capabilities across multiple modalities including text, images, documents, audio, and video understanding and generation.',
+      'reasoning': 'Measures logical reasoning, common sense understanding, step-by-step problem-solving, and situation modeling abilities.',
+      'research': 'Evaluates ability to conduct, understand, and analyze academic research and complex scholarly information.',
+      'science': 'Tests scientific knowledge and understanding across disciplines like physics, chemistry, biology, and applied sciences.'
     };
     
     return descriptions[category.toLowerCase()] || '';
