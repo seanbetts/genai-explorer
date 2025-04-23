@@ -189,40 +189,41 @@ This roadmap outlines the step-by-step plan for integrating benchmark data into 
 
 ### 5.1 Implement Score Visualizations
 
-- [ ] Create visualizations for benchmark scores:
-  - [ ] Horizontal bars for score representation
-  - [ ] Color coding by performance level
-  - [ ] Tooltips with score details and context
+- [-] Create visualizations for benchmark scores:
+  - [-] Horizontal bars for score representation
+  - [-] Color coding by performance level
+  - [x] Tooltips with score details and context
 
 ### 5.2 Add Industry Ranking Visuals
 
-- [ ] Add visual indicators for industry rankings:
-  - [ ] Position indicators (1st, 2nd, 3rd, etc.)
-  - [ ] Percentile indicators (top 10%, etc.)
-  - [ ] Comparison to industry average
+- [x] Add visual indicators for industry rankings:
+  - [x] Position indicators (1st, 2nd, 3rd, etc.)
+  - [-] Percentile indicators (top 10%, etc.)
+  - [-] Comparison to industry average
 
 ### 5.3 Implement Time-Based Visualizations
 
-- [ ] Add time-based visualization components:
-  - [ ] Score history charts
-  - [ ] Progress indicators
-  - [ ] Version-to-version comparisons
+- [x] Add time-based visualization components:
+  - [-] Score history charts
+  - [-] Progress indicators
+  - [x] Display model release dates in table headers
+  - [x] Historical benchmark scores in tooltips (filtered to show only changed scores)
 
 ## Phase 6: Performance Optimization
 
 ### 6.1 Implement Memoization
 
-- [ ] Add memoization for expensive calculations:
-  - [ ] Benchmark data processing
-  - [ ] Score aggregation
-  - [ ] Ranking calculations
+- [x] Add memoization for expensive calculations:
+  - [x] Benchmark data processing
+  - [x] Score aggregation
+  - [x] Ranking calculations
 
 ### 6.2 Optimize Data Loading
 
-- [ ] Implement efficient data loading:
-  - [ ] Lazy loading for benchmark data
-  - [ ] Progressive loading of visualizations
-  - [ ] Caching of processed data
+- [x] Implement efficient data loading:
+  - [x] Lazy loading for benchmark data (Suspense + loading states)
+  - [x] Progressive loading of visualizations (sectioned benchmark display)
+  - [x] Caching of processed data (memoization patterns)
 
 ### 6.3 Add Table Virtualization
 
@@ -235,24 +236,24 @@ This roadmap outlines the step-by-step plan for integrating benchmark data into 
 
 ### 7.1 Add Benchmark Information
 
-- [ ] Add contextual information about benchmarks:
-  - [ ] Tooltips explaining benchmark methodology
-  - [ ] Links to benchmark papers
-  - [ ] Explanations of scoring systems
+- [x] Add contextual information about benchmarks:
+  - [x] Tooltips explaining benchmark methodology
+  - [x] Links to benchmark papers
+  - [-] Explanations of scoring systems
 
 ### 7.2 Improve Interactive Elements
 
-- [ ] Enhance interactive elements:
-  - [ ] Clickable benchmarks for details
-  - [ ] Expandable rows for additional information
-  - [ ] Toggle for different visualization modes
+- [x] Enhance interactive elements:
+  - [x] Include archived models in benchmarks tab
+  - [-] Expandable rows for additional information
+  - [-] Toggle for different visualization modes
 
 ### 7.3 Add Export and Sharing
 
 - [ ] Add export and sharing functionality:
   - [ ] Export benchmark data as CSV
-  - [ ] Generate shareable links to specific views
-  - [ ] Create snapshot images of visualizations
+  - [-] Generate shareable links to specific views
+  - [-] Create snapshot images of visualizations
 
 ## Notes and Technical Considerations
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import { Model, Benchmark, BenchmarkCategory } from '../types';
 import type { BenchmarkScore } from '../types';
 import { loadBenchmarkMetadata, loadBenchmarkScores, groupBenchmarksByCategory, calculateGlobalRankings, getAllScoresForModelAndBenchmark, getLatestScoreForModelAndBenchmark } from '../utils/benchmarkUtils';
@@ -23,7 +23,8 @@ interface BenchmarkScoreProps {
   rankingsLoaded?: boolean;
 }
 
-const BenchmarkScore: React.FC<BenchmarkScoreProps> = ({ 
+// Memoize the BenchmarkScore component to prevent unnecessary re-renders
+const BenchmarkScore: React.FC<BenchmarkScoreProps> = React.memo(({ 
   model, 
   benchmark, 
   benchmarkScores,
@@ -31,15 +32,18 @@ const BenchmarkScore: React.FC<BenchmarkScoreProps> = ({
   rankingsLoaded = false
 }) => {
   
-  // Get the LATEST score for this model and benchmark
-  const score = getLatestScoreForModelAndBenchmark(benchmarkScores, model.id, benchmark.benchmark_id);
+  // Get the LATEST score for this model and benchmark - memoized for performance
+  const score = useMemo(() => 
+    getLatestScoreForModelAndBenchmark(benchmarkScores, model.id, benchmark.benchmark_id),
+    [benchmarkScores, model.id, benchmark.benchmark_id]
+  );
   
   if (!score) {
     return <span className={textStyles.tertiary}>-</span>;
   }
   
-  // Format the score based on benchmark type
-  const formatBenchmarkScore = (score: BenchmarkScore, benchmark: Benchmark): string => {
+  // Format the score based on benchmark type - memoized to avoid recalculation
+  const formatBenchmarkScore = useCallback((score: BenchmarkScore, benchmark: Benchmark): string => {
     const id = benchmark.benchmark_id;
     const value = score.score;
     
@@ -72,7 +76,7 @@ const BenchmarkScore: React.FC<BenchmarkScoreProps> = ({
     
     // Default formatting with 1 decimal place
     return value.toFixed(1);
-  };
+  }, []);
   
   // Get global ranking indicator
   let rankBadge = null;
@@ -92,58 +96,63 @@ const BenchmarkScore: React.FC<BenchmarkScoreProps> = ({
     }
   }
   
-  // Create tooltip content - include rank, source, notes, and historical scores
-  let tooltipContent = '';
-  
-  // Add global ranking info if available
-  if (rankingsLoaded && globalRankings[benchmark.benchmark_id] && globalRankings[benchmark.benchmark_id][model.id]) {
-    const globalRank = globalRankings[benchmark.benchmark_id][model.id].rank;
-    const totalModels = globalRankings[benchmark.benchmark_id][model.id].total;
+  // Create tooltip content - memoized to avoid recalculation on every render
+  const tooltipContent = useMemo(() => {
+    let content = '';
     
-    tooltipContent += `Rank: #${globalRank} of ${totalModels} models`;
-  }
-  
-  // Add source info
-  if (score.source_name) {
-    tooltipContent += tooltipContent ? '\n' : '';
-    tooltipContent += `Source: ${score.source_name}`;
-  }
-  
-  // Add notes if available
-  if (score.notes) {
-    tooltipContent += tooltipContent ? '\n' : '';
-    tooltipContent += `Notes: ${score.notes}`;
-  }
-  
-  // Add historical scores if available
-  const allScores = getAllScoresForModelAndBenchmark(benchmarkScores, model.id, benchmark.benchmark_id);
-  if (allScores.length > 1) {
-    // Find scores that are different from the current one
-    const currentScore = allScores[0];
-    const historicalScores = allScores.slice(1).filter(historicalScore => 
-      // Only include scores with different values than the current one
-      historicalScore.score !== currentScore.score
-    );
-    
-    // Only add history section if we have unique historical scores
-    if (historicalScores.length > 0) {
-      tooltipContent += tooltipContent ? '\n\n' : '';
-      tooltipContent += 'History:';
+    // Add global ranking info if available
+    if (rankingsLoaded && globalRankings[benchmark.benchmark_id] && globalRankings[benchmark.benchmark_id][model.id]) {
+      const globalRank = globalRankings[benchmark.benchmark_id][model.id].rank;
+      const totalModels = globalRankings[benchmark.benchmark_id][model.id].total;
       
-      historicalScores.forEach(historicalScore => {
-        const date = new Date(historicalScore.date).toLocaleDateString('en-GB', {
-          day: 'numeric',
-          month: 'short',
-          year: 'numeric'
-        });
-        
-        tooltipContent += `\n${formatBenchmarkScore(historicalScore, benchmark)} (${date})`;
-        if (historicalScore.source_name) {
-          tooltipContent += ` - ${historicalScore.source_name}`;
-        }
-      });
+      content += `Rank: #${globalRank} of ${totalModels} models`;
     }
-  }
+    
+    // Add source info
+    if (score.source_name) {
+      content += content ? '\n' : '';
+      content += `Source: ${score.source_name}`;
+    }
+    
+    // Add notes if available
+    if (score.notes) {
+      content += content ? '\n' : '';
+      content += `Notes: ${score.notes}`;
+    }
+    
+    // Get all scores - memoized by the parameters
+    const allScores = getAllScoresForModelAndBenchmark(benchmarkScores, model.id, benchmark.benchmark_id);
+    
+    if (allScores.length > 1) {
+      // Find scores that are different from the current one
+      const currentScore = allScores[0];
+      const historicalScores = allScores.slice(1).filter(historicalScore => 
+        // Only include scores with different values than the current one
+        historicalScore.score !== currentScore.score
+      );
+      
+      // Only add history section if we have unique historical scores
+      if (historicalScores.length > 0) {
+        content += content ? '\n\n' : '';
+        content += 'History:';
+        
+        historicalScores.forEach(historicalScore => {
+          const date = new Date(historicalScore.date).toLocaleDateString('en-GB', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric'
+          });
+          
+          content += `\n${formatBenchmarkScore(historicalScore, benchmark)} (${date})`;
+          if (historicalScore.source_name) {
+            content += ` - ${historicalScore.source_name}`;
+          }
+        });
+      }
+    }
+    
+    return content;
+  }, [score, benchmark, benchmarkScores, model.id, rankingsLoaded, globalRankings, formatBenchmarkScore]);
   
   return (
     <div className="flex flex-col items-center">
@@ -175,7 +184,29 @@ const BenchmarkScore: React.FC<BenchmarkScoreProps> = ({
       )}
     </div>
   );
-};
+}, (prevProps, nextProps) => {
+  // Custom comparison function to determine if component should update
+  // Only re-render if any of these values have changed
+  return (
+    prevProps.model.id === nextProps.model.id &&
+    prevProps.benchmark.benchmark_id === nextProps.benchmark.benchmark_id &&
+    prevProps.benchmarkScores === nextProps.benchmarkScores &&
+    prevProps.rankingsLoaded === nextProps.rankingsLoaded &&
+    // Deep comparison for the specific ranking that matters for this model/benchmark
+    (
+      !prevProps.rankingsLoaded ||
+      !prevProps.globalRankings[prevProps.benchmark.benchmark_id] ||
+      !prevProps.globalRankings[prevProps.benchmark.benchmark_id][prevProps.model.id] ||
+      !nextProps.rankingsLoaded ||
+      !nextProps.globalRankings[nextProps.benchmark.benchmark_id] ||
+      !nextProps.globalRankings[nextProps.benchmark.benchmark_id][nextProps.model.id] ||
+      (
+        prevProps.globalRankings[prevProps.benchmark.benchmark_id][prevProps.model.id].rank === 
+        nextProps.globalRankings[nextProps.benchmark.benchmark_id][nextProps.model.id].rank
+      )
+    )
+  );
+});
 
 // Component for featured benchmarks section
 interface FeaturedBenchmarksSectionProps {
@@ -187,7 +218,8 @@ interface FeaturedBenchmarksSectionProps {
   rankingsLoaded?: boolean;
 }
 
-const FeaturedBenchmarksSection: React.FC<FeaturedBenchmarksSectionProps> = ({
+// Memoize the FeaturedBenchmarksSection component to prevent unnecessary re-renders
+const FeaturedBenchmarksSection: React.FC<FeaturedBenchmarksSectionProps> = React.memo(({
   benchmarks,
   models,
   benchmarkScores,
@@ -195,16 +227,16 @@ const FeaturedBenchmarksSection: React.FC<FeaturedBenchmarksSectionProps> = ({
   globalRankings = {},
   rankingsLoaded = false
 }) => {
-  // Format model items for table header
-  const headerItems = models.map(model => ({
+  // Format model items for table header - memoized to avoid recalculation on re-renders
+  const headerItems = useMemo(() => models.map(model => ({
     id: model.id,
     name: model.name,
     description: model.description || model.name,
     releaseDate: model.releaseDate
-  }));
+  })), [models]);
   
-  // Import the renderBenchmarkScore function from BenchmarkCategorySection
-  const renderBenchmarkCell = (model: Model, benchmark: Benchmark) => {
+  // Memoized cell rendering function to avoid unnecessary re-renders
+  const renderBenchmarkCell = useCallback((model: Model, benchmark: Benchmark) => {
     return (
       <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
         <BenchmarkScore 
@@ -216,7 +248,7 @@ const FeaturedBenchmarksSection: React.FC<FeaturedBenchmarksSectionProps> = ({
         />
       </td>
     );
-  };
+  }, [benchmarkScores, globalRankings, rankingsLoaded]);
   
   return (
     <SharedTable>
@@ -259,7 +291,16 @@ const FeaturedBenchmarksSection: React.FC<FeaturedBenchmarksSectionProps> = ({
       </tbody>
     </SharedTable>
   );
-};
+}, (prevProps, nextProps) => {
+  // Only re-render if one of these key props has changed
+  return (
+    prevProps.benchmarks === nextProps.benchmarks &&
+    prevProps.models === nextProps.models &&
+    prevProps.benchmarkScores === nextProps.benchmarkScores &&
+    prevProps.globalRankings === nextProps.globalRankings &&
+    prevProps.rankingsLoaded === nextProps.rankingsLoaded
+  );
+});
 
 const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) => {
   const [benchmarks, setBenchmarks] = useState<Benchmark[]>([]);
@@ -271,6 +312,92 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
   // Global rankings for use by all benchmark score components
   const [globalRankings, setGlobalRankings] = useState<Record<string, Record<string, { rank: number, total: number }>>>({});
   const [rankingsLoaded, setRankingsLoaded] = useState(false);
+  
+  // Enrich models with additional display information - memoized to avoid recalculation on re-renders
+  const enrichModels = useCallback((models: Model[]): Model[] => {
+    return models.map(model => {
+      // Generate a formatted description for tooltips
+      let modelDescription = `${model.name}`;
+      
+      if (model.releaseDate) {
+        const releaseDate = new Date(model.releaseDate);
+        modelDescription += ` (Released: ${releaseDate.toLocaleDateString('en-GB', {
+          month: 'short',
+          year: 'numeric'
+        })})`;
+      }
+      
+      if (model.modelVersion) {
+        modelDescription += `\nVersion: ${model.modelVersion}`;
+      }
+      
+      if (model.type) {
+        modelDescription += `\nType: ${model.type}`;
+      }
+      
+      // Create a new object to avoid mutating the original
+      return {
+        ...model,
+        description: modelDescription
+      };
+    });
+  }, []);
+  
+  // Sort models to prioritize frontier models first, then by release date - memoized for performance
+  const sortedModels = useMemo(() => {
+    return enrichModels([...models]).sort((a, b) => {
+      // First sort by category (frontier before others)
+      if (a.category === 'frontier' && b.category !== 'frontier') {
+        return -1;
+      }
+      if (a.category !== 'frontier' && b.category === 'frontier') {
+        return 1;
+      }
+      
+      // Then sort by release date (newest first)
+      const dateA = a.releaseDate ? new Date(a.releaseDate).getTime() : 0;
+      const dateB = b.releaseDate ? new Date(b.releaseDate).getTime() : 0;
+      return dateB - dateA;
+    });
+  }, [models, enrichModels]);
+  
+  // Filter benchmarks to get only featured ones - memoized to avoid filtering on every render
+  const featuredBenchmarks = useMemo(() => {
+    return benchmarks.filter(benchmark => benchmark.featured_benchmark);
+  }, [benchmarks]);
+  
+  // Filter and sort categories - memoized to avoid recomputation on every render
+  const filteredCategories = useMemo(() => {
+    return Object.entries(groupedBenchmarks)
+      .filter(([category, categoryBenchmarks]) => {
+        return categoryBenchmarks.some(benchmark => {
+          return sortedModels.some(model => {
+            return benchmarkScores.some(score => 
+              score.model_id === model.id && 
+              score.benchmark_id === benchmark.benchmark_id
+            );
+          });
+        });
+      })
+      // Sort categories to ensure usability is first, then alphabetical
+      .sort(([categoryA], [categoryB]) => {
+        // If categoryA is usability, it should come first
+        if (categoryA === 'usability') return -1;
+        // If categoryB is usability, it should come first
+        if (categoryB === 'usability') return 1;
+        // Otherwise sort alphabetically
+        return categoryA.localeCompare(categoryB);
+      });
+  }, [groupedBenchmarks, sortedModels, benchmarkScores]);
+
+  // Determine if headers should be shown - memoized based on featured benchmarks
+  const showHeadersInCategories = useMemo(() => 
+    featuredBenchmarks.length === 0, 
+    [featuredBenchmarks]
+  );
+  
+  // Check if there are any scores for this company
+  const hasScores = benchmarkScores.length > 0;
   
   // Load benchmark data and global rankings
   useEffect(() => {
@@ -345,52 +472,10 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
     loadBenchmarkData();
   }, [companyId, models]);
   
-  // Enrich models with additional display information
-  const enrichModels = (models: Model[]): Model[] => {
-    return models.map(model => {
-      // Generate a formatted description for tooltips
-      let modelDescription = `${model.name}`;
-      
-      if (model.releaseDate) {
-        const releaseDate = new Date(model.releaseDate);
-        modelDescription += ` (Released: ${releaseDate.toLocaleDateString('en-GB', {
-          month: 'short',
-          year: 'numeric'
-        })})`;
-      }
-      
-      if (model.modelVersion) {
-        modelDescription += `\nVersion: ${model.modelVersion}`;
-      }
-      
-      if (model.type) {
-        modelDescription += `\nType: ${model.type}`;
-      }
-      
-      // Add the description to the model object
-      model.description = modelDescription;
-      return model;
-    });
-  };
-  
-  // Sort models to prioritize frontier models first, then by release date
-  const sortedModels = enrichModels([...models]).sort((a, b) => {
-    // First sort by category (frontier before others)
-    if (a.category === 'frontier' && b.category !== 'frontier') {
-      return -1;
-    }
-    if (a.category !== 'frontier' && b.category === 'frontier') {
-      return 1;
-    }
-    
-    // Then sort by release date (newest first)
-    const dateA = a.releaseDate ? new Date(a.releaseDate).getTime() : 0;
-    const dateB = b.releaseDate ? new Date(b.releaseDate).getTime() : 0;
-    return dateB - dateA;
-  });
-  
-  // Check if there are any scores for this company
-  const hasScores = benchmarkScores.length > 0;
+  // Logging only when featuredBenchmarks changes
+  useEffect(() => {
+    console.log("Featured benchmarks:", featuredBenchmarks.length, featuredBenchmarks.map(b => b.benchmark_name));
+  }, [featuredBenchmarks]);
   
   if (loading) {
     return (
@@ -428,10 +513,6 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
     );
   }
   
-  // Filter benchmarks to get only featured ones
-  const featuredBenchmarks = benchmarks.filter(benchmark => benchmark.featured_benchmark);
-  console.log("Featured benchmarks:", featuredBenchmarks.length, featuredBenchmarks.map(b => b.benchmark_name));
-  
   return (
     <div className="transform transition-opacity duration-300">
       <style>{tableHoverStyles}</style>
@@ -459,33 +540,6 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
       
       {/* Render each benchmark category section */}
       {(() => {
-        // Filter to only categories that have scores for this company
-        const filteredCategories = Object.entries(groupedBenchmarks)
-          .filter(([category, categoryBenchmarks]) => {
-            return categoryBenchmarks.some(benchmark => {
-              return sortedModels.some(model => {
-                return benchmarkScores.some(score => 
-                  score.model_id === model.id && 
-                  score.benchmark_id === benchmark.benchmark_id
-                );
-              });
-            });
-          })
-          // Sort categories to ensure usability is first, then alphabetical
-          .sort(([categoryA], [categoryB]) => {
-            // If categoryA is usability, it should come first
-            if (categoryA === 'usability') return -1;
-            // If categoryB is usability, it should come first
-            if (categoryB === 'usability') return 1;
-            // Otherwise sort alphabetically
-            return categoryA.localeCompare(categoryB);
-          });
-
-        // Render each category, with showHeader=true only for the first category displayed
-        // This means that if featured benchmarks are shown, no category will show headers
-        // If no featured benchmarks are shown, only the first category will show headers
-        const showHeadersInCategories = featuredBenchmarks.length === 0;
-        
         return filteredCategories.map(([category, categoryBenchmarks], index) => (
           <BenchmarkCategorySection
             key={category}
