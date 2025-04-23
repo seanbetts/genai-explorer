@@ -325,7 +325,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
         <div className={containerStyles.footerContent}>
           <div className="flex flex-col md:flex-row">
             {/* Left third - navigation lists equally spaced */}
-            <div className="md:w-1/3 flex flex-col md:flex-row md:space-x-8 mb-6 md:mb-0">
+            <div className="md:w-1/3 flex flex-col md:flex-row md:space-x-12 mb-6 md:mb-0">
               {/* Features */}
               <div className="mb-4 md:mb-0">
                 <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Features</h3>
@@ -409,7 +409,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
               © {new Date().getFullYear()} The Blueprint. All rights reserved.
             </div>
             <div className="text-xs text-gray-400 flex items-center">
-              Made with <i className="bi bi-heart-fill text-fuchsia-500 mx-1.5"></i> using Claude Code
+              Made with <i className="bi bi-heart-fill text-fuchsia-500 mx-1.5"></i> using&nbsp;<a href="https://www.anthropic.com/claude-code" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 transition-colors">Claude Code</a>
             </div>
           </div>
         </div>
