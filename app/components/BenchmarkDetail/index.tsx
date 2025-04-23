@@ -236,10 +236,15 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
           let maxValue = 100; // Default for benchmarks out of 100
           const highestScore = sortedScores[0].score;
           
+          // Special handling for SWE-Lancer benchmarks (dollar amounts)
+          if (benchmark.benchmark_id === 'swe-lancer' || benchmark.benchmark_id === 'swe-lancer-ic-swe-diamond') {
+            // Round to the nearest $10,000
+            return Math.ceil(highestScore / 10000) * 10000;
+          }
+          
           // Benchmarks that we know are not out of 100
           const nonStandardScales = [
-            'codeforces', 'chatbot-arena', 'swe-lancer', 
-            'swe-lancer-ic-swe-diamond', 'mrcr'
+            'codeforces', 'chatbot-arena', 'mrcr'
           ];
           
           if (nonStandardScales.includes(benchmark.benchmark_id) || highestScore > 100) {
@@ -254,7 +259,11 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
             <div className="flex items-center justify-between mb-2">
               <h2 className="text-xl font-semibold text-white">Performance Ranking</h2>
               <div className="text-xs text-gray-400 font-mono">
-                Scale: 0-{maxScale}
+                {benchmark.benchmark_id === 'swe-lancer' || benchmark.benchmark_id === 'swe-lancer-ic-swe-diamond' ? (
+                  <>Scale: $0-${maxScale.toLocaleString()}</>
+                ) : (
+                  <>Scale: 0-{maxScale.toLocaleString()}</>
+                )}
               </div>
             </div>
             
