@@ -308,6 +308,27 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
               }`}></i>
               <span>Model Explorer</span>
             </a>
+            
+            {/* Breadcrumb navigation - hidden for now 
+            <div className="hidden ml-auto text-gray-400 md:pr-8">
+              {currentView !== 'home' && (
+                <>
+                  <a href="/" className="text-gray-300 hover:text-cyan-400">Home</a>
+                  <i className="bi bi-chevron-right mx-2 text-gray-500 text-[10px]"></i>
+                  
+                  {currentView === 'company' && selectedCompany && (
+                    <span className="text-cyan-400">{selectedCompany.name}</span>
+                  )}
+                  
+                  {currentView === 'benchmark' && benchmarkId && (
+                    <span className="text-cyan-400">
+                      {benchmarks.find(b => b.benchmark_id === benchmarkId)?.benchmark_name || 'Benchmark'}
+                    </span>
+                  )}
+                </>
+              )}
+            </div>
+            */}
           </div>
         </div>
       </div>
