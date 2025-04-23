@@ -56,7 +56,7 @@ img[src$=".svg"]:not([src^="data:"]):not([src*="/"])::before {
   visibility: visible;
 }
 
-/* Custom scrollbar styles */
+/* Custom scrollbar styles - vertical */
 .custom-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: #4B5563 #1F2937;
@@ -81,4 +81,28 @@ img[src$=".svg"]:not([src^="data:"]):not([src*="/"])::before {
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #0ABDC6;
+}
+
+/* Custom scrollbar styles - horizontal */
+.custom-scrollbar-horizontal {
+  scrollbar-width: thin;
+  scrollbar-color: #4B5563 #1F2937;
+}
+
+.custom-scrollbar-horizontal::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+}
+
+.custom-scrollbar-horizontal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar-horizontal::-webkit-scrollbar-thumb {
+  background: #4B5563;
+  border-radius: 2px;
+}
+
+.custom-scrollbar-horizontal::-webkit-scrollbar-thumb:hover {
+  background: #EA00D9; /* Using the pink accent color */
 }

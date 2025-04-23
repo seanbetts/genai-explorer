@@ -8,8 +8,9 @@ import ExplorerView from './ExplorerView';
 // Dynamically load detail components to reduce initial bundle size
 const CompanyDetail = lazy(() => import('./CompanyDetail'));
 const BenchmarkDetail = lazy(() => import('./BenchmarkDetail'));
-import { textStyles } from './utils/theme';
+import { textStyles, categoryStyles } from './utils/theme';
 import { containerStyles } from './utils/layout';
+import { categoryConfig } from './categoryConfig';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 interface AIExplorerProps {
@@ -31,6 +32,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
   // Derive view parameters from URL
   const companyId = searchParams.get('company');
   const benchmarkId = searchParams.get('benchmark');
+  const activeTab = searchParams.get('tab');
   
   // Determine the current view
   const selectedCompany = companyId
@@ -43,6 +45,23 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
   } else if (benchmarkId) {
     currentView = 'benchmark';
   }
+  
+  // Convert URL tab parameter to category key for highlighting
+  const getActiveCategoryFromTab = (tab: string | null): string => {
+    if (!tab) return '';
+    const mapping: Record<string, string> = {
+      'frontier-models': 'frontier',
+      'open-models': 'open',
+      'enterprise-models': 'enterprise',
+      'image-models': 'image',
+      'video-models': 'video',
+      'audio-models': 'music',
+      'specialised-models': 'other'
+    };
+    return mapping[tab] || '';
+  };
+  
+  const activeCategory = getActiveCategoryFromTab(activeTab);
   
   // Handler for when a benchmark's last updated date changes
   const handleBenchmarkLastUpdatedChange = useCallback((date: Date | null) => {
@@ -270,6 +289,29 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
         </div>
       </header>
 
+      {/* Features Navigation - visible on all views */}
+      <div className="bg-gray-800 border-b border-fuchsia-900/50 py-2 shadow-md">
+        <div className="container mx-auto px-5">
+          <div className="flex items-center font-mono text-xs py-1 md:pl-8">
+            <a 
+              href="/" 
+              className={`transition-colors flex items-center ${
+                currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark')
+                  ? 'text-cyan-400' 
+                  : 'text-gray-300 hover:text-cyan-400'
+              }`}
+            >
+              <i className={`bi bi-grid mr-1.5 ${
+                currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark')
+                  ? 'text-cyan-400'
+                  : 'text-fuchsia-500'
+              }`}></i>
+              <span>Explorer</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <main className={containerStyles.mainContent + " flex-grow"}>
         {currentView === 'home' && (
           <ExplorerView data={data} onCompanySelect={handleCompanySelect} />
@@ -320,9 +362,18 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
                   <li>
                     <a 
                       href="/" 
-                      className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5"
+                      className={`transition-colors text-xs leading-tight py-0.5 flex items-center ${
+                        currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark')
+                          ? 'text-cyan-400' 
+                          : 'text-gray-300 hover:text-cyan-400'
+                      }`}
                     >
-                      Explorer
+                      <i className={`bi bi-grid mr-1.5 ${
+                        currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark')
+                          ? 'text-cyan-400'
+                          : 'text-fuchsia-500'
+                      }`}></i>
+                      <span>Explorer</span>
                     </a>
                   </li>
                 </ul>
