@@ -234,14 +234,14 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
       </div>
 
       {/* Stats Summary */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-        <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
-          <h3 className="text-gray-400 text-sm font-medium mb-1">Models Evaluated</h3>
-          <p className="text-2xl font-bold text-white">{scores.length}</p>
+      <div className="flex justify-end gap-4 mb-8">
+        <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700 w-40">
+          <h3 className="text-gray-400 text-xs font-medium mb-1">Models Evaluated</h3>
+          <p className="text-xl font-bold text-white">{scores.length}</p>
         </div>
-        <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
-          <h3 className="text-gray-400 text-sm font-medium mb-1">Average Score</h3>
-          <p className="text-2xl font-bold text-white">
+        <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700 w-40">
+          <h3 className="text-gray-400 text-xs font-medium mb-1">Average Score</h3>
+          <p className="text-xl font-bold text-white">
             {sortedScores.length > 0 
               ? formatScore(
                   sortedScores.reduce((sum, score) => sum + score.score, 0) / sortedScores.length,
