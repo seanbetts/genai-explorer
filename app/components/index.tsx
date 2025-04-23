@@ -1,9 +1,9 @@
  'use client';
 
-import React, { lazy, Suspense, useEffect, useState, useCallback } from 'react';
+import React, { lazy, Suspense, useEffect, useState, useCallback, useMemo } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { ExplorerData, Company } from './types';
+import { ExplorerData, Company, Benchmark, BenchmarkScore } from './types';
 import ExplorerView from './ExplorerView';
 // Dynamically load detail components to reduce initial bundle size
 const CompanyDetail = lazy(() => import('./CompanyDetail'));
@@ -48,6 +48,77 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
   const handleBenchmarkLastUpdatedChange = useCallback((date: Date | null) => {
     setBenchmarkLastUpdated(date);
   }, []);
+  
+  // Calculate top companies by model count
+  const topCompanies = useMemo(() => {
+    return [...data.companies]
+      .sort((a, b) => (b.models?.length || 0) - (a.models?.length || 0))
+      .slice(0, 5)
+      .map(company => ({
+        id: company.id,
+        name: company.name
+      }));
+  }, [data.companies]);
+  
+  // State for benchmark data
+  const [benchmarks, setBenchmarks] = useState<Benchmark[]>([]);
+  const [benchmarkScores, setBenchmarkScores] = useState<BenchmarkScore[]>([]);
+  const [benchmarksLoaded, setBenchmarksLoaded] = useState(false);
+  
+  // Load benchmark data for footer
+  useEffect(() => {
+    const loadBenchmarkData = async () => {
+      try {
+        // Import the loading functions locally to avoid issues with circular dependencies
+        const { loadBenchmarkMetadata, loadBenchmarkScores } = await import('./utils/benchmarkUtils');
+        
+        // Load data in parallel
+        const [benchmarkData, benchmarkScoreData] = await Promise.all([
+          loadBenchmarkMetadata(),
+          loadBenchmarkScores()
+        ]);
+        
+        setBenchmarks(benchmarkData);
+        setBenchmarkScores(benchmarkScoreData);
+        setBenchmarksLoaded(true);
+      } catch (error) {
+        console.error('Error loading benchmark data for footer:', error);
+      }
+    };
+    
+    loadBenchmarkData();
+  }, []);
+  
+  // Calculate top benchmarks by score count
+  const topBenchmarks = useMemo(() => {
+    if (!benchmarksLoaded) return [];
+    
+    // Count scores for each benchmark
+    const benchmarkScoreCounts: Record<string, { id: string, name: string, count: number, featured: boolean }> = {};
+    
+    // Initialize counts for each benchmark
+    benchmarks.forEach(benchmark => {
+      benchmarkScoreCounts[benchmark.benchmark_id] = {
+        id: benchmark.benchmark_id,
+        name: benchmark.benchmark_name,
+        count: 0,
+        featured: benchmark.featured_benchmark || false
+      };
+    });
+    
+    // Count scores for each benchmark
+    benchmarkScores.forEach(score => {
+      if (benchmarkScoreCounts[score.benchmark_id]) {
+        benchmarkScoreCounts[score.benchmark_id].count++;
+      }
+    });
+    
+    // Convert to array, filter for featured benchmarks, sort by count, and take top 5
+    return Object.values(benchmarkScoreCounts)
+      .filter(item => item.featured)
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 5);
+  }, [benchmarks, benchmarkScores, benchmarksLoaded]);
 
   // Handlers to update URL using Next.js shallow routing
   const handleCompanySelect = (id: string, category?: string) => {
@@ -257,11 +328,20 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
             <div>
               <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Top Companies</h3>
               <ul className="space-y-0.5">
-                <li><a href="/?company=meta" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Meta</a></li>
-                <li><a href="/?company=openai" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">OpenAI</a></li>
-                <li><a href="/?company=microsoft" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Microsoft</a></li>
-                <li><a href="/?company=google" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Google</a></li>
-                <li><a href="/?company=mistral" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Mistral</a></li>
+                {topCompanies.map(company => (
+                  <li key={company.id}>
+                    <a 
+                      href={`/?company=${company.id}`} 
+                      className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5"
+                    >
+                      {company.name}
+                    </a>
+                  </li>
+                ))}
+                {/* Fallback when no companies are loaded yet */}
+                {topCompanies.length === 0 && (
+                  <li className="text-gray-500 text-xs leading-tight py-0.5">Loading companies...</li>
+                )}
               </ul>
             </div>
             
@@ -269,11 +349,20 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
             <div>
               <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Top Benchmarks</h3>
               <ul className="space-y-0.5">
-                <li><a href="/?benchmark=gpqa-diamond" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">GPQA Diamond</a></li>
-                <li><a href="/?benchmark=mmmu" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">MMMU</a></li>
-                <li><a href="/?benchmark=swe-bench-verified" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">SWE-Bench Verified</a></li>
-                <li><a href="/?benchmark=aider-polyglot" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Aider Polyglot</a></li>
-                <li><a href="/?benchmark=chatbot-arena" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Chatbot Arena</a></li>
+                {topBenchmarks.map(benchmark => (
+                  <li key={benchmark.id}>
+                    <a 
+                      href={`/?benchmark=${benchmark.id}`} 
+                      className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5"
+                    >
+                      {benchmark.name}
+                    </a>
+                  </li>
+                ))}
+                {/* Fallback when benchmark data is still loading */}
+                {topBenchmarks.length === 0 && !benchmarksLoaded && (
+                  <li className="text-gray-500 text-xs leading-tight py-0.5">Loading benchmarks...</li>
+                )}
               </ul>
             </div>
             
