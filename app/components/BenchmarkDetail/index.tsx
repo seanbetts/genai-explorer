@@ -7,7 +7,7 @@ import {
   loadBenchmarkScores, 
   getBenchmarkById, 
   calculateGlobalRankings,
-  getBenchmarkDescription 
+  getBenchmarkDescription
 } from '../utils/benchmarkUtils';
 import { tableStyles, containerStyles } from '../utils/layout';
 import { textStyles } from '../utils/theme';
@@ -169,6 +169,23 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
     );
   }
 
+  // Helper function to get category descriptions
+  const getCategoryDescription = (category: string): string => {
+    const descriptions: Record<string, string> = {
+      'usability': 'Tests general knowledge, helpfulness, instruction-following, and human-like interaction qualities through human preference ratings.',
+      'agentic': 'Measures the ability to act autonomously to complete complex real-world tasks involving multiple steps, tool use, and web browsing.',
+      'coding': 'Evaluates code generation, editing, debugging, and software engineering capabilities across various programming tasks and languages.',
+      'factuality': 'Assesses accuracy of information retrieval and generation, especially with long contexts, and resistance to hallucination.',
+      'maths': 'Evaluates mathematical problem-solving from grade school to competition-level problems, including complex reasoning and multi-step calculations.',
+      'multimodal': 'Tests capabilities across multiple modalities including text, images, documents, audio, and video understanding and generation.',
+      'reasoning': 'Measures logical reasoning, common sense understanding, step-by-step problem-solving, and situation modeling abilities.',
+      'research': 'Evaluates ability to conduct, understand, and analyze academic research and complex scholarly information.',
+      'science': 'Tests scientific knowledge and understanding across disciplines like physics, chemistry, biology, and applied sciences.'
+    };
+    
+    return descriptions[category.toLowerCase()] || '';
+  };
+  
   // Get benchmark description
   const description = benchmark.benchmark_description || getBenchmarkDescription(benchmark.benchmark_id);
 
@@ -180,11 +197,17 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
           <h1 className="text-3xl font-bold text-white mb-2 flex items-center flex-wrap">
             <i className="bi bi-graph-up-arrow text-fuchsia-400 mr-3 text-2xl"></i>
             {benchmark.benchmark_name}
-            <span className="ml-3 bg-cyan-900/30 text-cyan-400 text-xs px-2 py-1 rounded-full uppercase font-medium">
+            <span 
+              className="ml-3 bg-cyan-900/30 text-cyan-400 text-xs px-2 py-1 rounded-full uppercase font-medium cursor-pointer"
+              title={getCategoryDescription(benchmark.benchmark_category)}
+            >
               {benchmark.benchmark_category}
             </span>
             {benchmark.featured_benchmark && (
-              <span className="ml-2 bg-fuchsia-900/50 text-fuchsia-400 text-xs px-2 py-1 rounded-full uppercase font-medium">
+              <span 
+                className="ml-2 bg-fuchsia-900/50 text-fuchsia-400 text-xs px-2 py-1 rounded-full uppercase font-medium cursor-pointer"
+                title="This benchmark is featured due to its significance in evaluating key model capabilities."
+              >
                 Featured Benchmark
               </span>
             )}
