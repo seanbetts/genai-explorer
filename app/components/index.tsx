@@ -77,11 +77,16 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
     router.push(url);
   };
   const handleBack = () => {
-    // Use browser history to go back to the previous page
-    if (typeof window !== 'undefined' && window.history.length > 1) {
+    // For company pages, always go back to the landscape view
+    if (currentView === 'company') {
+      router.push('/');
+    } 
+    // For other pages (like benchmark), use browser history if possible
+    else if (typeof window !== 'undefined' && window.history.length > 1) {
       window.history.back();
-    } else {
-      // Fallback to home view if no history exists
+    } 
+    // Fallback to home view if no history exists
+    else {
       router.push('/');
     }
   };
