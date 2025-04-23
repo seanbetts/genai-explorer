@@ -230,39 +230,65 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
       </div>
 
       {/* Visualization - simple bar chart */}
-      {sortedScores.length > 0 && (
-        <div className="mb-12 bg-gray-800/30 p-6 rounded-lg border border-gray-700">
-          <h2 className="text-xl font-semibold text-white mb-4">Performance Ranking</h2>
-          <div className="space-y-3 mt-6 max-h-[600px] overflow-y-auto pr-2">
-            {sortedScores.map((score, index) => {
-              const model = allModels[score.model_id];
-              if (!model) return null;
-              
-              const company = companies[score.company_id];
-              const percentage = (score.score / sortedScores[0].score) * 100;
-              
-              return (
-                <div key={score.model_id} className="relative">
-                  <div className="flex items-center mb-1">
-                    <div className="w-8 text-sm text-gray-400 font-mono">#{index + 1}</div>
-                    <div className="w-48 truncate font-medium text-cyan-400">{model.name}</div>
-                    <div className="text-sm text-gray-400">{company?.name || 'Unknown'}</div>
-                    <div className="ml-auto font-mono text-white">
-                      {formatScore(score.score, benchmark.benchmark_id)}
+      {sortedScores.length > 0 && (() => {
+        // Calculate the max scale value once
+        const maxScale = (() => {
+          let maxValue = 100; // Default for benchmarks out of 100
+          const highestScore = sortedScores[0].score;
+          
+          // Benchmarks that we know are not out of 100
+          const nonStandardScales = [
+            'codeforces', 'chatbot-arena', 'swe-lancer', 
+            'swe-lancer-ic-swe-diamond', 'mrcr'
+          ];
+          
+          if (nonStandardScales.includes(benchmark.benchmark_id) || highestScore > 100) {
+            maxValue = Math.ceil(highestScore / 100) * 100;
+          }
+          
+          return maxValue;
+        })();
+        
+        return (
+          <div className="mb-12 bg-gray-800/30 p-6 rounded-lg border border-gray-700">
+            <div className="flex items-center justify-between mb-2">
+              <h2 className="text-xl font-semibold text-white">Performance Ranking</h2>
+              <div className="text-xs text-gray-400 font-mono">
+                Scale: 0-{maxScale}
+              </div>
+            </div>
+            
+            <div className="space-y-3 mt-6 max-h-[600px] overflow-y-auto pr-2">
+              {sortedScores.map((score, index) => {
+                const model = allModels[score.model_id];
+                if (!model) return null;
+                
+                const company = companies[score.company_id];
+                const percentage = (score.score / maxScale) * 100;
+                
+                return (
+                  <div key={`${score.model_id}-${score.date}`} className="relative">
+                    <div className="flex items-center mb-1">
+                      <div className="w-8 text-sm text-gray-400 font-mono">#{index + 1}</div>
+                      <div className="w-48 truncate font-medium text-cyan-400">{model.name}</div>
+                      <div className="text-sm text-gray-400">{company?.name || 'Unknown'}</div>
+                      <div className="ml-auto font-mono text-white">
+                        {formatScore(score.score, benchmark.benchmark_id)}
+                      </div>
+                    </div>
+                    <div className="relative h-2 bg-gray-700 rounded-full overflow-hidden mt-1 ml-8">
+                      <div 
+                        className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan-500 to-fuchsia-500 rounded-full"
+                        style={{ width: `${percentage}%` }}
+                      ></div>
                     </div>
                   </div>
-                  <div className="relative h-2 bg-gray-700 rounded-full overflow-hidden mt-1 ml-8">
-                    <div 
-                      className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan-500 to-fuchsia-500 rounded-full"
-                      style={{ width: `${percentage}%` }}
-                    ></div>
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
 
       {/* Full results table */}
       {sortedScores.length > 0 ? (
