@@ -323,66 +323,72 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
       {/* Footer */}
       <footer className={containerStyles.footer}>
         <div className={containerStyles.footerContent}>
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-x-4 gap-y-6">
-            {/* Features */}
-            <div className="md:col-span-2">
-              <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Features</h3>
-              <ul className="space-y-0.5">
-                <li>
-                  <a 
-                    href="/" 
-                    className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5"
-                  >
-                    Explorer
-                  </a>
-                </li>
-              </ul>
-            </div>
-            
-            {/* Popular Companies */}
-            <div className="md:col-span-3">
-              <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">AI Companies</h3>
-              <ul className="space-y-0.5">
-                {topCompanies.map(company => (
-                  <li key={company.id}>
+          <div className="flex flex-col md:flex-row">
+            {/* Left third - navigation lists equally spaced */}
+            <div className="md:w-1/3 flex flex-col md:flex-row md:space-x-8 mb-6 md:mb-0">
+              {/* Features */}
+              <div className="mb-4 md:mb-0">
+                <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Features</h3>
+                <ul className="space-y-0.5">
+                  <li>
                     <a 
-                      href={`/?company=${company.id}`} 
+                      href="/" 
                       className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5"
                     >
-                      {company.name}
+                      Explorer
                     </a>
                   </li>
-                ))}
-                {/* Fallback when no companies are loaded yet */}
-                {topCompanies.length === 0 && (
-                  <li className="text-gray-500 text-xs leading-tight py-0.5">Loading companies...</li>
-                )}
-              </ul>
+                </ul>
+              </div>
+              
+              {/* Popular Companies */}
+              <div className="mb-4 md:mb-0">
+                <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">AI Companies</h3>
+                <ul className="space-y-0.5">
+                  {topCompanies.map(company => (
+                    <li key={company.id}>
+                      <a 
+                        href={`/?company=${company.id}`} 
+                        className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5"
+                      >
+                        {company.name}
+                      </a>
+                    </li>
+                  ))}
+                  {/* Fallback when no companies are loaded yet */}
+                  {topCompanies.length === 0 && (
+                    <li className="text-gray-500 text-xs leading-tight py-0.5">Loading companies...</li>
+                  )}
+                </ul>
+              </div>
+              
+              {/* Benchmarks */}
+              <div>
+                <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Top Benchmarks</h3>
+                <ul className="space-y-0.5">
+                  {topBenchmarks.map(benchmark => (
+                    <li key={benchmark.id}>
+                      <a 
+                        href={`/?benchmark=${benchmark.id}`} 
+                        className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5"
+                      >
+                        {benchmark.name}
+                      </a>
+                    </li>
+                  ))}
+                  {/* Fallback when benchmark data is still loading */}
+                  {topBenchmarks.length === 0 && !benchmarksLoaded && (
+                    <li className="text-gray-500 text-xs leading-tight py-0.5">Loading benchmarks...</li>
+                  )}
+                </ul>
+              </div>
             </div>
             
-            {/* Benchmarks */}
-            <div className="md:col-span-3">
-              <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Top Benchmarks</h3>
-              <ul className="space-y-0.5">
-                {topBenchmarks.map(benchmark => (
-                  <li key={benchmark.id}>
-                    <a 
-                      href={`/?benchmark=${benchmark.id}`} 
-                      className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5"
-                    >
-                      {benchmark.name}
-                    </a>
-                  </li>
-                ))}
-                {/* Fallback when benchmark data is still loading */}
-                {topBenchmarks.length === 0 && !benchmarksLoaded && (
-                  <li className="text-gray-500 text-xs leading-tight py-0.5">Loading benchmarks...</li>
-                )}
-              </ul>
-            </div>
+            {/* Middle third - empty space */}
+            <div className="md:w-1/3 hidden md:block"></div>
             
-            {/* About/Info */}
-            <div className="md:col-span-4">
+            {/* Right third - About section */}
+            <div className="md:w-1/3">
               <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">About</h3>
               <p className="text-gray-300 text-sm mb-4">
                 The Blueprint's Generative AI Explorer helps people understand the generative AI landspace and explore companies, models, and benchmarks.
