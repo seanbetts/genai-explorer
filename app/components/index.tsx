@@ -306,7 +306,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
                   ? 'text-cyan-400'
                   : 'text-fuchsia-500'
               }`}></i>
-              <span>Explorer</span>
+              <span>Model Explorer</span>
             </a>
           </div>
         </div>
@@ -353,10 +353,10 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
       <footer className={containerStyles.footer + " mt-auto"}>
         <div className={containerStyles.footerContent}>
           <div className="flex flex-col md:flex-row">
-            {/* Left third - navigation lists equally spaced */}
-            <div className="md:w-1/3 flex flex-col md:flex-row md:space-x-20 mb-6 md:mb-0 md:pl-8">
+            {/* Left half - navigation lists equally spaced */}
+            <div className="md:w-2/5 flex flex-col md:flex-row md:space-x-20 mb-6 md:mb-0 md:pl-8">
               {/* Features */}
-              <div className="mb-4 md:mb-0">
+              <div className="mb-4 md:mb-0 md:w-1/3">
                 <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Features</h3>
                 <ul className="space-y-0.5">
                   <li>
@@ -373,14 +373,14 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
                           ? 'text-cyan-400'
                           : 'text-fuchsia-500'
                       }`}></i>
-                      <span>Explorer</span>
+                      <span>Model Explorer</span>
                     </a>
                   </li>
                 </ul>
               </div>
               
               {/* Popular Companies */}
-              <div className="mb-4 md:mb-0">
+              <div className="mb-4 md:mb-0 md:w-1/3">
                 <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">AI Companies</h3>
                 <ul className="space-y-0.5">
                   {topCompanies.map(company => (
@@ -401,7 +401,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
               </div>
               
               {/* Benchmarks */}
-              <div>
+              <div className="md:w-1/3">
                 <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Top Benchmarks</h3>
                 <ul className="space-y-0.5">
                   {topBenchmarks.map(benchmark => (
@@ -422,11 +422,11 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
               </div>
             </div>
             
-            {/* Middle third - empty space */}
-            <div className="md:w-1/3 hidden md:block"></div>
+            {/* Middle empty space */}
+            <div className="md:flex-grow hidden md:block"></div>
             
-            {/* Right third - About section */}
-            <div className="md:w-1/3">
+            {/* Right third - About section - aligned to the right */}
+            <div className="md:w-1/3 md:flex-shrink-0">
               <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">About</h3>
               <p className="text-gray-300 text-sm mb-4">
                 The Blueprint's Generative AI Explorer helps people understand the generative AI landspace and explore companies, models, and benchmarks.
