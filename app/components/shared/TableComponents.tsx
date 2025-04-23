@@ -86,11 +86,11 @@ export const TableHeader: React.FC<TableHeaderProps> = ({
             title={item.description}
           >
             {showReleaseDates ? (
-              <div className="flex flex-col items-center h-20">
-                <div className="flex items-center flex-grow">
+              <div className="flex flex-col items-center justify-between h-16 py-0">
+                <div className="flex items-center mt-0">
                   <div className={`${tableStyles.modelName} text-center`}>{item.name}</div>
                 </div>
-                <div className="text-xs text-gray-400 font-normal mb-2">
+                <div className="text-xs text-gray-400 font-normal">
                   {item.releaseDate 
                     ? new Date(item.releaseDate).toLocaleDateString('en-GB', {
                         month: 'short',
