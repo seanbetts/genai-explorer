@@ -451,10 +451,11 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
             return categoryA.localeCompare(categoryB);
           });
 
-        // Find the first non-usability category index
-        const firstNonUsabilityIndex = filteredCategories.findIndex(([category]) => category !== 'usability');
+        // Render each category, with showHeader=true only for the first category displayed
+        // This means that if featured benchmarks are shown, no category will show headers
+        // If no featured benchmarks are shown, only the first category will show headers
+        const showHeadersInCategories = featuredBenchmarks.length === 0;
         
-        // Render each category, with showHeader=true only for the first non-usability category
         return filteredCategories.map(([category, categoryBenchmarks], index) => (
           <BenchmarkCategorySection
             key={category}
@@ -463,7 +464,7 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
             models={sortedModels}
             benchmarkScores={benchmarkScores}
             companyId={companyId}
-            showHeader={category !== 'usability' && (firstNonUsabilityIndex === -1 || index === firstNonUsabilityIndex)} 
+            showHeader={showHeadersInCategories && index === 0} 
             globalRankings={globalRankings}
             rankingsLoaded={rankingsLoaded}
           />
