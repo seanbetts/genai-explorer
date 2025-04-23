@@ -1,5 +1,7 @@
 # Generative AI Explorer
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5c0fab6b-0507-49e1-9972-8291655e999b/deploy-status)](https://app.netlify.com/sites/genai-explorer/deploys)
+
 An interactive web application that visualizes the current landscape of generative AI companies, models, and capabilities.
 
 ## Features
