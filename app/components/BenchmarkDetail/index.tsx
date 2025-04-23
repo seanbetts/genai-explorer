@@ -16,9 +16,10 @@ import { SharedTable, TableHeader } from '../shared/TableComponents';
 interface BenchmarkDetailProps {
   benchmarkId: string;
   onBack: () => void;
+  onLastUpdatedChange?: (date: Date | null) => void;
 }
 
-const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }) => {
+const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, onLastUpdatedChange }) => {
   const [benchmark, setBenchmark] = useState<Benchmark | null>(null);
   const [scores, setScores] = useState<BenchmarkScore[]>([]);
   const [allScores, setAllScores] = useState<BenchmarkScore[]>([]);
@@ -111,6 +112,21 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
   const sortedScores = useMemo(() => {
     return [...scores].sort((a, b) => b.score - a.score);
   }, [scores]);
+  
+  // Find the most recent score date and notify parent
+  useEffect(() => {
+    if (scores.length > 0 && onLastUpdatedChange) {
+      // Find the most recent date among all scores
+      const mostRecentDate = scores.reduce((latest, score) => {
+        const scoreDate = new Date(score.date);
+        return scoreDate > latest ? scoreDate : latest;
+      }, new Date(0)); // Start with epoch time
+      
+      onLastUpdatedChange(mostRecentDate);
+    } else if (onLastUpdatedChange) {
+      onLastUpdatedChange(null);
+    }
+  }, [scores, onLastUpdatedChange]);
 
   // Helper to format score based on benchmark type
   const formatScore = (score: number, benchmarkId: string): string => {

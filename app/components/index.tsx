@@ -1,6 +1,6 @@
  'use client';
 
-import React, { lazy, Suspense, useEffect } from 'react';
+import React, { lazy, Suspense, useEffect, useState, useCallback } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { ExplorerData, Company } from './types';
@@ -19,6 +19,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
   const data: ExplorerData = initialData;
   const searchParams = useSearchParams();
   const router = useRouter();
+  const [benchmarkLastUpdated, setBenchmarkLastUpdated] = useState<Date | null>(null);
 
   // Make explorer data globally available for other components
   useEffect(() => {
@@ -42,6 +43,11 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
   } else if (benchmarkId) {
     currentView = 'benchmark';
   }
+  
+  // Handler for when a benchmark's last updated date changes
+  const handleBenchmarkLastUpdatedChange = useCallback((date: Date | null) => {
+    setBenchmarkLastUpdated(date);
+  }, []);
 
   // Handlers to update URL using Next.js shallow routing
   const handleCompanySelect = (id: string, category?: string) => {
@@ -149,11 +155,24 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
               </a>
             </div>
             
-            {/* Data last updated text - only on home view */}
+            {/* Data last updated text */}
             {currentView === 'home' && (
               <div className="text-[10px] font-mono mt-2 text-right">
                 Data last updated: <span className="text-cyan-400 font-semibold">{
                   new Date().toLocaleDateString('en-GB', { 
+                    day: 'numeric', 
+                    month: 'long', 
+                    year: 'numeric' 
+                  })
+                }</span>
+              </div>
+            )}
+            
+            {/* Benchmark data last updated - only on benchmark view */}
+            {currentView === 'benchmark' && benchmarkLastUpdated && (
+              <div className="text-[10px] font-mono mt-2 text-right">
+                Benchmark data last updated: <span className="text-cyan-400 font-semibold">{
+                  benchmarkLastUpdated.toLocaleDateString('en-GB', { 
                     day: 'numeric', 
                     month: 'long', 
                     year: 'numeric' 
@@ -196,6 +215,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
             <BenchmarkDetail
               benchmarkId={benchmarkId}
               onBack={handleBack}
+              onLastUpdatedChange={handleBenchmarkLastUpdatedChange}
             />
           </Suspense>
         )}
