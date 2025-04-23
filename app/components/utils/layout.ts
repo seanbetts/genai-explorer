@@ -88,7 +88,7 @@ export const containerStyles = {
     headerContent: 'container mx-auto px-5 py-6 flex items-center justify-between relative h-[90px]', /* Fixed height with padding */
     appTitle: 'text-xl font-semibold cursor-pointer text-fuchsia-500 hover:text-fuchsia-400 transition-colors font-mono',
     mainContent: 'container mx-auto p-5 md:p-6',
-    footer: 'bg-gray-800 text-cyan-400 mt-16 py-10 border-t border-fuchsia-900',
+    footer: 'bg-gray-800 text-cyan-400 py-10 border-t border-fuchsia-900',
     footerContent: 'container mx-auto px-5 font-mono',
     
     // Layout helpers for consistent patterns

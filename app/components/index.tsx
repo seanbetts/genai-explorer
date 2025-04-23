@@ -333,7 +333,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
         </div>
       </div>
 
-      <main className={containerStyles.mainContent + " flex-grow"}>
+      <main className={containerStyles.mainContent + " flex-grow mb-32"}>
         {currentView === 'home' && (
           <ExplorerView data={data} onCompanySelect={handleCompanySelect} />
         )}
