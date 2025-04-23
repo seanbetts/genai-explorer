@@ -203,7 +203,7 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
             )}
           </div>
           {description && (
-            <p className="text-gray-300 mt-2 max-w-3xl">
+            <p className="text-gray-300 mt-2">
               {description}
             </p>
           )}
