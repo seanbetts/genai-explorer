@@ -177,25 +177,25 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
       {/* Header section */}
       <div className="mb-8">
         <div className="mb-4">
-          <h1 className="text-3xl font-bold text-white mb-2 flex items-center">
+          <h1 className="text-3xl font-bold text-white mb-2 flex items-center flex-wrap">
             <i className="bi bi-graph-up-arrow text-fuchsia-400 mr-3 text-2xl"></i>
             {benchmark.benchmark_name}
+            <span className="ml-3 bg-cyan-900/30 text-cyan-400 text-xs px-2 py-1 rounded-full uppercase font-medium">
+              {benchmark.benchmark_category}
+            </span>
             {benchmark.featured_benchmark && (
-              <span className="ml-3 bg-fuchsia-900/50 text-fuchsia-400 text-xs px-2 py-1 rounded-full uppercase font-medium">
+              <span className="ml-2 bg-fuchsia-900/50 text-fuchsia-400 text-xs px-2 py-1 rounded-full uppercase font-medium">
                 Featured Benchmark
               </span>
             )}
           </h1>
           <div className="text-gray-300 mb-2">
-            <span className="px-2 py-1 bg-gray-800 rounded text-sm font-mono text-cyan-400 mr-2">
-              {benchmark.benchmark_category}
-            </span>
             {benchmark.benchmark_paper && (
               <a 
                 href={benchmark.benchmark_paper} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-cyan-400 hover:text-cyan-300 transition-colors inline-flex items-center ml-2"
+                className="text-cyan-400 hover:text-cyan-300 transition-colors inline-flex items-center"
               >
                 <i className="bi bi-file-earmark-text mr-1"></i>
                 View paper
