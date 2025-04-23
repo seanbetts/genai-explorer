@@ -290,8 +290,14 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
         
         return (
           <div className="mb-12 bg-gray-800/30 p-6 rounded-lg border border-gray-700">
-            <div className="flex items-center justify-end mb-2">
-              <div className="text-xs text-gray-400 font-mono pr-4">
+            <div className="flex items-center justify-between mb-2">
+              {sortedScores.length > 15 && (
+                <div className="text-xs text-gray-400 flex items-center">
+                  <i className="bi bi-mouse mr-1"></i>
+                  <span>Scroll to see all {sortedScores.length} models</span>
+                </div>
+              )}
+              <div className="text-xs text-gray-400 font-mono">
                 {benchmark.benchmark_id === 'swe-lancer' || benchmark.benchmark_id === 'swe-lancer-ic-swe-diamond' ? (
                   <>Scale: $0-${maxScale.toLocaleString()}</>
                 ) : (
@@ -300,8 +306,9 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
               </div>
             </div>
             
-            <div className="space-y-3 mt-6 max-h-[600px] overflow-y-auto pr-2">
-              {sortedScores.map((score, index) => {
+            <div className="relative">
+              <div className="space-y-3 mt-6 max-h-[600px] overflow-y-auto pr-6 custom-scrollbar">
+                {sortedScores.map((score, index) => {
                   const model = allModels[score.model_id];
                   if (!model) return null;
                   
@@ -318,7 +325,7 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
                           {formatScore(score.score, benchmark.benchmark_id)}
                         </div>
                       </div>
-                      <div className="relative h-2 bg-gray-700 rounded-full overflow-hidden mt-1 ml-8">
+                      <div className="relative h-2 bg-gray-700 rounded-full overflow-hidden mt-1 ml-8 mr-4">
                         <div 
                           className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan-500 to-fuchsia-500 rounded-full"
                           style={{ width: `${percentage}%` }}
@@ -328,7 +335,11 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
                   );
                 })}
               </div>
+              {sortedScores.length > 15 && (
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-800/30 to-transparent pointer-events-none"></div>
+              )}
             </div>
+          </div>
         );
       })()}
 

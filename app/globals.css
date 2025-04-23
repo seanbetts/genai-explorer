@@ -55,3 +55,30 @@ img[src$=".svg"]:not([src^="data:"]):not([src*="/"])::before {
   background-image: linear-gradient(135deg, rgba(234, 0, 217, 0.2) 0%, rgba(10, 189, 198, 0.1) 100%);
   visibility: visible;
 }
+
+/* Custom scrollbar styles */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #4B5563 #1F2937;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+  margin-left: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1F2937;
+  border-radius: 4px;
+  border-left: 2px solid rgba(75, 85, 99, 0.1);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #4B5563;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #0ABDC6;
+}
