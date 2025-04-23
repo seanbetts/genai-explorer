@@ -77,7 +77,13 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
             companiesMap[company.id] = company;
             if (company.models) {
               company.models.forEach((model: Model) => {
-                allModelsMap[model.id] = { ...model, companyId: company.id, companyName: company.name };
+                // Add company info to the model object (using type assertion since we're adding properties)
+                allModelsMap[model.id] = { 
+                  ...model, 
+                  // These are custom properties we're adding for display purposes
+                  companyId: company.id, 
+                  companyName: company.name 
+                } as Model & { companyId: string; companyName: string };
               });
             }
           });
@@ -233,26 +239,31 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
         </div>
       </div>
 
-      {/* Stats Summary */}
-      <div className="flex justify-end gap-4 mb-8">
-        <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700 w-40">
-          <h3 className="text-gray-400 text-xs font-medium mb-1">Models Evaluated</h3>
-          <p className="text-xl font-bold text-white">{scores.length}</p>
+      {/* Combined section with title and stats boxes in same horizontal space */}
+      {sortedScores.length > 0 && (
+        <div className="flex justify-between items-end mb-4">
+          <h2 className="text-xl font-semibold text-white">Performance Ranking</h2>
+          <div className="flex gap-4">
+            <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700 w-40">
+              <h3 className="text-gray-400 text-xs font-medium mb-1">Models Evaluated</h3>
+              <p className="text-xl font-bold text-white">{scores.length}</p>
+            </div>
+            <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700 w-40">
+              <h3 className="text-gray-400 text-xs font-medium mb-1">Average Score</h3>
+              <p className="text-xl font-bold text-white">
+                {sortedScores.length > 0 
+                  ? formatScore(
+                      sortedScores.reduce((sum, score) => sum + score.score, 0) / sortedScores.length,
+                      benchmark.benchmark_id
+                    )
+                  : '-'}
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700 w-40">
-          <h3 className="text-gray-400 text-xs font-medium mb-1">Average Score</h3>
-          <p className="text-xl font-bold text-white">
-            {sortedScores.length > 0 
-              ? formatScore(
-                  sortedScores.reduce((sum, score) => sum + score.score, 0) / sortedScores.length,
-                  benchmark.benchmark_id
-                )
-              : '-'}
-          </p>
-        </div>
-      </div>
-
-      {/* Visualization - simple bar chart */}
+      )}
+      
+      {/* Performance Ranking container */}
       {sortedScores.length > 0 && (() => {
         // Calculate the max scale value once
         const maxScale = (() => {
@@ -279,9 +290,8 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
         
         return (
           <div className="mb-12 bg-gray-800/30 p-6 rounded-lg border border-gray-700">
-            <div className="flex items-center justify-between mb-2">
-              <h2 className="text-xl font-semibold text-white">Performance Ranking</h2>
-              <div className="text-xs text-gray-400 font-mono">
+            <div className="flex items-center justify-end mb-2">
+              <div className="text-xs text-gray-400 font-mono pr-4">
                 {benchmark.benchmark_id === 'swe-lancer' || benchmark.benchmark_id === 'swe-lancer-ic-swe-diamond' ? (
                   <>Scale: $0-${maxScale.toLocaleString()}</>
                 ) : (
@@ -292,40 +302,42 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
             
             <div className="space-y-3 mt-6 max-h-[600px] overflow-y-auto pr-2">
               {sortedScores.map((score, index) => {
-                const model = allModels[score.model_id];
-                if (!model) return null;
-                
-                const company = companies[score.company_id];
-                const percentage = (score.score / maxScale) * 100;
-                
-                return (
-                  <div key={`${score.model_id}-${score.date}`} className="relative">
-                    <div className="flex items-center mb-1">
-                      <div className="w-8 text-sm text-gray-400 font-mono">#{index + 1}</div>
-                      <div className="w-48 truncate font-medium text-cyan-400">{model.name}</div>
-                      <div className="text-sm text-gray-400">{company?.name || 'Unknown'}</div>
-                      <div className="ml-auto font-mono text-white">
-                        {formatScore(score.score, benchmark.benchmark_id)}
+                  const model = allModels[score.model_id];
+                  if (!model) return null;
+                  
+                  const company = companies[score.company_id];
+                  const percentage = (score.score / maxScale) * 100;
+                  
+                  return (
+                    <div key={`${score.model_id}-${score.date}`} className="relative">
+                      <div className="flex items-center mb-1">
+                        <div className="w-8 text-sm text-gray-400 font-mono">#{index + 1}</div>
+                        <div className="w-48 truncate font-medium text-cyan-400">{model.name}</div>
+                        <div className="text-sm text-gray-400">{company?.name || 'Unknown'}</div>
+                        <div className="ml-auto font-mono text-white">
+                          {formatScore(score.score, benchmark.benchmark_id)}
+                        </div>
+                      </div>
+                      <div className="relative h-2 bg-gray-700 rounded-full overflow-hidden mt-1 ml-8">
+                        <div 
+                          className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan-500 to-fuchsia-500 rounded-full"
+                          style={{ width: `${percentage}%` }}
+                        ></div>
                       </div>
                     </div>
-                    <div className="relative h-2 bg-gray-700 rounded-full overflow-hidden mt-1 ml-8">
-                      <div 
-                        className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan-500 to-fuchsia-500 rounded-full"
-                        style={{ width: `${percentage}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
-          </div>
         );
       })()}
 
       {/* Full results table */}
       {sortedScores.length > 0 ? (
         <div className="mt-8">
-          <h2 className="text-xl font-semibold text-white mb-4">All Results</h2>
+          <div className="flex justify-between items-end mb-4">
+            <h2 className="text-xl font-semibold text-white">All Results</h2>
+          </div>
           <div className="overflow-x-auto bg-gray-800/30 rounded-lg border border-gray-700">
             <table className="min-w-full">
               <thead>
@@ -360,7 +372,7 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
                       <td className="py-3 px-4">
                         <div className="flex items-center">
                           <span className="font-medium text-cyan-400">{model.name}</span>
-                          {model.archived && (
+                          {model.status === 'archived' && (
                             <span className="ml-2 px-1.5 py-0.5 text-xs bg-gray-700 text-gray-400 rounded">
                               Archived
                             </span>
