@@ -239,44 +239,15 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
       }
     }
     
-    // Create tooltip content
+    // Create tooltip content - simplified to just show rank, source, and notes
     let tooltipContent = '';
-    
-    // Add benchmark description if available
-    if (benchmark.benchmark_name) {
-      tooltipContent += `Benchmark: ${benchmark.benchmark_name}`;
-      
-      // Use the benchmark_description from the metadata if available
-      if (benchmark.benchmark_description) {
-        tooltipContent += `\n${benchmark.benchmark_description}`;
-      } else {
-        // Fall back to the descriptions in the utils if needed
-        const description = getBenchmarkDescription(benchmark.benchmark_id);
-        if (description) {
-          tooltipContent += `\n${description}`;
-        }
-      }
-    }
-    
-    // Add score with date
-    tooltipContent += tooltipContent ? '\n' : '';
-    tooltipContent += `Score: ${formatRawScore(score.score)}`;
-    
-    if (score.date) {
-      tooltipContent += ` (${new Date(score.date).toLocaleDateString('en-GB', {
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric'
-      })})`;
-    }
     
     // Add global ranking info if available
     if (rankingsLoaded && globalRankings[benchmark.benchmark_id] && globalRankings[benchmark.benchmark_id][model.id]) {
       const globalRank = globalRankings[benchmark.benchmark_id][model.id].rank;
       const totalModels = globalRankings[benchmark.benchmark_id][model.id].total;
       
-      tooltipContent += tooltipContent ? '\n' : '';
-      tooltipContent += `Global Rank: #${globalRank} of ${totalModels} models`;
+      tooltipContent += `Rank: #${globalRank} of ${totalModels} models`;
     }
     
     // Add source info
