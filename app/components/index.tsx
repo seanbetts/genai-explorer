@@ -82,6 +82,12 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
     
     router.push(url);
   };
+  
+  // Handler to go directly to the home page
+  const goToHome = useCallback(() => {
+    router.push('/');
+  }, [router]);
+  
   const handleBack = () => {
     // For company pages, always go back to the landscape view
     if (currentView === 'company') {
@@ -104,14 +110,20 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
         <div className={containerStyles.headerContent}>
           {/* Left section with back button and bulb image */}
           <div className="flex items-center">
-            {/* Bulb image (always visible) */}
-            <Image 
-              src="/images/bulb.png" 
-              alt="Bulb" 
-              width={48}
-              height={48}
-              className="mr-4"
-            />
+            {/* Bulb image (always visible and clickable) */}
+            <button
+              type="button"
+              onClick={goToHome}
+              className="p-0 m-0 border-0 bg-transparent cursor-pointer mr-4 hover:opacity-80 transition-opacity"
+              aria-label="Home"
+            >
+              <Image 
+                src="/images/bulb.png" 
+                alt="Bulb" 
+                width={48}
+                height={48}
+              />
+            </button>
             
             {/* Back button (visible in company and benchmark views) */}
             {(currentView === 'company' || currentView === 'benchmark') && (
@@ -130,8 +142,8 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
           {/* Centered logo (clickable home) */}
           <button
             type="button"
-            className="absolute left-1/2 transform -translate-x-1/2 cursor-pointer p-0 m-0 border-0 bg-transparent"
-            onClick={handleBack}
+            className="absolute left-1/2 transform -translate-x-1/2 cursor-pointer p-0 m-0 border-0 bg-transparent hover:opacity-80 transition-opacity"
+            onClick={goToHome}
             aria-label="Home"
           >
             <Image
