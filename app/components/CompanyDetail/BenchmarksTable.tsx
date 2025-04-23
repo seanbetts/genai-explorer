@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Model, Benchmark, BenchmarkScore, BenchmarkCategory } from '../types';
+import { Model, Benchmark, BenchmarkCategory } from '../types';
+import type { BenchmarkScore } from '../types';
 import { loadBenchmarkMetadata, loadBenchmarkScores, groupBenchmarksByCategory, calculateGlobalRankings, getAllScoresForModelAndBenchmark, getLatestScoreForModelAndBenchmark } from '../utils/benchmarkUtils';
 import BenchmarkCategorySection from './BenchmarkCategorySection';
 import { tableHoverStyles, Legend, SharedTable, TableHeader } from '../shared/TableComponents';
