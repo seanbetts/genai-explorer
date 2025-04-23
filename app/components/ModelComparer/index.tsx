@@ -41,12 +41,12 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack }) => {
       const modelIds = modelParam.split(',');
       // Filter models based on IDs from URL
       const models = modelsArray.filter(model => modelIds.includes(model.id));
-      setSelectedModels(models.slice(0, 4)); // Limit to 4 models
+      setSelectedModels(models.slice(0, 5)); // Limit to 5 models
     } else {
-      // If no models specified, select the first 2-4 popular ones as examples
+      // If no models specified, select the first 3-5 popular ones as examples
       const topModels = [...modelsArray]
         .sort((a, b) => (b.contextLength || 0) - (a.contextLength || 0))
-        .slice(0, 4);
+        .slice(0, 5);
       setSelectedModels(topModels);
     }
   }, [data, searchParams]);
@@ -225,7 +225,7 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack }) => {
   };
   
   const handleModelSelect = (model: Model) => {
-    if (selectedModels.length < 4 && !selectedModels.some(m => m.id === model.id)) {
+    if (selectedModels.length < 5 && !selectedModels.some(m => m.id === model.id)) {
       setSelectedModels([...selectedModels, model]);
     }
   };
@@ -236,15 +236,11 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack }) => {
   
   return (
     <div className="w-full max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold text-white mb-6 flex items-center">
-        <i className="bi bi-bar-chart-line text-fuchsia-400 mr-3 text-2xl"></i>
-        Model Comparison
-      </h1>
       
       {/* Selected Models */}
       <div className="bg-gray-800/30 p-6 rounded-lg border border-gray-700 mb-6">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-semibold text-white">Selected Models ({selectedModels.length}/4)</h2>
+          <h2 className="text-xl font-semibold text-white">Selected Models ({selectedModels.length}/5)</h2>
           <button 
             onClick={() => setSelectedModels([])}
             className="text-xs bg-gray-700 hover:bg-gray-600 text-gray-300 py-1 px-3 rounded"
