@@ -219,7 +219,7 @@ const FeaturedBenchmarksSection: React.FC<FeaturedBenchmarksSectionProps> = ({
   
   return (
     <SharedTable>
-      <TableHeader items={headerItems} />
+      <TableHeader items={headerItems} showReleaseDates={true} />
       <tbody>
         {benchmarks.map(benchmark => (
           <tr key={benchmark.benchmark_id} className="cursor-pointer">

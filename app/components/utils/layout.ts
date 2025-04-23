@@ -149,7 +149,7 @@ export const tableStyles = {
     contentSecondary: 'text-gray-300 text-sm',
     
     // Special cell styles
-    modelName: 'font-medium text-cyan-400 font-mono',
+    modelName: 'font-medium text-cyan-400 font-mono text-base',
     metric: 'font-medium text-white tabular-nums font-mono',
     
     // Border utilities

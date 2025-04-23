@@ -336,7 +336,7 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
       </p>
       
       <SharedTable>
-        {showHeader && <TableHeader items={headerItems} />}
+        {showHeader && <TableHeader items={headerItems} showReleaseDates={true} />}
         <tbody>
           {currentBenchmarks.map(benchmark => (
             <tr key={benchmark.benchmark_id} className="cursor-pointer">

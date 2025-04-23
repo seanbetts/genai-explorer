@@ -61,9 +61,14 @@ interface TableHeaderProps {
     releaseDate?: string;
   }[];
   cornerContent?: React.ReactNode;
+  showReleaseDates?: boolean; // Control whether to show release dates
 }
 
-export const TableHeader: React.FC<TableHeaderProps> = ({ items, cornerContent }) => {
+export const TableHeader: React.FC<TableHeaderProps> = ({ 
+  items, 
+  cornerContent,
+  showReleaseDates = false // Default to not showing release dates
+}) => {
   const columnWidth = items.length > 0 ? `${100 / items.length}%` : 'auto';
   
   return (
@@ -80,17 +85,22 @@ export const TableHeader: React.FC<TableHeaderProps> = ({ items, cornerContent }
             style={{width: columnWidth}}
             title={item.description}
           >
-            <div className="flex flex-col items-center">
-              <div className={tableStyles.modelName}>{item.name}</div>
-              {item.releaseDate && (
-                <div className="text-xs text-gray-400 mt-1">
-                  {new Date(item.releaseDate).toLocaleDateString('en-GB', {
-                    month: 'short',
-                    year: 'numeric'
-                  })}
+            {showReleaseDates ? (
+              <div className="flex flex-col items-center">
+                <div className={tableStyles.modelName}>{item.name}</div>
+                <div className="text-xs text-gray-400 mt-1 font-normal">
+                  {item.releaseDate 
+                    ? new Date(item.releaseDate).toLocaleDateString('en-GB', {
+                        month: 'short',
+                        year: 'numeric'
+                      })
+                    : '-'
+                  }
                 </div>
-              )}
-            </div>
+              </div>
+            ) : (
+              <div className={tableStyles.modelName}>{item.name}</div>
+            )}
           </th>
         ))}
       </tr>
