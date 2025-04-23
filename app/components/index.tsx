@@ -8,6 +8,7 @@ import ExplorerView from './ExplorerView';
 // Dynamically load detail components to reduce initial bundle size
 const CompanyDetail = lazy(() => import('./CompanyDetail'));
 const BenchmarkDetail = lazy(() => import('./BenchmarkDetail'));
+const ModelComparer = lazy(() => import('./ModelComparer'));
 import { textStyles, categoryStyles } from './utils/theme';
 import { containerStyles } from './utils/layout';
 import { categoryConfig } from './categoryConfig';
@@ -38,12 +39,16 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
   const selectedCompany = companyId
     ? data.companies.find(c => c.id === companyId) || null
     : null;
+  
+  const compareMode = searchParams.has('compare');
     
   let currentView = 'home';
   if (selectedCompany) {
     currentView = 'company';
   } else if (benchmarkId) {
     currentView = 'benchmark';
+  } else if (compareMode) {
+    currentView = 'compare';
   }
   
   // Convert URL tab parameter to category key for highlighting
@@ -292,21 +297,37 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
       {/* Features Navigation - visible on all views - sticky */}
       <div className="bg-gray-800 border-b border-fuchsia-900/50 py-2 shadow-md sticky top-[90px] z-20">
         <div className="container mx-auto px-5">
-          <div className="flex items-center font-mono text-xs py-1 md:pl-8">
+          <div className="flex items-center font-mono text-xs py-1 md:pl-8 space-x-8">
             <a 
               href="/" 
               className={`transition-colors flex items-center ${
-                currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark')
+                currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
                   ? 'text-cyan-400' 
                   : 'text-gray-300 hover:text-cyan-400'
               }`}
             >
               <i className={`bi bi-grid mr-1.5 ${
-                currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark')
+                currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
                   ? 'text-cyan-400'
                   : 'text-fuchsia-500'
               }`}></i>
               <span>Model Explorer</span>
+            </a>
+            
+            <a 
+              href="/compare" 
+              className={`transition-colors flex items-center ${
+                searchParams.has('compare')
+                  ? 'text-cyan-400' 
+                  : 'text-gray-300 hover:text-cyan-400'
+              }`}
+            >
+              <i className={`bi bi-bar-chart-line mr-1.5 ${
+                searchParams.has('compare')
+                  ? 'text-cyan-400'
+                  : 'text-fuchsia-500'
+              }`}></i>
+              <span>Model Comparer</span>
             </a>
             
             {/* Breadcrumb navigation - hidden for now 
@@ -368,6 +389,21 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
             />
           </Suspense>
         )}
+        
+        {currentView === 'compare' && (
+          <Suspense fallback={
+            <div className="animate-pulse p-6 space-y-6">
+              <div className="h-6 bg-gray-700 rounded w-32 mx-auto"></div>
+              <div className="h-48 bg-gray-700 rounded"></div>
+              <div className="h-48 bg-gray-700 rounded"></div>
+            </div>
+          }>
+            <ModelComparer 
+              data={data}
+              onBack={handleBack}
+            />
+          </Suspense>
+        )}
       </main>
 
       {/* Footer */}
@@ -384,17 +420,34 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
                     <a 
                       href="/" 
                       className={`transition-colors text-xs leading-tight py-0.5 flex items-center ${
-                        currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark')
+                        currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
                           ? 'text-cyan-400' 
                           : 'text-gray-300 hover:text-cyan-400'
                       }`}
                     >
                       <i className={`bi bi-grid mr-1.5 ${
-                        currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark')
+                        currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
                           ? 'text-cyan-400'
                           : 'text-fuchsia-500'
                       }`}></i>
                       <span>Model Explorer</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="/compare" 
+                      className={`transition-colors text-xs leading-tight py-0.5 flex items-center ${
+                        searchParams.has('compare')
+                          ? 'text-cyan-400' 
+                          : 'text-gray-300 hover:text-cyan-400'
+                      }`}
+                    >
+                      <i className={`bi bi-bar-chart-line mr-1.5 ${
+                        searchParams.has('compare')
+                          ? 'text-cyan-400'
+                          : 'text-fuchsia-500'
+                      }`}></i>
+                      <span>Model Comparer</span>
                     </a>
                   </li>
                 </ul>

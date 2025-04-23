@@ -114,6 +114,17 @@ export interface Model {
   specs?: Specs;
   benchmarkScores?: BenchmarkScore[]; // Benchmark scores for this model
   description?: string; // Added for display purposes (not in the source data)
+  
+  // Additional fields for comparison
+  parameterCount?: number; // In billions
+  contextLength?: number; // In tokens
+  license?: string; // License type
+  trainingCutoff?: string; // Training data cutoff date
+  access?: string[]; // API, Chat interface, etc.
+  
+  // For display in comparison view
+  companyId?: string;
+  companyName?: string;
 }
 
 export interface Subscription {
