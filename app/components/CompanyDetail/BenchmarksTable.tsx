@@ -472,9 +472,13 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
             </p>
             
             <div className="text-sm text-gray-400 border-t border-gray-700 pt-3 mt-2">
-              <p>
+              <p className="mb-2">
                 <strong className="text-gray-300">Sources:</strong> Benchmark data is collected from research papers, model provider documentation, and published evaluations.
                 Click on a benchmark name to view its paper, or click on a score to see the source of the benchmark result.
+              </p>
+              <p>
+                <strong className="text-gray-300">Tooltips:</strong> Hover over benchmark names to see descriptions of what each benchmark measures.
+                Hover over scores to view ranking information, data sources, and any notes about the specific result.
               </p>
             </div>
           </div>
