@@ -255,26 +255,25 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Popular Companies */}
             <div>
-              <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Companies</h3>
+              <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Top Companies</h3>
               <ul className="space-y-0.5">
-                <li><a href="/?company=openai" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">OpenAI</a></li>
-                <li><a href="/?company=anthropic" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Anthropic</a></li>
-                <li><a href="/?company=google-deepmind" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Google DeepMind</a></li>
                 <li><a href="/?company=meta" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Meta</a></li>
+                <li><a href="/?company=openai" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">OpenAI</a></li>
                 <li><a href="/?company=microsoft" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Microsoft</a></li>
+                <li><a href="/?company=google" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Google</a></li>
                 <li><a href="/?company=mistral" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Mistral</a></li>
               </ul>
             </div>
             
             {/* Benchmarks */}
             <div>
-              <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Benchmarks</h3>
+              <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Top Benchmarks</h3>
               <ul className="space-y-0.5">
+                <li><a href="/?benchmark=gpqa-diamond" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">GPQA Diamond</a></li>
+                <li><a href="/?benchmark=mmmu" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">MMMU</a></li>
+                <li><a href="/?benchmark=swe-bench-verified" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">SWE-Bench Verified</a></li>
+                <li><a href="/?benchmark=aider-polyglot" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Aider Polyglot</a></li>
                 <li><a href="/?benchmark=chatbot-arena" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Chatbot Arena</a></li>
-                <li><a href="/?benchmark=mt-bench" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">MT-Bench</a></li>
-                <li><a href="/?benchmark=mmlu" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">MMLU</a></li>
-                <li><a href="/?benchmark=gsm8k" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">GSM8K</a></li>
-                <li><a href="/?benchmark=humaneval" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">HumanEval</a></li>
               </ul>
             </div>
             
