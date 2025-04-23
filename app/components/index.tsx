@@ -1,12 +1,13 @@
  'use client';
 
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { ExplorerData, Company } from './types';
 import ExplorerView from './ExplorerView';
-// Dynamically load CompanyDetail to reduce initial bundle size
+// Dynamically load detail components to reduce initial bundle size
 const CompanyDetail = lazy(() => import('./CompanyDetail'));
+const BenchmarkDetail = lazy(() => import('./BenchmarkDetail'));
 import { textStyles } from './utils/theme';
 import { containerStyles } from './utils/layout';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -19,12 +20,28 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  // Derive selected company and view from URL
+  // Make explorer data globally available for other components
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      (window as any).__EXPLORER_DATA__ = data;
+    }
+  }, [data]);
+
+  // Derive view parameters from URL
   const companyId = searchParams.get('company');
+  const benchmarkId = searchParams.get('benchmark');
+  
+  // Determine the current view
   const selectedCompany = companyId
     ? data.companies.find(c => c.id === companyId) || null
     : null;
-  const currentView = selectedCompany ? 'company' : 'home';
+    
+  let currentView = 'home';
+  if (selectedCompany) {
+    currentView = 'company';
+  } else if (benchmarkId) {
+    currentView = 'benchmark';
+  }
 
   // Handlers to update URL using Next.js shallow routing
   const handleCompanySelect = (id: string, category?: string) => {
@@ -153,6 +170,21 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
           }>
             <CompanyDetail
               company={selectedCompany}
+              onBack={handleBack}
+            />
+          </Suspense>
+        )}
+        
+        {currentView === 'benchmark' && benchmarkId && (
+          <Suspense fallback={
+            <div className="animate-pulse p-6 space-y-6">
+              <div className="h-6 bg-gray-700 rounded w-32 mx-auto"></div>
+              <div className="h-48 bg-gray-700 rounded"></div>
+              <div className="h-48 bg-gray-700 rounded"></div>
+            </div>
+          }>
+            <BenchmarkDetail
+              benchmarkId={benchmarkId}
               onBack={handleBack}
             />
           </Suspense>

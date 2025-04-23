@@ -343,25 +343,28 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
               <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
                 <div className={containerStyles.flexCenter}>
                   <i className={`bi bi-graph-up ${iconStyles.tableRowIcon}`}></i>
-                  {benchmark.benchmark_paper ? (
+                  <div className="flex flex-col">
                     <a 
-                      href={benchmark.benchmark_paper} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                      href={`/?benchmark=${benchmark.benchmark_id}`}
                       className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
-                      title={benchmark.benchmark_description || `View ${benchmark.benchmark_name} benchmark details`}
-                      onClick={(e) => e.stopPropagation()}
+                      title={`View all data for ${benchmark.benchmark_name}`}
                     >
                       {benchmark.benchmark_name}
                     </a>
-                  ) : (
-                    <span 
-                      className={textStyles.primary} 
-                      title={benchmark.benchmark_description || ""}
-                    >
-                      {benchmark.benchmark_name}
-                    </span>
-                  )}
+                    {benchmark.benchmark_paper && (
+                      <a 
+                        href={benchmark.benchmark_paper} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-xs text-gray-400 hover:text-gray-300 transition-colors mt-1"
+                        title={`View ${benchmark.benchmark_name} paper`}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <i className="bi bi-file-earmark-text mr-1"></i>
+                        View paper
+                      </a>
+                    )}
+                  </div>
                 </div>
               </td>
               {modelsToDisplay.map(model => (

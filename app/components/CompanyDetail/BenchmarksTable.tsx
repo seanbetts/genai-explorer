@@ -260,24 +260,25 @@ const FeaturedBenchmarksSection: React.FC<FeaturedBenchmarksSectionProps> = Reac
               <div className={containerStyles.flexCenter}>
                 <i className={`bi bi-graph-up-arrow ${iconStyles.tableRowIcon} text-fuchsia-400`}></i>
                 <div className="flex flex-col">
-                  {benchmark.benchmark_paper ? (
+                  <a 
+                    href={`/?benchmark=${benchmark.benchmark_id}`}
+                    className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
+                    title={`View all data for ${benchmark.benchmark_name}`}
+                  >
+                    {benchmark.benchmark_name}
+                  </a>
+                  {benchmark.benchmark_paper && (
                     <a 
                       href={benchmark.benchmark_paper} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
-                      title={benchmark.benchmark_description || `View ${benchmark.benchmark_name} benchmark details`}
+                      className="text-xs text-gray-400 hover:text-gray-300 transition-colors mt-1"
+                      title={`View ${benchmark.benchmark_name} paper`}
                       onClick={(e) => e.stopPropagation()}
                     >
-                      {benchmark.benchmark_name}
+                      <i className="bi bi-file-earmark-text mr-1"></i>
+                      View paper
                     </a>
-                  ) : (
-                    <span 
-                      className={textStyles.primary}
-                      title={benchmark.benchmark_description || ""}
-                    >
-                      {benchmark.benchmark_name}
-                    </span>
                   )}
                   <span className="text-xs text-gray-400 mt-1">
                     {benchmark.benchmark_category}
