@@ -318,7 +318,7 @@
         },
         {
           "id": "gpt-4-1",
-          "name": "GPT-4.1 (API only)",
+          "name": "GPT-4.1",
           "status": "primary",
           "type": "Large Language Model",
           "category": "frontier",
@@ -353,7 +353,7 @@
         },
         {
           "id": "gpt-4-1-mini",
-          "name": "GPT 4.1 Mini (API only)",
+          "name": "GPT 4.1 Mini",
           "status": "secondary",
           "type": "Large Language Model",
           "category": "frontier",
@@ -388,7 +388,7 @@
         },
         {
           "id": "gpt-4-1-nano",
-          "name": "GPT 4.1 Nano (API only)",
+          "name": "GPT 4.1 Nano",
           "status": "secondary",
           "type": "Large Language Model",
           "category": "frontier",
