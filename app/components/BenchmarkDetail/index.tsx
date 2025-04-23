@@ -234,18 +234,36 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
               </span>
             )}
           </h1>
-          <div className="text-gray-300 mb-2">
-            {benchmark.benchmark_paper && (
-              <a 
-                href={benchmark.benchmark_paper} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-cyan-400 hover:text-cyan-300 transition-colors inline-flex items-center"
-              >
-                <i className="bi bi-file-earmark-text mr-1"></i>
-                View paper
-              </a>
-            )}
+          <div className="flex items-center justify-between text-gray-300 mb-2">
+            <div className="flex items-center">
+              {benchmark.benchmark_paper && (
+                <a 
+                  href={benchmark.benchmark_paper} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-cyan-400 hover:text-cyan-300 transition-colors inline-flex items-center"
+                >
+                  <i className="bi bi-file-earmark-text mr-1"></i>
+                  View paper
+                </a>
+              )}
+            </div>
+            
+            {/* Last updated date shown in the benchmark page */}
+            <div className="text-[10px] font-mono text-right">
+              Benchmark data last updated: <span className="text-cyan-400 font-semibold">{
+                allScores.length > 0 
+                ? new Date(allScores.reduce((latest, score) => {
+                    const scoreDate = new Date(score.date);
+                    return scoreDate > new Date(latest) ? score.date : latest;
+                  }, allScores[0].date)).toLocaleDateString('en-GB', { 
+                    day: 'numeric', 
+                    month: 'long', 
+                    year: 'numeric' 
+                  })
+                : 'N/A'
+              }</span>
+            </div>
           </div>
           {description && (
             <p className="text-gray-300 mt-2">

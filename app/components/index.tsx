@@ -192,7 +192,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
   
   
   return (
-    <div className={containerStyles.appContainer}>
+    <div className={containerStyles.appContainer + " flex flex-col min-h-screen"}>
       <header className={containerStyles.header}>
         <div className={containerStyles.headerContent}>
           {/* Left section with back button and bulb image */}
@@ -266,24 +266,11 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
                 }</span>
               </div>
             )}
-            
-            {/* Benchmark data last updated - only on benchmark view */}
-            {currentView === 'benchmark' && benchmarkLastUpdated && (
-              <div className="text-[10px] font-mono mt-2 text-right">
-                Benchmark data last updated: <span className="text-cyan-400 font-semibold">{
-                  benchmarkLastUpdated.toLocaleDateString('en-GB', { 
-                    day: 'numeric', 
-                    month: 'long', 
-                    year: 'numeric' 
-                  })
-                }</span>
-              </div>
-            )}
           </div>
         </div>
       </header>
 
-      <main className={containerStyles.mainContent}>
+      <main className={containerStyles.mainContent + " flex-grow"}>
         {currentView === 'home' && (
           <ExplorerView data={data} onCompanySelect={handleCompanySelect} />
         )}
@@ -321,7 +308,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
       </main>
 
       {/* Footer */}
-      <footer className={containerStyles.footer}>
+      <footer className={containerStyles.footer + " mt-auto"}>
         <div className={containerStyles.footerContent}>
           <div className="flex flex-col md:flex-row">
             {/* Left third - navigation lists equally spaced */}
