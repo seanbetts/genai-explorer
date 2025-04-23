@@ -176,60 +176,45 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
     <div className="w-full max-w-7xl mx-auto px-4">
       {/* Header section */}
       <div className="mb-8">
-        <div className="flex justify-between items-center mb-4">
-          <div>
-            <h1 className="text-3xl font-bold text-white mb-2 flex items-center">
-              <i className="bi bi-graph-up-arrow text-fuchsia-400 mr-3 text-2xl"></i>
-              {benchmark.benchmark_name}
-              {benchmark.featured_benchmark && (
-                <span className="ml-3 bg-fuchsia-900/50 text-fuchsia-400 text-xs px-2 py-1 rounded-full uppercase font-medium">
-                  Featured Benchmark
-                </span>
-              )}
-            </h1>
-            <div className="text-gray-300 mb-2">
-              <span className="px-2 py-1 bg-gray-800 rounded text-sm font-mono text-cyan-400 mr-2">
-                {benchmark.benchmark_category}
+        <div className="mb-4">
+          <h1 className="text-3xl font-bold text-white mb-2 flex items-center">
+            <i className="bi bi-graph-up-arrow text-fuchsia-400 mr-3 text-2xl"></i>
+            {benchmark.benchmark_name}
+            {benchmark.featured_benchmark && (
+              <span className="ml-3 bg-fuchsia-900/50 text-fuchsia-400 text-xs px-2 py-1 rounded-full uppercase font-medium">
+                Featured Benchmark
               </span>
-              {benchmark.benchmark_paper && (
-                <a 
-                  href={benchmark.benchmark_paper} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-cyan-400 hover:text-cyan-300 transition-colors inline-flex items-center ml-2"
-                >
-                  <i className="bi bi-file-earmark-text mr-1"></i>
-                  View paper
-                </a>
-              )}
-            </div>
-            {description && (
-              <p className="text-gray-300 mt-2 max-w-3xl">
-                {description}
-              </p>
+            )}
+          </h1>
+          <div className="text-gray-300 mb-2">
+            <span className="px-2 py-1 bg-gray-800 rounded text-sm font-mono text-cyan-400 mr-2">
+              {benchmark.benchmark_category}
+            </span>
+            {benchmark.benchmark_paper && (
+              <a 
+                href={benchmark.benchmark_paper} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-cyan-400 hover:text-cyan-300 transition-colors inline-flex items-center ml-2"
+              >
+                <i className="bi bi-file-earmark-text mr-1"></i>
+                View paper
+              </a>
             )}
           </div>
-          <button
-            onClick={onBack}
-            className="bg-gray-800 hover:bg-gray-700 text-gray-300 px-4 py-2 rounded flex items-center transition-colors"
-          >
-            <i className="bi bi-arrow-left mr-2"></i>
-            Back
-          </button>
+          {description && (
+            <p className="text-gray-300 mt-2 max-w-3xl">
+              {description}
+            </p>
+          )}
         </div>
       </div>
 
       {/* Stats Summary */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
           <h3 className="text-gray-400 text-sm font-medium mb-1">Models Evaluated</h3>
           <p className="text-2xl font-bold text-white">{scores.length}</p>
-        </div>
-        <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
-          <h3 className="text-gray-400 text-sm font-medium mb-1">Companies</h3>
-          <p className="text-2xl font-bold text-white">
-            {new Set(scores.map(s => s.company_id)).size}
-          </p>
         </div>
         <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
           <h3 className="text-gray-400 text-sm font-medium mb-1">Average Score</h3>
@@ -248,8 +233,8 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
       {sortedScores.length > 0 && (
         <div className="mb-12 bg-gray-800/30 p-6 rounded-lg border border-gray-700">
           <h2 className="text-xl font-semibold text-white mb-4">Performance Ranking</h2>
-          <div className="space-y-3 mt-6">
-            {sortedScores.slice(0, 10).map((score, index) => {
+          <div className="space-y-3 mt-6 max-h-[600px] overflow-y-auto pr-2">
+            {sortedScores.map((score, index) => {
               const model = allModels[score.model_id];
               if (!model) return null;
               
@@ -275,11 +260,6 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
                 </div>
               );
             })}
-            {sortedScores.length > 10 && (
-              <div className="text-center text-gray-400 text-sm mt-4">
-                Showing top 10 out of {sortedScores.length} models
-              </div>
-            )}
           </div>
         </div>
       )}

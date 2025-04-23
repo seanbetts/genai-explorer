@@ -97,8 +97,8 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
               className="mr-4"
             />
             
-            {/* Back button (only visible in company view) */}
-            {currentView === 'company' && (
+            {/* Back button (visible in company and benchmark views) */}
+            {(currentView === 'company' || currentView === 'benchmark') && (
               <button
                 type="button"
                 onClick={handleBack}
