@@ -40,18 +40,29 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
     ? data.companies.find(c => c.id === companyId) || null
     : null;
   
-  // Check for /compare path and compare parameter
-  const isComparePage = typeof window !== 'undefined' && window.location.pathname === '/compare';
-  const compareMode = searchParams.has('compare') || isComparePage;
-    
-  let currentView = 'home';
-  if (selectedCompany) {
-    currentView = 'company';
-  } else if (benchmarkId) {
-    currentView = 'benchmark';
-  } else if (compareMode) {
-    currentView = 'compare';
-  }
+  // We'll use a URL parameter approach to avoid hydration issues
+  const compareParam = searchParams.has('compare');
+  
+  // Use the path parameter from the URL to determine if we're on the compare page
+  const isComparePage = typeof window !== 'undefined' 
+    ? window.location.pathname === '/compare'
+    : false;
+  
+  // The currentView state should be initialized after hydration
+  const [currentView, setCurrentView] = useState('home');
+  
+  // Update the current view after component mounts to avoid hydration issues
+  useEffect(() => {
+    let view = 'home';
+    if (selectedCompany) {
+      view = 'company';
+    } else if (benchmarkId) {
+      view = 'benchmark';
+    } else if (isComparePage || compareParam) {
+      view = 'compare';
+    }
+    setCurrentView(view);
+  }, [selectedCompany, benchmarkId, isComparePage, compareParam]);
   
   // Convert URL tab parameter to category key for highlighting
   const getActiveCategoryFromTab = (tab: string | null): string => {
@@ -357,6 +368,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
       </div>
 
       <main className={containerStyles.mainContent + " flex-grow mb-32"}>
+        {/* Use a client-side only approach with conditionals inside useEffect for content rendering */}
         {currentView === 'home' && (
           <ExplorerView data={data} onCompanySelect={handleCompanySelect} />
         )}
@@ -392,7 +404,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
           </Suspense>
         )}
         
-        {currentView === 'compare' && (
+        {(currentView === 'compare' || isComparePage || compareParam) && (
           <Suspense fallback={
             <div className="animate-pulse p-6 space-y-6">
               <div className="h-6 bg-gray-700 rounded w-32 mx-auto"></div>
