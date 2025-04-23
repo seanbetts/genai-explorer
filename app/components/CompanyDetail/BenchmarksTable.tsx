@@ -467,6 +467,8 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
             <p className="text-gray-300 text-sm mb-3">
               Benchmarks provide standardized tests to compare model capabilities across different dimensions. 
               Scores shown are raw benchmark scores reported by the model providers.
+              Models with the top 5 scores across all models in our database for each benchmark are marked with their rank (#1, #2, #3, etc.).
+              Note that rankings are only computed based on models included in our database, not all models that exist.
             </p>
             
             <div className="text-sm text-gray-400 border-t border-gray-700 pt-3 mt-2">
