@@ -289,8 +289,8 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
         </div>
       </header>
 
-      {/* Features Navigation - visible on all views */}
-      <div className="bg-gray-800 border-b border-fuchsia-900/50 py-2 shadow-md">
+      {/* Features Navigation - visible on all views - sticky */}
+      <div className="bg-gray-800 border-b border-fuchsia-900/50 py-2 shadow-md sticky top-[90px] z-20">
         <div className="container mx-auto px-5">
           <div className="flex items-center font-mono text-xs py-1 md:pl-8">
             <a 
