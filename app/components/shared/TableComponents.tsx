@@ -59,6 +59,7 @@ interface TableHeaderProps {
     name: string; 
     description?: string;
     releaseDate?: string;
+    onRemove?: () => void; // Optional remove handler for comparison view
   }[];
   cornerContent?: React.ReactNode;
   showReleaseDates?: boolean; // Control whether to show release dates
@@ -101,7 +102,28 @@ export const TableHeader: React.FC<TableHeaderProps> = ({
                 </div>
               </div>
             ) : (
-              <div className={tableStyles.modelName}>{item.name}</div>
+              <div className="relative group">
+                <div className={`${tableStyles.modelName} text-center`}>{item.name}</div>
+                {item.description && (
+                  <div className="text-xs text-gray-400 text-center mt-0.5">
+                    {item.description}
+                  </div>
+                )}
+                {/* Remove button - always visible if onRemove is provided */}
+                {item.onRemove && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      item.onRemove?.();
+                    }}
+                    className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center bg-gray-700 hover:bg-gray-600 border border-gray-600 rounded-full text-fuchsia-500 hover:text-fuchsia-400 z-20"
+                    aria-label={`Remove ${item.name} from comparison`}
+                    title={`Remove ${item.name} from comparison`}
+                  >
+                    <i className="bi bi-x text-xs"></i>
+                  </button>
+                )}
+              </div>
             )}
           </th>
         ))}

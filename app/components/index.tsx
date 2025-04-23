@@ -517,7 +517,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
             <div className="md:w-1/3 md:flex-shrink-0">
               <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">About</h3>
               <p className="text-gray-300 text-sm mb-4">
-                The Blueprint's Generative AI Explorer helps people understand the generative AI landspace and explore companies, models, and benchmarks.
+                The Blueprint's Generative AI Explorer helps people understand the generative AI landscape and explore companies, models, and benchmarks.
               </p>
               <div className="flex items-center gap-4 mb-4">
                 <a href="https://github.com/seanbetts/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 transition-colors">
