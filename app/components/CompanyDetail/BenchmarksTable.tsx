@@ -131,17 +131,33 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
       </div>
       
       {/* Render each benchmark category section */}
-      {Object.entries(groupedBenchmarks).map(([category, categoryBenchmarks], index) => (
-        <BenchmarkCategorySection
-          key={category}
-          category={category}
-          benchmarks={categoryBenchmarks}
-          models={sortedModels}
-          benchmarkScores={benchmarkScores}
-          companyId={companyId}
-          showHeader={index === 0} // Only show header for the first category
-        />
-      ))}
+      {(() => {
+        // Filter to only categories that have scores for this company
+        const filteredCategories = Object.entries(groupedBenchmarks)
+          .filter(([category, categoryBenchmarks]) => {
+            return categoryBenchmarks.some(benchmark => {
+              return sortedModels.some(model => {
+                return benchmarkScores.some(score => 
+                  score.model_id === model.id && 
+                  score.benchmark_id === benchmark.benchmark_id
+                );
+              });
+            });
+          });
+
+        // Render each category, with showHeader=true only for the first visible category
+        return filteredCategories.map(([category, categoryBenchmarks], index) => (
+          <BenchmarkCategorySection
+            key={category}
+            category={category}
+            benchmarks={categoryBenchmarks}
+            models={sortedModels}
+            benchmarkScores={benchmarkScores}
+            companyId={companyId}
+            showHeader={index === 0} // Only show header for the first visible category
+          />
+        ));
+      })()}
       
       {/* About Benchmarks and Sources - moved to bottom */}
       <div className="mt-8 bg-gray-800/50 border border-gray-700 rounded-lg p-4">

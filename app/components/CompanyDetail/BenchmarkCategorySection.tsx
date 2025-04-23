@@ -50,6 +50,29 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
 
   // Use all benchmarks rather than paginating
   const currentBenchmarks = benchmarks;
+  
+  // Special formatting for specific benchmarks
+  const formatBenchmarkScore = (score: BenchmarkScore, benchmark: Benchmark): string => {
+    const id = benchmark.benchmark_id;
+    
+    // No decimal points for Codeforces
+    if (id === 'codeforces') {
+      return Math.round(score.score).toString();
+    }
+    
+    // No decimal points for Chatbot Arena
+    if (id === 'chatbot-arena') {
+      return Math.round(score.score).toString();
+    }
+    
+    // Format SWE Lancer and SWE-Lancer: IC SWE Diamond as dollars without decimal
+    if (id === 'swe-lancer' || id === 'swe-lancer-ic-swe-diamond') {
+      return `$${Math.round(score.score)}`;
+    }
+    
+    // Default formatting with 1 decimal place
+    return score.score.toFixed(1);
+  };
 
   // Format model items for table header
   const headerItems = modelsToDisplay.map(model => ({
@@ -97,14 +120,14 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
             className="font-medium font-mono text-cyan-400 hover:text-fuchsia-500 transition-colors flex items-center"
             title={tooltipContent}
           >
-            {score.score.toFixed(1)}{rankBadge}
+            {formatBenchmarkScore(score, benchmark)}{rankBadge}
           </a>
         ) : (
           <div 
             className="font-medium font-mono text-cyan-400 flex items-center"
             title={tooltipContent}
           >
-            {score.score.toFixed(1)}{rankBadge}
+            {formatBenchmarkScore(score, benchmark)}{rankBadge}
           </div>
         )}
         {score.date && (
