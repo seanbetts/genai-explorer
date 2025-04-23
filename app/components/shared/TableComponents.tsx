@@ -37,13 +37,13 @@ interface LegendProps {
 
 export const Legend: React.FC<LegendProps> = ({ items }) => {
   return (
-    <div className={containerStyles.legend}>
-      <div className={`${containerStyles.legendBox} hover:shadow-md transition-all duration-300 hover:border-fuchsia-700 legend-container`}>
-        <div className={containerStyles.legendItems}>
+    <div className="flex justify-center w-full my-2">
+      <div className="bg-gray-800 border border-gray-700 rounded-lg p-2 px-4 hover:shadow-md transition-all duration-300 hover:border-fuchsia-700 legend-container">
+        <div className="flex flex-wrap justify-center gap-4">
           {items.map((item, index) => (
-            <div key={index} className={containerStyles.legendItem}>
+            <div key={index} className="flex items-center gap-2 py-1">
               {item.icon}
-              <span className={`${textStyles.sm} ${textStyles.primary}`}>{item.label}</span>
+              <span className="text-sm text-gray-300">{item.label}</span>
             </div>
           ))}
         </div>
@@ -54,7 +54,7 @@ export const Legend: React.FC<LegendProps> = ({ items }) => {
 
 // Reusable table header component with consistent sizing and styling
 interface TableHeaderProps {
-  items: { id: string; name: string }[];
+  items: { id: string; name: string; description?: string }[];
   cornerContent?: React.ReactNode;
 }
 
@@ -73,6 +73,7 @@ export const TableHeader: React.FC<TableHeaderProps> = ({ items, cornerContent }
             key={item.id} 
             className={`${tableStyles.headerCellCenter} table-header-cell`}
             style={{width: columnWidth}}
+            title={item.description}
           >
             <div className={tableStyles.modelName}>{item.name}</div>
           </th>

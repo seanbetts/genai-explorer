@@ -5,6 +5,8 @@ export interface Benchmark {
   benchmark_id: string;
   benchmark_name: string;
   benchmark_category: string;
+  featured_benchmark?: boolean;
+  benchmark_description?: string | null;
   benchmark_paper: string | null;
 }
 
@@ -111,6 +113,7 @@ export interface Model {
   capabilities?: Capabilities;
   specs?: Specs;
   benchmarkScores?: BenchmarkScore[]; // Benchmark scores for this model
+  description?: string; // Added for display purposes (not in the source data)
 }
 
 export interface Subscription {

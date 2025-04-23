@@ -2,14 +2,256 @@
 
 import React, { useEffect, useState } from 'react';
 import { Model, Benchmark, BenchmarkScore, BenchmarkCategory } from '../types';
-import { loadBenchmarkMetadata, loadBenchmarkScores, groupBenchmarksByCategory } from '../utils/benchmarkUtils';
+import { loadBenchmarkMetadata, loadBenchmarkScores, groupBenchmarksByCategory, calculateGlobalRankings } from '../utils/benchmarkUtils';
 import BenchmarkCategorySection from './BenchmarkCategorySection';
-import { tableHoverStyles, Legend } from '../shared/TableComponents';
+import { tableHoverStyles, Legend, SharedTable, TableHeader } from '../shared/TableComponents';
+import { textStyles } from '../utils/theme';
+import { tableStyles, iconStyles, containerStyles } from '../utils/layout';
 
 interface BenchmarksTableProps {
   models: Model[];
   companyId: string;
 }
+
+// Component to display a single benchmark score
+interface BenchmarkScoreProps {
+  model: Model;
+  benchmark: Benchmark;
+  benchmarkScores: BenchmarkScore[];
+  globalRankings?: Record<string, Record<string, { rank: number, total: number }>>;
+  rankingsLoaded?: boolean;
+}
+
+const BenchmarkScore: React.FC<BenchmarkScoreProps> = ({ 
+  model, 
+  benchmark, 
+  benchmarkScores,
+  globalRankings = {},
+  rankingsLoaded = false
+}) => {
+  
+  // Get the score for this model and benchmark
+  const score = benchmarkScores.find(
+    s => s.model_id === model.id && s.benchmark_id === benchmark.benchmark_id
+  );
+  
+  if (!score) {
+    return <span className={textStyles.tertiary}>-</span>;
+  }
+  
+  // Format the score based on benchmark type
+  const formatBenchmarkScore = (score: BenchmarkScore, benchmark: Benchmark): string => {
+    const id = benchmark.benchmark_id;
+    const value = score.score;
+    
+    // Helper to add thousands separator
+    const formatWithThousands = (num: number): string => {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    };
+    
+    // Integer benchmarks - no decimals
+    if (id === 'codeforces' || id === 'chatbot-arena') {
+      const rounded = Math.round(value);
+      return formatWithThousands(rounded);
+    }
+    
+    // AIME benchmarks - with decimal point as requested
+    if (id.includes('aime')) {
+      return value.toFixed(1);
+    }
+    
+    // Dollar-based benchmarks (with $ sign)
+    if (id === 'swe-lancer' || id === 'swe-lancer-ic-swe-diamond') {
+      const rounded = Math.round(value);
+      return `$${formatWithThousands(rounded)}`;
+    }
+    
+    // Special benchmarks with two decimal points
+    if (id === 'humanitys-last-exam' || id === 'multi-challenge') {
+      return value.toFixed(2);
+    }
+    
+    // Default formatting with 1 decimal place
+    return value.toFixed(1);
+  };
+  
+  // Get global ranking indicator
+  let rankBadge = null;
+  
+  if (rankingsLoaded && globalRankings[benchmark.benchmark_id] && globalRankings[benchmark.benchmark_id][model.id]) {
+    const globalRank = globalRankings[benchmark.benchmark_id][model.id].rank;
+    const totalModels = globalRankings[benchmark.benchmark_id][model.id].total;
+    
+    if (globalRank === 1) {
+      rankBadge = <span className="ml-1 text-fuchsia-500 text-xs font-semibold" title={`Rank #${globalRank} of ${totalModels} models`}>#1</span>;
+    } else if (globalRank === 2) {
+      rankBadge = <span className="ml-1 text-fuchsia-500 text-xs font-semibold" title={`Rank #${globalRank} of ${totalModels} models`}>#2</span>;
+    } else if (globalRank === 3) {
+      rankBadge = <span className="ml-1 text-fuchsia-500 text-xs font-semibold" title={`Rank #${globalRank} of ${totalModels} models`}>#3</span>;
+    } else if (globalRank <= 5) {
+      rankBadge = <span className="ml-1 text-fuchsia-500 text-xs font-semibold" title={`Rank #${globalRank} of ${totalModels} models`}>#{globalRank}</span>;
+    }
+  }
+  
+  // Create tooltip content
+  let tooltipContent = '';
+  
+  // Add benchmark description if available
+  if (benchmark.benchmark_name) {
+    tooltipContent += `Benchmark: ${benchmark.benchmark_name}`;
+    
+    if (benchmark.benchmark_description) {
+      tooltipContent += `\n${benchmark.benchmark_description}`;
+    }
+  }
+  
+  // Add score with date
+  tooltipContent += tooltipContent ? '\n' : '';
+  tooltipContent += `Score: ${score.score}`;
+  
+  if (score.date) {
+    tooltipContent += ` (${new Date(score.date).toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric'
+    })})`;
+  }
+  
+  // Add global ranking info if available
+  if (rankingsLoaded && globalRankings[benchmark.benchmark_id] && globalRankings[benchmark.benchmark_id][model.id]) {
+    const globalRank = globalRankings[benchmark.benchmark_id][model.id].rank;
+    const totalModels = globalRankings[benchmark.benchmark_id][model.id].total;
+    
+    tooltipContent += tooltipContent ? '\n' : '';
+    tooltipContent += `Global Rank: #${globalRank} of ${totalModels} models`;
+  }
+  
+  // Add source info
+  if (score.source_name) {
+    tooltipContent += tooltipContent ? '\n' : '';
+    tooltipContent += `Source: ${score.source_name}`;
+  }
+  
+  // Add notes if available
+  if (score.notes) {
+    tooltipContent += tooltipContent ? '\n' : '';
+    tooltipContent += `Notes: ${score.notes}`;
+  }
+  
+  return (
+    <div className="flex flex-col items-center">
+      {score.source ? (
+        <a 
+          href={score.source} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="font-medium font-mono text-cyan-400 hover:text-fuchsia-500 transition-colors flex items-center"
+          title={tooltipContent}
+        >
+          {formatBenchmarkScore(score, benchmark)}{rankBadge}
+        </a>
+      ) : (
+        <div 
+          className="font-medium font-mono text-cyan-400 flex items-center"
+          title={tooltipContent}
+        >
+          {formatBenchmarkScore(score, benchmark)}{rankBadge}
+        </div>
+      )}
+      {score.date && (
+        <div className="text-xs text-gray-400 mt-1">
+          {new Date(score.date).toLocaleDateString('en-GB', {
+            month: 'short',
+            year: 'numeric'
+          })}
+        </div>
+      )}
+    </div>
+  );
+};
+
+// Component for featured benchmarks section
+interface FeaturedBenchmarksSectionProps {
+  benchmarks: Benchmark[];
+  models: Model[];
+  benchmarkScores: BenchmarkScore[];
+  companyId: string;
+  globalRankings?: Record<string, Record<string, { rank: number, total: number }>>;
+  rankingsLoaded?: boolean;
+}
+
+const FeaturedBenchmarksSection: React.FC<FeaturedBenchmarksSectionProps> = ({
+  benchmarks,
+  models,
+  benchmarkScores,
+  companyId,
+  globalRankings = {},
+  rankingsLoaded = false
+}) => {
+  // Format model items for table header
+  const headerItems = models.map(model => ({
+    id: model.id,
+    name: model.name,
+    description: model.description || model.name
+  }));
+  
+  // Import the renderBenchmarkScore function from BenchmarkCategorySection
+  const renderBenchmarkCell = (model: Model, benchmark: Benchmark) => {
+    return (
+      <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+        <BenchmarkScore 
+          model={model} 
+          benchmark={benchmark} 
+          benchmarkScores={benchmarkScores}
+          globalRankings={globalRankings}
+          rankingsLoaded={rankingsLoaded}
+        />
+      </td>
+    );
+  };
+  
+  return (
+    <SharedTable>
+      <TableHeader items={headerItems} />
+      <tbody>
+        {benchmarks.map(benchmark => (
+          <tr key={benchmark.benchmark_id} className="cursor-pointer">
+            <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+              <div className={containerStyles.flexCenter}>
+                <i className={`bi bi-graph-up-arrow ${iconStyles.tableRowIcon} text-fuchsia-400`}></i>
+                <div className="flex flex-col">
+                  {benchmark.benchmark_paper ? (
+                    <a 
+                      href={benchmark.benchmark_paper} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
+                      title={benchmark.benchmark_description || `View ${benchmark.benchmark_name} benchmark details`}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {benchmark.benchmark_name}
+                    </a>
+                  ) : (
+                    <span 
+                      className={textStyles.primary}
+                      title={benchmark.benchmark_description || ""}
+                    >
+                      {benchmark.benchmark_name}
+                    </span>
+                  )}
+                  <span className="text-xs text-gray-400 mt-1">
+                    {benchmark.benchmark_category}
+                  </span>
+                </div>
+              </div>
+            </td>
+            {models.map(model => renderBenchmarkCell(model, benchmark))}
+          </tr>
+        ))}
+      </tbody>
+    </SharedTable>
+  );
+};
 
 const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) => {
   const [benchmarks, setBenchmarks] = useState<Benchmark[]>([]);
@@ -18,18 +260,38 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
-  // Load benchmark data
+  // Global rankings for use by all benchmark score components
+  const [globalRankings, setGlobalRankings] = useState<Record<string, Record<string, { rank: number, total: number }>>>({});
+  const [rankingsLoaded, setRankingsLoaded] = useState(false);
+  
+  // Load benchmark data and global rankings
   useEffect(() => {
     const loadBenchmarkData = async () => {
       try {
         setLoading(true);
         
-        // Load benchmark metadata and scores
-        const benchmarkData = loadBenchmarkMetadata();
-        console.log("Loaded benchmark metadata:", benchmarkData.length, "benchmarks");
+        // Load benchmark metadata, scores, and rankings in parallel
+        const [benchmarkData, scoreData, rankings] = await Promise.all([
+          loadBenchmarkMetadata(),
+          loadBenchmarkScores(),
+          calculateGlobalRankings()
+        ]);
         
-        const scoreData = await loadBenchmarkScores();
+        // Store global rankings for use by all score components
+        setGlobalRankings(rankings);
+        setRankingsLoaded(true);
+        
+        console.log("Loaded benchmark metadata:", benchmarkData.length, "benchmarks");
         console.log("Loaded benchmark scores:", scoreData.length, "scores");
+        console.log("Loaded global rankings for", Object.keys(rankings).length, "benchmarks");
+        
+        // Log sample data to verify format
+        if (benchmarkData.length > 0) {
+          console.log("Sample benchmark metadata:", benchmarkData[0]);
+        }
+        if (scoreData.length > 0) {
+          console.log("Sample score data:", scoreData[0]);
+        }
         
         // Filter scores to only include those for the current company's models
         const companyModelIds = models.map(model => model.id);
@@ -41,9 +303,24 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
           companyModelIds.includes(score.model_id)
         );
         console.log("Filtered scores for this company:", filteredScores.length);
+        if (filteredScores.length > 0) {
+          console.log("Sample filtered score:", filteredScores[0]);
+        } else {
+          console.warn("No scores found for this company and its models!");
+          console.log("Company ID:", companyId);
+          console.log("Model IDs:", companyModelIds);
+          
+          // Check if we have any scores for this company at all
+          const companyScores = scoreData.filter(score => score.company_id === companyId);
+          console.log("Scores for company (regardless of model):", companyScores.length);
+          
+          // Check if we have scores for these models at all
+          const modelScores = scoreData.filter(score => companyModelIds.includes(score.model_id));
+          console.log("Scores for models (regardless of company):", modelScores.length);
+        }
         
         // Group benchmarks by category
-        const grouped = groupBenchmarksByCategory(benchmarkData);
+        const grouped = await groupBenchmarksByCategory(benchmarkData);
         console.log("Grouped benchmarks by category:", Object.keys(grouped));
         
         setBenchmarks(benchmarkData);
@@ -60,8 +337,36 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
     loadBenchmarkData();
   }, [companyId, models]);
   
+  // Enrich models with additional display information
+  const enrichModels = (models: Model[]): Model[] => {
+    return models.map(model => {
+      // Generate a formatted description for tooltips
+      let modelDescription = `${model.name}`;
+      
+      if (model.releaseDate) {
+        const releaseDate = new Date(model.releaseDate);
+        modelDescription += ` (Released: ${releaseDate.toLocaleDateString('en-GB', {
+          month: 'short',
+          year: 'numeric'
+        })})`;
+      }
+      
+      if (model.modelVersion) {
+        modelDescription += `\nVersion: ${model.modelVersion}`;
+      }
+      
+      if (model.type) {
+        modelDescription += `\nType: ${model.type}`;
+      }
+      
+      // Add the description to the model object
+      model.description = modelDescription;
+      return model;
+    });
+  };
+  
   // Sort models to prioritize frontier models first, then by release date
-  const sortedModels = [...models].sort((a, b) => {
+  const sortedModels = enrichModels([...models]).sort((a, b) => {
     // First sort by category (frontier before others)
     if (a.category === 'frontier' && b.category !== 'frontier') {
       return -1;
@@ -115,20 +420,34 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
     );
   }
   
+  // Filter benchmarks to get only featured ones
+  const featuredBenchmarks = benchmarks.filter(benchmark => benchmark.featured_benchmark);
+  console.log("Featured benchmarks:", featuredBenchmarks.length, featuredBenchmarks.map(b => b.benchmark_name));
+  
   return (
     <div className="transform transition-opacity duration-300">
       <style>{tableHoverStyles}</style>
       
-      {/* Ranking legend - simplified */}
-      <div className="header-area mb-6">
-        <Legend 
-          items={[
-            { icon: <span className="text-yellow-500 text-lg">🥇</span>, label: "1st" },
-            { icon: <span className="text-gray-300 text-lg">🥈</span>, label: "2nd" },
-            { icon: <span className="text-amber-700 text-lg">🥉</span>, label: "3rd" }
-          ]}
-        />
-      </div>
+      {/* Featured Benchmarks Section - only shown if there are any featured benchmarks */}
+      {featuredBenchmarks.length > 0 && (
+        <div className="mb-10">
+          <h3 className="text-lg font-semibold text-fuchsia-500 mb-2 font-mono">
+            Featured Benchmarks
+          </h3>
+          <p className="text-sm text-gray-400 mb-3">
+            Key benchmarks that provide the most representative evaluation of model capabilities
+          </p>
+          
+          <FeaturedBenchmarksSection
+            benchmarks={featuredBenchmarks}
+            models={sortedModels}
+            benchmarkScores={benchmarkScores}
+            companyId={companyId}
+            globalRankings={globalRankings}
+            rankingsLoaded={rankingsLoaded}
+          />
+        </div>
+      )}
       
       {/* Render each benchmark category section */}
       {(() => {
@@ -155,6 +474,8 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
             benchmarkScores={benchmarkScores}
             companyId={companyId}
             showHeader={index === 0} // Only show header for the first visible category
+            globalRankings={globalRankings}
+            rankingsLoaded={rankingsLoaded}
           />
         ));
       })()}
