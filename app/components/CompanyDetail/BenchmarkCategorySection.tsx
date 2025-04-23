@@ -16,6 +16,7 @@ interface BenchmarkCategorySectionProps {
   models: Model[];
   benchmarkScores: BenchmarkScore[];
   companyId: string;
+  showHeader?: boolean;
 }
 
 const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
@@ -23,12 +24,12 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
   benchmarks,
   models,
   benchmarkScores,
-  companyId
+  companyId,
+  showHeader = true
 }) => {
-  // Filter models to only include those with benchmark scores for this category
-  const modelsWithScores = models.filter(model => {
-    // Check if the model has any scores for benchmarks in this category
-    return benchmarks.some(benchmark => {
+  // Check if ANY models have scores for this category
+  const hasScoresForCategory = benchmarks.some(benchmark => {
+    return models.some(model => {
       return benchmarkScores.some(score => 
         score.model_id === model.id && 
         score.benchmark_id === benchmark.benchmark_id
@@ -36,13 +37,16 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
     });
   });
 
-  console.log(`Category ${category}: Found ${modelsWithScores.length} models with scores`);
+  console.log(`Category ${category}: Has scores: ${hasScoresForCategory}`);
   console.log(`Category ${category}: Benchmarks in this category: ${benchmarks.map(b => b.benchmark_name).join(', ')}`);
 
   // Skip rendering if no models have scores for this category
-  if (modelsWithScores.length === 0) {
+  if (!hasScoresForCategory) {
     return null;
   }
+  
+  // Use all models to maintain consistency across categories
+  const modelsToDisplay = models;
 
   // State for the current page of benchmarks to display
   const [currentPage, setCurrentPage] = React.useState(0);
@@ -58,7 +62,7 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
   );
 
   // Format model items for table header
-  const headerItems = modelsWithScores.map(model => ({
+  const headerItems = modelsToDisplay.map(model => ({
     id: model.id,
     name: model.name
   }));
@@ -120,33 +124,30 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
       </h3>
       
       <SharedTable>
-        <TableHeader items={headerItems} />
+        {showHeader && <TableHeader items={headerItems} />}
         <tbody>
           {currentBenchmarks.map(benchmark => (
             <tr key={benchmark.benchmark_id} className="cursor-pointer">
               <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-                <div className="flex flex-col">
-                  <div className={containerStyles.flexCenter}>
-                    <i className={`bi bi-graph-up ${iconStyles.tableRowIcon}`}></i>
+                <div className={containerStyles.flexCenter}>
+                  <i className={`bi bi-graph-up ${iconStyles.tableRowIcon}`}></i>
+                  {benchmark.benchmark_paper ? (
+                    <a 
+                      href={benchmark.benchmark_paper} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
+                      title="View benchmark paper"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {benchmark.benchmark_name}
+                    </a>
+                  ) : (
                     <span className={textStyles.primary}>{benchmark.benchmark_name}</span>
-                  </div>
-                  {benchmark.benchmark_paper && (
-                    <div className="mt-1 ml-8">
-                      <a 
-                        href={benchmark.benchmark_paper} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="px-2 py-0.5 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                        title="View benchmark paper"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        📝 Paper
-                      </a>
-                    </div>
                   )}
                 </div>
               </td>
-              {modelsWithScores.map(model => (
+              {modelsToDisplay.map(model => (
                 <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
                   {renderBenchmarkScore(model, benchmark)}
                 </td>

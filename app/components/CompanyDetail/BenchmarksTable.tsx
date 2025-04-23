@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Model, Benchmark, BenchmarkScore, BenchmarkCategory } from '../types';
 import { loadBenchmarkMetadata, loadBenchmarkScores, groupBenchmarksByCategory } from '../utils/benchmarkUtils';
 import BenchmarkCategorySection from './BenchmarkCategorySection';
-import { tableHoverStyles } from '../shared/TableComponents';
+import { tableHoverStyles, Legend } from '../shared/TableComponents';
 
 interface BenchmarksTableProps {
   models: Model[];
@@ -119,40 +119,33 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
     <div className="transform transition-opacity duration-300">
       <style>{tableHoverStyles}</style>
       
-      {/* Benchmarks legend and info box at the top */}
+      {/* Benchmarks info box at the top */}
       <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4 mb-6">
         <div className="flex items-start gap-3">
           <i className="bi bi-info-circle-fill text-cyan-500 text-xl mt-0.5"></i>
           <div className="w-full">
             <h3 className="text-lg font-medium text-cyan-400 mb-2">About Benchmarks</h3>
-            <p className="text-gray-300 text-sm mb-3">
+            <p className="text-gray-300 text-sm">
               Benchmarks provide standardized tests to compare model capabilities across different dimensions. 
               Scores shown are raw benchmark scores reported by the model providers.
             </p>
-            
-            <div className="border-t border-gray-700 pt-3 mt-2">
-              <div className="text-gray-300 text-sm font-medium mb-2">Ranking Indicators:</div>
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-1">
-                  <span className="text-yellow-500 text-lg">🥇</span>
-                  <span className="text-gray-300 text-sm">1st place</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <span className="text-gray-300 text-lg">🥈</span>
-                  <span className="text-gray-300 text-sm">2nd place</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <span className="text-amber-700 text-lg">🥉</span>
-                  <span className="text-gray-300 text-sm">3rd place</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
       
+      {/* Ranking legend */}
+      <div className="header-area mb-6">
+        <Legend 
+          items={[
+            { icon: <span className="text-yellow-500 text-lg">🥇</span>, label: "1st place" },
+            { icon: <span className="text-gray-300 text-lg">🥈</span>, label: "2nd place" },
+            { icon: <span className="text-amber-700 text-lg">🥉</span>, label: "3rd place" }
+          ]}
+        />
+      </div>
+      
       {/* Render each benchmark category section */}
-      {Object.entries(groupedBenchmarks).map(([category, categoryBenchmarks]) => (
+      {Object.entries(groupedBenchmarks).map(([category, categoryBenchmarks], index) => (
         <BenchmarkCategorySection
           key={category}
           category={category}
@@ -160,6 +153,7 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
           models={sortedModels}
           benchmarkScores={benchmarkScores}
           companyId={companyId}
+          showHeader={index === 0} // Only show header for the first category
         />
       ))}
       

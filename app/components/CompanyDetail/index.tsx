@@ -370,6 +370,24 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
             </button>
           )}
           
+          {/* Benchmarks Tab - Show if company has any models */}
+          {company.models && company.models.length > 0 && (
+            <button
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                activeTab === 'benchmarks' 
+                  ? 'border-cyan-400 text-cyan-400' 
+                  : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
+              }`}
+              onClick={() => {
+                // Enable URL updates on user click
+                initialRender.current = false;
+                setActiveTab('benchmarks');
+              }}
+            >
+              Benchmarks
+            </button>
+          )}
+          
           {/* Only render Products tab if company has products */}
           {company.products && company.products.length > 0 && (
             <button
@@ -421,24 +439,6 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
               }}
             >
               Subscriptions
-            </button>
-          )}
-          
-          {/* Benchmarks Tab - Show if company has any models */}
-          {company.models && company.models.length > 0 && (
-            <button
-              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
-                activeTab === 'benchmarks' 
-                  ? 'border-cyan-400 text-cyan-400' 
-                  : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
-              }`}
-              onClick={() => {
-                // Enable URL updates on user click
-                initialRender.current = false;
-                setActiveTab('benchmarks');
-              }}
-            >
-              Benchmarks
             </button>
           )}
         </div>

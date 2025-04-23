@@ -27,6 +27,31 @@ export const SharedTable: React.FC<SharedTableProps> = ({ children, className = 
   );
 };
 
+// Legend component for format icons and other indicators
+interface LegendProps {
+  items: {
+    icon: React.ReactNode;
+    label: string;
+  }[];
+}
+
+export const Legend: React.FC<LegendProps> = ({ items }) => {
+  return (
+    <div className={containerStyles.legend}>
+      <div className={`${containerStyles.legendBox} hover:shadow-md transition-all duration-300 hover:border-fuchsia-700 legend-container`}>
+        <div className={containerStyles.legendItems}>
+          {items.map((item, index) => (
+            <div key={index} className={containerStyles.legendItem}>
+              {item.icon}
+              <span className={`${textStyles.sm} ${textStyles.primary}`}>{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // Reusable table header component with consistent sizing and styling
 interface TableHeaderProps {
   items: { id: string; name: string }[];
