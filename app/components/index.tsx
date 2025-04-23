@@ -88,6 +88,22 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
     router.push('/');
   }, [router]);
   
+  // Handler for filtering by category in footer links
+  const handleCategoryFilter = useCallback((category: string) => {
+    const tabParam = category === 'open' ? 'open-models' :
+                    category === 'frontier' ? 'frontier-models' :
+                    category === 'enterprise' ? 'enterprise-models' :
+                    category === 'image' ? 'image-models' :
+                    category === 'video' ? 'video-models' :
+                    category === 'music' ? 'audio-models' :
+                    category === 'other' ? 'specialised-models' :
+                    '';
+    
+    if (tabParam) {
+      router.push(`/?tab=${tabParam}`);
+    }
+  }, [router]);
+  
   const handleBack = () => {
     // For company pages, always go back to the landscape view
     if (currentView === 'company') {
@@ -148,7 +164,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
           >
             <Image
               src="/images/logo.png"
-              alt="Generative AI Explorer"
+              alt="The Blueprint - Generative AI Explorer"
               width={200}
               height={56}
               priority
@@ -233,6 +249,62 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
         )}
       </main>
 
+      {/* Footer */}
+      <footer className={containerStyles.footer}>
+        <div className={containerStyles.footerContent}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Popular Companies */}
+            <div>
+              <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Companies</h3>
+              <ul className="space-y-0.5">
+                <li><a href="/?company=openai" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">OpenAI</a></li>
+                <li><a href="/?company=anthropic" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Anthropic</a></li>
+                <li><a href="/?company=google-deepmind" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Google DeepMind</a></li>
+                <li><a href="/?company=meta" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Meta</a></li>
+                <li><a href="/?company=microsoft" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Microsoft</a></li>
+                <li><a href="/?company=mistral" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Mistral</a></li>
+              </ul>
+            </div>
+            
+            {/* Benchmarks */}
+            <div>
+              <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Benchmarks</h3>
+              <ul className="space-y-0.5">
+                <li><a href="/?benchmark=chatbot-arena" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">Chatbot Arena</a></li>
+                <li><a href="/?benchmark=mt-bench" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">MT-Bench</a></li>
+                <li><a href="/?benchmark=mmlu" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">MMLU</a></li>
+                <li><a href="/?benchmark=gsm8k" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">GSM8K</a></li>
+                <li><a href="/?benchmark=humaneval" className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5">HumanEval</a></li>
+              </ul>
+            </div>
+            
+            {/* About/Info */}
+            <div>
+              <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">About</h3>
+              <p className="text-gray-300 text-sm mb-4">
+                The Blueprint's Generative AI Explorer helps people understand the generative AI landspace and explore companies, models, and benchmarks.
+              </p>
+              <div className="flex items-center gap-4 mb-4">
+                <a href="https://github.com/seanbetts/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                  <i className="bi bi-github text-xl"></i>
+                </a>
+                <a href="https://www.the-blueprint.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                  <i className="bi bi-newspaper text-xl"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-xs text-gray-400">
+              © {new Date().getFullYear()} The Blueprint. All rights reserved.
+            </div>
+            <div className="text-xs text-gray-400 flex items-center">
+              Made with <i className="bi bi-heart-fill text-fuchsia-500 mx-1.5"></i> using Claude Code
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
