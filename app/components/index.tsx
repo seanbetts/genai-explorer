@@ -40,7 +40,9 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
     ? data.companies.find(c => c.id === companyId) || null
     : null;
   
-  const compareMode = searchParams.has('compare');
+  // Check for /compare path and compare parameter
+  const isComparePage = typeof window !== 'undefined' && window.location.pathname === '/compare';
+  const compareMode = searchParams.has('compare') || isComparePage;
     
   let currentView = 'home';
   if (selectedCompany) {
@@ -317,13 +319,13 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
             <a 
               href="/compare" 
               className={`transition-colors flex items-center ${
-                searchParams.has('compare')
+                currentView === 'compare'
                   ? 'text-cyan-400' 
                   : 'text-gray-300 hover:text-cyan-400'
               }`}
             >
               <i className={`bi bi-bar-chart-line mr-1.5 ${
-                searchParams.has('compare')
+                currentView === 'compare'
                   ? 'text-cyan-400'
                   : 'text-fuchsia-500'
               }`}></i>
@@ -437,13 +439,13 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
                     <a 
                       href="/compare" 
                       className={`transition-colors text-xs leading-tight py-0.5 flex items-center ${
-                        searchParams.has('compare')
+                        currentView === 'compare'
                           ? 'text-cyan-400' 
                           : 'text-gray-300 hover:text-cyan-400'
                       }`}
                     >
                       <i className={`bi bi-bar-chart-line mr-1.5 ${
-                        searchParams.has('compare')
+                        currentView === 'compare'
                           ? 'text-cyan-400'
                           : 'text-fuchsia-500'
                       }`}></i>
