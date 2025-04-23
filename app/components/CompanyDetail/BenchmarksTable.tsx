@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Model, Benchmark, BenchmarkScore, BenchmarkCategory } from '../types';
-import { loadBenchmarkMetadata, loadBenchmarkScores, groupBenchmarksByCategory, calculateGlobalRankings } from '../utils/benchmarkUtils';
+import { loadBenchmarkMetadata, loadBenchmarkScores, groupBenchmarksByCategory, calculateGlobalRankings, getAllScoresForModelAndBenchmark, getLatestScoreForModelAndBenchmark } from '../utils/benchmarkUtils';
 import BenchmarkCategorySection from './BenchmarkCategorySection';
 import { tableHoverStyles, Legend, SharedTable, TableHeader } from '../shared/TableComponents';
 import { textStyles } from '../utils/theme';
@@ -30,10 +30,8 @@ const BenchmarkScore: React.FC<BenchmarkScoreProps> = ({
   rankingsLoaded = false
 }) => {
   
-  // Get the score for this model and benchmark
-  const score = benchmarkScores.find(
-    s => s.model_id === model.id && s.benchmark_id === benchmark.benchmark_id
-  );
+  // Get the LATEST score for this model and benchmark
+  const score = getLatestScoreForModelAndBenchmark(benchmarkScores, model.id, benchmark.benchmark_id);
   
   if (!score) {
     return <span className={textStyles.tertiary}>-</span>;
@@ -93,7 +91,7 @@ const BenchmarkScore: React.FC<BenchmarkScoreProps> = ({
     }
   }
   
-  // Create tooltip content - simplified to just show rank, source, and notes
+  // Create tooltip content - include rank, source, notes, and historical scores
   let tooltipContent = '';
   
   // Add global ranking info if available
@@ -114,6 +112,36 @@ const BenchmarkScore: React.FC<BenchmarkScoreProps> = ({
   if (score.notes) {
     tooltipContent += tooltipContent ? '\n' : '';
     tooltipContent += `Notes: ${score.notes}`;
+  }
+  
+  // Add historical scores if available
+  const allScores = getAllScoresForModelAndBenchmark(benchmarkScores, model.id, benchmark.benchmark_id);
+  if (allScores.length > 1) {
+    // Find scores that are different from the current one
+    const currentScore = allScores[0];
+    const historicalScores = allScores.slice(1).filter(historicalScore => 
+      // Only include scores with different values than the current one
+      historicalScore.score !== currentScore.score
+    );
+    
+    // Only add history section if we have unique historical scores
+    if (historicalScores.length > 0) {
+      tooltipContent += tooltipContent ? '\n\n' : '';
+      tooltipContent += 'History:';
+      
+      historicalScores.forEach(historicalScore => {
+        const date = new Date(historicalScore.date).toLocaleDateString('en-GB', {
+          day: 'numeric',
+          month: 'short',
+          year: 'numeric'
+        });
+        
+        tooltipContent += `\n${formatBenchmarkScore(historicalScore, benchmark)} (${date})`;
+        if (historicalScore.source_name) {
+          tooltipContent += ` - ${historicalScore.source_name}`;
+        }
+      });
+    }
   }
   
   return (

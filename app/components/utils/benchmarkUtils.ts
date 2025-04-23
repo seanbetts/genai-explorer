@@ -217,6 +217,24 @@ export const getLatestScoreForModelAndBenchmark = (
 };
 
 /**
+ * Get all scores for a specific model and benchmark, sorted by date (newest first)
+ */
+export const getAllScoresForModelAndBenchmark = (
+  scores: BenchmarkScore[],
+  modelId: string,
+  benchmarkId: string
+): BenchmarkScore[] => {
+  const filteredScores = scores.filter(
+    score => score.model_id === modelId && score.benchmark_id === benchmarkId
+  );
+  
+  // Sort by date (newest first)
+  return filteredScores.sort((a, b) => 
+    new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+};
+
+/**
  * Get all models that have scores for a specific benchmark
  */
 export const getModelsWithBenchmarkScores = (

@@ -10,6 +10,7 @@ import {
 } from '../shared/TableComponents';
 import { 
   getLatestScoreForModelAndBenchmark,
+  getAllScoresForModelAndBenchmark,
   getBenchmarkDescription,
   calculateGlobalRankings
 } from '../utils/benchmarkUtils';
@@ -239,7 +240,7 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
       }
     }
     
-    // Create tooltip content - simplified to just show rank, source, and notes
+    // Create tooltip content - include rank, source, notes, and historical scores
     let tooltipContent = '';
     
     // Add global ranking info if available
@@ -260,6 +261,36 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
     if (score.notes) {
       tooltipContent += tooltipContent ? '\n' : '';
       tooltipContent += `Notes: ${score.notes}`;
+    }
+    
+    // Add historical scores if available
+    const allScores = getAllScoresForModelAndBenchmark(benchmarkScores, model.id, benchmark.benchmark_id);
+    if (allScores.length > 1) {
+      // Find scores that are different from the current one
+      const currentScore = allScores[0];
+      const historicalScores = allScores.slice(1).filter(historicalScore => 
+        // Only include scores with different values than the current one
+        historicalScore.score !== currentScore.score
+      );
+      
+      // Only add history section if we have unique historical scores
+      if (historicalScores.length > 0) {
+        tooltipContent += tooltipContent ? '\n\n' : '';
+        tooltipContent += 'History:';
+        
+        historicalScores.forEach(historicalScore => {
+          const date = new Date(historicalScore.date).toLocaleDateString('en-GB', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric'
+          });
+          
+          tooltipContent += `\n${formatBenchmarkScore(historicalScore, benchmark)} (${date})`;
+          if (historicalScore.source_name) {
+            tooltipContent += ` - ${historicalScore.source_name}`;
+          }
+        });
+      }
     }
     
     return (

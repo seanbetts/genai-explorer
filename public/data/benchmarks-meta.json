@@ -4,7 +4,7 @@
     "benchmark_name": "BrowseComp",
     "benchmark_category": "agentic",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "A Simple Yet Challenging Benchmark for Browsing Agents",
     "benchmark_paper": "https://openai.com/index/browsecomp/"
   },
   {
@@ -12,23 +12,23 @@
     "benchmark_name": "COLLIE",
     "benchmark_category": "agentic",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "A grammar-based framework that enables systematic construction of compositional constraints",
+    "benchmark_paper": "https://arxiv.org/pdf/2307.08689"
   },
   {
     "benchmark_id": "complex-func-bench",
     "benchmark_name": "ComplexFuncBench",
     "benchmark_category": "agentic",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "A benchmark forcomplex function calling across five real-world scenarios",
+    "benchmark_paper": "https://arxiv.org/pdf/2501.10132"
   },
   {
     "benchmark_id": "if-eval",
     "benchmark_name": "IFEval",
     "benchmark_category": "agentic",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "A straightforward and easy-to-reproduce evaluation benchmark that focuses on a set of \"verifiable instructions\"",
     "benchmark_paper": "https://arxiv.org/abs/2311.07911"
   },
   {
@@ -36,15 +36,15 @@
     "benchmark_name": "Multi-IF",
     "benchmark_category": "agentic",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "A benchmark designed to assess LLMs’ proficiency in following multi-turn and multilingual instructions",
+    "benchmark_paper": "https://arxiv.org/html/2410.15553v2"
   },
   {
     "benchmark_id": "multi-challenge",
     "benchmark_name": "MultiChallenge",
     "benchmark_category": "agentic",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "A benchmark evaluating LLMs on conducting multi-turn conversations",
     "benchmark_paper": "https://scale.com/leaderboard/multichallenge"
   },
   {
@@ -52,7 +52,7 @@
     "benchmark_name": "Tau-bench Airline",
     "benchmark_category": "agentic",
     "featured_benchmark": true,
-    "benchmark_description": null,
+    "benchmark_description": "A framework that tests AI agents on complex real-world tasks with user and tool interactions",
     "benchmark_paper": "https://arxiv.org/pdf/2406.12045"
   },
   {
@@ -60,7 +60,7 @@
     "benchmark_name": "Tau-bench Retail",
     "benchmark_category": "agentic",
     "featured_benchmark": true,
-    "benchmark_description": null,
+    "benchmark_description": "A framework that tests AI agents on complex real-world tasks with user and tool interactions",
     "benchmark_paper": "https://arxiv.org/pdf/2406.12045"
   },
   {
@@ -68,7 +68,7 @@
     "benchmark_name": "Aider's Polyglot",
     "benchmark_category": "coding",
     "featured_benchmark": true,
-    "benchmark_description": null,
+    "benchmark_description": "Evaluates an LLM’s ability to follow instructions and edit code successfully without human intervention",
     "benchmark_paper": "https://aider.chat/docs/leaderboards/"
   },
   {
@@ -76,15 +76,15 @@
     "benchmark_name": "Bird-SQL (Dev)",
     "benchmark_category": "coding",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "Benchmark evaluating converting natural language questions into executable SOL",
+    "benchmark_paper": "https://bird-bench.github.io"
   },
   {
     "benchmark_id": "codeforces",
     "benchmark_name": "Codeforces",
     "benchmark_category": "coding",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "A competition coding benchmark designed to accurately evaluate the reasoning capabilities of LLMs with human-comparable standardized ELO ratings",
     "benchmark_paper": "https://arxiv.org/html/2501.01257v2"
   },
   {
@@ -92,31 +92,23 @@
     "benchmark_name": "HumanEval",
     "benchmark_category": "coding",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "Evaluating Large Language Models Trained on Code",
+    "benchmark_paper": "https://github.com/openai/human-eval"
   },
   {
-    "benchmark_id": "lcb",
-    "benchmark_name": "LCB",
+    "benchmark_id": "live-code-bench",
+    "benchmark_name": "LiveCodeBench",
     "benchmark_category": "coding",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
-  },
-  {
-    "benchmark_id": "live-code-bench-v5",
-    "benchmark_name": "LiveCodeBench v5",
-    "benchmark_category": "coding",
-    "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "Code generation in Python subset covering more recent examples",
+    "benchmark_paper": "https://livecodebench.github.io"
   },
   {
     "benchmark_id": "swe-bench-verified",
     "benchmark_name": "SWE-Bench Verified",
     "benchmark_category": "coding",
     "featured_benchmark": true,
-    "benchmark_description": null,
+    "benchmark_description": "Ability to solve real-world software issues",
     "benchmark_paper": "https://openai.com/index/introducing-swe-bench-verified/"
   },
   {
@@ -124,7 +116,7 @@
     "benchmark_name": "SWE-Lancer",
     "benchmark_category": "coding",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "A benchmark of over 1,400 freelance software engineering tasks from Upwork, valued at $1 million USD total in real-world payouts",
     "benchmark_paper": "https://openai.com/index/swe-lancer/"
   },
   {
@@ -132,63 +124,63 @@
     "benchmark_name": "SWE-Lancer: IC SWE Diamond",
     "benchmark_category": "coding",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "A benchmark of over 1,400 freelance software engineering tasks from Upwork, valued at $1 million USD total in real-world payouts",
     "benchmark_paper": "https://openai.com/index/swe-lancer/"
   },
   {
     "benchmark_id": "big-bench-hard",
     "benchmark_name": "BIG-Bench-Hard",
-    "benchmark_category": "conversational",
+    "benchmark_category": "reasoning",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "A diverse evaluation suite that focuses on tasks believed to be beyond the capabilities of current language models",
+    "benchmark_paper": "https://paperswithcode.com/dataset/bbh"
   },
   {
     "benchmark_id": "chatbot-arena",
     "benchmark_name": "Chatbot Arena",
-    "benchmark_category": "conversational",
+    "benchmark_category": "usability",
     "featured_benchmark": true,
-    "benchmark_description": null,
+    "benchmark_description": "An open platform for crowdsourced AI benchmarking",
     "benchmark_paper": "https://lmarena.ai"
   },
   {
     "benchmark_id": "mmlu",
     "benchmark_name": "MMLU",
-    "benchmark_category": "conversational",
+    "benchmark_category": "usability",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "Measuring Massive Multitask Language Understanding",
+    "benchmark_paper": "https://github.com/hendrycks/test"
   },
   {
     "benchmark_id": "mmlu-pro",
     "benchmark_name": "MMLU-pro",
-    "benchmark_category": "conversational",
+    "benchmark_category": "usability",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "Enhanced version of popular MMLU dataset with questions across multiple subjects with higher difficulty tasks",
+    "benchmark_paper": "https://github.com/TIGER-AI-Lab/MMLU-Pro"
   },
   {
     "benchmark_id": "multilingual-mmlu",
     "benchmark_name": "Multilingual MMLU",
-    "benchmark_category": "conversational",
+    "benchmark_category": "usability",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "Evaluates models across 26 different languages and encompass three distinct tasks: ARC, HellaSwag, and MMLU",
+    "benchmark_paper": "https://github.com/nlp-uoregon/mlmm-evaluation"
   },
   {
     "benchmark_id": "facts-grounding",
     "benchmark_name": "FACTS Grounding",
     "benchmark_category": "factuality",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "Ability to provide factuality correct responses given documents and diverse user requests",
+    "benchmark_paper": "https://storage.googleapis.com/deepmind-media/FACTS/FACTS_grounding_paper.pdf"
   },
   {
     "benchmark_id": "loft",
     "benchmark_name": "LOFT (128k)",
     "benchmark_category": "factuality",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "Consists of 6 long-context task categories spanning retrieval, multi-hop compositional reasoning, and more",
     "benchmark_paper": "https://github.com/google-deepmind/loft"
   },
   {
@@ -196,23 +188,23 @@
     "benchmark_name": "MRCR (1M)",
     "benchmark_category": "factuality",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "Novel, diagnostic long-context 71.9% understanding evaluation",
+    "benchmark_paper": "https://arxiv.org/pdf/2409.12640v2"
   },
   {
     "benchmark_id": "simple-qa",
     "benchmark_name": "SimpleQA",
     "benchmark_category": "factuality",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "World knowledge factuality with no search enabled",
+    "benchmark_paper": "https://arxiv.org/abs/2411.04368"
   },
   {
     "benchmark_id": "aime-2024",
     "benchmark_name": "AIME 2024",
     "benchmark_category": "maths",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "The series of exams used to challenge bright students on the path toward choosing the team that represents the United States at the International Mathematics Olympiad (IMO)",
     "benchmark_paper": "https://artofproblemsolving.com/wiki/index.php/AIME_Problems_and_Solutions"
   },
   {
@@ -220,23 +212,31 @@
     "benchmark_name": "AIME 2025",
     "benchmark_category": "maths",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "The series of exams used to challenge bright students on the path toward choosing the team that represents the United States at the International Mathematics Olympiad (IMO)",
     "benchmark_paper": "https://artofproblemsolving.com/wiki/index.php/AIME_Problems_and_Solutions"
+  },
+  {
+    "benchmark_id": "frontier-math",
+    "benchmark_name": "FrontierMath",
+    "benchmark_category": "maths",
+    "featured_benchmark": false,
+    "benchmark_description": "Presents hundreds of unpublished, expert-level mathematics problems that specialists spend days solving",
+    "benchmark_paper": "https://epoch.ai/frontiermath/the-benchmark"
   },
   {
     "benchmark_id": "gsm8k",
     "benchmark_name": "GSM8K",
     "benchmark_category": "maths",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "A dataset of 8.5K high quality linguistically diverse grade school math word problems",
+    "benchmark_paper": "https://arxiv.org/pdf/2110.14168"
   },
   {
     "benchmark_id": "hidden-math",
     "benchmark_name": "HiddenMath",
     "benchmark_category": "maths",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "Competition-level math problems, Held out dataset AIME/AMC-like, crafted by experts and not leaked on the web",
     "benchmark_paper": null
   },
   {
@@ -244,47 +244,47 @@
     "benchmark_name": "MATH",
     "benchmark_category": "maths",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "Challenging math problems (incl. algebra, geometry, pre-calculus, and others)",
+    "benchmark_paper": "https://arxiv.org/pdf/2103.03874"
   },
   {
     "benchmark_id": "math-500",
     "benchmark_name": "Math 500",
     "benchmark_category": "maths",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "500 Challenging math problems (incl. algebra, geometry, pre-calculus, and others)",
+    "benchmark_paper": "https://arxiv.org/pdf/2103.03874"
   },
   {
     "benchmark_id": "math-vista",
     "benchmark_name": "MathVista",
     "benchmark_category": "maths",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "A benchmark designed to combine challenges from diverse mathematical and visual tasks",
     "benchmark_paper": "https://mathvista.github.io"
   },
   {
     "benchmark_id": "mgsm",
-    "benchmark_name": "MGSM",
+    "benchmark_name": "Mathematical Grade School Math",
     "benchmark_category": "maths",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "Multilingual Grade School Math Benchmark",
+    "benchmark_paper": "https://arxiv.org/pdf/2210.03057"
   },
   {
     "benchmark_id": "co-vo-st2",
-    "benchmark_name": "CoVoST2 (21 lang)",
+    "benchmark_name": "CoVoST2",
     "benchmark_category": "multimodal",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "Automatic speech translation",
+    "benchmark_paper": "https://github.com/facebookresearch/covost"
   },
   {
     "benchmark_id": "doc-vqa",
     "benchmark_name": "DocVQA",
     "benchmark_category": "multimodal",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "A series of challenges and release datasets to enable machines \"understand\" document images and thereby answer questions asked on them",
     "benchmark_paper": "https://www.docvqa.org"
   },
   {
@@ -292,15 +292,15 @@
     "benchmark_name": "EgoSchema",
     "benchmark_category": "multimodal",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "Video analysis across multiple domains",
+    "benchmark_paper": "https://arxiv.org/pdf/2308.09126"
   },
   {
     "benchmark_id": "mmmu",
     "benchmark_name": "MMMU",
     "benchmark_category": "multimodal",
     "featured_benchmark": true,
-    "benchmark_description": null,
+    "benchmark_description": "Multi-discipline college-level multimodal understanding and reasoning problems",
     "benchmark_paper": "https://mmmu-benchmark.github.io"
   },
   {
@@ -308,7 +308,7 @@
     "benchmark_name": "Video-MME",
     "benchmark_category": "multimodal",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "A full-spectrum Multi-Modal Evaluation benchmark of MLLMs in Video analysis",
     "benchmark_paper": "https://video-mme.github.io/home_page.html"
   },
   {
@@ -316,7 +316,7 @@
     "benchmark_name": "ARC",
     "benchmark_category": "reasoning",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "Used to measure a human-like form of general fluid intelligence and that it enables fair general intelligence comparisons between AI systems and humans",
     "benchmark_paper": "https://arcprize.org/arc-agi"
   },
   {
@@ -324,7 +324,7 @@
     "benchmark_name": "CharXiv-Reasoning",
     "benchmark_category": "reasoning",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "A comprehensive evaluation suite involving 2,323 natural, challenging, and diverse charts from scientific papers",
     "benchmark_paper": "https://charxiv.github.io"
   },
   {
@@ -332,15 +332,15 @@
     "benchmark_name": "DROP",
     "benchmark_category": "reasoning",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "A Reading Comprehension Benchmark Requiring Discrete Reasoning Over Paragraphs",
+    "benchmark_paper": "https://arxiv.org/abs/1903.00161"
   },
   {
     "benchmark_id": "graphwalks-bfs",
     "benchmark_name": "Graphwalks BFS <128k accuracy",
     "benchmark_category": "reasoning",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "A dataset for evaluating multi-hop long-context reasoning",
     "benchmark_paper": "https://huggingface.co/datasets/openai/graphwalks"
   },
   {
@@ -348,31 +348,31 @@
     "benchmark_name": "Hellaswag",
     "benchmark_category": "reasoning",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "Can a Machine Really Finish Your Sentence?",
+    "benchmark_paper": "https://arxiv.org/abs/1905.07830"
   },
   {
     "benchmark_id": "humanitys-last-exam",
     "benchmark_name": "Humanity's Last Exam",
     "benchmark_category": "reasoning",
-    "featured_benchmark": true,
-    "benchmark_description": null,
+    "featured_benchmark": false,
+    "benchmark_description": "A multi-modal benchmark at the frontier of human knowledge, designed to be the final closed-ended academic benchmark of its kind with broad subject coverage",
     "benchmark_paper": "https://agi.safe.ai"
   },
   {
     "benchmark_id": "simple-bench",
     "benchmark_name": "SimpleBench",
     "benchmark_category": "reasoning",
-    "featured_benchmark": false,
-    "benchmark_description": null,
+    "featured_benchmark": true,
+    "benchmark_description": "A multiple-choice text benchmark for LLMs where individuals with unspecialized (high school) knowledge outperform SOTA models.",
     "benchmark_paper": "https://simple-bench.com"
   },
   {
     "benchmark_id": "paper-bench",
     "benchmark_name": "PaperBench",
-    "benchmark_category": "research",
+    "benchmark_category": "science",
     "featured_benchmark": false,
-    "benchmark_description": null,
+    "benchmark_description": "A benchmark evaluating the ability of AI agents to replicate state-of-the-art AI research",
     "benchmark_paper": "https://openai.com/index/paperbench/"
   },
   {
@@ -380,15 +380,15 @@
     "benchmark_name": "AI2D",
     "benchmark_category": "science",
     "featured_benchmark": false,
-    "benchmark_description": null,
-    "benchmark_paper": null
+    "benchmark_description": "A dataset of over 5,000 grade school science diagrams with over 150,000 rich annotations",
+    "benchmark_paper": "https://paperswithcode.com/dataset/ai2d"
   },
   {
     "benchmark_id": "gpqa-diamond",
     "benchmark_name": "GPQA Diamond",
     "benchmark_category": "science",
     "featured_benchmark": true,
-    "benchmark_description": null,
-    "benchmark_paper": "https://arxiv.org/pdf/2311.12022"
+    "benchmark_description": "Challenging dataset of questions written by domain experts in biology, physics, and chemistry",
+    "benchmark_paper": "https://arxiv.org/abs/2311.12022"
   }
 ]
