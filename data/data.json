@@ -2360,7 +2360,7 @@
       "models": [
         {
           "id": "m365-copilot",
-          "name": "Microsoft 365 Copilot",
+          "name": "M365 Copilot",
           "status": "primary",
           "type": "Large Language Model",
           "category": "enterprise",
@@ -2892,7 +2892,7 @@
           "type": "Large Language Model",
           "category": "enterprise",
           "releaseDate": "2024-08-30",
-          "modelVersion": "command-r-plus-04-2024",
+          "modelVersion": "command-r-plus-08-2024",
           "modelPage": "https://docs.cohere.com/docs/command-r-plus",
           "systemCard": "https://docs.cohere.com/docs/responsible-use",
           "releasePost": "https://cohere.com/blog/command-series-0824",

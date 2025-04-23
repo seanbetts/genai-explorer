@@ -879,3 +879,351 @@ o3-mini,openai,simple-bench,22.8,2025-04-21,High,SimpleBench,https://simple-benc
 o4-mini,openai,simple-bench,38.7,2025-04-21,,SimpleBench,https://simple-bench.com
 r1,deepseek,simple-bench,30.9,2025-04-21,,SimpleBench,https://simple-bench.com
 v3,deepseek,simple-bench,27.2,2025-04-21,,SimpleBench,https://simple-bench.com
+llama-3-1-405b,meta,mmlu,88.6,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+gpt-4o,openai,mmlu,88.7,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+claude-3-5-sonnet,anthropic,mmlu,88.3,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+llama-3-1-405b,meta,if-eval,88.6,2024-07-23,,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+gpt-4o,openai,if-eval,85.6,2024-07-23,,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+claude-3-5-sonnet,anthropic,if-eval,88.0,2024-07-23,,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+llama-3-1-405b,meta,human-eval,89.0,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+gpt-4o,openai,human-eval,90.2,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+claude-3-5-sonnet,anthropic,human-eval,92.0,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+llama-3-1-405b,meta,math,73.8,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+gpt-4o,openai,math,76.6,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+claude-3-5-sonnet,anthropic,math,71.1,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+llama-3-1-8b,meta,mmlu,73.0,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+llama-3-3-70b,meta,mmlu,86.0,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+llama-3-1-8b,meta,if-eval,80.4,2024-07-23,,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+llama-3-3-70b,meta,if-eval,87.5,2024-07-23,,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+llama-3-1-8b,meta,human-eval,72.6,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+llama-3-3-70b,meta,human-eval,80.5,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+llama-3-1-8b,meta,math,51.9,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+llama-3-3-70b,meta,math,68.0,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
+llama-3-2-11b,meta,mmmu,50.7,2024-09-25,0-shot,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+llama-3-2-90b,meta,mmmu,60.3,2024-09-25,0-shot,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+claude-3-0-haiku,anthropic,mmmu,50.2,2024-09-25,0-shot,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+gpt-4o-mini,openai,mmmu,59.4,2024-09-25,0-shot,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+llama-3-2-11b,meta,math-vista,51.5,2024-09-25,,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+llama-3-2-90b,meta,math-vista,57.3,2024-09-25,,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+claude-3-0-haiku,anthropic,math-vista,46.4,2024-09-25,,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+gpt-4o-mini,openai,math-vista,56.7,2024-09-25,,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+llama-3-2-11b,meta,ai2d,91.1,2024-09-25,,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+llama-3-2-90b,meta,ai2d,92.3,2024-09-25,,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+claude-3-0-haiku,anthropic,ai2d,86.7,2024-09-25,,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+llama-3-2-11b,meta,doc-vqa,88.4,2024-09-25,,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+llama-3-2-90b,meta,doc-vqa,90.1,2024-09-25,,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+claude-3-0-haiku,anthropic,doc-vqa,88.8,2024-09-25,,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+llama-3-2-11b,meta,mmlu,73.0,2024-09-25,0-shot,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+llama-3-2-90b,meta,mmlu,86.0,2024-09-25,0-shot,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+gpt-4o-mini,openai,mmlu,82.0,2024-09-25,0-shot,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+llama-3-2-11b,meta,math,51.9,2024-09-25,0-shot,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+llama-3-2-90b,meta,math,68.0,2024-09-25,0-shot,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+claude-3-0-haiku,anthropic,math,38.9,2024-09-25,0-shot,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+gpt-4o-mini,openai,math,70.2,2024-09-25,0-shot,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+llama-3-2-11b,meta,mgsm,68.9,2024-09-25,0-shot,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+llama-3-2-90b,meta,mgsm,86.9,2024-09-25,0-shot,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+claude-3-0-haiku,anthropic,mgsm,75.1,2024-09-25,0-shot,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+gpt-4o-mini,openai,mgsm,87.0,2024-09-25,0-shot,Llama 3.2 announcement,https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/
+llama-4-maverick,meta,mmmu,73.4,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash,google,mmmu,71.7,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gpt-4o,openai,mmmu,69.1,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+llama-4-maverick,meta,math-vista,73.7,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash,google,math-vista,73.1,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gpt-4o,openai,math-vista,63.8,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+llama-4-maverick,meta,doc-vqa,94.4,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gpt-4o,openai,doc-vqa,92.8,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+llama-4-maverick,meta,live-code-bench,43.4,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash,google,live-code-bench,34.5,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gpt-4o,openai,live-code-bench,32.3,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+llama-4-maverick,meta,mmlu-pro,80.5,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash,google,mmlu-pro,77.6,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+llama-4-maverick,meta,gpqa-diamond,69.8,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash,google,gpqa-diamond,60.1,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gpt-4o,openai,gpqa-diamond,53.6,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+llama-4-scout,meta,mmmu,69.4,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemma-3-27b,google,mmmu,64.9,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash-lite,google,mmmu,68.0,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+llama-4-scout,meta,math-vista,70.7,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemma-3-27b,google,math-vista,67.6,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash-lite,google,math-vista,57.6,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+llama-4-scout,meta,doc-vqa,94.4,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemma-3-27b,google,doc-vqa,90.4,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash-lite,google,doc-vqa,91.2,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+llama-4-scout,meta,live-code-bench,32.8,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemma-3-27b,google,live-code-bench,29.7,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash-lite,google,live-code-bench,28.9,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+llama-4-scout,meta,mmlu-pro,74.3,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemma-3-27b,google,mmlu-pro,67.5,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash-lite,google,mmlu-pro,71.6,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+llama-4-scout,meta,gpqa-diamond,57.2,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemma-3-27b,google,gpqa-diamond,42.4,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash-lite,google,gpqa-diamond,51.5,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+mistral-small-3-1,mistral,mmmu,62.8,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+mistral-small-3-1,mistral,math-vista,68.9,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+mistral-small-3-1,mistral,doc-vqa,94.1,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+mistral-small-3-1,mistral,mmlu-pro,66.8,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+mistral-small-3-1,mistral,gpqa-diamond,46.0,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+mistral-small-3-1,mistral,simple-qa,10.43,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google,simple-qa,10.0,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gpt-4o-mini,openai,simple-qa,9.5,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+claude-3-5-haiku,anthropic,simple-qa,8.02,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+mistral-small-3-1,mistral,gpqa-diamond,45.96,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google,gpqa-diamond,42.4,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gpt-4o-mini,openai,gpqa-diamond,39.39,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+claude-3-5-haiku,anthropic,gpqa-diamond,41.6,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+mistral-small-3-1,mistral,mmlu,80.62,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google,mmlu,76.9,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gpt-4o-mini,openai,mmlu,82.0,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+claude-3-5-haiku,anthropic,mmlu,77.6,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+mistral-small-3-1,mistral,mmlu-pro,66.76,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google,mmlu-pro,67.5,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gpt-4o-mini,openai,mmlu-pro,61.7,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+claude-3-5-haiku,anthropic,mmlu-pro,65.0,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+mistral-small-3-1,mistral,human-eval,88.41,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google,human-eval,87.8,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gpt-4o-mini,openai,human-eval,87.2,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+claude-3-5-haiku,anthropic,human-eval,88.1,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+mistral-small-3-1,mistral,math,69.3,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google,math,89.0,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gpt-4o-mini,openai,math,70.2,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+claude-3-5-haiku,anthropic,math,69.2,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+mistral-small-3-1,mistral,mmmu,62.8,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google,mmmu,64.9,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gpt-4o-mini,openai,mmmu,59.4,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+claude-3-5-haiku,anthropic,mmmu,60.5,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+mistral-small-3-1,mistral,math-vista,68.91,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google,math-vista,67.6,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gpt-4o-mini,openai,math-vista,56.7,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+claude-3-5-haiku,anthropic,math-vista,61.6,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+mistral-small-3-1,mistral,doc-vqa,94.08,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google,doc-vqa,86.6,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gpt-4o-mini,openai,doc-vqa,86.7,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+claude-3-5-haiku,anthropic,doc-vqa,90.0,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+mistral-small-3-1,mistral,ai2d,93.72,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google,ai2d,84.5,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gpt-4o-mini,openai,ai2d,88.1,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+claude-3-5-haiku,anthropic,ai2d,92.1,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+pixtral-large,mistral,math-vista,69.4,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+claude-3-5-sonnet,anthropic,math-vista,67.1,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+llama-3-2-90b,meta,math-vista,49.1,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+gemini-1-5-pro,google,math-vista,67.8,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+gpt-4o,openai,math-vista,65.4,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+pixtral-large,mistral,mmmu,64.0,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+claude-3-5-sonnet,anthropic,mmmu,68.4,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+llama-3-2-90b,meta,mmmu,53.7,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+gemini-1-5-pro,google,mmmu,66.3,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+gpt-4o,openai,mmmu,68.6,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+pixtral-large,mistral,doc-vqa,93.3,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+claude-3-5-sonnet,anthropic,doc-vqa,88.6,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+llama-3-2-90b,meta,doc-vqa,85.7,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+gemini-1-5-pro,google,doc-vqa,92.3,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+gpt-4o,openai,doc-vqa,88.5,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+pixtral-large,mistral,ai2d,93.8,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+claude-3-5-sonnet,anthropic,ai2d,76.9,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+gemini-1-5-pro,google,ai2d,94.6,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+gpt-4o,openai,ai2d,93.2,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+claude-3-5-sonnet,anthropic,mmlu,88.3,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+gpt-4o,openai,mmlu,87.2,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+v3,deepseek,mmlu,88.5,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1-mini,openai,mmlu,85.2,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1,openai,mmlu,91.8,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+r1,deepseek,mmlu,90.8,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+claude-3-5-sonnet,anthropic,mmlu-pro,78.0,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+gpt-4o,openai,mmlu-pro,72.6,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+v3,deepseek,mmlu-pro,75.9,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1-mini,openai,mmlu-pro,80.3,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+r1,deepseek,mmlu-pro,84.0,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+claude-3-5-sonnet,anthropic,drop,88.3,2025-01-20,3-shot,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+gpt-4o,openai,drop,83.7,2025-01-20,3-shot,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+v3,deepseek,drop,91.6,2025-01-20,3-shot,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1-mini,openai,drop,83.9,2025-01-20,3-shot,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1,openai,drop,90.2,2025-01-20,3-shot,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+r1,deepseek,drop,92.2,2025-01-20,3-shot,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+claude-3-5-sonnet,anthropic,if-eval,86.5,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+gpt-4o,openai,if-eval,84.3,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+v3,deepseek,if-eval,86.1,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1-mini,openai,if-eval,84.8,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+r1,deepseek,if-eval,83.3,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+claude-3-5-sonnet,anthropic,gpqa-diamond,65.0,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+gpt-4o,openai,gpqa-diamond,49.9,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+v3,deepseek,gpqa-diamond,59.1,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1-mini,openai,gpqa-diamond,60.0,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1,openai,gpqa-diamond,75.7,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+r1,deepseek,gpqa-diamond,71.5,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+claude-3-5-sonnet,anthropic,simple-qa,28.4,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+gpt-4o,openai,simple-qa,38.2,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+v3,deepseek,simple-qa,24.9,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1-mini,openai,simple-qa,7.0,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1,openai,simple-qa,47.0,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+r1,deepseek,simple-qa,30.1,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+claude-3-5-sonnet,anthropic,live-code-bench,33.8,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+gpt-4o,openai,live-code-bench,34.2,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1-mini,openai,live-code-bench,53.8,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1,openai,live-code-bench,63.4,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+r1,deepseek,live-code-bench,65.9,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+claude-3-5-sonnet,anthropic,codeforces,717.0,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+gpt-4o,openai,codeforces,759.0,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+v3,deepseek,codeforces,1134.0,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1-mini,openai,codeforces,1820.0,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1,openai,codeforces,2061.0,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+r1,deepseek,codeforces,2029.0,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+claude-3-5-sonnet,anthropic,swe-bench-verified,50.8,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+gpt-4o,openai,swe-bench-verified,38.8,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+v3,deepseek,swe-bench-verified,42.0,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1-mini,openai,swe-bench-verified,41.6,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1,openai,swe-bench-verified,48.9,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+r1,deepseek,swe-bench-verified,49.2,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+claude-3-5-sonnet,anthropic,aider-polyglot,45.3,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+gpt-4o,openai,aider-polyglot,16.0,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+v3,deepseek,aider-polyglot,49.6,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1-mini,openai,aider-polyglot,32.9,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1,openai,aider-polyglot,61.7,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+r1,deepseek,aider-polyglot,53.3,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+claude-3-5-sonnet,anthropic,aime-2024,16.0,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+gpt-4o,openai,aime-2024,9.3,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+v3,deepseek,aime-2024,39.2,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1-mini,openai,aime-2024,63.6,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1,openai,aime-2024,79.2,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+r1,deepseek,aime-2024,79.8,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+claude-3-5-sonnet,anthropic,math-500,78.3,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+gpt-4o,openai,math-500,74.6,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+v3,deepseek,math-500,90.2,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1-mini,openai,math-500,90.0,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+o1,openai,math-500,96.4,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+r1,deepseek,math-500,97.3,2025-01-20,pass@1,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
+llama-3-1-405b,meta,mmlu,84.4,2024-12-26,5-shot,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+v3,deepseek,mmlu,87.1,2024-12-26,5-shot,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+llama-3-1-405b,meta,mmlu-pro,52.8,2024-12-26,5-shot,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+v3,deepseek,mmlu-pro,64.4,2024-12-26,5-shot,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+llama-3-1-405b,meta,drop,86.0,2024-12-26,3-shot,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+v3,deepseek,drop,89.0,2024-12-26,3-shot,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+llama-3-1-405b,meta,hellaswag,89.2,2024-12-26,10-shot,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+v3,deepseek,hellaswag,88.9,2024-12-26,10-shot,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+llama-3-1-405b,meta,human-eval,54.9,2024-12-26,pass@1,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+v3,deepseek,human-eval,65.2,2024-12-26,pass@1,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+llama-3-1-405b,meta,live-code-bench,15.1,2024-12-26,pass@1,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+v3,deepseek,live-code-bench,19.4,2024-12-26,pass@1,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+llama-3-1-405b,meta,gsm8k,83.5,2024-12-26,8-shot,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+v3,deepseek,gsm8k,89.3,2024-12-26,8-shot,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+llama-3-1-405b,meta,math,49.0,2024-12-26,4-shot,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+v3,deepseek,math,61.6,2024-12-26,4-shot,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+llama-3-1-405b,meta,mgsm,69.9,2024-12-26,8-shot,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+v3,deepseek,mgsm,79.8,2024-12-26,8-shot,DeepSeek V3 announcement,https://github.com/deepseek-ai/DeepSeek-V3
+phi-4-mm,microsoft,mmmu,55.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash-lite,google,mmmu,54.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash,google,mmmu,64.7,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+claude-3-5-sonnet,anthropic,mmmu,55.8,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gpt-4o-mini,openai,mmmu,52.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gpt-4o,openai,mmmu,61.7,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+phi-4-mm,microsoft,mmlu-pro,38.5,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash-lite,google,mmlu-pro,45.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash,google,mmlu-pro,54.4,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+claude-3-5-sonnet,anthropic,mmlu-pro,54.3,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gpt-4o-mini,openai,mmlu-pro,40.8,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gpt-4o,openai,mmlu-pro,53.0,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+phi-4-mm,microsoft,math-vista,62.4,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash-lite,google,math-vista,57.6,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash,google,math-vista,47.2,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+claude-3-5-sonnet,anthropic,math-vista,56.9,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gpt-4o-mini,openai,math-vista,38.8,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gpt-4o,openai,math-vista,56.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+phi-4-mm,microsoft,ai2d,82.3,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash-lite,google,ai2d,77.6,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash,google,ai2d,82.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+claude-3-5-sonnet,anthropic,ai2d,70.6,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gpt-4o-mini,openai,ai2d,75.2,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gpt-4o,openai,ai2d,83.8,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+phi-4-mm,microsoft,doc-vqa,93.2,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash-lite,google,doc-vqa,91.2,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash,google,doc-vqa,92.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+claude-3-5-sonnet,anthropic,doc-vqa,95.2,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gpt-4o-mini,openai,doc-vqa,84.2,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gpt-4o,openai,doc-vqa,90.9,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+phi-3-5-moe,microsoft,big-bench-hard,79.1,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,big-bench-hard,63.4,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,big-bench-hard,66.7,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,big-bench-hard,80.4,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-moe,microsoft,mmlu,78.9,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,mmlu,68.1,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,mmlu,78.7,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,mmlu,77.2,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-moe,microsoft,mmlu-pro,54.3,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,mmlu-pro,44.0,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,mmlu-pro,57.2,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,mmlu-pro,62.8,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-moe,microsoft,hellaswag,83.8,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,hellaswag,73.5,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,hellaswag,67.5,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,hellaswag,87.1,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-moe,microsoft,multilingual-mmlu,69.9,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,multilingual-mmlu,56.2,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,multilingual-mmlu,77.2,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,multilingual-mmlu,72.9,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-moe,microsoft,mgsm,58.7,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,mgsm,56.7,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,mgsm,75.8,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,mgsm,81.7,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-moe,microsoft,gsm8k,88.7,2024-08-22,8-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,gsm8k,82.4,2024-08-22,8-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,gsm8k,82.4,2024-08-22,8-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,gsm8k,91.3,2024-08-22,8-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-moe,microsoft,math,59.5,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,math,47.6,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,math,38.0,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,math,70.2,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-moe,microsoft,human-eval,70.7,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,human-eval,66.5,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,human-eval,74.4,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,human-eval,86.6,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-mini,microsoft,big-bench-hard,69.0,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,big-bench-hard,63.4,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,big-bench-hard,66.7,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,big-bench-hard,80.4,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-mini,microsoft,mmlu,69.0,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,mmlu,68.1,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,mmlu,78.7,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,mmlu,77.2,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-mini,microsoft,mmlu-pro,47.4,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,mmlu-pro,44.0,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,mmlu-pro,57.2,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,mmlu-pro,62.8,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-mini,microsoft,hellaswag,69.4,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,hellaswag,73.5,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,hellaswag,67.5,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,hellaswag,87.1,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-mini,microsoft,multilingual-mmlu,55.4,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,multilingual-mmlu,56.2,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,multilingual-mmlu,77.2,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,multilingual-mmlu,72.9,2024-08-22,5-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-mini,microsoft,mgsm,47.9,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,mgsm,56.7,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,mgsm,75.8,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,mgsm,81.7,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-mini,microsoft,gsm8k,86.2,2024-08-22,8-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,gsm8k,82.4,2024-08-22,8-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,gsm8k,82.4,2024-08-22,8-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,gsm8k,91.3,2024-08-22,8-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-mini,microsoft,math,48.5,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,math,47.6,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,math,38.0,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,math,70.2,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+phi-3-5-mini,microsoft,human-eval,62.8,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+llama-3-1-8b,meta,human-eval,66.5,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gemini-1-5-flash,google,human-eval,74.4,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+gpt-4o-mini,openai,human-eval,86.6,2024-08-22,0-shot,Phi-3.5 announcement,https://techcommunity.microsoft.com/blog/azure-ai-services-blog/discover-the-new-multi-lingual-high-quality-phi-3-5-slms/4225280
+command-r-plus,cohere,if-eval,76.64,2024-06-20,,HF Open LLM Leaderboard,https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard
+command-r7b,cohere,if-eval,77.13,2024-12-20,,HF Open LLM Leaderboard,https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard
+command-r-plus,cohere,math,8.01,2024-06-20,,HF Open LLM Leaderboard,https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard
+command-r7b,cohere,math,29.91,2024-12-20,,HF Open LLM Leaderboard,https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard
+command-r-plus,cohere,mmlu-pro,33.24,2024-06-20,,HF Open LLM Leaderboard,https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard
+command-r7b,cohere,mmlu-pro,28.58,2024-12-20,,HF Open LLM Leaderboard,https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard
+o1,openai,mmlu-pro,89.3,2025-04-23,,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
+gpt-4-5,openai,mmlu-pro,86.1,2025-04-23,,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
+gpt-4o,openai,mmlu-pro,77.9,2025-04-23,,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
+claude-3-7-sonnet,anthropic,mmlu-pro,84.0,2025-04-23,Extended Thinking,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
+gemini-2-5-pro,google,mmlu-pro,84.52,2025-04-23,,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
+grok-2,xai,mmlu-pro,75.46,2025-04-23,,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
+phi-4,microsoft,mmlu-pro,70.4,2025-04-23,,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
+phi-3-5-mini,microsoft,mmlu-pro,52.8,2025-04-23,,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
+gpt-4-5,openai,browse-comp,0.9,2025-04-10,,BrowseComp announcement,https://openai.com/index/browsecomp/
+o1,openai,browse-comp,9.9,2025-04-10,,BrowseComp announcement,https://openai.com/index/browsecomp/
