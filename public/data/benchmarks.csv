@@ -350,6 +350,50 @@ r1,deepseek,live-code-bench,64.3,2025-03-25,,Gemini 2.5 announcement,https://blo
 r1,deepseek,aider-polyglot,56.9,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,swe-bench-verified,49.2,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,simple-qa,30.1,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-flash,google,humanitys-last-exam,12.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,humanitys-last-exam,5.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+o4-mini,openai,humanitys-last-exam,14.3,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+claude-3-7-sonnet,anthropic,humanitys-last-exam,8.9,2025-04-17,Extended thinking,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+r1,deepseek,humanitys-last-exam,8.6,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google,gpqa-diamond,78.3,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,gpqa-diamond,60.1,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+o4-mini,openai,gpqa-diamond,81.4,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+claude-3-7-sonnet,anthropic,gpqa-diamond,78.2,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+grok-3,xai,gpqa-diamond,80.2,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+r1,deepseek,gpqa-diamond,71.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google,aime-2025,78.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,aime-2025,27.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+o4-mini,openai,aime-2025,92.7,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+claude-3-7-sonnet,anthropic,aime-2025,49.5,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+grok-3,xai,aime-2025,77.3,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+r1,deepseek,aime-2025,70.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google,aime-2024,88.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,aime-2024,32.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+o4-mini,openai,aime-2024,93.4,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+claude-3-7-sonnet,anthropic,aime-2024,61.3,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+grok-3,xai,aime-2024,83.9,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+r1,deepseek,aime-2024,79.8,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google,live-code-bench,63.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,live-code-bench,34.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+grok-3,xai,live-code-bench,70.6,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+r1,deepseek,live-code-bench,64.3,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google,aider-polyglot,51.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,aider-polyglot,22.2,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+o4-mini,openai,aider-polyglot,68.9,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+claude-3-7-sonnet,anthropic,aider-polyglot,64.9,2025-04-17,Extended thinking,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+grok-3,xai,aider-polyglot,53.3,2025-04-17,Extended thinking,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+r1,deepseek,aider-polyglot,56.9,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google,simple-qa,29.7,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,simple-qa,29.9,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+grok-3,xai,simple-qa,43.6,2025-04-17,Extended thinking,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+r1,deepseek,simple-qa,30.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google,mmmu,76.7,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,mmmu,71.7,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+o4-mini,openai,mmmu,81.6,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+claude-3-7-sonnet,anthropic,mmmu,75.0,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+grok-3,xai,mmmu,76.0,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google,mrcr,84.6,2025-04-17,128k (average),Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,mrcr,74.2,2025-04-17,128k (average),Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 gemma-3-1b,google,gpqa-diamond,19.2,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
 gemma-3-4b,google,gpqa-diamond,30.8,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
 gemma-3-12b,google,gpqa-diamond,40.9,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
@@ -660,11 +704,11 @@ gemini-2-0,google,mmlu-pro,79.1,2025-02-19,,Grok 3 announcement,https://x.ai/new
 gemini-2-0,google,loft,75.6,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 gemini-2-0,google,simple-qa,44.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 gemini-2-0,google,ego-schema,71.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-flash-thinking,,aime-2025,53.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-flash-thinking,,aime-2024,73.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-flash-thinking,,gpqa-diamond,74.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-flash-thinking,,live-code-bench,45.8,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-flash-thinking,,mmmu,75.4,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0-flash-thinking,google,aime-2025,53.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0-flash-thinking,google,aime-2024,73.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0-flash-thinking,google,gpqa-diamond,74.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0-flash-thinking,google,live-code-bench,45.8,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0-flash-thinking,google,mmmu,75.4,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 gpt-4o,openai,aime-2024,9.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 gpt-4o,openai,gpqa-diamond,53.6,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 gpt-4o,openai,live-code-bench,32.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
@@ -835,47 +879,3 @@ o3-mini,openai,simple-bench,22.8,2025-04-21,High,SimpleBench,https://simple-benc
 o4-mini,openai,simple-bench,38.7,2025-04-21,,SimpleBench,https://simple-bench.com
 r1,deepseek,simple-bench,30.9,2025-04-21,,SimpleBench,https://simple-bench.com
 v3,deepseek,simple-bench,27.2,2025-04-21,,SimpleBench,https://simple-bench.com
-gemini-2-5-flash,google,humanitys-last-exam,12.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash,google,humanitys-last-exam,5.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-o4-mini,openai,humanitys-last-exam,14.3,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-claude-3-7-sonnet,anthropic,humanitys-last-exam,8.9,2025-04-17,Extended thinking,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-r1,deepseek,humanitys-last-exam,8.6,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash,google,gpqa-diamond,78.3,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash,google,gpqa-diamond,60.1,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-o4-mini,openai,gpqa-diamond,81.4,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-claude-3-7-sonnet,anthropic,gpqa-diamond,78.2,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-grok-3,xai,gpqa-diamond,80.2,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-r1,deepseek,gpqa-diamond,71.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash,google,aime-2025,78.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash,google,aime-2025,27.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-o4-mini,openai,aime-2025,92.7,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-claude-3-7-sonnet,anthropic,aime-2025,49.5,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-grok-3,xai,aime-2025,77.3,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-r1,deepseek,aime-2025,70.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash,google,aime-2024,88.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash,google,aime-2024,32.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-o4-mini,openai,aime-2024,93.4,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-claude-3-7-sonnet,anthropic,aime-2024,61.3,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-grok-3,xai,aime-2024,83.9,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-r1,deepseek,aime-2024,79.8,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash,google,live-code-bench,63.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash,google,live-code-bench,34.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-grok-3,xai,live-code-bench,70.6,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-r1,deepseek,live-code-bench,64.3,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash,google,aider-polyglot,51.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash,google,aider-polyglot,22.2,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-o4-mini,openai,aider-polyglot,68.9,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-claude-3-7-sonnet,anthropic,aider-polyglot,64.9,2025-04-17,Extended thinking,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-grok-3,xai,aider-polyglot,53.3,2025-04-17,Extended thinking,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-r1,deepseek,aider-polyglot,56.9,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash,google,simple-qa,29.7,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash,google,simple-qa,29.9,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-grok-3,xai,simple-qa,43.6,2025-04-17,Extended thinking,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-r1,deepseek,simple-qa,30.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash,google,mmmu,76.7,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash,google,mmmu,71.7,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-o4-mini,openai,mmmu,81.6,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-claude-3-7-sonnet,anthropic,mmmu,75.0,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-grok-3,xai,mmmu,76.0,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash,google,mrcr,84.6,2025-04-17,128k (average),Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash,google,mrcr,74.2,2025-04-17,128k (average),Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
