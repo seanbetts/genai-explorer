@@ -267,19 +267,6 @@ const FeaturedBenchmarksSection: React.FC<FeaturedBenchmarksSectionProps> = Reac
                   >
                     {benchmark.benchmark_name}
                   </a>
-                  {benchmark.benchmark_paper && (
-                    <a 
-                      href={benchmark.benchmark_paper} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="text-xs text-gray-400 hover:text-gray-300 transition-colors mt-1"
-                      title={`View ${benchmark.benchmark_name} paper`}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <i className="bi bi-file-earmark-text mr-1"></i>
-                      View paper
-                    </a>
-                  )}
                   <span className="text-xs text-gray-400 mt-1">
                     {benchmark.benchmark_category}
                   </span>
