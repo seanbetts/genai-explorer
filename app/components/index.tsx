@@ -323,10 +323,25 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
       {/* Footer */}
       <footer className={containerStyles.footer}>
         <div className={containerStyles.footerContent}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-x-4 gap-y-6">
+            {/* Features */}
+            <div className="md:col-span-2">
+              <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Features</h3>
+              <ul className="space-y-0.5">
+                <li>
+                  <a 
+                    href="/" 
+                    className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5"
+                  >
+                    Explorer
+                  </a>
+                </li>
+              </ul>
+            </div>
+            
             {/* Popular Companies */}
-            <div>
-              <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Top Companies</h3>
+            <div className="md:col-span-3">
+              <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">AI Companies</h3>
               <ul className="space-y-0.5">
                 {topCompanies.map(company => (
                   <li key={company.id}>
@@ -346,7 +361,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
             </div>
             
             {/* Benchmarks */}
-            <div>
+            <div className="md:col-span-3">
               <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Top Benchmarks</h3>
               <ul className="space-y-0.5">
                 {topBenchmarks.map(benchmark => (
@@ -367,7 +382,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
             </div>
             
             {/* About/Info */}
-            <div>
+            <div className="md:col-span-4">
               <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">About</h3>
               <p className="text-gray-300 text-sm mb-4">
                 The Blueprint's Generative AI Explorer helps people understand the generative AI landspace and explore companies, models, and benchmarks.
