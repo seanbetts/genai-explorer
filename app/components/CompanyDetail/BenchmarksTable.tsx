@@ -440,6 +440,15 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
                 );
               });
             });
+          })
+          // Sort categories to ensure usability is first, then alphabetical
+          .sort(([categoryA], [categoryB]) => {
+            // If categoryA is usability, it should come first
+            if (categoryA === 'usability') return -1;
+            // If categoryB is usability, it should come first
+            if (categoryB === 'usability') return 1;
+            // Otherwise sort alphabetically
+            return categoryA.localeCompare(categoryB);
           });
 
         // Render each category, with showHeader=true only for the first visible category
