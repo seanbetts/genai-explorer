@@ -77,8 +77,13 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
     router.push(url);
   };
   const handleBack = () => {
-    // Navigate back to home view
-    router.push('/');
+    // Use browser history to go back to the previous page
+    if (typeof window !== 'undefined' && window.history.length > 1) {
+      window.history.back();
+    } else {
+      // Fallback to home view if no history exists
+      router.push('/');
+    }
   };
   
   

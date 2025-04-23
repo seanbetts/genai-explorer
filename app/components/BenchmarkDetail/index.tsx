@@ -354,17 +354,6 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack }
         </div>
       )}
 
-      {/* Historical data section */}
-      {allScores.length > scores.length && (
-        <div className="mt-10">
-          <h2 className="text-xl font-semibold text-white mb-4">Historical Data</h2>
-          <p className="text-gray-300 mb-4">
-            This benchmark has {allScores.length} total data points across {scores.length} models,
-            including historical measurements.
-          </p>
-          {/* Could add a time-series chart here if we want */}
-        </div>
-      )}
     </div>
   );
 };
