@@ -212,7 +212,8 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
   const headerItems = modelsToDisplay.map(model => ({
     id: model.id,
     name: model.name,
-    description: model.description || model.name
+    description: model.description || model.name,
+    releaseDate: model.releaseDate
   }));
 
   // Function to render a benchmark score for a model

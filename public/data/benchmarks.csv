@@ -1,12 +1,4 @@
 model_id,company_id,becnhmark_id,score,date,notes,source_name,source
-claude-3-5-haiku,anthropic,gpqa-diamond,41.6,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-haiku,anthropic,mmlu-pro,65.0,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-haiku,anthropic,human-eval,88.1,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-haiku,anthropic,math,69.2,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-haiku,anthropic,aime-2024,5.3,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-haiku,anthropic,swe-bench-verified,40.6,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-haiku,anthropic,tau-bench-retail,51.0,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-haiku,anthropic,tau-bench-airline,22.8,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
 claude-3-5-haiku,anthropic,mmlu,80.3,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 claude-3-5-haiku,anthropic,drop,83.1,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 claude-3-5-haiku,anthropic,arc,90.9,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -16,60 +8,6 @@ claude-3-5-haiku,anthropic,math,69.4,2024-12-03,,Amazon Nova announcement,https:
 claude-3-5-haiku,anthropic,human-eval,88.1,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 claude-3-5-haiku,anthropic,big-bench-hard,86.6,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 claude-3-5-haiku,anthropic,if-eval,85.9,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
-claude-3-5-sonnet,anthropic,simple-bench,41.4,2025-04-21,,SimpleBench,https://simple-bench.com
-claude-3-5-sonnet,anthropic,gpqa-diamond,65.0,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-5-sonnet,anthropic,swe-bench-verified,49.0,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-5-sonnet,anthropic,tau-bench-retail,71.5,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-5-sonnet,anthropic,tau-bench-airline,48.8,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-5-sonnet,anthropic,multilingual-mmlu,82.1,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-5-sonnet,anthropic,mmmu,70.4,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-5-sonnet,anthropic,if-eval,90.2,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-5-sonnet,anthropic,math-500,78.0,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-5-sonnet,anthropic,aime-2024,16.0,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-5-sonnet,anthropic,aime-2024,16.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-claude-3-5-sonnet,anthropic,gpqa-diamond,65.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-claude-3-5-sonnet,anthropic,live-code-bench,40.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-claude-3-5-sonnet,anthropic,mmmu,70.4,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-claude-3-5-sonnet,anthropic,mmlu-pro,78.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-claude-3-5-sonnet,anthropic,loft,69.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-claude-3-5-sonnet,anthropic,simple-qa,28.4,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-claude-3-5-sonnet,anthropic,gpqa-diamond,59.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-claude-3-5-sonnet,anthropic,mmlu,88.3,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-claude-3-5-sonnet,anthropic,mmlu-pro,76.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-claude-3-5-sonnet,anthropic,math,71.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-claude-3-5-sonnet,anthropic,human-eval,92.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-claude-3-5-sonnet,anthropic,mmmu,68.3,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-claude-3-5-sonnet,anthropic,math-vista,67.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-claude-3-5-sonnet,anthropic,doc-vqa,95.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-claude-3-5-sonnet,anthropic,gpqa-diamond,65.0,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,gpqa-diamond,59.4,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,mmlu-pro,78.0,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,mmlu-pro,75.1,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,human-eval,93.7,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,human-eval,92.0,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,math,78.3,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,math,71.1,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,aime-2024,16.0,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,aime-2024,9.6,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,mmmu,70.4,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,mmmu,68.3,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,swe-bench-verified,49.0,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,swe-bench-verified,33.4,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,tau-bench-retail,69.2,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,tau-bench-retail,62.6,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,tau-bench-airline,46.0,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,tau-bench-airline,36.0,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-claude-3-5-sonnet,anthropic,gpqa-diamond,59.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-5-sonnet,anthropic,mmlu,88.3,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-5-sonnet,anthropic,human-eval,92.0,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-5-sonnet,anthropic,mgsm,91.6,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-5-sonnet,anthropic,drop,87.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-5-sonnet,anthropic,big-bench-hard,93.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-5-sonnet,anthropic,math,71.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-5-sonnet,anthropic,gsm8k,96.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-5-sonnet,anthropic,math-vista,67.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-5-sonnet,anthropic,ai2d,94.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-5-sonnet,anthropic,mmmu,68.3,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-5-sonnet,anthropic,mmlu,89.3,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 claude-3-5-sonnet,anthropic,drop,88.3,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 claude-3-5-sonnet,anthropic,arc,96.3,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -79,78 +17,6 @@ claude-3-5-sonnet,anthropic,math,78.3,2024-12-03,,Amazon Nova announcement,https
 claude-3-5-sonnet,anthropic,human-eval,93.7,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 claude-3-5-sonnet,anthropic,big-bench-hard,93.2,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 claude-3-5-sonnet,anthropic,if-eval,90.2,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
-claude-3-5-sonnet,anthropic,chatbot-arena,1283.0,2025-04-21,,April 21st update,https://lmarena.ai
-claude-3-7-sonnet,anthropic,simple-bench,46.4,2025-04-21,Thinking,SimpleBench,https://simple-bench.com
-claude-3-7-sonnet,anthropic,gpqa-diamond,68.0,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-7-sonnet,anthropic,swe-bench-verified,62.3,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-7-sonnet,anthropic,tau-bench-retail,81.2,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-7-sonnet,anthropic,tau-bench-airline,58.4,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-7-sonnet,anthropic,multilingual-mmlu,83.2,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-7-sonnet,anthropic,mmmu,71.8,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-7-sonnet,anthropic,if-eval,90.8,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-7-sonnet,anthropic,math-500,82.2,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-7-sonnet,anthropic,aime-2024,23.3,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-claude-3-7-sonnet,anthropic,humanitys-last-exam,8.9,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-claude-3-7-sonnet,anthropic,gpqa-diamond,78.2,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-claude-3-7-sonnet,anthropic,aime-2025,49.5,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-claude-3-7-sonnet,anthropic,aime-2024,61.3,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-claude-3-7-sonnet,anthropic,aiders-polyglot,64.9,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-claude-3-7-sonnet,anthropic,swe-bench-verified,70.3,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-claude-3-7-sonnet,anthropic,mmmu,75.0,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-claude-3-7-sonnet,anthropic,chatbot-arena,1293.0,2025-04-21,,April 21st update,https://lmarena.ai
-claude-3-opus,anthropic,simple-bench,23.5,2025-04-21,,SimpleBench,https://simple-bench.com
-claude-3-opus,anthropic,gpqa-diamond,50.4,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-claude-3-opus,anthropic,mmlu,85.7,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-claude-3-opus,anthropic,mmlu-pro,68.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-claude-3-opus,anthropic,math,60.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-claude-3-opus,anthropic,human-eval,84.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-claude-3-opus,anthropic,mmmu,59.4,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-claude-3-opus,anthropic,math-vista,50.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-claude-3-opus,anthropic,doc-vqa,89.3,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-claude-3-opus,anthropic,gpqa-diamond,50.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-opus,anthropic,mmlu,85.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-opus,anthropic,human-eval,84.9,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-opus,anthropic,mgsm,90.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-opus,anthropic,drop,83.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-opus,anthropic,big-bench-hard,86.8,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-opus,anthropic,math,60.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-opus,anthropic,gsm8k,95.0,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-opus,anthropic,math-vista,50.5,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-opus,anthropic,ai2d,88.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-claude-3-opus,anthropic,mmmu,59.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-command-a,cohere,chatbot-arena,1303.0,2025-04-21,,April 21st update,https://lmarena.ai
-command-r-plus,cohere,simple-bench,17.4,2025-04-21,,SimpleBench,https://simple-bench.com
-gemini-1-5-flash,google,gpqa-diamond,51.0,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gemini-1-5-flash,google,mmlu-pro,67.3,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gemini-1-5-flash,google,math,77.9,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gemini-1-5-flash,google,mmmu,62.3,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gemini-1-5-flash,google,mmlu-pro,67.3,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-flash,google,live-code-bench,30.7,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-flash,google,bird-sql,45.6,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-flash,google,gpqa-diamond,51.0,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-flash,google,simple-qa,8.6,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-flash,google,facts-grounding,82.9,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-flash,google,math,77.9,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-flash,google,hidden-math,47.2,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-flash,google,mrcr,71.9,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-flash,google,mmmu,62.3,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-flash,google,co-vo-st2,37.4,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-flash,google,ego-schema,66.8,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-flash,google,gpqa-diamond,39.5,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-flash,google,math,54.9,2024-02-15,4-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-flash,google,hidden-math,6.7,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-flash,google,gsm8k,86.2,2024-02-15,11-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-flash,google,big-bench-hard,85.5,2024-02-15,3-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-flash,google,drop,78.4,2024-02-15,Variable shots,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-flash,google,mmlu,78.9,2024-02-15,5-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-flash,google,hellaswag,86.5,2024-02-15,10-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-flash,google,human-eval,86.5,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-flash,google,mgsm,82.6,2024-02-15,8-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-flash,google,mmmu,56.1,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-flash,google,math-vista,58.4,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-flash,google,ai2d,91.7,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-flash,google,doc-vqa,89.9,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-flash,google,ego-schema,65.7,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google,mmlu,78.9,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gemini-1-5-flash,google,drop,78.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gemini-1-5-flash,google,arc,94.3,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -169,55 +35,6 @@ gemini-1-5-flash,google,math,58.7,2024-12-03,,Amazon Nova announcement,https://a
 gemini-1-5-flash,google,human-eval,81.1,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gemini-1-5-flash,google,big-bench-hard,69.5,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gemini-1-5-flash,google,if-eval,86.1,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
-gemini-1-5-pro,google,simple-bench,27.1,2025-04-21,,SimpleBench,https://simple-bench.com
-gemini-1-5-pro,google,gpqa-diamond,46.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gemini-1-5-pro,google,mmlu,85.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gemini-1-5-pro,google,mmlu-pro,69.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gemini-1-5-pro,google,math,67.7,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gemini-1-5-pro,google,human-eval,71.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gemini-1-5-pro,google,mmmu,62.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gemini-1-5-pro,google,math-vista,63.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gemini-1-5-pro,google,doc-vqa,93.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gemini-1-5-pro,google,gpqa-diamond,59.1,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gemini-1-5-pro,google,mmlu-pro,75.8,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gemini-1-5-pro,google,math,86.5,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gemini-1-5-pro,google,mmmu,65.9,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gemini-1-5-pro,google,human-eval,84.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro,google,mgsm,87.5,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro,google,drop,74.9,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro,google,big-bench-hard,89.2,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro,google,math,67.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro,google,gsm8k,90.8,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro,google,math-vista,63.9,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro,google,ai2d,94.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro,google,mmmu,62.2,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro,google,mmlu-pro,75.8,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro,google,live-code-bench,34.2,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro,google,bird-sql,54.4,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro,google,gpqa-diamond,59.1,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro,google,simple-qa,24.9,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro,google,facts-grounding,80.0,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro,google,math,86.5,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro,google,hidden-math,52.0,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro,google,mrcr,82.6,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro,google,mmmu,65.9,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro,google,co-vo-st2,40.1,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro,google,ego-schema,71.2,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro,google,gpqa-diamond,46.2,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro,google,math,67.7,2024-02-15,4-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro,google,hidden-math,20.1,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro,google,gsm8k,90.8,2024-02-15,11-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro,google,big-bench-hard,89.2,2024-02-15,3-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro,google,drop,74.9,2024-02-15,Variable shots,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro,google,mmlu,85.9,2024-02-15,5-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro,google,hellaswag,93.3,2024-02-15,10-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro,google,human-eval,93.3,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro,google,mgsm,87.5,2024-02-15,8-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro,google,mmmu,62.2,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro,google,math-vista,63.9,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro,google,ai2d,94.4,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro,google,doc-vqa,93.1,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro,google,ego-schema,72.2,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-pro,google,mmlu,85.9,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gemini-1-5-pro,google,drop,74.9,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gemini-1-5-pro,google,arc,95.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -227,230 +44,6 @@ gemini-1-5-pro,google,math,86.5,2024-12-03,,Amazon Nova announcement,https://aws
 gemini-1-5-pro,google,human-eval,87.8,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gemini-1-5-pro,google,big-bench-hard,89.2,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gemini-1-5-pro,google,if-eval,91.7,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
-gemini-1-5-pro,google,chatbot-arena,1260.0,2025-04-21,,April 21st update,https://lmarena.ai
-gemini-2-0,google,gpqa-diamond,64.7,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0,google,live-code-bench,36.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0,google,mmmu,72.7,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0,google,mmlu-pro,79.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0,google,loft,75.6,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0,google,simple-qa,44.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0,google,ego-schema,71.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0-flash,google,mmlu-pro,77.6,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash,google,live-code-bench,34.5,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash,google,bird-sql,58.7,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash,google,gpqa-diamond,60.1,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash,google,simple-qa,29.9,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash,google,facts-grounding,84.6,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash,google,math,90.9,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash,google,hidden-math,63.5,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash,google,mrcr,70.5,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash,google,mmmu,71.7,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash,google,co-vo-st2,39.0,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash,google,ego-schema,71.1,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash,google,chatbot-arena,1354.0,2025-04-21,,April 21st update,https://lmarena.ai
-gemini-2-0-flash-lite,google,mmlu-pro,71.6,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite,google,live-code-bench,28.9,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite,google,bird-sql,57.4,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite,google,gpqa-diamond,51.5,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite,google,simple-qa,21.7,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite,google,facts-grounding,83.6,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite,google,math,86.8,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite,google,hidden-math,55.4,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite,google,mrcr,58.0,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite,google,mmmu,68.0,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite,google,co-vo-st2,38.4,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite,google,ego-schema,67.2,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite,google,chatbot-arena,1311.0,2025-04-21,,April 21st update,https://lmarena.ai
-gemini-2-0-flash-thinking,google,chatbot-arena,1380.0,2025-04-21,,April 21st update,https://lmarena.ai
-gemini-2-0-pro,google,mmlu-pro,79.1,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro,google,live-code-bench,36.0,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro,google,bird-sql,59.3,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro,google,gpqa-diamond,64.7,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro,google,simple-qa,44.3,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro,google,facts-grounding,82.8,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro,google,math,91.8,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro,google,hidden-math,65.2,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro,google,mrcr,74.7,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro,google,mmmu,72.7,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro,google,co-vo-st2,40.6,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro,google,ego-schema,71.9,2025-02-05,,Gemini 2.0 accouncement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-5-flash,google,chatbot-arena,1392.0,2025-04-21,,April 21st update,https://lmarena.ai
-gemini-2-5-pro,google,simple-bench,51.6,2025-04-21,,SimpleBench,https://simple-bench.com
-gemini-2-5-pro,google,humanitys-last-exam,18.8,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro,google,gpqa-diamond,84.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro,google,aime-2025,86.7,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro,google,aime-2024,92.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro,google,live-code-bench,70.4,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro,google,aiders-polyglot,74.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro,google,swe-bench-verified,63.8,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro,google,simple-qa,52.9,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro,google,mmmu,81.7,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro,google,chatbot-arena,1439.0,2025-04-21,,April 21st update,https://lmarena.ai
-gemini-2-flash-thinking,,aime-2025,53.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-flash-thinking,,aime-2024,73.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-flash-thinking,,gpqa-diamond,74.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-flash-thinking,,live-code-bench,45.8,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-flash-thinking,,mmmu,75.4,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemma-3-27b,google,chatbot-arena,1342.0,2025-04-21,,April 21st update,https://lmarena.ai
-gpt-4-1,openai,aiders-polyglot,52.0,2025-04-14,Whole,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,aime-2024,48.1,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,charxiv-reasoning,57.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,gpqa-diamond,66.3,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,graphwalks-bfs,62.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,if-eval,87.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,math-vista,72.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,mmmu,75.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,multi-challenge,38.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,swe-bench-verified,55.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,tau-bench-airline,49.4,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,tau-bench-retail,68.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,video-mme,72.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,mmlu,90.2,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,multilingual-mmlu,87.3,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,swe-lancer,176000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,swe-lancer-ic-swe-diamond,34000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,collie,65.8,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,multi-if,70.8,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,complex-func-bench,65.5,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1,openai,simple-bench,27.0,2025-04-21,,SimpleBench,https://simple-bench.com
-gpt-4-1-mini,openai,aiders-polyglot,35.0,2025-04-14,Whole,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,aime-2024,49.6,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,charxiv-reasoning,57.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,gpqa-diamond,65.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,graphwalks-bfs,62.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,if-eval,84.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,math-vista,73.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,mmmu,73.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,multi-challenge,36.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,swe-bench-verified,24.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,tau-bench-airline,36.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,tau-bench-retail,55.8,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,mmlu,87.5,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,multilingual-mmlu,78.5,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,swe-lancer,165000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,swe-lancer-ic-swe-diamond,31000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,collie,54.6,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,multi-if,67.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-mini,openai,complex-func-bench,49.3,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,aiders-polyglot,10.0,2025-04-14,Whole,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,aime-2024,29.4,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,charxiv-reasoning,41.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,gpqa-diamond,50.3,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,graphwalks-bfs,25.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,if-eval,75.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,math-vista,56.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,mmmu,55.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,multi-challenge,15.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,tau-bench-airline,14.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,tau-bench-retail,22.6,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,mmlu,80.1,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,multilingual-mmlu,66.9,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,swe-lancer,77000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,swe-lancer-ic-swe-diamond,9000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,collie,42.5,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,multi-if,57.2,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-1-nano,openai,complex-func-bench,5.7,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,aime-2024,36.7,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,charxiv-reasoning,55.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,gpqa-diamond,69.5,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,graphwalks-bfs,72.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,if-eval,88.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,math-vista,72.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,mmmu,75.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,multi-challenge,44.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,swe-bench-verified,38.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,tau-bench-airline,50.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,tau-bench-retail,68.4,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,mmlu,90.8,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,multilingual-mmlu,85.1,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,swe-lancer,186000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,swe-lancer-ic-swe-diamond,41000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,collie,72.3,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,multi-if,70.8,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,complex-func-bench,63.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4-5,openai,simple-bench,34.5,2025-04-21,,SimpleBench,https://simple-bench.com
-gpt-4-5,openai,gpqa-diamond,71.4,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-gpt-4-5,openai,aime-2024,36.7,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-gpt-4-5,openai,multilingual-mmlu,85.1,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-gpt-4-5,openai,mmmu,74.4,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-gpt-4-5,openai,swe-lancer-ic-swe-diamond,186125.0,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-gpt-4-5,openai,swe-bench-verified,38.0,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-gpt-4-5,openai,humanitys-last-exam,6.4,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gpt-4-5,openai,gpqa-diamond,71.4,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gpt-4-5,openai,aime-2024,36.7,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gpt-4-5,openai,aiders-polyglot,44.9,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gpt-4-5,openai,swe-bench-verified,38.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gpt-4-5,openai,simple-qa,62.5,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gpt-4-5,openai,mmmu,74.4,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gpt-4-5,openai,chatbot-arena,1398.0,2025-04-21,,April 21st update,https://lmarena.ai
-gpt-4-turbo,openai,simple-bench,25.1,2025-04-21,,SimpleBench,https://simple-bench.com
-gpt-4-turbo,openai,gpqa-diamond,48.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gpt-4-turbo,openai,mmlu,86.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gpt-4-turbo,openai,mmlu-pro,63.7,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gpt-4-turbo,openai,math,72.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gpt-4-turbo,openai,human-eval,87.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gpt-4-turbo,openai,mmmu,63.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gpt-4-turbo,openai,math-vista,58.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gpt-4-turbo,openai,doc-vqa,87.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gpt-4-turbo,openai,chatbot-arena,1256.0,2025-04-21,,April 21st update,https://lmarena.ai
-gpt-4o,openai,aiders-polyglot,31.0,2025-04-14,"2024-11-20, Whole",GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,aime-2024,13.1,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,browse-comp,1.9,2025-04-16,With browsing,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-gpt-4o,openai,charxiv-reasoning,53.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,gpqa-diamond,46.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,graphwalks-bfs,42.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,if-eval,81.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,math-vista,61.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,mmmu,69.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,multi-challenge,28.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,swe-bench-verified,33.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,tau-bench-airline,42.8,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,tau-bench-retail,60.3,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,video-mme,65.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,mmlu,85.7,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,multilingual-mmlu,81.4,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,swe-lancer,163000.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,swe-lancer-ic-swe-diamond,29000.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,collie,50.2,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,multi-if,60.9,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,complex-func-bench,66.5,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o,openai,simple-bench,17.8,2025-04-21,2024-08-06 00:00:00,SimpleBench,https://simple-bench.com
-gpt-4o,openai,gpqa-diamond,53.6,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-gpt-4o,openai,aime-2024,9.3,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-gpt-4o,openai,multilingual-mmlu,81.5,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-gpt-4o,openai,mmmu,69.1,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-gpt-4o,openai,swe-lancer-ic-swe-diamond,138750.0,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-gpt-4o,openai,swe-bench-verified,30.7,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-gpt-4o,openai,aime-2024,9.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gpt-4o,openai,gpqa-diamond,53.6,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gpt-4o,openai,live-code-bench,32.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gpt-4o,openai,mmmu,69.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gpt-4o,openai,mmlu-pro,72.6,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gpt-4o,openai,loft,78.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gpt-4o,openai,simple-qa,38.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gpt-4o,openai,ego-schema,72.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gpt-4o,openai,gpqa-diamond,53.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gpt-4o,openai,mmlu,88.7,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gpt-4o,openai,mmlu-pro,72.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gpt-4o,openai,math,76.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gpt-4o,openai,human-eval,90.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gpt-4o,openai,mmmu,69.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gpt-4o,openai,math-vista,63.8,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gpt-4o,openai,doc-vqa,92.8,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gpt-4o,openai,gpqa-diamond,53.6,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gpt-4o,openai,human-eval,90.2,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gpt-4o,openai,math,76.6,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gpt-4o,openai,aime-2024,9.3,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gpt-4o,openai,mmmu,69.1,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gpt-4o,openai,gpqa-diamond,53.6,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gpt-4o,openai,mmlu,88.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gpt-4o,openai,human-eval,90.2,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gpt-4o,openai,mgsm,90.5,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gpt-4o,openai,drop,83.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gpt-4o,openai,math,76.6,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gpt-4o,openai,math-vista,63.8,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gpt-4o,openai,ai2d,94.2,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gpt-4o,openai,mmmu,69.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 gpt-4o,openai,mmlu,88.7,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o,openai,drop,83.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o,openai,arc,96.2,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -460,31 +53,6 @@ gpt-4o,openai,math,76.7,2024-12-03,,Amazon Nova announcement,https://aws.amazon.
 gpt-4o,openai,human-eval,90.2,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o,openai,big-bench-hard,83.0,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o,openai,if-eval,89.8,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
-gpt-4o,openai,chatbot-arena,1407.0,2025-04-21,2025-03-26 00:00:00,April 21st update,https://lmarena.ai
-gpt-4o-mini,openai,aiders-polyglot,4.0,2025-04-14,Whole,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,aime-2024,8.6,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,charxiv-reasoning,37.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,gpqa-diamond,40.2,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,graphwalks-bfs,29.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,if-eval,78.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,math-vista,57.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,mmmu,56.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,multi-challenge,20.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,swe-bench-verified,9.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,tau-bench-airline,22.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,tau-bench-retail,44.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,mmlu,82.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,multilingual-mmlu,70.5,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,swe-lancer,116000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,swe-lancer-ic-swe-diamond,11000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,collie,52.7,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,multi-if,57.9,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,complex-func-bench,38.6,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-gpt-4o-mini,openai,simple-bench,10.7,2025-04-21,,SimpleBench,https://simple-bench.com
-gpt-4o-mini,openai,gpqa-diamond,40.2,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gpt-4o-mini,openai,human-eval,87.2,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gpt-4o-mini,openai,math,70.2,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gpt-4o-mini,openai,mmmu,59.4,2024-10-22,,New Claude 3.5 Sonnet accouncement,https://www.anthropic.com/news/3-5-models-and-computer-use
 gpt-4o-mini,openai,mmlu,82.0,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o-mini,openai,drop,79.7,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o-mini,openai,arc,92.3,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -494,71 +62,6 @@ gpt-4o-mini,openai,math,70.2,2024-12-03,,Amazon Nova announcement,https://aws.am
 gpt-4o-mini,openai,human-eval,87.2,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o-mini,openai,big-bench-hard,81.0,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o-mini,openai,if-eval,87.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
-gpt-4o-mini,openai,chatbot-arena,1272.0,2025-04-21,,April 21st update,https://lmarena.ai
-grok-1.5,xai,gpqa-diamond,35.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-1.5,xai,mmlu,81.3,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-1.5,xai,mmlu-pro,51.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-1.5,xai,math,50.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-1.5,xai,human-eval,74.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-1.5,xai,mmmu,53.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-1.5,xai,math-vista,52.8,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-1.5,xai,doc-vqa,85.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2,xai,simple-bench,22.7,2025-04-21,,SimpleBench,https://simple-bench.com
-grok-2,xai,gpqa-diamond,56.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2,xai,mmlu,87.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2,xai,mmlu-pro,75.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2,xai,math,76.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2,xai,human-eval,88.4,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2,xai,mmmu,66.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2,xai,math-vista,69.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2,xai,doc-vqa,93.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2,xai,chatbot-arena,1288.0,2025-04-21,,April 21st update,https://lmarena.ai
-grok-2-mini,xai,gpqa-diamond,51.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2-mini,xai,mmlu,86.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2-mini,xai,mmlu-pro,72.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2-mini,xai,math,73.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2-mini,xai,human-eval,85.7,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2-mini,xai,mmmu,63.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2-mini,xai,math-vista,68.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2-mini,xai,doc-vqa,93.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-grok-2-mini,xai,chatbot-arena,1266.0,2025-04-21,,April 21st update,https://lmarena.ai
-grok-3,xai,simple-bench,36.1,2025-04-21,,SimpleBench,https://simple-bench.com
-grok-3,xai,gpqa-diamond,80.2,2025-02-24,Extended thinking,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-grok-3,xai,mmmu,76.0,2025-02-24,Extended thinking,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-grok-3,xai,aime-2024,83.9,2025-02-24,Extended thinking,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-grok-3,xai,aime-2025,93.3,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
-grok-3,xai,aime-2024,93.3,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
-grok-3,xai,gpqa-diamond,84.6,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
-grok-3,xai,live-code-bench,79.4,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
-grok-3,xai,mmmu,78.0,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
-grok-3,xai,mmlu-pro,79.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-grok-3,xai,loft,83.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-grok-3,xai,simple-qa,43.6,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-grok-3,xai,ego-schema,74.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-grok-3,xai,gpqa-diamond,80.2,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-grok-3,xai,aime-2025,77.3,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-grok-3,xai,aime-2024,83.9,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-grok-3,xai,live-code-bench,70.6,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-grok-3,xai,simple-qa,43.6,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-grok-3,xai,mmmu,76.0,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-grok-3,xai,chatbot-arena,1402.0,2025-04-21,,April 21st update,https://lmarena.ai
-grok-3-mini,xai,aime-2025,90.8,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
-grok-3-mini,xai,aime-2024,95.8,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
-grok-3-mini,xai,gpqa-diamond,84.0,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
-grok-3-mini,xai,live-code-bench,80.4,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
-grok-3-mini,xai,mmlu-pro,78.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-grok-3-mini,xai,loft,83.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-grok-3-mini,xai,simple-qa,21.7,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-grok-3-mini,xai,ego-schema,74.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-llama-3-1-405b,meta,simple-bench,23.0,2025-04-21,,SimpleBench,https://simple-bench.com
-llama-3-1-405b,meta,gpqa-diamond,51.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-llama-3-1-405b,meta,mmlu,88.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-llama-3-1-405b,meta,mmlu-pro,73.3,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-llama-3-1-405b,meta,math,73.8,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-llama-3-1-405b,meta,human-eval,89.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-llama-3-1-405b,meta,mmmu,64.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-llama-3-1-405b,meta,doc-vqa,92.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-llama-3-1-405b,meta,chatbot-arena,1267.0,2025-04-21,,April 21st update,https://lmarena.ai
 llama-3-1-8b,meta,mmlu,73.0,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 llama-3-1-8b,meta,arc,83.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 llama-3-1-8b,meta,gpqa-diamond,30.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -580,11 +83,6 @@ llama-3-2-90b,meta,gsm8k,95.1,2024-12-03,,Amazon Nova announcement,https://aws.a
 llama-3-2-90b,meta,math,68.0,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 llama-3-2-90b,meta,human-eval,80.5,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 llama-3-2-90b,meta,if-eval,90.9,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
-llama-3-3-70b,meta,simple-bench,19.9,2025-04-21,,SimpleBench,https://simple-bench.com
-llama-3-3-70b,meta,chatbot-arena,1257.0,2025-04-21,,April 21st update,https://lmarena.ai
-llama-4-maverick,meta,simple-bench,27.7,2025-04-21,,SimpleBench,https://simple-bench.com
-mistral-large-2,mistral,simple-bench,22.5,2025-04-21,,SimpleBench,https://simple-bench.com
-mistral-large-2,mistral,chatbot-arena,1251.0,2025-04-21,,April 21st update,https://lmarena.ai
 nova-lite-1-0,amazon,mmlu,80.5,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-lite-1-0,amazon,drop,80.2,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-lite-1-0,amazon,arc,92.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -612,36 +110,93 @@ nova-pro-1-0,amazon,math,76.6,2024-12-03,,Amazon Nova announcement,https://aws.a
 nova-pro-1-0,amazon,human-eval,89.0,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-pro-1-0,amazon,big-bench-hard,86.9,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-pro-1-0,amazon,if-eval,92.1,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
-o1,openai,aiders-polyglot,64.4,2025-04-16,"High, Whole",o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o1,openai,aiders-polyglot,64.0,2025-04-14,"High, Whole",GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o1,openai,aime-2024,74.3,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o1,openai,aime-2025,79.2,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o1,openai,charxiv-reasoning,55.1,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o1,openai,charxiv-reasoning,55.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o1,openai,codeforces,1891.0,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o1,openai,gpqa-diamond,78.0,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o1,openai,gpqa-diamond,75.7,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o1,openai,graphwalks-bfs,62.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o1,openai,if-eval,92.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o1,openai,math-vista,71.8,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o1,openai,math-vista,72.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o1,openai,mmmu,77.6,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o1,openai,mmmu,78.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o1,openai,multi-challenge,44.93,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o1,openai,multi-challenge,45.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o1,openai,swe-bench-verified,48.9,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o1,openai,swe-bench-verified,41.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o1,openai,swe-lancer-ic-swe-diamond,28500.0,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o1,openai,tau-bench-airline,50.0,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o1,openai,tau-bench-retail,70.8,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o1,openai,mmlu,91.8,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o1,openai,multilingual-mmlu,87.7,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o1,openai,swe-lancer,160000.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o1,openai,swe-lancer-ic-swe-diamond,29000.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o1,openai,collie,95.3,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o1,openai,multi-if,77.9,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o1,openai,complex-func-bench,47.6,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o1,openai,simple-bench,41.7,2025-04-21,,SimpleBench,https://simple-bench.com
+claude-3-5-sonnet,anthropic,chatbot-arena,1283.0,2025-04-21,,April 21st update,https://lmarena.ai
+claude-3-7-sonnet,anthropic,chatbot-arena,1293.0,2025-04-21,,April 21st update,https://lmarena.ai
+command-a,cohere,chatbot-arena,1303.0,2025-04-21,,April 21st update,https://lmarena.ai
+gemini-1-5-pro,google,chatbot-arena,1260.0,2025-04-21,,April 21st update,https://lmarena.ai
+gemini-2-0-flash,google,chatbot-arena,1354.0,2025-04-21,,April 21st update,https://lmarena.ai
+gemini-2-0-flash-lite,google,chatbot-arena,1311.0,2025-04-21,,April 21st update,https://lmarena.ai
+gemini-2-0-flash-thinking,google,chatbot-arena,1380.0,2025-04-21,,April 21st update,https://lmarena.ai
+gemini-2-5-flash,google,chatbot-arena,1392.0,2025-04-21,,April 21st update,https://lmarena.ai
+gemini-2-5-pro,google,chatbot-arena,1439.0,2025-04-21,,April 21st update,https://lmarena.ai
+gemma-3-27b,google,chatbot-arena,1342.0,2025-04-21,,April 21st update,https://lmarena.ai
+gpt-4-5,openai,chatbot-arena,1398.0,2025-04-21,,April 21st update,https://lmarena.ai
+gpt-4-turbo,openai,chatbot-arena,1256.0,2025-04-21,,April 21st update,https://lmarena.ai
+gpt-4o,openai,chatbot-arena,1407.0,2025-04-21,2025-03-26 00:00:00,April 21st update,https://lmarena.ai
+gpt-4o-mini,openai,chatbot-arena,1272.0,2025-04-21,,April 21st update,https://lmarena.ai
+grok-2,xai,chatbot-arena,1288.0,2025-04-21,,April 21st update,https://lmarena.ai
+grok-2-mini,xai,chatbot-arena,1266.0,2025-04-21,,April 21st update,https://lmarena.ai
+grok-3,xai,chatbot-arena,1402.0,2025-04-21,,April 21st update,https://lmarena.ai
+llama-3-1-405b,meta,chatbot-arena,1267.0,2025-04-21,,April 21st update,https://lmarena.ai
+llama-3-3-70b,meta,chatbot-arena,1257.0,2025-04-21,,April 21st update,https://lmarena.ai
+mistral-large-2,mistral,chatbot-arena,1251.0,2025-04-21,,April 21st update,https://lmarena.ai
+o1,openai,chatbot-arena,1350.0,2025-04-21,,April 21st update,https://lmarena.ai
+o1-mini,openai,chatbot-arena,1304.0,2025-04-21,,April 21st update,https://lmarena.ai
+o3-mini,openai,chatbot-arena,1325.0,2025-04-21,High,April 21st update,https://lmarena.ai
+o3-mini,openai,chatbot-arena,1305.0,2025-04-21,,April 21st update,https://lmarena.ai
+r1,deepseek,chatbot-arena,1358.0,2025-04-21,,April 21st update,https://lmarena.ai
+v3,deepseek,chatbot-arena,1372.0,2025-04-21,,April 21st update,https://lmarena.ai
+claude-3-5-sonnet,anthropic,gpqa-diamond,59.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-5-sonnet,anthropic,mmlu,88.3,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-5-sonnet,anthropic,human-eval,92.0,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-5-sonnet,anthropic,mgsm,91.6,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-5-sonnet,anthropic,drop,87.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-5-sonnet,anthropic,big-bench-hard,93.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-5-sonnet,anthropic,math,71.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-5-sonnet,anthropic,gsm8k,96.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-5-sonnet,anthropic,math-vista,67.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-5-sonnet,anthropic,ai2d,94.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-5-sonnet,anthropic,mmmu,68.3,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-opus,anthropic,gpqa-diamond,50.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-opus,anthropic,mmlu,85.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-opus,anthropic,human-eval,84.9,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-opus,anthropic,mgsm,90.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-opus,anthropic,drop,83.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-opus,anthropic,big-bench-hard,86.8,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-opus,anthropic,math,60.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-opus,anthropic,gsm8k,95.0,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-opus,anthropic,math-vista,50.5,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-opus,anthropic,ai2d,88.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-opus,anthropic,mmmu,59.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google,human-eval,84.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google,mgsm,87.5,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google,drop,74.9,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google,big-bench-hard,89.2,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google,math,67.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google,gsm8k,90.8,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google,math-vista,63.9,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google,ai2d,94.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google,mmmu,62.2,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gpt-4o,openai,gpqa-diamond,53.6,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gpt-4o,openai,mmlu,88.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gpt-4o,openai,human-eval,90.2,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gpt-4o,openai,mgsm,90.5,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gpt-4o,openai,drop,83.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gpt-4o,openai,math,76.6,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gpt-4o,openai,math-vista,63.8,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gpt-4o,openai,ai2d,94.2,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gpt-4o,openai,mmmu,69.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+claude-3-5-sonnet,anthropic,gpqa-diamond,65.0,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-5-sonnet,anthropic,swe-bench-verified,49.0,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-5-sonnet,anthropic,tau-bench-retail,71.5,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-5-sonnet,anthropic,tau-bench-airline,48.8,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-5-sonnet,anthropic,multilingual-mmlu,82.1,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-5-sonnet,anthropic,mmmu,70.4,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-5-sonnet,anthropic,if-eval,90.2,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-5-sonnet,anthropic,math-500,78.0,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-5-sonnet,anthropic,aime-2024,16.0,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-7-sonnet,anthropic,gpqa-diamond,68.0,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-7-sonnet,anthropic,swe-bench-verified,62.3,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-7-sonnet,anthropic,tau-bench-retail,81.2,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-7-sonnet,anthropic,tau-bench-airline,58.4,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-7-sonnet,anthropic,multilingual-mmlu,83.2,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-7-sonnet,anthropic,mmmu,71.8,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-7-sonnet,anthropic,if-eval,90.8,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-7-sonnet,anthropic,math-500,82.2,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+claude-3-7-sonnet,anthropic,aime-2024,23.3,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+grok-3,xai,gpqa-diamond,80.2,2025-02-24,Extended thinking,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+grok-3,xai,mmmu,76.0,2025-02-24,Extended thinking,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
+grok-3,xai,aime-2024,83.9,2025-02-24,Extended thinking,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
 o1,openai,gpqa-diamond,75.7,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
 o1,openai,swe-bench-verified,48.9,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
 o1,openai,tau-bench-retail,73.5,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
@@ -650,126 +205,151 @@ o1,openai,multilingual-mmlu,87.7,2025-02-24,,Claude 3.7 Sonnet announcement,http
 o1,openai,mmmu,78.2,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
 o1,openai,math-500,96.4,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
 o1,openai,aime-2024,79.2,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-o1,openai,aime-2025,79.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-o1,openai,aime-2024,83.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-o1,openai,gpqa-diamond,78.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-o1,openai,live-code-bench,72.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-o1,openai,mmmu,78.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-o1,openai,chatbot-arena,1350.0,2025-04-21,,April 21st update,https://lmarena.ai
-o1-mini,openai,simple-bench,18.1,2025-04-21,,SimpleBench,https://simple-bench.com
-o1-mini,openai,aime-2025,86.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-o1-mini,openai,aime-2024,87.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-o1-mini,openai,gpqa-diamond,79.7,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-o1-mini,openai,live-code-bench,74.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-o1-mini,openai,chatbot-arena,1304.0,2025-04-21,,April 21st update,https://lmarena.ai
-o1-pro,openai,humanitys-last-exam,8.12,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3,openai,aiders-polyglot,81.3,2025-04-16,"High, Whole",o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3,openai,aime-2024,91.6,2025-04-16,No tools,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3,openai,aime-2025,88.9,2025-04-16,No tools,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3,openai,browse-comp,49.7,2025-04-16,With python & browsing,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3,openai,charxiv-reasoning,78.6,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3,openai,codeforces,2706.0,2025-04-16,With terminal,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3,openai,gpqa-diamond,83.0,2025-04-16,No tools,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3,openai,humanitys-last-exam,20.32,2025-04-16,No tools,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3,openai,math-vista,86.8,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3,openai,mmmu,82.9,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3,openai,multi-challenge,56.51,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3,openai,swe-bench-verified,69.1,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3,openai,swe-lancer-ic-swe-diamond,65250.0,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3,openai,tau-bench-airline,52.0,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3,openai,tau-bench-retail,70.4,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3,openai,simple-bench,53.1,2025-04-21,High,SimpleBench,https://simple-bench.com
-o3-mini,openai,aiders-polyglot,66.7,2025-04-16,"High, Whole",o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3-mini,openai,aiders-polyglot,67.0,2025-04-14,"High, Whole",GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o3-mini,openai,aime-2024,87.3,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3-mini,openai,aime-2025,86.5,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3-mini,openai,codeforces,2073.0,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3-mini,openai,gpqa-diamond,77.0,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3-mini,openai,gpqa-diamond,77.2,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o3-mini,openai,graphwalks-bfs,51.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o3-mini,openai,humanitys-last-exam,13.4,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3-mini,openai,if-eval,94.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o3-mini,openai,multi-challenge,39.89,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3-mini,openai,multi-challenge,40.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o3-mini,openai,swe-bench-verified,49.3,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3-mini,openai,swe-bench-verified,49.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o3-mini,openai,swe-lancer-ic-swe-diamond,17375.0,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3-mini,openai,tau-bench-airline,32.4,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3-mini,openai,tau-bench-retail,57.6,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o3-mini,openai,mmlu,86.9,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o3-mini,openai,multilingual-mmlu,80.7,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o3-mini,openai,swe-lancer,90000.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o3-mini,openai,swe-lancer-ic-swe-diamond,17000.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o3-mini,openai,collie,98.7,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o3-mini,openai,multi-if,79.5,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o3-mini,openai,complex-func-bench,17.6,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
-o3-mini,openai,simple-bench,22.8,2025-04-21,High,SimpleBench,https://simple-bench.com
-o3-mini,openai,gpqa-diamond,79.7,2025-02-27,High,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-o3-mini,openai,aime-2024,87.3,2025-02-27,High,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-o3-mini,openai,multilingual-mmlu,81.1,2025-02-27,High,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-o3-mini,openai,swe-lancer-ic-swe-diamond,89625.0,2025-02-27,High,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-o3-mini,openai,swe-bench-verified,61.0,2025-02-27,High,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
 o3-mini,openai,gpqa-diamond,79.7,2025-02-24,High,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
 o3-mini,openai,swe-bench-verified,49.3,2025-02-24,High,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
 o3-mini,openai,multilingual-mmlu,79.5,2025-02-24,High,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
 o3-mini,openai,math-500,97.9,2025-02-24,High,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
 o3-mini,openai,aime-2024,87.3,2025-02-24,High,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-o3-mini,openai,aime-2025,76.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-o3-mini,openai,aime-2024,79.6,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-o3-mini,openai,gpqa-diamond,76.8,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-o3-mini,openai,live-code-bench,66.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-o3-mini,openai,humanitys-last-exam,14.0,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-o3-mini,openai,gpqa-diamond,79.7,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-o3-mini,openai,aime-2025,86.5,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-o3-mini,openai,aime-2024,87.3,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-o3-mini,openai,live-code-bench,74.1,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-o3-mini,openai,aiders-polyglot,60.4,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-o3-mini,openai,swe-bench-verified,49.3,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-o3-mini,openai,simple-qa,13.8,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-o3-mini,openai,chatbot-arena,1325.0,2025-04-21,High,April 21st update,https://lmarena.ai
-o3-mini,openai,chatbot-arena,1305.0,2025-04-21,,April 21st update,https://lmarena.ai
-o4-mini,openai,aiders-polyglot,68.9,2025-04-16,"High, Whole",o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o4-mini,openai,aime-2024,93.4,2025-04-16,No tools,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o4-mini,openai,aime-2025,92.7,2025-04-16,No tools,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o4-mini,openai,browse-comp,28.3,2025-04-16,With python & browsing,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o4-mini,openai,charxiv-reasoning,72.0,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o4-mini,openai,codeforces,2719.0,2025-04-16,With terminal,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o4-mini,openai,gpqa-diamond,81.4,2025-04-16,No tools,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o4-mini,openai,humanitys-last-exam,14.28,2025-04-16,No tools,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o4-mini,openai,math-vista,84.3,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o4-mini,openai,mmmu,81.6,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o4-mini,openai,multi-challenge,42.99,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o4-mini,openai,swe-bench-verified,68.1,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o4-mini,openai,swe-lancer-ic-swe-diamond,56375.0,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o4-mini,openai,tau-bench-airline,49.2,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o4-mini,openai,tau-bench-retail,65.6,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-o4-mini,openai,simple-bench,38.7,2025-04-21,,SimpleBench,https://simple-bench.com
-r1,deepseek,simple-bench,30.9,2025-04-21,,SimpleBench,https://simple-bench.com
 r1,deepseek,gpqa-diamond,71.5,2025-02-24,Extended thinking,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
 r1,deepseek,swe-bench-verified,49.2,2025-02-24,Extended thinking,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
 r1,deepseek,if-eval,83.3,2025-02-24,Extended thinking,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
 r1,deepseek,math-500,97.3,2025-02-24,Extended thinking,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
 r1,deepseek,aime-2024,79.8,2025-02-24,Extended thinking,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-r1,deepseek,aime-2025,70.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-r1,deepseek,aime-2024,79.8,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-r1,deepseek,gpqa-diamond,71.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-r1,deepseek,live-code-bench,64.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-1-5-flash,google,gpqa-diamond,39.5,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-flash,google,math,54.9,2024-02-15,4-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-flash,google,hidden-math,6.7,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-flash,google,gsm8k,86.2,2024-02-15,11-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-flash,google,big-bench-hard,85.5,2024-02-15,3-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-flash,google,drop,78.4,2024-02-15,Variable shots,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-flash,google,mmlu,78.9,2024-02-15,5-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-flash,google,hellaswag,86.5,2024-02-15,10-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-flash,google,human-eval,86.5,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-flash,google,mgsm,82.6,2024-02-15,8-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-flash,google,mmmu,56.1,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-flash,google,math-vista,58.4,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-flash,google,ai2d,91.7,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-flash,google,doc-vqa,89.9,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-flash,google,ego-schema,65.7,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google,gpqa-diamond,46.2,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google,math,67.7,2024-02-15,4-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google,hidden-math,20.1,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google,gsm8k,90.8,2024-02-15,11-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google,big-bench-hard,89.2,2024-02-15,3-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google,drop,74.9,2024-02-15,Variable shots,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google,mmlu,85.9,2024-02-15,5-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google,hellaswag,93.3,2024-02-15,10-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google,human-eval,93.3,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google,mgsm,87.5,2024-02-15,8-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google,mmmu,62.2,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google,math-vista,63.9,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google,ai2d,94.4,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google,doc-vqa,93.1,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google,ego-schema,72.2,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-flash,google,mmlu-pro,67.3,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-flash,google,live-code-bench,30.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-flash,google,bird-sql,45.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-flash,google,gpqa-diamond,51.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-flash,google,simple-qa,8.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-flash,google,facts-grounding,82.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-flash,google,math,77.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-flash,google,hidden-math,47.2,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-flash,google,mrcr,71.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-flash,google,mmmu,62.3,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-flash,google,co-vo-st2,37.4,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-flash,google,ego-schema,66.8,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google,mmlu-pro,75.8,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google,live-code-bench,34.2,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google,bird-sql,54.4,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google,gpqa-diamond,59.1,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google,simple-qa,24.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google,facts-grounding,80.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google,math,86.5,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google,hidden-math,52.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google,mrcr,82.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google,mmmu,65.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google,co-vo-st2,40.1,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google,ego-schema,71.2,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google,mmlu-pro,77.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google,live-code-bench,34.5,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google,bird-sql,58.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google,gpqa-diamond,60.1,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google,simple-qa,29.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google,facts-grounding,84.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google,math,90.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google,hidden-math,63.5,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google,mrcr,70.5,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google,mmmu,71.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google,co-vo-st2,39.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google,ego-schema,71.1,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google,mmlu-pro,71.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google,live-code-bench,28.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google,bird-sql,57.4,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google,gpqa-diamond,51.5,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google,simple-qa,21.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google,facts-grounding,83.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google,math,86.8,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google,hidden-math,55.4,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google,mrcr,58.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google,mmmu,68.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google,co-vo-st2,38.4,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google,ego-schema,67.2,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google,mmlu-pro,79.1,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google,live-code-bench,36.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google,bird-sql,59.3,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google,gpqa-diamond,64.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google,simple-qa,44.3,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google,facts-grounding,82.8,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google,math,91.8,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google,hidden-math,65.2,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google,mrcr,74.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google,mmmu,72.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google,co-vo-st2,40.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google,ego-schema,71.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+claude-3-7-sonnet,anthropic,humanitys-last-exam,8.9,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+claude-3-7-sonnet,anthropic,gpqa-diamond,78.2,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+claude-3-7-sonnet,anthropic,aime-2025,49.5,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+claude-3-7-sonnet,anthropic,aime-2024,61.3,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+claude-3-7-sonnet,anthropic,aider-polyglot,64.9,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+claude-3-7-sonnet,anthropic,swe-bench-verified,70.3,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+claude-3-7-sonnet,anthropic,mmmu,75.0,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google,humanitys-last-exam,18.8,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google,gpqa-diamond,84.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google,aime-2025,86.7,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google,aime-2024,92.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google,live-code-bench,70.4,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google,aider-polyglot,74.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google,swe-bench-verified,63.8,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google,simple-qa,52.9,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google,mmmu,81.7,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gpt-4-5,openai,humanitys-last-exam,6.4,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gpt-4-5,openai,gpqa-diamond,71.4,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gpt-4-5,openai,aime-2024,36.7,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gpt-4-5,openai,aider-polyglot,44.9,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gpt-4-5,openai,swe-bench-verified,38.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gpt-4-5,openai,simple-qa,62.5,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gpt-4-5,openai,mmmu,74.4,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+grok-3,xai,gpqa-diamond,80.2,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+grok-3,xai,aime-2025,77.3,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+grok-3,xai,aime-2024,83.9,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+grok-3,xai,live-code-bench,70.6,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+grok-3,xai,simple-qa,43.6,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+grok-3,xai,mmmu,76.0,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+o3-mini,openai,humanitys-last-exam,14.0,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+o3-mini,openai,gpqa-diamond,79.7,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+o3-mini,openai,aime-2025,86.5,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+o3-mini,openai,aime-2024,87.3,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+o3-mini,openai,live-code-bench,74.1,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+o3-mini,openai,aider-polyglot,60.4,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+o3-mini,openai,swe-bench-verified,49.3,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+o3-mini,openai,simple-qa,13.8,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,humanitys-last-exam,8.6,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,gpqa-diamond,71.5,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,aime-2025,70.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,aime-2024,79.8,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,live-code-bench,64.3,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-r1,deepseek,aiders-polyglot,56.9,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+r1,deepseek,aider-polyglot,56.9,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,swe-bench-verified,49.2,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,simple-qa,30.1,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-r1,deepseek,chatbot-arena,1358.0,2025-04-21,,April 21st update,https://lmarena.ai
-v3,deepseek,simple-bench,27.2,2025-04-21,,SimpleBench,https://simple-bench.com
-v3,deepseek,aime-2024,39.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-v3,deepseek,gpqa-diamond,59.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-v3,deepseek,live-code-bench,33.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-v3,deepseek,mmlu-pro,75.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-v3,deepseek,simple-qa,24.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-v3,deepseek,chatbot-arena,1372.0,2025-04-21,,April 21st update,https://lmarena.ai
 gemma-3-1b,google,gpqa-diamond,19.2,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
 gemma-3-4b,google,gpqa-diamond,30.8,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
 gemma-3-12b,google,gpqa-diamond,40.9,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
@@ -835,3 +415,467 @@ gemma-3-1b,google,drop,42.4,2025-03-12,1-shot,Gemma 3 model card,https://ai.goog
 gemma-3-4b,google,drop,60.1,2025-03-12,1-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
 gemma-3-12b,google,drop,72.2,2025-03-12,1-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
 gemma-3-27b,google,drop,77.2,2025-03-12,1-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gpt-4-1,openai,aider-polyglot,52.0,2025-04-14,Whole,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,aime-2024,48.1,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,charxiv-reasoning,57.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,gpqa-diamond,66.3,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,graphwalks-bfs,62.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,if-eval,87.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,math-vista,72.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,mmmu,75.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,multi-challenge,38.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,swe-bench-verified,55.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,tau-bench-airline,49.4,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,tau-bench-retail,68.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,video-mme,72.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,mmlu,90.2,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,multilingual-mmlu,87.3,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,swe-lancer,176000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,swe-lancer-ic-swe-diamond,34000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,collie,65.8,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,multi-if,70.8,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1,openai,complex-func-bench,65.5,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,aider-polyglot,35.0,2025-04-14,Whole,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,aime-2024,49.6,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,charxiv-reasoning,57.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,gpqa-diamond,65.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,graphwalks-bfs,62.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,if-eval,84.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,math-vista,73.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,mmmu,73.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,multi-challenge,36.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,swe-bench-verified,24.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,tau-bench-airline,36.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,tau-bench-retail,55.8,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,mmlu,87.5,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,multilingual-mmlu,78.5,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,swe-lancer,165000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,swe-lancer-ic-swe-diamond,31000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,collie,54.6,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,multi-if,67.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-mini,openai,complex-func-bench,49.3,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,aider-polyglot,10.0,2025-04-14,Whole,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,aime-2024,29.4,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,charxiv-reasoning,41.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,gpqa-diamond,50.3,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,graphwalks-bfs,25.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,if-eval,75.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,math-vista,56.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,mmmu,55.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,multi-challenge,15.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,tau-bench-airline,14.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,tau-bench-retail,22.6,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,mmlu,80.1,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,multilingual-mmlu,66.9,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,swe-lancer,77000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,swe-lancer-ic-swe-diamond,9000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,collie,42.5,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,multi-if,57.2,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-1-nano,openai,complex-func-bench,5.7,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,aime-2024,36.7,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,charxiv-reasoning,55.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,gpqa-diamond,69.5,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,graphwalks-bfs,72.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,if-eval,88.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,math-vista,72.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,mmmu,75.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,multi-challenge,44.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,swe-bench-verified,38.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,tau-bench-airline,50.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,tau-bench-retail,68.4,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,mmlu,90.8,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,multilingual-mmlu,85.1,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,swe-lancer,186000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,swe-lancer-ic-swe-diamond,41000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,collie,72.3,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,multi-if,70.8,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,complex-func-bench,63.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,aider-polyglot,31.0,2025-04-14,"2024-11-20, Whole",GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,aime-2024,13.1,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,charxiv-reasoning,53.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,gpqa-diamond,46.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,graphwalks-bfs,42.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,if-eval,81.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,math-vista,61.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,mmmu,69.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,multi-challenge,28.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,swe-bench-verified,33.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,tau-bench-airline,42.8,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,tau-bench-retail,60.3,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,video-mme,65.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,mmlu,85.7,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,multilingual-mmlu,81.4,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,swe-lancer,163000.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,swe-lancer-ic-swe-diamond,29000.0,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,collie,50.2,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,multi-if,60.9,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o,openai,complex-func-bench,66.5,2025-04-14,2024-11-20 00:00:00,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,aider-polyglot,4.0,2025-04-14,Whole,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,aime-2024,8.6,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,charxiv-reasoning,37.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,gpqa-diamond,40.2,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,graphwalks-bfs,29.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,if-eval,78.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,math-vista,57.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,mmmu,56.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,multi-challenge,20.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,swe-bench-verified,9.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,tau-bench-airline,22.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,tau-bench-retail,44.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,mmlu,82.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,multilingual-mmlu,70.5,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,swe-lancer,116000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,swe-lancer-ic-swe-diamond,11000.0,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,collie,52.7,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,multi-if,57.9,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4o-mini,openai,complex-func-bench,38.6,2025-04-14,,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o1,openai,aider-polyglot,64.0,2025-04-14,"High, Whole",GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o1,openai,charxiv-reasoning,55.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o1,openai,gpqa-diamond,75.7,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o1,openai,graphwalks-bfs,62.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o1,openai,if-eval,92.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o1,openai,math-vista,72.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o1,openai,mmmu,78.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o1,openai,multi-challenge,45.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o1,openai,swe-bench-verified,41.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o1,openai,mmlu,91.8,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o1,openai,multilingual-mmlu,87.7,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o1,openai,swe-lancer,160000.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o1,openai,swe-lancer-ic-swe-diamond,29000.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o1,openai,collie,95.3,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o1,openai,multi-if,77.9,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o1,openai,complex-func-bench,47.6,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o3-mini,openai,aider-polyglot,67.0,2025-04-14,"High, Whole",GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o3-mini,openai,gpqa-diamond,77.2,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o3-mini,openai,graphwalks-bfs,51.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o3-mini,openai,if-eval,94.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o3-mini,openai,multi-challenge,40.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o3-mini,openai,swe-bench-verified,49.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o3-mini,openai,mmlu,86.9,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o3-mini,openai,multilingual-mmlu,80.7,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o3-mini,openai,swe-lancer,90000.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o3-mini,openai,swe-lancer-ic-swe-diamond,17000.0,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o3-mini,openai,collie,98.7,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o3-mini,openai,multi-if,79.5,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+o3-mini,openai,complex-func-bench,17.6,2025-04-14,High,GPT-4.1 announcement,https://openai.com/index/gpt-4-1/
+gpt-4-5,openai,gpqa-diamond,71.4,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+gpt-4-5,openai,aime-2024,36.7,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+gpt-4-5,openai,multilingual-mmlu,85.1,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+gpt-4-5,openai,mmmu,74.4,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+gpt-4-5,openai,swe-lancer-ic-swe-diamond,186125.0,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+gpt-4-5,openai,swe-bench-verified,38.0,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+gpt-4o,openai,gpqa-diamond,53.6,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+gpt-4o,openai,aime-2024,9.3,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+gpt-4o,openai,multilingual-mmlu,81.5,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+gpt-4o,openai,mmmu,69.1,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+gpt-4o,openai,swe-lancer-ic-swe-diamond,138750.0,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+gpt-4o,openai,swe-bench-verified,30.7,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+o3-mini,openai,gpqa-diamond,79.7,2025-02-27,High,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+o3-mini,openai,aime-2024,87.3,2025-02-27,High,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+o3-mini,openai,multilingual-mmlu,81.1,2025-02-27,High,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+o3-mini,openai,swe-lancer-ic-swe-diamond,89625.0,2025-02-27,High,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+o3-mini,openai,swe-bench-verified,61.0,2025-02-27,High,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
+claude-3-5-sonnet,anthropic,gpqa-diamond,59.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+claude-3-5-sonnet,anthropic,mmlu,88.3,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+claude-3-5-sonnet,anthropic,mmlu-pro,76.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+claude-3-5-sonnet,anthropic,math,71.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+claude-3-5-sonnet,anthropic,human-eval,92.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+claude-3-5-sonnet,anthropic,mmmu,68.3,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+claude-3-5-sonnet,anthropic,math-vista,67.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+claude-3-5-sonnet,anthropic,doc-vqa,95.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+claude-3-opus,anthropic,gpqa-diamond,50.4,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+claude-3-opus,anthropic,mmlu,85.7,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+claude-3-opus,anthropic,mmlu-pro,68.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+claude-3-opus,anthropic,math,60.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+claude-3-opus,anthropic,human-eval,84.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+claude-3-opus,anthropic,mmmu,59.4,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+claude-3-opus,anthropic,math-vista,50.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+claude-3-opus,anthropic,doc-vqa,89.3,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gemini-1-5-pro,google,gpqa-diamond,46.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gemini-1-5-pro,google,mmlu,85.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gemini-1-5-pro,google,mmlu-pro,69.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gemini-1-5-pro,google,math,67.7,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gemini-1-5-pro,google,human-eval,71.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gemini-1-5-pro,google,mmmu,62.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gemini-1-5-pro,google,math-vista,63.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gemini-1-5-pro,google,doc-vqa,93.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gpt-4-turbo,openai,gpqa-diamond,48.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gpt-4-turbo,openai,mmlu,86.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gpt-4-turbo,openai,mmlu-pro,63.7,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gpt-4-turbo,openai,math,72.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gpt-4-turbo,openai,human-eval,87.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gpt-4-turbo,openai,mmmu,63.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gpt-4-turbo,openai,math-vista,58.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gpt-4-turbo,openai,doc-vqa,87.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gpt-4o,openai,gpqa-diamond,53.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gpt-4o,openai,mmlu,88.7,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gpt-4o,openai,mmlu-pro,72.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gpt-4o,openai,math,76.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gpt-4o,openai,human-eval,90.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gpt-4o,openai,mmmu,69.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gpt-4o,openai,math-vista,63.8,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gpt-4o,openai,doc-vqa,92.8,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-1.5,xai,gpqa-diamond,35.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-1.5,xai,mmlu,81.3,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-1.5,xai,mmlu-pro,51.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-1.5,xai,math,50.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-1.5,xai,human-eval,74.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-1.5,xai,mmmu,53.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-1.5,xai,math-vista,52.8,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-1.5,xai,doc-vqa,85.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-2,xai,gpqa-diamond,56.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-2,xai,mmlu,87.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-2,xai,mmlu-pro,75.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-2,xai,math,76.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-2,xai,human-eval,88.4,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-2,xai,mmmu,66.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-2,xai,math-vista,69.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-2,xai,doc-vqa,93.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-2-mini,xai,gpqa-diamond,51.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-2-mini,xai,mmlu,86.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-2-mini,xai,mmlu-pro,72.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-2-mini,xai,math,73.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-2-mini,xai,human-eval,85.7,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-2-mini,xai,mmmu,63.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-2-mini,xai,math-vista,68.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+grok-2-mini,xai,doc-vqa,93.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+llama-3-1-405b,meta,gpqa-diamond,51.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+llama-3-1-405b,meta,mmlu,88.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+llama-3-1-405b,meta,mmlu-pro,73.3,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+llama-3-1-405b,meta,math,73.8,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+llama-3-1-405b,meta,human-eval,89.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+llama-3-1-405b,meta,mmmu,64.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+llama-3-1-405b,meta,doc-vqa,92.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+claude-3-5-sonnet,anthropic,aime-2024,16.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+claude-3-5-sonnet,anthropic,gpqa-diamond,65.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+claude-3-5-sonnet,anthropic,live-code-bench,40.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+claude-3-5-sonnet,anthropic,mmmu,70.4,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+claude-3-5-sonnet,anthropic,mmlu-pro,78.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+claude-3-5-sonnet,anthropic,loft,69.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+claude-3-5-sonnet,anthropic,simple-qa,28.4,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0,google,gpqa-diamond,64.7,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0,google,live-code-bench,36.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0,google,mmmu,72.7,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0,google,mmlu-pro,79.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0,google,loft,75.6,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0,google,simple-qa,44.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0,google,ego-schema,71.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-flash-thinking,,aime-2025,53.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-flash-thinking,,aime-2024,73.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-flash-thinking,,gpqa-diamond,74.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-flash-thinking,,live-code-bench,45.8,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-flash-thinking,,mmmu,75.4,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gpt-4o,openai,aime-2024,9.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gpt-4o,openai,gpqa-diamond,53.6,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gpt-4o,openai,live-code-bench,32.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gpt-4o,openai,mmmu,69.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gpt-4o,openai,mmlu-pro,72.6,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gpt-4o,openai,loft,78.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gpt-4o,openai,simple-qa,38.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gpt-4o,openai,ego-schema,72.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3,xai,aime-2025,93.3,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3,xai,aime-2024,93.3,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3,xai,gpqa-diamond,84.6,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3,xai,live-code-bench,79.4,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3,xai,mmmu,78.0,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3,xai,mmlu-pro,79.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3,xai,loft,83.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3,xai,simple-qa,43.6,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3,xai,ego-schema,74.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3-mini,xai,aime-2025,90.8,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3-mini,xai,aime-2024,95.8,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3-mini,xai,gpqa-diamond,84.0,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3-mini,xai,live-code-bench,80.4,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3-mini,xai,mmlu-pro,78.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3-mini,xai,loft,83.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3-mini,xai,simple-qa,21.7,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+grok-3-mini,xai,ego-schema,74.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+o1,openai,aime-2025,79.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+o1,openai,aime-2024,83.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+o1,openai,gpqa-diamond,78.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+o1,openai,live-code-bench,72.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+o1,openai,mmmu,78.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+o1-mini,openai,aime-2025,86.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+o1-mini,openai,aime-2024,87.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+o1-mini,openai,gpqa-diamond,79.7,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+o1-mini,openai,live-code-bench,74.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+o3-mini,openai,aime-2025,76.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+o3-mini,openai,aime-2024,79.6,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+o3-mini,openai,gpqa-diamond,76.8,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+o3-mini,openai,live-code-bench,66.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+r1,deepseek,aime-2025,70.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+r1,deepseek,aime-2024,79.8,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+r1,deepseek,gpqa-diamond,71.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+r1,deepseek,live-code-bench,64.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+v3,deepseek,aime-2024,39.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+v3,deepseek,gpqa-diamond,59.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+v3,deepseek,live-code-bench,33.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+v3,deepseek,mmlu-pro,75.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+v3,deepseek,simple-qa,24.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+claude-3-5-haiku,anthropic,gpqa-diamond,41.6,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-haiku,anthropic,mmlu-pro,65.0,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-haiku,anthropic,human-eval,88.1,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-haiku,anthropic,math,69.2,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-haiku,anthropic,aime-2024,5.3,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-haiku,anthropic,swe-bench-verified,40.6,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-haiku,anthropic,tau-bench-retail,51.0,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-haiku,anthropic,tau-bench-airline,22.8,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,gpqa-diamond,65.0,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,gpqa-diamond,59.4,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,mmlu-pro,78.0,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,mmlu-pro,75.1,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,human-eval,93.7,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,human-eval,92.0,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,math,78.3,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,math,71.1,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,aime-2024,16.0,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,aime-2024,9.6,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,mmmu,70.4,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,mmmu,68.3,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,swe-bench-verified,49.0,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,swe-bench-verified,33.4,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,tau-bench-retail,69.2,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,tau-bench-retail,62.6,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,tau-bench-airline,46.0,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+claude-3-5-sonnet,anthropic,tau-bench-airline,36.0,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gemini-1-5-flash,google,gpqa-diamond,51.0,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gemini-1-5-flash,google,mmlu-pro,67.3,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gemini-1-5-flash,google,math,77.9,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gemini-1-5-flash,google,mmmu,62.3,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gemini-1-5-pro,google,gpqa-diamond,59.1,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gemini-1-5-pro,google,mmlu-pro,75.8,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gemini-1-5-pro,google,math,86.5,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gemini-1-5-pro,google,mmmu,65.9,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gpt-4o,openai,gpqa-diamond,53.6,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gpt-4o,openai,human-eval,90.2,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gpt-4o,openai,math,76.6,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gpt-4o,openai,aime-2024,9.3,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gpt-4o,openai,mmmu,69.1,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gpt-4o-mini,openai,gpqa-diamond,40.2,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gpt-4o-mini,openai,human-eval,87.2,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gpt-4o-mini,openai,math,70.2,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gpt-4o-mini,openai,mmmu,59.4,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gpt-4o,openai,browse-comp,1.9,2025-04-16,With browsing,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o1,openai,aider-polyglot,64.4,2025-04-16,"High, Whole",o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o1,openai,aime-2024,74.3,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o1,openai,aime-2025,79.2,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o1,openai,charxiv-reasoning,55.1,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o1,openai,codeforces,1891.0,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o1,openai,gpqa-diamond,78.0,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o1,openai,math-vista,71.8,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o1,openai,mmmu,77.6,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o1,openai,multi-challenge,44.93,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o1,openai,swe-bench-verified,48.9,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o1,openai,swe-lancer-ic-swe-diamond,28500.0,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o1,openai,tau-bench-airline,50.0,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o1,openai,tau-bench-retail,70.8,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o1-pro,openai,humanitys-last-exam,8.12,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3,openai,aider-polyglot,81.3,2025-04-16,"High, Whole",o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3,openai,aime-2024,91.6,2025-04-16,No tools,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3,openai,aime-2025,88.9,2025-04-16,No tools,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3,openai,browse-comp,49.7,2025-04-16,With python & browsing,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3,openai,charxiv-reasoning,78.6,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3,openai,codeforces,2706.0,2025-04-16,With terminal,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3,openai,gpqa-diamond,83.0,2025-04-16,No tools,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3,openai,humanitys-last-exam,20.32,2025-04-16,No tools,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3,openai,math-vista,86.8,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3,openai,mmmu,82.9,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3,openai,multi-challenge,56.51,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3,openai,swe-bench-verified,69.1,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3,openai,swe-lancer-ic-swe-diamond,65250.0,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3,openai,tau-bench-airline,52.0,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3,openai,tau-bench-retail,70.4,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3-mini,openai,aider-polyglot,66.7,2025-04-16,"High, Whole",o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3-mini,openai,aime-2024,87.3,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3-mini,openai,aime-2025,86.5,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3-mini,openai,codeforces,2073.0,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3-mini,openai,gpqa-diamond,77.0,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3-mini,openai,humanitys-last-exam,13.4,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3-mini,openai,multi-challenge,39.89,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3-mini,openai,swe-bench-verified,49.3,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3-mini,openai,swe-lancer-ic-swe-diamond,17375.0,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3-mini,openai,tau-bench-airline,32.4,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o3-mini,openai,tau-bench-retail,57.6,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o4-mini,openai,aider-polyglot,68.9,2025-04-16,"High, Whole",o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o4-mini,openai,aime-2024,93.4,2025-04-16,No tools,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o4-mini,openai,aime-2025,92.7,2025-04-16,No tools,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o4-mini,openai,browse-comp,28.3,2025-04-16,With python & browsing,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o4-mini,openai,charxiv-reasoning,72.0,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o4-mini,openai,codeforces,2719.0,2025-04-16,With terminal,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o4-mini,openai,gpqa-diamond,81.4,2025-04-16,No tools,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o4-mini,openai,humanitys-last-exam,14.28,2025-04-16,No tools,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o4-mini,openai,math-vista,84.3,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o4-mini,openai,mmmu,81.6,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o4-mini,openai,multi-challenge,42.99,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o4-mini,openai,swe-bench-verified,68.1,2025-04-16,,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o4-mini,openai,swe-lancer-ic-swe-diamond,56375.0,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o4-mini,openai,tau-bench-airline,49.2,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+o4-mini,openai,tau-bench-retail,65.6,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
+claude-3-5-sonnet,anthropic,simple-bench,41.4,2025-04-21,,SimpleBench,https://simple-bench.com
+claude-3-7-sonnet,anthropic,simple-bench,46.4,2025-04-21,Thinking,SimpleBench,https://simple-bench.com
+claude-3-opus,anthropic,simple-bench,23.5,2025-04-21,,SimpleBench,https://simple-bench.com
+command-r-plus,cohere,simple-bench,17.4,2025-04-21,,SimpleBench,https://simple-bench.com
+gemini-1-5-pro,google,simple-bench,27.1,2025-04-21,,SimpleBench,https://simple-bench.com
+gemini-2-5-pro,google,simple-bench,51.6,2025-04-21,,SimpleBench,https://simple-bench.com
+gpt-4-1,openai,simple-bench,27.0,2025-04-21,,SimpleBench,https://simple-bench.com
+gpt-4-5,openai,simple-bench,34.5,2025-04-21,,SimpleBench,https://simple-bench.com
+gpt-4-turbo,openai,simple-bench,25.1,2025-04-21,,SimpleBench,https://simple-bench.com
+gpt-4o,openai,simple-bench,17.8,2025-04-21,2024-08-06 00:00:00,SimpleBench,https://simple-bench.com
+gpt-4o-mini,openai,simple-bench,10.7,2025-04-21,,SimpleBench,https://simple-bench.com
+grok-2,xai,simple-bench,22.7,2025-04-21,,SimpleBench,https://simple-bench.com
+grok-3,xai,simple-bench,36.1,2025-04-21,,SimpleBench,https://simple-bench.com
+llama-3-1-405b,meta,simple-bench,23.0,2025-04-21,,SimpleBench,https://simple-bench.com
+llama-3-3-70b,meta,simple-bench,19.9,2025-04-21,,SimpleBench,https://simple-bench.com
+llama-4-maverick,meta,simple-bench,27.7,2025-04-21,,SimpleBench,https://simple-bench.com
+mistral-large-2,mistral,simple-bench,22.5,2025-04-21,,SimpleBench,https://simple-bench.com
+o1,openai,simple-bench,41.7,2025-04-21,,SimpleBench,https://simple-bench.com
+o1-mini,openai,simple-bench,18.1,2025-04-21,,SimpleBench,https://simple-bench.com
+o3,openai,simple-bench,53.1,2025-04-21,High,SimpleBench,https://simple-bench.com
+o3-mini,openai,simple-bench,22.8,2025-04-21,High,SimpleBench,https://simple-bench.com
+o4-mini,openai,simple-bench,38.7,2025-04-21,,SimpleBench,https://simple-bench.com
+r1,deepseek,simple-bench,30.9,2025-04-21,,SimpleBench,https://simple-bench.com
+v3,deepseek,simple-bench,27.2,2025-04-21,,SimpleBench,https://simple-bench.com
+gemini-2-5-flash,google,humanitys-last-exam,12.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,humanitys-last-exam,5.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+o4-mini,openai,humanitys-last-exam,14.3,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+claude-3-7-sonnet,anthropic,humanitys-last-exam,8.9,2025-04-17,Extended thinking,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+r1,deepseek,humanitys-last-exam,8.6,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google,gpqa-diamond,78.3,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,gpqa-diamond,60.1,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+o4-mini,openai,gpqa-diamond,81.4,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+claude-3-7-sonnet,anthropic,gpqa-diamond,78.2,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+grok-3,xai,gpqa-diamond,80.2,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+r1,deepseek,gpqa-diamond,71.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google,aime-2025,78.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,aime-2025,27.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+o4-mini,openai,aime-2025,92.7,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+claude-3-7-sonnet,anthropic,aime-2025,49.5,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+grok-3,xai,aime-2025,77.3,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+r1,deepseek,aime-2025,70.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google,aime-2024,88.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,aime-2024,32.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+o4-mini,openai,aime-2024,93.4,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+claude-3-7-sonnet,anthropic,aime-2024,61.3,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+grok-3,xai,aime-2024,83.9,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+r1,deepseek,aime-2024,79.8,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google,live-code-bench,63.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,live-code-bench,34.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+grok-3,xai,live-code-bench,70.6,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+r1,deepseek,live-code-bench,64.3,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google,aider-polyglot,51.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,aider-polyglot,22.2,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+o4-mini,openai,aider-polyglot,68.9,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+claude-3-7-sonnet,anthropic,aider-polyglot,64.9,2025-04-17,Extended thinking,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+grok-3,xai,aider-polyglot,53.3,2025-04-17,Extended thinking,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+r1,deepseek,aider-polyglot,56.9,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google,simple-qa,29.7,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,simple-qa,29.9,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+grok-3,xai,simple-qa,43.6,2025-04-17,Extended thinking,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+r1,deepseek,simple-qa,30.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google,mmmu,76.7,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,mmmu,71.7,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+o4-mini,openai,mmmu,81.6,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+claude-3-7-sonnet,anthropic,mmmu,75.0,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+grok-3,xai,mmmu,76.0,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google,mrcr,84.6,2025-04-17,128k (average),Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google,mrcr,74.2,2025-04-17,128k (average),Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/

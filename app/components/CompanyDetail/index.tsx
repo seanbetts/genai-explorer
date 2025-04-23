@@ -589,7 +589,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
               <div className="transform transition-opacity duration-300">
                 <Suspense fallback={<div className="text-center py-4">Loading benchmarks...</div>}>
                   <BenchmarksTable 
-                    models={company.models.filter(model => model.status !== 'archived')} 
+                    models={company.models} 
                     companyId={company.id}
                   />
                 </Suspense>

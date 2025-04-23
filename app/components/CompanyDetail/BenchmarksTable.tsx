@@ -198,7 +198,8 @@ const FeaturedBenchmarksSection: React.FC<FeaturedBenchmarksSectionProps> = ({
   const headerItems = models.map(model => ({
     id: model.id,
     name: model.name,
-    description: model.description || model.name
+    description: model.description || model.name,
+    releaseDate: model.releaseDate
   }));
   
   // Import the renderBenchmarkScore function from BenchmarkCategorySection

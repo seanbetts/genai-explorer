@@ -54,7 +54,12 @@ export const Legend: React.FC<LegendProps> = ({ items }) => {
 
 // Reusable table header component with consistent sizing and styling
 interface TableHeaderProps {
-  items: { id: string; name: string; description?: string }[];
+  items: { 
+    id: string; 
+    name: string; 
+    description?: string;
+    releaseDate?: string;
+  }[];
   cornerContent?: React.ReactNode;
 }
 
@@ -75,7 +80,17 @@ export const TableHeader: React.FC<TableHeaderProps> = ({ items, cornerContent }
             style={{width: columnWidth}}
             title={item.description}
           >
-            <div className={tableStyles.modelName}>{item.name}</div>
+            <div className="flex flex-col items-center">
+              <div className={tableStyles.modelName}>{item.name}</div>
+              {item.releaseDate && (
+                <div className="text-xs text-gray-400 mt-1">
+                  {new Date(item.releaseDate).toLocaleDateString('en-GB', {
+                    month: 'short',
+                    year: 'numeric'
+                  })}
+                </div>
+              )}
+            </div>
           </th>
         ))}
       </tr>

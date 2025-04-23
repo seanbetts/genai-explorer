@@ -64,8 +64,8 @@
     "benchmark_paper": "https://arxiv.org/pdf/2406.12045"
   },
   {
-    "benchmark_id": "aiders-polyglot",
-    "benchmark_name": "Aider's Polyglot",
+    "benchmark_id": "aider-polyglot",
+    "benchmark_name": "Aider Polyglot",
     "benchmark_category": "coding",
     "featured_benchmark": true,
     "benchmark_description": "Evaluates an LLM’s ability to follow instructions and edit code successfully without human intervention",
@@ -73,7 +73,7 @@
   },
   {
     "benchmark_id": "bird-sql",
-    "benchmark_name": "Bird-SQL (Dev)",
+    "benchmark_name": "Bird-SQL",
     "benchmark_category": "coding",
     "featured_benchmark": false,
     "benchmark_description": "Benchmark evaluating converting natural language questions into executable SOL",
