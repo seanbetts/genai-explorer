@@ -325,7 +325,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
         <div className={containerStyles.footerContent}>
           <div className="flex flex-col md:flex-row">
             {/* Left third - navigation lists equally spaced */}
-            <div className="md:w-1/3 flex flex-col md:flex-row md:space-x-12 mb-6 md:mb-0">
+            <div className="md:w-1/3 flex flex-col md:flex-row md:space-x-20 mb-6 md:mb-0 md:pl-8">
               {/* Features */}
               <div className="mb-4 md:mb-0">
                 <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Features</h3>
