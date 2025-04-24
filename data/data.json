@@ -420,6 +420,256 @@
             "pricingCachedInputPerM": 0.025,
             "pricingOutputPerM": 0.4
           }
+        },
+        {
+          "id": "gpt-image-1",
+          "name": "GPT-4o Image Generation",
+          "status": "primary",
+          "about": "Unlocking useful and valuable image generation with a natively multimodal model capable of precise, accurate, photorealistic outputs.",
+          "category": "image",
+          "releaseDate": "2025-03-25",
+          "releasePost": "https://openai.com/index/introducing-4o-image-generation/",
+          "releaseVideo": "https://www.youtube.com/watch?v=E9RN8jX--uc",
+          "modelPage": "https://platform.openai.com/docs/models/gpt-image-1",
+          "systemCard": "https://cdn.openai.com/11998be9-5319-4302-bfbf-1167e093f1fb/Native_Image_Generation_System_Card.pdf",
+          "modelGuide": "https://platform.openai.com/docs/guides/image-generation",
+          "apiDocumentation": "https://platform.openai.com/docs/api-reference/images",
+          "exampleImages": [
+            "/images/companies/openai/example_images/gpt-image-1/1.png",
+            "/images/companies/openai/example_images/gpt-image-1/2.png",
+            "/images/companies/openai/example_images/gpt-image-1/3.png",
+            "/images/companies/openai/example_images/gpt-image-1/4.png",
+            "/images/companies/openai/example_images/gpt-image-1/5.png",
+            "/images/companies/openai/example_images/gpt-image-1/6.png",
+            "/images/companies/openai/example_images/gpt-image-1/7.png",
+            "/images/companies/openai/example_images/gpt-image-1/8.png",
+            "/images/companies/openai/example_images/gpt-image-1/9.png",
+            "/images/companies/openai/example_images/gpt-image-1/10.png",
+            "/images/companies/openai/example_images/gpt-image-1/11.png",
+            "/images/companies/openai/example_images/gpt-image-1/12.png",
+            "/images/companies/openai/example_images/gpt-image-1/13.png",
+            "/images/companies/openai/example_images/gpt-image-1/14.png",
+            "/images/companies/openai/example_images/gpt-image-1/15.png",
+            "/images/companies/openai/example_images/gpt-image-1/16.png",
+            "/images/companies/openai/example_images/gpt-image-1/17.png",
+            "/images/companies/openai/example_images/gpt-image-1/18.png",
+            "/images/companies/openai/example_images/gpt-image-1/19.png",
+            "/images/companies/openai/example_images/gpt-image-1/20.png",
+            "/images/companies/openai/example_images/gpt-image-1/21.png",
+            "/images/companies/openai/example_images/gpt-image-1/22.png",
+            "/images/companies/openai/example_images/gpt-image-1/23.png",
+            "/images/companies/openai/example_images/gpt-image-1/24.png",
+            "/images/companies/openai/example_images/gpt-image-1/25.png",
+            "/images/companies/openai/example_images/gpt-image-1/26.png",
+            "/images/companies/openai/example_images/gpt-image-1/27.png",
+            "/images/companies/openai/example_images/gpt-image-1/28.png",
+            "/images/companies/openai/example_images/gpt-image-1/29.png",
+            "/images/companies/openai/example_images/gpt-image-1/30.png",
+            "/images/companies/openai/example_images/gpt-image-1/31.png",
+            "/images/companies/openai/example_images/gpt-image-1/32.png",
+            "/images/companies/openai/example_images/gpt-image-1/33.png",
+            "/images/companies/openai/example_images/gpt-image-1/34.png",
+            "/images/companies/openai/example_images/gpt-image-1/35.png",
+            "/images/companies/openai/example_images/gpt-image-1/36.png",
+            "/images/companies/openai/example_images/gpt-image-1/37.png",
+            "/images/companies/openai/example_images/gpt-image-1/38.png",
+            "/images/companies/openai/example_images/gpt-image-1/39.png",
+            "/images/companies/openai/example_images/gpt-image-1/40.png",
+            "/images/companies/openai/example_images/gpt-image-1/41.png",
+            "/images/companies/openai/example_images/gpt-image-1/42.png",
+            "/images/companies/openai/example_images/gpt-image-1/43.png",
+            "/images/companies/openai/example_images/gpt-image-1/44.png",
+            "/images/companies/openai/example_images/gpt-image-1/45.png",
+            "/images/companies/openai/example_images/gpt-image-1/46.png",
+            "/images/companies/openai/example_images/gpt-image-1/47.png",
+            "/images/companies/openai/example_images/gpt-image-1/48.png"
+          ],
+          "demoVideos": {
+            "upload_and_restyle": "https://youtu.be/jevonM6gBcA?si=x2-nqUolnMfRb7JI",
+            "transparent_layers": "https://youtu.be/tMhAASk9i1o?si=SQkpMs2p93y-Xkgz",
+            "text_rendering": "https://youtu.be/NO7Uo2ii1Sw?si=cWPt6XOgRlChApYZ",
+            "detailed_directions": "https://youtu.be/ELwb_emN1p0?si=ipfBPyDOdlGcXK2I",
+            "character_consistency": "https://youtu.be/PFsOUNfBhzI?si=5P1WSszCgNqTiIIr"
+          },
+          "termsOfService": "https://openai.com/policies/terms-of-use/",
+          "usagePolicy": "https://openai.com/policies/creating-images-and-videos-in-line-with-our-policies/",
+          "commerciallySafe": false,
+          "metadata": {
+            "C2PA": "https://c2pa.org"
+          },                          
+          "apiEndpoints": {                                         
+            "generations": {
+              "options": {
+                "inputFormats": [
+                  "text"
+                ],
+                "outputFormats": [
+                  "image"
+                ],
+                "background": ["transparent","opaque","auto"],
+                "moderation": ["low","auto"],
+                "numberOfImages": 10,
+                "outputCompression": "1-100",
+                "outputFileTypes": ["png","jpeg","webp"],
+                "outputQuality": ["low","medium","high","auto"],
+                "outputSize": ["1024x1024","1536x1024","1024x1536","auto"],
+                "outputStyle": ["vivid","natural"],
+                "pricing": {
+                  "input": {
+                    "textPerM": 5,
+                    "imagePerM": 10
+                  },
+                  "output": {
+                    "imagePerM": 40,
+                    "lowQuality": {
+                      "1024x1024": 0.011,
+                      "1024x1536": 0.016,
+                      "1536x1024": 0.016
+                    },
+                    "mediumQuality": {
+                      "1024x1024": 0.042,
+                      "1024x1536": 0.063,
+                      "1536x1024": 0.063
+                    },
+                    "highQuality": {
+                      "1024x1024": 0.167,
+                      "1024x1536": 0.25,
+                      "1536x1024": 0.25
+                    }
+                  }
+                }
+              }
+            },                                       
+            "edits": {
+              "options": {
+                "inputFormats": [
+                  "text",
+                  "image"
+                ],
+                "outputFormats": [
+                  "image"
+                ],
+                "inputFileTypes": ["png", "webp", "jpg"],
+                "maxInputSize": 25,
+                "maxInputTokens": 32000,
+                "mask": true,
+                "numberOfImages": 10,
+                "outputFileTypes": ["url", "b64_json"],
+                "outputQuality": ["low","medium","high","auto"],
+                "outputSize": ["1024x1024","1536x1024","1024x1536","auto"]
+              }
+            }                                       
+          },
+          "capabilities": {
+            "performance": 4,
+            "speed": 1
+          },
+          "features": {
+            "textToImage": true,
+            "imageToImage": true,
+            "imageVariations": true,
+            "transparentLayers": true,
+            "inPainting": true,
+            "textRendering": true,
+            "characterConsistency": true,
+            "multiTurnGeneration": true,
+            "hexCodes": true,
+            "photoRealism": true
+          },
+          "safety": {
+            "chatModelRefusals": true,
+            "promptBlocking": true,
+            "outputBlocking": true,
+            "minorSafeguards": true
+          }
+        },
+        {
+          "id": "sora",
+          "name": "Sora",
+          "status": "primary",
+          "about": "",
+          "category": "video",
+          "releaseDate": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "modelPage": "",
+          "systemCard": "",
+          "modelGuide": "",
+          "apiDocumentation": "",
+          "exampleImages": [
+            ""
+          ],
+          "demoVideos": {},
+          "termsOfService": "",
+          "usagePolicy": "",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {                                         
+            "generations": {
+              "options": {
+                "inputFormats": [
+                  "text"
+                ],
+                "outputFormats": [
+                  "image"
+                ],
+                "background": [],
+                "moderation": [],
+                "numberOfImages": 1,
+                "outputCompression": "",
+                "outputFileTypes": [],
+                "outputQuality": [],
+                "outputSize": [],
+                "outputStyle": [],
+                "pricing": {
+                  "input": {
+                    "textPerM": 0,
+                    "imagePerM": 0
+                  },
+                  "output": {
+                    "imagePerM": 0,
+                    "lowQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    },
+                    "mediumQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    },
+                    "highQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    }
+                  }
+                }
+              }
+            }                                    
+          },
+          "capabilities": {
+            "performance": 4,
+            "speed": 1
+          },
+          "features": {
+            "textToImage": false,
+            "imageToImage": false,
+            "imageVariations": false,
+            "transparentLayers": false,
+            "inPainting": false,
+            "textRendering": false,
+            "characterConsistency": false,
+            "multiTurnGeneration": false,
+            "hexCodes": false,
+            "photoRealism": false
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false
+          }
         }
       ],
       "products": [
@@ -1097,6 +1347,182 @@
             "knowledgeCutoff": "August 2024",
             "pricingInputPerM": 0.1,
             "pricingOutputPerM": 0.1
+          }
+        },
+        {
+          "id": "imagen-1",
+          "name": "Imagen",
+          "status": "primary",
+          "about": "",
+          "category": "image",
+          "releaseDate": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "modelPage": "",
+          "systemCard": "",
+          "modelGuide": "",
+          "apiDocumentation": "",
+          "exampleImages": [
+            ""
+          ],
+          "demoVideos": {},
+          "termsOfService": "",
+          "usagePolicy": "",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {                                         
+            "generations": {
+              "options": {
+                "inputFormats": [
+                  "text"
+                ],
+                "outputFormats": [
+                  "image"
+                ],
+                "background": [],
+                "moderation": [],
+                "numberOfImages": 1,
+                "outputCompression": "",
+                "outputFileTypes": [],
+                "outputQuality": [],
+                "outputSize": [],
+                "outputStyle": [],
+                "pricing": {
+                  "input": {
+                    "textPerM": 0,
+                    "imagePerM": 0
+                  },
+                  "output": {
+                    "imagePerM": 0,
+                    "lowQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    },
+                    "mediumQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    },
+                    "highQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    }
+                  }
+                }
+              }
+            }                                    
+          },
+          "capabilities": {
+            "performance": 4,
+            "speed": 1
+          },
+          "features": {
+            "textToImage": false,
+            "imageToImage": false,
+            "imageVariations": false,
+            "transparentLayers": false,
+            "inPainting": false,
+            "textRendering": false,
+            "characterConsistency": false,
+            "multiTurnGeneration": false,
+            "hexCodes": false,
+            "photoRealism": false
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false
+          }
+        },
+        {
+          "id": "veo-2",
+          "name": "Veo",
+          "status": "primary",
+          "about": "",
+          "category": "video",
+          "releaseDate": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "modelPage": "",
+          "systemCard": "",
+          "modelGuide": "",
+          "apiDocumentation": "",
+          "exampleImages": [
+            ""
+          ],
+          "demoVideos": {},
+          "termsOfService": "",
+          "usagePolicy": "",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {                                         
+            "generations": {
+              "options": {
+                "inputFormats": [
+                  "text"
+                ],
+                "outputFormats": [
+                  "image"
+                ],
+                "background": [],
+                "moderation": [],
+                "numberOfImages": 1,
+                "outputCompression": "",
+                "outputFileTypes": [],
+                "outputQuality": [],
+                "outputSize": [],
+                "outputStyle": [],
+                "pricing": {
+                  "input": {
+                    "textPerM": 0,
+                    "imagePerM": 0
+                  },
+                  "output": {
+                    "imagePerM": 0,
+                    "lowQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    },
+                    "mediumQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    },
+                    "highQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    }
+                  }
+                }
+              }
+            }                                    
+          },
+          "capabilities": {
+            "performance": 4,
+            "speed": 1
+          },
+          "features": {
+            "textToImage": false,
+            "imageToImage": false,
+            "imageVariations": false,
+            "transparentLayers": false,
+            "inPainting": false,
+            "textRendering": false,
+            "characterConsistency": false,
+            "multiTurnGeneration": false,
+            "hexCodes": false,
+            "photoRealism": false
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false
           }
         }
       ],
@@ -3137,40 +3563,88 @@
           "id": "firefly",
           "name": "Firefly",
           "status": "primary",
-          "type": "image",
+          "about": "",
           "category": "image",
-          "releaseDate": "2024-12-15",
-          "modelPage": "",
+          "releaseDate": "",
           "releasePost": "",
           "releaseVideo": "",
+          "modelPage": "",
           "systemCard": "",
-          "capabilities": {
-            "intelligence": 4,
-            "speed": 5,
-            "reasoning": 0
+          "modelGuide": "",
+          "apiDocumentation": "",
+          "exampleImages": [
+            ""
+          ],
+          "demoVideos": {},
+          "termsOfService": "",
+          "usagePolicy": "",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {                                         
+            "generations": {
+              "options": {
+                "inputFormats": [
+                  "text"
+                ],
+                "outputFormats": [
+                  "image"
+                ],
+                "background": [],
+                "moderation": [],
+                "numberOfImages": 1,
+                "outputCompression": "",
+                "outputFileTypes": [],
+                "outputQuality": [],
+                "outputSize": [],
+                "outputStyle": [],
+                "pricing": {
+                  "input": {
+                    "textPerM": 0,
+                    "imagePerM": 0
+                  },
+                  "output": {
+                    "imagePerM": 0,
+                    "lowQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    },
+                    "mediumQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    },
+                    "highQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    }
+                  }
+                }
+              }
+            }                                    
           },
-          "specs": {
-            "reasoningTokens": false,
-            "inputFormats": [
-              "text",
-              "image"
-            ],
-            "outputFormats": [
-              "image"
-            ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null,
-            "techniques": [
-              "text-to-image",
-              "image-to-image",
-              "inpainting",
-              "outpainting"
-            ],
-            "commercialUseAllowed": true
+          "capabilities": {
+            "performance": 4,
+            "speed": 1
+          },
+          "features": {
+            "textToImage": false,
+            "imageToImage": false,
+            "imageVariations": false,
+            "transparentLayers": false,
+            "inPainting": false,
+            "textRendering": false,
+            "characterConsistency": false,
+            "multiTurnGeneration": false,
+            "hexCodes": false,
+            "photoRealism": false
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false
           }
         }
       ],
@@ -3187,48 +3661,192 @@
       "features": [],
       "models": [
         {
-          "id": "midjourney-v7",
-          "name": "Midjourney v7",
+          "id": "v6",
+          "name": "V6",
           "status": "primary",
-          "type": "image",
+          "about": "",
           "category": "image",
-          "releaseDate": "2024-11-15",
-          "modelPage": "",
+          "releaseDate": "",
           "releasePost": "",
           "releaseVideo": "",
+          "modelPage": "",
           "systemCard": "",
-          "capabilities": {
-            "intelligence": 4,
-            "speed": 4,
-            "reasoning": 0
+          "modelGuide": "",
+          "apiDocumentation": "",
+          "exampleImages": [
+            ""
+          ],
+          "demoVideos": {},
+          "termsOfService": "",
+          "usagePolicy": "",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {                                         
+            "generations": {
+              "options": {
+                "inputFormats": [
+                  "text"
+                ],
+                "outputFormats": [
+                  "image"
+                ],
+                "background": [],
+                "moderation": [],
+                "numberOfImages": 1,
+                "outputCompression": "",
+                "outputFileTypes": [],
+                "outputQuality": [],
+                "outputSize": [],
+                "outputStyle": [],
+                "pricing": {
+                  "input": {
+                    "textPerM": 0,
+                    "imagePerM": 0
+                  },
+                  "output": {
+                    "imagePerM": 0,
+                    "lowQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    },
+                    "mediumQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    },
+                    "highQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    }
+                  }
+                }
+              }
+            }                                    
           },
-          "specs": {
-            "reasoningTokens": false,
-            "inputFormats": [
-              "text",
-              "image"
-            ],
-            "outputFormats": [
-              "image"
-            ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null,
-            "techniques": [
-              "text-to-image",
-              "image-to-image",
-              "variations"
-            ],
-            "styles": [
-              "photorealistic",
-              "artistic",
-              "stylized",
-              "conceptual"
-            ],
-            "commercialUseAllowed": true
+          "capabilities": {
+            "performance": 4,
+            "speed": 1
+          },
+          "features": {
+            "textToImage": false,
+            "imageToImage": false,
+            "imageVariations": false,
+            "transparentLayers": false,
+            "inPainting": false,
+            "textRendering": false,
+            "characterConsistency": false,
+            "multiTurnGeneration": false,
+            "hexCodes": false,
+            "photoRealism": false
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false
+          }
+        }
+      ],
+      "products": [],
+      "subscriptions": []
+    },
+    {
+      "id": "stability-ai",
+      "name": "Stability.ai",
+      "logo": "/images/companies/stability-ai/logo.png",
+      "website": "",
+      "description": "Advanced image generation platform",
+      "lastUpdated": "2025-03-15",
+      "features": [],
+      "models": [
+        {
+          "id": "v6",
+          "name": "V6",
+          "status": "primary",
+          "about": "",
+          "category": "image",
+          "releaseDate": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "modelPage": "",
+          "systemCard": "",
+          "modelGuide": "",
+          "apiDocumentation": "",
+          "exampleImages": [
+            ""
+          ],
+          "demoVideos": {},
+          "termsOfService": "",
+          "usagePolicy": "",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {                                         
+            "generations": {
+              "options": {
+                "inputFormats": [
+                  "text"
+                ],
+                "outputFormats": [
+                  "image"
+                ],
+                "background": [],
+                "moderation": [],
+                "numberOfImages": 1,
+                "outputCompression": "",
+                "outputFileTypes": [],
+                "outputQuality": [],
+                "outputSize": [],
+                "outputStyle": [],
+                "pricing": {
+                  "input": {
+                    "textPerM": 0,
+                    "imagePerM": 0
+                  },
+                  "output": {
+                    "imagePerM": 0,
+                    "lowQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    },
+                    "mediumQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    },
+                    "highQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    }
+                  }
+                }
+              }
+            }                                    
+          },
+          "capabilities": {
+            "performance": 4,
+            "speed": 1
+          },
+          "features": {
+            "textToImage": false,
+            "imageToImage": false,
+            "imageVariations": false,
+            "transparentLayers": false,
+            "inPainting": false,
+            "textRendering": false,
+            "characterConsistency": false,
+            "multiTurnGeneration": false,
+            "hexCodes": false,
+            "photoRealism": false
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false
           }
         }
       ],
@@ -3661,6 +4279,56 @@
               "German",
               "Japanese"
             ]
+          }
+        }
+      ],
+      "products": [],
+      "subscriptions": []
+    },
+    {
+      "id": "hey-gen",
+      "name": "Hey Gen",
+      "logo": "/images/companies/hey-gen/logo.png",
+      "website": "",
+      "description": "AI-powered search and knowledge discovery",
+      "lastUpdated": "2025-02-20",
+      "features": [],
+      "models": [
+        {
+          "id": "perplexity-online",
+          "name": "Perplexity Online",
+          "status": "primary",
+          "type": "search",
+          "category": "other",
+          "releaseDate": "2024-09-15",
+          "modelPage": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "systemCard": "",
+          "capabilities": {
+            "intelligence": 4,
+            "speed": 5,
+            "reasoning": 0
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "url"
+            ],
+            "outputFormats": [
+              "text",
+              "citations"
+            ],
+            "maxInputTokens": null,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": null,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": null,
+            "realTimeData": true,
+            "sourceAttribution": true,
+            "dataRetrieval": "online search"
           }
         }
       ],
