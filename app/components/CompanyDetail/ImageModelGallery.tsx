@@ -398,7 +398,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                   e.stopPropagation(); // Prevent event bubbling
                   prevImage();
                 }}
-                className="absolute left-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white opacity-90 hover:opacity-100 transition-opacity group-hover:opacity-100 focus:outline-none z-20"
+                className="absolute left-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white opacity-90 hover:opacity-100 transition-opacity group-hover:opacity-100 focus:outline-none z-20 cursor-pointer"
                 aria-label="Previous image"
               >
                 <i className="bi bi-chevron-left text-2xl"></i>
@@ -408,7 +408,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                   e.stopPropagation(); // Prevent event bubbling
                   nextImage();
                 }}
-                className="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white opacity-90 hover:opacity-100 transition-opacity group-hover:opacity-100 focus:outline-none z-20"
+                className="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white opacity-90 hover:opacity-100 transition-opacity group-hover:opacity-100 focus:outline-none z-20 cursor-pointer"
                 aria-label="Next image"
               >
                 <i className="bi bi-chevron-right text-2xl"></i>
@@ -443,7 +443,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                   key={index}
                   id={`thumbnail-${index}`}
                   onClick={() => setCurrentImageIndex(index)}
-                  className={`flex-shrink-0 relative w-16 h-16 rounded overflow-hidden ${
+                  className={`flex-shrink-0 relative w-16 h-16 rounded overflow-hidden cursor-pointer ${
                     index === currentImageIndex ? 'ring-2 ring-cyan-400' : 'opacity-70 hover:opacity-100'
                   }`}
                   aria-label={`View image ${index + 1}`}
