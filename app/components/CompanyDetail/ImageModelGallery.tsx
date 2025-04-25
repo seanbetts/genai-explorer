@@ -82,6 +82,9 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
   // State to track if the navigation was keyboard-driven
   const [isKeyboardNav, setIsKeyboardNav] = useState(false);
   
+  // State to manage the full-size image popover
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  
   // Get the currently selected model
   const selectedModel = models.find(model => model.id === selectedModelId) || models[0];
 
@@ -147,6 +150,35 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
   
   // We've removed the thumbnail scrolling effect in favor of the ThumbnailScroller component
   // This gives us better separation of concerns and more reliable execution
+  
+  // Add keyboard support for popover (ESC to close)
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (isPopoverOpen) {
+        // Close on ESC key
+        if (e.key === 'Escape') {
+          setIsPopoverOpen(false);
+        }
+        
+        // Continue to support arrow navigation
+        if (selectedModel?.exampleImages && selectedModel.exampleImages.length > 1) {
+          if (e.key === 'ArrowRight') {
+            nextImage();
+          } else if (e.key === 'ArrowLeft') {
+            prevImage();
+          }
+        }
+      }
+    };
+    
+    if (isPopoverOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isPopoverOpen, selectedModel, nextImage, prevImage]);
 
   // Function to render model selection tabs
   const renderModelTabs = () => {
@@ -278,7 +310,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                           <div>
                             <span className={`${textStyles.label} block mb-1`}>Input Formats:</span>
                             <div className="flex flex-wrap gap-1">
-                              {data.options.inputFormats.map(format => (
+                              {data.options.inputFormats.map((format: string) => (
                                 <span key={format} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
                                   {format}
                                 </span>
@@ -291,7 +323,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                           <div>
                             <span className={`${textStyles.label} block mb-1`}>Output Formats:</span>
                             <div className="flex flex-wrap gap-1">
-                              {data.options.outputFormats.map(format => (
+                              {data.options.outputFormats.map((format: string) => (
                                 <span key={format} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
                                   {format}
                                 </span>
@@ -305,7 +337,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                             <span className={`${textStyles.label} block mb-1`}>Output Sizes:</span>
                             <div className="flex flex-wrap gap-1">
                               {Array.isArray(data.options.outputSize) ? 
-                                data.options.outputSize.map(size => (
+                                data.options.outputSize.map((size: string) => (
                                   <span key={size} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
                                     {size}
                                   </span>
@@ -368,18 +400,20 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
     const hasMultipleImages = selectedModel.exampleImages.length > 1;
 
     return (
-      <div className="relative">
-        <div className="relative h-[500px] bg-gray-900 rounded-lg overflow-hidden group">
-          <div className="absolute inset-0 flex items-center justify-center z-0">
-            <ImageWithFallback
-              key={`image-${selectedModel.id}-${currentImageIndex}`} // Key forces re-render when image changes
-              src={getValidImageUrl(currentImage)}
-              alt={`Example image ${currentImageIndex + 1} from ${selectedModel.name}`}
-              fill
-              style={{ objectFit: "contain" }}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 60vw"
-              priority={currentImageIndex < 3} // Prioritize loading the first few images
-            />
+      <div className="relative p-0 m-0">
+        <div className="relative h-[500px] bg-gray-900 rounded-lg overflow-hidden group py-4 px-0 m-0">
+          <div className="absolute inset-0 flex items-center py-3 justify-center z-0">
+            <div className="relative w-full h-full cursor-pointer" onClick={() => setIsPopoverOpen(true)}>
+              <ImageWithFallback
+                key={`image-${selectedModel.id}-${currentImageIndex}`} // Key forces re-render when image changes
+                src={getValidImageUrl(currentImage)}
+                alt={`Example image ${currentImageIndex + 1} from ${selectedModel.name}`}
+                fill
+                style={{ objectFit: "contain" }}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 60vw"
+                priority={currentImageIndex < 3} // Prioritize loading the first few images
+              />
+            </div>
           </div>
           
           {/* Navigation arrows - only show if multiple images */}
@@ -418,9 +452,9 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
         
         {/* Thumbnail gallery for quick navigation */}
         {selectedModel.exampleImages.length > 4 && (
-          <div className="mt-4 overflow-x-auto scrollbar-hide">
+          <div className="mt-2 overflow-x-auto scrollbar-hide">
             <div 
-              className="flex gap-2 py-2 max-w-full" 
+              className="flex gap-1 py-1 max-w-full" 
               style={{ scrollbarWidth: 'none' }}
               id="thumbnail-container"
             >
@@ -488,7 +522,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
       {models.length > 1 && renderModelTabs()}
       
       {/* Image gallery at the top */}
-      <div className="mb-8">
+      <div className="mb-8 p-0">
         {renderImageGallery()}
       </div>
       
@@ -496,6 +530,47 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
       <div>
         {renderModelDetails()}
       </div>
+      
+      {/* Modal overlay for full-resolution image */}
+      {isPopoverOpen && selectedModel?.exampleImages && (
+        <div 
+          aria-modal="true"
+          className="fixed inset-0 z-50"
+        >
+          {/* Semi-transparent backdrop */}
+          <div className="absolute inset-0 bg-black bg-opacity-75 backdrop-blur-sm"></div>
+          
+          {/* Centered modal content */}
+          <div className="relative h-full w-full flex items-center justify-center p-4">
+            {/* Close button - positioned in the corner */}
+            <button 
+              onClick={() => setIsPopoverOpen(false)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-black bg-opacity-50 hover:bg-opacity-70 rounded-full flex items-center justify-center text-white transition-colors"
+              aria-label="Close fullscreen view"
+            >
+              <i className="bi bi-x-lg text-xl"></i>
+            </button>
+            
+            {/* Image container with proper dimensions */}
+            <div 
+              className="relative h-[80vh] w-[90vw] max-w-[1800px] max-h-[90vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <ImageWithFallback
+                key={`fullsize-${selectedModel.id}-${currentImageIndex}`}
+                src={getValidImageUrl(selectedModel.exampleImages[currentImageIndex])}
+                alt={`Full size example image ${currentImageIndex + 1} from ${selectedModel.name}`}
+                fill
+                style={{ objectFit: "contain" }}
+                sizes="90vw"
+                quality={100} // Maximum quality for full-size view
+                priority={true}
+                className="pointer-events-none" // Prevent interaction with the image
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
