@@ -33,21 +33,37 @@ const ImageWithFallback = ({ src, alt, ...props }: {
 
 // Special component just for handling thumbnail scrolling
 // This component has a single responsibility: scroll the active thumbnail into view
-const ThumbnailScroller = ({ activeIndex }: { activeIndex: number }) => {
+const ThumbnailScroller = ({ activeIndex, isKeyboardNav = false }: { 
+  activeIndex: number;
+  isKeyboardNav?: boolean;
+}) => {
   // Use layout effect (runs synchronously after DOM updates, before browser paint)
   React.useLayoutEffect(() => {
-    // Get the active thumbnail
-    const activeThumb = document.getElementById(`thumbnail-${activeIndex}`);
+    // Function to scroll the thumbnail into view
+    const scrollThumbnail = () => {
+      const activeThumb = document.getElementById(`thumbnail-${activeIndex}`);
+      
+      if (activeThumb) {
+        // Directly use the browser's scrollIntoView API
+        activeThumb.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+    };
+
+    // Call immediately
+    scrollThumbnail();
     
-    if (activeThumb) {
-      // Directly use the browser's scrollIntoView API
-      activeThumb.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center'
-      });
+    // For keyboard navigation, we add an additional delayed call
+    // This addresses timing issues that can occur with keyboard events
+    if (isKeyboardNav) {
+      // Add a small delay for keyboard navigation to ensure DOM is fully updated
+      const timeoutId = setTimeout(scrollThumbnail, 50);
+      return () => clearTimeout(timeoutId);
     }
-  }, [activeIndex]); // Only run when the active index changes
+  }, [activeIndex, isKeyboardNav]); // Run when active index or keyboard nav flag changes
   
   // This component doesn't render anything
   return null;
@@ -63,7 +79,8 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
   // State to track the current image index for the carousel
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-  // No need for refs, we'll use DOM methods instead
+  // State to track if the navigation was keyboard-driven
+  const [isKeyboardNav, setIsKeyboardNav] = useState(false);
   
   // Get the currently selected model
   const selectedModel = models.find(model => model.id === selectedModelId) || models[0];
@@ -102,10 +119,20 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedModel?.exampleImages && selectedModel.exampleImages.length > 1) {
-        if (e.key === 'ArrowRight') {
-          nextImage();
-        } else if (e.key === 'ArrowLeft') {
-          prevImage();
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          // Set the keyboard navigation flag before changing the image
+          setIsKeyboardNav(true);
+          
+          if (e.key === 'ArrowRight') {
+            nextImage();
+          } else {
+            prevImage();
+          }
+          
+          // Reset the flag after a short delay
+          setTimeout(() => {
+            setIsKeyboardNav(false);
+          }, 200);
         }
       }
     };
@@ -116,7 +143,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [selectedModel, nextImage, prevImage]); // Use the stable callbacks as dependencies
+  }, [selectedModel, nextImage, prevImage, setIsKeyboardNav]); // Include setIsKeyboardNav in dependencies
   
   // We've removed the thumbnail scrolling effect in favor of the ThumbnailScroller component
   // This gives us better separation of concerns and more reliable execution
@@ -398,7 +425,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
               id="thumbnail-container"
             >
               {/* Add the thumbnail scroller component - it handles scrolling separately */}
-              <ThumbnailScroller activeIndex={currentImageIndex} />
+              <ThumbnailScroller 
+                activeIndex={currentImageIndex}
+                isKeyboardNav={isKeyboardNav} 
+              />
               
               {selectedModel.exampleImages.map((image, index) => (
                 <button 
