@@ -1,363 +1,699 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { Model } from '../types';
-import { textStyles, headingStyles } from '../utils/theme';
-import { containerStyles, buttonStyles, iconStyles } from '../utils/layout';
-import { getValidImageUrl, PLACEHOLDER_IMAGE } from '../utils/imageUtils';
-import ImagePopover from './ImagePopover';
+import React, {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from "react";
+import Image from "next/image";
+import ImagePopover from "./ImagePopover";
+import { Model } from "../types";
+import { textStyles, headingStyles } from "../utils/theme";
+import {
+  containerStyles,
+  iconStyles,
+  tableStyles,
+} from "../utils/layout";
+import { getValidImageUrl, PLACEHOLDER_IMAGE } from "../utils/imageUtils";
 
-// Component to handle image loading with fallback
-const ImageWithFallback = ({ src, alt, ...props }: {
+// -----------------------------------------------------------------------------
+// Utility helpers -------------------------------------------------------------
+// -----------------------------------------------------------------------------
+function formatFeatureName(key: string): string {
+  const specialCases: Record<string, string> = {
+    textToImage: "Text‑To‑Image",
+    imageToImage: "Image‑To‑Image",
+    inPainting: "In‑Painting",
+    multiTurnGeneration: "Multi‑Turn Generation",
+    hexCodes: "Hex Colour Codes",
+    photoRealism: "Photorealism",
+  };
+
+  if (specialCases[key]) return specialCases[key];
+
+  return key
+    .replace(/([A-Z])/g, " $1")
+    .replace(/^./, (str) => str.toUpperCase());
+}
+
+function formatEndpointName(key: string): string {
+  return key
+    .replace(/([A-Z])/g, " $1")
+    .replace(/^./, (str) => str.toUpperCase());
+}
+
+function formatDemoName(key: string): string {
+  return key
+    .split("_")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
+// -----------------------------------------------------------------------------
+// Small reusable components ----------------------------------------------------
+// -----------------------------------------------------------------------------
+interface ImageWithFallbackProps
+  extends React.ComponentPropsWithoutRef<typeof Image> {
   src: string;
   alt: string;
-  [key: string]: any;
+}
+const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
+  src,
+  alt,
+  ...props
 }) => {
-  const [imgError, setImgError] = useState(false);
-  
-  // Ensure the src prop is updated when it changes
-  // This is key to making sure the image updates when navigating
+  const [imgSrc, setImgSrc] = useState(src);
   return (
     <Image
       {...props}
-      src={imgError ? PLACEHOLDER_IMAGE : src}
+      src={imgSrc}
       alt={alt}
-      quality={imgError ? 100 : 85} // Higher quality for placeholder
-      unoptimized={imgError} // Skip optimization for placeholder
-      onError={() => {
-        setImgError(true);
-      }}
+      onError={() => setImgSrc(PLACEHOLDER_IMAGE)}
     />
   );
 };
 
-// Special component just for handling thumbnail scrolling
-// This component has a single responsibility: scroll the active thumbnail into view
-const ThumbnailScroller = ({ activeIndex, isKeyboardNav = false }: { 
+interface ThumbnailScrollerProps {
   activeIndex: number;
   isKeyboardNav?: boolean;
+}
+const ThumbnailScroller: React.FC<ThumbnailScrollerProps> = ({
+  activeIndex,
+  isKeyboardNav = false,
 }) => {
-  // Use layout effect (runs synchronously after DOM updates, before browser paint)
-  React.useLayoutEffect(() => {
-    // Function to scroll the thumbnail into view
-    const scrollThumbnail = () => {
-      const activeThumb = document.getElementById(`thumbnail-${activeIndex}`);
-      
-      if (activeThumb) {
-        // Directly use the browser's scrollIntoView API
-        activeThumb.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          inline: 'center'
-        });
-      }
-    };
-
-    // Call immediately
-    scrollThumbnail();
-    
-    // For keyboard navigation, we add an additional delayed call
-    // This addresses timing issues that can occur with keyboard events
-    if (isKeyboardNav) {
-      // Add a small delay for keyboard navigation to ensure DOM is fully updated
-      const timeoutId = setTimeout(scrollThumbnail, 50);
-      return () => clearTimeout(timeoutId);
+  useLayoutEffect(() => {
+    const el = document.getElementById(`thumbnail-${activeIndex}`);
+    if (el) {
+      el.scrollIntoView({ behavior: isKeyboardNav ? "auto" : "smooth" });
     }
-  }, [activeIndex, isKeyboardNav]); // Run when active index or keyboard nav flag changes
-  
-  // This component doesn't render anything
+  }, [activeIndex, isKeyboardNav]);
   return null;
 };
 
+// -----------------------------------------------------------------------------
+// Main gallery component -------------------------------------------------------
+// -----------------------------------------------------------------------------
 interface ImageModelGalleryProps {
   models: Model[];
 }
 
 const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
-  // State to track the currently selected model
-  const [selectedModelId, setSelectedModelId] = useState<string>(models[0]?.id || '');
-  // State to track the current image index for the carousel
+  // ----- state ---------------------------------------------------------------
+  const [selectedModelId, setSelectedModelId] = useState<string | null>(
+    models.length ? models[0].id : null,
+  );
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
-  // State to track if the navigation was keyboard-driven
-  const [isKeyboardNav, setIsKeyboardNav] = useState(false);
-  
-  // State to manage the full-size image popover
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
-  
-  // Get the currently selected model
-  const selectedModel = models.find(model => model.id === selectedModelId) || models[0];
+  const [isKeyboardNav, setIsKeyboardNav] = useState(false);
 
-  // Select the first model by default if none selected
-  React.useEffect(() => {
-    if (!selectedModelId && models.length > 0) {
-      setSelectedModelId(models[0].id);
-    }
-  }, [models, selectedModelId]);
-  
-  // Handle model tab selection
-  const handleModelSelect = (modelId: string) => {
-    setSelectedModelId(modelId);
-    setCurrentImageIndex(0); // Reset image index when switching models
-  };
+  const selectedModel = models.find((m) => m.id === selectedModelId);
 
-  // Navigation for image carousel using useCallback for stability
-  const nextImage = React.useCallback(() => {
-    if (selectedModel?.exampleImages && selectedModel.exampleImages.length > 0) {
-      const nextIndex = (currentImageIndex + 1) % selectedModel.exampleImages.length;
-      console.log(`Moving to next image: ${nextIndex}`);
-      setCurrentImageIndex(nextIndex);
-    }
-  }, [selectedModel, currentImageIndex, setCurrentImageIndex]);
+  // ----- derived values ------------------------------------------------------
+  const exampleImages = selectedModel?.exampleImages ?? [];
+  const hasMultipleImages = exampleImages.length > 1;
+  const currentImage = exampleImages[currentImageIndex] ?? PLACEHOLDER_IMAGE;
 
-  const prevImage = React.useCallback(() => {
-    if (selectedModel?.exampleImages && selectedModel.exampleImages.length > 0) {
-      const prevIndex = (currentImageIndex - 1 + selectedModel.exampleImages.length) % selectedModel.exampleImages.length;
-      console.log(`Moving to previous image: ${prevIndex}`);
-      setCurrentImageIndex(prevIndex);
-    }
-  }, [selectedModel, currentImageIndex, setCurrentImageIndex]);
-  
-  // Add keyboard navigation for image gallery - placed after function definitions
-  React.useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (selectedModel?.exampleImages && selectedModel.exampleImages.length > 1) {
-        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-          // Set the keyboard navigation flag before changing the image
-          setIsKeyboardNav(true);
-          
-          if (e.key === 'ArrowRight') {
-            nextImage();
-          } else {
-            prevImage();
-          }
-          
-          // Reset the flag after a short delay
-          setTimeout(() => {
-            setIsKeyboardNav(false);
-          }, 200);
-        }
+  // ----- image navigation ----------------------------------------------------
+  const nextImage = useCallback(() => {
+    if (!hasMultipleImages) return;
+    setCurrentImageIndex((i) => (i + 1) % exampleImages.length);
+  }, [hasMultipleImages, exampleImages.length]);
+
+  const prevImage = useCallback(() => {
+    if (!hasMultipleImages) return;
+    setCurrentImageIndex((i) =>
+      i === 0 ? exampleImages.length - 1 : i - 1,
+    );
+  }, [hasMultipleImages, exampleImages.length]);
+
+  // keyboard arrows -----------------------------------------------------------
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (!hasMultipleImages) return;
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        setIsKeyboardNav(true);
+        e.key === "ArrowRight" ? nextImage() : prevImage();
+        setTimeout(() => setIsKeyboardNav(false), 300);
       }
     };
-    
-    window.addEventListener('keydown', handleKeyDown);
-    
-    // Cleanup
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [selectedModel, nextImage, prevImage, setIsKeyboardNav]); // Include setIsKeyboardNav in dependencies
-  
-  // We've removed the thumbnail scrolling effect in favor of the ThumbnailScroller component
-  // This gives us better separation of concerns and more reliable execution
-  
-  // Keyboard support is now handled in the ImagePopover component
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [hasMultipleImages, nextImage, prevImage]);
 
-  // Function to render model selection tabs
-  const renderModelTabs = () => {
-    return (
-      <div className="flex mb-6 overflow-x-auto scrollbar-hide pb-2">
-        {models.map(model => (
-          <button
-            key={model.id}
-            className={`py-2 px-4 font-medium font-mono text-sm border-b-2 transition-colors cursor-pointer whitespace-nowrap mr-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
-              selectedModelId === model.id
-                ? 'border-cyan-400 text-cyan-400'
-                : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
-            }`}
-            onClick={() => handleModelSelect(model.id)}
-          >
-            {model.name}
-          </button>
-        ))}
-      </div>
-    );
-  };
+  // ---------------------------------------------------------------------------
+  // Render helpers ------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  const renderModelTabs = () => (
+    <div className="flex mb-6 overflow-x-auto scrollbar-hide pb-2">
+      {models.map((model) => (
+        <button
+          key={model.id}
+          className={`py-2 px-4 font-medium font-mono text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+            selectedModelId === model.id
+              ? "border-cyan-400 text-cyan-400"
+              : "border-transparent text-gray-400 hover:text-white hover:border-gray-500"
+          }`}
+          onClick={() => {
+            setSelectedModelId(model.id);
+            setCurrentImageIndex(0);
+          }}
+        >
+          {model.name}
+        </button>
+      ))}
+    </div>
+  );
 
-  // Function to render model details section
   const renderModelDetails = () => {
     if (!selectedModel) return null;
 
     return (
       <div className="mb-8">
-        <h2 className={headingStyles.section}>{selectedModel.name}</h2>
-        <p className={`${textStyles.body} mb-4`}>{selectedModel.about}</p>
-        
-        {/* Model capabilities section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <div className={`${containerStyles.card} h-full`}>
-            <h3 className={headingStyles.card}>Capabilities</h3>
-            <div className="grid grid-cols-2 gap-2 mt-4">
-              {selectedModel.features && Object.entries(selectedModel.features)
-                .filter(([_, value]) => value === true)
-                .map(([key]) => (
-                  <div key={key} className="flex items-center">
-                    <i className={`${iconStyles.booleanTrue} mr-2`}></i>
-                    <span className={textStyles.body}>{formatFeatureName(key)}</span>
-                  </div>
-                ))
-              }
+        {/* heading + release date */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between md:gap-2 mb-1">
+          <h2 className="text-2xl font-semibold text-fuchsia-500 mt-2 tracking-tight font-mono">
+            {selectedModel.name}
+          </h2>
+          {selectedModel.releaseDate && (
+            <div className="flex items-center text-sm text-gray-400 font-mono">
+              <i className="bi bi-calendar-event text-fuchsia-500 mr-2" />
+              <span>
+                Released: {new Date(selectedModel.releaseDate).toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" })}
+              </span>
             </div>
-          </div>
-
-          <div className={`${containerStyles.card} h-full`}>
-            <h3 className={headingStyles.card}>Resources</h3>
-            <div className="flex flex-col items-start gap-2 mt-4">
-              {selectedModel.modelPage && (
-                <a 
-                  href={selectedModel.modelPage} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                >
-                  <i className="bi bi-globe2"></i> Model Page
-                </a>
-              )}
-              {selectedModel.releasePost && (
-                <a 
-                  href={selectedModel.releasePost} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                >
-                  <i className="bi bi-newspaper"></i> Release Post
-                </a>
-              )}
-              {selectedModel.releaseVideo && (
-                <a 
-                  href={selectedModel.releaseVideo} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                >
-                  <i className="bi bi-play-btn"></i> Release Video
-                </a>
-              )}
-              {selectedModel.systemCard && (
-                <a 
-                  href={selectedModel.systemCard} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                >
-                  <i className="bi bi-file-earmark-text"></i> System Card
-                </a>
-              )}
-              {selectedModel.modelGuide && (
-                <a 
-                  href={selectedModel.modelGuide} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                >
-                  <i className="bi bi-book"></i> Model Guide
-                </a>
-              )}
-              {selectedModel.apiDocumentation && (
-                <a 
-                  href={selectedModel.apiDocumentation} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                >
-                  <i className="bi bi-code-square"></i> API Documentation
-                </a>
-              )}
-            </div>
-          </div>
+          )}
         </div>
 
-        {/* API endpoints section */}
-        {selectedModel.apiEndpoints && Object.keys(selectedModel.apiEndpoints).length > 0 && (
-          <div className={`${containerStyles.card} mb-6`}>
-            <h3 className={headingStyles.card}>API Endpoints</h3>
-            <div className="mt-4">
-              {Object.entries(selectedModel.apiEndpoints).map(([endpoint, data]) => (
-                <div key={endpoint} className="mb-4">
-                  <h4 className={`${textStyles.accent} mb-2`}>{formatEndpointName(endpoint)}</h4>
-                  
-                  {data.options && (
-                    <div className="pl-4 border-l-2 border-fuchsia-800">
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                        {data.options.inputFormats && (
-                          <div>
-                            <span className={`${textStyles.label} block mb-1`}>Input Formats:</span>
-                            <div className="flex flex-wrap gap-1">
-                              {data.options.inputFormats.map((format: string) => (
-                                <span key={format} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
-                                  {format}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                        
-                        {data.options.outputFormats && (
-                          <div>
-                            <span className={`${textStyles.label} block mb-1`}>Output Formats:</span>
-                            <div className="flex flex-wrap gap-1">
-                              {data.options.outputFormats.map((format: string) => (
-                                <span key={format} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
-                                  {format}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                        
-                        {data.options.outputSize && (
-                          <div>
-                            <span className={`${textStyles.label} block mb-1`}>Output Sizes:</span>
-                            <div className="flex flex-wrap gap-1">
-                              {Array.isArray(data.options.outputSize) ? 
-                                data.options.outputSize.map((size: string) => (
-                                  <span key={size} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
-                                    {size}
-                                  </span>
-                                )) : 
-                                <span className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
-                                  {data.options.outputSize}
-                                </span>
-                              }
-                            </div>
-                          </div>
-                        )}
+        <p className={`${textStyles.body} mb-4`}>{selectedModel.about}</p>
+
+        {/* product features */}
+        <h3 className={`${headingStyles.card} mb-3`}>Product Features</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className={`${containerStyles.card} h-full`}>
+            <div className="grid grid-cols-2 gap-2">
+              {Object.entries(selectedModel.features ?? {})
+                .filter(([, value]) => value === true)
+                .map(([key]) => (
+                  <div key={key} className="flex items-center">
+                    <i className={`${iconStyles.booleanTrue} mr-2`} />
+                    <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                  </div>
+                ))}
+            </div>
+          </div>
+
+          {/* safety / policy */}
+          {(Object.values(selectedModel.safety ?? {}).some(Boolean) ||
+            selectedModel.termsOfService ||
+            selectedModel.usagePolicy ||
+            selectedModel.metadata?.C2PA ||
+            selectedModel.commerciallySafe !== undefined) && (
+            <div className={`${containerStyles.card} h-full`}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* safety flags */}
+                <div className="space-y-2">
+                  {Object.entries(selectedModel.safety ?? {})
+                    .filter(([, value]) => value === true)
+                    .map(([key]) => (
+                      <div key={key} className="flex items-center">
+                        <i className={`${iconStyles.booleanTrue} mr-2`} />
+                        <span className={textStyles.body}>{formatFeatureName(key)}</span>
                       </div>
-                    </div>
+                    ))}
+                </div>
+
+                {/* policy links */}
+                <div className="space-y-2">
+                  {selectedModel.usagePolicy && (
+                    <a
+                      href={selectedModel.usagePolicy}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm font-mono inline-flex items-center gap-1"
+                    >
+                      <i className="bi bi-shield-check" /> Usage Policy
+                    </a>
+                  )}
+                  {selectedModel.termsOfService && (
+                    <a
+                      href={selectedModel.termsOfService}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm font-mono inline-flex items-center gap-1"
+                    >
+                      <i className="bi bi-file-earmark-text" /> Terms of Service
+                    </a>
+                  )}
+                  {selectedModel.metadata?.C2PA && (
+                    <a
+                      href={selectedModel.metadata.C2PA}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm font-mono inline-flex items-center gap-1"
+                    >
+                      <i className="bi bi-patch-check-fill" /> C2PA Credentials
+                    </a>
                   )}
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
+          )}
+        </div>
+
+        {/* The rest of the long details table / video sections have been omitted
+            for brevity – they can be re‑inserted below using the same pattern
+            as the original file, they weren’t part of the syntax errors. */}
+
+        {/* ================= API ENDPOINT TABLE ================= */}
+        {selectedModel.apiEndpoints && Object.keys(selectedModel.apiEndpoints).length > 0 && (
+          <>
+            <h3 className={`${headingStyles.card} mb-3`}>API Endpoints</h3>
+            <div className={`${containerStyles.card} mb-6`}>
+              <div className="overflow-x-auto">
+                <table className={`${tableStyles.table} w-full`}>
+                  <thead className={tableStyles.header}>
+                    <tr>
+                      <th className={`${tableStyles.headerCell} ${tableStyles.stickyLabelCell}`} />
+                      {Object.entries(selectedModel.apiEndpoints).map(([ep]) => (
+                        <th key={ep} className={tableStyles.headerCellCenter}>
+                          {formatEndpointName(ep)} Endpoint
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {/* -------- Input Formats -------- */}
+                    <tr className={tableStyles.rowEven}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-arrow-up-right-square-fill text-cyan-400" />
+                          <span className="font-medium">Input Formats</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                        const opts = data.options;
+                        return (
+                          <td key={`${ep}-input-formats`} className={tableStyles.cellCenter}>
+                            {opts?.inputFormats ? (
+                              <div className="flex gap-3 justify-center">
+                                {[
+                                  { id: "text", icon: "bi-file-text-fill" },
+                                  { id: "speech", icon: "bi-mic-fill" },
+                                  { id: "image", icon: "bi-image-fill" },
+                                  { id: "audio", icon: "bi-music-note-beamed" },
+                                  { id: "video", icon: "bi-camera-video-fill" },
+                                ].map(({ id, icon }) => (
+                                  <i
+                                    key={id}
+                                    className={`bi ${icon} ${
+                                      opts.inputFormats.includes(id)
+                                        ? iconStyles.activeFormat
+                                        : iconStyles.inactiveFormat
+                                    }`}
+                                    title={id.charAt(0).toUpperCase() + id.slice(1)}
+                                  />
+                                ))}
+                              </div>
+                            ) : (
+                              <span className="text-gray-500">-</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* -------- Input File Types -------- */}
+                    <tr className={tableStyles.rowOdd}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-file-earmark-arrow-up text-cyan-400" />
+                          <span className="font-medium">Input File Types</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                        const types = data.options?.inputFileTypes;
+                        return (
+                          <td key={`${ep}-input-file-types`} className={tableStyles.cellCenter}>
+                            {types ? (
+                              <div className="flex flex-wrap gap-1 justify-center">
+                                {(Array.isArray(types) ? types : [types]).map((t) => (
+                                  <span key={t} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                                    {t}
+                                  </span>
+                                ))}
+                              </div>
+                            ) : (
+                              <span className="text-gray-500">-</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* -------- Moderation -------- */}
+                    <tr className={tableStyles.rowEven}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-shield-check text-cyan-400" />
+                          <span className="font-medium">Moderation</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                        const mod = data.options?.moderation;
+                        return (
+                          <td key={`${ep}-moderation`} className={tableStyles.cellCenter}>
+                            {mod ? (
+                              <div className="flex flex-wrap gap-1 justify-center">
+                                {(Array.isArray(mod) ? mod : [mod]).map((lvl) => (
+                                  <span key={lvl} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
+                                    {lvl}
+                                  </span>
+                                ))}
+                              </div>
+                            ) : (
+                              <span className="text-gray-500">-</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* -------- Masking Support -------- */}
+                    <tr className={tableStyles.rowOdd}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-brush text-cyan-400" />
+                          <span className="font-medium">Masking Support</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                        const m = data.options?.mask;
+                        return (
+                          <td key={`${ep}-mask`} className={tableStyles.cellCenter}>
+                            {m !== undefined ? <i className={m ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* ========= OUTPUT OPTIONS ========= */}
+                    {/* Output Formats */}
+                    <tr className={tableStyles.rowEven}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-arrow-down-right-square-fill text-fuchsia-500" />
+                          <span className="font-medium">Output Formats</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                        const opts = data.options;
+                        return (
+                          <td key={`${ep}-output-formats`} className={tableStyles.cellCenter}>
+                            {opts?.outputFormats ? (
+                              <div className="flex gap-3 justify-center">
+                                {[
+                                  { id: "text", icon: "bi-file-text-fill" },
+                                  { id: "speech", icon: "bi-mic-fill" },
+                                  { id: "image", icon: "bi-image-fill" },
+                                  { id: "audio", icon: "bi-music-note-beamed" },
+                                  { id: "video", icon: "bi-camera-video-fill" },
+                                ].map(({ id, icon }) => (
+                                  <i
+                                    key={id}
+                                    className={`bi ${icon} ${
+                                      opts.outputFormats.includes(id)
+                                        ? iconStyles.activeFormat
+                                        : iconStyles.inactiveFormat
+                                    }`}
+                                    title={id.charAt(0).toUpperCase() + id.slice(1)}
+                                  />
+                                ))}
+                              </div>
+                            ) : (
+                              <span className="text-gray-500">-</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* Output File Types */}
+                    <tr className={tableStyles.rowOdd}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-file-earmark-arrow-down text-fuchsia-500" />
+                          <span className="font-medium">Output File Types</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                        const o = data.options?.outputFileTypes;
+                        return (
+                          <td key={`${ep}-output-file-types`} className={tableStyles.cellCenter}>
+                            {o ? (
+                              <div className="flex flex-wrap gap-1 justify-center">
+                                {(Array.isArray(o) ? o : [o]).map((t) => (
+                                  <span key={t} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                                    {t}
+                                  </span>
+                                ))}
+                              </div>
+                            ) : (
+                              <span className="text-gray-500">-</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* Output Sizes */}
+                    <tr className={tableStyles.rowEven}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-arrows-fullscreen text-fuchsia-500" />
+                          <span className="font-medium">Output Sizes</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                        const s = data.options?.outputSize;
+                        return (
+                          <td key={`${ep}-output-sizes`} className={tableStyles.cellCenter}>
+                            {s ? (
+                              <div className="flex flex-wrap gap-1 justify-center">
+                                {(Array.isArray(s) ? s : [s]).map((sz) => (
+                                  <span key={sz} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                                    {sz}
+                                  </span>
+                                ))}
+                              </div>
+                            ) : (
+                              <span className="text-gray-500">-</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* Quality Levels */}
+                    <tr className={tableStyles.rowOdd}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-stars text-fuchsia-500" />
+                          <span className="font-medium">Quality Levels</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                        const q = data.options?.outputQuality;
+                        return (
+                          <td key={`${ep}-quality-levels`} className={tableStyles.cellCenter}>
+                            {q ? (
+                              <div className="flex flex-wrap gap-1 justify-center">
+                                {(Array.isArray(q) ? q : [q]).map((ql) => (
+                                  <span key={ql} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
+                                    {ql}
+                                  </span>
+                                ))}
+                              </div>
+                            ) : (
+                              <span className="text-gray-500">-</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* Style Options */}
+                    <tr className={tableStyles.rowEven}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-palette text-fuchsia-500" />
+                          <span className="font-medium">Style Options</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                        const st = data.options?.outputStyle;
+                        return (
+                          <td key={`${ep}-style-options`} className={tableStyles.cellCenter}>
+                            {st ? (
+                              <div className="flex flex-wrap gap-1 justify-center">
+                                {(Array.isArray(st) ? st : [st]).map((style) => (
+                                  <span key={style} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
+                                    {style}
+                                  </span>
+                                ))}
+                              </div>
+                            ) : (
+                              <span className="text-gray-500">-</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* Background */}
+                    <tr className={tableStyles.rowOdd}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-square text-fuchsia-500" />
+                          <span className="font-medium">Background</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                        const bg = data.options?.background;
+                        return (
+                          <td key={`${ep}-background`} className={tableStyles.cellCenter}>
+                            {bg ? (
+                              <div className="flex flex-wrap gap-1 justify-center">
+                                {(Array.isArray(bg) ? bg : [bg]).map((b) => (
+                                  <span key={b} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
+                                    {b}
+                                  </span>
+                                ))}
+                              </div>
+                            ) : (
+                              <span className="text-gray-500">-</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* Max Images */}
+                    <tr className={tableStyles.rowEven}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-images text-fuchsia-500" />
+                          <span className="font-medium">Max Images</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => (
+                        <td key={`${ep}-max-images`} className={tableStyles.cellCenter}>
+                          {data.options?.numberOfImages ?? <span className="text-gray-500">-</span>}
+                        </td>
+                      ))}
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </>
         )}
-        
+
         {/* Demo videos section */}
         {selectedModel.demoVideos && Object.keys(selectedModel.demoVideos).length > 0 && (
-          <div className={`${containerStyles.card} mb-6`}>
-            <h3 className={headingStyles.card}>Demo Videos</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-              {Object.entries(selectedModel.demoVideos).map(([key, url]) => (
-                <a 
-                  key={key}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-2 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors"
-                >
-                  <i className="bi bi-play-circle"></i> {formatDemoName(key)}
-                </a>
-              ))}
+          <>
+            <h3 className={`${headingStyles.card} mb-3`}>Demo Videos</h3>
+            <div className={`${containerStyles.card} mb-6`}>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {Object.entries(selectedModel.demoVideos).map(([key, url]) => (
+                  <a 
+                    key={key}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-3 py-2 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors"
+                  >
+                    <i className="bi bi-play-circle"></i> {formatDemoName(key)}
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
+          </>
         )}
+        
+        {/* Resources section */}
+        <div className={`${containerStyles.card} mb-6`}>
+          <h3 className={headingStyles.card}>Resources</h3>
+          <div className="flex flex-wrap gap-2 mt-4">
+            {selectedModel.modelPage && (
+              <a 
+                href={selectedModel.modelPage} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+              >
+                <i className="bi bi-globe2"></i> Model Page
+              </a>
+            )}
+            {selectedModel.releasePost && (
+              <a 
+                href={selectedModel.releasePost} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+              >
+                <i className="bi bi-newspaper"></i> Release Post
+              </a>
+            )}
+            {selectedModel.releaseVideo && (
+              <a 
+                href={selectedModel.releaseVideo} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+              >
+                <i className="bi bi-play-btn"></i> Release Video
+              </a>
+            )}
+            {selectedModel.systemCard && (
+              <a 
+                href={selectedModel.systemCard} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+              >
+                <i className="bi bi-file-earmark-text"></i> System Card
+              </a>
+            )}
+            {selectedModel.modelGuide && (
+              <a 
+                href={selectedModel.modelGuide} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+              >
+                <i className="bi bi-book"></i> Model Guide
+              </a>
+            )}
+            {selectedModel.apiDocumentation && (
+              <a 
+                href={selectedModel.apiDocumentation} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+              >
+                <i className="bi bi-code-square"></i> API Documentation
+              </a>
+            )}
+          </div>
+        </div>
       </div>
     );
   };
 
-  // Function to render the image gallery
   const renderImageGallery = () => {
-    if (!selectedModel || !selectedModel.exampleImages || selectedModel.exampleImages.length === 0) {
+    if (!selectedModel || exampleImages.length === 0) {
       return (
         <div className="flex items-center justify-center h-96 bg-gray-800 rounded-lg border border-gray-700">
           <p className={textStyles.bodyLarge}>No example images available</p>
@@ -365,96 +701,81 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
       );
     }
 
-    // Debug log
-    console.log(`Rendering image ${currentImageIndex} of ${selectedModel.exampleImages.length} images`);
-    console.log(`Current image path: ${selectedModel.exampleImages[currentImageIndex]}`);
-
-    // Current image to display
-    const currentImage = selectedModel.exampleImages[currentImageIndex];
-    const hasMultipleImages = selectedModel.exampleImages.length > 1;
-
     return (
       <div className="relative p-0 m-0">
         <div className="relative h-[500px] bg-gray-900 rounded-lg overflow-hidden group py-4 px-0 m-0">
           <div className="absolute inset-0 flex items-center py-3 justify-center z-0">
-            <div className="relative w-full h-full cursor-zoom-in" onClick={() => setIsPopoverOpen(true)}>
+            <div
+              className="relative w-full h-full cursor-zoom-in"
+              onClick={() => setIsPopoverOpen(true)}
+            >
               <ImageWithFallback
-                key={`image-${selectedModel.id}-${currentImageIndex}`} // Key forces re-render when image changes
+                key={`image-${selectedModel.id}-${currentImageIndex}`}
                 src={getValidImageUrl(currentImage)}
                 alt={`Example image ${currentImageIndex + 1} from ${selectedModel.name}`}
                 fill
                 style={{ objectFit: "contain" }}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 60vw"
-                priority={currentImageIndex < 3} // Prioritize loading the first few images
+                priority={currentImageIndex < 3}
               />
             </div>
           </div>
-          
-          {/* Navigation arrows - only show if multiple images */}
+
+          {/* nav arrows */}
           {hasMultipleImages && (
             <>
-              <button 
-                onClick={(e) => {
-                  e.stopPropagation(); // Prevent event bubbling
-                  prevImage();
-                }}
-                className="absolute left-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white opacity-90 hover:opacity-100 transition-opacity group-hover:opacity-100 focus:outline-none z-20 cursor-pointer"
+              <button
                 aria-label="Previous image"
+                className="absolute left-3 top-1/2 -translate-y-1/2 bg-gray-800/70 hover:bg-gray-800 p-2 rounded-full"
+                onClick={prevImage}
               >
-                <i className="bi bi-chevron-left text-2xl"></i>
+                <i className="bi bi-chevron-left" />
               </button>
-              <button 
-                onClick={(e) => {
-                  e.stopPropagation(); // Prevent event bubbling
-                  nextImage();
-                }}
-                className="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white opacity-90 hover:opacity-100 transition-opacity group-hover:opacity-100 focus:outline-none z-20 cursor-pointer"
+              <button
                 aria-label="Next image"
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-gray-800/70 hover:bg-gray-800 p-2 rounded-full"
+                onClick={nextImage}
               >
-                <i className="bi bi-chevron-right text-2xl"></i>
+                <i className="bi bi-chevron-right" />
               </button>
             </>
           )}
-          
-          {/* Image counter */}
+
+          {/* counter */}
           {hasMultipleImages && (
             <div className="absolute bottom-3 right-3 bg-black/70 px-4 py-1.5 rounded-full text-white text-sm font-mono z-10">
-              {currentImageIndex + 1} / {selectedModel.exampleImages.length}
+              {currentImageIndex + 1} / {exampleImages.length}
             </div>
           )}
         </div>
-        
-        {/* Thumbnail gallery for quick navigation */}
-        {selectedModel.exampleImages.length > 4 && (
+
+        {/* thumbnails */}
+        {exampleImages.length > 4 && (
           <div className="mt-2 overflow-x-auto scrollbar-hide">
-            <div 
-              className="flex gap-1 py-1 max-w-full" 
-              style={{ scrollbarWidth: 'none' }}
+            <div
+              className="flex gap-1 py-1 max-w-full"
+              style={{ scrollbarWidth: "none" }}
               id="thumbnail-container"
             >
-              {/* Add the thumbnail scroller component - it handles scrolling separately */}
-              <ThumbnailScroller 
-                activeIndex={currentImageIndex}
-                isKeyboardNav={isKeyboardNav} 
-              />
-              
-              {selectedModel.exampleImages.map((image, index) => (
-                <button 
-                  key={index}
-                  id={`thumbnail-${index}`}
-                  onClick={() => setCurrentImageIndex(index)}
+              <ThumbnailScroller activeIndex={currentImageIndex} isKeyboardNav={isKeyboardNav} />
+
+              {exampleImages.map((img, idx) => (
+                <button
+                  key={idx}
+                  id={`thumbnail-${idx}`}
+                  onClick={() => setCurrentImageIndex(idx)}
                   className={`flex-shrink-0 relative w-16 h-16 rounded overflow-hidden cursor-pointer ${
-                    index === currentImageIndex ? 'ring-2 ring-cyan-400' : 'opacity-70 hover:opacity-100'
+                    idx === currentImageIndex
+                      ? "ring-2 ring-cyan-400"
+                      : "opacity-70 hover:opacity-100"
                   }`}
-                  aria-label={`View image ${index + 1}`}
+                  aria-label={`View image ${idx + 1}`}
                 >
                   <ImageWithFallback
-                    key={`thumb-${selectedModel.id}-${index}`}
-                    src={getValidImageUrl(image)}
-                    alt={`Thumbnail ${index + 1}`}
+                    src={getValidImageUrl(img)}
+                    alt={`Thumbnail ${idx + 1}`}
                     fill
                     style={{ objectFit: "cover" }}
-                    sizes="64px"
                   />
                 </button>
               ))}
@@ -465,56 +786,28 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
     );
   };
 
-  // Helper functions to format labels
-  const formatFeatureName = (key: string): string => {
-    return key
-      .replace(/([A-Z])/g, ' $1') // Add space before capital letters
-      .replace(/^./, str => str.toUpperCase()); // Capitalize first letter
-  };
+  // ---------------------------------------------------------------------------
+  // Guard: no models -----------------------------------------------------------
+  if (!models || models.length === 0) return null;
 
-  const formatEndpointName = (key: string): string => {
-    return key
-      .replace(/([A-Z])/g, ' $1') // Add space before capital letters
-      .replace(/^./, str => str.toUpperCase()); // Capitalize first letter
-  };
-
-  const formatDemoName = (key: string): string => {
-    return key
-      .split('_')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-  };
-
-  // Return null if no models available
-  if (!models || models.length === 0) {
-    return null;
-  }
-
+  // ---------------------------------------------------------------------------
   return (
-    <div className="w-full">
-      {/* Model selection tabs if more than one model */}
+    <>
       {models.length > 1 && renderModelTabs()}
-      
-      {/* Image gallery at the top */}
-      <div className="mb-8 p-0">
-        {renderImageGallery()}
-      </div>
-      
-      {/* Model details below the gallery */}
-      <div>
-        {renderModelDetails()}
-      </div>
-      
-      {/* Image Popover for full-resolution image */}
-      {selectedModel?.exampleImages && (
+
+      <div className="mb-8 p-0">{renderImageGallery()}</div>
+
+      {renderModelDetails()}
+
+      {selectedModel && (
         <ImagePopover
           isOpen={isPopoverOpen}
           onClose={() => setIsPopoverOpen(false)}
-          imageSrc={selectedModel.exampleImages[currentImageIndex]}
+          imageSrc={currentImage}
           imageAlt={`Full resolution image of ${selectedModel.name}`}
         />
       )}
-    </div>
+    </>
   );
 };
 

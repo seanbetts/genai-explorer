@@ -505,13 +505,13 @@
                 "outputFormats": [
                   "image"
                 ],
-                "background": ["transparent","opaque","auto"],
+                "background": ["transparent","opaque"],
                 "moderation": ["low","auto"],
                 "numberOfImages": 10,
                 "outputCompression": "1-100",
                 "outputFileTypes": ["png","jpeg","webp"],
-                "outputQuality": ["low","medium","high","auto"],
-                "outputSize": ["1024x1024","1536x1024","1024x1536","auto"],
+                "outputQuality": ["low","medium","high"],
+                "outputSize": ["1024x1024","1536x1024","1024x1536"],
                 "outputStyle": ["vivid","natural"],
                 "pricing": {
                   "input": {
@@ -554,8 +554,8 @@
                 "mask": true,
                 "numberOfImages": 10,
                 "outputFileTypes": ["url", "b64_json"],
-                "outputQuality": ["low","medium","high","auto"],
-                "outputSize": ["1024x1024","1536x1024","1024x1536","auto"]
+                "outputQuality": ["low","medium","high"],
+                "outputSize": ["1024x1024","1536x1024","1024x1536"]
               }
             }                                       
           },
