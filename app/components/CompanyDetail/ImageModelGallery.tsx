@@ -84,8 +84,10 @@ const ThumbnailScroller: React.FC<ThumbnailScrollerProps> = ({
 }) => {
   useLayoutEffect(() => {
     const el = document.getElementById(`thumbnail-${activeIndex}`);
-    if (el) {
-      el.scrollIntoView({ behavior: isKeyboardNav ? "auto" : "smooth" });
+    const container = document.getElementById('thumbnail-container');
+    if (el && container) {
+      // Scroll only horizontally without affecting the page's vertical position
+      container.scrollLeft = el.offsetLeft - container.offsetWidth / 2 + el.offsetWidth / 2;
     }
   }, [activeIndex, isKeyboardNav]);
   return null;

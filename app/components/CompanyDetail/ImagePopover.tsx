@@ -66,10 +66,6 @@ const ImagePopover: React.FC<Props> = ({ isOpen, onClose, imageSrc, imageAlt }) 
           backgroundColor: 'rgba(0, 0, 0, 1)', // Darker background within the border
         }}
       >
-        {/* Click anywhere to close indicator */}
-        <div className="absolute top-6 left-6 z-20 bg-black/60 text-gray-300 rounded-md px-3 py-1 text-xs font-mono">
-          Click anywhere to close
-        </div>
         <ImageWithFallback src={getValidImageUrl(imageSrc)} alt={imageAlt} />
 
         <button
