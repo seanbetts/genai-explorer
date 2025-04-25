@@ -3,7 +3,7 @@
 // Cyberpunk card and container styles with neon borders and dark backgrounds
 export const containerStyles = {
     // Card variants with neon borders and dark backgrounds
-    card: 'bg-gray-800 p-5 rounded-lg shadow-md border border-gray-700 hover:border-fuchsia-500 transition-all duration-200',
+    card: 'bg-gray-800 p-5 rounded-lg shadow-md border border-gray-700 transition-all duration-200',
     cardHover: 'bg-gray-800 p-5 rounded-lg shadow-md border border-gray-700 hover:border-cyan-400 hover:bg-gray-700 transition-all duration-200',
     cardActive: 'bg-gray-800 p-5 rounded-lg shadow-md border-l-4 border-fuchsia-500 border-t border-r border-b border-gray-700',
     cardAccent: 'bg-gray-800 p-5 rounded-lg shadow-md border border-fuchsia-500 hover:border-fuchsia-400 transition-all duration-200',

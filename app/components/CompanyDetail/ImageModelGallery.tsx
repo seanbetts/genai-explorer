@@ -176,7 +176,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
             {selectedModel.name}
           </h2>
           {selectedModel.releaseDate && (
-            <div className="flex items-center text-sm text-gray-400 font-mono">
+            <div className="flex items-center text-sm text-gray-400 font-mono mt-4">
               <i className="bi bi-calendar-event text-fuchsia-500 mr-2" />
               <span>
                 Released: {new Date(selectedModel.releaseDate).toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" })}
