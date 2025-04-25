@@ -86,46 +86,42 @@ const ImagePopover: React.FC<ImagePopoverProps> = ({
     <div 
       className="fixed inset-0 w-screen h-screen flex items-center justify-center z-[9999]"
       style={{ 
-        top: 0, 
-        left: 0, 
-        right: 0, 
-        bottom: 0,
         backgroundColor: 'rgba(0, 0, 0, 0.6)',
         backdropFilter: 'blur(2px)'
       }}
       ref={overlayRef}
       onClick={handleBackdropClick}
     >
-      <div className="relative">
-        {/* Close button */}
+      <div
+        className="relative inline-block"
+        style={{
+          maxWidth: 'calc(100vw - 100px)',
+          maxHeight: 'calc(100vh - 100px)'
+        }}
+      >
+        <ImageWithFallback
+          src={getValidImageUrl(imageSrc)}
+          alt={imageAlt}
+          width={1600}
+          height={1200}
+          style={{
+            objectFit: 'contain',
+            display: 'block'
+          }}
+          priority
+        />
+        
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 text-white hover:text-gray-300 transition-colors"
           aria-label="Close"
+          className="absolute top-0 right-0 m-2 p-2 bg-black/60 hover:bg-black/80 text-fuchsia-500 hover:text-fuchsia-400 rounded transition-colors z-20"
+          style={{ boxShadow: '0 0 10px rgba(0,0,0,0.3)' }}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
-        
-        {/* Image container */}
-        <div>
-          <ImageWithFallback
-            src={getValidImageUrl(imageSrc)}
-            alt={imageAlt}
-            width={1600}
-            height={1200}
-            style={{
-              objectFit: 'contain',
-              maxHeight: 'calc(100vh - 100px)',
-              maxWidth: 'calc(100vw - 100px)',
-              display: 'block',
-              margin: '0 auto',
-            }}
-            priority
-          />
-        </div>
       </div>
     </div>,
     document.body
