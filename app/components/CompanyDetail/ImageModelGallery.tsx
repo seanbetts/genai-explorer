@@ -228,9 +228,9 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
               {/* policy links */}
               <div className="space-y-2 flex flex-col">
                 {selectedModel.commerciallySafe !== undefined && (
-                  <div className="px-3 py-1 bg-gray-700 text-xs font-mono rounded inline-flex items-center gap-1">
-                    <i className={selectedModel.commerciallySafe ? "bi bi-check-circle-fill text-green-500" : "bi bi-x-circle-fill text-red-500"} /> 
-                    Commercial Use: {selectedModel.commerciallySafe ? "Allowed" : "Not Allowed"}
+                  <div className="flex items-center mb-4">
+                    <i className={`${selectedModel.commerciallySafe ? iconStyles.booleanTrue : "bi bi-x-circle-fill text-fuchsia-500"} mr-3 mt-1`} />
+                    <span className={textStyles.body}>{selectedModel.commerciallySafe ? "Commercially safe" : "Not commercially safe"}</span>
                   </div>
                 )}
                 {selectedModel.usagePolicy && (
