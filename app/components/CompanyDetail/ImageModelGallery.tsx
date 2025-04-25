@@ -185,7 +185,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
           )}
         </div>
 
-        <p className={`${textStyles.body} mb-4`}>{selectedModel.about}</p>
+        <p className={`${textStyles.body} mb-8`}>{selectedModel.about}</p>
 
         {/* product features */}
         <h3 className={`${headingStyles.card} mb-3`}>Product Features</h3>
@@ -209,7 +209,9 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
             selectedModel.usagePolicy ||
             selectedModel.metadata?.C2PA ||
             selectedModel.commerciallySafe !== undefined) && (
+              
             <div className={`${containerStyles.card} h-full`}>
+              <h4 className="text-sm font-medium text-white mb-3">Safety Features</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* safety flags */}
                 <div className="space-y-2">
@@ -223,39 +225,39 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                     ))}
                 </div>
 
-                {/* policy links */}
-                <div className="space-y-2">
-                  {selectedModel.usagePolicy && (
-                    <a
-                      href={selectedModel.usagePolicy}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm font-mono inline-flex items-center gap-1"
-                    >
-                      <i className="bi bi-shield-check" /> Usage Policy
-                    </a>
-                  )}
-                  {selectedModel.termsOfService && (
-                    <a
-                      href={selectedModel.termsOfService}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm font-mono inline-flex items-center gap-1"
-                    >
-                      <i className="bi bi-file-earmark-text" /> Terms of Service
-                    </a>
-                  )}
-                  {selectedModel.metadata?.C2PA && (
-                    <a
-                      href={selectedModel.metadata.C2PA}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm font-mono inline-flex items-center gap-1"
-                    >
-                      <i className="bi bi-patch-check-fill" /> C2PA Credentials
-                    </a>
-                  )}
-                </div>
+              {/* policy links */}
+              <div className="space-y-2">
+                {selectedModel.usagePolicy && (
+                  <a
+                    href={selectedModel.usagePolicy}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm font-mono inline-flex items-center gap-1"
+                  >
+                    <i className="bi bi-shield-check" /> Usage Policy
+                  </a>
+                )}
+                {selectedModel.termsOfService && (
+                  <a
+                    href={selectedModel.termsOfService}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm font-mono inline-flex items-center gap-1"
+                  >
+                    <i className="bi bi-file-earmark-text" /> Terms of Service
+                  </a>
+                )}
+                {selectedModel.metadata?.C2PA && (
+                  <a
+                    href={selectedModel.metadata.C2PA}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm font-mono inline-flex items-center gap-1"
+                  >
+                    <i className="bi bi-patch-check-fill" /> C2PA Credentials
+                  </a>
+                )}
+              </div>
               </div>
             </div>
           )}
@@ -269,19 +271,18 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
         {selectedModel.apiEndpoints && Object.keys(selectedModel.apiEndpoints).length > 0 && (
           <>
             <h3 className={`${headingStyles.card} mb-3`}>API Endpoints</h3>
-            <div className={`${containerStyles.card} mb-6`}>
-              <div className="overflow-x-auto">
-                <table className={`${tableStyles.table} w-full`}>
-                  <thead className={tableStyles.header}>
-                    <tr>
-                      <th className={`${tableStyles.headerCell} ${tableStyles.stickyLabelCell}`} />
-                      {Object.entries(selectedModel.apiEndpoints).map(([ep]) => (
-                        <th key={ep} className={tableStyles.headerCellCenter}>
-                          {formatEndpointName(ep)} Endpoint
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
+            <div className="overflow-x-auto mb-6">
+              <table className={`${tableStyles.table} w-full`}>
+                <thead className={tableStyles.header}>
+                  <tr>
+                    <th className={`${tableStyles.headerCell} ${tableStyles.stickyLabelCell}`} />
+                    {Object.entries(selectedModel.apiEndpoints).map(([ep]) => (
+                      <th key={ep} className={tableStyles.headerCellCenter}>
+                        {formatEndpointName(ep)} Endpoint
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
 
                   <tbody>
                     {/* -------- Input Formats -------- */}
@@ -596,7 +597,6 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                   </tbody>
                 </table>
               </div>
-            </div>
           </>
         )}
 
@@ -623,71 +623,73 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
         )}
         
         {/* Resources section */}
-        <div className={`${containerStyles.card} mb-6`}>
-          <h3 className={headingStyles.card}>Resources</h3>
-          <div className="flex flex-wrap gap-2 mt-4">
-            {selectedModel.modelPage && (
-              <a 
-                href={selectedModel.modelPage} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-              >
-                <i className="bi bi-globe2"></i> Model Page
-              </a>
-            )}
-            {selectedModel.releasePost && (
-              <a 
-                href={selectedModel.releasePost} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-              >
-                <i className="bi bi-newspaper"></i> Release Post
-              </a>
-            )}
-            {selectedModel.releaseVideo && (
-              <a 
-                href={selectedModel.releaseVideo} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-              >
-                <i className="bi bi-play-btn"></i> Release Video
-              </a>
-            )}
-            {selectedModel.systemCard && (
-              <a 
-                href={selectedModel.systemCard} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-              >
-                <i className="bi bi-file-earmark-text"></i> System Card
-              </a>
-            )}
-            {selectedModel.modelGuide && (
-              <a 
-                href={selectedModel.modelGuide} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-              >
-                <i className="bi bi-book"></i> Model Guide
-              </a>
-            )}
-            {selectedModel.apiDocumentation && (
-              <a 
-                href={selectedModel.apiDocumentation} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-              >
-                <i className="bi bi-code-square"></i> API Documentation
-              </a>
-            )}
+        <>
+          <h3 className={`${headingStyles.card} mb-3`}>Resources</h3>
+          <div className={`${containerStyles.card} mb-6`}>
+            <div className="flex flex-wrap gap-2">
+              {selectedModel.modelPage && (
+                <a 
+                  href={selectedModel.modelPage} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                >
+                  <i className="bi bi-globe2"></i> Model Page
+                </a>
+              )}
+              {selectedModel.releasePost && (
+                <a 
+                  href={selectedModel.releasePost} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                >
+                  <i className="bi bi-newspaper"></i> Release Post
+                </a>
+              )}
+              {selectedModel.releaseVideo && (
+                <a 
+                  href={selectedModel.releaseVideo} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                >
+                  <i className="bi bi-play-btn"></i> Release Video
+                </a>
+              )}
+              {selectedModel.systemCard && (
+                <a 
+                  href={selectedModel.systemCard} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                >
+                  <i className="bi bi-file-earmark-text"></i> System Card
+                </a>
+              )}
+              {selectedModel.modelGuide && (
+                <a 
+                  href={selectedModel.modelGuide} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                >
+                  <i className="bi bi-book"></i> Model Guide
+                </a>
+              )}
+              {selectedModel.apiDocumentation && (
+                <a 
+                  href={selectedModel.apiDocumentation} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                >
+                  <i className="bi bi-code-square"></i> API Documentation
+                </a>
+              )}
+            </div>
           </div>
-        </div>
+        </>
       </div>
     );
   };
