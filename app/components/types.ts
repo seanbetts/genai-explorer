@@ -125,6 +125,20 @@ export interface Model {
   // For display in comparison view
   companyId?: string;
   companyName?: string;
+  
+  // New fields for image models
+  about?: string; // Detailed description for the model
+  exampleImages?: string[]; // Array of image paths
+  demoVideos?: Record<string, string>; // Key-value pairs of demo names and video URLs
+  modelGuide?: string; // URL to model guide documentation
+  apiDocumentation?: string; // URL to API documentation
+  termsOfService?: string; // URL to terms of service
+  usagePolicy?: string; // URL to usage policy
+  commerciallySafe?: boolean; // Whether the model is safe for commercial use
+  metadata?: Record<string, string>; // Key-value pairs of metadata
+  apiEndpoints?: Record<string, any>; // API endpoint definitions
+  features?: Record<string, boolean>; // Features supported by the model
+  safety?: Record<string, boolean>; // Safety features of the model
 }
 
 export interface Subscription {

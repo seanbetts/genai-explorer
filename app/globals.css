@@ -106,3 +106,14 @@ img[src$=".svg"]:not([src^="data:"]):not([src*="/"])::before {
 .custom-scrollbar-horizontal::-webkit-scrollbar-thumb:hover {
   background: #EA00D9; /* Using the pink accent color */
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

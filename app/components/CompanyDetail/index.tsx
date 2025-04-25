@@ -9,6 +9,7 @@ const ProductGrid = React.lazy(() => import('./ProductGrid'));
 const FeatureGrid = React.lazy(() => import('./FeatureGrid'));
 const SubscriptionGrid = React.lazy(() => import('./SubscriptionGrid'));
 const BenchmarksTable = React.lazy(() => import('./BenchmarksTable'));
+const ImageModelGallery = React.lazy(() => import('./ImageModelGallery'));
 import { textStyles, headingStyles } from '../utils/theme';
 import { containerStyles, buttonStyles, iconStyles } from '../utils/layout';
 import { getModelTabName } from '../utils/modelUtils';
@@ -509,7 +510,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
             {activeTab === 'image-models' && hasImageModels() && (
               <div className="transform transition-opacity duration-300">
                 <Suspense fallback={<div className="text-center py-4">Loading image models...</div>}>
-                  <ModelTable 
+                  <ImageModelGallery 
                     models={company.models.filter(model => 
                       model.category === 'image' && model.status !== 'archived'
                     )} 
