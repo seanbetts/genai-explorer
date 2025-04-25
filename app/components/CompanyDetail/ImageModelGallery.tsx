@@ -6,6 +6,7 @@ import { Model } from '../types';
 import { textStyles, headingStyles } from '../utils/theme';
 import { containerStyles, buttonStyles, iconStyles } from '../utils/layout';
 import { getValidImageUrl, PLACEHOLDER_IMAGE } from '../utils/imageUtils';
+import ImagePopover from './ImagePopover';
 
 // Component to handle image loading with fallback
 const ImageWithFallback = ({ src, alt, ...props }: {
@@ -151,34 +152,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
   // We've removed the thumbnail scrolling effect in favor of the ThumbnailScroller component
   // This gives us better separation of concerns and more reliable execution
   
-  // Add keyboard support for popover (ESC to close)
-  React.useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (isPopoverOpen) {
-        // Close on ESC key
-        if (e.key === 'Escape') {
-          setIsPopoverOpen(false);
-        }
-        
-        // Continue to support arrow navigation
-        if (selectedModel?.exampleImages && selectedModel.exampleImages.length > 1) {
-          if (e.key === 'ArrowRight') {
-            nextImage();
-          } else if (e.key === 'ArrowLeft') {
-            prevImage();
-          }
-        }
-      }
-    };
-    
-    if (isPopoverOpen) {
-      window.addEventListener('keydown', handleKeyDown);
-    }
-    
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isPopoverOpen, selectedModel, nextImage, prevImage]);
+  // Keyboard support is now handled in the ImagePopover component
 
   // Function to render model selection tabs
   const renderModelTabs = () => {
@@ -531,45 +505,14 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
         {renderModelDetails()}
       </div>
       
-      {/* Modal overlay for full-resolution image */}
-      {isPopoverOpen && selectedModel?.exampleImages && (
-        <div 
-          aria-modal="true"
-          className="fixed inset-0 z-50"
-        >
-          {/* Semi-transparent backdrop */}
-          <div className="absolute inset-0 bg-black bg-opacity-75 backdrop-blur-sm"></div>
-          
-          {/* Centered modal content */}
-          <div className="relative h-full w-full flex items-center justify-center p-4">
-            {/* Close button - positioned in the corner */}
-            <button 
-              onClick={() => setIsPopoverOpen(false)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-black bg-opacity-50 hover:bg-opacity-70 rounded-full flex items-center justify-center text-white transition-colors"
-              aria-label="Close fullscreen view"
-            >
-              <i className="bi bi-x-lg text-xl"></i>
-            </button>
-            
-            {/* Image container with proper dimensions */}
-            <div 
-              className="relative h-[80vh] w-[90vw] max-w-[1800px] max-h-[90vh]"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <ImageWithFallback
-                key={`fullsize-${selectedModel.id}-${currentImageIndex}`}
-                src={getValidImageUrl(selectedModel.exampleImages[currentImageIndex])}
-                alt={`Full size example image ${currentImageIndex + 1} from ${selectedModel.name}`}
-                fill
-                style={{ objectFit: "contain" }}
-                sizes="90vw"
-                quality={100} // Maximum quality for full-size view
-                priority={true}
-                className="pointer-events-none" // Prevent interaction with the image
-              />
-            </div>
-          </div>
-        </div>
+      {/* Image Popover for full-resolution image */}
+      {selectedModel?.exampleImages && (
+        <ImagePopover
+          isOpen={isPopoverOpen}
+          onClose={() => setIsPopoverOpen(false)}
+          imageSrc={selectedModel.exampleImages[currentImageIndex]}
+          imageAlt={`Full resolution image of ${selectedModel.name}`}
+        />
       )}
     </div>
   );
