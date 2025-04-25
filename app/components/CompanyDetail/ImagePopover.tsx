@@ -50,17 +50,17 @@ const ImagePopover: React.FC<Props> = ({ isOpen, onClose, imageSrc, imageAlt }) 
     <div
       ref={overlayRef}
       onClick={e => e.target === overlayRef.current && onClose()}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 cursor-pointer"
-      style={{ padding: 60 }} // Increased padding to reduce popover size
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 cursor-pointer"
+      style={{ padding: 120 }} // Increased padding significantly to reduce popover size
     >
       <div
-        className="relative cursor-default border border-gray-700 rounded p-3"
+        className="relative cursor-default border border-fuchsia-500 rounded p-3"
         style={{
           width: '100%',
           height: '100%',
-          maxWidth: 'calc(100vw - 120px)', // Reduced max width
-          maxHeight: 'calc(100vh - 120px)', // Reduced max height
-          backgroundColor: 'rgba(0, 0, 0, 0.3)', // Subtle background to visually define the border
+          maxWidth: 'calc(100vw - 240px)', // Further reduced max width
+          maxHeight: 'calc(100vh - 240px)', // Further reduced max height
+          backgroundColor: 'rgba(0, 0, 0, 1)', // Darker background within the border
         }}
       >
         <ImageWithFallback src={getValidImageUrl(imageSrc)} alt={imageAlt} />
@@ -68,7 +68,7 @@ const ImagePopover: React.FC<Props> = ({ isOpen, onClose, imageSrc, imageAlt }) 
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute top-6 right-6 z-20 p-2 bg-black/60 hover:bg-black/80 text-fuchsia-500 hover:text-fuchsia-400 rounded transition-colors cursor-pointer"
+          className="absolute top-6 right-6 z-20 p-2 bg-black/60 hover:bg-black/80 text-fuchsia-500 hover:text-fuchsia-400 rounded-full transition-colors cursor-pointer border border-fuchsia-500 w-10 h-10 flex items-center justify-center"
           style={{ boxShadow: '0 0 10px rgba(0,0,0,0.3)' }}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
