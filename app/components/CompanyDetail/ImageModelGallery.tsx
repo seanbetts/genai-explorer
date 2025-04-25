@@ -238,7 +238,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                     href={selectedModel.usagePolicy}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                    className="px-2 py-0.5 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mb-4"
                   >
                     <i className="bi bi-shield-check" /> Usage Policy
                   </a>
@@ -248,7 +248,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                     href={selectedModel.termsOfService}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                    className="px-2 py-0.5 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mb-4"
                   >
                     <i className="bi bi-file-earmark-text" /> Terms of Service
                   </a>
@@ -258,7 +258,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                     href={selectedModel.metadata.C2PA}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                    className="px-2 py-0.5 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit"
                   >
                     <i className="bi bi-patch-check-fill" /> C2PA Credentials
                   </a>
