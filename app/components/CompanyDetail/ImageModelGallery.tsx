@@ -238,9 +238,9 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                     href={selectedModel.usagePolicy}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-2 py-0.5 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mb-4"
+                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mb-3"
                   >
-                    <i className="bi bi-shield-check" /> Usage Policy
+                    <i className="bi bi-shield-check mr-1" /> Usage Policy
                   </a>
                 )}
                 {selectedModel.termsOfService && (
@@ -248,9 +248,9 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                     href={selectedModel.termsOfService}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-2 py-0.5 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mb-4"
+                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mb-3"
                   >
-                    <i className="bi bi-file-earmark-text" /> Terms of Service
+                    <i className="bi bi-file-earmark-text mr-1" /> Terms of Service
                   </a>
                 )}
                 {selectedModel.metadata?.C2PA && (
@@ -258,9 +258,9 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                     href={selectedModel.metadata.C2PA}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-2 py-0.5 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit"
+                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit"
                   >
-                    <i className="bi bi-patch-check-fill" /> C2PA Credentials
+                    <i className="bi bi-patch-check-fill mr-1" /> C2PA Credentials
                   </a>
                 )}
               </div>
@@ -632,23 +632,13 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
         <>
           <h3 className={`${headingStyles.card} mb-3`}>Resources</h3>
           <div className={`${containerStyles.card} mb-6`}>
-            <div className="flex flex-wrap gap-2">
-              {selectedModel.modelPage && (
-                <a 
-                  href={selectedModel.modelPage} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
-                >
-                  <i className="bi bi-globe2"></i> Model Page
-                </a>
-              )}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               {selectedModel.releasePost && (
                 <a 
                   href={selectedModel.releasePost} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                  className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex items-center justify-center gap-2"
                 >
                   <i className="bi bi-newspaper"></i> Release Post
                 </a>
@@ -658,7 +648,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                   href={selectedModel.releaseVideo} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                  className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex items-center justify-center gap-2"
                 >
                   <i className="bi bi-play-btn"></i> Release Video
                 </a>
@@ -668,9 +658,19 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                   href={selectedModel.systemCard} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                  className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex items-center justify-center gap-2"
                 >
                   <i className="bi bi-file-earmark-text"></i> System Card
+                </a>
+              )}
+              {selectedModel.modelPage && (
+                <a 
+                  href={selectedModel.modelPage} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex items-center justify-center gap-2"
+                >
+                  <i className="bi bi-globe2"></i> Model Page
                 </a>
               )}
               {selectedModel.modelGuide && (
@@ -678,7 +678,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                   href={selectedModel.modelGuide} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                  className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex items-center justify-center gap-2"
                 >
                   <i className="bi bi-book"></i> Model Guide
                 </a>
@@ -688,7 +688,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                   href={selectedModel.apiDocumentation} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                  className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex items-center justify-center gap-2"
                 >
                   <i className="bi bi-code-square"></i> API Documentation
                 </a>
