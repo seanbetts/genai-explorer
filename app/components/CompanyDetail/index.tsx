@@ -295,7 +295,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
                 setActiveTab('image-models');
               }}
             >
-              Image Models
+              Image Model
             </button>
           )}
           
@@ -313,7 +313,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
                 setActiveTab('video-models');
               }}
             >
-              Video Models
+              Video Model
             </button>
           )}
           

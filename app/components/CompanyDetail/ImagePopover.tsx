@@ -7,7 +7,9 @@ import { getValidImageUrl, PLACEHOLDER_IMAGE } from '../utils/imageUtils';
 const ImageWithFallback: React.FC<{ src: string; alt: string }> = ({ src, alt }) => {
   const [errored, setErrored] = useState(false);
   return (
-    <div className="p-4 w-full h-full relative">
+    <div 
+      className="p-4 w-full h-full relative"
+    >
       <Image
         src={errored ? PLACEHOLDER_IMAGE : src}
         alt={alt}
@@ -54,7 +56,8 @@ const ImagePopover: React.FC<Props> = ({ isOpen, onClose, imageSrc, imageAlt }) 
       style={{ padding: 120 }} // Increased padding significantly to reduce popover size
     >
       <div
-        className="relative cursor-default border border-fuchsia-500 rounded p-3"
+        onClick={onClose}
+        className="relative cursor-zoom-out border border-fuchsia-500 rounded p-3"
         style={{
           width: '100%',
           height: '100%',
@@ -63,6 +66,10 @@ const ImagePopover: React.FC<Props> = ({ isOpen, onClose, imageSrc, imageAlt }) 
           backgroundColor: 'rgba(0, 0, 0, 1)', // Darker background within the border
         }}
       >
+        {/* Click anywhere to close indicator */}
+        <div className="absolute top-6 left-6 z-20 bg-black/60 text-gray-300 rounded-md px-3 py-1 text-xs font-mono">
+          Click anywhere to close
+        </div>
         <ImageWithFallback src={getValidImageUrl(imageSrc)} alt={imageAlt} />
 
         <button

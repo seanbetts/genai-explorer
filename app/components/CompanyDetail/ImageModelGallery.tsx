@@ -377,7 +377,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
       <div className="relative p-0 m-0">
         <div className="relative h-[500px] bg-gray-900 rounded-lg overflow-hidden group py-4 px-0 m-0">
           <div className="absolute inset-0 flex items-center py-3 justify-center z-0">
-            <div className="relative w-full h-full cursor-pointer" onClick={() => setIsPopoverOpen(true)}>
+            <div className="relative w-full h-full cursor-zoom-in" onClick={() => setIsPopoverOpen(true)}>
               <ImageWithFallback
                 key={`image-${selectedModel.id}-${currentImageIndex}`} // Key forces re-render when image changes
                 src={getValidImageUrl(currentImage)}

@@ -88,8 +88,8 @@ export const getModelTabName = (models: Model[]): string => {
     'frontier': 'Frontier Models',
     'open': 'Open Models',
     'enterprise': 'Enterprise Models',
-    'image': 'Image Models',
-    'video': 'Video Models',
+    'image': 'Image Model',
+    'video': 'Video Model',
     'music': 'Audio Models',
     'other': 'Specialty Models'
   };
