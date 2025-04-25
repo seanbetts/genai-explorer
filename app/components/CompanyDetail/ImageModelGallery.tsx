@@ -226,13 +226,19 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                 </div>
 
               {/* policy links */}
-              <div className="space-y-2">
+              <div className="space-y-2 flex flex-col">
+                {selectedModel.commerciallySafe !== undefined && (
+                  <div className="px-3 py-1 bg-gray-700 text-xs font-mono rounded inline-flex items-center gap-1">
+                    <i className={selectedModel.commerciallySafe ? "bi bi-check-circle-fill text-green-500" : "bi bi-x-circle-fill text-red-500"} /> 
+                    Commercial Use: {selectedModel.commerciallySafe ? "Allowed" : "Not Allowed"}
+                  </div>
+                )}
                 {selectedModel.usagePolicy && (
                   <a
                     href={selectedModel.usagePolicy}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm font-mono inline-flex items-center gap-1"
+                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
                   >
                     <i className="bi bi-shield-check" /> Usage Policy
                   </a>
@@ -242,7 +248,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                     href={selectedModel.termsOfService}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm font-mono inline-flex items-center gap-1"
+                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
                   >
                     <i className="bi bi-file-earmark-text" /> Terms of Service
                   </a>
@@ -252,7 +258,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
                     href={selectedModel.metadata.C2PA}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm font-mono inline-flex items-center gap-1"
+                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
                   >
                     <i className="bi bi-patch-check-fill" /> C2PA Credentials
                   </a>
