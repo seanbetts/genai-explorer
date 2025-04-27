@@ -11,6 +11,7 @@ import {
   iconStyles,
   tableStyles,
 } from "../utils/layout";
+import { handleTableScroll, tableHoverStyles } from "../shared/TableComponents";
 
 // -----------------------------------------------------------------------------
 // Utility helpers -------------------------------------------------------------
@@ -405,21 +406,22 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
          'available' in selectedModel.apiEndpoints && selectedModel.apiEndpoints.available && (
           <div className="mb-8">
             {/* API Endpoints header */}
-            <h3 className={headingStyles.card}>API Endpoints</h3>
-            <div className="overflow-x-auto mt-3">
-              <table className={`${tableStyles.table} w-full table-fixed`}>
-                <thead className={tableStyles.header}>
-                  <tr>
-                    <th className={`${tableStyles.headerCell} ${tableStyles.stickyLabelCell} w-1/4 bg-gray-800`} />
-                    {Object.entries(selectedModel.apiEndpoints || {})
-                      .filter(([key]) => key !== 'available')
-                      .map(([ep], index, array) => (
-                        <th key={ep} className={tableStyles.headerCellCenter} style={{ width: `${75 / array.length}%` }}>
-                          {formatEndpointName(ep)} Endpoint
-                        </th>
-                      ))}
-                  </tr>
-                </thead>
+            <h3 className="text-lg font-semibold text-fuchsia-500 mt-6 mb-2 font-mono">API Endpoints</h3>
+            <div className="table-wrapper">
+              <div className="table-scroll-container" onScroll={handleTableScroll}>
+                <table className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}>
+                  <thead className={tableStyles.header}>
+                    <tr>
+                      <th className={`${tableStyles.headerCell} ${tableStyles.headerFixed} sticky-header-corner`} style={{width: '250px', minWidth: '250px'}} />
+                      {Object.entries(selectedModel.apiEndpoints || {})
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep], index, array) => (
+                          <th key={ep} className={`${tableStyles.headerCellCenter} table-header-cell`} style={{ width: `${100 / array.length}%` }}>
+                            <div className={`${tableStyles.modelName} text-center`}>{formatEndpointName(ep)} Endpoint</div>
+                          </th>
+                        ))}
+                    </tr>
+                  </thead>
 
                   <tbody>
                     {/* Define all API endpoint rows as an array of objects */}
@@ -836,17 +838,17 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         }
                       }
                     ].map((row, index) => (
-                      <tr key={row.id} className={index % 2 === 0 ? tableStyles.rowEven : tableStyles.rowOdd}>
-                        <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} bg-gray-800`}>
-                          <div className="flex items-center gap-2">
-                            <i className={`bi ${row.icon} ${row.iconColor}`} />
-                            <span className="font-medium">{row.label}</span>
+                      <tr key={row.id} className={`${index % 2 === 0 ? tableStyles.rowEven : tableStyles.rowOdd} cursor-pointer`}>
+                        <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                          <div className={containerStyles.flexCenter}>
+                            <i className={`bi ${row.icon} ${iconStyles.tableRowIcon} ${row.iconColor}`} />
+                            <span className={textStyles.primary}>{row.label}</span>
                           </div>
                         </td>
                         {Object.entries(selectedModel.apiEndpoints || {})
                           .filter(([key]) => key !== 'available')
                           .map(([ep, data]) => (
-                            <td key={`${ep}-${row.id}`} className={tableStyles.cellCenter}>
+                            <td key={`${ep}-${row.id}`} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
                               {row.renderCell(data)}
                             </td>
                           ))
@@ -856,6 +858,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                   </tbody>
                 </table>
               </div>
+            </div>
           </div>
         )}
 
@@ -982,6 +985,8 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
   // ---------------------------------------------------------------------------
   return (
     <>
+      <style>{tableHoverStyles}</style>
+      
       {models.length > 1 && renderModelTabs()}
 
       {imageUrls.length > 0 && <div className="mb-8 p-0">{renderImageGallery()}</div>}
