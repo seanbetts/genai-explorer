@@ -424,21 +424,18 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                 </thead>
 
                   <tbody>
-                    {/* -------- Input Formats -------- */}
-                    <tr className={tableStyles.rowEven}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-arrow-up-right-square-fill text-cyan-400" />
-                          <span className="font-medium">Input Formats</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const opts = data.options;
-                        return (
-                          <td key={`${ep}-input-formats`} className={tableStyles.cellCenter}>
-                            {opts?.inputFormats && opts.inputFormats.length > 0 ? (
+                    {/* Define all API endpoint rows as an array of objects */}
+                    {[
+                      // Input-related fields (cyan icons)
+                      {
+                        id: 'input-formats',
+                        label: 'Input Formats',
+                        icon: 'bi-arrow-up-right-square-fill',
+                        iconColor: 'text-cyan-400',
+                        renderCell: (data) => {
+                          const opts = data.options;
+                          return (
+                            opts?.inputFormats && opts.inputFormats.length > 0 ? (
                               <div className="flex gap-3 justify-center">
                                 {[
                                   { id: "text", icon: "bi-file-text-fill" },
@@ -460,27 +457,19 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               </div>
                             ) : (
                               <span className="text-gray-500">-</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* -------- Output Formats -------- */}
-                    <tr className={tableStyles.rowOdd}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-arrow-down-right-square-fill text-fuchsia-500" />
-                          <span className="font-medium">Output Formats</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const opts = data.options;
-                        return (
-                          <td key={`${ep}-output-formats`} className={tableStyles.cellCenter}>
-                            {opts?.outputFormats && opts.outputFormats.length > 0 ? (
+                            )
+                          );
+                        }
+                      },
+                      {
+                        id: 'output-formats',
+                        label: 'Output Formats',
+                        icon: 'bi-arrow-down-right-square-fill',
+                        iconColor: 'text-fuchsia-500',
+                        renderCell: (data) => {
+                          const opts = data.options;
+                          return (
+                            opts?.outputFormats && opts.outputFormats.length > 0 ? (
                               <div className="flex gap-3 justify-center">
                                 {[
                                   { id: "text", icon: "bi-file-text-fill" },
@@ -502,51 +491,35 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               </div>
                             ) : (
                               <span className="text-gray-500">-</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* -------- Max Input -------- */}
-                    <tr className={tableStyles.rowEven}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-sign-turn-right-fill text-cyan-400" />
-                          <span className="font-medium">Max Input</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const cw = data.options?.contextWindow;
-                        return (
-                          <td key={`${ep}-context-window`} className={tableStyles.cellCenter}>
-                            {cw !== undefined ? 
+                            )
+                          );
+                        }
+                      },
+                      {
+                        id: 'max-input',
+                        label: 'Max Input',
+                        icon: 'bi-sign-turn-right-fill',
+                        iconColor: 'text-cyan-400',
+                        renderCell: (data) => {
+                          const cw = data.options?.contextWindow;
+                          return (
+                            cw !== undefined ? 
                               <span className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
                                 {cw.toLocaleString()} tokens
                               </span> 
-                              : <span className="text-gray-500">-</span>}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* -------- Input File Types -------- */}
-                    <tr className={tableStyles.rowOdd}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-file-earmark-arrow-up text-cyan-400" />
-                          <span className="font-medium">Input File Types</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const types = data.options?.inputFileTypes;
-                        return (
-                          <td key={`${ep}-input-file-types`} className={tableStyles.cellCenter}>
-                            {types !== undefined ? (
+                              : <span className="text-gray-500">-</span>
+                          );
+                        }
+                      },
+                      {
+                        id: 'input-file-types',
+                        label: 'Input File Types',
+                        icon: 'bi-file-earmark-arrow-up',
+                        iconColor: 'text-cyan-400',
+                        renderCell: (data) => {
+                          const types = data.options?.inputFileTypes;
+                          return (
+                            types !== undefined ? (
                               Array.isArray(types) && types.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(types) ? types : [types]).map((t) => (
@@ -560,27 +533,19 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               )
                             ) : (
                               <span className="text-gray-500">-</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* -------- Max Input Size -------- */}
-                    <tr className={tableStyles.rowEven}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-file-earmark-plus text-cyan-400" />
-                          <span className="font-medium">Max Input Size</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const mis = data.options?.maxInputSize;
-                        return (
-                          <td key={`${ep}-max-input-size`} className={tableStyles.cellCenter}>
-                            {mis !== undefined ? (
+                            )
+                          );
+                        }
+                      },
+                      {
+                        id: 'max-input-size',
+                        label: 'Max Input Size',
+                        icon: 'bi-file-earmark-plus',
+                        iconColor: 'text-cyan-400',
+                        renderCell: (data) => {
+                          const mis = data.options?.maxInputSize;
+                          return (
+                            mis !== undefined ? (
                               mis === 0 ? (
                                 <i className={iconStyles.booleanFalse} />
                               ) : (
@@ -590,27 +555,19 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               )
                             ) : (
                               <span className="text-gray-500">-</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* -------- Moderation -------- */}
-                    <tr className={tableStyles.rowOdd}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-shield-check text-cyan-400" />
-                          <span className="font-medium">Moderation</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const mod = data.options?.moderation;
-                        return (
-                          <td key={`${ep}-moderation`} className={tableStyles.cellCenter}>
-                            {mod !== undefined ? (
+                            )
+                          );
+                        }
+                      },
+                      {
+                        id: 'moderation',
+                        label: 'Moderation',
+                        icon: 'bi-shield-check',
+                        iconColor: 'text-cyan-400',
+                        renderCell: (data) => {
+                          const mod = data.options?.moderation;
+                          return (
+                            mod !== undefined ? (
                               Array.isArray(mod) && mod.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(mod) ? mod : [mod]).map((lvl) => (
@@ -624,89 +581,56 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               )
                             ) : (
                               <span className="text-gray-500">-</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* -------- Masking Support -------- */}
-                    <tr className={tableStyles.rowEven}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-brush text-cyan-400" />
-                          <span className="font-medium">Masking Support</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const m = data.options?.mask;
-                        return (
-                          <td key={`${ep}-mask`} className={tableStyles.cellCenter}>
-                            {m !== undefined ? <i className={m ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* -------- Structure Reference -------- */}
-                    <tr className={tableStyles.rowEven}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-grid-3x3 text-cyan-400" />
-                          <span className="font-medium">Structure Reference</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const sr = data.options?.structureReference;
-                        return (
-                          <td key={`${ep}-structure-reference`} className={tableStyles.cellCenter}>
-                            {sr !== undefined ? <i className={sr ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* -------- Negative Prompt -------- */}
-                    <tr className={tableStyles.rowOdd}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-dash-circle text-cyan-400" />
-                          <span className="font-medium">Negative Prompt</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const np = data.options?.negativePrompt;
-                        return (
-                          <td key={`${ep}-negative-prompt`} className={tableStyles.cellCenter}>
-                            {np !== undefined ? <i className={np ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* ========= OUTPUT OPTIONS ========= */}
-
-                    {/* Output File Types */}
-                    <tr className={tableStyles.rowEven}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-file-earmark-arrow-down text-fuchsia-500" />
-                          <span className="font-medium">Output File Types</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const o = data.options?.outputFileTypes;
-                        return (
-                          <td key={`${ep}-output-file-types`} className={tableStyles.cellCenter}>
-                            {o !== undefined ? (
+                            )
+                          );
+                        }
+                      },
+                      {
+                        id: 'masking-support',
+                        label: 'Masking Support',
+                        icon: 'bi-brush',
+                        iconColor: 'text-cyan-400',
+                        renderCell: (data) => {
+                          const m = data.options?.mask;
+                          return (
+                            m !== undefined ? <i className={m ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
+                          );
+                        }
+                      },
+                      {
+                        id: 'structure-reference',
+                        label: 'Structure Reference',
+                        icon: 'bi-grid-3x3',
+                        iconColor: 'text-cyan-400',
+                        renderCell: (data) => {
+                          const sr = data.options?.structureReference;
+                          return (
+                            sr !== undefined ? <i className={sr ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
+                          );
+                        }
+                      },
+                      {
+                        id: 'negative-prompt',
+                        label: 'Negative Prompt',
+                        icon: 'bi-dash-circle',
+                        iconColor: 'text-cyan-400',
+                        renderCell: (data) => {
+                          const np = data.options?.negativePrompt;
+                          return (
+                            np !== undefined ? <i className={np ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
+                          );
+                        }
+                      },
+                      // Output-related fields (fuchsia icons)
+                      {
+                        id: 'output-file-types',
+                        label: 'Output File Types',
+                        icon: 'bi-file-earmark-arrow-down',
+                        iconColor: 'text-fuchsia-500',
+                        renderCell: (data) => {
+                          const o = data.options?.outputFileTypes;
+                          return (
+                            o !== undefined ? (
                               Array.isArray(o) && o.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(o) ? o : [o]).map((t) => (
@@ -720,27 +644,19 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               )
                             ) : (
                               <span className="text-gray-500">-</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* Output Sizes */}
-                    <tr className={tableStyles.rowOdd}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-arrows-fullscreen text-fuchsia-500" />
-                          <span className="font-medium">Output Sizes</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const s = data.options?.outputSize;
-                        return (
-                          <td key={`${ep}-output-sizes`} className={tableStyles.cellCenter}>
-                            {s !== undefined ? (
+                            )
+                          );
+                        }
+                      },
+                      {
+                        id: 'output-sizes',
+                        label: 'Output Sizes',
+                        icon: 'bi-arrows-fullscreen',
+                        iconColor: 'text-fuchsia-500',
+                        renderCell: (data) => {
+                          const s = data.options?.outputSize;
+                          return (
+                            s !== undefined ? (
                               Array.isArray(s) && s.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center max-w-[16rem] mx-auto">
                                   {(Array.isArray(s) ? s : [s]).map((sz) => (
@@ -754,27 +670,19 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               )
                             ) : (
                               <span className="text-gray-500">-</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* Quality Levels */}
-                    <tr className={tableStyles.rowEven}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-stars text-fuchsia-500" />
-                          <span className="font-medium">Quality Levels</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const q = data.options?.outputQuality;
-                        return (
-                          <td key={`${ep}-quality-levels`} className={tableStyles.cellCenter}>
-                            {q !== undefined ? (
+                            )
+                          );
+                        }
+                      },
+                      {
+                        id: 'quality-levels',
+                        label: 'Quality Levels',
+                        icon: 'bi-stars',
+                        iconColor: 'text-fuchsia-500',
+                        renderCell: (data) => {
+                          const q = data.options?.outputQuality;
+                          return (
+                            q !== undefined ? (
                               Array.isArray(q) && q.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(q) ? q : [q]).map((ql) => (
@@ -788,47 +696,31 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               )
                             ) : (
                               <span className="text-gray-500">-</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* Output Compression */}
-                    <tr className={tableStyles.rowOdd}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-file-zip text-fuchsia-500" />
-                          <span className="font-medium">Output Compression</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const oc = data.options?.outputCompression;
-                        return (
-                          <td key={`${ep}-output-compression`} className={tableStyles.cellCenter}>
-                            {oc !== undefined ? <i className={oc ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* Style Options */}
-                    <tr className={tableStyles.rowEven}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-palette text-fuchsia-500" />
-                          <span className="font-medium">Style Options</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const st = data.options?.outputStyle;
-                        return (
-                          <td key={`${ep}-style-options`} className={tableStyles.cellCenter}>
-                            {st !== undefined ? (
+                            )
+                          );
+                        }
+                      },
+                      {
+                        id: 'output-compression',
+                        label: 'Output Compression',
+                        icon: 'bi-file-zip',
+                        iconColor: 'text-fuchsia-500',
+                        renderCell: (data) => {
+                          const oc = data.options?.outputCompression;
+                          return (
+                            oc !== undefined ? <i className={oc ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
+                          );
+                        }
+                      },
+                      {
+                        id: 'style-options',
+                        label: 'Style Options',
+                        icon: 'bi-palette',
+                        iconColor: 'text-fuchsia-500',
+                        renderCell: (data) => {
+                          const st = data.options?.outputStyle;
+                          return (
+                            st !== undefined ? (
                               Array.isArray(st) && st.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(st) ? st : [st]).map((style) => (
@@ -842,27 +734,19 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               )
                             ) : (
                               <span className="text-gray-500">-</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* Background */}
-                    <tr className={tableStyles.rowOdd}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-square text-fuchsia-500" />
-                          <span className="font-medium">Background</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const bg = data.options?.background;
-                        return (
-                          <td key={`${ep}-background`} className={tableStyles.cellCenter}>
-                            {bg !== undefined ? (
+                            )
+                          );
+                        }
+                      },
+                      {
+                        id: 'background',
+                        label: 'Background',
+                        icon: 'bi-square',
+                        iconColor: 'text-fuchsia-500',
+                        renderCell: (data) => {
+                          const bg = data.options?.background;
+                          return (
+                            bg !== undefined ? (
                               Array.isArray(bg) && bg.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(bg) ? bg : [bg]).map((b) => (
@@ -876,27 +760,19 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               )
                             ) : (
                               <span className="text-gray-500">-</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* Visual Intensity */}
-                    <tr className={tableStyles.rowEven}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-sliders text-fuchsia-500" />
-                          <span className="font-medium">Visual Intensity</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const vi = data.options?.visualIntesity;
-                        return (
-                          <td key={`${ep}-visual-intensity`} className={tableStyles.cellCenter}>
-                            {vi !== undefined ? (
+                            )
+                          );
+                        }
+                      },
+                      {
+                        id: 'visual-intensity',
+                        label: 'Visual Intensity',
+                        icon: 'bi-sliders',
+                        iconColor: 'text-fuchsia-500',
+                        renderCell: (data) => {
+                          const vi = data.options?.visualIntesity;
+                          return (
+                            vi !== undefined ? (
                               vi === 0 ? (
                                 <i className={iconStyles.booleanFalse} />
                               ) : (
@@ -908,92 +784,77 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               )
                             ) : (
                               <span className="text-gray-500">-</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* Tileable Output */}
-                    <tr className={tableStyles.rowOdd}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-grid text-fuchsia-500" />
-                          <span className="font-medium">Tileable Output</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const t = data.options?.tileable;
-                        return (
-                          <td key={`${ep}-tileable`} className={tableStyles.cellCenter}>
-                            {t !== undefined ? <i className={t ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* Placement Position */}
-                    <tr className={tableStyles.rowEven}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-bullseye text-fuchsia-500" />
-                          <span className="font-medium">Placement Position</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const pp = data.options?.placementPosition;
-                        return (
-                          <td key={`${ep}-placement-position`} className={tableStyles.cellCenter}>
-                            {pp !== undefined ? <i className={pp ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* Placement Alignment */}
-                    <tr className={tableStyles.rowOdd}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-layout-text-window text-fuchsia-500" />
-                          <span className="font-medium">Placement Alignment</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const pa = data.options?.placementAlignment;
-                        return (
-                          <td key={`${ep}-placement-alignment`} className={tableStyles.cellCenter}>
-                            {pa !== undefined ? <i className={pa ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* Max Images */}
-                    <tr className={tableStyles.rowEven}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-images text-fuchsia-500" />
-                          <span className="font-medium">Max Images</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                          return (
-                            <td key={`${ep}-max-images`} className={tableStyles.cellCenter}>
-                              {data.options?.numberOfImages !== undefined ? 
-                                data.options.numberOfImages : 
-                                <span className="text-gray-500">-</span>}
-                            </td>
+                            )
                           );
-                        })}
-                    </tr>
+                        }
+                      },
+                      {
+                        id: 'tileable-output',
+                        label: 'Tileable Output',
+                        icon: 'bi-grid',
+                        iconColor: 'text-fuchsia-500',
+                        renderCell: (data) => {
+                          const t = data.options?.tileable;
+                          return (
+                            t !== undefined ? <i className={t ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
+                          );
+                        }
+                      },
+                      {
+                        id: 'placement-position',
+                        label: 'Placement Position',
+                        icon: 'bi-bullseye',
+                        iconColor: 'text-fuchsia-500',
+                        renderCell: (data) => {
+                          const pp = data.options?.placementPosition;
+                          return (
+                            pp !== undefined ? <i className={pp ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
+                          );
+                        }
+                      },
+                      {
+                        id: 'placement-alignment',
+                        label: 'Placement Alignment',
+                        icon: 'bi-layout-text-window',
+                        iconColor: 'text-fuchsia-500',
+                        renderCell: (data) => {
+                          const pa = data.options?.placementAlignment;
+                          return (
+                            pa !== undefined ? <i className={pa ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
+                          );
+                        }
+                      },
+                      {
+                        id: 'max-images',
+                        label: 'Max Images',
+                        icon: 'bi-images',
+                        iconColor: 'text-fuchsia-500',
+                        renderCell: (data) => {
+                          return (
+                            data.options?.numberOfImages !== undefined ? 
+                              data.options.numberOfImages : 
+                              <span className="text-gray-500">-</span>
+                          );
+                        }
+                      }
+                    ].map((row, index) => (
+                      <tr key={row.id} className={index % 2 === 0 ? tableStyles.rowEven : tableStyles.rowOdd}>
+                        <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                          <div className="flex items-center gap-2">
+                            <i className={`bi ${row.icon} ${row.iconColor}`} />
+                            <span className="font-medium">{row.label}</span>
+                          </div>
+                        </td>
+                        {Object.entries(selectedModel.apiEndpoints)
+                          .filter(([key]) => key !== 'available')
+                          .map(([ep, data]) => (
+                            <td key={`${ep}-${row.id}`} className={tableStyles.cellCenter}>
+                              {row.renderCell(data)}
+                            </td>
+                          ))
+                        }
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
