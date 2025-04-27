@@ -125,7 +125,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
       (selectedModel.safety?.IPRespect === true || 
        selectedModel.safety?.ipRespect === true);
     
-    // Get C2PA documentation URL if available
+    // Get C2PA metadata URL if available
     const c2paDocsUrl = selectedModel.metadata?.C2PA || 
       (typeof selectedModel.safety?.C2PA === 'string' ? selectedModel.safety.C2PA : undefined) ||
       (typeof selectedModel.safety?.c2pa === 'string' ? selectedModel.safety.c2pa : undefined);
@@ -298,7 +298,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           rel="noopener noreferrer"
                           className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
                         >
-                          <i className="bi bi-patch-check-fill mr-1" /> C2PA Documentation
+                          <i className="bi bi-patch-check-fill mr-1" /> C2PA Metadata
                         </a>
                       )}
                     </div>
@@ -504,7 +504,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           const cw = data.options?.contextWindow;
                           return (
                             cw !== undefined ? 
-                              <span className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                              <span className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded">
                                 {cw.toLocaleString()} tokens
                               </span> 
                               : <span className="text-gray-500">-</span>
