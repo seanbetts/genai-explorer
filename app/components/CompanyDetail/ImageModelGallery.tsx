@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import ImagePopover from "../shared/ImagePopover";
 import ImageCarousel from "../shared/ImageCarousel";
+import VideoCarousel from "../shared/VideoCarousel";
 import { Model } from "../types";
 import { textStyles, headingStyles } from "../utils/theme";
 import {
@@ -589,21 +590,12 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
         {selectedModel.demoVideos && Object.keys(selectedModel.demoVideos).length > 0 && (
           <>
             <h3 className={`${headingStyles.card} mb-3`}>Demo Videos</h3>
-            <div className={`${containerStyles.card} mb-6`}>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {Object.entries(selectedModel.demoVideos).map(([key, url]) => (
-                  <a 
-                    key={key}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2"
-                  >
-                    <i className="bi bi-play-circle text-xl"></i>
-                    <span>{formatDemoName(key)}</span>
-                  </a>
-                ))}
-              </div>
+            <div className="mb-8">
+              <VideoCarousel 
+                videos={selectedModel.demoVideos}
+                title={selectedModel.name}
+                formatDemoName={formatDemoName}
+              />
             </div>
           </>
         )}

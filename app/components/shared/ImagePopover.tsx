@@ -39,7 +39,7 @@ const ImagePopover: React.FC<Props> = ({ isOpen, onClose, imageSrc, imageAlt }) 
     >
       <div
         onClick={onClose}
-        className="relative cursor-zoom-out border border-gray-500 rounded p-3"
+        className="relative cursor-zoom-out border border-gray-400 rounded p-3"
         style={{
           width: '100%',
           height: '100%',
