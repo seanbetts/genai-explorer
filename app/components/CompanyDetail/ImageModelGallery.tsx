@@ -77,6 +77,7 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
 interface ThumbnailScrollerProps {
   activeIndex: number;
   isKeyboardNav?: boolean;
+  isCentered?: boolean;
 }
 const ThumbnailScroller: React.FC<ThumbnailScrollerProps> = ({
   activeIndex,
@@ -98,12 +99,22 @@ const ThumbnailScroller: React.FC<ThumbnailScrollerProps> = ({
   const scrollToActiveThumbnail = () => {
     const el = document.getElementById(`thumbnail-${activeIndex}`);
     const container = document.getElementById('thumbnail-container');
-    if (el && container) {
-      // Calculate the offset needed to center the active thumbnail
-      const thumbnailCenter = el.offsetLeft + el.offsetWidth / 2;
-      const containerCenter = container.offsetWidth / 2;
-      container.scrollLeft = thumbnailCenter - containerCenter;
+    if (!el || !container) return;
+    
+    // Only scroll if the container is scrollable (content wider than container)
+    const thumbnailsWidth = container.scrollWidth;
+    const containerWidth = container.offsetWidth;
+    
+    if (thumbnailsWidth <= containerWidth) {
+      // No scrolling needed if all thumbnails fit in the container
+      container.scrollLeft = 0;
+      return;
     }
+    
+    // Calculate the offset needed to center the active thumbnail
+    const thumbnailCenter = el.offsetLeft + el.offsetWidth / 2;
+    const containerCenter = container.offsetWidth / 2;
+    container.scrollLeft = thumbnailCenter - containerCenter;
   };
   
   return null;
@@ -151,9 +162,18 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
           const el = document.getElementById('thumbnail-0');
           const container = document.getElementById('thumbnail-container');
           if (el && container) {
-            const thumbnailCenter = el.offsetLeft + el.offsetWidth / 2;
-            const containerCenter = container.offsetWidth / 2;
-            container.scrollLeft = thumbnailCenter - containerCenter;
+            const thumbnailsWidth = container.scrollWidth;
+            const containerWidth = container.offsetWidth;
+            
+            if (thumbnailsWidth <= containerWidth) {
+              // No scrolling needed if all thumbnails fit
+              container.scrollLeft = 0;
+            } else {
+              // Calculate the offset needed to center the active thumbnail
+              const thumbnailCenter = el.offsetLeft + el.offsetWidth / 2;
+              const containerCenter = container.offsetWidth / 2;
+              container.scrollLeft = thumbnailCenter - containerCenter;
+            }
           }
         }, 100);
       })
