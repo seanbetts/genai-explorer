@@ -71,6 +71,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isKeyboardNav, setIsKeyboardNav] = useState(false);
   const [shouldCenterThumbnails, setShouldCenterThumbnails] = useState(true);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   
   // ----- derived values ------------------------------------------------------
   const videoEntries = Object.entries(videos);
@@ -142,6 +143,11 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
     return () => window.removeEventListener("keydown", handler);
   }, [hasMultipleVideos, nextVideo, prevVideo]);
 
+  // Reset video playing state when changing videos
+  useEffect(() => {
+    setIsVideoPlaying(false);
+  }, [currentVideoIndex]);
+
   // Extract YouTube video ID from URL
   const getYoutubeVideoId = (url: string): string | null => {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
@@ -194,7 +200,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
   
   // Get appropriate embed URL based on video type
   const youtubeEmbedUrl = isYouTube ? 
-    `https://www.youtube.com/embed/${getYoutubeVideoId(currentVideoUrl)}?autoplay=0&rel=0` : '';
+    `https://www.youtube.com/embed/${getYoutubeVideoId(currentVideoUrl)}?autoplay=0&rel=0&enablejsapi=1` : '';
 
   return (
     <div className="relative p-0 m-0">
@@ -203,25 +209,49 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
           {canEmbed ? (
             <div className="w-[85%] aspect-video">
               {isYouTube ? (
-                <iframe
-                  src={youtubeEmbedUrl}
-                  title={`${title} - ${formatDemoName(currentVideoName)}`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
+                <div className="relative w-full h-full">
+                  <iframe
+                    src={youtubeEmbedUrl}
+                    title={`${title} - ${formatDemoName(currentVideoName)}`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                  
+                  {/* No play button overlay for YouTube videos - YouTube has its own */}
+                </div>
               ) : (
-                <video 
-                  src={currentVideoUrl}
-                  title={`${title} - ${formatDemoName(currentVideoName)}`}
-                  controls
-                  preload="metadata"
-                  className="w-full h-full"
-                  poster={getVideoPosterUrl(currentVideoUrl, currentThumbnailUrl)}
-                  playsInline
-                >
-                  Your browser does not support the video tag.
-                </video>
+                <div className="relative w-full h-full">
+                  <video 
+                    src={currentVideoUrl}
+                    title={`${title} - ${formatDemoName(currentVideoName)}`}
+                    controls
+                    preload="metadata"
+                    className="w-full h-full"
+                    poster={getVideoPosterUrl(currentVideoUrl, currentThumbnailUrl)}
+                    playsInline
+                    onPlay={() => setIsVideoPlaying(true)}
+                    onPause={() => setIsVideoPlaying(false)}
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                  
+                  {/* Large play button overlay that disappears once video starts playing */}
+                  <div 
+                    className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${isVideoPlaying ? 'opacity-0 pointer-events-none' : 'opacity-100 cursor-pointer'}`}
+                    onClick={() => {
+                      const videoElement = document.querySelector('video');
+                      if (videoElement) {
+                        videoElement.play();
+                        setIsVideoPlaying(true);
+                      }
+                    }}
+                  >
+                    <div className="w-24 h-24 rounded-full bg-fuchsia-500/80 flex items-center justify-center shadow-lg border-2 border-cyan-400 hover:bg-fuchsia-500/90 transition-all duration-200 hover:scale-105">
+                      <i className="bi bi-play-fill text-white text-5xl ml-2"></i>
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
           ) : (
