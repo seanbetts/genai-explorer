@@ -114,6 +114,21 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
   const renderModelDetails = () => {
     if (!selectedModel) return null;
 
+    // Determine if the model has IP Respect data
+    const hasIPRespectData = selectedModel.safety && 
+      (selectedModel.safety.IPRespect !== undefined || 
+       selectedModel.safety.ipRespect !== undefined);
+    
+    // Determine if IP Respect is enabled
+    const ipRespectEnabled = hasIPRespectData && 
+      (selectedModel.safety.IPRespect === true || 
+       selectedModel.safety.ipRespect === true);
+    
+    // Get C2PA documentation URL if available
+    const c2paDocsUrl = selectedModel.metadata?.C2PA || 
+      (typeof selectedModel.safety?.C2PA === 'string' ? selectedModel.safety.C2PA : undefined) ||
+      (typeof selectedModel.safety?.c2pa === 'string' ? selectedModel.safety.c2pa : undefined);
+
     return (
       <div className="mb-8">
         {/* heading + release date */}
@@ -159,7 +174,6 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
               { (Object.keys(selectedModel.safety ?? {}).length > 0 ||
                   selectedModel.termsOfService ||
                   selectedModel.usagePolicy ||
-                  selectedModel.metadata?.C2PA ||
                   selectedModel.commerciallySafe !== undefined) ? (
               <div className={`${containerStyles.card} min-h-[12rem] h-auto`}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -179,9 +193,9 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         ))}
                     </div>
                     <div className="space-y-2 flex flex-col">
-                      {selectedModel.metadata?.C2PA && (
+                      {hasIPRespectData && (
                         <div className="flex items-center h-8">
-                          <i className={`${iconStyles.booleanTrue} mr-3`} />
+                          <i className={`${ipRespectEnabled ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
                           <span className={textStyles.body}>IP Respect</span>
                         </div>
                       )}
@@ -211,9 +225,9 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           <i className="bi bi-file-earmark-text mr-1" /> Terms of Service
                         </a>
                       )}
-                      {selectedModel.metadata?.C2PA && (
+                      {c2paDocsUrl && (
                         <a
-                          href={selectedModel.metadata.C2PA}
+                          href={c2paDocsUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
@@ -672,7 +686,6 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                       {Object.entries(selectedModel.apiEndpoints)
                         .filter(([key]) => key !== 'available')
                         .map(([ep, data]) => {
-                          console.log(`Max Images for ${ep}:`, data.options?.numberOfImages);
                           return (
                             <td key={`${ep}-max-images`} className={tableStyles.cellCenter}>
                               {data.options?.numberOfImages !== undefined ? 

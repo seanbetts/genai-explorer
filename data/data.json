@@ -545,7 +545,9 @@
             "chatModelRefusals": true,
             "promptBlocking": true,
             "outputBlocking": true,
-            "minorSafeguards": true
+            "minorSafeguards": true,
+            "IPRespect": false,
+            "biasMitigation": false
           }
         },
         {
