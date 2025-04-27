@@ -278,7 +278,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         
                         return (
                           <div key={ratio} className="flex items-center">
-                            <div className={`w-16 h-10 relative mr-3 rounded border-2 ${supported ? 'border-cyan-400' : 'border-gray-600 opacity-50'}`}>
+                            <div className={`w-16 h-10 relative mr-3 rounded border ${supported ? 'border-cyan-400' : 'border-gray-600 opacity-50'}`}>
                               <div className="absolute inset-0 rounded bg-gray-700 flex items-center justify-center">
                                 <svg width="100%" height="100%" viewBox="0 0 16 10">
                                   <rect
