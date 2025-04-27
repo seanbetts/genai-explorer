@@ -13,7 +13,9 @@ export async function GET(
   _: Request,
   { params }: { params: { company: string; model: string } }
 ) {
-  const { company, model } = params;
+  // Make sure we await the params correctly to resolve the Next.js warning
+  const paramsObj = await Promise.resolve(params);
+  const { company, model } = paramsObj;
   // Directory under the public folder
   const imagesDir = path.join(
     process.cwd(),
