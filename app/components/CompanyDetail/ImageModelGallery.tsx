@@ -827,10 +827,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
         </div>
 
         {/* thumbnails */}
-        {exampleImages.length > 4 && (
+        {exampleImages.length > 1 && (
           <div className="mt-2 overflow-x-auto scrollbar-hide">
             <div
-              className="flex gap-1 py-1 max-w-full"
+              className="flex gap-1 py-1 max-w-full justify-center"
               style={{ scrollbarWidth: "none" }}
               id="thumbnail-container"
             >
