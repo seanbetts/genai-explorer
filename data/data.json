@@ -460,11 +460,21 @@
                 "background": ["transparent","opaque"],
                 "moderation": ["low","auto"],
                 "numberOfImages": 10,
+                "contextWindow": 32000,
                 "outputCompression": "1-100",
+                "inputFileTypes": ["png","jpeg","webp"],
+                "maxInputSize": 0,
+                "mask": false,
                 "outputFileTypes": ["png","jpeg","webp"],
                 "outputQuality": ["low","medium","high"],
                 "outputSize": ["1024x1024","1536x1024","1024x1536"],
                 "outputStyle": ["vivid","natural"],
+                "visualIntesity": 0,
+                "tileable": false,
+                "structureReference": false,
+                "negativePrompt": false,
+                "placementPosition": false,
+                "placementAlignment": false,
                 "pricing": {
                   "input": {
                     "textPerM": 5,
@@ -500,14 +510,25 @@
                 "outputFormats": [
                   "image"
                 ],
-                "inputFileTypes": ["png", "webp", "jpg"],
-                "maxInputSize": 25,
-                "maxInputTokens": 32000,
-                "mask": true,
+                "background": [],
+                "moderation": [],
                 "numberOfImages": 10,
+                "contextWindow": 32000,
+                "outputCompression": "",
+                "inputFileTypes": ["png","jpeg","webp"],
+                "maxInputSize": 25,
+                "mask": true,
                 "outputFileTypes": ["url", "b64_json"],
                 "outputQuality": ["low","medium","high"],
-                "outputSize": ["1024x1024","1536x1024","1024x1536"]
+                "outputSize": ["1024x1024","1536x1024","1024x1536"],
+                "outputStyle": [],
+                "visualIntesity": 0,
+                "tileable": false,
+                "structureReference": false,
+                "negativePrompt": false,
+                "placementPosition": false,
+                "placementAlignment": false,
+                "pricing": {}
               }
             }                                       
           },
@@ -3600,7 +3621,7 @@
           "modelPage": "https://www.adobe.com/products/firefly.html",
           "systemCard": "",
           "modelGuide": "https://helpx.adobe.com/firefly/user-guide.html",
-          "apiDocumentation": "",
+          "apiDocumentation": "https://developer.adobe.com/firefly-services/docs/firefly-api/",
           "demoVideos": {
             "discover": ["https://images-tv.adobe.com/mpcv3/7628/fbbef6db-f4e7-4757-80bd-5706d1a8749e_1739525687.854x480at800_h264.mp4", "https://images-tv.adobe.com/mpcv3/3f9704a8-b1e2-4248-9176-2ad96d92c053/cc227605-babb-4df3-b4f5-194cf6d7d946/e6ead2a7aa1d4561be81f33dc42bba9d_1737456413-1920x1080.jpg"],
             "how_to_use": "https://www.youtube.com/watch?v=lt4k9lVnS1Y",
@@ -3621,49 +3642,97 @@
             "C2PA": "https://c2pa.org"
           },                          
           "apiEndpoints": {      
-            "available": false,                                   
-            "generations": {
+            "available": true,                                   
+            "generate": {
               "options": {
                 "inputFormats": [
-                  "text"
+                  "text",
+                  "image"
                 ],
                 "outputFormats": [
                   "image"
                 ],
                 "background": [],
                 "moderation": [],
-                "numberOfImages": 1,
+                "numberOfImages": 4,
+                "contextWindow": 1024,
                 "outputCompression": "",
-                "outputFileTypes": [],
+                "inputFileTypes": ["png","jpeg","webp"],
+                "maxInputSize": 0,
+                "mask": false,
+                "outputFileTypes": ["url"],
                 "outputQuality": [],
-                "outputSize": [],
-                "outputStyle": [],
-                "pricing": {
-                  "input": {
-                    "textPerM": 0,
-                    "imagePerM": 0
-                  },
-                  "output": {
-                    "imagePerM": 0,
-                    "lowQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    },
-                    "mediumQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    },
-                    "highQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    }
-                  }
-                }
+                "outputSize": ["2048x2048","2304x1792","1792x2304","2688x1536","1344x768","1152x896","896x1152","1024x1024"],
+                "outputStyle": ["photo","art"],
+                "visualIntesity": 10,
+                "tileable": true,
+                "structureReference": true,
+                "negativePrompt": true,
+                "placementPosition": false,
+                "placementAlignment": false,
+                "pricing": {}
               }
-            }                                    
+            },
+            "expand": {
+              "options": {
+                "inputFormats": [
+                  "text",
+                  "image"
+                ],
+                "outputFormats": [
+                  "image"
+                ],
+                "background": [],
+                "moderation": [],
+                "numberOfImages": 4,
+                "contextWindow": 1024,
+                "outputCompression": "",
+                "inputFileTypes": ["url","uploadID"],
+                "maxInputSize": 0,
+                "mask": true,
+                "outputFileTypes": ["url"],
+                "outputQuality": [],
+                "outputSize": ["up to 3999x3999"],
+                "outputStyle": [],
+                "visualIntesity": 0,
+                "tileable": false,
+                "structureReference": false,
+                "negativePrompt": false,
+                "placementPosition": true,
+                "placementAlignment": true,
+                "pricing": {}
+              }
+            },
+            "fill": {
+              "options": {
+                "inputFormats": [
+                  "text",
+                  "image"
+                ],
+                "outputFormats": [
+                  "image"
+                ],
+                "background": [],
+                "moderation": [],
+                "numberOfImages": 4,
+                "contextWindow": 1024,
+                "outputCompression": "",
+                "inputFileTypes": ["url","uploadID"],
+                "maxInputSize": 0,
+                "mask": true,
+                "outputFileTypes": ["url"],
+                "outputQuality": [],
+                "outputSize": ["up to 3999x3999"],
+                "outputStyle": [],
+                "visualIntesity": 0,
+                "tileable": false,
+                "structureReference": false,
+                "negativePrompt": true,
+                "placementPosition": false,
+                "placementAlignment": false,
+                "pricing": {}
+              }
+            }
           },
           "capabilities": {
             "performance": 4,
