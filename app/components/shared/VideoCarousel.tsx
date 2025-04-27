@@ -84,8 +84,8 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
       const container = document.getElementById('video-thumbnail-container');
       if (!container) return;
       
-      // Calculate the total width of all thumbnails (16px width + 0.25rem gap per thumbnail)
-      const thumbnailsTotalWidth = videoEntries.length * (64 + 4); // 64px for thumbnail width, 4px for gap
+      // Calculate the total width of all thumbnails (28px width + 0.5rem gap per thumbnail)
+      const thumbnailsTotalWidth = videoEntries.length * (112 + 8); // 112px for thumbnail width, 8px for gap
       const containerWidth = container.offsetWidth;
       
       // If thumbnails total width is less than container, they should be centered
@@ -155,10 +155,10 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
 
   return (
     <div className="relative p-0 m-0">
-      <div className="relative min-h-[500px] bg-gray-900 rounded-lg overflow-hidden group py-8 px-0 m-0">
+      <div className="relative min-h-[500px] bg-gray-900 rounded-lg overflow-hidden group py-3 px-0 m-0">
         <div className="flex items-center justify-center z-0 w-full h-full">
           {canEmbed ? (
-            <div className="w-[80%] aspect-video">
+            <div className="w-[85%] aspect-video">
               <iframe
                 src={youtubeEmbedUrl}
                 title={`${title} - ${formatDemoName(currentVideoName)}`}
@@ -211,18 +211,13 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
         )}
       </div>
 
-      {/* video title */}
-      <div className="mt-3 mb-2 text-center">
-        <h4 className="text-lg font-semibold text-fuchsia-500 font-mono">
-          {formatDemoName(currentVideoName)}
-        </h4>
-      </div>
+      {/* Title now shown only in thumbnails */}
 
       {/* thumbnails */}
       {videoEntries.length > 1 && (
         <div className="mt-2 overflow-x-auto scrollbar-hide">
           <div
-            className={`flex gap-1 py-1 max-w-full ${shouldCenterThumbnails ? 'justify-center' : 'justify-start'}`}
+            className={`flex gap-2 py-1 max-w-full ${shouldCenterThumbnails ? 'justify-center' : 'justify-start'}`}
             style={{ scrollbarWidth: "none" }}
             id="video-thumbnail-container"
           >
@@ -236,29 +231,21 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
                   key={idx}
                   id={`video-thumbnail-${idx}`}
                   onClick={() => setCurrentVideoIndex(idx)}
-                  className={`flex-shrink-0 relative w-16 h-16 rounded overflow-hidden cursor-pointer ${
+                  className={`flex-shrink-0 flex flex-col items-center justify-center w-28 h-20 rounded overflow-hidden cursor-pointer group ${
                     idx === currentVideoIndex
-                      ? "ring-2 ring-cyan-400"
-                      : "opacity-70 hover:opacity-100"
+                      ? "bg-cyan-900/90 text-cyan-400 ring-2 ring-cyan-400"
+                      : "bg-gray-700 hover:bg-gray-600 text-cyan-400"
                   }`}
                   aria-label={`View video ${formatDemoName(name)}`}
                 >
-                  {thumbnailUrl ? (
-                    <div className="relative w-full h-full">
-                      <img 
-                        src={thumbnailUrl} 
-                        alt={`Thumbnail for ${formatDemoName(name)}`} 
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                        <i className="bi bi-play-circle-fill text-white text-xl"></i>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gray-700">
-                      <i className="bi bi-play-circle-fill text-fuchsia-500 text-xl"></i>
-                    </div>
-                  )}
+                  <i className={`bi bi-play-circle-fill text-xl mt-2 ${
+                    idx === currentVideoIndex 
+                      ? "text-cyan-400" 
+                      : "text-fuchsia-500 group-hover:text-cyan-400"
+                  }`}></i>
+                  <div className="text-center px-1 pb-3 font-mono line-clamp-2" style={{ fontSize: "0.8rem" }}>
+                    {formatDemoName(name)}
+                  </div>
                 </button>
               );
             })}
