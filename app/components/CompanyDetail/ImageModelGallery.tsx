@@ -838,7 +838,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         }
                       }
                     ].map((row, index) => (
-                      <tr key={row.id} className={`${index % 2 === 0 ? tableStyles.rowEven : tableStyles.rowOdd} cursor-pointer`}>
+                      <tr key={row.id} className="cursor-pointer">
                         <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
                           <div className={containerStyles.flexCenter}>
                             <i className={`bi ${row.icon} ${iconStyles.tableRowIcon} ${row.iconColor}`} />
