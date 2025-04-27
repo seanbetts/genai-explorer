@@ -6,32 +6,8 @@ import React, {
   useLayoutEffect,
   useState,
 } from "react";
-import Image from "next/image";
 import { getValidImageUrl, PLACEHOLDER_IMAGE } from "../utils/imageUtils";
-
-// -----------------------------------------------------------------------------
-// Small reusable components ----------------------------------------------------
-// -----------------------------------------------------------------------------
-interface ImageWithFallbackProps
-  extends React.ComponentPropsWithoutRef<typeof Image> {
-  src: string;
-  alt: string;
-}
-const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
-  src,
-  alt,
-  ...props
-}) => {
-  const [imgSrc, setImgSrc] = useState(src);
-  return (
-    <Image
-      {...props}
-      src={imgSrc}
-      alt={alt}
-      onError={() => setImgSrc(PLACEHOLDER_IMAGE)}
-    />
-  );
-};
+import ImageWithFallback from "./ImageWithFallback";
 
 interface ThumbnailScrollerProps {
   activeIndex: number;

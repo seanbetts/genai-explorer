@@ -1,26 +1,8 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import Image from 'next/image';
-import { getValidImageUrl, PLACEHOLDER_IMAGE } from '../utils/imageUtils';
-
-const ImageWithFallback: React.FC<{ src: string; alt: string }> = ({ src, alt }) => {
-  const [errored, setErrored] = useState(false);
-  return (
-    <div 
-      className="p-4 w-full h-full relative"
-    >
-      <Image
-        src={errored ? PLACEHOLDER_IMAGE : src}
-        alt={alt}
-        fill
-        style={{ objectFit: 'contain' }}
-        onError={() => setErrored(true)}
-        priority
-      />
-    </div>
-  );
-};
+import { getValidImageUrl } from '../utils/imageUtils';
+import ImageWithFallback from './ImageWithFallback';
 
 interface Props {
   isOpen: boolean;
@@ -57,7 +39,7 @@ const ImagePopover: React.FC<Props> = ({ isOpen, onClose, imageSrc, imageAlt }) 
     >
       <div
         onClick={onClose}
-        className="relative cursor-zoom-out border border-fuchsia-500 rounded p-3"
+        className="relative cursor-zoom-out border border-gray-500 rounded p-3"
         style={{
           width: '100%',
           height: '100%',
@@ -66,7 +48,15 @@ const ImagePopover: React.FC<Props> = ({ isOpen, onClose, imageSrc, imageAlt }) 
           backgroundColor: 'rgba(0, 0, 0, 1)', // Darker background within the border
         }}
       >
-        <ImageWithFallback src={getValidImageUrl(imageSrc)} alt={imageAlt} />
+        <div className="p-4 w-full h-full relative">
+          <ImageWithFallback 
+            src={getValidImageUrl(imageSrc)} 
+            alt={imageAlt}
+            fill
+            style={{ objectFit: 'contain' }}
+            priority
+          />
+        </div>
 
         <button
           onClick={onClose}

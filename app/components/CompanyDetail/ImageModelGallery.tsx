@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import ImagePopover from "./ImagePopover";
-import ImageCarousel from "./ImageCarousel";
+import ImagePopover from "../shared/ImagePopover";
+import ImageCarousel from "../shared/ImageCarousel";
 import { Model } from "../types";
 import { textStyles, headingStyles } from "../utils/theme";
 import {
@@ -10,7 +10,6 @@ import {
   iconStyles,
   tableStyles,
 } from "../utils/layout";
-import { getValidImageUrl } from "../utils/imageUtils";
 
 // -----------------------------------------------------------------------------
 // Utility helpers -------------------------------------------------------------
