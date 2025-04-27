@@ -409,14 +409,14 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
             {/* Endpoints table wrapped in a card */}
             <div className={`${containerStyles.card} mt-3`}>
               <div className="overflow-x-auto">
-                <table className={`${tableStyles.table} w-full`}>
+                <table className={`${tableStyles.table} w-full table-fixed`}>
                 <thead className={tableStyles.header}>
                   <tr>
-                    <th className={`${tableStyles.headerCell} ${tableStyles.stickyLabelCell}`} />
+                    <th className={`${tableStyles.headerCell} ${tableStyles.stickyLabelCell} w-1/4`} />
                     {Object.entries(selectedModel.apiEndpoints)
                       .filter(([key]) => key !== 'available')
-                      .map(([ep]) => (
-                        <th key={ep} className={tableStyles.headerCellCenter}>
+                      .map(([ep], index, array) => (
+                        <th key={ep} className={tableStyles.headerCellCenter} style={{ width: `${75 / array.length}%` }}>
                           {formatEndpointName(ep)} Endpoint
                         </th>
                       ))}
