@@ -866,11 +866,11 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
     <>
       {models.length > 1 && renderModelTabs()}
 
-      <div className="mb-8 p-0">{renderImageGallery()}</div>
+      {imageUrls.length > 0 && <div className="mb-8 p-0">{renderImageGallery()}</div>}
 
       {renderModelDetails()}
 
-      {selectedModel && (
+      {selectedModel && imageUrls.length > 0 && (
         <ImagePopover
           isOpen={isPopoverOpen}
           onClose={() => setIsPopoverOpen(false)}
