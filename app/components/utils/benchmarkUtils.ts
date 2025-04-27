@@ -419,3 +419,17 @@ export const associateBenchmarkScoresWithModels = (
     }
   });
 };
+
+/**
+ * Check if a company has any benchmark data available in our CSV
+ * This is a client-side function to determine if the Benchmarks tab should be shown
+ */
+export const companyHasBenchmarkData = async (companyId: string): Promise<boolean> => {
+  try {
+    const scores = await loadBenchmarkScores();
+    return scores.some(score => score.company_id === companyId);
+  } catch (error) {
+    console.error('Error checking benchmark data availability:', error);
+    return false;
+  }
+};

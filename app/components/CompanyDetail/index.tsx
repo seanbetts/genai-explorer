@@ -13,6 +13,7 @@ const ImageModelGallery = React.lazy(() => import('./ImageModelGallery'));
 import { textStyles, headingStyles } from '../utils/theme';
 import { containerStyles, buttonStyles, iconStyles } from '../utils/layout';
 import { getModelTabName } from '../utils/modelUtils';
+import { companyHasBenchmarkData } from '../utils/benchmarkUtils';
 
 interface CompanyDetailProps {
   company: Company;
@@ -71,6 +72,13 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
       model.category === 'other' && model.status !== 'archived'
     );
   };
+  
+  // State to track if the company has benchmark data
+  const [hasBenchmarkData, setHasBenchmarkData] = React.useState(false);
+  
+  const hasBenchmarkScores = (): boolean => {
+    return hasBenchmarkData && company.models && company.models.length > 0;
+  };
 
   // Initialize with a fallback value, we'll set it properly in useEffect
   const [activeTab, setActiveTab] = React.useState<TabType>('frontier-models');
@@ -84,11 +92,16 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
     // Force disable URL updates during initialization
     initialRender.current = true;
     
-    // If URL contains a valid tab parameter, use it
+    // If URL contains a valid tab parameter, use it - but validate benchmarks tab
     if (tabParam && ['frontier-models', 'open-models', 'enterprise-models', 'image-models', 'video-models', 'audio-models', 'specialised-models', 'products', 'features', 'subscriptions', 'benchmarks'].includes(tabParam)) {
-      console.log('Setting tab from URL:', tabParam);
-      setActiveTab(tabParam as TabType);
-      return;
+      // Special handling for benchmarks tab - only set if benchmark scores exist
+      if (tabParam === 'benchmarks' && !hasBenchmarkScores()) {
+        console.log('Benchmarks tab requested but no benchmark scores available, falling back to default tab selection');
+      } else {
+        console.log('Setting tab from URL:', tabParam);
+        setActiveTab(tabParam as TabType);
+        return;
+      }
     }
     
     // Handle legacy 'models' parameter
@@ -187,6 +200,24 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
       initialLoad.current = true;
     };
   }, []);
+  
+  // Check if this company has benchmark data
+  React.useEffect(() => {
+    const checkBenchmarkData = async () => {
+      try {
+        // Only check if company has models
+        if (company.models && company.models.length > 0) {
+          const hasBenchmarks = await companyHasBenchmarkData(company.id);
+          console.log(`Company ${company.name} has benchmark data:`, hasBenchmarks);
+          setHasBenchmarkData(hasBenchmarks);
+        }
+      } catch (error) {
+        console.error('Error checking benchmark data:', error);
+      }
+    };
+    
+    checkBenchmarkData();
+  }, [company.id, company.models]);
   
   React.useEffect(() => {
     // Small delay for animation effect
@@ -371,8 +402,8 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
             </button>
           )}
           
-          {/* Benchmarks Tab - Show if company has any models */}
-          {company.models && company.models.length > 0 && (
+          {/* Benchmarks Tab - Show only if company has models with benchmark scores */}
+          {hasBenchmarkScores() && (
             <button
               className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
                 activeTab === 'benchmarks' 
@@ -587,7 +618,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
             )}
             
             {/* Benchmarks Tab */}
-            {activeTab === 'benchmarks' && company.models && company.models.length > 0 && (
+            {activeTab === 'benchmarks' && hasBenchmarkScores() && (
               <div className="transform transition-opacity duration-300">
                 <Suspense fallback={<div className="text-center py-4">Loading benchmarks...</div>}>
                   <BenchmarksTable 

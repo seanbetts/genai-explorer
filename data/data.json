@@ -631,7 +631,9 @@
             "chatModelRefusals": false,
             "promptBlocking": false,
             "outputBlocking": false,
-            "minorSafeguards": false
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
           }
         }
       ],
@@ -1411,7 +1413,9 @@
             "chatModelRefusals": false,
             "promptBlocking": false,
             "outputBlocking": false,
-            "minorSafeguards": false
+            "minorSafeguards": false,
+            "IPRespect": true,
+            "biasMitigation": true
           }
         },
         {
@@ -3731,10 +3735,12 @@
             "photoRealism": false
           },
           "safety": {
-            "chatModelRefusals": false,
-            "promptBlocking": false,
-            "outputBlocking": false,
-            "minorSafeguards": false
+            "chatModelRefusals": true,
+            "promptBlocking": true,
+            "outputBlocking": true,
+            "minorSafeguards": true,
+            "IPRespect": true,
+            "biasMitigation": true
           }
         }
       ],
@@ -3940,7 +3946,9 @@
             "chatModelRefusals": false,
             "promptBlocking": false,
             "outputBlocking": false,
-            "minorSafeguards": false
+            "minorSafeguards": false,
+            "IPRespect": true,
+            "biasMitigation": true
           }
         }
       ],
@@ -4053,7 +4061,9 @@
             "chatModelRefusals": false,
             "promptBlocking": false,
             "outputBlocking": false,
-            "minorSafeguards": false
+            "minorSafeguards": false,
+            "IPRespect": true,
+            "biasMitigation": true
           }
         }
       ],
