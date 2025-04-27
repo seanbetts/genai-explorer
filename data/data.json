@@ -520,13 +520,26 @@
             "imageToImage": true,
             "imageToVector": false,
             "imageVariations": true,
-            "transparentLayers": true,
+            "transparentLayers": false,
             "inPainting": true,
+            "backgroundRemoval": false,
+            "generativeExpand": false,
+            "generativeRecolor": false,
             "textRendering": true,
             "characterConsistency": true,
+            "styleKits": false,
             "multiTurnGeneration": true,
             "hexCodes": true,
-            "photoRealism": true
+            "photoRealism": true,
+            "moodBoarding": false,
+            "trainCustomModels": false
+          },
+          "aspectRatios": {
+            "landscape (4:3)": true,
+            "portrait (3:4)": true,
+            "square (1:1)": true,
+            "widescreen (16:9)": false,
+            "vertical (9:16)": false
           },
           "safety": {
             "chatModelRefusals": true,
@@ -1375,11 +1388,24 @@
             "imageVariations": false,
             "transparentLayers": false,
             "inPainting": false,
+            "backgroundRemoval": false,
+            "generativeExpand": false,
+            "generativeRecolor": false,
             "textRendering": false,
             "characterConsistency": false,
+            "styleKits": false,
             "multiTurnGeneration": false,
             "hexCodes": false,
-            "photoRealism": false
+            "photoRealism": false,
+            "moodBoarding": false,
+            "trainCustomModels": false
+          },
+          "aspectRatios": {
+            "landscape (4:3)": false,
+            "portrait (3:4)": false,
+            "square (1:1)": false,
+            "widescreen (16:9)": false,
+            "vertical (9:16)": false
           },
           "safety": {
             "chatModelRefusals": false,
@@ -3524,7 +3550,7 @@
           "modelGuide": "https://helpx.adobe.com/firefly/user-guide.html",
           "apiDocumentation": "",
           "demoVideos": {
-            "discover": ["https://images-tv.adobe.com/mpcv3/7622/e57cb079-776e-45ae-8d6a-698cc8e6d069_1713204407.854x480at800_h264.mp4", "https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/d8e94643-853b-44d1-8a85-c419642cba27/d0e40725a4c140d9a1d98144388a7400_1713206101-1920x1080.jpg"],
+            "discover": ["https://images-tv.adobe.com/mpcv3/7628/fbbef6db-f4e7-4757-80bd-5706d1a8749e_1739525687.854x480at800_h264.mp4", "https://images-tv.adobe.com/mpcv3/3f9704a8-b1e2-4248-9176-2ad96d92c053/cc227605-babb-4df3-b4f5-194cf6d7d946/e6ead2a7aa1d4561be81f33dc42bba9d_1737456413-1920x1080.jpg"],
             "how_to_use": "https://www.youtube.com/watch?v=lt4k9lVnS1Y",
             "photorealism":["https://images-tv.adobe.com/mpcv3/7622/0e07750b-e7f3-4db5-8153-8b765c34faf0_1713215919.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/2ed983f4-b08a-4c44-88ce-f7639eaf89e0/93d5b6fa42754f3ca12f9846d034f682_1713216043-1920x1080.jpg"],
             "text_prompts":["https://images-tv.adobe.com/mpcv3/7622/a468b7b7-633f-441e-932e-ce382f7864bc_1713205897.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/b35dd676-d5a1-4d46-8398-7a09fef99ce1/6de6e7b3f7f54f58b72bdaab5cba622d_1713206032-1920x1080.jpg"],
@@ -3593,16 +3619,29 @@
           },
           "features": {
             "textToImage": true,
-            "imageToImage": false,
+            "imageToImage": true,
             "imageToVector": true,
-            "imageVariations": false,
+            "imageVariations": true,
             "transparentLayers": false,
             "inPainting": true,
-            "textRendering": false,
-            "characterConsistency": false,
+            "backgroundRemoval": true,
+            "generativeExpand": true,
+            "generativeRecolor": true,
+            "textRendering": true,
+            "characterConsistency": true,
+            "styleKits": true,
             "multiTurnGeneration": false,
             "hexCodes": false,
-            "photoRealism": true
+            "photoRealism": true,
+            "moodBoarding": true,
+            "trainCustomModels": true
+          },
+          "aspectRatios": {
+            "landscape (4:3)": true,
+            "portrait (3:4)": true,
+            "square (1:1)": true,
+            "widescreen (16:9)": true,
+            "vertical (9:16)": true
           },
           "safety": {
             "chatModelRefusals": false,
@@ -3699,7 +3738,20 @@
           }
         }
       ],
-      "products": [],
+      "products": [
+        {
+          "name": "Firefly",
+          "description": "The ultimate creative AI solution.",
+          "image": "/images/companies/adobe/products/firefly.png",
+          "url": "https://www.adobe.com/products/firefly.html"
+        },
+        {
+          "name": "Firefly Boards",
+          "description": "Work together, add words, photos, sketches, and graphics to reference and remix, and specify the exact style you want to create the ultimate moodboard.",
+          "image": "/images/companies/adobe/products/firefly-boards.png",
+          "url": "https://www.adobe.com/products/firefly/features/moodboard.html"
+        }
+      ],
       "subscriptions": [
         {
           "tier": "Firefly Free",
@@ -3865,11 +3917,24 @@
             "imageVariations": false,
             "transparentLayers": false,
             "inPainting": false,
+            "backgroundRemoval": false,
+            "generativeExpand": false,
+            "generativeRecolor": false,
             "textRendering": false,
             "characterConsistency": false,
+            "styleKits": false,
             "multiTurnGeneration": false,
             "hexCodes": false,
-            "photoRealism": false
+            "photoRealism": false,
+            "moodBoarding": false,
+            "trainCustomModels": false
+          },
+          "aspectRatios": {
+            "landscape (4:3)": false,
+            "portrait (3:4)": false,
+            "square (1:1)": false,
+            "widescreen (16:9)": false,
+            "vertical (9:16)": false
           },
           "safety": {
             "chatModelRefusals": false,
@@ -3965,11 +4030,24 @@
             "imageVariations": false,
             "transparentLayers": false,
             "inPainting": false,
+            "backgroundRemoval": false,
+            "generativeExpand": false,
+            "generativeRecolor": false,
             "textRendering": false,
             "characterConsistency": false,
+            "styleKits": false,
             "multiTurnGeneration": false,
             "hexCodes": false,
-            "photoRealism": false
+            "photoRealism": false,
+            "moodBoarding": false,
+            "trainCustomModels": false
+          },
+          "aspectRatios": {
+            "landscape (4:3)": false,
+            "portrait (3:4)": false,
+            "square (1:1)": false,
+            "widescreen (16:9)": false,
+            "vertical (9:16)": false
           },
           "safety": {
             "chatModelRefusals": false,

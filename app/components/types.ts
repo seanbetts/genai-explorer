@@ -129,7 +129,7 @@ export interface Model {
   // New fields for image models
   about?: string; // Detailed description for the model
   exampleImages?: string[]; // Array of image paths
-  demoVideos?: Record<string, string>; // Key-value pairs of demo names and video URLs
+  demoVideos?: Record<string, string | string[]>; // Key-value pairs of demo names and video URLs or [videoURL, thumbnailURL]
   modelGuide?: string; // URL to model guide documentation
   apiDocumentation?: string; // URL to API documentation
   termsOfService?: string; // URL to terms of service
@@ -139,6 +139,7 @@ export interface Model {
   apiEndpoints?: Record<string, any>; // API endpoint definitions
   features?: Record<string, boolean>; // Features supported by the model
   safety?: Record<string, boolean>; // Safety features of the model
+  aspectRatios?: Record<string, boolean>; // Supported aspect ratios for image generation
 }
 
 export interface Subscription {
