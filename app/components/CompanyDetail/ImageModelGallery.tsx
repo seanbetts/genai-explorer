@@ -223,10 +223,9 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
             <div className={`${containerStyles.card} min-h-[14rem] h-auto`}>
               <div className="grid grid-cols-2 gap-2">
                 {Object.entries(selectedModel.features ?? {})
-                  .filter(([, value]) => value === true)
-                  .map(([key]) => (
+                  .map(([key, value]) => (
                     <div key={key} className="flex items-center">
-                      <i className={`${iconStyles.booleanTrue} mr-2`} />
+                      <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
                       <span className={textStyles.body}>{formatFeatureName(key)}</span>
                     </div>
                   ))}
@@ -236,7 +235,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
           {/* Safety Features column */}
           <div>
             <h3 className={`${headingStyles.card} mb-3`}>Safety Features</h3>
-            { (Object.values(selectedModel.safety ?? {}).some(Boolean) ||
+            { (Object.keys(selectedModel.safety ?? {}).length > 0 ||
                 selectedModel.termsOfService ||
                 selectedModel.usagePolicy ||
                 selectedModel.metadata?.C2PA ||
@@ -245,10 +244,9 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     {Object.entries(selectedModel.safety ?? {})
-                      .filter(([, value]) => value === true)
-                      .map(([key]) => (
+                      .map(([key, value]) => (
                         <div key={key} className="flex items-center">
-                          <i className={`${iconStyles.booleanTrue} mr-2`} />
+                          <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
                           <span className={textStyles.body}>{formatFeatureName(key)}</span>
                         </div>
                       ))}
