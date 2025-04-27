@@ -538,8 +538,38 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                       })}
                     </tr>
 
-                    {/* -------- Moderation -------- */}
+                    {/* -------- Max Input Size -------- */}
                     <tr className={tableStyles.rowOdd}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-file-earmark-plus text-cyan-400" />
+                          <span className="font-medium">Max Input Size</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
+                        const mis = data.options?.maxInputSize;
+                        return (
+                          <td key={`${ep}-max-input-size`} className={tableStyles.cellCenter}>
+                            {mis !== undefined ? (
+                              mis === 0 ? (
+                                <i className={iconStyles.booleanFalse} />
+                              ) : (
+                                <span className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                                  {mis.toLocaleString()} MB
+                                </span>
+                              )
+                            ) : (
+                              <span className="text-gray-500">-</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* -------- Moderation -------- */}
+                    <tr className={tableStyles.rowEven}>
                       <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
                         <div className="flex items-center gap-2">
                           <i className="bi bi-shield-check text-cyan-400" />
@@ -588,10 +618,74 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                       })}
                     </tr>
 
+                    {/* -------- Context Window -------- */}
+                    <tr className={tableStyles.rowOdd}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-text-paragraph text-cyan-400" />
+                          <span className="font-medium">Context Window</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
+                        const cw = data.options?.contextWindow;
+                        return (
+                          <td key={`${ep}-context-window`} className={tableStyles.cellCenter}>
+                            {cw !== undefined ? 
+                              <span className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                                {cw.toLocaleString()} tokens
+                              </span> 
+                              : <span className="text-gray-500">-</span>}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* -------- Structure Reference -------- */}
+                    <tr className={tableStyles.rowEven}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-grid-3x3 text-cyan-400" />
+                          <span className="font-medium">Structure Reference</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
+                        const sr = data.options?.structureReference;
+                        return (
+                          <td key={`${ep}-structure-reference`} className={tableStyles.cellCenter}>
+                            {sr !== undefined ? <i className={sr ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* -------- Negative Prompt -------- */}
+                    <tr className={tableStyles.rowOdd}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} border-b-2 border-cyan-500`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-dash-circle text-cyan-400" />
+                          <span className="font-medium">Negative Prompt</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
+                        const np = data.options?.negativePrompt;
+                        return (
+                          <td key={`${ep}-negative-prompt`} className={`${tableStyles.cellCenter} border-b-2 border-cyan-500`}>
+                            {np !== undefined ? <i className={np ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
                     {/* ========= OUTPUT OPTIONS ========= */}
 
                     {/* Output File Types */}
-                    <tr className={tableStyles.rowOdd}>
+                    <tr className={tableStyles.rowEven}>
                       <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
                         <div className="flex items-center gap-2">
                           <i className="bi bi-file-earmark-arrow-down text-fuchsia-500" />
@@ -621,7 +715,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     </tr>
 
                     {/* Output Sizes */}
-                    <tr className={tableStyles.rowEven}>
+                    <tr className={tableStyles.rowOdd}>
                       <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
                         <div className="flex items-center gap-2">
                           <i className="bi bi-arrows-fullscreen text-fuchsia-500" />
@@ -651,7 +745,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     </tr>
 
                     {/* Quality Levels */}
-                    <tr className={tableStyles.rowOdd}>
+                    <tr className={tableStyles.rowEven}>
                       <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
                         <div className="flex items-center gap-2">
                           <i className="bi bi-stars text-fuchsia-500" />
@@ -681,7 +775,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     </tr>
 
                     {/* Style Options */}
-                    <tr className={tableStyles.rowEven}>
+                    <tr className={tableStyles.rowOdd}>
                       <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
                         <div className="flex items-center gap-2">
                           <i className="bi bi-palette text-fuchsia-500" />
@@ -711,7 +805,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     </tr>
 
                     {/* Background */}
-                    <tr className={tableStyles.rowOdd}>
+                    <tr className={tableStyles.rowEven}>
                       <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
                         <div className="flex items-center gap-2">
                           <i className="bi bi-square text-fuchsia-500" />
@@ -740,8 +834,94 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                       })}
                     </tr>
 
-                    {/* Max Images */}
+                    {/* Visual Intensity */}
+                    <tr className={tableStyles.rowOdd}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-sliders text-fuchsia-500" />
+                          <span className="font-medium">Visual Intensity</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
+                        const vi = data.options?.visualIntesity;
+                        return (
+                          <td key={`${ep}-visual-intensity`} className={tableStyles.cellCenter}>
+                            {vi !== undefined ? 
+                              <div className="flex items-center justify-center">
+                                <span className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                                  1-{vi}
+                                </span>
+                              </div>
+                              : <span className="text-gray-500">-</span>}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* Tileable Output */}
                     <tr className={tableStyles.rowEven}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-grid text-fuchsia-500" />
+                          <span className="font-medium">Tileable Output</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
+                        const t = data.options?.tileable;
+                        return (
+                          <td key={`${ep}-tileable`} className={tableStyles.cellCenter}>
+                            {t !== undefined ? <i className={t ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* Placement Position */}
+                    <tr className={tableStyles.rowOdd}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-bullseye text-fuchsia-500" />
+                          <span className="font-medium">Placement Position</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
+                        const pp = data.options?.placementPosition;
+                        return (
+                          <td key={`${ep}-placement-position`} className={tableStyles.cellCenter}>
+                            {pp !== undefined ? <i className={pp ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* Placement Alignment */}
+                    <tr className={tableStyles.rowEven}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-layout-text-window text-fuchsia-500" />
+                          <span className="font-medium">Placement Alignment</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
+                        const pa = data.options?.placementAlignment;
+                        return (
+                          <td key={`${ep}-placement-alignment`} className={tableStyles.cellCenter}>
+                            {pa !== undefined ? <i className={pa ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* Max Images */}
+                    <tr className={tableStyles.rowOdd}>
                       <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
                         <div className="flex items-center gap-2">
                           <i className="bi bi-images text-fuchsia-500" />
