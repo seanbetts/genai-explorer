@@ -447,7 +447,8 @@
           "metadata": {
             "C2PA": "https://c2pa.org"
           },                          
-          "apiEndpoints": {                                         
+          "apiEndpoints": { 
+            "available": true,                                        
             "generations": {
               "options": {
                 "inputFormats": [
@@ -551,7 +552,8 @@
           "usagePolicy": "",
           "commerciallySafe": false,
           "metadata": {},                          
-          "apiEndpoints": {                                         
+          "apiEndpoints": {     
+            "available": false,                                    
             "generations": {
               "options": {
                 "inputFormats": [
@@ -3522,9 +3524,10 @@
           "demoVideos": {},
           "termsOfService": "",
           "usagePolicy": "",
-          "commerciallySafe": false,
+          "commerciallySafe": true,
           "metadata": {},                          
-          "apiEndpoints": {                                         
+          "apiEndpoints": {      
+            "available": false,                                   
             "generations": {
               "options": {
                 "inputFormats": [
@@ -3607,9 +3610,10 @@
           "demoVideos": {},
           "termsOfService": "",
           "usagePolicy": "",
-          "commerciallySafe": false,
+          "commerciallySafe": true,
           "metadata": {},                          
-          "apiEndpoints": {                                         
+          "apiEndpoints": {
+            "available": false,                                     
             "generations": {
               "options": {
                 "inputFormats": [
@@ -3729,6 +3733,34 @@
             "Access to premium features like video generation and non-Adobe models",
             "Unlimited access to Generate Video powered by the Firefly Video Model across Firefly apps"
           ]
+        },
+        {
+          "tier": "Firefly Standard for Teams",
+          "type": "enterprise",
+          "price": 9.99,
+          "billingCycle": "user per month",
+          "url": "https://www.adobe.com/uk/products/firefly/plans.html",
+          "features": [
+            "2,000 monthly generative credits",
+            "Unlimited access to standard image and vector features like Generative Fill and more",
+            "Access to premium features like video generation and non-Adobe models",
+            "Generate up to 20 five-second videos or translate up to 6 minutes of audio or video",
+            "Exclusive business features"
+          ]
+        },
+        {
+          "tier": "Firefly Pro for Teams",
+          "type": "enterprise",
+          "price": 29.99,
+          "billingCycle": "user per month",
+          "url": "https://www.adobe.com/uk/products/firefly/plans.html",
+          "features": [
+            "7,000 monthly generative credits",
+            "Unlimited access to standard image and vector features like Generative Fill and more",
+            "Access to premium features like video generation and non-Adobe models",
+            "Generate up to 70 five-second videos or translate up to 23 minutes of audio or video",
+            "Exclusive business features"
+          ]
         }
       ]
     },
@@ -3759,7 +3791,8 @@
           "usagePolicy": "",
           "commerciallySafe": false,
           "metadata": {},                          
-          "apiEndpoints": {                                         
+          "apiEndpoints": {   
+            "available": false,                                      
             "generations": {
               "options": {
                 "inputFormats": [
@@ -3857,7 +3890,8 @@
           "usagePolicy": "",
           "commerciallySafe": false,
           "metadata": {},                          
-          "apiEndpoints": {                                         
+          "apiEndpoints": {   
+            "available": false,                                      
             "generations": {
               "options": {
                 "inputFormats": [

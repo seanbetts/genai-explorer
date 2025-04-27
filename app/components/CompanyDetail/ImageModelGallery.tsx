@@ -215,11 +215,12 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
         <p className={`${textStyles.body} mb-8`}>{selectedModel.about}</p>
 
         {/* combined features grid: product and safety side-by-side */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        {/* Added extra bottom margin to separate from API Endpoints section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* Product Features column */}
           <div>
             <h3 className={`${headingStyles.card} mb-3`}>Product Features</h3>
-            <div className={containerStyles.card}>
+            <div className={`${containerStyles.card} min-h-[14rem] h-auto`}>
               <div className="grid grid-cols-2 gap-2">
                 {Object.entries(selectedModel.features ?? {})
                   .filter(([, value]) => value === true)
@@ -240,7 +241,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                 selectedModel.usagePolicy ||
                 selectedModel.metadata?.C2PA ||
                 selectedModel.commerciallySafe !== undefined) ? (
-            <div className={containerStyles.card}>
+            <div className={`${containerStyles.card} min-h-[14rem] h-auto`}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     {Object.entries(selectedModel.safety ?? {})
@@ -293,7 +294,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                 </div>
               </div>
             ) : (
-            <div className={`${containerStyles.card} flex items-center justify-center`}>
+            <div className={`${containerStyles.card} min-h-[14rem] h-auto flex items-center justify-center`}>
                 <p className={textStyles.body}>No safety features</p>
               </div>
             )}
@@ -301,19 +302,26 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
         </div>
 
         {/* ================= API ENDPOINT TABLE ================= */}
-        {selectedModel.apiEndpoints && Object.keys(selectedModel.apiEndpoints).length > 0 && (
-          <>
-            <h3 className={`${headingStyles.card} mb-3`}>API Endpoints</h3>
-            <div className="overflow-x-auto mb-6">
-              <table className={`${tableStyles.table} w-full`}>
+        {selectedModel.apiEndpoints && 
+         Object.keys(selectedModel.apiEndpoints).length > 0 && 
+         selectedModel.apiEndpoints.available === true && (
+          <div className="mb-8">
+            {/* API Endpoints header */}
+            <h3 className={headingStyles.card}>API Endpoints</h3>
+            {/* Endpoints table wrapped in a card */}
+            <div className={`${containerStyles.card} mt-3`}>
+              <div className="overflow-x-auto">
+                <table className={`${tableStyles.table} w-full`}>
                 <thead className={tableStyles.header}>
                   <tr>
                     <th className={`${tableStyles.headerCell} ${tableStyles.stickyLabelCell}`} />
-                    {Object.entries(selectedModel.apiEndpoints).map(([ep]) => (
-                      <th key={ep} className={tableStyles.headerCellCenter}>
-                        {formatEndpointName(ep)} Endpoint
-                      </th>
-                    ))}
+                    {Object.entries(selectedModel.apiEndpoints)
+                      .filter(([key]) => key !== 'available')
+                      .map(([ep]) => (
+                        <th key={ep} className={tableStyles.headerCellCenter}>
+                          {formatEndpointName(ep)} Endpoint
+                        </th>
+                      ))}
                   </tr>
                 </thead>
 
@@ -326,11 +334,13 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           <span className="font-medium">Input Formats</span>
                         </div>
                       </td>
-                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
                         const opts = data.options;
                         return (
                           <td key={`${ep}-input-formats`} className={tableStyles.cellCenter}>
-                            {opts?.inputFormats ? (
+                            {opts?.inputFormats && opts.inputFormats.length > 0 ? (
                               <div className="flex gap-3 justify-center">
                                 {[
                                   { id: "text", icon: "bi-file-text-fill" },
@@ -366,11 +376,13 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           <span className="font-medium">Input File Types</span>
                         </div>
                       </td>
-                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
                         const types = data.options?.inputFileTypes;
                         return (
                           <td key={`${ep}-input-file-types`} className={tableStyles.cellCenter}>
-                            {types ? (
+                            {types && (Array.isArray(types) ? types.length > 0 : types) ? (
                               <div className="flex flex-wrap gap-1 justify-center">
                                 {(Array.isArray(types) ? types : [types]).map((t) => (
                                   <span key={t} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
@@ -394,11 +406,13 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           <span className="font-medium">Moderation</span>
                         </div>
                       </td>
-                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
                         const mod = data.options?.moderation;
                         return (
                           <td key={`${ep}-moderation`} className={tableStyles.cellCenter}>
-                            {mod ? (
+                            {mod && (Array.isArray(mod) ? mod.length > 0 : mod) ? (
                               <div className="flex flex-wrap gap-1 justify-center">
                                 {(Array.isArray(mod) ? mod : [mod]).map((lvl) => (
                                   <span key={lvl} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
@@ -422,7 +436,9 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           <span className="font-medium">Masking Support</span>
                         </div>
                       </td>
-                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
                         const m = data.options?.mask;
                         return (
                           <td key={`${ep}-mask`} className={tableStyles.cellCenter}>
@@ -441,11 +457,13 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           <span className="font-medium">Output Formats</span>
                         </div>
                       </td>
-                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
                         const opts = data.options;
                         return (
                           <td key={`${ep}-output-formats`} className={tableStyles.cellCenter}>
-                            {opts?.outputFormats ? (
+                            {opts?.outputFormats && opts.outputFormats.length > 0 ? (
                               <div className="flex gap-3 justify-center">
                                 {[
                                   { id: "text", icon: "bi-file-text-fill" },
@@ -481,11 +499,13 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           <span className="font-medium">Output File Types</span>
                         </div>
                       </td>
-                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
                         const o = data.options?.outputFileTypes;
                         return (
                           <td key={`${ep}-output-file-types`} className={tableStyles.cellCenter}>
-                            {o ? (
+                            {o && (Array.isArray(o) ? o.length > 0 : o) ? (
                               <div className="flex flex-wrap gap-1 justify-center">
                                 {(Array.isArray(o) ? o : [o]).map((t) => (
                                   <span key={t} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
@@ -509,11 +529,13 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           <span className="font-medium">Output Sizes</span>
                         </div>
                       </td>
-                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
                         const s = data.options?.outputSize;
                         return (
                           <td key={`${ep}-output-sizes`} className={tableStyles.cellCenter}>
-                            {s ? (
+                            {s && (Array.isArray(s) ? s.length > 0 : s) ? (
                               <div className="flex flex-wrap gap-1 justify-center">
                                 {(Array.isArray(s) ? s : [s]).map((sz) => (
                                   <span key={sz} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
@@ -537,11 +559,13 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           <span className="font-medium">Quality Levels</span>
                         </div>
                       </td>
-                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
                         const q = data.options?.outputQuality;
                         return (
                           <td key={`${ep}-quality-levels`} className={tableStyles.cellCenter}>
-                            {q ? (
+                            {q && (Array.isArray(q) ? q.length > 0 : q) ? (
                               <div className="flex flex-wrap gap-1 justify-center">
                                 {(Array.isArray(q) ? q : [q]).map((ql) => (
                                   <span key={ql} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
@@ -565,11 +589,13 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           <span className="font-medium">Style Options</span>
                         </div>
                       </td>
-                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
                         const st = data.options?.outputStyle;
                         return (
                           <td key={`${ep}-style-options`} className={tableStyles.cellCenter}>
-                            {st ? (
+                            {st && (Array.isArray(st) ? st.length > 0 : st) ? (
                               <div className="flex flex-wrap gap-1 justify-center">
                                 {(Array.isArray(st) ? st : [st]).map((style) => (
                                   <span key={style} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
@@ -593,11 +619,13 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           <span className="font-medium">Background</span>
                         </div>
                       </td>
-                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => {
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
                         const bg = data.options?.background;
                         return (
                           <td key={`${ep}-background`} className={tableStyles.cellCenter}>
-                            {bg ? (
+                            {bg && (Array.isArray(bg) ? bg.length > 0 : bg) ? (
                               <div className="flex flex-wrap gap-1 justify-center">
                                 {(Array.isArray(bg) ? bg : [bg]).map((b) => (
                                   <span key={b} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
@@ -621,16 +649,24 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           <span className="font-medium">Max Images</span>
                         </div>
                       </td>
-                      {Object.entries(selectedModel.apiEndpoints).map(([ep, data]) => (
-                        <td key={`${ep}-max-images`} className={tableStyles.cellCenter}>
-                          {data.options?.numberOfImages ?? <span className="text-gray-500">-</span>}
-                        </td>
-                      ))}
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
+                          console.log(`Max Images for ${ep}:`, data.options?.numberOfImages);
+                          return (
+                            <td key={`${ep}-max-images`} className={tableStyles.cellCenter}>
+                              {data.options?.numberOfImages !== undefined ? 
+                                data.options.numberOfImages : 
+                                <span className="text-gray-500">-</span>}
+                            </td>
+                          );
+                        })}
                     </tr>
                   </tbody>
                 </table>
               </div>
-          </>
+            </div>
+          </div>
         )}
 
         {/* Demo videos section */}
