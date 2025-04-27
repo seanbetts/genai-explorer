@@ -366,89 +366,8 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                       })}
                     </tr>
 
-                    {/* -------- Input File Types -------- */}
+                    {/* -------- Output Formats -------- */}
                     <tr className={tableStyles.rowOdd}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-file-earmark-arrow-up text-cyan-400" />
-                          <span className="font-medium">Input File Types</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const types = data.options?.inputFileTypes;
-                        return (
-                          <td key={`${ep}-input-file-types`} className={tableStyles.cellCenter}>
-                            {types && (Array.isArray(types) ? types.length > 0 : types) ? (
-                              <div className="flex flex-wrap gap-1 justify-center">
-                                {(Array.isArray(types) ? types : [types]).map((t) => (
-                                  <span key={t} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
-                                    {t}
-                                  </span>
-                                ))}
-                              </div>
-                            ) : (
-                              <span className="text-gray-500">-</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* -------- Moderation -------- */}
-                    <tr className={tableStyles.rowEven}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-shield-check text-cyan-400" />
-                          <span className="font-medium">Moderation</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const mod = data.options?.moderation;
-                        return (
-                          <td key={`${ep}-moderation`} className={tableStyles.cellCenter}>
-                            {mod && (Array.isArray(mod) ? mod.length > 0 : mod) ? (
-                              <div className="flex flex-wrap gap-1 justify-center">
-                                {(Array.isArray(mod) ? mod : [mod]).map((lvl) => (
-                                  <span key={lvl} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
-                                    {lvl}
-                                  </span>
-                                ))}
-                              </div>
-                            ) : (
-                              <span className="text-gray-500">-</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* -------- Masking Support -------- */}
-                    <tr className={tableStyles.rowOdd}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
-                        <div className="flex items-center gap-2">
-                          <i className="bi bi-brush text-cyan-400" />
-                          <span className="font-medium">Masking Support</span>
-                        </div>
-                      </td>
-                      {Object.entries(selectedModel.apiEndpoints)
-                        .filter(([key]) => key !== 'available')
-                        .map(([ep, data]) => {
-                        const m = data.options?.mask;
-                        return (
-                          <td key={`${ep}-mask`} className={tableStyles.cellCenter}>
-                            {m !== undefined ? <i className={m ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>}
-                          </td>
-                        );
-                      })}
-                    </tr>
-
-                    {/* ========= OUTPUT OPTIONS ========= */}
-                    {/* Output Formats */}
-                    <tr className={tableStyles.rowEven}>
                       <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
                         <div className="flex items-center gap-2">
                           <i className="bi bi-arrow-down-right-square-fill text-fuchsia-500" />
@@ -488,6 +407,88 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         );
                       })}
                     </tr>
+
+                    {/* -------- Input File Types -------- */}
+                    <tr className={tableStyles.rowEven}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-file-earmark-arrow-up text-cyan-400" />
+                          <span className="font-medium">Input File Types</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
+                        const types = data.options?.inputFileTypes;
+                        return (
+                          <td key={`${ep}-input-file-types`} className={tableStyles.cellCenter}>
+                            {types && (Array.isArray(types) ? types.length > 0 : types) ? (
+                              <div className="flex flex-wrap gap-1 justify-center">
+                                {(Array.isArray(types) ? types : [types]).map((t) => (
+                                  <span key={t} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                                    {t}
+                                  </span>
+                                ))}
+                              </div>
+                            ) : (
+                              <span className="text-gray-500">-</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* -------- Moderation -------- */}
+                    <tr className={tableStyles.rowOdd}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-shield-check text-cyan-400" />
+                          <span className="font-medium">Moderation</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
+                        const mod = data.options?.moderation;
+                        return (
+                          <td key={`${ep}-moderation`} className={tableStyles.cellCenter}>
+                            {mod && (Array.isArray(mod) ? mod.length > 0 : mod) ? (
+                              <div className="flex flex-wrap gap-1 justify-center">
+                                {(Array.isArray(mod) ? mod : [mod]).map((lvl) => (
+                                  <span key={lvl} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
+                                    {lvl}
+                                  </span>
+                                ))}
+                              </div>
+                            ) : (
+                              <span className="text-gray-500">-</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* -------- Masking Support -------- */}
+                    <tr className={tableStyles.rowEven}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <div className="flex items-center gap-2">
+                          <i className="bi bi-brush text-cyan-400" />
+                          <span className="font-medium">Masking Support</span>
+                        </div>
+                      </td>
+                      {Object.entries(selectedModel.apiEndpoints)
+                        .filter(([key]) => key !== 'available')
+                        .map(([ep, data]) => {
+                        const m = data.options?.mask;
+                        return (
+                          <td key={`${ep}-mask`} className={tableStyles.cellCenter}>
+                            {m !== undefined ? <i className={m ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>}
+                          </td>
+                        );
+                      })}
+                    </tr>
+
+                    {/* ========= OUTPUT OPTIONS ========= */}
 
                     {/* Output File Types */}
                     <tr className={tableStyles.rowOdd}>
