@@ -679,9 +679,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-2 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors"
+                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2"
                   >
-                    <i className="bi bi-play-circle"></i> {formatDemoName(key)}
+                    <i className="bi bi-play-circle text-xl"></i>
+                    <span>{formatDemoName(key)}</span>
                   </a>
                 ))}
               </div>
@@ -699,9 +700,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                   href={selectedModel.releasePost} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-3 py-10 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex items-center justify-center gap-2"
+                  className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2"
                 >
-                  <i className="bi bi-newspaper"></i> Release Post
+                  <i className="bi bi-newspaper text-xl"></i>
+                  <span>Release Post</span>
                 </a>
               )}
               {selectedModel.releaseVideo && (
@@ -709,9 +711,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                   href={selectedModel.releaseVideo} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex items-center justify-center gap-2"
+                  className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2"
                 >
-                  <i className="bi bi-play-btn"></i> Release Video
+                  <i className="bi bi-play-btn text-xl"></i>
+                  <span>Release Video</span>
                 </a>
               )}
               {selectedModel.systemCard && (
@@ -719,9 +722,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                   href={selectedModel.systemCard} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex items-center justify-center gap-2"
+                  className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2"
                 >
-                  <i className="bi bi-file-earmark-text"></i> System Card
+                  <i className="bi bi-file-earmark-text text-xl"></i>
+                  <span>System Card</span>
                 </a>
               )}
               {selectedModel.modelPage && (
@@ -729,9 +733,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                   href={selectedModel.modelPage} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex items-center justify-center gap-2"
+                  className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2"
                 >
-                  <i className="bi bi-globe2"></i> Model Page
+                  <i className="bi bi-globe2 text-xl"></i>
+                  <span>Model Page</span>
                 </a>
               )}
               {selectedModel.modelGuide && (
@@ -739,9 +744,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                   href={selectedModel.modelGuide} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex items-center justify-center gap-2"
+                  className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2"
                 >
-                  <i className="bi bi-book"></i> Model Guide
+                  <i className="bi bi-book text-xl"></i>
+                  <span>Model Guide</span>
                 </a>
               )}
               {selectedModel.apiDocumentation && (
@@ -749,9 +755,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                   href={selectedModel.apiDocumentation} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex items-center justify-center gap-2"
+                  className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2"
                 >
-                  <i className="bi bi-code-square"></i> API Documentation
+                  <i className="bi bi-code-square text-xl"></i>
+                  <span>API Documentation</span>
                 </a>
               )}
             </div>
