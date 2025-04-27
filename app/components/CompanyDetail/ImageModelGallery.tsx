@@ -82,14 +82,30 @@ const ThumbnailScroller: React.FC<ThumbnailScrollerProps> = ({
   activeIndex,
   isKeyboardNav = false,
 }) => {
+  // Use both useLayoutEffect and useEffect to ensure scrolling happens reliably
   useLayoutEffect(() => {
+    scrollToActiveThumbnail();
+  }, [activeIndex, isKeyboardNav]);
+  
+  // Also use regular useEffect as a backup to ensure scrolling works after render
+  useEffect(() => {
+    scrollToActiveThumbnail();
+    // Add a small delay to ensure thumbnails are fully rendered
+    const timer = setTimeout(scrollToActiveThumbnail, 100);
+    return () => clearTimeout(timer);
+  }, [activeIndex, isKeyboardNav]);
+  
+  const scrollToActiveThumbnail = () => {
     const el = document.getElementById(`thumbnail-${activeIndex}`);
     const container = document.getElementById('thumbnail-container');
     if (el && container) {
-      // Scroll only horizontally without affecting the page's vertical position
-      container.scrollLeft = el.offsetLeft - container.offsetWidth / 2 + el.offsetWidth / 2;
+      // Calculate the offset needed to center the active thumbnail
+      const thumbnailCenter = el.offsetLeft + el.offsetWidth / 2;
+      const containerCenter = container.offsetWidth / 2;
+      container.scrollLeft = thumbnailCenter - containerCenter;
     }
-  }, [activeIndex, isKeyboardNav]);
+  };
+  
   return null;
 };
 
@@ -130,6 +146,16 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
       .then((res) => res.json())
       .then((urls: string[]) => {
         setImageUrls(urls);
+        // After setting images, ensure the first thumbnail is scrolled into view
+        setTimeout(() => {
+          const el = document.getElementById('thumbnail-0');
+          const container = document.getElementById('thumbnail-container');
+          if (el && container) {
+            const thumbnailCenter = el.offsetLeft + el.offsetWidth / 2;
+            const containerCenter = container.offsetWidth / 2;
+            container.scrollLeft = thumbnailCenter - containerCenter;
+          }
+        }, 100);
       })
       .catch((err) => {
         console.error('Failed to fetch image URLs for', selectedModelId, err);
@@ -140,6 +166,30 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
   const exampleImages = imageUrls;
   const hasMultipleImages = exampleImages.length > 1;
   const currentImage = exampleImages[currentImageIndex] ?? PLACEHOLDER_IMAGE;
+  
+  // ----- thumbnail layout management ----------------------------------------
+  const [shouldCenterThumbnails, setShouldCenterThumbnails] = useState(true);
+  
+  useEffect(() => {
+    // Check if thumbnails should be centered or left-aligned for scrolling
+    const checkThumbnailLayout = () => {
+      const container = document.getElementById('thumbnail-container');
+      if (!container) return;
+      
+      // Calculate the total width of all thumbnails (16px width + 0.25rem gap per thumbnail)
+      const thumbnailsTotalWidth = exampleImages.length * (64 + 4); // 64px for thumbnail width, 4px for gap
+      const containerWidth = container.offsetWidth;
+      
+      // If thumbnails total width is less than container, they should be centered
+      setShouldCenterThumbnails(thumbnailsTotalWidth < containerWidth);
+    };
+    
+    // Check on initial load and window resize
+    checkThumbnailLayout();
+    window.addEventListener('resize', checkThumbnailLayout);
+    
+    return () => window.removeEventListener('resize', checkThumbnailLayout);
+  }, [exampleImages.length]);
 
   // ----- image navigation ----------------------------------------------------
   const nextImage = useCallback(() => {
@@ -830,7 +880,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
         {exampleImages.length > 1 && (
           <div className="mt-2 overflow-x-auto scrollbar-hide">
             <div
-              className="flex gap-1 py-1 max-w-full justify-center"
+              className={`flex gap-1 py-1 max-w-full ${shouldCenterThumbnails ? 'justify-center' : 'justify-start'}`}
               style={{ scrollbarWidth: "none" }}
               id="thumbnail-container"
             >
