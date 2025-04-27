@@ -114,6 +114,10 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
         setActiveTab('enterprise-models');
         return;
       }
+      if (hasOpenModels()) {
+        setActiveTab('open-models');
+        return;
+      }
       if (hasImageModels()) {
         setActiveTab('image-models');
         return;
@@ -130,10 +134,6 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
         setActiveTab('specialised-models');
         return;
       }
-      if (hasOpenModels()) {
-        setActiveTab('open-models');
-        return;
-      }
     }
     
     // Fallback to default order if no tab parameter or invalid value
@@ -141,6 +141,9 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
       setActiveTab('frontier-models');
     } else if (hasEnterpriseModels()) {
       setActiveTab('enterprise-models');
+    } else if (hasOpenModels()) {
+      // Open Models now come BEFORE image and video models
+      setActiveTab('open-models');
     } else if (hasImageModels()) {
       setActiveTab('image-models');
     } else if (hasVideoModels()) {
@@ -149,9 +152,6 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
       setActiveTab('audio-models');
     } else if (hasSpecialisedModels()) {
       setActiveTab('specialised-models');
-    } else if (hasOpenModels()) {
-      // Open Models now come last in the models tabs
-      setActiveTab('open-models');
     } else if (company.products && company.products.length > 0) {
       setActiveTab('products');
     } else if (company.features && company.features.length > 0) {
@@ -312,6 +312,24 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
             </button>
           )}
           
+          {/* Only render Open Models tab if company has open models - moved BEFORE image and video model tabs */}
+          {hasOpenModels() && (
+            <button
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                activeTab === 'open-models' 
+                  ? 'border-cyan-400 text-cyan-400' 
+                  : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
+              }`}
+              onClick={() => {
+                // Enable URL updates on user click
+                initialRender.current = false;
+                setActiveTab('open-models');
+              }}
+            >
+              Open Models
+            </button>
+          )}
+          
           {/* Only render Image Models tab if company has image models */}
           {hasImageModels() && (
             <button
@@ -381,24 +399,6 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
               }}
             >
               Specialised Models
-            </button>
-          )}
-          
-          {/* Only render Open Models tab if company has open models - moved to be last among model tabs */}
-          {hasOpenModels() && (
-            <button
-              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
-                activeTab === 'open-models' 
-                  ? 'border-cyan-400 text-cyan-400' 
-                  : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
-              }`}
-              onClick={() => {
-                // Enable URL updates on user click
-                initialRender.current = false;
-                setActiveTab('open-models');
-              }}
-            >
-              Open Models
             </button>
           )}
           
