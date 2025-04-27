@@ -116,13 +116,13 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
 
     // Determine if the model has IP Respect data
     const hasIPRespectData = selectedModel.safety && 
-      (selectedModel.safety.IPRespect !== undefined || 
-       selectedModel.safety.ipRespect !== undefined);
+      (selectedModel.safety?.IPRespect !== undefined || 
+       selectedModel.safety?.ipRespect !== undefined);
     
     // Determine if IP Respect is enabled
     const ipRespectEnabled = hasIPRespectData && 
-      (selectedModel.safety.IPRespect === true || 
-       selectedModel.safety.ipRespect === true);
+      (selectedModel.safety?.IPRespect === true || 
+       selectedModel.safety?.ipRespect === true);
     
     // Get C2PA documentation URL if available
     const c2paDocsUrl = selectedModel.metadata?.C2PA || 
@@ -155,14 +155,79 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
           <div>
             <h3 className={`${headingStyles.card} mb-3`}>Model Features</h3>
             <div className={`${containerStyles.card} min-h-[30.7rem] h-auto`}>
-              <div className="grid grid-cols-2 gap-2">
-                {Object.entries(selectedModel.features ?? {})
-                  .map(([key, value]) => (
-                    <div key={key} className="flex items-center h-8">
-                      <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                      <span className={textStyles.body}>{formatFeatureName(key)}</span>
+              <div className="space-y-4">
+                {/* Generation Features */}
+                {selectedModel.features?.generation && Object.keys(selectedModel.features.generation).length > 0 && (
+                  <>
+                    <div className="mb-2">
+                      <h4 className="text-sm font-semibold text-cyan-400 mb-2">Generation</h4>
+                      <div className="grid grid-cols-2 gap-2">
+                        {Object.entries(selectedModel.features.generation)
+                          .map(([key, value]) => (
+                            <div key={key} className="flex items-center h-8">
+                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                              <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                            </div>
+                          ))}
+                      </div>
                     </div>
-                  ))}
+                    <div className="border-b border-gray-700 my-2"></div>
+                  </>
+                )}
+                
+                {/* Editing Features */}
+                {selectedModel.features?.editing && Object.keys(selectedModel.features.editing).length > 0 && (
+                  <>
+                    <div className="mb-2">
+                      <h4 className="text-sm font-semibold text-cyan-400 mb-2">Editing</h4>
+                      <div className="grid grid-cols-2 gap-2">
+                        {Object.entries(selectedModel.features.editing)
+                          .map(([key, value]) => (
+                            <div key={key} className="flex items-center h-8">
+                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                              <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                            </div>
+                          ))}
+                      </div>
+                    </div>
+                    <div className="border-b border-gray-700 my-2"></div>
+                  </>
+                )}
+                
+                {/* Enhancement Features */}
+                {selectedModel.features?.enhancement && Object.keys(selectedModel.features.enhancement).length > 0 && (
+                  <>
+                    <div className="mb-2">
+                      <h4 className="text-sm font-semibold text-cyan-400 mb-2">Enhancement</h4>
+                      <div className="grid grid-cols-2 gap-2">
+                        {Object.entries(selectedModel.features.enhancement)
+                          .map(([key, value]) => (
+                            <div key={key} className="flex items-center h-8">
+                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                              <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                            </div>
+                          ))}
+                      </div>
+                    </div>
+                    <div className="border-b border-gray-700 my-2"></div>
+                  </>
+                )}
+                
+                {/* Advanced Features */}
+                {selectedModel.features?.advanced && Object.keys(selectedModel.features.advanced).length > 0 && (
+                  <div className="mb-2">
+                    <h4 className="text-sm font-semibold text-cyan-400 mb-2">Advanced</h4>
+                    <div className="grid grid-cols-2 gap-2">
+                      {Object.entries(selectedModel.features.advanced)
+                        .map(([key, value]) => (
+                          <div key={key} className="flex items-center h-8">
+                            <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                            <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>

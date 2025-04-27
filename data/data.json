@@ -516,23 +516,31 @@
             "speed": 1
           },
           "features": {
-            "textToImage": true,
-            "imageToImage": true,
-            "imageToVector": false,
-            "imageVariations": true,
-            "transparentLayers": false,
-            "inPainting": true,
-            "backgroundRemoval": false,
-            "generativeExpand": false,
-            "generativeRecolor": false,
-            "textRendering": true,
-            "characterConsistency": true,
-            "styleKits": false,
-            "multiTurnGeneration": true,
-            "hexCodes": true,
-            "photoRealism": true,
-            "moodBoarding": false,
-            "trainCustomModels": false
+            "generation": {
+              "textToImage": true,
+              "imageToImage": true,
+              "textToVector": false
+            },
+            "editing": {
+              "multiTurnGeneration": true,
+              "imageVariations": true,
+              "inPainting": true,
+              "generativeExpand": false,
+              "backgroundRemoval": false,
+              "generativeRecolor": false
+            },
+            "enhancement": {
+              "photoRealism": true,
+              "textRendering": true,
+              "transparentLayers": true,
+              "characterConsistency": true
+            },
+            "advanced": {
+              "styleKits": false,
+              "hexCodes": true,
+              "moodBoarding": false,
+              "trainCustomModels": false
+            }
           },
           "aspectRatios": {
             "landscape (4:3)": true,
@@ -618,16 +626,31 @@
             "speed": 1
           },
           "features": {
-            "textToImage": false,
-            "imageToImage": false,
-            "imageVariations": false,
-            "transparentLayers": false,
-            "inPainting": false,
-            "textRendering": false,
-            "characterConsistency": false,
-            "multiTurnGeneration": false,
-            "hexCodes": false,
-            "photoRealism": false
+            "generation": {
+              "textToImage": false,
+              "imageToImage": false,
+              "textToVector": false
+            },
+            "editing": {
+              "multiTurnGeneration": false,
+              "imageVariations": false,
+              "inPainting": false,
+              "generativeExpand": false,
+              "backgroundRemoval": false,
+              "generativeRecolor": false
+            },
+            "enhancement": {
+              "photoRealism": false,
+              "textRendering": false,
+              "transparentLayers": false,
+              "characterConsistency": false
+            },
+            "advanced": {
+              "styleKits": false,
+              "hexCodes": false,
+              "moodBoarding": false,
+              "trainCustomModels": false
+            }
           },
           "safety": {
             "chatModelRefusals": false,
@@ -1386,23 +1409,31 @@
             "speed": 1
           },
           "features": {
-            "textToImage": false,
-            "imageToImage": false,
-            "imageToVector": false,
-            "imageVariations": false,
-            "transparentLayers": false,
-            "inPainting": false,
-            "backgroundRemoval": false,
-            "generativeExpand": false,
-            "generativeRecolor": false,
-            "textRendering": false,
-            "characterConsistency": false,
-            "styleKits": false,
-            "multiTurnGeneration": false,
-            "hexCodes": false,
-            "photoRealism": false,
-            "moodBoarding": false,
-            "trainCustomModels": false
+            "generation": {
+              "textToImage": false,
+              "imageToImage": false,
+              "textToVector": false
+            },
+            "editing": {
+              "multiTurnGeneration": false,
+              "imageVariations": false,
+              "inPainting": false,
+              "generativeExpand": false,
+              "backgroundRemoval": false,
+              "generativeRecolor": false
+            },
+            "enhancement": {
+              "photoRealism": false,
+              "textRendering": false,
+              "transparentLayers": false,
+              "characterConsistency": false
+            },
+            "advanced": {
+              "styleKits": false,
+              "hexCodes": false,
+              "moodBoarding": false,
+              "trainCustomModels": false
+            }
           },
           "aspectRatios": {
             "landscape (4:3)": false,
@@ -1490,16 +1521,31 @@
             "speed": 1
           },
           "features": {
-            "textToImage": false,
-            "imageToImage": false,
-            "imageVariations": false,
-            "transparentLayers": false,
-            "inPainting": false,
-            "textRendering": false,
-            "characterConsistency": false,
-            "multiTurnGeneration": false,
-            "hexCodes": false,
-            "photoRealism": false
+            "generation": {
+              "textToImage": false,
+              "imageToImage": false,
+              "textToVector": false
+            },
+            "editing": {
+              "multiTurnGeneration": false,
+              "imageVariations": false,
+              "inPainting": false,
+              "generativeExpand": false,
+              "backgroundRemoval": false,
+              "generativeRecolor": false
+            },
+            "enhancement": {
+              "photoRealism": false,
+              "textRendering": false,
+              "transparentLayers": false,
+              "characterConsistency": false
+            },
+            "advanced": {
+              "styleKits": false,
+              "hexCodes": false,
+              "moodBoarding": false,
+              "trainCustomModels": false
+            }
           },
           "safety": {
             "chatModelRefusals": false,
@@ -3624,23 +3670,31 @@
             "speed": 1
           },
           "features": {
-            "textToImage": true,
-            "imageToImage": true,
-            "imageToVector": true,
-            "imageVariations": true,
-            "transparentLayers": false,
-            "inPainting": true,
-            "backgroundRemoval": true,
-            "generativeExpand": true,
-            "generativeRecolor": true,
-            "textRendering": true,
-            "characterConsistency": true,
-            "styleKits": true,
-            "multiTurnGeneration": false,
-            "hexCodes": false,
-            "photoRealism": true,
-            "moodBoarding": true,
-            "trainCustomModels": true
+            "generation": {
+              "textToImage": true,
+              "imageToImage": true,
+              "textToVector": true
+            },
+            "editing": {
+              "multiTurnGeneration": false,
+              "imageVariations": true,
+              "inPainting": true,
+              "generativeExpand": true,
+              "backgroundRemoval": true,
+              "generativeRecolor": true
+            },
+            "enhancement": {
+              "photoRealism": true,
+              "textRendering": true,
+              "transparentLayers": false,
+              "characterConsistency": true
+            },
+            "advanced": {
+              "styleKits": true,
+              "hexCodes": false,
+              "moodBoarding": false,
+              "trainCustomModels": true
+            }
           },
           "aspectRatios": {
             "landscape (4:3)": true,
@@ -3726,17 +3780,31 @@
             "speed": 1
           },
           "features": {
-            "textToImage": false,
-            "imageToImage": false,
-            "imageToVector": false,
-            "imageVariations": false,
-            "transparentLayers": false,
-            "inPainting": false,
-            "textRendering": false,
-            "characterConsistency": false,
-            "multiTurnGeneration": false,
-            "hexCodes": false,
-            "photoRealism": false
+            "generation": {
+              "textToImage": false,
+              "imageToImage": false,
+              "textToVector": false
+            },
+            "editing": {
+              "multiTurnGeneration": false,
+              "imageVariations": false,
+              "inPainting": false,
+              "generativeExpand": false,
+              "backgroundRemoval": false,
+              "generativeRecolor": false
+            },
+            "enhancement": {
+              "photoRealism": false,
+              "textRendering": false,
+              "transparentLayers": false,
+              "characterConsistency": false
+            },
+            "advanced": {
+              "styleKits": false,
+              "hexCodes": false,
+              "moodBoarding": false,
+              "trainCustomModels": false
+            }
           },
           "safety": {
             "chatModelRefusals": true,
@@ -3921,23 +3989,31 @@
             "speed": 1
           },
           "features": {
-            "textToImage": false,
-            "imageToImage": false,
-            "imageToVector": false,
-            "imageVariations": false,
-            "transparentLayers": false,
-            "inPainting": false,
-            "backgroundRemoval": false,
-            "generativeExpand": false,
-            "generativeRecolor": false,
-            "textRendering": false,
-            "characterConsistency": false,
-            "styleKits": false,
-            "multiTurnGeneration": false,
-            "hexCodes": false,
-            "photoRealism": false,
-            "moodBoarding": false,
-            "trainCustomModels": false
+            "generation": {
+              "textToImage": false,
+              "imageToImage": false,
+              "textToVector": false
+            },
+            "editing": {
+              "multiTurnGeneration": false,
+              "imageVariations": false,
+              "inPainting": false,
+              "generativeExpand": false,
+              "backgroundRemoval": false,
+              "generativeRecolor": false
+            },
+            "enhancement": {
+              "photoRealism": false,
+              "textRendering": false,
+              "transparentLayers": false,
+              "characterConsistency": false
+            },
+            "advanced": {
+              "styleKits": false,
+              "hexCodes": false,
+              "moodBoarding": false,
+              "trainCustomModels": false
+            }
           },
           "aspectRatios": {
             "landscape (4:3)": false,
@@ -4036,23 +4112,31 @@
             "speed": 1
           },
           "features": {
-            "textToImage": false,
-            "imageToImage": false,
-            "imageToVector": false,
-            "imageVariations": false,
-            "transparentLayers": false,
-            "inPainting": false,
-            "backgroundRemoval": false,
-            "generativeExpand": false,
-            "generativeRecolor": false,
-            "textRendering": false,
-            "characterConsistency": false,
-            "styleKits": false,
-            "multiTurnGeneration": false,
-            "hexCodes": false,
-            "photoRealism": false,
-            "moodBoarding": false,
-            "trainCustomModels": false
+            "generation": {
+              "textToImage": false,
+              "imageToImage": false,
+              "textToVector": false
+            },
+            "editing": {
+              "multiTurnGeneration": false,
+              "imageVariations": false,
+              "inPainting": false,
+              "generativeExpand": false,
+              "backgroundRemoval": false,
+              "generativeRecolor": false
+            },
+            "enhancement": {
+              "photoRealism": false,
+              "textRendering": false,
+              "transparentLayers": false,
+              "characterConsistency": false
+            },
+            "advanced": {
+              "styleKits": false,
+              "hexCodes": false,
+              "moodBoarding": false,
+              "trainCustomModels": false
+            }
           },
           "aspectRatios": {
             "landscape (4:3)": false,

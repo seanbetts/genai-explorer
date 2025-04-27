@@ -137,7 +137,12 @@ export interface Model {
   commerciallySafe?: boolean; // Whether the model is safe for commercial use
   metadata?: Record<string, string>; // Key-value pairs of metadata
   apiEndpoints?: Record<string, any>; // API endpoint definitions
-  features?: Record<string, boolean>; // Features supported by the model
+  features?: {
+    generation?: Record<string, boolean>;
+    editing?: Record<string, boolean>;
+    enhancement?: Record<string, boolean>;
+    advanced?: Record<string, boolean>;
+  }; // Features supported by the model, organized by category
   safety?: Record<string, boolean>; // Safety features of the model
   aspectRatios?: Record<string, boolean>; // Supported aspect ratios for image generation
 }
