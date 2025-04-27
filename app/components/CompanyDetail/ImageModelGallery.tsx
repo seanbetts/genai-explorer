@@ -522,14 +522,18 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         const types = data.options?.inputFileTypes;
                         return (
                           <td key={`${ep}-input-file-types`} className={tableStyles.cellCenter}>
-                            {types && (Array.isArray(types) ? types.length > 0 : types) ? (
-                              <div className="flex flex-wrap gap-1 justify-center">
-                                {(Array.isArray(types) ? types : [types]).map((t) => (
-                                  <span key={t} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
-                                    {t}
-                                  </span>
-                                ))}
-                              </div>
+                            {types !== undefined ? (
+                              Array.isArray(types) && types.length > 0 ? (
+                                <div className="flex flex-wrap gap-1 justify-center">
+                                  {(Array.isArray(types) ? types : [types]).map((t) => (
+                                    <span key={t} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                                      {t}
+                                    </span>
+                                  ))}
+                                </div>
+                              ) : (
+                                <i className={iconStyles.booleanFalse} />
+                              )
                             ) : (
                               <span className="text-gray-500">-</span>
                             )}
@@ -582,14 +586,18 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         const mod = data.options?.moderation;
                         return (
                           <td key={`${ep}-moderation`} className={tableStyles.cellCenter}>
-                            {mod && (Array.isArray(mod) ? mod.length > 0 : mod) ? (
-                              <div className="flex flex-wrap gap-1 justify-center">
-                                {(Array.isArray(mod) ? mod : [mod]).map((lvl) => (
-                                  <span key={lvl} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
-                                    {lvl}
-                                  </span>
-                                ))}
-                              </div>
+                            {mod !== undefined ? (
+                              Array.isArray(mod) && mod.length > 0 ? (
+                                <div className="flex flex-wrap gap-1 justify-center">
+                                  {(Array.isArray(mod) ? mod : [mod]).map((lvl) => (
+                                    <span key={lvl} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
+                                      {lvl}
+                                    </span>
+                                  ))}
+                                </div>
+                              ) : (
+                                <i className={iconStyles.booleanFalse} />
+                              )
                             ) : (
                               <span className="text-gray-500">-</span>
                             )}
@@ -664,7 +672,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
 
                     {/* -------- Negative Prompt -------- */}
                     <tr className={tableStyles.rowOdd}>
-                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} border-b-2 border-cyan-500`}>
+                      <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
                         <div className="flex items-center gap-2">
                           <i className="bi bi-dash-circle text-cyan-400" />
                           <span className="font-medium">Negative Prompt</span>
@@ -675,7 +683,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         .map(([ep, data]) => {
                         const np = data.options?.negativePrompt;
                         return (
-                          <td key={`${ep}-negative-prompt`} className={`${tableStyles.cellCenter} border-b-2 border-cyan-500`}>
+                          <td key={`${ep}-negative-prompt`} className={tableStyles.cellCenter}>
                             {np !== undefined ? <i className={np ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>}
                           </td>
                         );
@@ -698,14 +706,18 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         const o = data.options?.outputFileTypes;
                         return (
                           <td key={`${ep}-output-file-types`} className={tableStyles.cellCenter}>
-                            {o && (Array.isArray(o) ? o.length > 0 : o) ? (
-                              <div className="flex flex-wrap gap-1 justify-center">
-                                {(Array.isArray(o) ? o : [o]).map((t) => (
-                                  <span key={t} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
-                                    {t}
-                                  </span>
-                                ))}
-                              </div>
+                            {o !== undefined ? (
+                              Array.isArray(o) && o.length > 0 ? (
+                                <div className="flex flex-wrap gap-1 justify-center">
+                                  {(Array.isArray(o) ? o : [o]).map((t) => (
+                                    <span key={t} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                                      {t}
+                                    </span>
+                                  ))}
+                                </div>
+                              ) : (
+                                <i className={iconStyles.booleanFalse} />
+                              )
                             ) : (
                               <span className="text-gray-500">-</span>
                             )}
@@ -728,14 +740,18 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         const s = data.options?.outputSize;
                         return (
                           <td key={`${ep}-output-sizes`} className={tableStyles.cellCenter}>
-                            {s && (Array.isArray(s) ? s.length > 0 : s) ? (
-                              <div className="flex flex-wrap gap-1 justify-center">
-                                {(Array.isArray(s) ? s : [s]).map((sz) => (
-                                  <span key={sz} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
-                                    {sz}
-                                  </span>
-                                ))}
-                              </div>
+                            {s !== undefined ? (
+                              Array.isArray(s) && s.length > 0 ? (
+                                <div className="flex flex-wrap gap-1 justify-center max-w-[16rem] mx-auto">
+                                  {(Array.isArray(s) ? s : [s]).map((sz) => (
+                                    <span key={sz} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                                      {sz}
+                                    </span>
+                                  ))}
+                                </div>
+                              ) : (
+                                <i className={iconStyles.booleanFalse} />
+                              )
                             ) : (
                               <span className="text-gray-500">-</span>
                             )}
@@ -758,14 +774,18 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         const q = data.options?.outputQuality;
                         return (
                           <td key={`${ep}-quality-levels`} className={tableStyles.cellCenter}>
-                            {q && (Array.isArray(q) ? q.length > 0 : q) ? (
-                              <div className="flex flex-wrap gap-1 justify-center">
-                                {(Array.isArray(q) ? q : [q]).map((ql) => (
-                                  <span key={ql} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
-                                    {ql}
-                                  </span>
-                                ))}
-                              </div>
+                            {q !== undefined ? (
+                              Array.isArray(q) && q.length > 0 ? (
+                                <div className="flex flex-wrap gap-1 justify-center">
+                                  {(Array.isArray(q) ? q : [q]).map((ql) => (
+                                    <span key={ql} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
+                                      {ql}
+                                    </span>
+                                  ))}
+                                </div>
+                              ) : (
+                                <i className={iconStyles.booleanFalse} />
+                              )
                             ) : (
                               <span className="text-gray-500">-</span>
                             )}
@@ -788,14 +808,18 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         const st = data.options?.outputStyle;
                         return (
                           <td key={`${ep}-style-options`} className={tableStyles.cellCenter}>
-                            {st && (Array.isArray(st) ? st.length > 0 : st) ? (
-                              <div className="flex flex-wrap gap-1 justify-center">
-                                {(Array.isArray(st) ? st : [st]).map((style) => (
-                                  <span key={style} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
-                                    {style}
-                                  </span>
-                                ))}
-                              </div>
+                            {st !== undefined ? (
+                              Array.isArray(st) && st.length > 0 ? (
+                                <div className="flex flex-wrap gap-1 justify-center">
+                                  {(Array.isArray(st) ? st : [st]).map((style) => (
+                                    <span key={style} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
+                                      {style}
+                                    </span>
+                                  ))}
+                                </div>
+                              ) : (
+                                <i className={iconStyles.booleanFalse} />
+                              )
                             ) : (
                               <span className="text-gray-500">-</span>
                             )}
@@ -818,14 +842,18 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         const bg = data.options?.background;
                         return (
                           <td key={`${ep}-background`} className={tableStyles.cellCenter}>
-                            {bg && (Array.isArray(bg) ? bg.length > 0 : bg) ? (
-                              <div className="flex flex-wrap gap-1 justify-center">
-                                {(Array.isArray(bg) ? bg : [bg]).map((b) => (
-                                  <span key={b} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
-                                    {b}
-                                  </span>
-                                ))}
-                              </div>
+                            {bg !== undefined ? (
+                              Array.isArray(bg) && bg.length > 0 ? (
+                                <div className="flex flex-wrap gap-1 justify-center">
+                                  {(Array.isArray(bg) ? bg : [bg]).map((b) => (
+                                    <span key={b} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
+                                      {b}
+                                    </span>
+                                  ))}
+                                </div>
+                              ) : (
+                                <i className={iconStyles.booleanFalse} />
+                              )
                             ) : (
                               <span className="text-gray-500">-</span>
                             )}
@@ -848,13 +876,19 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         const vi = data.options?.visualIntesity;
                         return (
                           <td key={`${ep}-visual-intensity`} className={tableStyles.cellCenter}>
-                            {vi !== undefined ? 
-                              <div className="flex items-center justify-center">
-                                <span className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
-                                  1-{vi}
-                                </span>
-                              </div>
-                              : <span className="text-gray-500">-</span>}
+                            {vi !== undefined ? (
+                              vi === 0 ? (
+                                <i className={iconStyles.booleanFalse} />
+                              ) : (
+                                <div className="flex items-center justify-center">
+                                  <span className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                                    1-{vi}
+                                  </span>
+                                </div>
+                              )
+                            ) : (
+                              <span className="text-gray-500">-</span>
+                            )}
                           </td>
                         );
                       })}
