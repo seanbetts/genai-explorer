@@ -136,15 +136,45 @@ export interface Model {
   usagePolicy?: string; // URL to usage policy
   commerciallySafe?: boolean; // Whether the model is safe for commercial use
   metadata?: Record<string, string>; // Key-value pairs of metadata
-  apiEndpoints?: Record<string, any>; // API endpoint definitions
+  apiEndpoints?: Record<string, ApiEndpoint>; // API endpoint definitions
   features?: {
     generation?: Record<string, boolean>;
     editing?: Record<string, boolean>;
     enhancement?: Record<string, boolean>;
     advanced?: Record<string, boolean>;
   }; // Features supported by the model, organized by category
-  safety?: Record<string, boolean>; // Safety features of the model
+  safety?: Record<string, any>; // Safety features of the model (can contain boolean values or strings for URLs)
   aspectRatios?: Record<string, boolean>; // Supported aspect ratios for image generation
+
+export interface ApiEndpointOptions {
+  inputFormats?: string[];
+  outputFormats?: string[];
+  inputFileTypes?: string[];
+  outputFileTypes?: string[];
+  maxInputSize?: number;
+  contextWindow?: number;
+  moderation?: string[];
+  mask?: boolean;
+  structureReference?: boolean;
+  negativePrompt?: boolean;
+  outputSize?: string[];
+  outputQuality?: string[];
+  outputCompression?: boolean;
+  outputStyle?: string[];
+  background?: string[];
+  visualIntesity?: number;
+  tileable?: boolean;
+  placementPosition?: boolean;
+  placementAlignment?: boolean;
+  numberOfImages?: number;
+}
+
+export interface ApiEndpoint {
+  available?: boolean;
+  url?: string;
+  description?: string;
+  documentation?: string;
+  options?: ApiEndpointOptions;
 }
 
 export interface Subscription {

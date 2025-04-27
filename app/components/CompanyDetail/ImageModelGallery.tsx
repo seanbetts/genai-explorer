@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import ImagePopover from "../shared/ImagePopover";
 import ImageCarousel from "../shared/ImageCarousel";
 import VideoCarousel from "../shared/VideoCarousel";
-import { Model } from "../types";
+import { Model, ApiEndpoint } from "../types";
 import { textStyles, headingStyles } from "../utils/theme";
 import {
   containerStyles,
@@ -402,7 +402,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
         {/* ================= API ENDPOINT TABLE ================= */}
         {selectedModel.apiEndpoints && 
          Object.keys(selectedModel.apiEndpoints).length > 0 && 
-         selectedModel.apiEndpoints.available === true && (
+         'available' in selectedModel.apiEndpoints && selectedModel.apiEndpoints.available && (
           <div className="mb-8">
             {/* API Endpoints header */}
             <h3 className={headingStyles.card}>API Endpoints</h3>
@@ -410,8 +410,8 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
               <table className={`${tableStyles.table} w-full table-fixed`}>
                 <thead className={tableStyles.header}>
                   <tr>
-                    <th className={`${tableStyles.headerCell} ${tableStyles.stickyLabelCell} w-1/4`} />
-                    {Object.entries(selectedModel.apiEndpoints)
+                    <th className={`${tableStyles.headerCell} ${tableStyles.stickyLabelCell} w-1/4 bg-gray-800`} />
+                    {Object.entries(selectedModel.apiEndpoints || {})
                       .filter(([key]) => key !== 'available')
                       .map(([ep], index, array) => (
                         <th key={ep} className={tableStyles.headerCellCenter} style={{ width: `${75 / array.length}%` }}>
@@ -430,7 +430,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Input Formats',
                         icon: 'bi-arrow-up-right-square-fill',
                         iconColor: 'text-cyan-400',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const opts = data.options;
                           return (
                             opts?.inputFormats && opts.inputFormats.length > 0 ? (
@@ -445,7 +445,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   <i
                                     key={id}
                                     className={`bi ${icon} ${
-                                      opts.inputFormats.includes(id)
+                                      opts.inputFormats?.includes(id)
                                         ? iconStyles.activeFormat
                                         : iconStyles.inactiveFormat
                                     }`}
@@ -464,7 +464,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Output Formats',
                         icon: 'bi-arrow-down-right-square-fill',
                         iconColor: 'text-fuchsia-500',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const opts = data.options;
                           return (
                             opts?.outputFormats && opts.outputFormats.length > 0 ? (
@@ -479,7 +479,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   <i
                                     key={id}
                                     className={`bi ${icon} ${
-                                      opts.outputFormats.includes(id)
+                                      opts.outputFormats?.includes(id)
                                         ? iconStyles.activeFormat
                                         : iconStyles.inactiveFormat
                                     }`}
@@ -498,7 +498,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Max Input',
                         icon: 'bi-sign-turn-right-fill',
                         iconColor: 'text-cyan-400',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const cw = data.options?.contextWindow;
                           return (
                             cw !== undefined ? 
@@ -514,7 +514,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Input File Types',
                         icon: 'bi-file-earmark-arrow-up',
                         iconColor: 'text-cyan-400',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const types = data.options?.inputFileTypes;
                           return (
                             types !== undefined ? (
@@ -540,7 +540,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Max Input Size',
                         icon: 'bi-file-earmark-plus',
                         iconColor: 'text-cyan-400',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const mis = data.options?.maxInputSize;
                           return (
                             mis !== undefined ? (
@@ -562,7 +562,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Moderation',
                         icon: 'bi-shield-check',
                         iconColor: 'text-cyan-400',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const mod = data.options?.moderation;
                           return (
                             mod !== undefined ? (
@@ -588,7 +588,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Masking Support',
                         icon: 'bi-brush',
                         iconColor: 'text-cyan-400',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const m = data.options?.mask;
                           return (
                             m !== undefined ? <i className={m ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
@@ -600,7 +600,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Structure Reference',
                         icon: 'bi-grid-3x3',
                         iconColor: 'text-cyan-400',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const sr = data.options?.structureReference;
                           return (
                             sr !== undefined ? <i className={sr ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
@@ -612,7 +612,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Negative Prompt',
                         icon: 'bi-dash-circle',
                         iconColor: 'text-cyan-400',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const np = data.options?.negativePrompt;
                           return (
                             np !== undefined ? <i className={np ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
@@ -625,7 +625,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Output File Types',
                         icon: 'bi-file-earmark-arrow-down',
                         iconColor: 'text-fuchsia-500',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const o = data.options?.outputFileTypes;
                           return (
                             o !== undefined ? (
@@ -651,7 +651,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Output Sizes',
                         icon: 'bi-arrows-fullscreen',
                         iconColor: 'text-fuchsia-500',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const s = data.options?.outputSize;
                           return (
                             s !== undefined ? (
@@ -677,7 +677,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Quality Levels',
                         icon: 'bi-stars',
                         iconColor: 'text-fuchsia-500',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const q = data.options?.outputQuality;
                           return (
                             q !== undefined ? (
@@ -703,7 +703,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Output Compression',
                         icon: 'bi-file-zip',
                         iconColor: 'text-fuchsia-500',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const oc = data.options?.outputCompression;
                           return (
                             oc !== undefined ? <i className={oc ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
@@ -715,7 +715,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Style Options',
                         icon: 'bi-palette',
                         iconColor: 'text-fuchsia-500',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const st = data.options?.outputStyle;
                           return (
                             st !== undefined ? (
@@ -741,7 +741,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Background',
                         icon: 'bi-square',
                         iconColor: 'text-fuchsia-500',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const bg = data.options?.background;
                           return (
                             bg !== undefined ? (
@@ -767,7 +767,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Visual Intensity',
                         icon: 'bi-sliders',
                         iconColor: 'text-fuchsia-500',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const vi = data.options?.visualIntesity;
                           return (
                             vi !== undefined ? (
@@ -791,7 +791,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Tileable Output',
                         icon: 'bi-grid',
                         iconColor: 'text-fuchsia-500',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const t = data.options?.tileable;
                           return (
                             t !== undefined ? <i className={t ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
@@ -803,7 +803,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Placement Position',
                         icon: 'bi-bullseye',
                         iconColor: 'text-fuchsia-500',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const pp = data.options?.placementPosition;
                           return (
                             pp !== undefined ? <i className={pp ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
@@ -815,7 +815,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Placement Alignment',
                         icon: 'bi-layout-text-window',
                         iconColor: 'text-fuchsia-500',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           const pa = data.options?.placementAlignment;
                           return (
                             pa !== undefined ? <i className={pa ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
@@ -827,7 +827,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         label: 'Max Images',
                         icon: 'bi-images',
                         iconColor: 'text-fuchsia-500',
-                        renderCell: (data) => {
+                        renderCell: (data: ApiEndpoint) => {
                           return (
                             data.options?.numberOfImages !== undefined ? 
                               data.options.numberOfImages : 
@@ -837,13 +837,13 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                       }
                     ].map((row, index) => (
                       <tr key={row.id} className={index % 2 === 0 ? tableStyles.rowEven : tableStyles.rowOdd}>
-                        <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell}`}>
+                        <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} bg-gray-800`}>
                           <div className="flex items-center gap-2">
                             <i className={`bi ${row.icon} ${row.iconColor}`} />
                             <span className="font-medium">{row.label}</span>
                           </div>
                         </td>
-                        {Object.entries(selectedModel.apiEndpoints)
+                        {Object.entries(selectedModel.apiEndpoints || {})
                           .filter(([key]) => key !== 'available')
                           .map(([ep, data]) => (
                             <td key={`${ep}-${row.id}`} className={tableStyles.cellCenter}>
