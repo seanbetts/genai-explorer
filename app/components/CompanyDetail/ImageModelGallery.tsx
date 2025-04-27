@@ -660,7 +660,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               Array.isArray(s) && s.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center max-w-[16rem] mx-auto">
                                   {(Array.isArray(s) ? s : [s]).map((sz) => (
-                                    <span key={sz} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                                    <span key={sz} className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded">
                                       {sz}
                                     </span>
                                   ))}
@@ -686,7 +686,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               Array.isArray(q) && q.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(q) ? q : [q]).map((ql) => (
-                                    <span key={ql} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
+                                    <span key={ql} className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded capitalize">
                                       {ql}
                                     </span>
                                   ))}
@@ -724,7 +724,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               Array.isArray(st) && st.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(st) ? st : [st]).map((style) => (
-                                    <span key={style} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
+                                    <span key={style} className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded capitalize">
                                       {style}
                                     </span>
                                   ))}
@@ -750,7 +750,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               Array.isArray(bg) && bg.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(bg) ? bg : [bg]).map((b) => (
-                                    <span key={b} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
+                                    <span key={b} className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded capitalize">
                                       {b}
                                     </span>
                                   ))}
