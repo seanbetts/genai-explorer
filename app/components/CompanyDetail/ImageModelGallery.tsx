@@ -406,10 +406,8 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
           <div className="mb-8">
             {/* API Endpoints header */}
             <h3 className={headingStyles.card}>API Endpoints</h3>
-            {/* Endpoints table wrapped in a card */}
-            <div className={`${containerStyles.card} mt-3`}>
-              <div className="overflow-x-auto">
-                <table className={`${tableStyles.table} w-full table-fixed`}>
+            <div className="overflow-x-auto mt-3">
+              <table className={`${tableStyles.table} w-full table-fixed`}>
                 <thead className={tableStyles.header}>
                   <tr>
                     <th className={`${tableStyles.headerCell} ${tableStyles.stickyLabelCell} w-1/4`} />
@@ -858,7 +856,6 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                   </tbody>
                 </table>
               </div>
-            </div>
           </div>
         )}
 
