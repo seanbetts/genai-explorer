@@ -3510,7 +3510,7 @@
           "id": "firefly-image-model-4",
           "name": "Firefly Image Model 4",
           "status": "primary",
-          "about": "",
+          "about": "The ultimate creative AI solution.",
           "category": "image",
           "releaseDate": "",
           "releasePost": "https://blog.adobe.com/en/publish/2025/04/24/adobe-firefly-next-evolution-creative-ai-is-here",
@@ -3590,10 +3590,147 @@
             "outputBlocking": false,
             "minorSafeguards": false
           }
+        },
+        {
+          "id": "firefly-video-model-4",
+          "name": "Firefly Video Model 4",
+          "status": "primary",
+          "about": "",
+          "category": "video",
+          "releaseDate": "",
+          "releasePost": "",
+          "releaseVideo": "",
+          "modelPage": "",
+          "systemCard": "",
+          "modelGuide": "",
+          "apiDocumentation": "",
+          "demoVideos": {},
+          "termsOfService": "",
+          "usagePolicy": "",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {                                         
+            "generations": {
+              "options": {
+                "inputFormats": [
+                  "text"
+                ],
+                "outputFormats": [
+                  "image"
+                ],
+                "background": [],
+                "moderation": [],
+                "numberOfImages": 1,
+                "outputCompression": "",
+                "outputFileTypes": [],
+                "outputQuality": [],
+                "outputSize": [],
+                "outputStyle": [],
+                "pricing": {
+                  "input": {
+                    "textPerM": 0,
+                    "imagePerM": 0
+                  },
+                  "output": {
+                    "imagePerM": 0,
+                    "lowQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    },
+                    "mediumQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    },
+                    "highQuality": {
+                      "1024x1024": 0,
+                      "1024x1536": 0,
+                      "1536x1024": 0
+                    }
+                  }
+                }
+              }
+            }                                    
+          },
+          "capabilities": {
+            "performance": 4,
+            "speed": 1
+          },
+          "features": {
+            "textToImage": false,
+            "imageToImage": false,
+            "imageVariations": false,
+            "transparentLayers": false,
+            "inPainting": false,
+            "textRendering": false,
+            "characterConsistency": false,
+            "multiTurnGeneration": false,
+            "hexCodes": false,
+            "photoRealism": false
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false
+          }
         }
       ],
       "products": [],
-      "subscriptions": []
+      "subscriptions": [
+        {
+          "tier": "Firefly Free",
+          "type": "consumer",
+          "price": 0,
+          "billingCycle": "month",
+          "url": "https://www.adobe.com/uk/products/firefly/plans.html",
+          "features": [
+            "Limited generative credits for both standard and premium features",
+            "Try standard image and vector features",
+            "Try premium video and audio features"
+          ]
+        },
+        {
+          "tier": "Firefly Standard",
+          "type": "consumer",
+          "price": 9.99,
+          "billingCycle": "month",
+          "url": "https://www.adobe.com/uk/products/firefly/plans.html",
+          "features": [
+            "2,000 monthly generative credits",
+            "Unlimited access to standard image and vector features like Generative Fill and more",
+            "Access to premium features like video generation and non-Adobe models",
+            "Generate up to 20 five-second videos or translate up to 6 minutes of audio or video"
+          ]
+        },
+        {
+          "tier": "Firefly Pro",
+          "type": "consumer",
+          "price": 29.99,
+          "billingCycle": "month",
+          "url": "https://www.adobe.com/uk/products/firefly/plans.html",
+          "features": [
+            "7,000 monthly generative credits",
+            "Unlimited access to standard image and vector features like Generative Fill and more",
+            "Access to premium features like video generation and non-Adobe models",
+            "Generate up to 70 five-second videos or translate up to 23 minutes of audio or video"
+          ]
+        },
+        {
+          "tier": "Firefly Premium",
+          "type": "consumer",
+          "price": 199.99,
+          "billingCycle": "month",
+          "url": "https://www.adobe.com/uk/products/firefly/plans.html",
+          "features": [
+            "50,000 monthly generative credits",
+            "Unlimited access to standard image and vector features like Generative Fill and more",
+            "Access to premium features like video generation and non-Adobe models",
+            "Unlimited access to Generate Video powered by the Firefly Video Model across Firefly apps"
+          ]
+        }
+      ]
     },
     {
       "id": "midjourney",

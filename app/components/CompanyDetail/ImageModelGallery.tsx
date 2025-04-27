@@ -214,86 +214,90 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
 
         <p className={`${textStyles.body} mb-8`}>{selectedModel.about}</p>
 
-        {/* product features */}
-        <h3 className={`${headingStyles.card} mb-3`}>Product Features</h3>
+        {/* combined features grid: product and safety side-by-side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <div className={`${containerStyles.card} h-full`}>
-            <div className="grid grid-cols-2 gap-2">
-              {Object.entries(selectedModel.features ?? {})
-                .filter(([, value]) => value === true)
-                .map(([key]) => (
-                  <div key={key} className="flex items-center">
-                    <i className={`${iconStyles.booleanTrue} mr-2`} />
-                    <span className={textStyles.body}>{formatFeatureName(key)}</span>
-                  </div>
-                ))}
+          {/* Product Features column */}
+          <div>
+            <h3 className={`${headingStyles.card} mb-3`}>Product Features</h3>
+            <div className={containerStyles.card}>
+              <div className="grid grid-cols-2 gap-2">
+                {Object.entries(selectedModel.features ?? {})
+                  .filter(([, value]) => value === true)
+                  .map(([key]) => (
+                    <div key={key} className="flex items-center">
+                      <i className={`${iconStyles.booleanTrue} mr-2`} />
+                      <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                    </div>
+                  ))}
+              </div>
             </div>
           </div>
-
-          {/* safety / policy */}
-          {(Object.values(selectedModel.safety ?? {}).some(Boolean) ||
-            selectedModel.termsOfService ||
-            selectedModel.usagePolicy ||
-            selectedModel.metadata?.C2PA ||
-            selectedModel.commerciallySafe !== undefined) && (
-              
-            <div className={`${containerStyles.card} h-full`}>
-              <h4 className="text-sm font-medium text-white mb-3">Safety Features</h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* safety flags */}
-                <div className="space-y-2">
-                  {Object.entries(selectedModel.safety ?? {})
-                    .filter(([, value]) => value === true)
-                    .map(([key]) => (
-                      <div key={key} className="flex items-center">
-                        <i className={`${iconStyles.booleanTrue} mr-2`} />
-                        <span className={textStyles.body}>{formatFeatureName(key)}</span>
-                      </div>
-                    ))}
-                </div>
-
-              {/* policy links */}
-              <div className="space-y-2 flex flex-col">
-                {selectedModel.commerciallySafe !== undefined && (
-                  <div className="flex items-center mb-4">
-                    <i className={`${selectedModel.commerciallySafe ? iconStyles.booleanTrue : "bi bi-x-circle-fill text-fuchsia-500"} mr-3 mt-1`} />
-                    <span className={textStyles.body}>{selectedModel.commerciallySafe ? "Commercially safe" : "Not commercially safe"}</span>
+          {/* Safety Features column */}
+          <div>
+            <h3 className={`${headingStyles.card} mb-3`}>Safety Features</h3>
+            { (Object.values(selectedModel.safety ?? {}).some(Boolean) ||
+                selectedModel.termsOfService ||
+                selectedModel.usagePolicy ||
+                selectedModel.metadata?.C2PA ||
+                selectedModel.commerciallySafe !== undefined) ? (
+            <div className={containerStyles.card}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    {Object.entries(selectedModel.safety ?? {})
+                      .filter(([, value]) => value === true)
+                      .map(([key]) => (
+                        <div key={key} className="flex items-center">
+                          <i className={`${iconStyles.booleanTrue} mr-2`} />
+                          <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                        </div>
+                      ))}
                   </div>
-                )}
-                {selectedModel.usagePolicy && (
-                  <a
-                    href={selectedModel.usagePolicy}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mb-3"
-                  >
-                    <i className="bi bi-shield-check mr-1" /> Usage Policy
-                  </a>
-                )}
-                {selectedModel.termsOfService && (
-                  <a
-                    href={selectedModel.termsOfService}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mb-3"
-                  >
-                    <i className="bi bi-file-earmark-text mr-1" /> Terms of Service
-                  </a>
-                )}
-                {selectedModel.metadata?.C2PA && (
-                  <a
-                    href={selectedModel.metadata.C2PA}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit"
-                  >
-                    <i className="bi bi-patch-check-fill mr-1" /> C2PA Credentials
-                  </a>
-                )}
+                  <div className="space-y-2 flex flex-col">
+                    {selectedModel.commerciallySafe !== undefined && (
+                      <div className="flex items-center mb-4">
+                        <i className={`${selectedModel.commerciallySafe ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3 mt-1`} />
+                        <span className={textStyles.body}>{selectedModel.commerciallySafe ? 'Commercially safe' : 'Not commercially safe'}</span>
+                      </div>
+                    )}
+                    {selectedModel.usagePolicy && (
+                      <a
+                        href={selectedModel.usagePolicy}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mb-3"
+                      >
+                        <i className="bi bi-shield-check mr-1" /> Usage Policy
+                      </a>
+                    )}
+                    {selectedModel.termsOfService && (
+                      <a
+                        href={selectedModel.termsOfService}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mb-3"
+                      >
+                        <i className="bi bi-file-earmark-text mr-1" /> Terms of Service
+                      </a>
+                    )}
+                    {selectedModel.metadata?.C2PA && (
+                      <a
+                        href={selectedModel.metadata.C2PA}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit"
+                      >
+                        <i className="bi bi-patch-check-fill mr-1" /> C2PA Credentials
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
+            ) : (
+            <div className={`${containerStyles.card} flex items-center justify-center`}>
+                <p className={textStyles.body}>No safety features</p>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
 
         {/* ================= API ENDPOINT TABLE ================= */}
