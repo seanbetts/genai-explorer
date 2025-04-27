@@ -3648,10 +3648,12 @@
             "vertical (9:16)": true
           },
           "safety": {
-            "chatModelRefusals": false,
-            "promptBlocking": false,
-            "outputBlocking": false,
-            "minorSafeguards": false
+            "chatModelRefusals": true,
+            "promptBlocking": true,
+            "outputBlocking": true,
+            "minorSafeguards": true,
+            "IPRespect": true,
+            "biasMitigation": true
           }
         },
         {

@@ -333,10 +333,15 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
     });
   }, []);
   
-  // Sort models to prioritize frontier models first, then by release date - memoized for performance
+  // Filter for only frontier and open models, then sort - memoized for performance
   const sortedModels = useMemo(() => {
-    return enrichModels([...models]).sort((a, b) => {
-      // First sort by category (frontier before others)
+    // Filter for only frontier and open models
+    const filteredModels = [...models].filter(model => 
+      model.category === 'frontier' || model.category === 'open'
+    );
+    
+    return enrichModels(filteredModels).sort((a, b) => {
+      // First sort by category (frontier before open)
       if (a.category === 'frontier' && b.category !== 'frontier') {
         return -1;
       }
@@ -497,7 +502,11 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
         <i className="bi bi-graph-up text-gray-500 text-4xl mb-3"></i>
         <h3 className="text-xl font-medium text-gray-300 mb-2">No Benchmark Data Available</h3>
         <p className="text-gray-400">
-          No benchmark scores are available for {models.length > 1 ? 'these models' : 'this model'} yet.
+          No benchmark scores are available for the frontier and open models from this company.
+        </p>
+        <p className="text-gray-500 text-sm mt-2">
+          <i className="bi bi-info-circle mr-1"></i>
+          Note: Benchmark data is only shown for frontier and open models.
         </p>
       </div>
     );
@@ -554,6 +563,7 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
             <p className="text-gray-300 text-sm mb-3">
               Benchmarks provide standardized tests to compare model capabilities across different dimensions. 
               Scores shown are raw benchmark scores reported by the model providers.
+              Only frontier and open models are included in benchmark comparisons.
               Models with the top 5 scores across all models in our database for each benchmark are marked with their rank (#1, #2, #3, etc.).
               Note that rankings are only computed based on models included in our database, not all models that exist.
             </p>

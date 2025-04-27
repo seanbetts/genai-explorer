@@ -139,7 +139,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
           {/* Model Features column */}
           <div>
             <h3 className={`${headingStyles.card} mb-3`}>Model Features</h3>
-            <div className={`${containerStyles.card} min-h-[28.2rem] h-auto`}>
+            <div className={`${containerStyles.card} min-h-[30.7rem] h-auto`}>
               <div className="grid grid-cols-2 gap-2">
                 {Object.entries(selectedModel.features ?? {})
                   .map(([key, value]) => (
@@ -165,6 +165,12 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       {Object.entries(selectedModel.safety ?? {})
+                        .filter(([key]) => 
+                          key !== 'ipRespect' && 
+                          key !== 'IPRespect' && 
+                          key !== 'C2PA' && 
+                          key !== 'c2pa'
+                        )
                         .map(([key, value]) => (
                           <div key={key} className="flex items-center h-8">
                             <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
@@ -173,8 +179,14 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         ))}
                     </div>
                     <div className="space-y-2 flex flex-col">
+                      {selectedModel.metadata?.C2PA && (
+                        <div className="flex items-center h-8">
+                          <i className={`${iconStyles.booleanTrue} mr-3`} />
+                          <span className={textStyles.body}>IP Respect</span>
+                        </div>
+                      )}
                       {selectedModel.commerciallySafe !== undefined && (
-                        <div className="flex items-center h-8 mb-4">
+                        <div className="flex items-center h-8">
                           <i className={`${selectedModel.commerciallySafe ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
                           <span className={textStyles.body}>{selectedModel.commerciallySafe ? 'Commercially safe' : 'Not commercially safe'}</span>
                         </div>
@@ -184,7 +196,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           href={selectedModel.usagePolicy}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mb-4"
+                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
                         >
                           <i className="bi bi-shield-check mr-1" /> Usage Policy
                         </a>
@@ -194,7 +206,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           href={selectedModel.termsOfService}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mb-4"
+                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
                         >
                           <i className="bi bi-file-earmark-text mr-1" /> Terms of Service
                         </a>
@@ -204,9 +216,9 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           href={selectedModel.metadata.C2PA}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit"
+                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
                         >
-                          <i className="bi bi-patch-check-fill mr-1" /> C2PA Credentials
+                          <i className="bi bi-patch-check-fill mr-1" /> C2PA Documentation
                         </a>
                       )}
                     </div>
