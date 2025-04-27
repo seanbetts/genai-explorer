@@ -220,11 +220,11 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
           {/* Product Features column */}
           <div>
             <h3 className={`${headingStyles.card} mb-3`}>Product Features</h3>
-            <div className={`${containerStyles.card} min-h-[14rem] h-auto`}>
+            <div className={`${containerStyles.card} min-h-[15rem] h-auto`}>
               <div className="grid grid-cols-2 gap-2">
                 {Object.entries(selectedModel.features ?? {})
                   .map(([key, value]) => (
-                    <div key={key} className="flex items-center">
+                    <div key={key} className="flex items-center h-8">
                       <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
                       <span className={textStyles.body}>{formatFeatureName(key)}</span>
                     </div>
@@ -240,12 +240,12 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                 selectedModel.usagePolicy ||
                 selectedModel.metadata?.C2PA ||
                 selectedModel.commerciallySafe !== undefined) ? (
-            <div className={`${containerStyles.card} min-h-[14rem] h-auto`}>
+            <div className={`${containerStyles.card} min-h-[15rem] h-auto`}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     {Object.entries(selectedModel.safety ?? {})
                       .map(([key, value]) => (
-                        <div key={key} className="flex items-center">
+                        <div key={key} className="flex items-center h-8">
                           <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
                           <span className={textStyles.body}>{formatFeatureName(key)}</span>
                         </div>
@@ -253,8 +253,8 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                   </div>
                   <div className="space-y-2 flex flex-col">
                     {selectedModel.commerciallySafe !== undefined && (
-                      <div className="flex items-center mb-4">
-                        <i className={`${selectedModel.commerciallySafe ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3 mt-1`} />
+                      <div className="flex items-center h-8 mb-4">
+                        <i className={`${selectedModel.commerciallySafe ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
                         <span className={textStyles.body}>{selectedModel.commerciallySafe ? 'Commercially safe' : 'Not commercially safe'}</span>
                       </div>
                     )}
@@ -263,7 +263,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         href={selectedModel.usagePolicy}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mb-3"
+                        className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mb-4"
                       >
                         <i className="bi bi-shield-check mr-1" /> Usage Policy
                       </a>
@@ -273,7 +273,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         href={selectedModel.termsOfService}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mb-3"
+                        className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mb-4"
                       >
                         <i className="bi bi-file-earmark-text mr-1" /> Terms of Service
                       </a>
@@ -292,7 +292,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                 </div>
               </div>
             ) : (
-            <div className={`${containerStyles.card} min-h-[14rem] h-auto flex items-center justify-center`}>
+            <div className={`${containerStyles.card} min-h-[15rem] h-auto flex items-center justify-center`}>
                 <p className={textStyles.body}>No safety features</p>
               </div>
             )}
