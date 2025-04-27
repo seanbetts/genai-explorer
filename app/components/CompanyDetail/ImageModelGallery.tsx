@@ -98,9 +98,11 @@ const ThumbnailScroller: React.FC<ThumbnailScrollerProps> = ({
 // -----------------------------------------------------------------------------
 interface ImageModelGalleryProps {
   models: Model[];
+  /** Company ID for dynamic image discovery */
+  companyId: string;
 }
 
-const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
+const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId }) => {
   // ----- state ---------------------------------------------------------------
   const [selectedModelId, setSelectedModelId] = useState<string | null>(
     models.length ? models[0].id : null,
@@ -111,8 +113,31 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
 
   const selectedModel = models.find((m) => m.id === selectedModelId);
 
+  // ----- state for image URLs fetched dynamically ---------------------------
+  const [imageUrls, setImageUrls] = useState<string[]>([]);
+
+  // ----- fetch image list when selected model or company changes ------------
+  useEffect(() => {
+    if (!selectedModelId) {
+      setImageUrls([]);
+      return;
+    }
+    // reset on change
+    setImageUrls([]);
+    setCurrentImageIndex(0);
+    // call our API to list images
+    fetch(`/api/images/${companyId}/${selectedModelId}`)
+      .then((res) => res.json())
+      .then((urls: string[]) => {
+        setImageUrls(urls);
+      })
+      .catch((err) => {
+        console.error('Failed to fetch image URLs for', selectedModelId, err);
+      });
+  }, [companyId, selectedModelId]);
+  
   // ----- derived values ------------------------------------------------------
-  const exampleImages = selectedModel?.exampleImages ?? [];
+  const exampleImages = imageUrls;
   const hasMultipleImages = exampleImages.length > 1;
   const currentImage = exampleImages[currentImageIndex] ?? PLACEHOLDER_IMAGE;
 
@@ -270,10 +295,6 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
             </div>
           )}
         </div>
-
-        {/* The rest of the long details table / video sections have been omitted
-            for brevity – they can be re‑inserted below using the same pattern
-            as the original file, they weren’t part of the syntax errors. */}
 
         {/* ================= API ENDPOINT TABLE ================= */}
         {selectedModel.apiEndpoints && Object.keys(selectedModel.apiEndpoints).length > 0 && (
@@ -634,13 +655,13 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models }) => {
         <>
           <h3 className={`${headingStyles.card} mb-3`}>Resources</h3>
           <div className={`${containerStyles.card} mb-6`}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
               {selectedModel.releasePost && (
                 <a 
                   href={selectedModel.releasePost} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="px-3 py-2 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex items-center justify-center gap-2"
+                  className="px-3 py-10 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-sm font-mono rounded transition-colors flex items-center justify-center gap-2"
                 >
                   <i className="bi bi-newspaper"></i> Release Post
                 </a>

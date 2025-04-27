@@ -511,6 +511,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
               <div className="transform transition-opacity duration-300">
                 <Suspense fallback={<div className="text-center py-4">Loading image models...</div>}>
                   <ImageModelGallery 
+                    companyId={company.id}
                     models={company.models.filter(model => 
                       model.category === 'image' && model.status !== 'archived'
                     )} 
