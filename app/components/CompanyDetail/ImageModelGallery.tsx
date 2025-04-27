@@ -19,6 +19,7 @@ function formatFeatureName(key: string): string {
   const specialCases: Record<string, string> = {
     textToImage: "Text‑To‑Image",
     imageToImage: "Image‑To‑Image",
+    imageToVector: "Image‑To‑Vector",
     inPainting: "In‑Painting",
     multiTurnGeneration: "Multi‑Turn Generation",
     hexCodes: "Hex Colour Codes",
@@ -138,7 +139,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
           {/* Product Features column */}
           <div>
             <h3 className={`${headingStyles.card} mb-3`}>Product Features</h3>
-            <div className={`${containerStyles.card} min-h-[15rem] h-auto`}>
+            <div className={`${containerStyles.card} min-h-[17rem] h-auto`}>
               <div className="grid grid-cols-2 gap-2">
                 {Object.entries(selectedModel.features ?? {})
                   .map(([key, value]) => (
@@ -158,7 +159,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                 selectedModel.usagePolicy ||
                 selectedModel.metadata?.C2PA ||
                 selectedModel.commerciallySafe !== undefined) ? (
-            <div className={`${containerStyles.card} min-h-[15rem] h-auto`}>
+            <div className={`${containerStyles.card} min-h-[17rem] h-auto`}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     {Object.entries(selectedModel.safety ?? {})
@@ -210,7 +211,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                 </div>
               </div>
             ) : (
-            <div className={`${containerStyles.card} min-h-[15rem] h-auto flex items-center justify-center`}>
+            <div className={`${containerStyles.card} min-h-[17rem] h-auto flex items-center justify-center`}>
                 <p className={textStyles.body}>No safety features</p>
               </div>
             )}

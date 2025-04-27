@@ -518,6 +518,7 @@
           "features": {
             "textToImage": true,
             "imageToImage": true,
+            "imageToVector": false,
             "imageVariations": true,
             "transparentLayers": true,
             "inPainting": true,
@@ -1370,6 +1371,7 @@
           "features": {
             "textToImage": false,
             "imageToImage": false,
+            "imageToVector": false,
             "imageVariations": false,
             "transparentLayers": false,
             "inPainting": false,
@@ -3505,7 +3507,7 @@
       "logo": "/images/companies/adobe/logo.png",
       "website": "https://adobe.com",
       "description": "Creative tools enhanced with generative AI",
-      "lastUpdated": "2025-03-20",
+      "lastUpdated": "2025-04-27",
       "features": [],
       "models": [
         {
@@ -3514,18 +3516,32 @@
           "status": "primary",
           "about": "The ultimate creative AI solution.",
           "category": "image",
-          "releaseDate": "",
+          "releaseDate": "2025-04-24",
           "releasePost": "https://blog.adobe.com/en/publish/2025/04/24/adobe-firefly-next-evolution-creative-ai-is-here",
-          "releaseVideo": "",
-          "modelPage": "",
+          "releaseVideo": "https://youtu.be/Fxck1CWjue4?si=r73tq18yiUBhF0pX",
+          "modelPage": "https://www.adobe.com/products/firefly.html",
           "systemCard": "",
-          "modelGuide": "",
+          "modelGuide": "https://helpx.adobe.com/firefly/user-guide.html",
           "apiDocumentation": "",
-          "demoVideos": {},
-          "termsOfService": "",
-          "usagePolicy": "",
+          "demoVideos": {
+            "discover": ["https://images-tv.adobe.com/mpcv3/7622/e57cb079-776e-45ae-8d6a-698cc8e6d069_1713204407.854x480at800_h264.mp4", "https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/d8e94643-853b-44d1-8a85-c419642cba27/d0e40725a4c140d9a1d98144388a7400_1713206101-1920x1080.jpg"],
+            "how_to_use": "https://www.youtube.com/watch?v=lt4k9lVnS1Y",
+            "photorealism":["https://images-tv.adobe.com/mpcv3/7622/0e07750b-e7f3-4db5-8153-8b765c34faf0_1713215919.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/2ed983f4-b08a-4c44-88ce-f7639eaf89e0/93d5b6fa42754f3ca12f9846d034f682_1713216043-1920x1080.jpg"],
+            "text_prompts":["https://images-tv.adobe.com/mpcv3/7622/a468b7b7-633f-441e-932e-ce382f7864bc_1713205897.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/b35dd676-d5a1-4d46-8398-7a09fef99ce1/6de6e7b3f7f54f58b72bdaab5cba622d_1713206032-1920x1080.jpg"],
+            "transform_sketches":["https://images-tv.adobe.com/mpcv3/1063/5353e9b1-c6a9-450e-aae3-381de210dc04_1716937172.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/9b229b5b-d74c-42c0-9d1a-2d33d496d618/a54cec44f3d44805874ce8c3b3f45a69_1716937270-1920x1080.jpg"],
+            "transform_text":["https://images-tv.adobe.com/mpcv3/1063/f6a63ff2-ea1e-4de1-a716-78be961a1070_1716937973.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/fca8a029-8015-40e6-a212-57f7798393dd/4e81f8f6ed764fd2bc896864be8dd3cb_1716938168-1920x1080.jpg"],
+            "style_matching": ["https://images-tv.adobe.com/mpcv3/7622/8f7444fd-927e-4068-8cc1-c150959f0304_1713206823.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/fe8afa0b-8d96-4c62-b5d6-7fca200a4d4e/e9d3cdb6f0c3459f938c706941d225f9_1713207027-1920x1080.jpg"],
+            "add_content": ["https://images-tv.adobe.com/mpcv3/7622/8dca1058-c285-4c08-903e-b68f11a65a7c_1713212102.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/66ad340b-0db5-44d1-a8eb-8d6739c8d4a0/d41a998d16064a9890a3a7ad36685f62_1713213438-1920x1080.jpg"],
+            "replace_background": ["https://images-tv.adobe.com/mpcv3/7622/ce0fec19-17bb-4d5e-9744-1db1dfbdc227_1713214666.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/71874e0a-c421-4a5f-9ed3-0b22d473dd84/47fa80cf1a294ef4816092304f7e121f_1713214926-1920x1080.jpg"],
+            "remove_content": ["https://images-tv.adobe.com/mpcv3/7622/7f9bd7dc-3ef6-4283-99ca-14209fc317dd_1713215386.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/5ef9aef6-c9a2-4184-8dcc-3b58e388a5c3/0fde04a3669e4378aa106f6b601eccec_1713215597-1920x1080.jpg"],
+            "sharing": ["https://images-tv.adobe.com/mpcv3/7622/ec333148-e791-4592-abc3-8ecf2c446040_1713216428.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/d56d5e91-9798-4732-ad1a-ab5f34a3f215/8f2cd860a4d440cd9e1db5a1ffae9a55_1713216590-1920x1080.jpg"]
+          },
+          "termsOfService": "https://www.adobe.com/uk/legal/terms.html",
+          "usagePolicy": "https://www.adobe.com/uk/legal/permissions/image-notice.html",
           "commerciallySafe": true,
-          "metadata": {},                          
+          "metadata": {
+            "C2PA": "https://c2pa.org"
+          },                          
           "apiEndpoints": {      
             "available": false,                                   
             "generations": {
@@ -3576,16 +3592,17 @@
             "speed": 1
           },
           "features": {
-            "textToImage": false,
+            "textToImage": true,
             "imageToImage": false,
+            "imageToVector": true,
             "imageVariations": false,
             "transparentLayers": false,
-            "inPainting": false,
+            "inPainting": true,
             "textRendering": false,
             "characterConsistency": false,
             "multiTurnGeneration": false,
             "hexCodes": false,
-            "photoRealism": false
+            "photoRealism": true
           },
           "safety": {
             "chatModelRefusals": false,
@@ -3664,6 +3681,7 @@
           "features": {
             "textToImage": false,
             "imageToImage": false,
+            "imageToVector": false,
             "imageVariations": false,
             "transparentLayers": false,
             "inPainting": false,
@@ -3843,6 +3861,7 @@
           "features": {
             "textToImage": false,
             "imageToImage": false,
+            "imageToVector": false,
             "imageVariations": false,
             "transparentLayers": false,
             "inPainting": false,
@@ -3942,6 +3961,7 @@
           "features": {
             "textToImage": false,
             "imageToImage": false,
+            "imageToVector": false,
             "imageVariations": false,
             "transparentLayers": false,
             "inPainting": false,

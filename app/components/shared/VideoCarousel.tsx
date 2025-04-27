@@ -57,7 +57,7 @@ const ThumbnailScroller: React.FC<ThumbnailScrollerProps> = ({
 // Main video carousel component ------------------------------------------------
 // -----------------------------------------------------------------------------
 interface VideoCarouselProps {
-  videos: Record<string, string>; // Key-value pairs of video names and URLs
+  videos: Record<string, string | string[]>; // Key-value pairs of video names and either URLs or [videoURL, thumbnailURL]
   title: string;
   formatDemoName: (name: string) => string;
 }
@@ -75,7 +75,23 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
   // ----- derived values ------------------------------------------------------
   const videoEntries = Object.entries(videos);
   const hasMultipleVideos = videoEntries.length > 1;
-  const [currentVideoName, currentVideoUrl] = videoEntries[currentVideoIndex] || ["", ""];
+  
+  // Get current video entry and process it
+  const currentEntry = videoEntries[currentVideoIndex] || ["", ""];
+  const currentVideoName = currentEntry[0];
+  
+  // Handle both string and array formats
+  let currentVideoUrl = "";
+  let currentThumbnailUrl = "";
+  
+  if (Array.isArray(currentEntry[1])) {
+    // Format is [videoURL, thumbnailURL]
+    currentVideoUrl = currentEntry[1][0] || "";
+    currentThumbnailUrl = currentEntry[1][1] || "";
+  } else {
+    // Format is just a string URL
+    currentVideoUrl = currentEntry[1] || "";
+  }
   
   // ----- thumbnail layout management ----------------------------------------
   useEffect(() => {
@@ -138,6 +154,29 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
     const videoId = getYoutubeVideoId(url);
     return videoId ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg` : '';
   };
+  
+  // Try to create a poster URL for direct video files
+  const getVideoPosterUrl = (url: string, providedThumbnail?: string): string => {
+    // If a thumbnail URL is explicitly provided, use it
+    if (providedThumbnail) {
+      return providedThumbnail;
+    }
+    
+    // Handle YouTube videos
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
+      return getYoutubeThumbnail(url);
+    }
+    
+    // Try to guess a poster image by replacing the video extension with jpg or png
+    const posterUrl = url.replace(/\.(mp4|webm|ogg|mov)(\?|$)/i, '.jpg$2');
+    if (posterUrl !== url) return posterUrl;
+    
+    const posterUrlPng = url.replace(/\.(mp4|webm|ogg|mov)(\?|$)/i, '.png$2');
+    if (posterUrlPng !== url) return posterUrlPng;
+    
+    // If we can't determine a poster, return empty string
+    return '';
+  };
 
   // If there are no videos to display
   if (videoEntries.length === 0) {
@@ -148,9 +187,13 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
     );
   }
 
-  // Determine if we can embed the video (currently supporting YouTube only)
-  const canEmbed = currentVideoUrl.includes('youtube.com') || currentVideoUrl.includes('youtu.be');
-  const youtubeEmbedUrl = canEmbed ? 
+  // Determine video type and if we can embed it
+  const isYouTube = currentVideoUrl.includes('youtube.com') || currentVideoUrl.includes('youtu.be');
+  const isDirectVideo = currentVideoUrl.match(/\.(mp4|webm|ogg|mov)(\?|$)/i);
+  const canEmbed = isYouTube || isDirectVideo;
+  
+  // Get appropriate embed URL based on video type
+  const youtubeEmbedUrl = isYouTube ? 
     `https://www.youtube.com/embed/${getYoutubeVideoId(currentVideoUrl)}?autoplay=0&rel=0` : '';
 
   return (
@@ -159,13 +202,27 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
         <div className="flex items-center justify-center z-0 w-full h-full">
           {canEmbed ? (
             <div className="w-[85%] aspect-video">
-              <iframe
-                src={youtubeEmbedUrl}
-                title={`${title} - ${formatDemoName(currentVideoName)}`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              />
+              {isYouTube ? (
+                <iframe
+                  src={youtubeEmbedUrl}
+                  title={`${title} - ${formatDemoName(currentVideoName)}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              ) : (
+                <video 
+                  src={currentVideoUrl}
+                  title={`${title} - ${formatDemoName(currentVideoName)}`}
+                  controls
+                  preload="metadata"
+                  className="w-full h-full"
+                  poster={getVideoPosterUrl(currentVideoUrl, currentThumbnailUrl)}
+                  playsInline
+                >
+                  Your browser does not support the video tag.
+                </video>
+              )}
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center space-y-4">
@@ -223,8 +280,27 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
           >
             <ThumbnailScroller activeIndex={currentVideoIndex} isKeyboardNav={isKeyboardNav} />
 
-            {videoEntries.map(([name, url], idx) => {
-              const thumbnailUrl = url.includes('youtube') ? getYoutubeThumbnail(url) : '';
+            {videoEntries.map(([name, value], idx) => {
+              // Process the value which may be a string URL or [videoURL, thumbnailURL] array
+              let videoUrl = '';
+              let providedThumbnailUrl = '';
+              
+              if (Array.isArray(value)) {
+                videoUrl = value[0] || '';
+                providedThumbnailUrl = value[1] || '';
+              } else {
+                videoUrl = value || '';
+              }
+              
+              // Try to get a thumbnail URL for the video
+              let thumbnailUrl = '';
+              if (providedThumbnailUrl) {
+                thumbnailUrl = providedThumbnailUrl;
+              } else if (videoUrl.includes('youtube')) {
+                thumbnailUrl = getYoutubeThumbnail(videoUrl);
+              } else if (videoUrl.match(/\.(mp4|webm|ogg|mov)(\?|$)/i)) {
+                thumbnailUrl = getVideoPosterUrl(videoUrl);
+              }
               
               return (
                 <button
