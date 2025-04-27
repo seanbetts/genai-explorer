@@ -276,7 +276,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           href={selectedModel.usagePolicy}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                          className="px-3 py-1 bg-gray-800 hover:bg-gray-700 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
                         >
                           <i className="bi bi-shield-check mr-1" /> Usage Policy
                         </a>
@@ -286,7 +286,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           href={selectedModel.termsOfService}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                          className="px-3 py-1 bg-gray-800 hover:bg-gray-700 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
                         >
                           <i className="bi bi-file-earmark-text mr-1" /> Terms of Service
                         </a>
@@ -296,7 +296,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           href={c2paDocsUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                          className="px-3 py-1 bg-gray-800 hover:bg-gray-700 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
                         >
                           <i className="bi bi-patch-check-fill mr-1" /> C2PA Metadata
                         </a>
@@ -523,7 +523,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               Array.isArray(types) && types.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(types) ? types : [types]).map((t) => (
-                                    <span key={t} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                                    <span key={t} className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded">
                                       {t}
                                     </span>
                                   ))}
@@ -549,7 +549,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               mis === 0 ? (
                                 <i className={iconStyles.booleanFalse} />
                               ) : (
-                                <span className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                                <span className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded">
                                   {mis.toLocaleString()} MB
                                 </span>
                               )
@@ -571,7 +571,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               Array.isArray(mod) && mod.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(mod) ? mod : [mod]).map((lvl) => (
-                                    <span key={lvl} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded capitalize">
+                                    <span key={lvl} className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded capitalize">
                                       {lvl}
                                     </span>
                                   ))}
@@ -634,7 +634,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               Array.isArray(o) && o.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(o) ? o : [o]).map((t) => (
-                                    <span key={t} className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                                    <span key={t} className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded">
                                       {t}
                                     </span>
                                   ))}
@@ -777,7 +777,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                 <i className={iconStyles.booleanFalse} />
                               ) : (
                                 <div className="flex items-center justify-center">
-                                  <span className="px-2 py-0.5 bg-gray-700 text-xs font-mono rounded">
+                                  <span className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded">
                                     1-{vi}
                                   </span>
                                 </div>
@@ -892,7 +892,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     href={selectedModel.releasePost} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
+                    className="px-3 py-3 bg-gray-800 hover:bg-gray-700 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
                   >
                     <i className="bi bi-newspaper text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
                     <span>Release Post</span>
@@ -903,7 +903,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     href={selectedModel.releaseVideo} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
+                    className="px-3 py-3 bg-gray-800 hover:bg-gray-700 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
                   >
                     <i className="bi bi-play-btn text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
                     <span>Release Video</span>
@@ -914,7 +914,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     href={selectedModel.systemCard} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
+                    className="px-3 py-3 bg-gray-800 hover:bg-gray-700 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
                   >
                     <i className="bi bi-file-earmark-text text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
                     <span>System Card</span>
@@ -925,7 +925,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     href={selectedModel.modelPage} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
+                    className="px-3 py-3 bg-gray-800 hover:bg-gray-700 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
                   >
                     <i className="bi bi-globe2 text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
                     <span>Model Page</span>
@@ -936,7 +936,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     href={selectedModel.modelGuide} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
+                    className="px-3 py-3 bg-gray-800 hover:bg-gray-700 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
                   >
                     <i className="bi bi-book text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
                     <span>Model Guide</span>
@@ -947,7 +947,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     href={selectedModel.apiDocumentation} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
+                    className="px-3 py-3 bg-gray-800 hover:bg-gray-700 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
                   >
                     <i className="bi bi-code-square text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
                     <span>API Documentation</span>
