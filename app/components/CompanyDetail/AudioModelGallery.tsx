@@ -145,7 +145,7 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                       {selectedModel.features.generation?.durations && 
                        Array.isArray(selectedModel.features.generation.durations) && 
                        selectedModel.features.generation.durations.length > 0 && (
-                        <div className="mt-4 flex flex-row justify-between space-x-2">
+                        <div className="mt-4 mb-4 flex flex-row justify-between space-x-2">
                           <div className="flex-1">
                             <h5 className="text-xs font-medium text-gray-300 mb-2">Durations</h5>
                             <div className="flex flex-wrap gap-2">
