@@ -1372,7 +1372,7 @@
           },                          
           "apiEndpoints": {
             "available": true,                                      
-            "generate_images": {
+            "generate": {
               "options": {
                 "inputFormats": [
                   "text"
@@ -4106,7 +4106,7 @@
                 "outputFileTypes": ["png","jpeg"],
                 "outputQuality": [],
                 "outputSize": ["1024x1024"],
-                "outputStyle": ["3d-model","analog-film","anime","cinematic","comic-book","digital-art","enhance","fantasy-art","isometric","line-art","low-poly","modeling-compound","neon-punk","origami","photographic","pixel-art","tile-texture"],
+                "outputStyle": ["3D model","analog film","anime","cinematic","comic book","digital art","enhance","fantasy art","isometric","line art","low poly","modeling compound","neon punk","origami","photographic","pixel art","tile texture"],
                 "visualIntesity": 0,
                 "tileable": false,
                 "structureReference": false,
@@ -4166,7 +4166,7 @@
                 "outputFileTypes": ["png","jpeg","webp"],
                 "outputQuality": [],
                 "outputSize": ["1024x1024"],
-                "outputStyle": ["3d-model","analog-film","anime","cinematic","comic-book","digital-art","enhance","fantasy-art","isometric","line-art","low-poly","modeling-compound","neon-punk","origami","photographic","pixel-art","tile-texture"],
+                "outputStyle": ["3D model","analog film","anime","cinematic","comic book","digital art","enhance","fantasy art","isometric","line art","low poly","modeling compound","neon punk","origami","photographic","pixel art","tile texture"],
                 "visualIntesity": 0,
                 "tileable": false,
                 "structureReference": false,
@@ -4196,7 +4196,7 @@
                 "outputFileTypes": ["png","jpeg","webp"],
                 "outputQuality": [],
                 "outputSize": ["1024x1024"],
-                "outputStyle": ["3d-model","analog-film","anime","cinematic","comic-book","digital-art","enhance","fantasy-art","isometric","line-art","low-poly","modeling-compound","neon-punk","origami","photographic","pixel-art","tile-texture"],
+                "outputStyle": ["3D model","analog film","anime","cinematic","comic book","digital art","enhance","fantasy art","isometric","line art","low poly","modeling compound","neon punk","origami","photographic","pixel art","tile texture"],
                 "visualIntesity": 0,
                 "tileable": false,
                 "structureReference": false,
