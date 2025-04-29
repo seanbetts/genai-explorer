@@ -138,13 +138,14 @@ export interface Model {
   metadata?: Record<string, string>; // Key-value pairs of metadata
   apiEndpoints?: Record<string, ApiEndpoint>; // API endpoint definitions
   features?: {
-    generation?: Record<string, boolean>;
-    editing?: Record<string, boolean>;
-    enhancement?: Record<string, boolean>;
-    advanced?: Record<string, boolean>;
+    generation?: Record<string, boolean | number[] | string[]>;
+    editing?: Record<string, boolean | object>;
+    enhancement?: Record<string, boolean | object>;
+    advanced?: Record<string, boolean | object>;
   }; // Features supported by the model, organized by category
   safety?: Record<string, any>; // Safety features of the model (can contain boolean values or strings for URLs)
   aspectRatios?: Record<string, boolean>; // Supported aspect ratios for image generation
+  videoExamples?: string[] | Record<string, string>; // Example videos for video models
 
 export interface ApiEndpointOptions {
   inputFormats?: string[];

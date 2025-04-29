@@ -146,11 +146,13 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                        selectedModel.features.generation?.numberOfVideos ? (
                         <div className="mt-4 flex flex-row justify-between space-x-2">
                           {/* Resolutions */}
-                          {selectedModel.features.generation?.resolutions && selectedModel.features.generation.resolutions.length > 0 && (
+                          {selectedModel.features.generation?.resolutions && 
+                           Array.isArray(selectedModel.features.generation.resolutions) && 
+                           selectedModel.features.generation.resolutions.length > 0 && (
                             <div className="flex-1">
                               <h5 className="text-xs font-medium text-gray-300 mb-2">Resolutions</h5>
                               <div className="flex flex-wrap gap-2">
-                                {selectedModel.features.generation.resolutions.map((value, index) => (
+                                {(selectedModel.features.generation.resolutions as string[]).map((value, index) => (
                                   <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
                                     {value}
                                   </span>
@@ -160,11 +162,13 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                           )}
                           
                           {/* Durations */}
-                          {selectedModel.features.generation?.durations && selectedModel.features.generation.durations.length > 0 && (
+                          {selectedModel.features.generation?.durations && 
+                           Array.isArray(selectedModel.features.generation.durations) && 
+                           selectedModel.features.generation.durations.length > 0 && (
                             <div className="flex-1">
                               <h5 className="text-xs font-medium text-gray-300 mb-2">Durations</h5>
                               <div className="flex flex-wrap gap-2">
-                                {selectedModel.features.generation.durations.map((value, index) => (
+                                {(selectedModel.features.generation.durations as Array<string | number>).map((value, index) => (
                                   <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
                                     {typeof value === 'number' ? `${value}s` : value}
                                   </span>
@@ -174,11 +178,13 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                           )}
                           
                           {/* Number of Videos */}
-                          {selectedModel.features.generation?.numberOfVideos && selectedModel.features.generation.numberOfVideos.length > 0 && (
+                          {selectedModel.features.generation?.numberOfVideos && 
+                           Array.isArray(selectedModel.features.generation.numberOfVideos) && 
+                           selectedModel.features.generation.numberOfVideos.length > 0 && (
                             <div className="flex-1">
                               <h5 className="text-xs font-medium text-gray-300 mb-2">Video Count</h5>
                               <div className="flex flex-wrap gap-2">
-                                {selectedModel.features.generation.numberOfVideos.map((value, index) => (
+                                {(selectedModel.features.generation.numberOfVideos as Array<string | number>).map((value, index) => (
                                   <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
                                     {value}
                                   </span>
@@ -202,7 +208,7 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                           <div key={key} className="mt-4 mb-4">
                             <h5 className="text-xs font-medium text-gray-300 mb-2">{formatFeatureName(key)}</h5>
                             <div className="flex flex-wrap gap-2">
-                              {Array.isArray(values) && values.map((value, index) => (
+                              {Array.isArray(values) && (values as Array<string | number>).map((value, index) => (
                                 <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
                                   {value}
                                 </span>
@@ -580,7 +586,9 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
   // Render the video examples carousel (similar to how ImageModelGallery shows images at the top)
   const renderVideoExamples = () => {
     if (!selectedModel || !selectedModel.videoExamples || 
-        (Array.isArray(selectedModel.videoExamples) ? selectedModel.videoExamples.length === 0 : Object.keys(selectedModel.videoExamples).length === 0)) {
+        (Array.isArray(selectedModel.videoExamples) 
+          ? selectedModel.videoExamples.length === 0 
+          : typeof selectedModel.videoExamples === 'object' && Object.keys(selectedModel.videoExamples).length === 0)) {
       return null;
     }
 
@@ -591,11 +599,11 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
             // Handle both array and object formats
             Array.isArray(selectedModel.videoExamples) 
               ? Object.fromEntries(
-                  selectedModel.videoExamples.map((url, index) => 
+                  (selectedModel.videoExamples as string[]).map((url, index) => 
                     [`example_${index + 1}`, url]
                   )
                 )
-              : selectedModel.videoExamples
+              : selectedModel.videoExamples as Record<string, string>
           }
           title={selectedModel.name}
           formatDemoName={(name) => {
@@ -624,7 +632,7 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
       {selectedModel && selectedModel.videoExamples && 
        (Array.isArray(selectedModel.videoExamples) 
          ? selectedModel.videoExamples.length > 0 
-         : Object.keys(selectedModel.videoExamples).length > 0) && 
+         : typeof selectedModel.videoExamples === 'object' && Object.keys(selectedModel.videoExamples).length > 0) && 
        renderVideoExamples()}
       {renderModelDetails()}
     </>
