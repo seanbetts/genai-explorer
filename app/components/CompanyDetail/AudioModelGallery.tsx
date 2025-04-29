@@ -525,16 +525,27 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
 
   // Render the audio examples carousel
   const renderAudioExamples = () => {
-    if (!selectedModel || !selectedModel.audioExamples || selectedModel.audioExamples.length === 0) {
+    if (!selectedModel || !selectedModel.audioExamples || 
+        (Array.isArray(selectedModel.audioExamples) 
+          ? selectedModel.audioExamples.length === 0 
+          : typeof selectedModel.audioExamples === 'object' && Object.keys(selectedModel.audioExamples).length === 0)) {
       return null;
     }
 
     return (
       <div className="mb-8 p-0">
         <AudioCarousel 
-          audioUrls={selectedModel.audioExamples}
+          audio={selectedModel.audioExamples}
           title={selectedModel.name}
           carouselId={`${selectedModel.id}-audio-examples`}
+          formatTrackName={(name) => {
+            // Format snake_case or camelCase to Title Case
+            return name
+              .replace(/_/g, ' ')
+              .replace(/([A-Z])/g, ' $1')
+              .replace(/^./, (str) => str.toUpperCase())
+              .replace(/\.\.\.$/, '...'); // Keep ellipses as is
+          }}
         />
       </div>
     );
@@ -547,7 +558,9 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
     <>
       {models.length > 1 && renderModelTabs()}
       {selectedModel && selectedModel.audioExamples && 
-       selectedModel.audioExamples.length > 0 && 
+       (Array.isArray(selectedModel.audioExamples) 
+         ? selectedModel.audioExamples.length > 0 
+         : typeof selectedModel.audioExamples === 'object' && Object.keys(selectedModel.audioExamples).length > 0) && 
        renderAudioExamples()}
       {renderModelDetails()}
     </>

@@ -281,7 +281,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Frontier Models tab if company has frontier models */}
           {hasFrontierModels() && (
             <button
-              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
                 activeTab === 'frontier-models' 
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
@@ -299,7 +299,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Enterprise Models tab if company has enterprise models */}
           {hasEnterpriseModels() && (
             <button
-              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
                 activeTab === 'enterprise-models' 
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
@@ -317,7 +317,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Open Models tab if company has open models - moved BEFORE image and video model tabs */}
           {hasOpenModels() && (
             <button
-              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
                 activeTab === 'open-models' 
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
@@ -335,7 +335,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Image Models tab if company has image models */}
           {hasImageModels() && (
             <button
-              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
                 activeTab === 'image-models' 
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
@@ -353,7 +353,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Video Models tab if company has video models */}
           {hasVideoModels() && (
             <button
-              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
                 activeTab === 'video-models' 
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
@@ -371,7 +371,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Audio Models tab if company has audio models */}
           {hasAudioModels() && (
             <button
-              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
                 activeTab === 'audio-models' 
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
@@ -389,7 +389,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Specialised Models tab if company has specialised models */}
           {hasSpecialisedModels() && (
             <button
-              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
                 activeTab === 'specialised-models' 
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
@@ -407,7 +407,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Benchmarks Tab - Show only if company has models with benchmark scores */}
           {hasBenchmarkScores() && (
             <button
-              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+              className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
                 activeTab === 'benchmarks' 
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
@@ -425,7 +425,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Products tab if company has products */}
           {company.products && company.products.length > 0 && (
             <button
-          className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+          className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
                 activeTab === 'products' 
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
@@ -443,7 +443,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Features tab if company has features */}
           {company.features && company.features.length > 0 && (
             <button
-          className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+          className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
                 activeTab === 'features' 
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
@@ -461,7 +461,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Subscriptions tab if company has subscriptions */}
           {company.subscriptions && company.subscriptions.length > 0 && (
             <button
-          className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+          className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
                 activeTab === 'subscriptions' 
                   ? 'border-cyan-400 text-cyan-400' 
                   : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'

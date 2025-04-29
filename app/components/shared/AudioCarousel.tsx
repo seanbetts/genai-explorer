@@ -6,15 +6,17 @@ import React, { useCallback, useEffect, useState } from "react";
 // Main audio carousel component -------------------------------------------------
 // -----------------------------------------------------------------------------
 interface AudioCarouselProps {
-  audioUrls: string[]; // Array of audio embed URLs
+  audio: string[] | Record<string, string>; // Array of audio embed URLs or object of names to URLs
   title: string;
   carouselId?: string; // Unique ID for this carousel instance
+  formatTrackName?: (name: string) => string;
 }
 
 const AudioCarousel: React.FC<AudioCarouselProps> = ({ 
-  audioUrls, 
+  audio, 
   title,
-  carouselId = 'default'
+  carouselId = 'default',
+  formatTrackName = (name) => name
 }) => {
   // ----- state ---------------------------------------------------------------
   const [currentAudioIndex, setCurrentAudioIndex] = useState(0);
@@ -23,21 +25,30 @@ const AudioCarousel: React.FC<AudioCarouselProps> = ({
   const [showFocusRing, setShowFocusRing] = useState(false);
   
   // ----- derived values ------------------------------------------------------
-  const hasMultipleAudios = audioUrls.length > 1;
-  const currentAudioUrl = audioUrls[currentAudioIndex] || "";
+  // Handle both array and object formats
+  const audioEntries = Array.isArray(audio) 
+    ? audio.map((url, index) => [`Track ${index + 1}`, url])
+    : Object.entries(audio);
+    
+  const hasMultipleAudios = audioEntries.length > 1;
+  
+  // Get current audio entry
+  const currentEntry = audioEntries[currentAudioIndex] || ["", ""];
+  const currentTrackName = currentEntry[0];
+  const currentAudioUrl = currentEntry[1] || "";
   
   // ----- audio navigation ----------------------------------------------------
   const nextAudio = useCallback(() => {
     if (!hasMultipleAudios) return;
-    setCurrentAudioIndex((i) => (i + 1) % audioUrls.length);
-  }, [hasMultipleAudios, audioUrls.length]);
+    setCurrentAudioIndex((i) => (i + 1) % audioEntries.length);
+  }, [hasMultipleAudios, audioEntries.length]);
 
   const prevAudio = useCallback(() => {
     if (!hasMultipleAudios) return;
     setCurrentAudioIndex((i) =>
-      i === 0 ? audioUrls.length - 1 : i - 1,
+      i === 0 ? audioEntries.length - 1 : i - 1,
     );
-  }, [hasMultipleAudios, audioUrls.length]);
+  }, [hasMultipleAudios, audioEntries.length]);
 
   // keyboard arrows - only respond when carousel has focus
   useEffect(() => {
@@ -61,7 +72,7 @@ const AudioCarousel: React.FC<AudioCarouselProps> = ({
   };
 
   // If there are no audios to display
-  if (audioUrls.length === 0) {
+  if (audioEntries.length === 0) {
     return (
       <div className="flex items-center justify-center h-64 bg-gray-800 rounded-lg border border-gray-700">
         <p className="text-lg text-gray-400">No audio examples available</p>
@@ -110,13 +121,13 @@ const AudioCarousel: React.FC<AudioCarouselProps> = ({
         {/* counter */}
         {hasMultipleAudios && (
           <div className="absolute bottom-3 right-3 bg-black/70 px-4 py-1.5 rounded-full text-white text-sm font-mono z-20">
-            {currentAudioIndex + 1} / {audioUrls.length}
+            {currentAudioIndex + 1} / {audioEntries.length}
           </div>
         )}
       </div>
 
       {/* thumbnails for audio navigation */}
-      {audioUrls.length > 1 && (
+      {audioEntries.length > 1 && (
         <div 
           className="mt-2 overflow-x-auto scrollbar-hide outline-none focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
           onMouseEnter={() => setHasFocus(true)}
@@ -145,8 +156,9 @@ const AudioCarousel: React.FC<AudioCarouselProps> = ({
             className="flex gap-2 py-1 max-w-full justify-center"
             id={`audio-thumbnail-container-${carouselId}`}
           >
-            {audioUrls.map((url, idx) => {
+            {audioEntries.map(([name, url], idx) => {
               const songId = getSongId(url);
+              const formattedName = formatTrackName(name);
               
               return (
                 <button
@@ -156,20 +168,20 @@ const AudioCarousel: React.FC<AudioCarouselProps> = ({
                     setCurrentAudioIndex(idx);
                     setHasFocus(true);
                   }}
-                  className={`flex-shrink-0 flex flex-col items-center justify-center w-28 h-16 rounded overflow-hidden cursor-pointer group focus:outline-none ${
+                  className={`flex-shrink-0 flex flex-col items-center justify-center w-32 h-16 rounded overflow-hidden cursor-pointer group focus:outline-none ${
                     idx === currentAudioIndex
                       ? "bg-cyan-900/90 text-cyan-400 ring-2 ring-cyan-400"
-                      : "bg-gray-700 hover:bg-gray-600 focus-visible:ring-1 focus-visible:ring-fuchsia-500 text-cyan-400"
+                      : "bg-gray-700 hover:bg-gray-600 hover:ring-1 hover:ring-fuchsia-500/50 text-cyan-400"
                   }`}
-                  aria-label={`Play audio example ${idx + 1}`}
+                  aria-label={`Play track "${formattedName}"`}
                 >
                   <i className={`bi bi-music-note-beamed text-xl ${
                     idx === currentAudioIndex 
                       ? "text-cyan-400" 
                       : "text-fuchsia-500 group-hover:text-cyan-400"
                   }`}></i>
-                  <div className="text-center px-1 pb-1 font-mono" style={{ fontSize: "0.7rem" }}>
-                    Track {idx + 1}
+                  <div className="text-center px-1 pb-1 font-mono truncate w-full" style={{ fontSize: "0.7rem" }}>
+                    {formattedName}
                   </div>
                 </button>
               );

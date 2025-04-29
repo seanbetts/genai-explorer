@@ -3928,7 +3928,7 @@
       "models": [
         {
           "id": "v7",
-          "name": "V7",
+          "name": "Midjourney v7",
           "status": "primary",
           "about": "A smarter model, with noticeably higher image quality with beautiful textures, and bodies, hands and objects of all kinds.",
           "category": "image",
@@ -4063,7 +4063,7 @@
       "logo": "/images/companies/stability-ai/logo.png",
       "website": "https://stability.ai",
       "description": "We build image, video, 3D, and audio generation tools that work where you do.",
-      "lastUpdated": "2025-04 -28",
+      "lastUpdated": "2025-04-28",
       "features": [],
       "models": [
         {
@@ -4261,7 +4261,7 @@
       "logo": "/images/companies/runway/logo.png",
       "website": "https://runwayml.com",
       "description": "A global AI research and media company working with the world’s top film studios,production companies, agencies and brands.",
-      "lastUpdated": "2025-03-10",
+      "lastUpdated": "2025-04-29",
       "features": [],
       "models": [
         {
@@ -4597,7 +4597,7 @@
       "logo": "/images/companies/kling/logo.png",
       "website": "https://www.klingai.com/",
       "description": "Next-Generation AI Creative Studio",
-      "lastUpdated": "2025-03-05",
+      "lastUpdated": "2025-04-29",
       "features": [],
       "models": [
         {
@@ -4698,9 +4698,9 @@
       "models": [
         {
           "id": "v4",
-          "name": "v4",
+          "name": "Suno v4",
           "status": "primary",
-          "about": "",
+          "about": "Better audio, sharper lyrics, and more dynamic song structures",
           "category": "music",
           "releaseDate": "2024-11-19",
           "releasePost": "https://suno.com/blog/v4",
@@ -4709,18 +4709,18 @@
           "systemCard": "",
           "modelGuide": "",
           "apiDocumentation": "",
-          "audioExamples": [
-            "https://suno.com/embed/ee467d00-5813-4a74-9792-c9ae4a09d344",
-            "https://suno.com/embed/5a285fbc-f64a-418a-8b2e-05e3e7990899",
-            "https://suno.com/embed/b27c29f6-8ab4-47eb-81fd-efb85c848ada",
-            "https://suno.com/embed/f275d9ac-5a62-4bbe-baf9-3fa10e0332f4",
-            "https://suno.com/embed/7f774078-1672-4858-a37f-acad373c5a84",
-            "https://suno.com/embed/19807561-1427-4c25-a229-a8c3063d0616",
-            "https://suno.com/embed/c15f0251-fbac-4a30-a3e1-002dbc78cb79",
-            "https://suno.com/embed/3107d309-3316-4b00-bc7c-f590038d9e5b",
-            "https://suno.com/embed/423d3dea-7a36-4621-a3b2-ff92edc066d4",
-            "https://suno.com/embed/5b83f352-1956-4ca2-8534-2af03bf76863"
-          ],
+          "audioExamples": {
+            "cat": "https://suno.com/embed/ee467d00-5813-4a74-9792-c9ae4a09d344",
+            "deep_night": "https://suno.com/embed/5a285fbc-f64a-418a-8b2e-05e3e7990899",
+            "C-A-P-Y-B-A-R-A": "https://suno.com/embed/b27c29f6-8ab4-47eb-81fd-efb85c848ada",
+            "ain't_got_a_nickel_ain't_got_a_dime": "https://suno.com/embed/f275d9ac-5a62-4bbe-baf9-3fa10e0332f4",
+            "golden_sunshine": "https://suno.com/embed/7f774078-1672-4858-a37f-acad373c5a84",
+            "egyptian_dance_party": "https://suno.com/embed/19807561-1427-4c25-a229-a8c3063d0616",
+            "i_only_ate_3_cheeseburgers": "https://suno.com/embed/c15f0251-fbac-4a30-a3e1-002dbc78cb79",
+            "i_can_wait_100_years": "https://suno.com/embed/3107d309-3316-4b00-bc7c-f590038d9e5b",
+            "bossa_jazz": "https://suno.com/embed/423d3dea-7a36-4621-a3b2-ff92edc066d4",
+            "maybe?!": "https://suno.com/embed/5b83f352-1956-4ca2-8534-2af03bf76863"
+          },
           "demoVideos": {
             "remaster": ["https://www.youtube.com/watch?v=LGh5nqe_xD0"]
           },
@@ -4826,51 +4826,69 @@
       "logo": "/images/companies/udio/logo.png",
       "website": "https://www.udio.com",
       "description": "Create any song. Just imagine it.",
-      "lastUpdated": "2025-02-25",
+      "lastUpdated": "2025-04-29",
       "features": [],
       "models": [
         {
           "id": "udio-composer",
           "name": "Udio Composer",
           "status": "primary",
-          "type": "music",
+          "about": "",
           "category": "music",
-          "releaseDate": "2025-01-20",
-          "modelPage": "",
+          "releaseDate": "2024-11-19",
           "releasePost": "",
           "releaseVideo": "",
+          "modelPage": "",
           "systemCard": "",
-          "capabilities": {
-            "intelligence": 5,
-            "speed": 4,
-            "reasoning": 0
+          "modelGuide": "",
+          "apiDocumentation": "",
+          "audioExamples": [],
+          "demoVideos": {
+            "xxx": [""]
           },
-          "specs": {
-            "reasoningTokens": false,
-            "inputFormats": [
-              "text",
-              "midi",
-              "speech"
-            ],
-            "outputFormats": [
-              "speech"
-            ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null,
-            "maxDuration": "5 minutes",
-            "techniques": [
-              "text-to-music",
-              "audio-to-audio",
-              "style-transfer"
-            ],
-            "genres": [
-              "all major genres"
-            ],
-            "commercialUseAllowed": true
+          "termsOfService": "",
+          "usagePolicy": "",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {
+            "available": false,                                     
+            "xxx": {}        
+          },
+          "features": {
+            "generation": {
+              "textToMusic": false,
+              "textToVoice": false,
+              "audioToMusic": false,
+              "customLyrics": false,
+              "instrumental": false,
+              "styles": false,
+              "negativeStyles": false,
+              "personas": false,
+              "durations": [0],
+              "coverArt": false,
+              "coverVideo": false
+            },
+            "editing": {
+              "crop": false,
+              "replaceSection": false,
+              "seperateVocals": false,
+              "generativeExtend": false
+            },
+            "enhancement": {
+              "remaster": false,
+              "covers": false
+            },
+            "advanced": {
+              "trainCustomModels": false
+            }
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
           }
         }
       ],

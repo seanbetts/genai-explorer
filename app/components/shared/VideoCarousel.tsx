@@ -380,7 +380,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
                   className={`flex-shrink-0 flex flex-col items-center justify-center w-28 h-20 rounded overflow-hidden cursor-pointer group focus:outline-none ${
                     idx === currentVideoIndex
                       ? "bg-cyan-900/90 text-cyan-400 ring-2 ring-cyan-400"
-                      : "bg-gray-700 hover:bg-gray-600 focus-visible:ring-1 focus-visible:ring-fuchsia-500 text-cyan-400"
+                      : "bg-gray-700 hover:bg-gray-600 hover:ring-1 hover:ring-fuchsia-500/50 text-cyan-400"
                   }`}
                   aria-label={`View video ${formatDemoName(name)}`}
                 >
