@@ -493,6 +493,7 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                 videos={selectedModel.demoVideos}
                 title={selectedModel.name}
                 formatDemoName={formatDemoName}
+                carouselId={`${selectedModel.id}-demo-videos`}
               />
             </div>
           </>
@@ -606,6 +607,7 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
               : selectedModel.videoExamples as Record<string, string>
           }
           title={selectedModel.name}
+          carouselId={`${selectedModel.id}-video-examples`}
           formatDemoName={(name) => {
             // For the old format (example_1, example_2, etc.), replace with Example X
             if (name.startsWith('example_')) {

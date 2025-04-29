@@ -10,11 +10,13 @@ import React, {
 interface ThumbnailScrollerProps {
   activeIndex: number;
   isKeyboardNav?: boolean;
+  carouselId: string;
 }
 
 const ThumbnailScroller: React.FC<ThumbnailScrollerProps> = ({
   activeIndex,
   isKeyboardNav = false,
+  carouselId
 }) => {
   // Use both useLayoutEffect and useEffect to ensure scrolling happens reliably
   useLayoutEffect(() => {
@@ -30,8 +32,8 @@ const ThumbnailScroller: React.FC<ThumbnailScrollerProps> = ({
   }, [activeIndex, isKeyboardNav]);
   
   const scrollToActiveThumbnail = () => {
-    const el = document.getElementById(`video-thumbnail-${activeIndex}`);
-    const container = document.getElementById('video-thumbnail-container');
+    const el = document.getElementById(`video-thumbnail-${carouselId}-${activeIndex}`);
+    const container = document.getElementById(`video-thumbnail-container-${carouselId}`);
     if (!el || !container) return;
     
     // Only scroll if the container is scrollable (content wider than container)
@@ -60,12 +62,14 @@ interface VideoCarouselProps {
   videos: Record<string, string | string[]>; // Key-value pairs of video names and either URLs or [videoURL, thumbnailURL]
   title: string;
   formatDemoName: (name: string) => string;
+  carouselId?: string; // Unique ID for this carousel instance
 }
 
 const VideoCarousel: React.FC<VideoCarouselProps> = ({ 
   videos, 
   title,
-  formatDemoName 
+  formatDemoName,
+  carouselId = 'default'
 }) => {
   // ----- state ---------------------------------------------------------------
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -98,7 +102,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
   useEffect(() => {
     // Check if thumbnails should be centered or left-aligned for scrolling
     const checkThumbnailLayout = () => {
-      const container = document.getElementById('video-thumbnail-container');
+      const container = document.getElementById(`video-thumbnail-container-${carouselId}`);
       if (!container) return;
       
       // Calculate the total width of all thumbnails (28px width + 0.5rem gap per thumbnail)
@@ -114,7 +118,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
     window.addEventListener('resize', checkThumbnailLayout);
     
     return () => window.removeEventListener('resize', checkThumbnailLayout);
-  }, [videoEntries.length]);
+  }, [videoEntries.length, carouselId]);
 
   // ----- video navigation ----------------------------------------------------
   const nextVideo = useCallback(() => {
@@ -129,10 +133,13 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
     );
   }, [hasMultipleVideos, videoEntries.length]);
 
-  // keyboard arrows -----------------------------------------------------------
+  // Track if the carousel has focus
+  const [hasFocus, setHasFocus] = useState(false);
+
+  // keyboard arrows - only respond when carousel has focus
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (!hasMultipleVideos) return;
+      if (!hasMultipleVideos || !hasFocus) return;
       if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
         setIsKeyboardNav(true);
         e.key === "ArrowRight" ? nextVideo() : prevVideo();
@@ -141,7 +148,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [hasMultipleVideos, nextVideo, prevVideo]);
+  }, [hasMultipleVideos, nextVideo, prevVideo, hasFocus]);
 
   // Reset video playing state when changing videos
   useEffect(() => {
@@ -302,13 +309,23 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
 
       {/* thumbnails */}
       {videoEntries.length > 1 && (
-        <div className="mt-2 overflow-x-auto scrollbar-hide">
+        <div 
+          className="mt-2 overflow-x-auto scrollbar-hide"
+          onMouseEnter={() => setHasFocus(true)}
+          onMouseLeave={() => setHasFocus(false)}
+          onFocus={() => setHasFocus(true)}
+          onBlur={() => setHasFocus(false)}
+          tabIndex={0} // Make div focusable
+        >
           <div
             className={`flex gap-2 py-1 max-w-full ${shouldCenterThumbnails ? 'justify-center' : 'justify-start'}`}
             style={{ scrollbarWidth: "none" }}
-            id="video-thumbnail-container"
+            id={`video-thumbnail-container-${carouselId}`}
           >
-            <ThumbnailScroller activeIndex={currentVideoIndex} isKeyboardNav={isKeyboardNav} />
+            <ThumbnailScroller 
+              activeIndex={currentVideoIndex} 
+              isKeyboardNav={isKeyboardNav} 
+              carouselId={carouselId} />
 
             {videoEntries.map(([name, value], idx) => {
               // Process the value which may be a string URL or [videoURL, thumbnailURL] array
@@ -335,8 +352,11 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
               return (
                 <button
                   key={idx}
-                  id={`video-thumbnail-${idx}`}
-                  onClick={() => setCurrentVideoIndex(idx)}
+                  id={`video-thumbnail-${carouselId}-${idx}`}
+                  onClick={() => {
+                    setCurrentVideoIndex(idx);
+                    setHasFocus(true);
+                  }}
                   className={`flex-shrink-0 flex flex-col items-center justify-center w-28 h-20 rounded overflow-hidden cursor-pointer group ${
                     idx === currentVideoIndex
                       ? "bg-cyan-900/90 text-cyan-400 ring-2 ring-cyan-400"

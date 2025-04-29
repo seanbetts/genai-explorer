@@ -911,6 +911,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                 videos={selectedModel.demoVideos}
                 title={selectedModel.name}
                 formatDemoName={formatDemoName}
+                carouselId={`${selectedModel.id}-image-demo-videos`}
               />
             </div>
           </>
