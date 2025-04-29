@@ -148,7 +148,7 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                           {/* Resolutions */}
                           {selectedModel.features.generation?.resolutions && selectedModel.features.generation.resolutions.length > 0 && (
                             <div className="flex-1">
-                              <h4 className="text-sm font-semibold text-cyan-400 mb-2">Resolutions</h4>
+                              <h5 className="text-xs font-medium text-gray-300 mb-2">Resolutions</h5>
                               <div className="flex flex-wrap gap-2">
                                 {selectedModel.features.generation.resolutions.map((value, index) => (
                                   <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
@@ -162,7 +162,7 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                           {/* Durations */}
                           {selectedModel.features.generation?.durations && selectedModel.features.generation.durations.length > 0 && (
                             <div className="flex-1">
-                              <h4 className="text-sm font-semibold text-cyan-400 mb-2">Durations</h4>
+                              <h5 className="text-xs font-medium text-gray-300 mb-2">Durations</h5>
                               <div className="flex flex-wrap gap-2">
                                 {selectedModel.features.generation.durations.map((value, index) => (
                                   <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
@@ -176,7 +176,7 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                           {/* Number of Videos */}
                           {selectedModel.features.generation?.numberOfVideos && selectedModel.features.generation.numberOfVideos.length > 0 && (
                             <div className="flex-1">
-                              <h4 className="text-sm font-semibold text-cyan-400 mb-2">Video Count</h4>
+                              <h5 className="text-xs font-medium text-gray-300 mb-2">Video Count</h5>
                               <div className="flex flex-wrap gap-2">
                                 {selectedModel.features.generation.numberOfVideos.map((value, index) => (
                                   <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
@@ -200,7 +200,7 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                         )
                         .map(([key, values]) => (
                           <div key={key} className="mt-4">
-                            <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
+                            <h5 className="text-xs font-medium text-gray-300 mb-2">{formatFeatureName(key)}</h5>
                             <div className="flex flex-wrap gap-2">
                               {Array.isArray(values) && values.map((value, index) => (
                                 <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
