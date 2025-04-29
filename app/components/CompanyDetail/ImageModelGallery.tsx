@@ -425,7 +425,15 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
 
                   <tbody>
                     {/* Define all API endpoint rows as an array of objects */}
-                    {[
+                    {/* Filtered to only show rows where at least one endpoint has support for the feature */}
+                    {(() => {
+                      // All available endpoints (excluding the 'available' property)
+                      const endpoints = Object.entries(selectedModel.apiEndpoints || {})
+                        .filter(([key]) => key !== 'available')
+                        .map(([_, data]) => data);
+                        
+                      // All possible row definitions
+                      const allRows = [
                       // Input-related fields (cyan icons)
                       {
                         id: 'input-formats',
@@ -837,7 +845,39 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           );
                         }
                       }
-                    ].map((row, index) => (
+                      ];
+                      
+                      // Filter rows to only include those where at least one endpoint has a non-empty/non-false value
+                      const filteredRows = allRows.filter(row => {
+                        return endpoints.some(endpoint => {
+                          // Get the result from renderCell
+                          const renderResult = row.renderCell(endpoint);
+                          
+                          // Check if the feature is supported by seeing if renderCell returns anything other than "-" or iconStyles.booleanFalse
+                          if (React.isValidElement(renderResult)) {
+                            // If it's a React element, check for text content
+                            if (renderResult.type === 'span' && renderResult.props.className === 'text-gray-500') {
+                              // This is a dash "-" indicator, feature not supported
+                              return false;
+                            }
+                            
+                            // Check if it's a boolean false icon
+                            if (renderResult.type === 'i' && renderResult.props.className.includes(iconStyles.booleanFalse)) {
+                              return false;
+                            }
+                            
+                            // Otherwise it's either a supported feature or a more complex component like a flex container
+                            return true;
+                          }
+                          
+                          // Default to showing if we can't determine
+                          return true;
+                        });
+                      });
+                      
+                      // Return the filtered rows array
+                      return filteredRows;
+                    })().map((row, index) => (
                       <tr key={row.id} className="cursor-pointer">
                         <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
                           <div className={containerStyles.flexCenter}>
