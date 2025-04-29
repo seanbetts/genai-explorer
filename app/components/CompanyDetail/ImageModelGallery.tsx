@@ -97,7 +97,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
       {models.map((model) => (
         <button
           key={model.id}
-          className={`py-2 px-4 font-medium font-mono text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+          className={`py-2 px-4 font-medium font-mono text-sm focus:outline-none focus-visible:outline-none ${
             selectedModelId === model.id
               ? "border-cyan-400 text-cyan-400"
               : "border-transparent text-gray-400 hover:text-white hover:border-gray-500"

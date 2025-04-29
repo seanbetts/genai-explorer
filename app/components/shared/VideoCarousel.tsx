@@ -133,8 +133,9 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
     );
   }, [hasMultipleVideos, videoEntries.length]);
 
-  // Track if the carousel has focus
+  // Track if the carousel has focus and if it should show focus styling
   const [hasFocus, setHasFocus] = useState(false);
+  const [showFocusRing, setShowFocusRing] = useState(false);
 
   // keyboard arrows - only respond when carousel has focus
   useEffect(() => {
@@ -142,6 +143,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
       if (!hasMultipleVideos || !hasFocus) return;
       if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
         setIsKeyboardNav(true);
+        setShowFocusRing(true); // Show focus ring when using keyboard
         e.key === "ArrowRight" ? nextVideo() : prevVideo();
         setTimeout(() => setIsKeyboardNav(false), 300);
       }
@@ -310,11 +312,29 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
       {/* thumbnails */}
       {videoEntries.length > 1 && (
         <div 
-          className="mt-2 overflow-x-auto scrollbar-hide"
+          className={`mt-2 overflow-x-auto scrollbar-hide outline-none focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 ${hasFocus && showFocusRing ? 'bg-gray-800/30 rounded' : ''}`}
           onMouseEnter={() => setHasFocus(true)}
-          onMouseLeave={() => setHasFocus(false)}
-          onFocus={() => setHasFocus(true)}
-          onBlur={() => setHasFocus(false)}
+          onMouseLeave={() => {
+            setHasFocus(false);
+            setShowFocusRing(false);
+          }}
+          onFocus={() => {
+            setHasFocus(true);
+            // Only show focus ring when keyboard navigating
+            if (isKeyboardNav) {
+              setShowFocusRing(true);
+            }
+          }}
+          onBlur={() => {
+            setHasFocus(false);
+            setShowFocusRing(false);
+          }}
+          onKeyDown={(e) => {
+            // Show focus ring on any key press
+            if (e.key === 'Tab' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+              setShowFocusRing(true);
+            }
+          }}
           tabIndex={0} // Make div focusable
         >
           <div
@@ -357,10 +377,10 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
                     setCurrentVideoIndex(idx);
                     setHasFocus(true);
                   }}
-                  className={`flex-shrink-0 flex flex-col items-center justify-center w-28 h-20 rounded overflow-hidden cursor-pointer group ${
+                  className={`flex-shrink-0 flex flex-col items-center justify-center w-28 h-20 rounded overflow-hidden cursor-pointer group focus:outline-none ${
                     idx === currentVideoIndex
                       ? "bg-cyan-900/90 text-cyan-400 ring-2 ring-cyan-400"
-                      : "bg-gray-700 hover:bg-gray-600 text-cyan-400"
+                      : "bg-gray-700 hover:bg-gray-600 focus-visible:ring-1 focus-visible:ring-fuchsia-500 text-cyan-400"
                   }`}
                   aria-label={`View video ${formatDemoName(name)}`}
                 >
