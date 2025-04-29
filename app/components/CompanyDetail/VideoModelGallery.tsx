@@ -140,8 +140,64 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                       </div>
                       
                       {/* Array features with special formatting */}
-                      {Object.entries(selectedModel.features.generation)
-                        .filter(([_, value]) => Array.isArray(value) && value.length > 0)
+                      {/* Handle resolutions, durations, and numberOfVideos specially on a single line */}
+                      {selectedModel.features.generation?.resolutions || 
+                       selectedModel.features.generation?.durations || 
+                       selectedModel.features.generation?.numberOfVideos ? (
+                        <div className="mt-4 flex flex-row justify-between space-x-2">
+                          {/* Resolutions */}
+                          {selectedModel.features.generation?.resolutions && selectedModel.features.generation.resolutions.length > 0 && (
+                            <div className="flex-1">
+                              <h4 className="text-sm font-semibold text-cyan-400 mb-2">Resolutions</h4>
+                              <div className="flex flex-wrap gap-2">
+                                {selectedModel.features.generation.resolutions.map((value, index) => (
+                                  <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                    {value}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                          
+                          {/* Durations */}
+                          {selectedModel.features.generation?.durations && selectedModel.features.generation.durations.length > 0 && (
+                            <div className="flex-1">
+                              <h4 className="text-sm font-semibold text-cyan-400 mb-2">Durations</h4>
+                              <div className="flex flex-wrap gap-2">
+                                {selectedModel.features.generation.durations.map((value, index) => (
+                                  <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                    {typeof value === 'number' ? `${value}s` : value}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                          
+                          {/* Number of Videos */}
+                          {selectedModel.features.generation?.numberOfVideos && selectedModel.features.generation.numberOfVideos.length > 0 && (
+                            <div className="flex-1">
+                              <h4 className="text-sm font-semibold text-cyan-400 mb-2">Video Count</h4>
+                              <div className="flex flex-wrap gap-2">
+                                {selectedModel.features.generation.numberOfVideos.map((value, index) => (
+                                  <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                    {value}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      ) : null}
+                      
+                      {/* Handle other array features (like videoStyles) */}
+                      {Object.entries(selectedModel.features.generation || {})
+                        .filter(([key, value]) => 
+                          Array.isArray(value) && 
+                          value.length > 0 && 
+                          key !== 'resolutions' && 
+                          key !== 'durations' && 
+                          key !== 'numberOfVideos'
+                        )
                         .map(([key, values]) => (
                           <div key={key} className="mt-4">
                             <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>

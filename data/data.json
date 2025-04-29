@@ -4278,13 +4278,13 @@
           "modelGuide": "",
           "apiDocumentation": "https://docs.dev.runwayml.com",
           "videoExamples": {
-            "Example 1": "https://youtu.be/watch?v=br9b3-cxTPQ",
-            "Example 2": "https://youtu.be/Z0P6qjMUl34?si=5ByKnEocRu9CfNNi",
-            "Example 3": "https://youtu.be/ENGKp5wn344?si=gPEuquLJn3knRvKo",
-            "Example 4": "https://youtu.be/9HzdNhOe09I?si=VsGKKsjGVeY6kO54",
-            "Example 5": "https://youtu.be/c8IBmK7GZP8?si=TZHVdPU8--p61b-y",
-            "Example 6": "https://youtu.be/xEhgxhrAjE4?si=9C7A10LsuEQJnSI6",
-            "Example 7": "https://youtu.be/Eb_SxalzkGg"
+            "Gen-4": "https://youtu.be/watch?v=br9b3-cxTPQ",
+            "the_herd": "https://youtu.be/Z0P6qjMUl34?si=5ByKnEocRu9CfNNi",
+            "scimmia_vede": "https://youtu.be/ENGKp5wn344?si=gPEuquLJn3knRvKo",
+            "the_retrieval": "https://youtu.be/9HzdNhOe09I?si=VsGKKsjGVeY6kO54",
+            "the_lonely_little_flame": "https://youtu.be/c8IBmK7GZP8?si=TZHVdPU8--p61b-y",
+            "NYC_is_a_zoo": "https://youtu.be/xEhgxhrAjE4?si=9C7A10LsuEQJnSI6",
+            "consistent_characters": "https://youtu.be/Eb_SxalzkGg"
           },
           "demoVideos": {
             "image_to_video": ["https://youtu.be/OLWd5O1O66s?si=qp_-00OWpQRiKjH6"]
@@ -4614,12 +4614,12 @@
           "modelGuide": "https://app.klingai.com/global/dev/document-api/quickStart/productIntroduction/overview",
           "apiDocumentation": "https://app.klingai.com/global/dev/document-api",
           "videoExamples": {
-            "Example 1": "https://youtu.be/atNtfVGESqU?si=-D9xK_dwR67vNWMM",
-            "Example 2": "https://youtu.be/NFovcrA86Ik?si=RK3QO3AnSzvMMaAn",
-            "Example 3": "https://youtu.be/Wyf6bGvxses?si=Qsr-xA5eoijvfHL6",
-            "Example 4": "https://youtu.be/xttgmnxfnP4?si=hTdMrwkA1c-Kt1vC",
-            "Example 5": "https://youtu.be/kq2RPlV1_dI?si=W2_yHhx_nC1OOkXe",
-            "Example 6": "https://youtu.be/i9md5ze1wfs?si=6tVpvschUw-SZciJ"
+            "PJ_accetturo": "https://youtu.be/atNtfVGESqU?si=-D9xK_dwR67vNWMM",
+            "VISUALSK2": "https://youtu.be/NFovcrA86Ik?si=RK3QO3AnSzvMMaAn",
+            "jacopo_reale": "https://youtu.be/Wyf6bGvxses?si=Qsr-xA5eoijvfHL6",
+            "outliers": "https://youtu.be/xttgmnxfnP4?si=hTdMrwkA1c-Kt1vC",
+            "WildPusa": "https://youtu.be/kq2RPlV1_dI?si=W2_yHhx_nC1OOkXe",
+            "hq4ai": "https://youtu.be/i9md5ze1wfs?si=6tVpvschUw-SZciJ"
           },
           "demoVideos": {},
           "termsOfService": "",
@@ -4671,7 +4671,8 @@
             "portrait (3:4)": false,
             "square (1:1)": false,
             "widescreen (16:9)": true,
-            "vertical (9:16)": false
+            "vertical (9:16)": false,
+            "ultrawide (21:9)": false
           },
           "safety": {
             "chatModelRefusals": false,
