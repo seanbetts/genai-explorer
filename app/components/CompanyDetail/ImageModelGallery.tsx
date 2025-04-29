@@ -856,13 +856,13 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           // Check if the feature is supported by seeing if renderCell returns anything other than "-" or iconStyles.booleanFalse
                           if (React.isValidElement(renderResult)) {
                             // If it's a React element, check for text content
-                            if (renderResult.type === 'span' && renderResult.props.className === 'text-gray-500') {
+                            if (renderResult.type === 'span' && (renderResult.props as { className?: string })?.className === 'text-gray-500') {
                               // This is a dash "-" indicator, feature not supported
                               return false;
                             }
                             
                             // Check if it's a boolean false icon
-                            if (renderResult.type === 'i' && renderResult.props.className.includes(iconStyles.booleanFalse)) {
+                            if (renderResult.type === 'i' && (renderResult.props as { className?: string })?.className?.includes(iconStyles.booleanFalse)) {
                               return false;
                             }
                             
