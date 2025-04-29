@@ -151,7 +151,13 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                             <div className="flex flex-wrap gap-2">
                               {(selectedModel.features.generation.durations as Array<string | number>).map((value, index) => (
                                 <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
-                                  {typeof value === 'number' ? `${value} min` : value}
+                                  {typeof value === 'number' 
+                                    ? value < 60 
+                                      ? `${value} secs` 
+                                      : value % 60 === 0
+                                        ? `${Math.floor(value / 60)} mins`
+                                        : `${Math.floor(value / 60)} mins ${value % 60} secs` 
+                                    : value}
                                 </span>
                               ))}
                             </div>
@@ -474,11 +480,13 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
           title={selectedModel.name}
           carouselId={`${selectedModel.id}-audio-examples`}
           formatTrackName={(name) => {
-            // Format snake_case or camelCase to Title Case
+            // Format snake_case or camelCase to Title Case with each word capitalized
             return name
               .replace(/_/g, ' ')
               .replace(/([A-Z])/g, ' $1')
-              .replace(/^./, (str) => str.toUpperCase())
+              .split(' ')
+              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(' ')
               .replace(/\.\.\.$/, '...'); // Keep ellipses as is
           }}
         />

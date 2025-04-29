@@ -4742,7 +4742,7 @@
               "styles": true,
               "negativeStyles": true,
               "personas": true,
-              "durations": [4],
+              "durations": [240],
               "coverArt": true,
               "coverVideo": true
             },
@@ -4893,7 +4893,45 @@
         }
       ],
       "products": [],
-      "subscriptions": []
+      "subscriptions": [
+        {
+          "tier": "Free",
+          "type": "consumer",
+          "price": 0,
+          "billingCycle": "monthly",
+          "url": "https://www.udio.com/pricing",
+          "features": [
+            "10 credit limit per day with an additional 100 credit limit per month",
+            "Generate up to 4 songs at the same time",
+            "Limit of 3 full length (2:10s) song generations per day"
+          ]
+        },
+        {
+          "tier": "Standard",
+          "type": "consumer",
+          "price": 10,
+          "billingCycle": "monthly",
+          "url": "https://www.udio.com/pricing",
+          "features": [
+            "1,200 limit per month, no daily limit",
+            "Generate up to 6 songs at the same time",
+            "Edit your tracks, generate songs from audio clips, download musical stems, upload custom cover art, and more"
+          ]
+        },
+        {
+          "tier": "Pro",
+          "type": "consumer",
+          "price": 30,
+          "billingCycle": "monthly",
+          "url": "https://www.udio.com/pricing",
+          "features": [
+            "4,800 limit per month, no daily limit",
+            "Generate up to 8 songs at the same time",
+            "Create songs from a style reference, bulk download songs",
+            "All features from other plans"
+          ]
+        }
+      ]
     },
     {
       "id": "perplexity",
