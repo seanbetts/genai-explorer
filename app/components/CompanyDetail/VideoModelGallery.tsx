@@ -1,0 +1,595 @@
+"use client";
+
+import React, { useEffect, useState } from "react";
+import VideoCarousel from "../shared/VideoCarousel";
+import { Model } from "../types";
+import { textStyles, headingStyles } from "../utils/theme";
+import {
+  containerStyles,
+  iconStyles,
+} from "../utils/layout";
+
+// -----------------------------------------------------------------------------
+// Utility helpers -------------------------------------------------------------
+// -----------------------------------------------------------------------------
+function formatFeatureName(key: string): string {
+  const specialCases: Record<string, string> = {
+    textToVideo: "Text‑To‑Video",
+    imageToVideo: "Image‑To‑Video",
+    videoToVideo: "Video‑To‑Video",
+    generativeExpand: "Generative Expand",
+    generativeExtend: "Generative Extend",
+    photoRealism: "Photorealism",
+    characterConsistency: "Character Consistency",
+  };
+
+  if (specialCases[key]) return specialCases[key];
+
+  return key
+    .replace(/([A-Z])/g, " $1")
+    .replace(/^./, (str) => str.toUpperCase());
+}
+
+function formatDemoName(key: string): string {
+  return key
+    .split("_")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
+// -----------------------------------------------------------------------------
+// Main gallery component -------------------------------------------------------
+// -----------------------------------------------------------------------------
+interface VideoModelGalleryProps {
+  models: Model[];
+  /** Company ID for dynamic video discovery */
+  companyId: string;
+}
+
+const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId }) => {
+  // ----- state ---------------------------------------------------------------
+  const [selectedModelId, setSelectedModelId] = useState<string | null>(
+    models.length ? models[0].id : null,
+  );
+
+  const selectedModel = models.find((m) => m.id === selectedModelId);
+
+  // ---------------------------------------------------------------------------
+  // Render helpers ------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  const renderModelTabs = () => (
+    <div className="flex mb-6 overflow-x-auto scrollbar-hide pb-2">
+      {models.map((model) => (
+        <button
+          key={model.id}
+          className={`py-2 px-4 font-medium font-mono text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+            selectedModelId === model.id
+              ? "border-cyan-400 text-cyan-400"
+              : "border-transparent text-gray-400 hover:text-white hover:border-gray-500"
+          }`}
+          onClick={() => {
+            setSelectedModelId(model.id);
+          }}
+        >
+          {model.name}
+        </button>
+      ))}
+    </div>
+  );
+
+  const renderModelDetails = () => {
+    if (!selectedModel) return null;
+
+    // Determine if the model has IP Respect data
+    const hasIPRespectData = selectedModel.safety && 
+      (selectedModel.safety?.IPRespect !== undefined || 
+        selectedModel.safety?.ipRespect !== undefined);
+    
+    // Determine if IP Respect is enabled
+    const ipRespectEnabled = hasIPRespectData && 
+      (selectedModel.safety?.IPRespect === true || 
+        selectedModel.safety?.ipRespect === true);
+    
+    // Get C2PA metadata URL if available
+    const c2paDocsUrl = selectedModel.metadata?.C2PA || 
+      (typeof selectedModel.safety?.C2PA === 'string' ? selectedModel.safety.C2PA : undefined) ||
+      (typeof selectedModel.safety?.c2pa === 'string' ? selectedModel.safety.c2pa : undefined);
+
+    return (
+      <div className="mb-8">
+        {/* heading + release date */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between md:gap-2 mb-1">
+          <h2 className="text-2xl font-semibold text-fuchsia-500 mt-2 tracking-tight font-mono">
+            {selectedModel.name}
+          </h2>
+          {selectedModel.releaseDate && (
+            <div className="flex items-center text-sm text-gray-400 font-mono mt-4">
+              <i className="bi bi-calendar-event text-fuchsia-500 mr-2" />
+              <span>
+                Released: {new Date(selectedModel.releaseDate).toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" })}
+              </span>
+            </div>
+          )}
+        </div>
+
+        <p className={`${textStyles.body} mb-8`}>{selectedModel.about}</p>
+
+        {/* Main feature sections - show only if features are defined */}
+        {selectedModel.features && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {/* Left column - Generation and Editing features */}
+            <div className="space-y-6">
+              {/* Generation Features */}
+              {selectedModel.features?.generation && Object.keys(selectedModel.features.generation).length > 0 && (
+                <div>
+                  <h3 className={`${headingStyles.card} mb-3`}>Generation Features</h3>
+                  <div className={`${containerStyles.card} min-h-[20rem] h-auto`}>
+                    <div className="space-y-4">
+                      {/* Boolean features */}
+                      <div className="grid grid-cols-2 gap-2">
+                        {Object.entries(selectedModel.features.generation)
+                          .filter(([_, value]) => typeof value === 'boolean')
+                          .map(([key, value]) => (
+                            <div key={key} className="flex items-center h-8">
+                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                              <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                            </div>
+                          ))}
+                      </div>
+
+                      {/* Array features with special formatting */}
+                      {Object.entries(selectedModel.features.generation)
+                        .filter(([_, value]) => Array.isArray(value) && value.length > 0)
+                        .map(([key, values]) => (
+                          <div key={key} className="mt-4">
+                            <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
+                            <div className="flex flex-wrap gap-2">
+                              {Array.isArray(values) && values.map((value, index) => (
+                                <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                  {value}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                        
+                      {/* Object features */}
+                      {Object.entries(selectedModel.features.generation)
+                        .filter(([_, value]) => typeof value === 'object' && value !== null && !Array.isArray(value))
+                        .map(([key, value]) => (
+                          <div key={key} className="mt-4">
+                            <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
+                            <div className="pl-4">
+                              {Object.entries(value as Record<string, any>).map(([subKey, subValue]) => (
+                                <div key={subKey} className="flex items-center h-8">
+                                  <i className={`${subValue === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                                  <span className={textStyles.body}>{formatFeatureName(subKey)}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Editing Features */}
+              {selectedModel.features?.editing && Object.keys(selectedModel.features.editing).length > 0 && (
+                <div>
+                  <h3 className={`${headingStyles.card} mb-3`}>Editing Features</h3>
+                  <div className={`${containerStyles.card} min-h-[12rem] h-auto`}>
+                    <div className="space-y-4">
+                      {/* Boolean features */}
+                      <div className="grid grid-cols-2 gap-2">
+                        {Object.entries(selectedModel.features.editing)
+                          .filter(([_, value]) => typeof value === 'boolean')
+                          .map(([key, value]) => (
+                            <div key={key} className="flex items-center h-8">
+                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                              <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                            </div>
+                          ))}
+                      </div>
+
+                      {/* Object features */}
+                      {Object.entries(selectedModel.features.editing)
+                        .filter(([_, value]) => typeof value === 'object' && value !== null && !Array.isArray(value))
+                        .map(([key, value]) => (
+                          <div key={key} className="mt-4">
+                            <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
+                            <div className="pl-4">
+                              {Object.entries(value as Record<string, any>).map(([subKey, subValue]) => (
+                                <div key={subKey} className="flex items-center h-8">
+                                  <i className={`${subValue === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                                  <span className={textStyles.body}>{formatFeatureName(subKey)}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Right column - Enhancement, Advanced features, and other properties */}
+            <div className="space-y-6">
+              {/* Enhancement Features */}
+              {selectedModel.features?.enhancement && Object.keys(selectedModel.features.enhancement).length > 0 && (
+                <div>
+                  <h3 className={`${headingStyles.card} mb-3`}>Enhancement Features</h3>
+                  <div className={`${containerStyles.card} min-h-[10rem] h-auto`}>
+                    <div className="grid grid-cols-2 gap-2">
+                      {Object.entries(selectedModel.features.enhancement)
+                        .map(([key, value]) => (
+                          <div key={key} className="flex items-center h-8">
+                            <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                            <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Advanced Features */}
+              {selectedModel.features?.advanced && Object.keys(selectedModel.features.advanced).length > 0 && (
+                <div>
+                  <h3 className={`${headingStyles.card} mb-3`}>Advanced Features</h3>
+                  <div className={`${containerStyles.card} min-h-[10rem] h-auto`}>
+                    <div className="space-y-4">
+                      {/* Boolean features */}
+                      <div className="grid grid-cols-2 gap-2">
+                        {Object.entries(selectedModel.features.advanced)
+                          .filter(([_, value]) => typeof value === 'boolean')
+                          .map(([key, value]) => (
+                            <div key={key} className="flex items-center h-8">
+                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                              <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                            </div>
+                          ))}
+                      </div>
+
+                      {/* Object features */}
+                      {Object.entries(selectedModel.features.advanced)
+                        .filter(([_, value]) => typeof value === 'object' && value !== null && !Array.isArray(value) && Object.keys(value as object).length > 0)
+                        .map(([key, value]) => (
+                          <div key={key} className="mt-4">
+                            <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
+                            <div className="pl-4">
+                              {Object.entries(value as Record<string, any>).map(([subKey, subValue]) => (
+                                <div key={subKey} className="flex items-center h-8">
+                                  <i className={`${subValue === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                                  <span className={textStyles.body}>{formatFeatureName(subKey)}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Safety Features */}
+              {(Object.keys(selectedModel.safety ?? {}).length > 0 ||
+                selectedModel.termsOfService ||
+                selectedModel.usagePolicy ||
+                selectedModel.commerciallySafe !== undefined) && (
+                <div>
+                  <h3 className={`${headingStyles.card} mb-3`}>Safety Features</h3>
+                  <div className={`${containerStyles.card} min-h-[12rem] h-auto`}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        {Object.entries(selectedModel.safety ?? {})
+                          .filter(([key]) => 
+                            key !== 'ipRespect' && 
+                            key !== 'IPRespect' && 
+                            key !== 'C2PA' && 
+                            key !== 'c2pa'
+                          )
+                          .map(([key, value]) => (
+                            <div key={key} className="flex items-center h-8">
+                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                              <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                            </div>
+                          ))}
+                      </div>
+                      <div className="space-y-2 flex flex-col">
+                        {hasIPRespectData && (
+                          <div className="flex items-center h-8">
+                            <i className={`${ipRespectEnabled ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
+                            <span className={textStyles.body}>IP Respect</span>
+                          </div>
+                        )}
+                        {selectedModel.commerciallySafe !== undefined && (
+                          <div className="flex items-center h-8">
+                            <i className={`${selectedModel.commerciallySafe ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
+                            <span className={textStyles.body}>{selectedModel.commerciallySafe ? 'Commercially safe' : 'Not commercially safe'}</span>
+                          </div>
+                        )}
+                        {selectedModel.usagePolicy && (
+                          <a
+                            href={selectedModel.usagePolicy}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                          >
+                            <i className="bi bi-shield-check mr-1" /> Usage Policy
+                          </a>
+                        )}
+                        {selectedModel.termsOfService && (
+                          <a
+                            href={selectedModel.termsOfService}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                          >
+                            <i className="bi bi-file-earmark-text mr-1" /> Terms of Service
+                          </a>
+                        )}
+                        {c2paDocsUrl && (
+                          <a
+                            href={c2paDocsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                          >
+                            <i className="bi bi-patch-check-fill mr-1" /> C2PA Metadata
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Aspect Ratios */}
+        {selectedModel.aspectRatios && Object.keys(selectedModel.aspectRatios).length > 0 && (
+          <div className="mb-8">
+            <h3 className={`${headingStyles.card} mb-3`}>Supported Aspect Ratios</h3>
+            <div className={`${containerStyles.card}`}>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {Object.entries(selectedModel.aspectRatios)
+                  .map(([ratio, supported]) => {
+                    // Extract exact aspect ratio from the label
+                    let width = 4, height = 3; // Default to 4:3
+                    
+                    // Extract the ratio values from parentheses, e.g. "(4:3)" -> [4, 3]
+                    const ratioMatch = ratio.match(/\((\d+):(\d+)\)/);
+                    if (ratioMatch && ratioMatch.length === 3) {
+                      width = parseInt(ratioMatch[1], 10);
+                      height = parseInt(ratioMatch[2], 10);
+                    } else {
+                      // Fallback to predefined values if regex fails
+                      if (ratio.includes('(4:3)')) {
+                        width = 4; height = 3; // Landscape
+                      } else if (ratio.includes('(3:4)')) {
+                        width = 3; height = 4; // Portrait
+                      } else if (ratio.includes('(1:1)')) {
+                        width = 1; height = 1; // Square
+                      } else if (ratio.includes('(16:9)')) {
+                        width = 16; height = 9; // Widescreen
+                      } else if (ratio.includes('(9:16)')) {
+                        width = 9; height = 16; // Vertical
+                      } else if (ratio.includes('(21:9)')) {
+                        width = 21; height = 9; // Ultrawide
+                      }
+                    }
+                    
+                    // Normalize to fit within our display box with padding
+                    const viewBoxWidth = 16; 
+                    const viewBoxHeight = 10;
+                    const padding = 1.5; // Add padding on all sides
+                    
+                    const availableWidth = viewBoxWidth - (padding * 2);
+                    const availableHeight = viewBoxHeight - (padding * 2);
+                    
+                    // Determine which dimension (width or height) is the limiting factor
+                    const widthRatio = availableWidth / width;
+                    const heightRatio = availableHeight / height;
+                    const scale = Math.min(widthRatio, heightRatio);
+                    
+                    const scaledWidth = width * scale;
+                    const scaledHeight = height * scale;
+                    
+                    // Calculate position to center the shape
+                    const offsetX = (viewBoxWidth - scaledWidth) / 2;
+                    const offsetY = (viewBoxHeight - scaledHeight) / 2;
+                    
+                    // Capitalize ratio label
+                    const capitalizedRatio = ratio
+                      .split(' ')
+                      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                      .join(' ');
+                    
+                    return (
+                      <div key={ratio} className="flex items-center">
+                        <div className={`w-16 h-10 relative mr-3 rounded border ${supported ? 'border-cyan-400' : 'border-gray-600 opacity-50'}`}>
+                          <div className="absolute inset-0 rounded bg-gray-700 flex items-center justify-center">
+                            <svg width="100%" height="100%" viewBox="0 0 16 10">
+                              <rect
+                                x={offsetX}
+                                y={offsetY}
+                                width={scaledWidth}
+                                height={scaledHeight}
+                                fill={supported ? "#D946EF" : "#6B7280"}
+                                stroke={supported ? "#F5D0FE" : "#4B5563"}
+                                strokeWidth="0.3"
+                                rx="0.3"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <div className="flex items-center">
+                          <i className={`${supported ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                          <span className={`${textStyles.body} text-sm font-medium`}>{capitalizedRatio}</span>
+                        </div>
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
+          </div>
+        )}
+
+
+        {/* Demo videos section */}
+        {selectedModel.demoVideos && Object.keys(selectedModel.demoVideos).length > 0 && (
+          <>
+            <h3 className={`${headingStyles.card} mb-3`}>Demo Videos</h3>
+            <div className="mb-8">
+              <VideoCarousel 
+                videos={selectedModel.demoVideos}
+                title={selectedModel.name}
+                formatDemoName={formatDemoName}
+              />
+            </div>
+          </>
+        )}
+        
+        {/* Resources section - only show if at least one resource is available */}
+        {(selectedModel.releasePost || 
+          selectedModel.releaseVideo || 
+          selectedModel.systemCard || 
+          selectedModel.modelPage || 
+          selectedModel.modelGuide || 
+          selectedModel.apiDocumentation) && (
+          <>
+            <h3 className={`${headingStyles.card} mb-3`}>Resources</h3>
+            <div className={`${containerStyles.card} mb-6`}>
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
+                {selectedModel.releasePost && (
+                  <a 
+                    href={selectedModel.releasePost} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
+                  >
+                    <i className="bi bi-newspaper text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <span>Release Post</span>
+                  </a>
+                )}
+                {selectedModel.releaseVideo && (
+                  <a 
+                    href={selectedModel.releaseVideo} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
+                  >
+                    <i className="bi bi-play-btn text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <span>Release Video</span>
+                  </a>
+                )}
+                {selectedModel.systemCard && (
+                  <a 
+                    href={selectedModel.systemCard} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
+                  >
+                    <i className="bi bi-file-earmark-text text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <span>System Card</span>
+                  </a>
+                )}
+                {selectedModel.modelPage && (
+                  <a 
+                    href={selectedModel.modelPage} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
+                  >
+                    <i className="bi bi-globe2 text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <span>Model Page</span>
+                  </a>
+                )}
+                {selectedModel.modelGuide && (
+                  <a 
+                    href={selectedModel.modelGuide} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
+                  >
+                    <i className="bi bi-book text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <span>Model Guide</span>
+                  </a>
+                )}
+                {selectedModel.apiDocumentation && (
+                  <a 
+                    href={selectedModel.apiDocumentation} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group"
+                  >
+                    <i className="bi bi-code-square text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <span>API Documentation</span>
+                  </a>
+                )}
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+    );
+  };
+
+  // Render the video examples carousel (similar to how ImageModelGallery shows images at the top)
+  const renderVideoExamples = () => {
+    if (!selectedModel || !selectedModel.videoExamples || 
+        (Array.isArray(selectedModel.videoExamples) ? selectedModel.videoExamples.length === 0 : Object.keys(selectedModel.videoExamples).length === 0)) {
+      return null;
+    }
+
+    return (
+      <div className="mb-8 p-0">
+        <VideoCarousel 
+          videos={
+            // Handle both array and object formats
+            Array.isArray(selectedModel.videoExamples) 
+              ? Object.fromEntries(
+                  selectedModel.videoExamples.map((url, index) => 
+                    [`example_${index + 1}`, url]
+                  )
+                )
+              : selectedModel.videoExamples
+          }
+          title={selectedModel.name}
+          formatDemoName={(name) => {
+            // For the old format (example_1, example_2, etc.), replace with Example X
+            if (name.startsWith('example_')) {
+              return name.replace('example_', 'Example ');
+            }
+            
+            // For the new format (snake_case keys), convert to Title Case
+            return name
+              .split('_')
+              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(' ');
+          }}
+        />
+      </div>
+    );
+  };
+
+  // Guard: no models 
+  if (!models || models.length === 0) return null;
+
+  return (
+    <>
+      {models.length > 1 && renderModelTabs()}
+      {selectedModel && selectedModel.videoExamples && 
+       (Array.isArray(selectedModel.videoExamples) 
+         ? selectedModel.videoExamples.length > 0 
+         : Object.keys(selectedModel.videoExamples).length > 0) && 
+       renderVideoExamples()}
+      {renderModelDetails()}
+    </>
+  );
+};
+
+export default VideoModelGallery;
