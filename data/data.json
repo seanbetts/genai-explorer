@@ -448,7 +448,7 @@
             "C2PA": "https://c2pa.org"
           },                          
           "apiEndpoints": { 
-            "available": true,                                        
+            "available": true,                                     
             "generations": {
               "options": {
                 "inputFormats": [
@@ -532,10 +532,6 @@
               }
             }                                       
           },
-          "capabilities": {
-            "performance": 4,
-            "speed": 1
-          },
           "features": {
             "generation": {
               "textToImage": true,
@@ -553,6 +549,7 @@
             "enhancement": {
               "photoRealism": true,
               "textRendering": true,
+              "upscaling": false,
               "transparentLayers": true,
               "characterConsistency": true
             },
@@ -583,103 +580,94 @@
           "id": "sora",
           "name": "Sora",
           "status": "primary",
-          "about": "",
+          "about": "Bring your imagination to life with text, image, or video.",
           "category": "video",
-          "releaseDate": "",
-          "releasePost": "",
-          "releaseVideo": "",
-          "modelPage": "",
-          "systemCard": "",
-          "modelGuide": "",
+          "releaseDate": "2024-12-09",
+          "releasePost": "https://openai.com/index/sora/",
+          "releaseVideo": "https://youtu.be/HK6y8DAPN_0?si=H9GwTBuC0vr0XnnB",
+          "modelPage": "https://openai.com/sora/",
+          "systemCard": "https://openai.com/index/sora-system-card/",
+          "modelGuide": "https://help.openai.com/en/articles/9957612-generating-videos-on-sora",
           "apiDocumentation": "",
-          "demoVideos": {},
-          "termsOfService": "",
-          "usagePolicy": "",
+          "videoExamples": [
+            "https://youtu.be/9oryIMNVtto?si=Etw5y8OyvE9d3rGG",
+            "https://youtu.be/ObUBUKOn-bo?si=9bOBUQLH_gVH2eWM",
+            "https://youtu.be/cYIOP88uEcA?si=2y5XDhDohauCUtk9",
+            "https://youtu.be/7y2s9ZsI8fM?si=tFWUw34awvNu5XRL",
+            "https://youtu.be/pyNYkWaxBeA?si=SZipR-lPgXtWcPcC",
+            "https://youtu.be/CNIlqJctA_I?si=MPvV_q4B-eHtXblX",
+            "https://youtu.be/RfwiiIIDjUc?si=EK5zUmc7ruEP-M50",
+            "https://youtu.be/ZAOSfZyoaus?si=1V_ZoWCnvvWcGAQh",
+            "https://youtu.be/qjuk0YCUdo8?si=usevL9mHIq10A_ht"
+          ],
+          "demoVideos": {
+            "getting_started": ["https://youtu.be/360ZqfabuPQ?si=IG6ffMgp_6-zhha8"],
+            "strotyboard": ["https://youtu.be/6PXWAvUG8Sg?si=NVAyyzTGdhrXenIy"],
+            "recut": ["https://youtu.be/jC0i_0wnly8?si=kLGDskuTtadtMzMX"],
+            "blend": ["https://youtu.be/OXapuT2iVqM?si=nvkM7nFmSuOOvrrg"],
+            "remix": ["https://youtu.be/tC2ZELc4bOA?si=fIs5bpse-EtKu2hr"],
+            "loop": ["https://youtu.be/7BVx1PNfIRk?si=Q_UrtJjaJ0PImnUz"],
+            "music_videos": ["https://youtu.be/0dhX84UkwFs?si=rDDo1aptOU8CLRAF"],
+            "world_building": ["https://youtu.be/PZk4t7Np4Ds?si=e-HYblD1e01DP5e1"],
+            "deflated_behind_the_scenes": ["https://youtu.be/mQG7vN8UYLU?si=xQxQmjOaHrozayNr"]
+          },
+          "termsOfService": "https://openai.com/policies/terms-of-use/",
+          "usagePolicy": "https://openai.com/policies/usage-policies/",
           "commerciallySafe": false,
-          "metadata": {},                          
+          "metadata": {
+            "C2PA": "https://c2pa.org"
+          },                          
           "apiEndpoints": {     
             "available": false,                                    
-            "generations": {
-              "options": {
-                "inputFormats": [
-                  "text"
-                ],
-                "outputFormats": [
-                  "image"
-                ],
-                "background": [],
-                "moderation": [],
-                "numberOfImages": 1,
-                "outputCompression": "",
-                "outputFileTypes": [],
-                "outputQuality": [],
-                "outputSize": [],
-                "outputStyle": [],
-                "pricing": {
-                  "input": {
-                    "textPerM": 0,
-                    "imagePerM": 0
-                  },
-                  "output": {
-                    "imagePerM": 0,
-                    "lowQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    },
-                    "mediumQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    },
-                    "highQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    }
-                  }
-                }
-              }
-            }                                    
-          },
-          "capabilities": {
-            "performance": 4,
-            "speed": 1
+            "xxx": {}                                    
           },
           "features": {
             "generation": {
-              "textToImage": false,
-              "imageToImage": false,
-              "textToVector": false
+              "textToVideo": true,
+              "imageToVideo": true,
+              "videoToVideo": true,
+              "negativePrompt": false,
+              "resolutions": ["480p","720p","1080p"],
+              "frameRate": null,
+              "durations": [5, 10, 15, 20],
+              "numberOfVideos": [1,2,4],
+              "videoStyles": ["archival","film noir","carboard & papercraft","whimsical stop motion","baloon world","superbowl commercial","cartoonify","pixel art"]
             },
             "editing": {
-              "multiTurnGeneration": false,
-              "imageVariations": false,
-              "inPainting": false,
+              "remix": true,
+              "recut": true,
+              "loop": true,
+              "blend": true,
               "generativeExpand": false,
-              "backgroundRemoval": false,
-              "generativeRecolor": false
+              "generativeExtend": false
             },
             "enhancement": {
-              "photoRealism": false,
-              "textRendering": false,
-              "transparentLayers": false,
-              "characterConsistency": false
+              "photoRealism": true,
+              "textRendering": true,
+              "characterConsistency": true,
+              "upscaling": false
             },
             "advanced": {
-              "styleKits": false,
-              "hexCodes": false,
-              "moodBoarding": false,
+              "storyboard": true,
+              "cameraControls": {},
               "trainCustomModels": false
             }
           },
+          "aspectRatios": {
+            "landscape (4:3)": true,
+            "portrait (3:4)": true,
+            "square (1:1)": true,
+            "widescreen (16:9)": true,
+            "vertical (9:16)": true,
+            "ultrawide (21:9)": false
+          },
           "safety": {
-            "chatModelRefusals": false,
-            "promptBlocking": false,
-            "outputBlocking": false,
-            "minorSafeguards": false,
+            "chatModelRefusals": true,
+            "promptBlocking": true,
+            "outputBlocking": true,
+            "minorSafeguards": true,
             "IPRespect": false,
-            "biasMitigation": false
+            "biasMitigation": true
           }
         }
       ],
@@ -1361,28 +1349,30 @@
           }
         },
         {
-          "id": "imagen-1",
-          "name": "Imagen",
+          "id": "imagen-3",
+          "name": "Imagen 3",
           "status": "primary",
-          "about": "",
+          "about": "Text-to-image model, capable of generating images with even better detail, richer lighting and fewer distracting artifacts than our previous models.",
           "category": "image",
-          "releaseDate": "",
-          "releasePost": "",
+          "releaseDate": "2024-12-16",
+          "releasePost": "https://blog.google/technology/google-labs/video-image-generation-update-december-2024/",
           "releaseVideo": "",
-          "modelPage": "",
-          "systemCard": "",
-          "modelGuide": "",
-          "apiDocumentation": "",
-          "exampleImages": [
-            ""
-          ],
-          "demoVideos": {},
-          "termsOfService": "",
-          "usagePolicy": "",
+          "modelPage": "https://deepmind.google/technologies/imagen-3/",
+          "systemCard": "https://storage.googleapis.com/deepmind-media/imagen/imagen_3_tech_report_update_dec2024_v3.pdf",
+          "modelGuide": "https://cloud.google.com/vertex-ai/generative-ai/docs/image/overview",
+          "apiDocumentation": "https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/imagen-api",
+          "demoVideos": {
+            "photorealistic_images":"https://www.youtube.com/watch?v=nEuNwULfGXk"
+          },
+          "termsOfService": "https://policies.google.com/terms",
+          "usagePolicy": "https://cloud.google.com/vertex-ai/generative-ai/docs/image/responsible-ai-imagen#imagen-guidelines",
           "commerciallySafe": false,
-          "metadata": {},                          
-          "apiEndpoints": {                                         
-            "generations": {
+          "metadata": {
+            "synthID": "https://deepmind.google/technologies/synthid/"
+          },                          
+          "apiEndpoints": {
+            "available": true,                                      
+            "generate_images": {
               "options": {
                 "inputFormats": [
                   "text"
@@ -1391,84 +1381,68 @@
                   "image"
                 ],
                 "background": [],
-                "moderation": [],
-                "numberOfImages": 1,
-                "outputCompression": "",
-                "outputFileTypes": [],
+                "moderation": ["block low+","block medium+","block high","block none"],
+                "numberOfImages": 4,
+                "contextWindow": 480,
+                "outputCompression": true,
+                "inputFileTypes": [],
+                "maxInputSize": 0,
+                "mask": true,
+                "outputFileTypes": ["png","jpeg"],
                 "outputQuality": [],
                 "outputSize": [],
-                "outputStyle": [],
-                "pricing": {
-                  "input": {
-                    "textPerM": 0,
-                    "imagePerM": 0
-                  },
-                  "output": {
-                    "imagePerM": 0,
-                    "lowQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    },
-                    "mediumQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    },
-                    "highQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    }
-                  }
-                }
+                "outputStyle": ["photograph","digital art","landscape","sketch","watercolor","cyberpunk","pop art"],
+                "visualIntesity": 0,
+                "tileable": false,
+                "structureReference": false,
+                "negativePrompt": true,
+                "placementPosition": false,
+                "placementAlignment": false,
+                "pricing": {}
               }
             }                                    
           },
-          "capabilities": {
-            "performance": 4,
-            "speed": 1
-          },
           "features": {
             "generation": {
-              "textToImage": false,
-              "imageToImage": false,
+              "textToImage": true,
+              "imageToImage": true,
               "textToVector": false
             },
             "editing": {
               "multiTurnGeneration": false,
               "imageVariations": false,
-              "inPainting": false,
-              "generativeExpand": false,
+              "inPainting": true,
+              "generativeExpand": true,
               "backgroundRemoval": false,
               "generativeRecolor": false
             },
             "enhancement": {
-              "photoRealism": false,
-              "textRendering": false,
+              "photoRealism": true,
+              "textRendering": true,
+              "upscaling": true,
               "transparentLayers": false,
-              "characterConsistency": false
+              "characterConsistency": true
             },
             "advanced": {
               "styleKits": false,
               "hexCodes": false,
               "moodBoarding": false,
-              "trainCustomModels": false
+              "trainCustomModels": true
             }
           },
           "aspectRatios": {
-            "landscape (4:3)": false,
-            "portrait (3:4)": false,
-            "square (1:1)": false,
-            "widescreen (16:9)": false,
-            "vertical (9:16)": false
+            "landscape (4:3)": true,
+            "portrait (3:4)": true,
+            "square (1:1)": true,
+            "widescreen (16:9)": true,
+            "vertical (9:16)": true
           },
           "safety": {
             "chatModelRefusals": false,
-            "promptBlocking": false,
-            "outputBlocking": false,
-            "minorSafeguards": false,
-            "IPRespect": true,
+            "promptBlocking": true,
+            "outputBlocking": true,
+            "minorSafeguards": true,
+            "IPRespect": false,
             "biasMitigation": true
           }
         },
@@ -1476,103 +1450,89 @@
           "id": "veo-2",
           "name": "Veo",
           "status": "primary",
-          "about": "",
+          "about": "State-of-the-art video generation model",
           "category": "video",
-          "releaseDate": "",
-          "releasePost": "",
-          "releaseVideo": "",
-          "modelPage": "",
+          "releaseDate": "2024-12-16",
+          "releasePost": "https://blog.google/technology/google-labs/video-image-generation-update-december-2024/",
+          "releaseVideo": "https://youtu.be/G9RDHs9nx04?si=MeKDs_xMFxnIEtC6",
+          "modelPage": "https://deepmind.google/technologies/veo/veo-2/",
           "systemCard": "",
           "modelGuide": "",
-          "apiDocumentation": "",
-          "exampleImages": [
-            ""
+          "apiDocumentation": "https://cloud.google.com/vertex-ai/generative-ai/docs/video/generate-videos",
+          "videoExamples": [
+            "https://youtu.be/G9RDHs9nx04?si=eJmOMw79FsjmLMVN",
+            "https://youtu.be/qtLyyGkdh_U?si=15RR3yulsC3Q-BJg",
+            "https://youtu.be/gztv6XYUzTM?si=nTTNCM8EEbfORkNv",
+            "https://youtu.be/qxuxDyjszN4?si=oDb8Y_01itODyJaB",
+            "https://youtu.be/e-uf510bXH0?si=19X5KESoxeaYQ5VJ",
+            "https://youtu.be/oMZ7YNaSfn8?si=O1ktw7JK7dw8-ECK",
+            "https://youtu.be/UL8SF-hthEE?si=kMsnj2Vk-V3xRbAv",
+            "https://youtu.be/yfypZs7rqrI?si=kCXcsyVeQvKKJBiR",
+            "https://youtu.be/GMmD0TajRsY?si=lKRUG8nykb7OyW_g",
+            "https://youtu.be/DkJ9e8T7zFU?si=awqbRamcOk5Y25Ii",
+            "https://youtu.be/fls8mk3djlc?si=LtuXEwY6lKSRbhas",
+            "https://youtu.be/VroHuAv9CAk?si=vyVkVUbBRUujc7Ck",
+            "https://youtu.be/yi5uGX1ovvc?si=apJjG2Q6tUrH0LFb",
+            "https://youtu.be/VRRE871Scqk?si=kxHsW4iXFLwyXeTb",
+            "https://youtu.be/g9apeWoNa-0?si=19efC-Uot1BCSfv9",
+            "https://youtu.be/4vH86Jk2fjY?si=F5EiBt51ZEXBTATO"
           ],
           "demoVideos": {},
-          "termsOfService": "",
+          "termsOfService": "https://policies.google.com/terms",
           "usagePolicy": "",
           "commerciallySafe": false,
           "metadata": {},                          
-          "apiEndpoints": {                                         
-            "generations": {
-              "options": {
-                "inputFormats": [
-                  "text"
-                ],
-                "outputFormats": [
-                  "image"
-                ],
-                "background": [],
-                "moderation": [],
-                "numberOfImages": 1,
-                "outputCompression": "",
-                "outputFileTypes": [],
-                "outputQuality": [],
-                "outputSize": [],
-                "outputStyle": [],
-                "pricing": {
-                  "input": {
-                    "textPerM": 0,
-                    "imagePerM": 0
-                  },
-                  "output": {
-                    "imagePerM": 0,
-                    "lowQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    },
-                    "mediumQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    },
-                    "highQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    }
-                  }
-                }
-              }
-            }                                    
-          },
-          "capabilities": {
-            "performance": 4,
-            "speed": 1
+          "apiEndpoints": {   
+            "available": true,                                      
+            "xxx": {}                                    
           },
           "features": {
             "generation": {
-              "textToImage": false,
-              "imageToImage": false,
-              "textToVector": false
+              "textToVideo": true,
+              "imageToVideo": true,
+              "videoToVideo": false,
+              "negativePrompt": true,
+              "resolutions": ["720p"],
+              "frameRate": 24,
+              "durations": [5,8],
+              "numberOfVideos": [4],
+              "videoStyles": []
             },
             "editing": {
-              "multiTurnGeneration": false,
-              "imageVariations": false,
-              "inPainting": false,
+              "remix": false,
+              "recut": false,
+              "loop": false,
+              "blend": false,
               "generativeExpand": false,
-              "backgroundRemoval": false,
-              "generativeRecolor": false
+              "generativeExtend": false
             },
             "enhancement": {
               "photoRealism": false,
               "textRendering": false,
-              "transparentLayers": false,
-              "characterConsistency": false
+              "characterConsistency": true,
+              "upscaling": false
             },
             "advanced": {
-              "styleKits": false,
-              "hexCodes": false,
-              "moodBoarding": false,
+              "storyboard": false,
+              "cameraControls": {},
               "trainCustomModels": false
             }
+          },
+          "aspectRatios": {
+            "landscape (4:3)": false,
+            "portrait (3:4)": false,
+            "square (1:1)": false,
+            "widescreen (16:9)": true,
+            "vertical (9:16)": true,
+            "ultrawide (21:9)": false
           },
           "safety": {
             "chatModelRefusals": false,
             "promptBlocking": false,
             "outputBlocking": false,
-            "minorSafeguards": false
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
           }
         }
       ],
@@ -3734,10 +3694,6 @@
               }
             }
           },
-          "capabilities": {
-            "performance": 4,
-            "speed": 1
-          },
           "features": {
             "generation": {
               "textToImage": true,
@@ -3755,6 +3711,7 @@
             "enhancement": {
               "photoRealism": true,
               "textRendering": true,
+              "upscaling": false,
               "transparentLayers": false,
               "characterConsistency": true
             },
@@ -3790,98 +3747,77 @@
           "releaseDate": "",
           "releasePost": "",
           "releaseVideo": "",
-          "modelPage": "",
+          "modelPage": "https://www.adobe.com/uk/products/firefly/features/ai-video-generator.html",
           "systemCard": "",
-          "modelGuide": "",
+          "modelGuide": "https://helpx.adobe.com/uk/firefly/work-with-audio-and-video/work-with-video/writing-effective-text-prompts-for-video-generation.html",
           "apiDocumentation": "",
-          "demoVideos": {},
+          "videoExamples": [],
+          "demoVideos": {
+            "your_ideas_in_motion": ["https://clio-assets.adobe.com/clio-playground/video-cache/video-generation/webm/ff-video-gen-intro-video-desktop_2-en_US.webm"],
+            "b_roll": ["https://images-tv.adobe.com/mpcv3/7622/6a38d59a-22df-4f03-b254-3a9bc46ee8a5_1740178861.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/bad37330-6a88-4f59-a9ae-abffc7f31387/39d9b5d9af7e4724b7ef9a840c6b4669_1740179024-1920x1080.jpg"],
+            "launch_teaser": ["https://images-tv.adobe.com/mpcv3/7622/85a2b1a7-8e06-4ed2-82a3-9573e9c2d72c_1740178199.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/192f3e99-561a-4ea7-be96-ea3acbee609e/233736a590234b698126b4fa0f180656_1740178372-1920x1080.jpg"]
+          },
           "termsOfService": "",
           "usagePolicy": "",
           "commerciallySafe": true,
-          "metadata": {},                          
+          "metadata": {
+            "C2PA": "https://c2pa.org"
+          },                         
           "apiEndpoints": {
             "available": false,                                     
-            "generations": {
-              "options": {
-                "inputFormats": [
-                  "text"
-                ],
-                "outputFormats": [
-                  "image"
-                ],
-                "background": [],
-                "moderation": [],
-                "numberOfImages": 1,
-                "outputCompression": "",
-                "outputFileTypes": [],
-                "outputQuality": [],
-                "outputSize": [],
-                "outputStyle": [],
-                "pricing": {
-                  "input": {
-                    "textPerM": 0,
-                    "imagePerM": 0
-                  },
-                  "output": {
-                    "imagePerM": 0,
-                    "lowQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    },
-                    "mediumQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    },
-                    "highQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    }
-                  }
-                }
-              }
-            }                                    
-          },
-          "capabilities": {
-            "performance": 4,
-            "speed": 1
+            "xxx": {}                                    
           },
           "features": {
             "generation": {
-              "textToImage": false,
-              "imageToImage": false,
-              "textToVector": false
+              "textToVideo": true,
+              "imageToVideo": true,
+              "videoToVideo": false,
+              "negativePrompt": false,
+              "resolutions": ["540p","720p","1080p"],
+              "frameRate": 24,
+              "durations": [5],
+              "numberOfVideos": [1],
+              "videoStyles": []
             },
             "editing": {
-              "multiTurnGeneration": false,
-              "imageVariations": false,
-              "inPainting": false,
+              "remix": false,
+              "recut": false,
+              "loop": false,
+              "blend": false,
               "generativeExpand": false,
-              "backgroundRemoval": false,
-              "generativeRecolor": false
+              "generativeExtend": false
             },
             "enhancement": {
               "photoRealism": false,
               "textRendering": false,
-              "transparentLayers": false,
-              "characterConsistency": false
+              "characterConsistency": true,
+              "upscaling": false
             },
             "advanced": {
-              "styleKits": false,
-              "hexCodes": false,
-              "moodBoarding": false,
+              "storyboard": false,
+              "cameraControls": {
+                "shotSize": ["extreme close up","close up","mediun","long","extreme long"],
+                "cameraAngle": ["aerial","eye level","high angle","low angle","top down"],
+                "motion": ["zoom in","zoom out","move left","move right","tilt up","tilt down","static","handheld"]
+              },
               "trainCustomModels": false
             }
           },
+          "aspectRatios": {
+            "landscape (4:3)": false,
+            "portrait (3:4)": false,
+            "square (1:1)": true,
+            "widescreen (16:9)": true,
+            "vertical (9:16)": true,
+            "ultrawide (21:9)": false
+          },
           "safety": {
-            "chatModelRefusals": true,
-            "promptBlocking": true,
-            "outputBlocking": true,
-            "minorSafeguards": true,
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false,
             "IPRespect": true,
-            "biasMitigation": true
+            "biasMitigation": false
           }
         }
       ],
@@ -3986,136 +3922,153 @@
       "name": "Midjourney",
       "logo": "/images/companies/midjourney/logo.png",
       "website": "https://midjourney.com",
-      "description": "Advanced image generation platform",
-      "lastUpdated": "2025-03-15",
+      "description": "An independent research lab exploring new mediums of thought and expanding the imaginative powers of the human species.",
+      "lastUpdated": "2025-04-28",
       "features": [],
       "models": [
         {
-          "id": "v6",
-          "name": "V6",
+          "id": "v7",
+          "name": "V7",
           "status": "primary",
-          "about": "",
+          "about": "A smarter model, with noticeably higher image quality with beautiful textures, and bodies, hands and objects of all kinds.",
           "category": "image",
-          "releaseDate": "",
-          "releasePost": "",
+          "releaseDate": "2025-04-04",
+          "releasePost": "https://www.midjourney.com/updates/v7-alpha",
           "releaseVideo": "",
           "modelPage": "",
-          "systemCard": "",
-          "modelGuide": "",
+          "systemCard": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version#h_01JQSR0Q6H0AX8NCC8QGE6C2NZ",
+          "modelGuide": "https://docs.midjourney.com/hc/en-us/articles/33329261836941-Getting-Started-Guide",
           "apiDocumentation": "",
-          "demoVideos": {},
-          "termsOfService": "",
+          "demoVideos": {
+            "draft_mode": "https://updates.midjourney.com/content/media/2025/04/Draft-Mode-V1.6---Subtitles.mp4"
+          },
+          "termsOfService": "https://docs.midjourney.com/hc/en-us/articles/32083055291277-Terms-of-Service",
           "usagePolicy": "",
           "commerciallySafe": false,
           "metadata": {},                          
           "apiEndpoints": {   
             "available": false,                                      
-            "generations": {
-              "options": {
-                "inputFormats": [
-                  "text"
-                ],
-                "outputFormats": [
-                  "image"
-                ],
-                "background": [],
-                "moderation": [],
-                "numberOfImages": 1,
-                "outputCompression": "",
-                "outputFileTypes": [],
-                "outputQuality": [],
-                "outputSize": [],
-                "outputStyle": [],
-                "pricing": {
-                  "input": {
-                    "textPerM": 0,
-                    "imagePerM": 0
-                  },
-                  "output": {
-                    "imagePerM": 0,
-                    "lowQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    },
-                    "mediumQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    },
-                    "highQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    }
-                  }
-                }
-              }
-            }                                    
-          },
-          "capabilities": {
-            "performance": 4,
-            "speed": 1
+            "generations": {}                                    
           },
           "features": {
             "generation": {
-              "textToImage": false,
-              "imageToImage": false,
+              "textToImage": true,
+              "imageToImage": true,
               "textToVector": false
             },
             "editing": {
-              "multiTurnGeneration": false,
-              "imageVariations": false,
-              "inPainting": false,
-              "generativeExpand": false,
+              "multiTurnGeneration": true,
+              "imageVariations": true,
+              "inPainting": true,
+              "generativeExpand": true,
               "backgroundRemoval": false,
               "generativeRecolor": false
             },
             "enhancement": {
-              "photoRealism": false,
-              "textRendering": false,
+              "photoRealism": true,
+              "textRendering": true,
+              "upscaling": true,
               "transparentLayers": false,
-              "characterConsistency": false
+              "characterConsistency": true
             },
             "advanced": {
-              "styleKits": false,
+              "styleKits": true,
               "hexCodes": false,
               "moodBoarding": false,
               "trainCustomModels": false
             }
           },
           "aspectRatios": {
-            "landscape (4:3)": false,
-            "portrait (3:4)": false,
-            "square (1:1)": false,
-            "widescreen (16:9)": false,
-            "vertical (9:16)": false
+            "landscape (4:3)": true,
+            "portrait (3:4)": true,
+            "square (1:1)": true,
+            "widescreen (16:9)": true,
+            "vertical (9:16)": true
           },
           "safety": {
             "chatModelRefusals": false,
             "promptBlocking": false,
             "outputBlocking": false,
             "minorSafeguards": false,
-            "IPRespect": true,
-            "biasMitigation": true
+            "IPRespect": false,
+            "biasMitigation": false
           }
         }
       ],
       "products": [],
-      "subscriptions": []
+      "subscriptions": [
+        {
+          "tier": "Basic",
+          "type": "consumer",
+          "price": 10,
+          "billingCycle": "month",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans",
+          "features": [
+            "Work Solo in Discord Direct Messages",
+            "200 minutes fast GPU time per month",
+            "No relax GPU time",
+            "Maximum 3 concurrent fast jobs",
+            "Maximum 4 repeat jobs"
+          ]
+        },
+        {
+          "tier": "Standard",
+          "type": "consumer",
+          "price": 30,
+          "billingCycle": "month",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans",
+          "features": [
+            "Work Solo in Discord Direct Messages",
+            "15 hours fast GPU time per month",
+            "Unlimited relax GPU time",
+            "Maximum 3 concurrent fast or relax jobs",
+            "Maximum 10 repeat jobs"
+          ]
+        },
+        {
+          "tier": "Pro",
+          "type": "consumer",
+          "price": 60,
+          "billingCycle": "month",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans",
+          "features": [
+            "Work Solo in Discord Direct Messages",
+            "30 hours fast GPU time per month",
+            "Unlimited relax GPU time",
+            "Maximum 12 concurrent fast jobs or 3 concurrent relax jobs",
+            "Maximum 40 repeat jobs",
+            "Stealth mode"
+          ]
+        },
+        {
+          "tier": "Mega",
+          "type": "consumer",
+          "price": 120,
+          "billingCycle": "month",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans",
+          "features": [
+            "Work Solo in Discord Direct Messages",
+            "60 hours fast GPU time per month",
+            "Unlimited relax GPU time",
+            "Maximum 12 concurrent fast jobs or 3 concurrent relax jobs",
+            "Maximum 40 repeat jobs",
+            "Stealth mode"
+          ]
+        }
+      ]
     },
     {
       "id": "stability-ai",
       "name": "Stability.ai",
       "logo": "/images/companies/stability-ai/logo.png",
-      "website": "",
-      "description": "Advanced image generation platform",
-      "lastUpdated": "2025-03-15",
+      "website": "https://stability.ai",
+      "description": "We build image, video, 3D, and audio generation tools that work where you do.",
+      "lastUpdated": "2025-04 -28",
       "features": [],
       "models": [
         {
-          "id": "v6",
-          "name": "V6",
+          "id": "stability-diffusion-3-5",
+          "name": "Stable Diffusion 3.5",
           "status": "primary",
           "about": "",
           "category": "image",
@@ -4125,18 +4078,19 @@
           "modelPage": "",
           "systemCard": "",
           "modelGuide": "",
-          "apiDocumentation": "",
+          "apiDocumentation": "https://platform.stability.ai/docs/api-reference",
           "demoVideos": {},
-          "termsOfService": "",
-          "usagePolicy": "",
+          "termsOfService": "https://platform.stability.ai/legal/terms-of-service",
+          "usagePolicy": "https://stability.ai/use-policy",
           "commerciallySafe": false,
           "metadata": {},                          
           "apiEndpoints": {   
-            "available": false,                                      
-            "generations": {
+            "available": true,                                      
+            "generate": {
               "options": {
                 "inputFormats": [
-                  "text"
+                  "text",
+                  "image"
                 ],
                 "outputFormats": [
                   "image"
@@ -4144,59 +4098,133 @@
                 "background": [],
                 "moderation": [],
                 "numberOfImages": 1,
+                "contextWindow": 10000,
                 "outputCompression": "",
-                "outputFileTypes": [],
+                "inputFileTypes": ["png","jpeg","webp"],
+                "maxInputSize": 0,
+                "mask": false,
+                "outputFileTypes": ["png","jpeg"],
                 "outputQuality": [],
-                "outputSize": [],
-                "outputStyle": [],
-                "pricing": {
-                  "input": {
-                    "textPerM": 0,
-                    "imagePerM": 0
-                  },
-                  "output": {
-                    "imagePerM": 0,
-                    "lowQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    },
-                    "mediumQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    },
-                    "highQuality": {
-                      "1024x1024": 0,
-                      "1024x1536": 0,
-                      "1536x1024": 0
-                    }
-                  }
-                }
+                "outputSize": ["1024x1024"],
+                "outputStyle": ["3d-model","analog-film","anime","cinematic","comic-book","digital-art","enhance","fantasy-art","isometric","line-art","low-poly","modeling-compound","neon-punk","origami","photographic","pixel-art","tile-texture"],
+                "visualIntesity": 0,
+                "tileable": false,
+                "structureReference": false,
+                "negativePrompt": true,
+                "placementPosition": false,
+                "placementAlignment": false,
+                "pricing": {}
               }
-            }                                    
-          },
-          "capabilities": {
-            "performance": 4,
-            "speed": 1
+            },
+            "upscale": {
+              "options": {
+                "inputFormats": [
+                  "text",
+                  "image"
+                ],
+                "outputFormats": [
+                  "image"
+                ],
+                "background": [],
+                "moderation": [],
+                "numberOfImages": 1,
+                "contextWindow": 10000,
+                "outputCompression": "",
+                "inputFileTypes": ["png","jpeg","webp"],
+                "maxInputSize": 0,
+                "mask": false,
+                "outputFileTypes": ["png","jpeg","webp"],
+                "outputQuality": [],
+                "outputSize": ["1024x1024"],
+                "outputStyle": [],
+                "visualIntesity": 0,
+                "tileable": false,
+                "structureReference": false,
+                "negativePrompt": true,
+                "placementPosition": false,
+                "placementAlignment": false,
+                "pricing": {}
+              }
+            },
+            "edit": {
+              "options": {
+                "inputFormats": [
+                  "text",
+                  "image"
+                ],
+                "outputFormats": [
+                  "image"
+                ],
+                "background": [],
+                "moderation": [],
+                "numberOfImages": 1,
+                "contextWindow": 10000,
+                "outputCompression": "",
+                "inputFileTypes": ["png","jpeg","webp"],
+                "maxInputSize": 0,
+                "mask": true,
+                "outputFileTypes": ["png","jpeg","webp"],
+                "outputQuality": [],
+                "outputSize": ["1024x1024"],
+                "outputStyle": ["3d-model","analog-film","anime","cinematic","comic-book","digital-art","enhance","fantasy-art","isometric","line-art","low-poly","modeling-compound","neon-punk","origami","photographic","pixel-art","tile-texture"],
+                "visualIntesity": 0,
+                "tileable": false,
+                "structureReference": false,
+                "negativePrompt": true,
+                "placementPosition": true,
+                "placementAlignment": false,
+                "pricing": {}
+              }
+            },
+            "control": {
+              "options": {
+                "inputFormats": [
+                  "text",
+                  "image"
+                ],
+                "outputFormats": [
+                  "image"
+                ],
+                "background": [],
+                "moderation": [],
+                "numberOfImages": 1,
+                "contextWindow": 10000,
+                "outputCompression": "",
+                "inputFileTypes": ["png","jpeg","webp"],
+                "maxInputSize": 0,
+                "mask": true,
+                "outputFileTypes": ["png","jpeg","webp"],
+                "outputQuality": [],
+                "outputSize": ["1024x1024"],
+                "outputStyle": ["3d-model","analog-film","anime","cinematic","comic-book","digital-art","enhance","fantasy-art","isometric","line-art","low-poly","modeling-compound","neon-punk","origami","photographic","pixel-art","tile-texture"],
+                "visualIntesity": 0,
+                "tileable": false,
+                "structureReference": false,
+                "negativePrompt": true,
+                "placementPosition": true,
+                "placementAlignment": false,
+                "pricing": {}
+              }
+            }
           },
           "features": {
             "generation": {
-              "textToImage": false,
-              "imageToImage": false,
+              "textToImage": true,
+              "imageToImage": true,
               "textToVector": false
             },
             "editing": {
               "multiTurnGeneration": false,
-              "imageVariations": false,
-              "inPainting": false,
-              "generativeExpand": false,
-              "backgroundRemoval": false,
-              "generativeRecolor": false
+              "imageVariations": true,
+              "inPainting": true,
+              "generativeExpand": true,
+              "backgroundRemoval": true,
+              "generativeRecolor": true
             },
             "enhancement": {
-              "photoRealism": false,
-              "textRendering": false,
+              "photoRealism": true,
+              "textRendering": true,
+              "upscaling": true,
               "transparentLayers": false,
               "characterConsistency": false
             },
@@ -4210,17 +4238,17 @@
           "aspectRatios": {
             "landscape (4:3)": false,
             "portrait (3:4)": false,
-            "square (1:1)": false,
-            "widescreen (16:9)": false,
-            "vertical (9:16)": false
+            "square (1:1)": true,
+            "widescreen (16:9)": true,
+            "vertical (9:16)": true
           },
           "safety": {
             "chatModelRefusals": false,
             "promptBlocking": false,
             "outputBlocking": false,
             "minorSafeguards": false,
-            "IPRespect": true,
-            "biasMitigation": true
+            "IPRespect": false,
+            "biasMitigation": false
           }
         }
       ],
@@ -4228,11 +4256,11 @@
       "subscriptions": []
     },
     {
-      "id": "runway",
-      "name": "Runway",
+      "id": "runway-gen-4",
+      "name": "Gen 4",
       "logo": "/images/companies/runway/logo.png",
       "website": "https://runwayml.com",
-      "description": "AI-powered video editing and generation",
+      "description": "A global AI research and media company working with the world’s top film studios,production companies, agencies and brands.",
       "lastUpdated": "2025-03-10",
       "features": [],
       "models": [
@@ -4240,149 +4268,418 @@
           "id": "gen-3",
           "name": "Gen-3",
           "status": "primary",
-          "type": "video",
+          "about": "",
           "category": "video",
-          "releaseDate": "2024-10-30",
+          "releaseDate": "2025-03-31",
+          "releasePost": "https://runwayml.com/research/introducing-runway-gen-4",
+          "releaseVideo": "https://www.youtube.com/watch?v=uRkfzKYFOxc",
           "modelPage": "",
-          "releasePost": "",
-          "releaseVideo": "",
           "systemCard": "",
-          "capabilities": {
-            "intelligence": 4,
-            "speed": 3,
-            "reasoning": 0
+          "modelGuide": "",
+          "apiDocumentation": "https://docs.dev.runwayml.com",
+          "videoExamples": [
+            "https://www.youtube.com/watch?v=br9b3-cxTPQ",
+            "https://youtu.be/Z0P6qjMUl34?si=5ByKnEocRu9CfNNi",
+            "https://youtu.be/ENGKp5wn344?si=gPEuquLJn3knRvKo",
+            "https://youtu.be/9HzdNhOe09I?si=VsGKKsjGVeY6kO54",
+            "https://youtu.be/c8IBmK7GZP8?si=TZHVdPU8--p61b-y",
+            "https://youtu.be/xEhgxhrAjE4?si=9C7A10LsuEQJnSI6",
+            "https://youtu.be/Eb_SxalzkGg"
+          ],
+          "demoVideos": {
+            "image_to_video": ["https://youtu.be/OLWd5O1O66s?si=qp_-00OWpQRiKjH6"]
           },
-          "specs": {
-            "reasoningTokens": false,
-            "inputFormats": [
-              "text",
-              "image",
-              "video"
-            ],
-            "outputFormats": [
-              "video"
-            ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null,
-            "maxDuration": "30 seconds",
-            "techniques": [
-              "text-to-video",
-              "image-to-video",
-              "video-to-video"
-            ],
-            "commercialUseAllowed": true
+          "termsOfService": "https://runwayml.com/terms-of-use",
+          "usagePolicy": "https://help.runwayml.com/hc/en-us/articles/17944787368595-Runway-s-Usage-Policy",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {
+            "available": true,                                     
+            "xxx": {}                                    
+          },
+          "features": {
+            "generation": {
+              "textToVideo": true,
+              "imageToVideo": true,
+              "videoToVideo": true,
+              "negativePrompt": false,
+              "resolutions": ["720p"],
+              "frameRate": 24,
+              "durations": [5,10],
+              "numberOfVideos": [1],
+              "videoStyles": []
+            },
+            "editing": {
+              "remix": false,
+              "recut": false,
+              "loop": false,
+              "blend": false,
+              "generativeExpand": true,
+              "generativeExtend": false
+            },
+            "enhancement": {
+              "photoRealism": true,
+              "textRendering": true,
+              "characterConsistency": true,
+              "upscaling": true
+            },
+            "advanced": {
+              "storyboard": false,
+              "cameraControls": {
+                "shotSize": [],
+                "cameraAngle": [],
+                "motion": ["zoom in","zoom out","move left","move right","move up","move down","tilt up","tilt down","pan left","pan right","roll clockwise","roll anticlockwise","static","handheld"]
+              },
+              "trainCustomModels": true
+            }
+          },
+          "aspectRatios": {
+            "landscape (4:3)": true,
+            "portrait (3:4)": true,
+            "square (1:1)": true,
+            "widescreen (16:9)": true,
+            "vertical (9:16)": true,
+            "ultrawide (21:9)": true
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
           }
         }
       ],
       "products": [],
-      "subscriptions": []
+      "subscriptions": [
+        {
+          "tier": "Free",
+          "type": "consumer",
+          "price": 0,
+          "billingCycle": "monthly",
+          "url": "https://runwayml.com/pricing",
+          "features": [
+            "125 one time credits",
+            "Generative video (Gen-4 Turbo, Gen-3 Alpha Turbo)",
+            "3 video projects",
+            "5GB asset storage",
+            "No Frames (text-to-image)"
+          ]
+        },
+        {
+          "tier": "Standard",
+          "type": "consumer",
+          "price": 15,
+          "billingCycle": "monthly",
+          "url": "https://runwayml.com/pricing",
+          "features": [
+            "625 credits per month",
+            "Everything in free tier",
+            "Unlimited video editor projects",
+            "100GB asset storage",
+            "No Frames (text-to-image)",
+            "Upscale resolution",
+            "Remove watermarks",
+            "Technical support via Runway dashboard"
+          ]
+        },
+        {
+          "tier": "Pro",
+          "type": "consumer",
+          "price": 35,
+          "billingCycle": "monthly",
+          "url": "https://runwayml.com/pricing",
+          "features": [
+            "2,250 credits per month",
+            "Everything in standard tier",
+            "500GB asset storage",
+            "No Frames (text-to-image)",
+            "Create custom voices for Lip Sync and Text-to-Speech"
+          ]
+        },
+        {
+          "tier": "Unlimited",
+          "type": "consumer",
+          "price": 95,
+          "billingCycle": "monthly",
+          "url": "https://runwayml.com/pricing",
+          "features": [
+            "2,250 credits per month",
+            "Everything in pro tier",
+            "Unlimited access to frames (text-to-image)",
+            "Create custom voices for Lip Sync and Text-to-Speech",
+            "Unlimited generations of Gen-4, Gen-4 Turbo, Gen-3 Alpha, Gen-3 Alpha Turbo, and Act-One in Explore Mode at relaxed rate"
+          ]
+        },
+        {
+          "tier": "Enterprise",
+          "type": "enterprise",
+          "price": null,
+          "billingCycle": "user per monthly",
+          "url": "https://runwayml.com/pricing",
+          "features": [
+            "Everything in pro tier",
+            "Access to frames (text-to-image)",
+            "Single Sign-On",
+            "Custom credit amounts",
+            "Custom storage",
+            "Configurable teamspaces to segment and organize assets",
+            "Advanced security and compliance",
+            "Enterprise-wide onboarding",
+            "Ongoing success program",
+            "Priority support",
+            "Integration with internal tools",
+            "Workspace Analytics"
+          ]
+        }
+      ]
     },
     {
       "id": "pika",
       "name": "Pika",
       "logo": "/images/companies/pika/logo.png",
       "website": "https://pika.art",
-      "description": "AI video creation platform",
-      "lastUpdated": "2025-03-05",
+      "description": "We're for anyone with an imagination",
+      "lastUpdated": "2025-04-29",
       "features": [],
       "models": [
         {
-          "id": "pika-1-0",
-          "name": "Pika 1.0",
+          "id": "pika-2-2",
+          "name": "Pika 2.2",
           "status": "primary",
-          "type": "video",
+          "about": "",
           "category": "video",
-          "releaseDate": "2024-11-25",
+          "releaseDate": "2025-02-27",
+          "releasePost": "https://x.com/pika_labs/status/1895156950431867318",
+          "releaseVideo": "https://youtu.be/YSJd_kf0LYQ?si=Rcp_-B9vTXw9HVdT",
           "modelPage": "",
-          "releasePost": "",
-          "releaseVideo": "",
           "systemCard": "",
-          "capabilities": {
-            "intelligence": 4,
-            "speed": 4,
-            "reasoning": 0
+          "modelGuide": "",
+          "apiDocumentation": "https://pika.art/api",
+          "videoExamples": [],
+          "demoVideos": {
+            "text_to_video": ["https://youtu.be/MdJRZaduFr4?si=1Npl5U6L9PVJpJL4"],
+            "retry_and_reprompt": ["https://youtu.be/hRam3oUrlRg?si=u1W2fgPTz77mh-Hk"],
+            "modify_region": ["https://youtu.be/oAkYxEdAQPY?si=BupS0Q7HLqyQPSO3"],
+            "video_to_video": ["https://youtu.be/rgJGYHXhk5Y?si=eHzfapVYx0uT8Cac"],
+            "expand_canvas": ["https://youtu.be/EV9VglxwkNg?si=6A_1Xv1TggrYi1UG"],
+            "image_to_video": ["https://youtu.be/zj-DAWuBT8U?si=e-Cq7M4DWQZ3rw9V"],
+            "lip_sync": ["https://youtu.be/XpCrBKg33QM?si=gJJyXZHW8cqq5RzJ"],
+            "styles": ["https://youtu.be/76tPM66xHuM?si=4S5r6GA4iWdHrD4p"]
           },
-          "specs": {
-            "reasoningTokens": false,
-            "inputFormats": [
-              "text",
-              "image",
-              "video"
-            ],
-            "outputFormats": [
-              "video"
-            ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null,
-            "maxDuration": "15 seconds",
-            "techniques": [
-              "text-to-video",
-              "image-to-video",
-              "video-editing"
-            ],
-            "commercialUseAllowed": true
+          "termsOfService": "https://pika.art/terms-of-service",
+          "usagePolicy": "",
+          "commerciallySafe": true,
+          "metadata": {},                          
+          "apiEndpoints": {
+            "available": true,                                     
+            "xxx": {}                                    
+          },
+          "features": {
+            "generation": {
+              "textToVideo": true,
+              "imageToVideo": true,
+              "videoToVideo": true,
+              "negativePrompt": true,
+              "resolutions": ["720p","1080p"],
+              "frameRate": null,
+              "durations": [5,10],
+              "numberOfVideos": [1],
+              "videoStyles": []
+            },
+            "editing": {
+              "remix": true,
+              "recut": true,
+              "loop": true,
+              "blend": false,
+              "generativeExpand": true
+            },
+            "enhancement": {
+              "photoRealism": true,
+              "textRendering": true,
+              "characterConsistency": true
+            },
+            "advanced": {
+              "storyboard": false,
+              "cameraControls": {
+                "shotSize": [],
+                "cameraAngle": [],
+                "motion": []
+              },
+              "trainCustomModels": false
+            }
+          },
+          "aspectRatios": {
+            "landscape (4:3)": true,
+            "portrait (3:4)": true,
+            "square (1:1)": true,
+            "widescreen (16:9)": true,
+            "vertical (9:16)": true,
+            "ultrawide (21:9)": true
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
           }
         }
       ],
       "products": [],
-      "subscriptions": []
+      "subscriptions": [
+        {
+          "tier": "Basic",
+          "type": "consumer",
+          "price": 0,
+          "billingCycle": "monthly",
+          "url": "https://pika.art/pricing?interval=month",
+          "features": [
+            "80 monthly credits",
+            "Access to Pika 1.5, Pikadditions, Pikaswaps, and Pikatwists (Turbo), Pikaffects",
+            "Not able to purchase more video credits",
+            "All videos watermarked",
+            "No commercial use"
+          ]
+        },
+        {
+          "tier": "Standard",
+          "type": "consumer",
+          "price": 10,
+          "billingCycle": "monthly",
+          "url": "https://pika.art/pricing?interval=month",
+          "features": [
+            "700 monthly credits",
+            "Access to Pika 1.0, 1.5, 2.1, 2.2, Turbo and Pro (Pikadditions, Pikaswaps, Pikatwists), all Pikaffectss",
+            "Fast generations",
+            "Able to purchase more video credits",
+            "All videos watermarked",
+            "No commercial use"
+          ]
+        },
+        {
+          "tier": "Pro",
+          "type": "consumer",
+          "price": 35,
+          "billingCycle": "monthly",
+          "url": "https://pika.art/pricing?interval=month",
+          "features": [
+            "2,300 monthly credits",
+            "Access to Pika 1.0, 1.5, 2.1, 2.2, Turbo and Pro (Pikadditions, Pikaswaps, Pikatwists), all Pikaffectss",
+            "Faster generations",
+            "Able to purchase more video credits",
+            "Remove watermark",
+            "Commercial use allowed"
+          ]
+        },
+        {
+          "tier": "Fancy",
+          "type": "consumer",
+          "price": 95,
+          "billingCycle": "monthly",
+          "url": "https://pika.art/pricing?interval=month",
+          "features": [
+            "6,000 monthly credits",
+            "Access to Pika 1.0, 1.5, 2.1, 2.2, Turbo and Pro (Pikadditions, Pikaswaps, Pikatwists), all Pikaffectss",
+            "Fastest generations",
+            "Able to purchase more video credits",
+            "Remove watermark",
+            "Commercial use allowed"
+          ]
+        }
+      ]
     },
     {
       "id": "kilng",
       "name": "KlingAI",
       "logo": "/images/companies/kling/logo.png",
       "website": "https://www.klingai.com/",
-      "description": "AI video creation platform",
+      "description": "Next-Generation AI Creative Studio",
       "lastUpdated": "2025-03-05",
       "features": [],
       "models": [
         {
-          "id": "pika-1-0",
-          "name": "Pika 1.0",
+          "id": "kling-2-0",
+          "name": "Kling 2.0",
           "status": "primary",
-          "type": "video",
+          "about": "Empowering creators to bring meaningful stories to life — with powerful tools and greater creative freedom",
           "category": "video",
-          "releaseDate": "2024-11-25",
+          "releaseDate": "2025-04-15",
+          "releasePost": "https://x.com/Kling_ai/status/1912040247023788459",
+          "releaseVideo": "https://youtu.be/7ihYDVyRYFM?si=qhe6gmwc5D7M1AcY",
           "modelPage": "",
-          "releasePost": "",
-          "releaseVideo": "",
           "systemCard": "",
-          "capabilities": {
-            "intelligence": 4,
-            "speed": 4,
-            "reasoning": 0
+          "modelGuide": "https://app.klingai.com/global/dev/document-api/quickStart/productIntroduction/overview",
+          "apiDocumentation": "https://app.klingai.com/global/dev/document-api",
+          "videoExamples": [
+            "https://youtu.be/atNtfVGESqU?si=-D9xK_dwR67vNWMM",
+            "https://youtu.be/NFovcrA86Ik?si=RK3QO3AnSzvMMaAn",
+            "https://youtu.be/Wyf6bGvxses?si=Qsr-xA5eoijvfHL6",
+            "https://youtu.be/xttgmnxfnP4?si=hTdMrwkA1c-Kt1vC",
+            "https://youtu.be/kq2RPlV1_dI?si=W2_yHhx_nC1OOkXe",
+            "https://youtu.be/i9md5ze1wfs?si=6tVpvschUw-SZciJ"
+          ],
+          "demoVideos": {},
+          "termsOfService": "",
+          "usagePolicy": "",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {
+            "available": true,                                     
+            "xxx": {}                                    
           },
-          "specs": {
-            "reasoningTokens": false,
-            "inputFormats": [
-              "text",
-              "image",
-              "video"
-            ],
-            "outputFormats": [
-              "video"
-            ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null,
-            "maxDuration": "15 seconds",
-            "techniques": [
-              "text-to-video",
-              "image-to-video",
-              "video-editing"
-            ],
-            "commercialUseAllowed": true
+          "features": {
+            "generation": {
+              "textToVideo": true,
+              "imageToVideo": true,
+              "videoToVideo": true,
+              "negativePrompt": true,
+              "resolutions": [],
+              "frameRate": null,
+              "durations": [5,10],
+              "numberOfVideos": [1,2,3,4],
+              "videoStyles": []
+            },
+            "editing": {
+              "remix": false,
+              "recut": false,
+              "loop": false,
+              "blend": false,
+              "generativeExpand": false,
+              "generativeExtend": true
+            },
+            "enhancement": {
+              "photoRealism": true,
+              "textRendering": true,
+              "characterConsistency": true,
+              "upscaling": false
+            },
+            "advanced": {
+              "storyboard": false,
+              "cameraControls": {
+                "shotSize": [],
+                "cameraAngle": [],
+                "motion": ["zoom in","zoom out","move left","move right","move up","move down","tilt up","tilt down","pan left","pan right","roll clockwise","roll anticlockwise","static","handheld"]
+              },
+              "trainCustomModels": false
+            }
+          },
+          "aspectRatios": {
+            "landscape (4:3)": false,
+            "portrait (3:4)": false,
+            "square (1:1)": false,
+            "widescreen (16:9)": true,
+            "vertical (9:16)": false
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
           }
         }
       ],
@@ -4393,61 +4690,134 @@
       "id": "suno",
       "name": "Suno",
       "logo": "/images/companies/suno/logo.png",
-      "website": "https://suno.ai",
-      "description": "AI music generation platform",
-      "lastUpdated": "2025-02-28",
+      "website": "https://suno.com/",
+      "description": "Building a future where anyone can make great music.",
+      "lastUpdated": "2025-04-29",
       "features": [],
       "models": [
         {
-          "id": "suno-v3",
-          "name": "Suno v3",
+          "id": "v4",
+          "name": "v4",
           "status": "primary",
-          "type": "music",
+          "about": "",
           "category": "music",
-          "releaseDate": "2024-12-05",
-          "modelPage": "",
-          "releasePost": "",
+          "releaseDate": "2024-11-19",
+          "releasePost": "https://suno.com/blog/v4",
           "releaseVideo": "",
+          "modelPage": "https://suno.com/explore",
           "systemCard": "",
-          "capabilities": {
-            "intelligence": 4,
-            "speed": 5,
-            "reasoning": 0
+          "modelGuide": "",
+          "apiDocumentation": "",
+          "audioExamples": [
+            "https://suno.com/embed/ee467d00-5813-4a74-9792-c9ae4a09d344",
+            "https://suno.com/embed/5a285fbc-f64a-418a-8b2e-05e3e7990899",
+            "https://suno.com/embed/b27c29f6-8ab4-47eb-81fd-efb85c848ada",
+            "https://suno.com/embed/f275d9ac-5a62-4bbe-baf9-3fa10e0332f4",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "demoVideos": {
+            "remaster": ["https://www.youtube.com/watch?v=LGh5nqe_xD0"]
           },
-          "specs": {
-            "reasoningTokens": false,
-            "inputFormats": [
-              "text"
-            ],
-            "outputFormats": [
-              "speech"
-            ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null,
-            "maxDuration": "3 minutes",
-            "techniques": [
-              "text-to-music",
-              "lyrics-generation",
-              "melody-generation"
-            ],
-            "genres": [
-              "pop",
-              "rock",
-              "electronic",
-              "classical",
-              "jazz",
-              "hip-hop"
-            ],
-            "commercialUseAllowed": true
+          "termsOfService": "https://suno.com/terms",
+          "usagePolicy": "https://help.suno.com/en/articles/3198209",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {
+            "available": false,                                     
+            "xxx": {}        
+          },
+          "features": {
+            "generation": {
+              "textToMusic": true,
+              "textToVoice": false,
+              "audioToMusic": true,
+              "customLyrics": true,
+              "instrumental": true,
+              "styles": true,
+              "negativeStyles": true,
+              "personas": true,
+              "durations": [4],
+              "coverArt": true,
+              "coverVideo": true
+            },
+            "editing": {
+              "crop": true,
+              "replaceSection": true,
+              "seperateVocals": true,
+              "generativeExtend": true
+            },
+            "enhancement": {
+              "remaster": true,
+              "covers": true
+            },
+            "advanced": {
+              "trainCustomModels": false
+            }
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": true,
+            "outputBlocking": false,
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
           }
         }
       ],
       "products": [],
-      "subscriptions": []
+      "subscriptions": [
+        {
+          "tier": "Free",
+          "type": "consumer",
+          "price": 0,
+          "billingCycle": "monthly",
+          "url": "https://suno.com/pricing",
+          "features": [
+            "50 credits renew daily (10 songs)",
+            "Create up to 4 songs at once",
+            "No commercial use",
+            "No credit top ups",
+            "Shared generation queue"
+          ]
+        },
+        {
+          "tier": "Pro",
+          "type": "consumer",
+          "price": 10,
+          "billingCycle": "monthly",
+          "url": "https://suno.com/pricing",
+          "features": [
+            "Access to our newest model, v4",
+            "2,500 credits (up to 500 songs), refreshes monthly",
+            "Commercial use rights for songs made while subscribed",
+            "Create up to 10 songs at once",
+            "Early access to new features",
+            "Priority creation queue",
+            "Ability to purchase add-on credits"
+          ]
+        },
+        {
+          "tier": "Premier",
+          "type": "consumer",
+          "price": 30,
+          "billingCycle": "monthly",
+          "url": "https://suno.com/pricing",
+          "features": [
+            "Access to our newest model, v4",
+            "10,000 credits (up to 2,000 songs), refreshes monthly",
+            "Commercial use rights for songs made while subscribed",
+            "Create up to 10 songs at once",
+            "Early access to new features",
+            "Priority creation queue",
+            "Ability to purchase add-on credits"
+          ]
+        }
+      ]
     },
     {
       "id": "udio",
