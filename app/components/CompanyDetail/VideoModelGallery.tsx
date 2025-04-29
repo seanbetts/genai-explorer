@@ -114,19 +114,21 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
 
         <p className={`${textStyles.body} mb-8`}>{selectedModel.about}</p>
 
-        {/* Main feature sections - show only if features are defined */}
-        {selectedModel.features && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            {/* Left column - Generation and Editing features */}
-            <div className="space-y-6">
-              {/* Generation Features */}
-              {selectedModel.features?.generation && Object.keys(selectedModel.features.generation).length > 0 && (
-                <div>
-                  <h3 className={`${headingStyles.card} mb-3`}>Generation Features</h3>
-                  <div className={`${containerStyles.card} min-h-[20rem] h-auto`}>
-                    <div className="space-y-4">
-                      {/* Boolean features */}
+        {/* Combined features grid: product, safety, and aspect ratios */}
+        {/* Added extra bottom margin to separate from other sections */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          {/* Model Features column */}
+          <div>
+            <h3 className={`${headingStyles.card} mb-3`}>Model Features</h3>
+            <div className={`${containerStyles.card} min-h-[30.7rem] h-auto`}>
+              <div className="space-y-4">
+                {/* Generation Features */}
+                {selectedModel.features?.generation && Object.keys(selectedModel.features.generation).length > 0 && (
+                  <>
+                    <div className="mb-2">
+                      <h4 className="text-sm font-semibold text-cyan-400 mb-2">Generation</h4>
                       <div className="grid grid-cols-2 gap-2">
+                        {/* Boolean features */}
                         {Object.entries(selectedModel.features.generation)
                           .filter(([_, value]) => typeof value === 'boolean')
                           .map(([key, value]) => (
@@ -136,7 +138,7 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                             </div>
                           ))}
                       </div>
-
+                      
                       {/* Array features with special formatting */}
                       {Object.entries(selectedModel.features.generation)
                         .filter(([_, value]) => Array.isArray(value) && value.length > 0)
@@ -152,35 +154,16 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                             </div>
                           </div>
                         ))}
-                        
-                      {/* Object features */}
-                      {Object.entries(selectedModel.features.generation)
-                        .filter(([_, value]) => typeof value === 'object' && value !== null && !Array.isArray(value))
-                        .map(([key, value]) => (
-                          <div key={key} className="mt-4">
-                            <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
-                            <div className="pl-4">
-                              {Object.entries(value as Record<string, any>).map(([subKey, subValue]) => (
-                                <div key={subKey} className="flex items-center h-8">
-                                  <i className={`${subValue === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                                  <span className={textStyles.body}>{formatFeatureName(subKey)}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
                     </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Editing Features */}
-              {selectedModel.features?.editing && Object.keys(selectedModel.features.editing).length > 0 && (
-                <div>
-                  <h3 className={`${headingStyles.card} mb-3`}>Editing Features</h3>
-                  <div className={`${containerStyles.card} min-h-[12rem] h-auto`}>
-                    <div className="space-y-4">
-                      {/* Boolean features */}
+                    <div className="border-b border-gray-700 my-2"></div>
+                  </>
+                )}
+                
+                {/* Editing Features */}
+                {selectedModel.features?.editing && Object.keys(selectedModel.features.editing).length > 0 && (
+                  <>
+                    <div className="mb-2">
+                      <h4 className="text-sm font-semibold text-cyan-400 mb-2">Editing</h4>
                       <div className="grid grid-cols-2 gap-2">
                         {Object.entries(selectedModel.features.editing)
                           .filter(([_, value]) => typeof value === 'boolean')
@@ -191,7 +174,7 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                             </div>
                           ))}
                       </div>
-
+                      
                       {/* Object features */}
                       {Object.entries(selectedModel.features.editing)
                         .filter(([_, value]) => typeof value === 'object' && value !== null && !Array.isArray(value))
@@ -209,20 +192,36 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                           </div>
                         ))}
                     </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Right column - Enhancement, Advanced features, and other properties */}
-            <div className="space-y-6">
-              {/* Enhancement Features */}
-              {selectedModel.features?.enhancement && Object.keys(selectedModel.features.enhancement).length > 0 && (
-                <div>
-                  <h3 className={`${headingStyles.card} mb-3`}>Enhancement Features</h3>
-                  <div className={`${containerStyles.card} min-h-[10rem] h-auto`}>
+                    <div className="border-b border-gray-700 my-2"></div>
+                  </>
+                )}
+                
+                {/* Enhancement Features */}
+                {selectedModel.features?.enhancement && Object.keys(selectedModel.features.enhancement).length > 0 && (
+                  <>
+                    <div className="mb-2">
+                      <h4 className="text-sm font-semibold text-cyan-400 mb-2">Enhancement</h4>
+                      <div className="grid grid-cols-2 gap-2">
+                        {Object.entries(selectedModel.features.enhancement)
+                          .map(([key, value]) => (
+                            <div key={key} className="flex items-center h-8">
+                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                              <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                            </div>
+                          ))}
+                      </div>
+                    </div>
+                    <div className="border-b border-gray-700 my-2"></div>
+                  </>
+                )}
+                
+                {/* Advanced Features */}
+                {selectedModel.features?.advanced && Object.keys(selectedModel.features.advanced).length > 0 && (
+                  <div className="mb-2">
+                    <h4 className="text-sm font-semibold text-cyan-400 mb-2">Advanced</h4>
                     <div className="grid grid-cols-2 gap-2">
-                      {Object.entries(selectedModel.features.enhancement)
+                      {Object.entries(selectedModel.features.advanced)
+                        .filter(([_, value]) => typeof value === 'boolean')
                         .map(([key, value]) => (
                           <div key={key} className="flex items-center h-8">
                             <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
@@ -230,214 +229,198 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                           </div>
                         ))}
                     </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Advanced Features */}
-              {selectedModel.features?.advanced && Object.keys(selectedModel.features.advanced).length > 0 && (
-                <div>
-                  <h3 className={`${headingStyles.card} mb-3`}>Advanced Features</h3>
-                  <div className={`${containerStyles.card} min-h-[10rem] h-auto`}>
-                    <div className="space-y-4">
-                      {/* Boolean features */}
-                      <div className="grid grid-cols-2 gap-2">
-                        {Object.entries(selectedModel.features.advanced)
-                          .filter(([_, value]) => typeof value === 'boolean')
-                          .map(([key, value]) => (
-                            <div key={key} className="flex items-center h-8">
-                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                              <span className={textStyles.body}>{formatFeatureName(key)}</span>
-                            </div>
-                          ))}
-                      </div>
-
-                      {/* Object features */}
-                      {Object.entries(selectedModel.features.advanced)
-                        .filter(([_, value]) => typeof value === 'object' && value !== null && !Array.isArray(value) && Object.keys(value as object).length > 0)
-                        .map(([key, value]) => (
-                          <div key={key} className="mt-4">
-                            <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
-                            <div className="pl-4">
-                              {Object.entries(value as Record<string, any>).map(([subKey, subValue]) => (
-                                <div key={subKey} className="flex items-center h-8">
-                                  <i className={`${subValue === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                                  <span className={textStyles.body}>{formatFeatureName(subKey)}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Safety Features */}
-              {(Object.keys(selectedModel.safety ?? {}).length > 0 ||
-                selectedModel.termsOfService ||
-                selectedModel.usagePolicy ||
-                selectedModel.commerciallySafe !== undefined) && (
-                <div>
-                  <h3 className={`${headingStyles.card} mb-3`}>Safety Features</h3>
-                  <div className={`${containerStyles.card} min-h-[12rem] h-auto`}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        {Object.entries(selectedModel.safety ?? {})
-                          .filter(([key]) => 
-                            key !== 'ipRespect' && 
-                            key !== 'IPRespect' && 
-                            key !== 'C2PA' && 
-                            key !== 'c2pa'
-                          )
-                          .map(([key, value]) => (
-                            <div key={key} className="flex items-center h-8">
-                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                              <span className={textStyles.body}>{formatFeatureName(key)}</span>
-                            </div>
-                          ))}
-                      </div>
-                      <div className="space-y-2 flex flex-col">
-                        {hasIPRespectData && (
-                          <div className="flex items-center h-8">
-                            <i className={`${ipRespectEnabled ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
-                            <span className={textStyles.body}>IP Respect</span>
-                          </div>
-                        )}
-                        {selectedModel.commerciallySafe !== undefined && (
-                          <div className="flex items-center h-8">
-                            <i className={`${selectedModel.commerciallySafe ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
-                            <span className={textStyles.body}>{selectedModel.commerciallySafe ? 'Commercially safe' : 'Not commercially safe'}</span>
-                          </div>
-                        )}
-                        {selectedModel.usagePolicy && (
-                          <a
-                            href={selectedModel.usagePolicy}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
-                          >
-                            <i className="bi bi-shield-check mr-1" /> Usage Policy
-                          </a>
-                        )}
-                        {selectedModel.termsOfService && (
-                          <a
-                            href={selectedModel.termsOfService}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
-                          >
-                            <i className="bi bi-file-earmark-text mr-1" /> Terms of Service
-                          </a>
-                        )}
-                        {c2paDocsUrl && (
-                          <a
-                            href={c2paDocsUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
-                          >
-                            <i className="bi bi-patch-check-fill mr-1" /> C2PA Metadata
-                          </a>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* Aspect Ratios */}
-        {selectedModel.aspectRatios && Object.keys(selectedModel.aspectRatios).length > 0 && (
-          <div className="mb-8">
-            <h3 className={`${headingStyles.card} mb-3`}>Supported Aspect Ratios</h3>
-            <div className={`${containerStyles.card}`}>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {Object.entries(selectedModel.aspectRatios)
-                  .map(([ratio, supported]) => {
-                    // Extract exact aspect ratio from the label
-                    let width = 4, height = 3; // Default to 4:3
                     
-                    // Extract the ratio values from parentheses, e.g. "(4:3)" -> [4, 3]
-                    const ratioMatch = ratio.match(/\((\d+):(\d+)\)/);
-                    if (ratioMatch && ratioMatch.length === 3) {
-                      width = parseInt(ratioMatch[1], 10);
-                      height = parseInt(ratioMatch[2], 10);
-                    } else {
-                      // Fallback to predefined values if regex fails
-                      if (ratio.includes('(4:3)')) {
-                        width = 4; height = 3; // Landscape
-                      } else if (ratio.includes('(3:4)')) {
-                        width = 3; height = 4; // Portrait
-                      } else if (ratio.includes('(1:1)')) {
-                        width = 1; height = 1; // Square
-                      } else if (ratio.includes('(16:9)')) {
-                        width = 16; height = 9; // Widescreen
-                      } else if (ratio.includes('(9:16)')) {
-                        width = 9; height = 16; // Vertical
-                      } else if (ratio.includes('(21:9)')) {
-                        width = 21; height = 9; // Ultrawide
-                      }
-                    }
-                    
-                    // Normalize to fit within our display box with padding
-                    const viewBoxWidth = 16; 
-                    const viewBoxHeight = 10;
-                    const padding = 1.5; // Add padding on all sides
-                    
-                    const availableWidth = viewBoxWidth - (padding * 2);
-                    const availableHeight = viewBoxHeight - (padding * 2);
-                    
-                    // Determine which dimension (width or height) is the limiting factor
-                    const widthRatio = availableWidth / width;
-                    const heightRatio = availableHeight / height;
-                    const scale = Math.min(widthRatio, heightRatio);
-                    
-                    const scaledWidth = width * scale;
-                    const scaledHeight = height * scale;
-                    
-                    // Calculate position to center the shape
-                    const offsetX = (viewBoxWidth - scaledWidth) / 2;
-                    const offsetY = (viewBoxHeight - scaledHeight) / 2;
-                    
-                    // Capitalize ratio label
-                    const capitalizedRatio = ratio
-                      .split(' ')
-                      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                      .join(' ');
-                    
-                    return (
-                      <div key={ratio} className="flex items-center">
-                        <div className={`w-16 h-10 relative mr-3 rounded border ${supported ? 'border-cyan-400' : 'border-gray-600 opacity-50'}`}>
-                          <div className="absolute inset-0 rounded bg-gray-700 flex items-center justify-center">
-                            <svg width="100%" height="100%" viewBox="0 0 16 10">
-                              <rect
-                                x={offsetX}
-                                y={offsetY}
-                                width={scaledWidth}
-                                height={scaledHeight}
-                                fill={supported ? "#D946EF" : "#6B7280"}
-                                stroke={supported ? "#F5D0FE" : "#4B5563"}
-                                strokeWidth="0.3"
-                                rx="0.3"
-                              />
-                            </svg>
+                    {/* Object features */}
+                    {Object.entries(selectedModel.features.advanced)
+                      .filter(([_, value]) => typeof value === 'object' && value !== null && !Array.isArray(value) && Object.keys(value as object).length > 0)
+                      .map(([key, value]) => (
+                        <div key={key} className="mt-4">
+                          <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
+                          <div className="pl-4">
+                            {Object.entries(value as Record<string, any>).map(([subKey, subValue]) => (
+                              <div key={subKey} className="flex items-center h-8">
+                                <i className={`${subValue === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                                <span className={textStyles.body}>{formatFeatureName(subKey)}</span>
+                              </div>
+                            ))}
                           </div>
                         </div>
-                        <div className="flex items-center">
-                          <i className={`${supported ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                          <span className={`${textStyles.body} text-sm font-medium`}>{capitalizedRatio}</span>
-                        </div>
-                      </div>
-                    );
-                  })}
+                      ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
-        )}
-
+          
+          {/* Right column: Safety Features and Aspect Ratios */}
+          <div className="space-y-6">
+            {/* Safety Features */}
+            <div>
+              <h3 className={`${headingStyles.card} mb-3`}>Safety Features</h3>
+              { (Object.keys(selectedModel.safety ?? {}).length > 0 ||
+                  selectedModel.termsOfService ||
+                  selectedModel.usagePolicy ||
+                  selectedModel.commerciallySafe !== undefined) ? (
+              <div className={`${containerStyles.card} min-h-[12rem] h-auto`}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      {Object.entries(selectedModel.safety ?? {})
+                        .filter(([key]) => 
+                          key !== 'ipRespect' && 
+                          key !== 'IPRespect' && 
+                          key !== 'C2PA' && 
+                          key !== 'c2pa'
+                        )
+                        .map(([key, value]) => (
+                          <div key={key} className="flex items-center h-8">
+                            <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                            <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                          </div>
+                        ))}
+                    </div>
+                    <div className="space-y-2 flex flex-col">
+                      {hasIPRespectData && (
+                        <div className="flex items-center h-8">
+                          <i className={`${ipRespectEnabled ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
+                          <span className={textStyles.body}>IP Respect</span>
+                        </div>
+                      )}
+                      {selectedModel.commerciallySafe !== undefined && (
+                        <div className="flex items-center h-8">
+                          <i className={`${selectedModel.commerciallySafe ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
+                          <span className={textStyles.body}>{selectedModel.commerciallySafe ? 'Commercially safe' : 'Not commercially safe'}</span>
+                        </div>
+                      )}
+                      {selectedModel.usagePolicy && (
+                        <a
+                          href={selectedModel.usagePolicy}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                        >
+                          <i className="bi bi-shield-check mr-1" /> Usage Policy
+                        </a>
+                      )}
+                      {selectedModel.termsOfService && (
+                        <a
+                          href={selectedModel.termsOfService}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                        >
+                          <i className="bi bi-file-earmark-text mr-1" /> Terms of Service
+                        </a>
+                      )}
+                      {c2paDocsUrl && (
+                        <a
+                          href={c2paDocsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                        >
+                          <i className="bi bi-patch-check-fill mr-1" /> C2PA Metadata
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+              <div className={`${containerStyles.card} min-h-[12rem] h-auto flex items-center justify-center`}>
+                  <p className={textStyles.body}>No safety features</p>
+                </div>
+              )}
+            </div>
+            
+            {/* Aspect Ratios */}
+            {selectedModel.aspectRatios && Object.keys(selectedModel.aspectRatios).length > 0 && (
+              <div>
+                <h3 className={`${headingStyles.card} mb-3`}>Aspect Ratios</h3>
+                <div className={`${containerStyles.card}`}>
+                  <div className="grid grid-cols-2 gap-4">
+                    {Object.entries(selectedModel.aspectRatios)
+                      .map(([ratio, supported]) => {
+                        // Extract exact aspect ratio from the label
+                        let width = 4, height = 3; // Default to 4:3
+                        
+                        // Extract the ratio values from parentheses, e.g. "(4:3)" -> [4, 3]
+                        const ratioMatch = ratio.match(/\((\d+):(\d+)\)/);
+                        if (ratioMatch && ratioMatch.length === 3) {
+                          width = parseInt(ratioMatch[1], 10);
+                          height = parseInt(ratioMatch[2], 10);
+                        } else {
+                          // Fallback to predefined values if regex fails
+                          if (ratio.includes('(4:3)')) {
+                            width = 4; height = 3; // Landscape
+                          } else if (ratio.includes('(3:4)')) {
+                            width = 3; height = 4; // Portrait
+                          } else if (ratio.includes('(1:1)')) {
+                            width = 1; height = 1; // Square
+                          } else if (ratio.includes('(16:9)')) {
+                            width = 16; height = 9; // Widescreen
+                          } else if (ratio.includes('(9:16)')) {
+                            width = 9; height = 16; // Vertical
+                          } else if (ratio.includes('(21:9)')) {
+                            width = 21; height = 9; // Ultrawide
+                          }
+                        }
+                        
+                        // Normalize to fit within our display box with padding
+                        const viewBoxWidth = 16; 
+                        const viewBoxHeight = 10;
+                        const padding = 1.5; // Add padding on all sides
+                        
+                        const availableWidth = viewBoxWidth - (padding * 2);
+                        const availableHeight = viewBoxHeight - (padding * 2);
+                        
+                        // Determine which dimension (width or height) is the limiting factor
+                        const widthRatio = availableWidth / width;
+                        const heightRatio = availableHeight / height;
+                        const scale = Math.min(widthRatio, heightRatio);
+                        
+                        const scaledWidth = width * scale;
+                        const scaledHeight = height * scale;
+                        
+                        // Calculate position to center the shape
+                        const offsetX = (viewBoxWidth - scaledWidth) / 2;
+                        const offsetY = (viewBoxHeight - scaledHeight) / 2;
+                        
+                        // Capitalize ratio label
+                        const capitalizedRatio = ratio
+                          .split(' ')
+                          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                          .join(' ');
+                        
+                        return (
+                          <div key={ratio} className="flex items-center">
+                            <div className={`w-16 h-10 relative mr-3 rounded border ${supported ? 'border-cyan-400' : 'border-gray-600 opacity-50'}`}>
+                              <div className="absolute inset-0 rounded bg-gray-700 flex items-center justify-center">
+                                <svg width="100%" height="100%" viewBox="0 0 16 10">
+                                  <rect
+                                    x={offsetX}
+                                    y={offsetY}
+                                    width={scaledWidth}
+                                    height={scaledHeight}
+                                    fill={supported ? "#D946EF" : "#6B7280"}
+                                    stroke={supported ? "#F5D0FE" : "#4B5563"}
+                                    strokeWidth="0.3"
+                                    rx="0.3"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <div className="flex items-center">
+                              <i className={`${supported ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                              <span className={`${textStyles.body} text-sm font-medium`}>{capitalizedRatio}</span>
+                            </div>
+                          </div>
+                        );
+                      })}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
 
         {/* Demo videos section */}
         {selectedModel.demoVideos && Object.keys(selectedModel.demoVideos).length > 0 && (
