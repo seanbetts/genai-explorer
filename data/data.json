@@ -4714,12 +4714,12 @@
             "https://suno.com/embed/5a285fbc-f64a-418a-8b2e-05e3e7990899",
             "https://suno.com/embed/b27c29f6-8ab4-47eb-81fd-efb85c848ada",
             "https://suno.com/embed/f275d9ac-5a62-4bbe-baf9-3fa10e0332f4",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "https://suno.com/embed/7f774078-1672-4858-a37f-acad373c5a84",
+            "https://suno.com/embed/19807561-1427-4c25-a229-a8c3063d0616",
+            "https://suno.com/embed/c15f0251-fbac-4a30-a3e1-002dbc78cb79",
+            "https://suno.com/embed/3107d309-3316-4b00-bc7c-f590038d9e5b",
+            "https://suno.com/embed/423d3dea-7a36-4621-a3b2-ff92edc066d4",
+            "https://suno.com/embed/5b83f352-1956-4ca2-8534-2af03bf76863"
           ],
           "demoVideos": {
             "remaster": ["https://www.youtube.com/watch?v=LGh5nqe_xD0"]
@@ -4824,8 +4824,8 @@
       "id": "udio",
       "name": "Udio",
       "logo": "/images/companies/udio/logo.png",
-      "website": "https://udio.com",
-      "description": "High-quality music generation with AI",
+      "website": "https://www.udio.com",
+      "description": "Create any song. Just imagine it.",
       "lastUpdated": "2025-02-25",
       "features": [],
       "models": [

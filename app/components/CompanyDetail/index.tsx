@@ -11,6 +11,7 @@ const SubscriptionGrid = React.lazy(() => import('./SubscriptionGrid'));
 const BenchmarksTable = React.lazy(() => import('./BenchmarksTable'));
 const ImageModelGallery = React.lazy(() => import('./ImageModelGallery'));
 const VideoModelGallery = React.lazy(() => import('./VideoModelGallery'));
+const AudioModelGallery = React.lazy(() => import('./AudioModelGallery'));
 import { textStyles, headingStyles } from '../utils/theme';
 import { containerStyles, buttonStyles, iconStyles } from '../utils/layout';
 import { getModelTabName } from '../utils/modelUtils';
@@ -570,10 +571,11 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
             {activeTab === 'audio-models' && hasAudioModels() && (
               <div className="transform transition-opacity duration-300">
                 <Suspense fallback={<div className="text-center py-4">Loading audio models...</div>}>
-                  <ModelTable 
+                  <AudioModelGallery 
                     models={company.models.filter(model => 
                       model.category === 'music' && model.status !== 'archived'
-                    )} 
+                    )}
+                    companyId={company.id}
                   />
                 </Suspense>
               </div>
