@@ -199,7 +199,7 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                           key !== 'numberOfVideos'
                         )
                         .map(([key, values]) => (
-                          <div key={key} className="mt-4">
+                          <div key={key} className="mt-4 mb-4">
                             <h5 className="text-xs font-medium text-gray-300 mb-2">{formatFeatureName(key)}</h5>
                             <div className="flex flex-wrap gap-2">
                               {Array.isArray(values) && values.map((value, index) => (
