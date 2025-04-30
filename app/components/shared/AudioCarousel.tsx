@@ -65,10 +65,17 @@ const AudioCarousel: React.FC<AudioCarouselProps> = ({
     return () => window.removeEventListener("keydown", handler);
   }, [hasMultipleAudios, nextAudio, prevAudio, hasFocus]);
 
-  // Extract song ID from Suno embed URL
+  // Extract song ID from Suno embed URL or file name from local audio
   const getSongId = (url: string): string => {
-    const match = url.match(/\/embed\/([a-f0-9-]+)/);
-    return match ? match[1] : "";
+    if (isLocalAudioFile(url)) {
+      // For local audio files, extract the filename
+      const parts = url.split('/');
+      return parts[parts.length - 1].split('.')[0];
+    } else {
+      // For Suno embeds, extract the ID
+      const match = url.match(/\/embed\/([a-f0-9-]+)/);
+      return match ? match[1] : "";
+    }
   };
 
   // If there are no audios to display
@@ -80,22 +87,50 @@ const AudioCarousel: React.FC<AudioCarouselProps> = ({
     );
   }
 
+  // Detect the type of audio based on URL
+  const isLocalAudioFile = (url: string): boolean => {
+    return url.endsWith('.mp3') || url.endsWith('.wav') || url.endsWith('.ogg') || url.endsWith('.m4a');
+  };
+
+  // Determine if the current audio is a local file (MP3) or an embed URL
+  const isLocalFile = isLocalAudioFile(currentAudioUrl);
+
   return (
     <div className="relative p-0 m-0">
       <div className="relative min-h-[300px] bg-gray-900 rounded-lg overflow-hidden group py-6 px-0 m-0">
         <div className="flex items-center justify-center z-0 w-full h-full">
-          {/* Embed the current audio */}
-          <div className="w-full max-w-3xl aspect-[3/1] mx-4">
-            <iframe 
-              src={currentAudioUrl}
-              title={`${title} - Audio example ${currentAudioIndex + 1}`}
-              className="w-full h-full border-0 rounded-xl"
-              allow="autoplay"
-              loading="lazy"
-            >
-              <a href={currentAudioUrl.replace('/embed/', '/song/')}>Listen on Suno</a>
-            </iframe>
-          </div>
+          {/* Render different audio players based on URL type */}
+          {isLocalFile ? (
+            <div className="w-full max-w-3xl flex flex-col items-center justify-center px-4 h-full">
+              <div className="flex flex-col items-center justify-center h-full py-12 w-full">
+                <p className="text-cyan-400 font-mono text-sm mb-6">{formatTrackName ? formatTrackName(currentTrackName) : currentTrackName}</p>
+                <div className="w-full max-w-3xl flex justify-center">
+                  <audio 
+                    src={currentAudioUrl}
+                    controls
+                    className="w-full max-w-xl"
+                    controlsList="nodownload"
+                    autoPlay={false}
+                    style={{ minWidth: '300px', width: '100%' }}
+                  >
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="w-full max-w-3xl aspect-[3/1] mx-4">
+              <iframe 
+                src={currentAudioUrl}
+                title={`${title} - Audio example ${currentAudioIndex + 1}`}
+                className="w-full h-full border-0 rounded-xl"
+                allow="autoplay"
+                loading="lazy"
+              >
+                <a href={currentAudioUrl.replace('/embed/', '/song/')}>Listen on Suno</a>
+              </iframe>
+            </div>
+          )}
         </div>
 
         {/* nav arrows */}

@@ -683,9 +683,7 @@
           "systemCard": "https://platform.openai.com/docs/models/gpt-4o-mini-tts",
           "modelGuide": "https://platform.openai.com/docs/guides/text-to-speech",
           "apiDocumentation": "https://platform.openai.com/docs/api-reference/audio",
-          "audioExamples": {
-            "xxx": "xxx"
-          },
+          "audioExamples": {},
           "demoVideos": {
             "xxx": ["xxx"]
           },
@@ -707,7 +705,7 @@
               "styles": true,
               "negativeStyles": false,
               "personas": false,
-              "durations": [0],
+              "durations": [9999],
               "outputFormats": ["mp3","opus","aac","flac","wav","pcm"],
               "coverArt": false,
               "coverVideo": false
@@ -733,10 +731,10 @@
             }
           },
           "safety": {
-            "chatModelRefusals": false,
-            "promptBlocking": false,
-            "outputBlocking": false,
-            "minorSafeguards": false,
+            "chatModelRefusals": true,
+            "promptBlocking": true,
+            "outputBlocking": true,
+            "minorSafeguards": true,
             "IPRespect": false,
             "biasMitigation": false
           }

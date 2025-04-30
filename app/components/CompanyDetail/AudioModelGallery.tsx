@@ -152,11 +152,13 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                               {(selectedModel.features.generation.durations as Array<string | number>).map((value, index) => (
                                 <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
                                   {typeof value === 'number' 
-                                    ? value < 60 
-                                      ? `${value} secs` 
-                                      : value % 60 === 0
-                                        ? `${Math.floor(value / 60)} mins`
-                                        : `${Math.floor(value / 60)} mins ${value % 60} secs` 
+                                    ? value === 9999
+                                      ? "Unlimited"
+                                      : value < 60 
+                                        ? `${value} secs` 
+                                        : value % 60 === 0
+                                          ? `${Math.floor(value / 60)} mins`
+                                          : `${Math.floor(value / 60)} mins ${value % 60} secs` 
                                     : value}
                                 </span>
                               ))}
@@ -371,8 +373,12 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
               )}
             </div>
             
-            {/* Voice Features */}
-            {selectedModel.features?.other && Object.keys(selectedModel.features.other).length > 0 && (
+            {/* Voice Features - only show if there's relevant voice data with non-empty arrays */}
+            {selectedModel.features?.other && 
+             Object.keys(selectedModel.features.other).length > 0 && 
+             ((Array.isArray(selectedModel.features.other.voices) && selectedModel.features.other.voices.length > 0) || 
+              (Array.isArray(selectedModel.features.other.voiceFeatures) && selectedModel.features.other.voiceFeatures.length > 0) || 
+              (Array.isArray(selectedModel.features.other.languages) && selectedModel.features.other.languages.length > 0)) && (
               <div>
                 <h3 className={`${headingStyles.card} mb-3`}>Voice Features</h3>
                 <div className={`${containerStyles.card} min-h-[12rem] h-auto`}>
@@ -553,32 +559,79 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
 
   // Render the audio examples carousel
   const renderAudioExamples = () => {
-    if (!selectedModel || !selectedModel.audioExamples || 
+    // Check if the model has audio examples defined in the data
+    const hasAudioExamplesInData = !!(selectedModel && selectedModel.audioExamples && 
         (Array.isArray(selectedModel.audioExamples) 
-          ? selectedModel.audioExamples.length === 0 
-          : typeof selectedModel.audioExamples === 'object' && Object.keys(selectedModel.audioExamples).length === 0)) {
+          ? selectedModel.audioExamples.length > 0 
+          : typeof selectedModel.audioExamples === 'object' && Object.keys(selectedModel.audioExamples).length > 0));
+    
+    // For local audio files, check if the model has voice options that we can create audio links for
+    const hasVoiceOptions = !!(selectedModel?.features?.other?.voices && 
+                           Array.isArray(selectedModel.features.other.voices) && 
+                           selectedModel.features.other.voices.length > 0);
+    
+    // If no audio examples are available from either source, return null
+    if (!hasAudioExamplesInData && !hasVoiceOptions) {
       return null;
     }
-
-    return (
-      <div className="mb-8 p-0">
-        <AudioCarousel 
-          audio={selectedModel.audioExamples}
-          title={selectedModel.name}
-          carouselId={`${selectedModel.id}-audio-examples`}
-          formatTrackName={(name) => {
-            // Format snake_case or camelCase to Title Case with each word capitalized
-            return name
-              .replace(/_/g, ' ')
-              .replace(/([A-Z])/g, ' $1')
-              .split(' ')
-              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-              .join(' ')
-              .replace(/\.\.\.$/, '...'); // Keep ellipses as is
-          }}
-        />
-      </div>
-    );
+    
+    // If we have audio examples in the data, use those first
+    if (hasAudioExamplesInData) {
+      return (
+        <div className="mb-8 p-0">
+          <AudioCarousel 
+            audio={selectedModel!.audioExamples as (Record<string, string> | string[])}
+            title={selectedModel!.name}
+            carouselId={`${selectedModel!.id}-audio-examples`}
+            formatTrackName={(name) => {
+              // Format snake_case or camelCase to Title Case with each word capitalized
+              return name
+                .replace(/_/g, ' ')
+                .replace(/([A-Z])/g, ' $1')
+                .split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ')
+                .replace(/\.\.\.$/, '...'); // Keep ellipses as is
+            }}
+          />
+        </div>
+      );
+    }
+    
+    // Otherwise, create audio links from voice files in the public/audio folder
+    const voiceAudioExamples: Record<string, string> = {};
+    
+    // Safely access and iterate over voices array
+    const voices = selectedModel?.features?.other?.voices;
+    if (Array.isArray(voices)) {
+      voices.forEach((voice: string) => {
+        // Check if the voice name is a string
+        if (typeof voice === 'string') {
+          // Create a link to the local audio file based on company ID and voice name
+          voiceAudioExamples[voice] = `/audio/${companyId}/${voice.toLowerCase()}.mp3`;
+        }
+      });
+    }
+    
+    // If we have voice audio examples, render the carousel
+    if (Object.keys(voiceAudioExamples).length > 0) {
+      return (
+        <div className="mb-8 p-0">
+          <h3 className={`${headingStyles.card} mb-3`}>Voice Samples</h3>
+          <AudioCarousel 
+            audio={voiceAudioExamples}
+            title={selectedModel!.name}
+            carouselId={`${selectedModel!.id}-voice-samples`}
+            formatTrackName={(name) => {
+              // Capitalize the voice name
+              return name.charAt(0).toUpperCase() + name.slice(1);
+            }}
+          />
+        </div>
+      );
+    }
+    
+    return null;
   };
 
   // Guard: no models 
@@ -587,11 +640,7 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
   return (
     <>
       {models.length > 1 && renderModelTabs()}
-      {selectedModel && selectedModel.audioExamples && 
-       (Array.isArray(selectedModel.audioExamples) 
-         ? selectedModel.audioExamples.length > 0 
-         : typeof selectedModel.audioExamples === 'object' && Object.keys(selectedModel.audioExamples).length > 0) && 
-       renderAudioExamples()}
+      {renderAudioExamples()}
       {renderModelDetails()}
     </>
   );
