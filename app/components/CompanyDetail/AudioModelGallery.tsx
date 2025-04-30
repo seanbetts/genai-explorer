@@ -393,12 +393,14 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                                   {value}
                                 </span>
                               ))}
-                              <span 
-                                className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded cursor-help relative group"
-                                title={values.slice(5).join(', ')}
-                              >
-                                <span>+{remainingCount} more</span>
-                                <div className="absolute left-0 bottom-full mb-2 w-80 bg-gray-800 p-3 rounded shadow-lg border border-gray-700 hidden group-hover:block z-50 transition-opacity duration-150 opacity-0 group-hover:opacity-100">
+                              <div className="inline-block relative">
+                                <span 
+                                  className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded cursor-help hover:bg-gray-600 transition-colors peer"
+                                  title={values.slice(5).join(', ')}
+                                >
+                                  +{remainingCount} more
+                                </span>
+                                <div className="absolute left-0 bottom-full mb-2 w-80 bg-gray-800 p-3 rounded shadow-lg border border-gray-700 opacity-0 invisible peer-hover:visible peer-hover:opacity-100 hover:opacity-100 hover:visible z-50 transition-all duration-300 delay-75 hover:delay-[1000ms]">
                                   <div className="absolute -bottom-2 left-3 w-4 h-4 bg-gray-800 border-r border-b border-gray-700 transform rotate-45"></div>
                                   <h5 className="text-xs font-semibold text-fuchsia-500 mb-2">Additional Languages</h5>
                                   <div className="flex flex-wrap gap-2 max-h-60 overflow-y-auto">
@@ -409,7 +411,7 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                                     ))}
                                   </div>
                                 </div>
-                              </span>
+                              </div>
                             </div>
                           </div>
                         );
