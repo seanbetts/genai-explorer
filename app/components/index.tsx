@@ -73,7 +73,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
       'enterprise-models': 'enterprise',
       'image-models': 'image',
       'video-models': 'video',
-      'audio-models': 'music',
+      'audio-models': 'audio',
       'specialised-models': 'other'
     };
     return mapping[tab] || '';
@@ -174,13 +174,13 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
       console.log('Opening company in Enterprise Models tab');
     } else if (category === 'image') {
       url += '&tab=image-models';
-      console.log('Opening company in Image Models tab');
+      console.log('Opening company in Image Model tab');
     } else if (category === 'video') {
       url += '&tab=video-models';
-      console.log('Opening company in Video Models tab');
-    } else if (category === 'music') {
+      console.log('Opening company in Video Model tab');
+    } else if (category === 'audio') {
       url += '&tab=audio-models';
-      console.log('Opening company in Audio Models tab');
+      console.log('Opening company in Audio Model tab');
     } else if (category === 'other') {
       url += '&tab=specialised-models';
       console.log('Opening company in Specialised Models tab');
@@ -203,7 +203,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
                     category === 'enterprise' ? 'enterprise-models' :
                     category === 'image' ? 'image-models' :
                     category === 'video' ? 'video-models' :
-                    category === 'music' ? 'audio-models' :
+                    category === 'audio' ? 'audio-models' :
                     category === 'other' ? 'specialised-models' :
                     '';
     

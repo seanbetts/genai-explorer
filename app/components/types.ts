@@ -214,6 +214,6 @@ export interface CategoryStyle {
 
 export type CategoryMap = Record<string, CategoryStyle>;
 
-export type CompanyCategory = 'frontier' | 'open' | 'enterprise' | 'image' | 'video' | 'music' | 'other';
+export type CompanyCategory = 'frontier' | 'open' | 'enterprise' | 'image' | 'video' | 'audio' | 'other';
 
 export type CategorizedCompanies = Record<CompanyCategory, Company[]>;

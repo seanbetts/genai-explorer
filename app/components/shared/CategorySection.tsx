@@ -33,7 +33,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({
   // Get appropriate grid class based on layout and columns prop
   const getGridClass = () => {
     // Determine if this is a media category (image, video, audio, or other specialty)
-    const isMediaCategory = ['image', 'video', 'music', 'other'].includes(category);
+    const isMediaCategory = ['image', 'video', 'audio', 'other'].includes(category);
     
     // Use custom column count if specified and layout is full-width
     if (layout === 'full-width' && columns === 5) {

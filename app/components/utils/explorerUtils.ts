@@ -11,7 +11,7 @@ export const getCompaniesByModelCategory = (companies: Company[]): CategorizedCo
     enterprise: [],
     image: [],
     video: [],
-    music: [],
+    audio: [],
     other: []
   };
   

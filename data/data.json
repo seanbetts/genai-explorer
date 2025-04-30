@@ -669,6 +669,77 @@
             "IPRespect": false,
             "biasMitigation": true
           }
+        },
+        {
+          "id": "gpt-4o-mini-tts",
+          "name": "GPT-4o TTS",
+          "status": "primary",
+          "about": "Developers can now “instruct” the model not just on what to say but how to say it",
+          "category": "audio",
+          "releaseDate": "2025-03-20",
+          "releasePost": "https://openai.com/index/introducing-our-next-generation-audio-models/",
+          "releaseVideo": "https://www.youtube.com/live/lXb0L16ISAc?si=uO8Q8GlnfiUhrgf3",
+          "modelPage": "https://www.openai.fm",
+          "systemCard": "https://platform.openai.com/docs/models/gpt-4o-mini-tts",
+          "modelGuide": "https://platform.openai.com/docs/guides/text-to-speech",
+          "apiDocumentation": "https://platform.openai.com/docs/api-reference/audio",
+          "audioExamples": {
+            "xxx": "xxx"
+          },
+          "demoVideos": {
+            "xxx": ["xxx"]
+          },
+          "termsOfService": "",
+          "usagePolicy": "https://platform.openai.com/docs/guides/text-to-speech",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {
+            "available": true,                                     
+            "xxx": {}        
+          },
+          "features": {
+            "generation": {
+              "textToMusic": false,
+              "textToVoice": true,
+              "audioToMusic": false,
+              "customLyrics": false,
+              "instrumental": false,
+              "styles": true,
+              "negativeStyles": false,
+              "personas": false,
+              "durations": [0],
+              "outputFormats": ["mp3","opus","aac","flac","wav","pcm"],
+              "coverArt": false,
+              "coverVideo": false
+            },
+            "editing": {
+              "crop": false,
+              "replaceSection": false,
+              "seperateVocals": false,
+              "generativeExtend": false
+            },
+            "enhancement": {
+              "remaster": false,
+              "covers": false,
+              "remix": false
+            },
+            "advanced": {
+              "trainCustomModels": false
+            },
+            "other": {
+              "voices": ["alloy","ash","ballad","coral","echo","fable","nova","onyx","sage","shimmer"],
+              "voiceFeatures": ["accent","emotional range","intonation","impressions","speed","tone","whipsering"],
+              "languages": ["Afrikaans", "Arabic", "Armenian", "Azerbaijani", "Belarusian", "Bosnian", "Bulgarian", "Catalan", "Chinese", "Croatian", "Czech", "Danish", "Dutch", "English", "Estonian", "Finnish", "French", "Galician", "German", "Greek", "Hebrew", "Hindi", "Hungarian", "Icelandic", "Indonesian", "Italian", "Japanese", "Kannada", "Kazakh", "Korean", "Latvian", "Lithuanian", "Macedonian", "Malay", "Marathi", "Maori", "Nepali", "Norwegian", "Persian", "Polish", "Portuguese", "Romanian", "Russian", "Serbian", "Slovak", "Slovenian", "Spanish", "Swahili", "Swedish", "Tagalog", "Tamil", "Thai", "Turkish", "Ukrainian", "Urdu", "Vietnamese", "Welsh"]
+            }
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
+          }
         }
       ],
       "products": [
@@ -1525,6 +1596,77 @@
             "widescreen (16:9)": true,
             "vertical (9:16)": true,
             "ultrawide (21:9)": false
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
+          }
+        },
+        {
+          "id": "lyria-2",
+          "name": "Lyria 2",
+          "status": "primary",
+          "about": "",
+          "category": "audio",
+          "releaseDate": "2025-04-24",
+          "releasePost": "https://deepmind.google/discover/blog/music-ai-sandbox-now-with-new-features-and-broader-access/",
+          "releaseVideo": "",
+          "modelPage": "https://deepmind.google/technologies/lyria/",
+          "systemCard": "",
+          "modelGuide": "",
+          "apiDocumentation": "",
+          "audioExamples": {
+            "xxx": "xxx"
+          },
+          "demoVideos": {
+            "xxx": ["xxx"]
+          },
+          "termsOfService": "",
+          "usagePolicy": "",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {
+            "available": false,                                     
+            "xxx": {}        
+          },
+          "features": {
+            "generation": {
+              "textToMusic": false,
+              "textToVoice": false,
+              "audioToMusic": false,
+              "customLyrics": false,
+              "instrumental": false,
+              "styles": false,
+              "negativeStyles": false,
+              "personas": false,
+              "durations": [0],
+              "outputFormats": ["mp3"],
+              "coverArt": false,
+              "coverVideo": false
+            },
+            "editing": {
+              "crop": false,
+              "replaceSection": false,
+              "seperateVocals": false,
+              "generativeExtend": false
+            },
+            "enhancement": {
+              "remaster": false,
+              "covers": false,
+              "remix": false
+            },
+            "advanced": {
+              "trainCustomModels": false
+            },
+            "other": {
+              "voices": [],
+              "voiceFeatures": [],
+              "languages": []
+            }
           },
           "safety": {
             "chatModelRefusals": false,
@@ -4701,7 +4843,7 @@
           "name": "Suno v4",
           "status": "primary",
           "about": "Better audio, sharper lyrics, and more dynamic song structures",
-          "category": "music",
+          "category": "audio",
           "releaseDate": "2024-11-19",
           "releasePost": "https://suno.com/blog/v4",
           "releaseVideo": "",
@@ -4743,6 +4885,7 @@
               "negativeStyles": true,
               "personas": true,
               "durations": [240],
+              "outputFormats": ["mp3"],
               "coverArt": true,
               "coverVideo": true
             },
@@ -4754,10 +4897,16 @@
             },
             "enhancement": {
               "remaster": true,
-              "covers": true
+              "covers": true,
+              "remix": false
             },
             "advanced": {
               "trainCustomModels": false
+            },
+            "other": {
+              "voices": [],
+              "voiceFeatures": [],
+              "languages": []
             }
           },
           "safety": {
@@ -4830,24 +4979,42 @@
       "features": [],
       "models": [
         {
-          "id": "udio-composer",
-          "name": "Udio Composer",
+          "id": "udio-1-5-allegro",
+          "name": "Udio v1.5 Allegro",
           "status": "primary",
-          "about": "",
-          "category": "music",
-          "releaseDate": "2024-11-19",
-          "releasePost": "",
-          "releaseVideo": "",
+          "about": "The v1.5 model that you know and love, distilled so that it can produce better quality songs faster",
+          "category": "audio",
+          "releaseDate": "2025-03-18",
+          "releasePost": "https://x.com/udiomusic/status/1902094140638155026",
+          "releaseVideo": "https://x.com/udiomusic/status/1902094140638155026",
           "modelPage": "",
           "systemCard": "",
           "modelGuide": "",
           "apiDocumentation": "",
-          "audioExamples": [],
-          "demoVideos": {
-            "xxx": [""]
+          "audioExamples": {
+            "wow_i_didn't_know_that": "https://www.udio.com/embed/jGjYfsRosZjYTkSBdFgEyF",
+            "lorem_ipsum_dolor_sit_amet": "https://www.udio.com/embed/p66uVGEgifEBLdoR5Ttyue",
+            "udio": "https://www.udio.com/embed/rQnJM5tqahRTBxZJafF8EK",
+            "god_are_you_there": "https://www.udio.com/embed/eZibZhroz5WWTUrLLfapKp",
+            "alien_ocean": "https://www.udio.com/embed/mBpC4WXm7T5AbnGbmr76Nw",
+            "dune_the_broadway_musical": "https://www.udio.com/embed/eY7xtug1dV6hbfCDhyHJua",
+            "amazing_grace": "https://www.udio.com/embed/nDKNwPUB6GrMhEfvM6v2u1",
+            "i_wanna_go_home": "https://www.udio.com/embed/6HWe4WEhjJzDSe1tvmKjjA",
+            "lost_love": "https://www.udio.com/embed/ehJuLz9DuCtVapQMVMcA7N",
+            "as_an_AI_language_model": "https://www.udio.com/embed/iu1381RxvjfzWznGHeVecV"
           },
-          "termsOfService": "",
-          "usagePolicy": "",
+          "demoVideos": {
+            "the_basics": ["https://youtu.be/3LII_9wI0nw?si=ILGJI_1z-tVf67KS"],
+            "advanced_techniques": ["https://youtu.be/5S0RAw-hOJg?si=obGuEQ2prXDBc90K"],
+            "feature_spotlight": ["https://youtu.be/5jMvdeFDOkg?si=rzbQn_CPeTZcsvkL"],
+            "5_min_tutorial": ["https://youtu.be/6IlItfVfOkQ?si=aRQ_6kP6ZSnMjFSk"],
+            "styles": ["https://youtu.be/QS6_R6MBjxE"],
+            "extend": ["https://youtu.be/J1FqBizOeD4?si=lkgYIWl6r18-C36W"],
+            "editing": ["https://youtu.be/Uc4xOZWKXP8?si=XAM7PdwAWN1nJIKh"],
+            "project_folders": ["https://youtu.be/pAAt1WNNtwc?si=2F35lnYUz8DdgxOw"]
+          },
+          "termsOfService": "https://www.udio.com/terms-of-service",
+          "usagePolicy": "https://help.udio.com/en/articles/10739216-answers-to-common-usage-questions",
           "commerciallySafe": false,
           "metadata": {},                          
           "apiEndpoints": {
@@ -4856,30 +5023,37 @@
           },
           "features": {
             "generation": {
-              "textToMusic": false,
+              "textToMusic": true,
               "textToVoice": false,
-              "audioToMusic": false,
-              "customLyrics": false,
-              "instrumental": false,
-              "styles": false,
-              "negativeStyles": false,
+              "audioToMusic": true,
+              "customLyrics": true,
+              "instrumental": true,
+              "styles": true,
+              "negativeStyles": true,
               "personas": false,
-              "durations": [0],
-              "coverArt": false,
-              "coverVideo": false
+              "durations": [130],
+              "outputFormats": ["mp3"],
+              "coverArt": true,
+              "coverVideo": true
             },
             "editing": {
-              "crop": false,
-              "replaceSection": false,
+              "crop": true,
+              "replaceSection": true,
               "seperateVocals": false,
-              "generativeExtend": false
+              "generativeExtend": true
             },
             "enhancement": {
               "remaster": false,
-              "covers": false
+              "covers": true,
+              "remix": true
             },
             "advanced": {
               "trainCustomModels": false
+            },
+            "other": {
+              "voices": [],
+              "voiceFeatures": [],
+              "languages": []
             }
           },
           "safety": {

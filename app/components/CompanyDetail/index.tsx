@@ -65,7 +65,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
 
   const hasAudioModels = (): boolean => {
     return company.models && company.models.some(model => 
-      model.category === 'music' && model.status !== 'archived'
+      model.category === 'audio' && model.status !== 'archived'
     );
   };
 
@@ -382,7 +382,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
                 setActiveTab('audio-models');
               }}
             >
-              Audio Models
+              Audio Model
             </button>
           )}
           
@@ -573,7 +573,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
                 <Suspense fallback={<div className="text-center py-4">Loading audio models...</div>}>
                   <AudioModelGallery 
                     models={company.models.filter(model => 
-                      model.category === 'music' && model.status !== 'archived'
+                      model.category === 'audio' && model.status !== 'archived'
                     )}
                     companyId={company.id}
                   />

@@ -82,7 +82,7 @@ const AudioCarousel: React.FC<AudioCarouselProps> = ({
 
   return (
     <div className="relative p-0 m-0">
-      <div className="relative min-h-[300px] bg-gray-900 rounded-lg overflow-hidden group py-3 px-0 m-0">
+      <div className="relative min-h-[300px] bg-gray-900 rounded-lg overflow-hidden group py-6 px-0 m-0">
         <div className="flex items-center justify-center z-0 w-full h-full">
           {/* Embed the current audio */}
           <div className="w-full max-w-3xl aspect-[3/1] mx-4">

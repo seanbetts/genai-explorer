@@ -46,7 +46,7 @@ export const categoryConfig: CategoryConfigEntry[] = [
     rowType: 'quad',
   },
   {
-    key: 'music',
+    key: 'audio',
     title: 'Audio Generation',
     layout: 'quarter-width',
     showModelCount: 0,
