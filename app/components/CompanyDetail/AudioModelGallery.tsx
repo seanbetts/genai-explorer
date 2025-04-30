@@ -292,7 +292,7 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
             </div>
           </div>
           
-          {/* Right column: Safety Features */}
+          {/* Right column: Safety Features and Other Features */}
           <div className="space-y-6">
             {/* Safety Features */}
             <div>
@@ -371,6 +371,42 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
               )}
             </div>
             
+            {/* Other Features */}
+            {selectedModel.features?.other && Object.keys(selectedModel.features.other).length > 0 && (
+              <div>
+                <h3 className={`${headingStyles.card} mb-3`}>Additional Capabilities</h3>
+                <div className={`${containerStyles.card} min-h-[12rem] h-auto`}>
+                  <div className="space-y-4">
+                    {/* Arrays of values like voices, languages, etc. */}
+                    {Object.entries(selectedModel.features.other).map(([key, values]) => (
+                      <div key={key} className="mb-4">
+                        <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
+                        {Array.isArray(values) && values.length > 0 && (
+                          <div className="flex flex-wrap gap-2">
+                            {values.map((value, index) => (
+                              <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                {value}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        {/* Handle non-array values if needed */}
+                        {!Array.isArray(values) && typeof values === 'object' && (
+                          <div className="pl-4">
+                            {Object.entries(values as Record<string, any>).map(([subKey, subValue]) => (
+                              <div key={subKey} className="flex items-center h-8">
+                                <i className={`${subValue === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                                <span className={textStyles.body}>{formatFeatureName(subKey)}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 

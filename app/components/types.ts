@@ -146,6 +146,7 @@ export interface Model {
     editing?: Record<string, boolean | object>;
     enhancement?: Record<string, boolean | object>;
     advanced?: Record<string, boolean | object>;
+    other?: Record<string, boolean | object | string[]>;
   }; // Features supported by the model, organized by category
   safety?: Record<string, any>; // Safety features of the model (can contain boolean values or strings for URLs)
   aspectRatios?: Record<string, boolean>; // Supported aspect ratios for image generation
