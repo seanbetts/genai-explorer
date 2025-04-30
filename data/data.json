@@ -674,7 +674,7 @@
           "id": "gpt-4o-mini-tts",
           "name": "GPT-4o TTS",
           "status": "primary",
-          "about": "Developers can now “instruct” the model not just on what to say but how to say it",
+          "about": "Developers can now instruct the model not just on what to say but how to say it",
           "category": "audio",
           "releaseDate": "2025-03-20",
           "releasePost": "https://openai.com/index/introducing-our-next-generation-audio-models/",

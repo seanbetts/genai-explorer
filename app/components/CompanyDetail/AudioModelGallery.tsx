@@ -246,11 +246,21 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                 )}
                 
                 {/* Advanced Features */}
-                {selectedModel.features?.advanced && Object.keys(selectedModel.features.advanced).length > 0 && (
+                {(selectedModel.features?.advanced && Object.keys(selectedModel.features.advanced).length > 0) ||
+                 (selectedModel.apiEndpoints?.available !== undefined) ? (
                   <div className="mb-2">
                     <h4 className="text-sm font-semibold text-cyan-400 mb-2">Advanced</h4>
                     <div className="grid grid-cols-2 gap-2">
-                      {Object.entries(selectedModel.features.advanced)
+                      {/* API Endpoint Availability */}
+                      {selectedModel.apiEndpoints?.available !== undefined && (
+                        <div className="flex items-center h-8">
+                          <i className={`${selectedModel.apiEndpoints.available === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                          <span className={textStyles.body}>API Available</span>
+                        </div>
+                      )}
+                      
+                      {/* Advanced Features */}
+                      {selectedModel.features?.advanced && Object.entries(selectedModel.features.advanced)
                         .filter(([_, value]) => typeof value === 'boolean')
                         .map(([key, value]) => (
                           <div key={key} className="flex items-center h-8">
@@ -261,7 +271,7 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                     </div>
                     
                     {/* Object features */}
-                    {Object.entries(selectedModel.features.advanced)
+                    {selectedModel.features?.advanced && Object.entries(selectedModel.features.advanced)
                       .filter(([_, value]) => typeof value === 'object' && value !== null && !Array.isArray(value) && Object.keys(value as object).length > 0)
                       .map(([key, value]) => (
                         <div key={key} className="mt-4">
@@ -277,7 +287,7 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                         </div>
                       ))}
                   </div>
-                )}
+                ) : null}
               </div>
             </div>
           </div>

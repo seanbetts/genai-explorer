@@ -136,7 +136,11 @@ export interface Model {
   usagePolicy?: string; // URL to usage policy
   commerciallySafe?: boolean; // Whether the model is safe for commercial use
   metadata?: Record<string, string>; // Key-value pairs of metadata
-  apiEndpoints?: Record<string, ApiEndpoint>; // API endpoint definitions
+  apiEndpoints?: {
+    available?: boolean;
+    endpoints?: Record<string, ApiEndpoint>;
+    [key: string]: any;
+  }; // API endpoint definitions and availability
   features?: {
     generation?: Record<string, boolean | number[] | string[]>;
     editing?: Record<string, boolean | object>;
