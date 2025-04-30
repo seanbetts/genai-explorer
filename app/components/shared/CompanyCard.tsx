@@ -58,7 +58,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
 
   // Determine if this is a media company (image, video, audio, or specialty)
   const isMediaCompany = company.models.some(model => 
-    ['image', 'video', 'music', 'other'].includes(model.category)
+    ['image', 'video', 'audio', 'other'].includes(model.category)
   );
 
   // Use different card styles based on company type
