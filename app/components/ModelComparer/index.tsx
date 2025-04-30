@@ -706,7 +706,7 @@ const applyFilters = useCallback((
                 <option value="enterprise">Enterprise</option>
                 <option value="image">Image</option>
                 <option value="video">Video</option>
-                <option value="music">Music</option>
+                <option value="audio">Audio</option>
                 <option value="other">Other</option>
               </select>
               <div id="type-filter-description" className="sr-only">

@@ -20,7 +20,7 @@ export const deriveModelCategory = (model: Partial<Model>): CompanyCategory => {
     return 'video';
   }
   
-  if (model.type === 'music' || model.specs?.outputFormats?.includes('audio')) {
+  if (model.type === 'audio' || model.specs?.outputFormats?.includes('audio')) {
     return 'audio';
   }
   

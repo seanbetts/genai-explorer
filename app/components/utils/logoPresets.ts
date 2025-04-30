@@ -13,7 +13,7 @@ export function getLogoSize(
   showModelCount?: number
 ): LogoSize {
   // Media categories use smaller default logos
-  const isMedia = ['image', 'video', 'music', 'other'].includes(category);
+  const isMedia = ['image', 'video', 'audio', 'other'].includes(category);
 
   // When showing only logos, bump up size slightly
   if (showModelCount === 0) {
