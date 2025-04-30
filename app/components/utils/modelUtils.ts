@@ -21,7 +21,7 @@ export const deriveModelCategory = (model: Partial<Model>): CompanyCategory => {
   }
   
   if (model.type === 'music' || model.specs?.outputFormats?.includes('audio')) {
-    return 'music';
+    return 'audio';
   }
   
   // Default to frontier for leading models or enterprise as fallback

@@ -230,7 +230,7 @@ export const categoryStyles = {
       enterprise: 'bi-building',
       image: 'bi-image',
       video: 'bi-camera-video',
-      music: 'bi-music-note',
+      audio: 'bi-music-note',
       other: 'bi-grid',
     }
 };

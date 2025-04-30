@@ -147,6 +147,7 @@ export interface Model {
   aspectRatios?: Record<string, boolean>; // Supported aspect ratios for image generation
   videoExamples?: string[] | Record<string, string>; // Example videos for video models
   audioExamples?: string[] | Record<string, string>; // Example audio clips for audio models
+}
 
 export interface ApiEndpointOptions {
   inputFormats?: string[];
