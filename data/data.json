@@ -684,10 +684,8 @@
           "modelGuide": "https://platform.openai.com/docs/guides/text-to-speech",
           "apiDocumentation": "https://platform.openai.com/docs/api-reference/audio",
           "audioExamples": {},
-          "demoVideos": {
-            "xxx": ["xxx"]
-          },
-          "termsOfService": "",
+          "demoVideos": {},
+          "termsOfService": "https://openai.com/policies/terms-of-use/",
           "usagePolicy": "https://platform.openai.com/docs/guides/text-to-speech",
           "commerciallySafe": false,
           "metadata": {},                          
@@ -1608,54 +1606,58 @@
           "id": "lyria-2",
           "name": "Lyria 2",
           "status": "primary",
-          "about": "",
+          "about": "Delivers high-fidelity music and professional-grade audio, capturing subtle nuances across a range of genres and intricate compositions.",
           "category": "audio",
           "releaseDate": "2025-04-24",
           "releasePost": "https://deepmind.google/discover/blog/music-ai-sandbox-now-with-new-features-and-broader-access/",
-          "releaseVideo": "",
+          "releaseVideo": "https://www.youtube.com/watch?v=LuDNYq8ejo8",
           "modelPage": "https://deepmind.google/technologies/lyria/",
           "systemCard": "",
           "modelGuide": "",
           "apiDocumentation": "",
-          "audioExamples": {
-            "xxx": "xxx"
-          },
+          "audioExamples": {},
           "demoVideos": {
-            "xxx": ["xxx"]
+            "shankar_mahadevan": ["https://www.youtube.com/watch?v=7Rz3m0QtFMs"],
+            "sound_of_AI": ["https://www.youtube.com/watch?v=x84ZqMkZ18U&t=1s"],
+            "new_musical_parts": ["https://deepmind.google/api/blob/website/media/AS-1000_Create_Short.mp4"],
+            "extend": ["https://deepmind.google/api/blob/website/media/AS-1000_Extend_Short_2wGRE4T.mp4"],
+            "edit": ["https://deepmind.google/api/blob/website/media/AS-1000_Edit_Short_nv3Iiss.mp4"]
           },
           "termsOfService": "",
           "usagePolicy": "",
           "commerciallySafe": false,
-          "metadata": {},                          
+          "metadata": {
+            "synthID": "https://deepmind.google/technologies/synthid/"
+          },                        
           "apiEndpoints": {
             "available": false,                                     
             "xxx": {}        
           },
           "features": {
             "generation": {
-              "textToMusic": false,
+              "textToMusic": true,
               "textToVoice": false,
               "audioToMusic": false,
-              "customLyrics": false,
-              "instrumental": false,
+              "customLyrics": true,
+              "instrumental": true,
               "styles": false,
               "negativeStyles": false,
               "personas": false,
-              "durations": [0],
+              "durations": [9999],
               "outputFormats": ["mp3"],
               "coverArt": false,
               "coverVideo": false
             },
             "editing": {
-              "crop": false,
-              "replaceSection": false,
+              "crop": true,
+              "replaceSection": true,
               "seperateVocals": false,
-              "generativeExtend": false
+              "generativeExtend": true
             },
             "enhancement": {
               "remaster": false,
               "covers": false,
-              "remix": false
+              "remix": true
             },
             "advanced": {
               "trainCustomModels": false
