@@ -371,38 +371,77 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
               )}
             </div>
             
-            {/* Other Features */}
+            {/* Voice Features */}
             {selectedModel.features?.other && Object.keys(selectedModel.features.other).length > 0 && (
               <div>
-                <h3 className={`${headingStyles.card} mb-3`}>Additional Capabilities</h3>
+                <h3 className={`${headingStyles.card} mb-3`}>Voice Features</h3>
                 <div className={`${containerStyles.card} min-h-[12rem] h-auto`}>
                   <div className="space-y-4">
                     {/* Arrays of values like voices, languages, etc. */}
-                    {Object.entries(selectedModel.features.other).map(([key, values]) => (
-                      <div key={key} className="mb-4">
-                        <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
-                        {Array.isArray(values) && values.length > 0 && (
-                          <div className="flex flex-wrap gap-2">
-                            {values.map((value, index) => (
-                              <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
-                                {value}
+                    {Object.entries(selectedModel.features.other).map(([key, values]) => {
+                      // Special handling for languages - show only 5 with a count
+                      if (key === 'languages' && Array.isArray(values) && values.length > 5) {
+                        const displayLanguages = values.slice(0, 5);
+                        const remainingCount = values.length - 5;
+                        
+                        return (
+                          <div key={key} className="mb-4">
+                            <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
+                            <div className="flex flex-wrap gap-2">
+                              {displayLanguages.map((value, index) => (
+                                <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                  {value}
+                                </span>
+                              ))}
+                              <span 
+                                className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded cursor-help relative group"
+                                title={values.slice(5).join(', ')}
+                              >
+                                <span>+{remainingCount} more</span>
+                                <div className="absolute left-0 bottom-full mb-2 w-80 bg-gray-800 p-3 rounded shadow-lg border border-gray-700 hidden group-hover:block z-50 transition-opacity duration-150 opacity-0 group-hover:opacity-100">
+                                  <div className="absolute -bottom-2 left-3 w-4 h-4 bg-gray-800 border-r border-b border-gray-700 transform rotate-45"></div>
+                                  <h5 className="text-xs font-semibold text-fuchsia-500 mb-2">Additional Languages</h5>
+                                  <div className="flex flex-wrap gap-2 max-h-60 overflow-y-auto">
+                                    {values.slice(5).map((value, index) => (
+                                      <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                        {value}
+                                      </span>
+                                    ))}
+                                  </div>
+                                </div>
                               </span>
-                            ))}
+                            </div>
                           </div>
-                        )}
-                        {/* Handle non-array values if needed */}
-                        {!Array.isArray(values) && typeof values === 'object' && (
-                          <div className="pl-4">
-                            {Object.entries(values as Record<string, any>).map(([subKey, subValue]) => (
-                              <div key={subKey} className="flex items-center h-8">
-                                <i className={`${subValue === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                                <span className={textStyles.body}>{formatFeatureName(subKey)}</span>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ))}
+                        );
+                      }
+                      
+                      // Standard rendering for other arrays
+                      return (
+                        <div key={key} className="mb-4">
+                          <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
+                          {Array.isArray(values) && values.length > 0 && (
+                            <div className="flex flex-wrap gap-2">
+                              {values.map((value, index) => (
+                                <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                  {value}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                          {/* Handle non-array values if needed */}
+                          {!Array.isArray(values) && typeof values === 'object' && (
+                            <div className="pl-4">
+                              {Object.entries(values as Record<string, any>).map(([subKey, subValue]) => (
+                                <div key={subKey} className="flex items-center h-8">
+                                  <i className={`${subValue === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                                  <span className={textStyles.body}>{formatFeatureName(subKey)}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
