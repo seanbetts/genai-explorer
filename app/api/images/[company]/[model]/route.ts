@@ -27,7 +27,15 @@ export async function GET(
     model
   );
   try {
-    // Read all files in the directory
+    // Check if directory exists first to avoid noisy errors
+    try {
+      await fs.access(imagesDir);
+    } catch (accessErr) {
+      // Directory doesn't exist, quietly return empty array
+      return NextResponse.json([]);
+    }
+    
+    // Directory exists, read files
     const files = await fs.readdir(imagesDir);
     // Keep only common image extensions
     const imageFiles = files.filter((file) => /\.(png|jpe?g|gif|webp|svg)$/i.test(file));
@@ -39,8 +47,11 @@ export async function GET(
     );
     return NextResponse.json(urls);
   } catch (err) {
-    console.error(`Error listing images at ${imagesDir}:`, err);
-    // On error (e.g. directory missing), return empty array
+    // Only log unexpected errors, not missing directories
+    if (!(err instanceof Error) || err.code !== 'ENOENT') {
+      console.error(`Error processing images at ${imagesDir}:`, err);
+    }
+    // On error, return empty array
     return NextResponse.json([]);
   }
 }
