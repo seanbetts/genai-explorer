@@ -12,22 +12,16 @@ export async function GET(request: NextRequest) {
     const companyId = request.nextUrl.searchParams.get('company');
     const modelId = request.nextUrl.searchParams.get('model') || '';
     
-    console.log(`API: Audio files requested for company: ${companyId}, model: ${modelId}`);
+    // Validate company ID to prevent path traversal
+    if (!companyId || companyId.includes('..') || companyId.includes('/')) {
+      return NextResponse.json({ error: 'Invalid company ID' }, { status: 400 });
+    }
     
     // Special case for Google DeepMind
     if (companyId === 'google-deepmind') {
-      console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-      console.log('!!! API: GOOGLE DEEPMIND REQUEST DETECTED !!!');
-      console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-      console.log('API: Google DeepMind processing for model:', modelId);
-      
-      // Check all available audio directories
       const audioDir = path.join(process.cwd(), 'public', 'audio', 'google-deepmind');
-      console.log(`API: Checking Google DeepMind directory: ${audioDir}`);
       
       if (fs.existsSync(audioDir)) {
-        console.log(`API: Google DeepMind directory exists`);
-        
         // List all files in the Google DeepMind directory
         const files = fs.readdirSync(audioDir)
           .filter(file => file.endsWith('.mp3'))
@@ -47,30 +41,16 @@ export async function GET(request: NextRequest) {
                 .join(' ')
             };
           });
-          
-        console.log(`API: Found ${files.length} Google DeepMind audio files:`, 
-                   files.map(f => f.filename).join(', '));
                    
         return NextResponse.json({ files });
-      } else {
-        console.log('API: Google DeepMind directory NOT found');
       }
-    }
-    
-    // Validate company ID to prevent path traversal
-    if (!companyId || companyId.includes('..') || companyId.includes('/')) {
-      console.log(`API: Invalid company ID: ${companyId}`);
-      return NextResponse.json({ error: 'Invalid company ID' }, { status: 400 });
     }
     
     // Path to the audio directory for this company
     const audioDir = path.join(process.cwd(), 'public', 'audio', companyId);
-    console.log(`API: Checking directory: ${audioDir}`);
     
     // Check if the directory exists
     if (!fs.existsSync(audioDir)) {
-      console.log(`API: Directory not found: ${audioDir}`);
-      
       // Try alternative company ID formats
       // Sometimes IDs like "google-deepmind" might be stored as "googledeepmind" or "google_deepmind"
       const alternativeFormats = [
@@ -86,10 +66,8 @@ export async function GET(request: NextRequest) {
         if (altFormat === companyId) continue; // Skip if same as original
         
         const altDir = path.join(process.cwd(), 'public', 'audio', altFormat);
-        console.log(`API: Trying alternative directory: ${altDir}`);
         
         if (fs.existsSync(altDir)) {
-          console.log(`API: Found alternative directory: ${altDir}`);
           // Use this directory instead
           return NextResponse.json({ 
             files: fs.readdirSync(altDir)
@@ -118,8 +96,6 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ files: [] });
     }
     
-    console.log(`API: Directory exists: ${audioDir}`);
-    
     // Read the directory and filter for MP3 files
     const files = fs.readdirSync(audioDir)
       .filter(file => file.endsWith('.mp3'))
@@ -141,10 +117,6 @@ export async function GET(request: NextRequest) {
             .join(' ')
         };
       });
-    
-    // Log what we found
-    console.log(`API: Found ${files.length} audio files for ${companyId}${modelId ? ' (model: ' + modelId + ')' : ''}:`, 
-                files.map(f => f.filename).join(', '));
     
     // Return the list of files
     return NextResponse.json({ files });

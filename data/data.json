@@ -4413,8 +4413,8 @@
           "about": "",
           "category": "image",
           "releaseDate": "2025-04-18",
-          "releasePost": "",
-          "releaseVideo": "",
+          "releasePost": "https://seed.bytedance.com/en/tech/seedream3_0",
+          "releaseVideo": "https://lf3-static.bytednsdoc.com/obj/eden-cn/bdeh7uhpsuht/0416%20英文终版.mp4",
           "modelPage": "",
           "systemCard": "",
           "modelGuide": "",
@@ -4459,7 +4459,7 @@
           },
           "features": {
             "generation": {
-              "textToImage": false,
+              "textToImage": true,
               "imageToImage": false,
               "textToVector": false
             },
@@ -4472,8 +4472,8 @@
               "generativeRecolor": false
             },
             "enhancement": {
-              "photoRealism": false,
-              "textRendering": false,
+              "photoRealism": true,
+              "textRendering": true,
               "upscaling": false,
               "transparentLayers": false,
               "characterConsistency": false

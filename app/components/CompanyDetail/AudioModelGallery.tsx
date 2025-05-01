@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AudioCarousel from "../shared/AudioCarousel";
 import VideoCarousel from "../shared/VideoCarousel";
 import { Model } from "../types";
@@ -565,16 +565,6 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
           ? selectedModel.audioExamples.length > 0 
           : typeof selectedModel.audioExamples === 'object' && Object.keys(selectedModel.audioExamples).length > 0));
     
-    // For local audio files, check if the model has voice options that we can create audio links for
-    const hasVoiceOptions = !!(selectedModel?.features?.other?.voices && 
-                           Array.isArray(selectedModel.features.other.voices) && 
-                           selectedModel.features.other.voices.length > 0);
-    
-    // If no audio examples are available from either source, return null
-    if (!hasAudioExamplesInData && !hasVoiceOptions) {
-      return null;
-    }
-    
     // If we have audio examples in the data, use those first
     if (hasAudioExamplesInData) {
       return (
@@ -598,39 +588,71 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
       );
     }
     
-    // Otherwise, create audio links from voice files in the public/audio folder
-    const voiceAudioExamples: Record<string, string> = {};
+    // For all audio models, try to get audio samples from the API
+    // This consolidated approach works for both music and voice models
+    const [audioSamples, setAudioSamples] = useState<Record<string, string>>({});
+    const [isLoading, setIsLoading] = useState(true);
     
-    // Safely access and iterate over voices array
-    const voices = selectedModel?.features?.other?.voices;
-    if (Array.isArray(voices)) {
-      voices.forEach((voice: string) => {
-        // Check if the voice name is a string
-        if (typeof voice === 'string') {
-          // Create a link to the local audio file based on company ID and voice name
-          voiceAudioExamples[voice] = `/audio/${companyId}/${voice.toLowerCase()}.mp3`;
+    useEffect(() => {
+      async function fetchAudioSamples() {
+        // Only fetch for audio category models
+        if (selectedModel?.category !== 'audio') {
+          setIsLoading(false);
+          return;
         }
-      });
-    }
+        
+        try {
+          const apiUrl = `/api/audio-files?company=${companyId}&model=${selectedModel.id}`;
+          const response = await fetch(apiUrl);
+          const data = await response.json();
+          
+          if (data.files && Array.isArray(data.files) && data.files.length > 0) {
+            const samples: Record<string, string> = {};
+            data.files.forEach((file: { displayName: string; path: string }) => {
+              samples[file.displayName] = file.path;
+            });
+            setAudioSamples(samples);
+          }
+        } catch (error) {
+          console.error('Error fetching audio samples:', error);
+        } finally {
+          setIsLoading(false);
+        }
+      }
+      
+      if (selectedModel) {
+        fetchAudioSamples();
+      } else {
+        setIsLoading(false);
+      }
+    }, [companyId, selectedModel]);
     
-    // If we have voice audio examples, render the carousel
-    if (Object.keys(voiceAudioExamples).length > 0) {
+    // If we have audio samples from API, render the carousel
+    if (Object.keys(audioSamples).length > 0) {
       return (
         <div className="mb-8 p-0">
-          <h3 className={`${headingStyles.card} mb-3`}>Voice Samples</h3>
           <AudioCarousel 
-            audio={voiceAudioExamples}
+            audio={audioSamples}
             title={selectedModel!.name}
-            carouselId={`${selectedModel!.id}-voice-samples`}
-            formatTrackName={(name) => {
-              // Capitalize the voice name
-              return name.charAt(0).toUpperCase() + name.slice(1);
-            }}
+            carouselId={`${selectedModel!.id}-audio-samples`}
+            formatTrackName={(name) => name} // Names are already formatted by the API
           />
+        </div>
+      );
+    } 
+    
+    // Loading state
+    if (isLoading && selectedModel?.category === 'audio') {
+      return (
+        <div className="mb-8 p-0">
+          <div className="bg-gray-900 rounded-lg p-8 flex items-center justify-center">
+            <p className="text-gray-400">Loading audio samples...</p>
+          </div>
         </div>
       );
     }
     
+    // No audio samples available
     return null;
   };
 
