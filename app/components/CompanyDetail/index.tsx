@@ -571,6 +571,8 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
             {activeTab === 'audio-models' && hasAudioModels() && (
               <div className="transform transition-opacity duration-300">
                 <Suspense fallback={<div className="text-center py-4">Loading audio models...</div>}>
+                  {/* Log company details before rendering AudioModelGallery */}
+                  {console.log(`AUDIO MODELS: Company: ${company.id}, Models: ${company.models.filter(m => m.category === 'audio' && m.status !== 'archived').map(m => m.id).join(', ')}`)}
                   <AudioModelGallery 
                     models={company.models.filter(model => 
                       model.category === 'audio' && model.status !== 'archived'

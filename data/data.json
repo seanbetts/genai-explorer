@@ -4398,6 +4398,114 @@
       "subscriptions": []
     },
     {
+      "id": "bytedance",
+      "name": "ByteDance",
+      "logo": "/images/companies/bytedance/logo.png",
+      "website": "",
+      "description": "",
+      "lastUpdated": "2025-05-01",
+      "features": [],
+      "models": [
+        {
+          "id": "seedream-3-0",
+          "name": "Seedream 3.0",
+          "status": "primary",
+          "about": "",
+          "category": "image",
+          "releaseDate": "2025-04-18",
+          "releasePost": "",
+          "releaseVideo": "",
+          "modelPage": "",
+          "systemCard": "",
+          "modelGuide": "",
+          "apiDocumentation": "",
+          "demoVideos": {},
+          "termsOfService": "",
+          "usagePolicy": "",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {   
+            "available": false,                                      
+            "generate": {
+              "options": {
+                "inputFormats": [
+                  "text",
+                  "image"
+                ],
+                "outputFormats": [
+                  "image"
+                ],
+                "background": [],
+                "moderation": [],
+                "numberOfImages": 1,
+                "contextWindow": 0,
+                "outputCompression": "",
+                "inputFileTypes": [],
+                "maxInputSize": 0,
+                "mask": false,
+                "outputFileTypes": [],
+                "outputQuality": [],
+                "outputSize": [],
+                "outputStyle": [],
+                "visualIntesity": 0,
+                "tileable": false,
+                "structureReference": false,
+                "negativePrompt": false,
+                "placementPosition": false,
+                "placementAlignment": false,
+                "pricing": {}
+              }
+            }
+          },
+          "features": {
+            "generation": {
+              "textToImage": false,
+              "imageToImage": false,
+              "textToVector": false
+            },
+            "editing": {
+              "multiTurnGeneration": false,
+              "imageVariations": false,
+              "inPainting": false,
+              "generativeExpand": false,
+              "backgroundRemoval": false,
+              "generativeRecolor": false
+            },
+            "enhancement": {
+              "photoRealism": false,
+              "textRendering": false,
+              "upscaling": false,
+              "transparentLayers": false,
+              "characterConsistency": false
+            },
+            "advanced": {
+              "styleKits": false,
+              "hexCodes": false,
+              "moodBoarding": false,
+              "trainCustomModels": false
+            }
+          },
+          "aspectRatios": {
+            "landscape (4:3)": false,
+            "portrait (3:4)": false,
+            "square (1:1)": false,
+            "widescreen (16:9)": false,
+            "vertical (9:16)": false
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
+          }
+        }
+      ],
+      "products": [],
+      "subscriptions": []
+    },
+    {
       "id": "runway-gen-4",
       "name": "Gen 4",
       "logo": "/images/companies/runway/logo.png",
