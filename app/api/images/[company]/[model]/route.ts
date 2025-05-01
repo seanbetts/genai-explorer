@@ -48,7 +48,7 @@ export async function GET(
     return NextResponse.json(urls);
   } catch (err) {
     // Only log unexpected errors, not missing directories
-    if (!(err instanceof Error) || err.code !== 'ENOENT') {
+    if (!(err instanceof Error) || (err as NodeJS.ErrnoException).code !== 'ENOENT') {
       console.error(`Error processing images at ${imagesDir}:`, err);
     }
     // On error, return empty array
