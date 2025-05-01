@@ -327,21 +327,24 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
               <span>Model Explorer</span>
             </a>
             
-            <a 
-              href="/compare" 
-              className={`transition-colors flex items-center ${
-                currentView === 'compare'
-                  ? 'text-cyan-400' 
-                  : 'text-gray-300 hover:text-cyan-400'
-              }`}
-            >
-              <i className={`bi bi-bar-chart-line mr-1.5 ${
-                currentView === 'compare'
-                  ? 'text-cyan-400'
-                  : 'text-fuchsia-500'
-              }`}></i>
-              <span>Model Comparer</span>
-            </a>
+            {/* Temporarily hidden Model Comparer */}
+            {false && (
+              <a 
+                href="/compare" 
+                className={`transition-colors flex items-center ${
+                  currentView === 'compare'
+                    ? 'text-cyan-400' 
+                    : 'text-gray-300 hover:text-cyan-400'
+                }`}
+              >
+                <i className={`bi bi-bar-chart-line mr-1.5 ${
+                  currentView === 'compare'
+                    ? 'text-cyan-400'
+                    : 'text-fuchsia-500'
+                }`}></i>
+                <span>Model Comparer</span>
+              </a>
+            )}
             
             {/* Breadcrumb navigation - hidden for now 
             <div className="hidden ml-auto text-gray-400 md:pr-8">
@@ -404,7 +407,8 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
           </Suspense>
         )}
         
-        {(currentView === 'compare' || isComparePage || compareParam) && (
+        {/* Temporarily hidden Model Comparer */}
+        {false && (currentView === 'compare' || isComparePage || compareParam) && (
           <Suspense fallback={
             <div className="animate-pulse p-6 space-y-6">
               <div className="h-6 bg-gray-700 rounded w-32 mx-auto"></div>
@@ -417,6 +421,22 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
               onBack={handleBack}
             />
           </Suspense>
+        )}
+        
+        {/* Show "Coming Soon" message if someone tries to access the compare page directly */}
+        {(currentView === 'compare' || isComparePage || compareParam) && (
+          <div className="flex flex-col items-center justify-center py-20">
+            <h2 className="text-2xl font-bold text-cyan-400 mb-4">Model Comparer</h2>
+            <p className="text-gray-300 text-center max-w-md mb-8">
+              This feature is coming soon! We're working on building a comprehensive model comparison tool.
+            </p>
+            <button
+              onClick={goToHome}
+              className="bg-fuchsia-500 hover:bg-fuchsia-600 text-white py-2 px-6 rounded-md transition-colors"
+            >
+              Return to Explorer
+            </button>
+          </div>
         )}
       </main>
 
@@ -447,23 +467,26 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
                       <span>Model Explorer</span>
                     </a>
                   </li>
-                  <li>
-                    <a 
-                      href="/compare" 
-                      className={`transition-colors text-xs leading-tight py-0.5 flex items-center ${
-                        currentView === 'compare'
-                          ? 'text-cyan-400' 
-                          : 'text-gray-300 hover:text-cyan-400'
-                      }`}
-                    >
-                      <i className={`bi bi-bar-chart-line mr-1.5 ${
-                        currentView === 'compare'
-                          ? 'text-cyan-400'
-                          : 'text-fuchsia-500'
-                      }`}></i>
-                      <span>Model Comparer</span>
-                    </a>
-                  </li>
+                  {/* Temporarily hidden Model Comparer */}
+                  {false && (
+                    <li>
+                      <a 
+                        href="/compare" 
+                        className={`transition-colors text-xs leading-tight py-0.5 flex items-center ${
+                          currentView === 'compare'
+                            ? 'text-cyan-400' 
+                            : 'text-gray-300 hover:text-cyan-400'
+                        }`}
+                      >
+                        <i className={`bi bi-bar-chart-line mr-1.5 ${
+                          currentView === 'compare'
+                            ? 'text-cyan-400'
+                            : 'text-fuchsia-500'
+                        }`}></i>
+                        <span>Model Comparer</span>
+                      </a>
+                    </li>
+                  )}
                 </ul>
               </div>
               
