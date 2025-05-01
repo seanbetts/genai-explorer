@@ -9,11 +9,16 @@ export const runtime = 'nodejs';
  * GET /api/images/:company/:model
  * Returns a JSON array of all image URLs found in public/images/companies/{company}/example_images/{model}
  */
+type ImageParams = {
+  company: string;
+  model: string;
+};
+
 export async function GET(
   request: Request,
-  { params }: { params: { company: string; model: string } }
+  context: { params: ImageParams }
 ) {
-  const { company, model } = params;
+  const { company, model } = context.params;
   // Directory under the public folder
   const imagesDir = path.join(
     process.cwd(),
