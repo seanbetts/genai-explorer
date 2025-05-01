@@ -4401,8 +4401,8 @@
       "id": "bytedance",
       "name": "ByteDance",
       "logo": "/images/companies/bytedance/logo.png",
-      "website": "",
-      "description": "",
+      "website": "https://www.bytedance.com",
+      "description": "Inspire Creativity, Enrich Life",
       "lastUpdated": "2025-05-01",
       "features": [],
       "models": [
@@ -4410,52 +4410,23 @@
           "id": "seedream-3-0",
           "name": "Seedream 3.0",
           "status": "primary",
-          "about": "",
+          "about": "Next-Gen Text-to-Image Model",
           "category": "image",
           "releaseDate": "2025-04-18",
           "releasePost": "https://seed.bytedance.com/en/tech/seedream3_0",
           "releaseVideo": "https://lf3-static.bytednsdoc.com/obj/eden-cn/bdeh7uhpsuht/0416%20英文终版.mp4",
           "modelPage": "",
-          "systemCard": "",
+          "systemCard": "https://arxiv.org/pdf/2504.11346",
           "modelGuide": "",
           "apiDocumentation": "",
           "demoVideos": {},
-          "termsOfService": "",
+          "termsOfService": "https://seed.bytedance.com/en/user-agreement",
           "usagePolicy": "",
           "commerciallySafe": false,
           "metadata": {},                          
           "apiEndpoints": {   
             "available": false,                                      
-            "generate": {
-              "options": {
-                "inputFormats": [
-                  "text",
-                  "image"
-                ],
-                "outputFormats": [
-                  "image"
-                ],
-                "background": [],
-                "moderation": [],
-                "numberOfImages": 1,
-                "contextWindow": 0,
-                "outputCompression": "",
-                "inputFileTypes": [],
-                "maxInputSize": 0,
-                "mask": false,
-                "outputFileTypes": [],
-                "outputQuality": [],
-                "outputSize": [],
-                "outputStyle": [],
-                "visualIntesity": 0,
-                "tileable": false,
-                "structureReference": false,
-                "negativePrompt": false,
-                "placementPosition": false,
-                "placementAlignment": false,
-                "pricing": {}
-              }
-            }
+            "xxx": {}
           },
           "features": {
             "generation": {
@@ -4464,19 +4435,19 @@
               "textToVector": false
             },
             "editing": {
-              "multiTurnGeneration": false,
-              "imageVariations": false,
-              "inPainting": false,
-              "generativeExpand": false,
+              "multiTurnGeneration": true,
+              "imageVariations": true,
+              "inPainting": true,
+              "generativeExpand": true,
               "backgroundRemoval": false,
-              "generativeRecolor": false
+              "generativeRecolor": true
             },
             "enhancement": {
               "photoRealism": true,
               "textRendering": true,
               "upscaling": false,
               "transparentLayers": false,
-              "characterConsistency": false
+              "characterConsistency": true
             },
             "advanced": {
               "styleKits": false,
@@ -4486,11 +4457,11 @@
             }
           },
           "aspectRatios": {
-            "landscape (4:3)": false,
-            "portrait (3:4)": false,
-            "square (1:1)": false,
-            "widescreen (16:9)": false,
-            "vertical (9:16)": false
+            "landscape (4:3)": true,
+            "portrait (3:4)": true,
+            "square (1:1)": true,
+            "widescreen (16:9)": true,
+            "vertical (9:16)": true
           },
           "safety": {
             "chatModelRefusals": false,
