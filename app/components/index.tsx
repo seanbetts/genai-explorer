@@ -3,6 +3,7 @@
 import React, { lazy, Suspense, useEffect, useState, useCallback, useMemo } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ExplorerData, Company, Benchmark, BenchmarkScore } from './types';
 import ExplorerView from './ExplorerView';
 // Dynamically load detail components to reduce initial bundle size
@@ -311,7 +312,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
       <div className="bg-gray-800 border-b border-fuchsia-900/50 py-2 shadow-md sticky top-[90px] z-20">
         <div className="container mx-auto px-5">
           <div className="flex items-center font-mono text-xs py-1 md:pl-8 space-x-8">
-            <a 
+            <Link 
               href="/" 
               className={`transition-colors flex items-center ${
                 currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
@@ -325,7 +326,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
                   : 'text-fuchsia-500'
               }`}></i>
               <span>Model Explorer</span>
-            </a>
+            </Link>
             
             {/* Temporarily hidden Model Comparer */}
             {false && (
@@ -451,7 +452,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
                 <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Features</h3>
                 <ul className="space-y-0.5">
                   <li>
-                    <a 
+                    <Link 
                       href="/" 
                       className={`transition-colors text-xs leading-tight py-0.5 flex items-center ${
                         currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
@@ -465,7 +466,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
                           : 'text-fuchsia-500'
                       }`}></i>
                       <span>Model Explorer</span>
-                    </a>
+                    </Link>
                   </li>
                   {/* Temporarily hidden Model Comparer */}
                   {false && (

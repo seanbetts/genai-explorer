@@ -557,6 +557,49 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
     );
   };
 
+  // State for audio examples
+  const [audioSamples, setAudioSamples] = useState<Record<string, string>>({});
+  const [isAudioLoading, setIsAudioLoading] = useState(true);
+  
+  // Fetch audio samples when the selected model changes
+  useEffect(() => {
+    async function fetchAudioSamples() {
+      // Reset state when model changes
+      setAudioSamples({});
+      setIsAudioLoading(true);
+      
+      // Only fetch for audio category models
+      if (!selectedModel || selectedModel.category !== 'audio') {
+        setIsAudioLoading(false);
+        return;
+      }
+      
+      try {
+        const apiUrl = `/api/audio-files?company=${companyId}&model=${selectedModel.id}`;
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        
+        if (data.files && Array.isArray(data.files) && data.files.length > 0) {
+          const samples: Record<string, string> = {};
+          data.files.forEach((file: { displayName: string; path: string }) => {
+            samples[file.displayName] = file.path;
+          });
+          setAudioSamples(samples);
+        }
+      } catch (error) {
+        console.error('Error fetching audio samples:', error);
+      } finally {
+        setIsAudioLoading(false);
+      }
+    }
+    
+    if (selectedModel) {
+      fetchAudioSamples();
+    } else {
+      setIsAudioLoading(false);
+    }
+  }, [selectedModel, companyId]);
+  
   // Render the audio examples carousel
   const renderAudioExamples = () => {
     // Check if the model has audio examples defined in the data
@@ -588,45 +631,6 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
       );
     }
     
-    // For all audio models, try to get audio samples from the API
-    // This consolidated approach works for both music and voice models
-    const [audioSamples, setAudioSamples] = useState<Record<string, string>>({});
-    const [isLoading, setIsLoading] = useState(true);
-    
-    useEffect(() => {
-      async function fetchAudioSamples() {
-        // Only fetch for audio category models
-        if (selectedModel?.category !== 'audio') {
-          setIsLoading(false);
-          return;
-        }
-        
-        try {
-          const apiUrl = `/api/audio-files?company=${companyId}&model=${selectedModel.id}`;
-          const response = await fetch(apiUrl);
-          const data = await response.json();
-          
-          if (data.files && Array.isArray(data.files) && data.files.length > 0) {
-            const samples: Record<string, string> = {};
-            data.files.forEach((file: { displayName: string; path: string }) => {
-              samples[file.displayName] = file.path;
-            });
-            setAudioSamples(samples);
-          }
-        } catch (error) {
-          console.error('Error fetching audio samples:', error);
-        } finally {
-          setIsLoading(false);
-        }
-      }
-      
-      if (selectedModel) {
-        fetchAudioSamples();
-      } else {
-        setIsLoading(false);
-      }
-    }, [companyId, selectedModel]);
-    
     // If we have audio samples from API, render the carousel
     if (Object.keys(audioSamples).length > 0) {
       return (
@@ -642,7 +646,7 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
     } 
     
     // Loading state
-    if (isLoading && selectedModel?.category === 'audio') {
+    if (isAudioLoading && selectedModel?.category === 'audio') {
       return (
         <div className="mb-8 p-0">
           <div className="bg-gray-900 rounded-lg p-8 flex items-center justify-center">

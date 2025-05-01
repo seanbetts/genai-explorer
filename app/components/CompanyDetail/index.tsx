@@ -161,17 +161,22 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
     } else {
       setActiveTab('subscriptions');
     }
-  }, []);
+  }, [
+    hasFrontierModels, hasEnterpriseModels, hasOpenModels, 
+    hasImageModels, hasVideoModels, hasAudioModels, 
+    hasSpecialisedModels, hasBenchmarkScores,
+    company.products, company.features, setActiveTab
+  ]);
   
   // Utility to update query params without reload
-  const updateQuery = (key: string, value?: string) => {
+  const updateQuery = React.useCallback((key: string, value?: string) => {
     const params = new URLSearchParams(window.location.search);
     if (value) params.set(key, value);
     else params.delete(key);
     const query = params.toString();
     const newUrl = query ? `${window.location.pathname}?${query}` : window.location.pathname;
     window.history.pushState({}, '', newUrl);
-  };
+  }, []);
   
   // Persist activeTab in URL, but only after deliberate user interaction
   const initialRender = React.useRef(true);
@@ -193,7 +198,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
     
     console.log('Updating URL to tab:', activeTab);
     updateQuery('tab', activeTab);
-  }, [activeTab]);
+  }, [activeTab, updateQuery]);
   
   // Reset initialRender ref when component unmounts
   React.useEffect(() => {
@@ -219,7 +224,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
     };
     
     checkBenchmarkData();
-  }, [company.id, company.models]);
+  }, [company.id, company.models, company.name, setHasBenchmarkData]);
   
   React.useEffect(() => {
     // Small delay for animation effect
@@ -228,7 +233,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
     }, 100);
     
     return () => clearTimeout(timer);
-  }, []);
+  }, [setIsVisible]);
   return (
     <div className={`transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       

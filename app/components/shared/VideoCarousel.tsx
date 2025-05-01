@@ -18,20 +18,8 @@ const ThumbnailScroller: React.FC<ThumbnailScrollerProps> = ({
   isKeyboardNav = false,
   carouselId
 }) => {
-  // Use both useLayoutEffect and useEffect to ensure scrolling happens reliably
-  useLayoutEffect(() => {
-    scrollToActiveThumbnail();
-  }, [activeIndex, isKeyboardNav]);
-  
-  // Also use regular useEffect as a backup to ensure scrolling works after render
-  useEffect(() => {
-    scrollToActiveThumbnail();
-    // Add a small delay to ensure thumbnails are fully rendered
-    const timer = setTimeout(scrollToActiveThumbnail, 100);
-    return () => clearTimeout(timer);
-  }, [activeIndex, isKeyboardNav]);
-  
-  const scrollToActiveThumbnail = () => {
+  // Define scrollToActiveThumbnail inside a different scope to use in both effects
+  const scrollToActiveThumbnail = useCallback(() => {
     const el = document.getElementById(`video-thumbnail-${carouselId}-${activeIndex}`);
     const container = document.getElementById(`video-thumbnail-container-${carouselId}`);
     if (!el || !container) return;
@@ -50,7 +38,20 @@ const ThumbnailScroller: React.FC<ThumbnailScrollerProps> = ({
     const thumbnailCenter = el.offsetLeft + el.offsetWidth / 2;
     const containerCenter = container.offsetWidth / 2;
     container.scrollLeft = thumbnailCenter - containerCenter;
-  };
+  }, [activeIndex, carouselId]);
+
+  // Use both useLayoutEffect and useEffect to ensure scrolling happens reliably
+  useLayoutEffect(() => {
+    scrollToActiveThumbnail();
+  }, [activeIndex, isKeyboardNav, scrollToActiveThumbnail]);
+  
+  // Also use regular useEffect as a backup to ensure scrolling works after render
+  useEffect(() => {
+    scrollToActiveThumbnail();
+    // Add a small delay to ensure thumbnails are fully rendered
+    const timer = setTimeout(scrollToActiveThumbnail, 100);
+    return () => clearTimeout(timer);
+  }, [activeIndex, isKeyboardNav, scrollToActiveThumbnail]);
   
   return null;
 };

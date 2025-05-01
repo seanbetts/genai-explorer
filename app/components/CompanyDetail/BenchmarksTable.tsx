@@ -24,7 +24,7 @@ interface BenchmarkScoreProps {
 }
 
 // Memoize the BenchmarkScore component to prevent unnecessary re-renders
-const BenchmarkScore: React.FC<BenchmarkScoreProps> = React.memo(({ 
+const BenchmarkScoreComponent: React.FC<BenchmarkScoreProps> = ({ 
   model, 
   benchmark, 
   benchmarkScores,
@@ -42,8 +42,8 @@ const BenchmarkScore: React.FC<BenchmarkScoreProps> = React.memo(({
     return <span className={textStyles.tertiary}>-</span>;
   }
   
-  // Format the score based on benchmark type - memoized to avoid recalculation
-  const formatBenchmarkScore = useCallback((score: BenchmarkScore, benchmark: Benchmark): string => {
+  // Format the score based on benchmark type
+  const formatBenchmarkScore = (score: BenchmarkScore, benchmark: Benchmark): string => {
     const id = benchmark.benchmark_id;
     const value = score.score;
     
@@ -76,7 +76,7 @@ const BenchmarkScore: React.FC<BenchmarkScoreProps> = React.memo(({
     
     // Default formatting with 1 decimal place
     return value.toFixed(1);
-  }, []);
+  };
   
   // Get global ranking indicator
   let rankBadge = null;
@@ -96,8 +96,8 @@ const BenchmarkScore: React.FC<BenchmarkScoreProps> = React.memo(({
     }
   }
   
-  // Create tooltip content - memoized to avoid recalculation on every render
-  const tooltipContent = useMemo(() => {
+  // Create tooltip content
+  const tooltipContent = (() => {
     let content = '';
     
     // Add global ranking info if available
@@ -120,7 +120,7 @@ const BenchmarkScore: React.FC<BenchmarkScoreProps> = React.memo(({
       content += `Notes: ${score.notes}`;
     }
     
-    // Get all scores - memoized by the parameters
+    // Get all scores
     const allScores = getAllScoresForModelAndBenchmark(benchmarkScores, model.id, benchmark.benchmark_id);
     
     if (allScores.length > 1) {
@@ -152,7 +152,7 @@ const BenchmarkScore: React.FC<BenchmarkScoreProps> = React.memo(({
     }
     
     return content;
-  }, [score, benchmark, benchmarkScores, model.id, rankingsLoaded, globalRankings, formatBenchmarkScore]);
+  })();
   
   return (
     <div className="flex flex-col items-center">
@@ -184,7 +184,10 @@ const BenchmarkScore: React.FC<BenchmarkScoreProps> = React.memo(({
       )}
     </div>
   );
-}, (prevProps, nextProps) => {
+};
+
+// Memoize the component with custom comparison
+const BenchmarkScore = React.memo(BenchmarkScoreComponent, (prevProps, nextProps) => {
   // Custom comparison function to determine if component should update
   // Only re-render if any of these values have changed
   return (
@@ -220,8 +223,8 @@ interface FeaturedBenchmarksSectionProps {
   rankingsLoaded?: boolean;
 }
 
-// Memoize the FeaturedBenchmarksSection component to prevent unnecessary re-renders
-const FeaturedBenchmarksSection: React.FC<FeaturedBenchmarksSectionProps> = React.memo(({
+// Base component for featured benchmarks section
+const FeaturedBenchmarksSectionComponent: React.FC<FeaturedBenchmarksSectionProps> = ({
   benchmarks,
   models,
   benchmarkScores,
@@ -281,7 +284,10 @@ const FeaturedBenchmarksSection: React.FC<FeaturedBenchmarksSectionProps> = Reac
       </tbody>
     </SharedTable>
   );
-}, (prevProps, nextProps) => {
+};
+
+// Memoize the component with custom comparison
+const FeaturedBenchmarksSection = React.memo(FeaturedBenchmarksSectionComponent, (prevProps, nextProps) => {
   // Only re-render if one of these key props has changed
   return (
     prevProps.benchmarks === nextProps.benchmarks &&
