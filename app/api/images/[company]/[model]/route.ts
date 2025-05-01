@@ -10,12 +10,10 @@ export const runtime = 'nodejs';
  * Returns a JSON array of all image URLs found in public/images/companies/{company}/example_images/{model}
  */
 export async function GET(
-  _: Request,
+  request: Request,
   { params }: { params: { company: string; model: string } }
 ) {
-  // Make sure we await the params correctly to resolve the Next.js warning
-  const paramsObj = await Promise.resolve(params);
-  const { company, model } = paramsObj;
+  const { company, model } = params;
   // Directory under the public folder
   const imagesDir = path.join(
     process.cwd(),
