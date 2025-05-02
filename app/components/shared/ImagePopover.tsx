@@ -1,8 +1,8 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { getValidImageUrl } from '../utils/imageUtils';
-import ImageWithFallback from './ImageWithFallback';
+import Image from 'next/image';
+import { getValidImageUrl, PLACEHOLDER_IMAGE } from '../utils/imageUtils';
 
 interface Props {
   isOpen: boolean;
@@ -13,6 +13,7 @@ interface Props {
 
 const ImagePopover: React.FC<Props> = ({ isOpen, onClose, imageSrc, imageAlt }) => {
   const overlayRef = useRef<HTMLDivElement>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   // lock scroll
   useEffect(() => {
@@ -27,6 +28,13 @@ const ImagePopover: React.FC<Props> = ({ isOpen, onClose, imageSrc, imageAlt }) 
     if (isOpen) window.addEventListener('keydown', handler);
     return () => { window.removeEventListener('keydown', handler); };
   }, [isOpen, onClose]);
+  
+  // Reset loading state when opening
+  useEffect(() => {
+    if (isOpen) {
+      setIsLoading(true);
+    }
+  }, [isOpen, imageSrc]);
 
   if (!isOpen) return null;
 
@@ -49,12 +57,19 @@ const ImagePopover: React.FC<Props> = ({ isOpen, onClose, imageSrc, imageAlt }) 
         }}
       >
         <div className="p-4 w-full h-full relative">
-          <ImageWithFallback 
+          {isLoading && (
+            <div className="absolute inset-0 z-10 bg-gray-800 flex items-center justify-center">
+              <div className="w-10 h-10 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          )}
+          <Image 
             src={getValidImageUrl(imageSrc)} 
             alt={imageAlt}
             fill
             style={{ objectFit: 'contain' }}
             priority
+            onError={() => setIsLoading(false)}
+            onLoad={() => setIsLoading(false)}
           />
         </div>
 
