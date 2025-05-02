@@ -86,25 +86,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   // Derived state - if the current image is loading
   const isImageLoading = loadingImages[currentImageIndex] !== false;
   
-  // Force all images to be marked as loaded after a timeout
-  // This ensures spinners don't get stuck indefinitely
-  useEffect(() => {
-    // Mark all images as loaded after 5 seconds as a fallback
-    const fallbackTimer = setTimeout(() => {
-      const allThumbnailsLoaded: Record<number, boolean> = {};
-      const allImagesLoaded: Record<number, boolean> = {};
-      
-      images.forEach((_, idx) => {
-        allThumbnailsLoaded[idx] = true;
-        allImagesLoaded[idx] = false; // false means "not loading" (loaded)
-      });
-      
-      setLoadedThumbnails(allThumbnailsLoaded);
-      setLoadingImages(allImagesLoaded);
-    }, 5000);
-    
-    return () => clearTimeout(fallbackTimer);
-  }, [images]);
+  // We removed the 5-second auto-load timer to allow for slower-loading images
   
   // Reset loading states when images array changes
   useEffect(() => {
