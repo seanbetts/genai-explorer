@@ -33,54 +33,54 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
   const [isVisible, setIsVisible] = React.useState(false);
   
   // Helper functions to check for model types
-  const hasFrontierModels = (): boolean => {
+  const hasFrontierModels = React.useCallback((): boolean => {
     return company.models && company.models.some(model => 
       model.category === 'frontier' && model.status !== 'archived'
     );
-  };
+  }, [company.models]);
 
-  const hasOpenModels = (): boolean => {
+  const hasOpenModels = React.useCallback((): boolean => {
     return company.models && company.models.some(model => 
       model.category === 'open' && model.status !== 'archived'
     );
-  };
+  }, [company.models]);
 
-  const hasEnterpriseModels = (): boolean => {
+  const hasEnterpriseModels = React.useCallback((): boolean => {
     return company.models && company.models.some(model => 
       model.category === 'enterprise' && model.status !== 'archived'
     );
-  };
+  }, [company.models]);
 
-  const hasImageModels = (): boolean => {
+  const hasImageModels = React.useCallback((): boolean => {
     return company.models && company.models.some(model => 
       model.category === 'image' && model.status !== 'archived'
     );
-  };
+  }, [company.models]);
 
-  const hasVideoModels = (): boolean => {
+  const hasVideoModels = React.useCallback((): boolean => {
     return company.models && company.models.some(model => 
       model.category === 'video' && model.status !== 'archived'
     );
-  };
+  }, [company.models]);
 
-  const hasAudioModels = (): boolean => {
+  const hasAudioModels = React.useCallback((): boolean => {
     return company.models && company.models.some(model => 
       model.category === 'audio' && model.status !== 'archived'
     );
-  };
+  }, [company.models]);
 
-  const hasSpecialisedModels = (): boolean => {
+  const hasSpecialisedModels = React.useCallback((): boolean => {
     return company.models && company.models.some(model => 
       model.category === 'other' && model.status !== 'archived'
     );
-  };
+  }, [company.models]);
   
   // State to track if the company has benchmark data
   const [hasBenchmarkData, setHasBenchmarkData] = React.useState(false);
   
-  const hasBenchmarkScores = (): boolean => {
+  const hasBenchmarkScores = React.useCallback((): boolean => {
     return hasBenchmarkData && company.models && company.models.length > 0;
-  };
+  }, [hasBenchmarkData, company.models]);
 
   // Initialize with a fallback value, we'll set it properly in useEffect
   const [activeTab, setActiveTab] = React.useState<TabType>('frontier-models');
