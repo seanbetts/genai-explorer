@@ -43,7 +43,7 @@ function formatDemoName(key: string): string {
 // -----------------------------------------------------------------------------
 interface AudioModelGalleryProps {
   models: Model[];
-  /** Company ID for dynamic audio discovery */
+  /** Company ID for paths to audio files */
   companyId: string;
 }
 
@@ -557,107 +557,69 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
     );
   };
 
-  // State for audio examples
-  const [audioSamples, setAudioSamples] = useState<Record<string, string>>({});
-  const [isAudioLoading, setIsAudioLoading] = useState(true);
-  
-  // Fetch audio samples when the selected model changes
-  useEffect(() => {
-    async function fetchAudioSamples() {
-      // Reset state when model changes
-      setAudioSamples({});
-      setIsAudioLoading(true);
-      
-      // Only fetch for audio category models
-      if (!selectedModel || selectedModel.category !== 'audio') {
-        setIsAudioLoading(false);
-        return;
-      }
-      
-      try {
-        const apiUrl = `/api/audio-files?company=${companyId}&model=${selectedModel.id}`;
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-        
-        if (data.files && Array.isArray(data.files) && data.files.length > 0) {
-          const samples: Record<string, string> = {};
-          data.files.forEach((file: { displayName: string; path: string }) => {
-            samples[file.displayName] = file.path;
-          });
-          setAudioSamples(samples);
-        }
-      } catch (error) {
-        console.error('Error fetching audio samples:', error);
-      } finally {
-        setIsAudioLoading(false);
-      }
-    }
-    
-    if (selectedModel) {
-      fetchAudioSamples();
-    } else {
-      setIsAudioLoading(false);
-    }
-  }, [selectedModel, companyId]);
-  
   // Render the audio examples carousel
   const renderAudioExamples = () => {
-    // Check if the model has audio examples defined in the data
-    const hasAudioExamplesInData = !!(selectedModel && selectedModel.audioExamples && 
-        (Array.isArray(selectedModel.audioExamples) 
-          ? selectedModel.audioExamples.length > 0 
-          : typeof selectedModel.audioExamples === 'object' && Object.keys(selectedModel.audioExamples).length > 0));
-    
-    // If we have audio examples in the data, use those first
-    if (hasAudioExamplesInData) {
-      return (
-        <div className="mb-8 p-0">
-          <AudioCarousel 
-            audio={selectedModel!.audioExamples as (Record<string, string> | string[])}
-            title={selectedModel!.name}
-            carouselId={`${selectedModel!.id}-audio-examples`}
-            formatTrackName={(name) => {
-              // Format snake_case or camelCase to Title Case with each word capitalized
-              return name
-                .replace(/_/g, ' ')
-                .replace(/([A-Z])/g, ' $1')
-                .split(' ')
-                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(' ')
-                .replace(/\.\.\.$/, '...'); // Keep ellipses as is
-            }}
-          />
-        </div>
-      );
+    // Only proceed if we have a selected model
+    if (!selectedModel || selectedModel.category !== 'audio') {
+      return null;
     }
     
-    // If we have audio samples from API, render the carousel
-    if (Object.keys(audioSamples).length > 0) {
-      return (
-        <div className="mb-8 p-0">
-          <AudioCarousel 
-            audio={audioSamples}
-            title={selectedModel!.name}
-            carouselId={`${selectedModel!.id}-audio-samples`}
-            formatTrackName={(name) => name} // Names are already formatted by the API
-          />
-        </div>
-      );
-    } 
-    
-    // Loading state
-    if (isAudioLoading && selectedModel?.category === 'audio') {
-      return (
-        <div className="mb-8 p-0">
-          <div className="bg-gray-900 rounded-lg p-8 flex items-center justify-center">
-            <p className="text-gray-400">Loading audio samples...</p>
-          </div>
-        </div>
-      );
+    // Check if model has audio examples
+    if (!selectedModel.audioExamples) {
+      return null;
     }
     
-    // No audio samples available
-    return null;
+    const audioExamples = selectedModel.audioExamples as any;
+    
+    // Process audio files and embeds from the data structure
+    const processedAudio: Record<string, string> = {};
+    
+    // Handle file array (convert to full paths)
+    if (audioExamples.files && Array.isArray(audioExamples.files)) {
+      audioExamples.files.forEach((filename: string) => {
+        // Create display name by formatting the filename
+        const displayName = filename
+          .replace(/\.mp3$/, '')
+          .replace(/[-_]/g, ' ')
+          .split(' ')
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
+          
+        // Build full path based on company
+        processedAudio[displayName] = `/audio/${companyId}/${filename}`;
+      });
+    }
+    
+    // Add embeds if available
+    if (audioExamples.embeds && typeof audioExamples.embeds === 'object') {
+      Object.entries(audioExamples.embeds).forEach(([key, url]) => {
+        // Format the key name
+        const displayName = key
+          .replace(/_/g, ' ')
+          .replace(/([A-Z])/g, ' $1')
+          .split(' ')
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
+          
+        processedAudio[displayName] = url as string;
+      });
+    }
+    
+    // Only render if we have processed audio to display
+    if (Object.keys(processedAudio).length === 0) {
+      return null;
+    }
+    
+    return (
+      <div className="mb-8 p-0">
+        <AudioCarousel 
+          audio={processedAudio}
+          title={selectedModel.name}
+          carouselId={`${selectedModel.id}-audio-examples`}
+          formatTrackName={(name) => name} // Names are already formatted
+        />
+      </div>
+    );
   };
 
   // Guard: no models 

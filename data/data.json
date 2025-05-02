@@ -434,6 +434,10 @@
           "systemCard": "https://cdn.openai.com/11998be9-5319-4302-bfbf-1167e093f1fb/Native_Image_Generation_System_Card.pdf",
           "modelGuide": "https://platform.openai.com/docs/guides/image-generation",
           "apiDocumentation": "https://platform.openai.com/docs/api-reference/images",
+          "imageExamples": {
+            "numberOfImages": 47,
+            "imageFormat": "png"
+          },
           "demoVideos": {
             "upload_and_restyle": "https://youtu.be/jevonM6gBcA?si=x2-nqUolnMfRb7JI",
             "transparent_layers": "https://youtu.be/tMhAASk9i1o?si=SQkpMs2p93y-Xkgz",
@@ -683,7 +687,10 @@
           "systemCard": "https://platform.openai.com/docs/models/gpt-4o-mini-tts",
           "modelGuide": "https://platform.openai.com/docs/guides/text-to-speech",
           "apiDocumentation": "https://platform.openai.com/docs/api-reference/audio",
-          "audioExamples": {},
+          "audioExamples": {
+            "files": ["alloy.mp3","ash.mp3","ballad.mp3","coral.mp3","echo.mp3","fable.mp3","nova.mp3","onyx.mp3","sage.mp3","shimmer.mp3","verse.mp3"],
+            "embeds": {}
+          },
           "demoVideos": {},
           "termsOfService": "https://openai.com/policies/terms-of-use/",
           "usagePolicy": "https://platform.openai.com/docs/guides/text-to-speech",
@@ -1428,6 +1435,10 @@
           "systemCard": "https://storage.googleapis.com/deepmind-media/imagen/imagen_3_tech_report_update_dec2024_v3.pdf",
           "modelGuide": "https://cloud.google.com/vertex-ai/generative-ai/docs/image/overview",
           "apiDocumentation": "https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/imagen-api",
+          "imageExamples": {
+            "numberOfImages": 22,
+            "imageFormat": "webp"
+          },
           "demoVideos": {
             "photorealistic_images":"https://www.youtube.com/watch?v=nEuNwULfGXk"
           },
@@ -1615,7 +1626,10 @@
           "systemCard": "",
           "modelGuide": "",
           "apiDocumentation": "",
-          "audioExamples": {},
+          "audioExamples": {
+            "files": ["hazy_UK_garage.mp3","hybrid_film_score.mp3","jazz.mp3","psychedelic_cumbia.mp3","sinti_jazz.mp3"],
+            "embeds": {}
+          },
           "demoVideos": {
             "shankar_mahadevan": ["https://www.youtube.com/watch?v=7Rz3m0QtFMs"],
             "sound_of_AI": ["https://www.youtube.com/watch?v=x84ZqMkZ18U&t=1s"],
@@ -3724,6 +3738,10 @@
           "systemCard": "",
           "modelGuide": "https://helpx.adobe.com/firefly/user-guide.html",
           "apiDocumentation": "https://developer.adobe.com/firefly-services/docs/firefly-api/",
+          "imageExamples": {
+            "numberOfImages": 16,
+            "imageFormat": "webp"
+          },
           "demoVideos": {
             "discover": ["https://images-tv.adobe.com/mpcv3/7628/fbbef6db-f4e7-4757-80bd-5706d1a8749e_1739525687.854x480at800_h264.mp4", "https://images-tv.adobe.com/mpcv3/3f9704a8-b1e2-4248-9176-2ad96d92c053/cc227605-babb-4df3-b4f5-194cf6d7d946/e6ead2a7aa1d4561be81f33dc42bba9d_1737456413-1920x1080.jpg"],
             "how_to_use": "https://www.youtube.com/watch?v=lt4k9lVnS1Y",
@@ -4081,6 +4099,10 @@
           "systemCard": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version#h_01JQSR0Q6H0AX8NCC8QGE6C2NZ",
           "modelGuide": "https://docs.midjourney.com/hc/en-us/articles/33329261836941-Getting-Started-Guide",
           "apiDocumentation": "",
+          "imageExamples": {
+            "numberOfImages": 27,
+            "imageFormat": "webp"
+          },
           "demoVideos": {
             "draft_mode": "https://updates.midjourney.com/content/media/2025/04/Draft-Mode-V1.6---Subtitles.mp4"
           },
@@ -4221,6 +4243,10 @@
           "systemCard": "",
           "modelGuide": "",
           "apiDocumentation": "https://platform.stability.ai/docs/api-reference",
+          "imageExamples": {
+            "numberOfImages": 22,
+            "imageFormat": "jpg"
+          },
           "demoVideos": {},
           "termsOfService": "https://platform.stability.ai/legal/terms-of-service",
           "usagePolicy": "https://stability.ai/use-policy",
@@ -4419,6 +4445,10 @@
           "systemCard": "https://arxiv.org/pdf/2504.11346",
           "modelGuide": "",
           "apiDocumentation": "",
+          "imageExamples": {
+            "numberOfImages": 28,
+            "imageFormat": "webp"
+          },
           "demoVideos": {},
           "termsOfService": "https://seed.bytedance.com/en/user-agreement",
           "usagePolicy": "",
@@ -4931,16 +4961,19 @@
           "modelGuide": "",
           "apiDocumentation": "",
           "audioExamples": {
-            "cat": "https://suno.com/embed/ee467d00-5813-4a74-9792-c9ae4a09d344",
-            "deep_night": "https://suno.com/embed/5a285fbc-f64a-418a-8b2e-05e3e7990899",
-            "C-A-P-Y-B-A-R-A": "https://suno.com/embed/b27c29f6-8ab4-47eb-81fd-efb85c848ada",
-            "ain't_got_a_nickel_ain't_got_a_dime": "https://suno.com/embed/f275d9ac-5a62-4bbe-baf9-3fa10e0332f4",
-            "golden_sunshine": "https://suno.com/embed/7f774078-1672-4858-a37f-acad373c5a84",
-            "egyptian_dance_party": "https://suno.com/embed/19807561-1427-4c25-a229-a8c3063d0616",
-            "i_only_ate_3_cheeseburgers": "https://suno.com/embed/c15f0251-fbac-4a30-a3e1-002dbc78cb79",
-            "i_can_wait_100_years": "https://suno.com/embed/3107d309-3316-4b00-bc7c-f590038d9e5b",
-            "bossa_jazz": "https://suno.com/embed/423d3dea-7a36-4621-a3b2-ff92edc066d4",
-            "maybe?!": "https://suno.com/embed/5b83f352-1956-4ca2-8534-2af03bf76863"
+            "files": {},
+            "embeds": {
+              "cat": "https://suno.com/embed/ee467d00-5813-4a74-9792-c9ae4a09d344",
+              "deep_night": "https://suno.com/embed/5a285fbc-f64a-418a-8b2e-05e3e7990899",
+              "C-A-P-Y-B-A-R-A": "https://suno.com/embed/b27c29f6-8ab4-47eb-81fd-efb85c848ada",
+              "ain't_got_a_nickel_ain't_got_a_dime": "https://suno.com/embed/f275d9ac-5a62-4bbe-baf9-3fa10e0332f4",
+              "golden_sunshine": "https://suno.com/embed/7f774078-1672-4858-a37f-acad373c5a84",
+              "egyptian_dance_party": "https://suno.com/embed/19807561-1427-4c25-a229-a8c3063d0616",
+              "i_only_ate_3_cheeseburgers": "https://suno.com/embed/c15f0251-fbac-4a30-a3e1-002dbc78cb79",
+              "i_can_wait_100_years": "https://suno.com/embed/3107d309-3316-4b00-bc7c-f590038d9e5b",
+              "bossa_jazz": "https://suno.com/embed/423d3dea-7a36-4621-a3b2-ff92edc066d4",
+              "maybe?!": "https://suno.com/embed/5b83f352-1956-4ca2-8534-2af03bf76863"
+            }
           },
           "demoVideos": {
             "remaster": ["https://www.youtube.com/watch?v=LGh5nqe_xD0"]
@@ -5071,16 +5104,19 @@
           "modelGuide": "",
           "apiDocumentation": "",
           "audioExamples": {
-            "wow_i_didn't_know_that": "https://www.udio.com/embed/jGjYfsRosZjYTkSBdFgEyF",
-            "lorem_ipsum_dolor_sit_amet": "https://www.udio.com/embed/p66uVGEgifEBLdoR5Ttyue",
-            "udio": "https://www.udio.com/embed/rQnJM5tqahRTBxZJafF8EK",
-            "god_are_you_there": "https://www.udio.com/embed/eZibZhroz5WWTUrLLfapKp",
-            "alien_ocean": "https://www.udio.com/embed/mBpC4WXm7T5AbnGbmr76Nw",
-            "dune_the_broadway_musical": "https://www.udio.com/embed/eY7xtug1dV6hbfCDhyHJua",
-            "amazing_grace": "https://www.udio.com/embed/nDKNwPUB6GrMhEfvM6v2u1",
-            "i_wanna_go_home": "https://www.udio.com/embed/6HWe4WEhjJzDSe1tvmKjjA",
-            "lost_love": "https://www.udio.com/embed/ehJuLz9DuCtVapQMVMcA7N",
-            "as_an_AI_language_model": "https://www.udio.com/embed/iu1381RxvjfzWznGHeVecV"
+            "files": {},
+            "embeds": {
+              "wow_i_didn't_know_that": "https://www.udio.com/embed/jGjYfsRosZjYTkSBdFgEyF",
+              "lorem_ipsum_dolor_sit_amet": "https://www.udio.com/embed/p66uVGEgifEBLdoR5Ttyue",
+              "udio": "https://www.udio.com/embed/rQnJM5tqahRTBxZJafF8EK",
+              "god_are_you_there": "https://www.udio.com/embed/eZibZhroz5WWTUrLLfapKp",
+              "alien_ocean": "https://www.udio.com/embed/mBpC4WXm7T5AbnGbmr76Nw",
+              "dune_the_broadway_musical": "https://www.udio.com/embed/eY7xtug1dV6hbfCDhyHJua",
+              "amazing_grace": "https://www.udio.com/embed/nDKNwPUB6GrMhEfvM6v2u1",
+              "i_wanna_go_home": "https://www.udio.com/embed/6HWe4WEhjJzDSe1tvmKjjA",
+              "lost_love": "https://www.udio.com/embed/ehJuLz9DuCtVapQMVMcA7N",
+              "as_an_AI_language_model": "https://www.udio.com/embed/iu1381RxvjfzWznGHeVecV"
+            }
           },
           "demoVideos": {
             "the_basics": ["https://youtu.be/3LII_9wI0nw?si=ILGJI_1z-tVf67KS"],

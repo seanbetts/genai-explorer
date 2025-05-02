@@ -52,7 +52,7 @@ function formatDemoName(key: string): string {
 // -----------------------------------------------------------------------------
 interface ImageModelGalleryProps {
   models: Model[];
-  /** Company ID for dynamic image discovery */
+  /** Company ID for paths to image files */
   companyId: string;
 }
 
@@ -66,28 +66,62 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
 
   const selectedModel = models.find((m) => m.id === selectedModelId);
 
-  // ----- state for image URLs fetched dynamically ---------------------------
+  // ----- state for image URLs ---------------------------
   const [imageUrls, setImageUrls] = useState<string[]>([]);
 
-  // ----- fetch image list when selected model or company changes ------------
+  // Generate image paths based on imageExamples data
   useEffect(() => {
     if (!selectedModelId) {
       setImageUrls([]);
       return;
     }
-    // reset on change
+    
+    // Reset on change
     setImageUrls([]);
     
-    // call our API to list images
-    fetch(`/api/images/${companyId}/${selectedModelId}`)
-      .then((res) => res.json())
-      .then((urls: string[]) => {
-        setImageUrls(urls);
-      })
-      .catch((err) => {
-        console.error('Failed to fetch image URLs for', selectedModelId, err);
-      });
-  }, [companyId, selectedModelId]);
+    // Find the selected model
+    const selectedModelObj = models.find(m => m.id === selectedModelId);
+    if (!selectedModelObj) {
+      return;
+    }
+    
+    // Base directory for this model's images
+    const baseDir = `/images/companies/${companyId}/example_images/${selectedModelId}`;
+    
+    // Check if model has imageExamples with numberOfImages
+    if (selectedModelObj.imageExamples && 
+        typeof selectedModelObj.imageExamples === 'object' && 
+        selectedModelObj.imageExamples.numberOfImages) {
+      
+      const numberOfImages = selectedModelObj.imageExamples.numberOfImages;
+      const imageFormat = selectedModelObj.imageExamples.imageFormat || 'webp';
+      const newImageUrls: string[] = [];
+      
+      // Generate sequential image paths with the specified format
+      for (let i = 1; i <= numberOfImages; i++) {
+        newImageUrls.push(`${baseDir}/${i}.${imageFormat}`);
+      }
+      
+      setImageUrls(newImageUrls);
+    } 
+    // Fallback to previously supported formats if imageExamples isn't available
+    else if (selectedModelObj.imageList && Array.isArray(selectedModelObj.imageList)) {
+      // Use predefined image list if available
+      setImageUrls(selectedModelObj.imageList.map(img => 
+        img.startsWith('/') ? img : `${baseDir}/${img}`
+      ));
+    } 
+    else if (selectedModelObj.exampleImages && Array.isArray(selectedModelObj.exampleImages)) {
+      // Use example images if available
+      setImageUrls(selectedModelObj.exampleImages.map(img => 
+        img.startsWith('/') ? img : `${baseDir}/${img}`
+      ));
+    }
+    // If no image data is available, use an empty array
+    else {
+      setImageUrls([]);
+    }
+  }, [companyId, selectedModelId, models]);
 
   // ---------------------------------------------------------------------------
   // Render helpers ------------------------------------------------------------
