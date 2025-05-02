@@ -69,25 +69,102 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
   // ----- state for image URLs fetched dynamically ---------------------------
   const [imageUrls, setImageUrls] = useState<string[]>([]);
 
-  // ----- fetch image list when selected model or company changes ------------
+  // ----- state for tracking discovery of images -------------------------
+  const [isDiscovering, setIsDiscovering] = useState(false);
+  
+  // ----- generate and discover valid image paths -------------------------
   useEffect(() => {
     if (!selectedModelId) {
       setImageUrls([]);
       return;
     }
-    // reset on change
-    setImageUrls([]);
     
-    // call our API to list images
-    fetch(`/api/images/${companyId}/${selectedModelId}`)
-      .then((res) => res.json())
-      .then((urls: string[]) => {
-        setImageUrls(urls);
-      })
-      .catch((err) => {
-        console.error('Failed to fetch image URLs for', selectedModelId, err);
-      });
-  }, [companyId, selectedModelId]);
+    // Reset on change
+    setImageUrls([]);
+    setIsDiscovering(true);
+    
+    // Generate paths for static export and discover valid ones
+    try {
+      const baseDir = `/images/companies/${companyId}/example_images/${selectedModelId}`;
+      
+      // For models with explicitly defined image lists, use those
+      const selectedModelObj = models.find(m => m.id === selectedModelId);
+      
+      if (selectedModelObj?.imageList && Array.isArray(selectedModelObj.imageList)) {
+        // Use predefined image list if available
+        setImageUrls(selectedModelObj.imageList.map(img => 
+          img.startsWith('/') ? img : `${baseDir}/${img}`
+        ));
+        setIsDiscovering(false);
+      } else if (selectedModelObj?.exampleImages && Array.isArray(selectedModelObj.exampleImages)) {
+        // Use example images if available
+        setImageUrls(selectedModelObj.exampleImages.map(img => 
+          img.startsWith('/') ? img : `${baseDir}/${img}`
+        ));
+        setIsDiscovering(false);
+      } else {
+        // Discover valid images sequentially
+        // This approach checks each image (1.jpg, 1.png, etc.) and stops when no more are found
+        // It avoids displaying 50 thumbnails when only 10 images exist
+        const checkSequentialImages = async () => {
+          const validImages: string[] = [];
+          const extensions = ['.png', '.jpg', '.webp', '.jpeg'];
+          let foundImages = true;
+          let index = 1;
+          
+          // Only try the first 20 images to avoid too many requests
+          while (foundImages && index <= 20) {
+            // For each numeric index, try each file extension
+            const foundForThisIndex = await checkImageWithExtensions(`${baseDir}/${index}`, extensions);
+            
+            if (foundForThisIndex) {
+              // If any extension worked, add the base numeric path
+              validImages.push(`${baseDir}/${index}`);
+              index++;
+            } else {
+              // If no extensions worked for this index, we've reached the end
+              foundImages = false;
+            }
+          }
+          
+          // Update the state with valid images only
+          setImageUrls(validImages.length > 0 ? validImages : []);
+          setIsDiscovering(false);
+        };
+        
+        // Start the discovery process
+        checkSequentialImages();
+      }
+    } catch (err) {
+      console.error('Failed to discover image URLs for', selectedModelId, err);
+      setIsDiscovering(false);
+    }
+  }, [companyId, selectedModelId, models]);
+  
+  // Helper function to check if an image with any of the given extensions exists
+  const checkImageWithExtensions = async (basePath: string, extensions: string[]): Promise<boolean> => {
+    // Try each extension
+    for (const ext of extensions) {
+      const fullPath = `${basePath}${ext}`;
+      try {
+        // Create a promise that resolves when the image loads or rejects on error
+        const exists = await new Promise<boolean>((resolve) => {
+          const img = new window.Image();
+          img.onload = () => resolve(true);
+          img.onerror = () => resolve(false);
+          img.src = fullPath;
+        });
+        
+        // If this extension works, return true immediately
+        if (exists) return true;
+      } catch {
+        // Ignore errors and continue checking
+      }
+    }
+    
+    // If no extensions worked, return false
+    return false;
+  };
 
   // ---------------------------------------------------------------------------
   // Render helpers ------------------------------------------------------------
@@ -1030,7 +1107,18 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
       
       {models.length > 1 && renderModelTabs()}
 
-      {imageUrls.length > 0 && <div className="mb-8 p-0">{renderImageGallery()}</div>}
+      {isDiscovering ? (
+        <div className="mb-8 p-0">
+          <div className="flex items-center justify-center h-64 bg-gray-800 rounded-lg">
+            <div className="flex flex-col items-center space-y-4">
+              <div className="w-12 h-12 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
+              <p className="text-sm text-gray-400">Discovering images...</p>
+            </div>
+          </div>
+        </div>
+      ) : (
+        imageUrls.length > 0 && <div className="mb-8 p-0">{renderImageGallery()}</div>
+      )}
 
       {renderModelDetails()}
 

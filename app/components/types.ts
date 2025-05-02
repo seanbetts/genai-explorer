@@ -129,6 +129,7 @@ export interface Model {
   // New fields for image models
   about?: string; // Detailed description for the model
   exampleImages?: string[]; // Array of image paths
+  imageList?: string[]; // Explicit list of image paths to use for static export
   demoVideos?: Record<string, string | string[]>; // Key-value pairs of demo names and video URLs or [videoURL, thumbnailURL]
   modelGuide?: string; // URL to model guide documentation
   apiDocumentation?: string; // URL to API documentation
@@ -152,6 +153,7 @@ export interface Model {
   aspectRatios?: Record<string, boolean>; // Supported aspect ratios for image generation
   videoExamples?: string[] | Record<string, string>; // Example videos for video models
   audioExamples?: string[] | Record<string, string>; // Example audio clips for audio models
+  audioList?: Record<string, string>; // Explicit list of audio paths to use for static export
 }
 
 export interface ApiEndpointOptions {

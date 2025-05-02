@@ -4,6 +4,8 @@ import path from 'path';
 
 // Force this API route to use the Node.js runtime (so fs and path work)
 export const runtime = 'nodejs';
+// Needed for static export
+export const dynamic = 'force-static';
 
 /**
  * GET /api/images/:company/:model

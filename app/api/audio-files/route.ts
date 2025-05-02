@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import path from 'path';
 import fs from 'fs';
 
+// Needed for static export with output: 'export'
+export const dynamic = 'force-static';
+
 /**
  * API route that returns a list of MP3 files for a given company
  * Works by scanning the public/audio/[company] directory at runtime
