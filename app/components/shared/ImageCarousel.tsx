@@ -81,7 +81,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   const [isKeyboardNav, setIsKeyboardNav] = useState(false);
   const [shouldCenterThumbnails, setShouldCenterThumbnails] = useState(true);
   const [isImageLoading, setIsImageLoading] = useState(true);
-  const [areThumbnailsLoading, setAreThumbnailsLoading] = useState(true);
+  const [loadedThumbnails, setLoadedThumbnails] = useState<Record<number, boolean>>({}); // Track each thumbnail's loading state
   
   // ----- derived values ------------------------------------------------------
   const hasMultipleImages = images.length > 1;
@@ -108,6 +108,12 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
     
     return () => window.removeEventListener('resize', checkThumbnailLayout);
   }, [images.length]);
+  
+  // Reset loading state when images array changes
+  useEffect(() => {
+    // Reset thumbnail loading states when images change
+    setLoadedThumbnails({});
+  }, [images]);
 
   // ----- image navigation ----------------------------------------------------
   const nextImage = useCallback(() => {
@@ -235,7 +241,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                 }`}
                 aria-label={`View image ${idx + 1}`}
               >
-                {areThumbnailsLoading && (
+                {!loadedThumbnails[idx] && (
                   <div className="absolute inset-0 z-10 bg-gray-800 flex items-center justify-center">
                     <div className="w-4 h-4 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
                   </div>
@@ -246,8 +252,12 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                   fill
                   style={{ objectFit: "cover" }}
                   quality={imageQuality.thumbnail}
-                  onError={() => setAreThumbnailsLoading(false)}
-                  onLoad={() => setAreThumbnailsLoading(false)}
+                  onError={() => {
+                    setLoadedThumbnails(prev => ({...prev, [idx]: true}));
+                  }}
+                  onLoad={() => {
+                    setLoadedThumbnails(prev => ({...prev, [idx]: true}));
+                  }}
                 />
               </button>
             ))}
