@@ -43,7 +43,7 @@ function formatDemoName(key: string): string {
 // -----------------------------------------------------------------------------
 interface AudioModelGalleryProps {
   models: Model[];
-  /** Company ID for dynamic audio discovery */
+  /** Company ID for paths to audio files */
   companyId: string;
 }
 
@@ -557,191 +557,69 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
     );
   };
 
-  // State for audio examples
-  const [audioSamples, setAudioSamples] = useState<Record<string, string>>({});
-  const [isAudioLoading, setIsAudioLoading] = useState(true);
-  
-  // Audio sample map for static export - define samples for known models
-  const staticAudioSamples: Record<string, Record<string, Record<string, string>>> = {
-    // OpenAI models
-    'openai': {
-      // For any OpenAI audio/TTS model
-      'gpt-4o-mini-tts': {
-        'Alloy': '/audio/openai/alloy.mp3',
-        'Echo': '/audio/openai/echo.mp3',
-        'Fable': '/audio/openai/fable.mp3',
-        'Onyx': '/audio/openai/onyx.mp3',
-        'Nova': '/audio/openai/nova.mp3',
-        'Shimmer': '/audio/openai/shimmer.mp3',
-        'Sage': '/audio/openai/sage.mp3',
-        'Coral': '/audio/openai/coral.mp3',
-        'Ash': '/audio/openai/ash.mp3',
-        'Ballad': '/audio/openai/ballad.mp3',
-        'Verse': '/audio/openai/verse.mp3'
-      },
-      // Add other OpenAI models here as needed
-    },
-    // Google DeepMind models
-    'google-deepmind': {
-      // For any Google DeepMind audio model
-      'lyria': {
-        'Jazz': '/audio/google-deepmind/jazz.mp3',
-        'Hybrid Film Score': '/audio/google-deepmind/hybrid_film_score.mp3',
-        'Sinti Jazz': '/audio/google-deepmind/sinti_jazz.mp3',
-        'Psychedelic Cumbia': '/audio/google-deepmind/psychedelic_cumbia.mp3',
-        'Hazy UK Garage': '/audio/google-deepmind/hazy_UK_garage.mp3'
-      },
-      // Add other Google DeepMind models here as needed
-    }
-  };
-  
-  // Get audio samples when the selected model changes - compatible with static export
-  useEffect(() => {
-    async function getAudioSamples() {
-      // Reset state when model changes
-      setAudioSamples({});
-      setIsAudioLoading(true);
-      
-      // Only process for audio category models
-      if (!selectedModel) {
-        setIsAudioLoading(false);
-        return;
-      }
-      
-      console.log('Selected model:', selectedModel.id, 'Category:', selectedModel.category);
-      
-      try {
-        // Check if model has predefined audio examples in the data
-        if (selectedModel.audioExamples && typeof selectedModel.audioExamples === 'object') {
-          // Already handled in renderAudioExamples, no need to process here
-          setIsAudioLoading(false);
-          return;
-        }
-        
-        // For static export, use our hardcoded samples for known models
-        const companyAudioMap = staticAudioSamples[companyId];
-        if (companyAudioMap) {
-          // Check for exact model ID match
-          if (companyAudioMap[selectedModel.id]) {
-            console.log('Found static audio samples for model:', selectedModel.id);
-            setAudioSamples(companyAudioMap[selectedModel.id]);
-            setIsAudioLoading(false);
-            return;
-          }
-          
-          // If no exact match, use the first available model samples for this company
-          const firstModelKey = Object.keys(companyAudioMap)[0];
-          if (firstModelKey && selectedModel.category === 'audio') {
-            console.log('Using fallback audio samples from:', firstModelKey);
-            setAudioSamples(companyAudioMap[firstModelKey]);
-            setIsAudioLoading(false);
-            return;
-          }
-        }
-        
-        // For development mode, try the API as a fallback
-        if (process.env.NODE_ENV === 'development' && selectedModel.category === 'audio') {
-          try {
-            console.log('Trying API fetch for audio samples');
-            const apiUrl = `/api/audio-files?company=${companyId}&model=${selectedModel.id}`;
-            const response = await fetch(apiUrl);
-            const data = await response.json();
-            
-            if (data.files && Array.isArray(data.files) && data.files.length > 0) {
-              const samples: Record<string, string> = {};
-              data.files.forEach((file: { displayName: string; path: string }) => {
-                samples[file.displayName] = file.path;
-              });
-              setAudioSamples(samples);
-            }
-          } catch (apiError) {
-            console.error('Error fetching audio samples from API:', apiError);
-          }
-        }
-      } catch (error) {
-        console.error('Error setting up audio samples:', error);
-      } finally {
-        setIsAudioLoading(false);
-      }
-    }
-    
-    if (selectedModel) {
-      getAudioSamples();
-    } else {
-      setIsAudioLoading(false);
-    }
-  }, [selectedModel, companyId, staticAudioSamples]);
-  
   // Render the audio examples carousel
   const renderAudioExamples = () => {
-    // Debug info
-    console.log('Rendering audio examples for:', selectedModel?.id);
-    console.log('Audio category:', selectedModel?.category);
-    console.log('Audio examples in data:', selectedModel?.audioExamples);
-    console.log('Audio samples from API/hardcoded:', audioSamples);
-    console.log('Is loading:', isAudioLoading);
-    
-    // Check if the model has audio examples defined in the data
-    const hasAudioExamplesInData = !!(selectedModel && selectedModel.audioExamples && 
-        (Array.isArray(selectedModel.audioExamples) 
-          ? selectedModel.audioExamples.length > 0 
-          : typeof selectedModel.audioExamples === 'object' && Object.keys(selectedModel.audioExamples).length > 0));
-    
-    console.log('Has audio examples in data:', hasAudioExamplesInData);
-    
-    // If we have audio examples in the data, use those first
-    if (hasAudioExamplesInData) {
-      return (
-        <div className="mb-8 p-0">
-          <AudioCarousel 
-            audio={selectedModel!.audioExamples as (Record<string, string> | string[])}
-            title={selectedModel!.name}
-            carouselId={`${selectedModel!.id}-audio-examples`}
-            formatTrackName={(name) => {
-              // Format snake_case or camelCase to Title Case with each word capitalized
-              return name
-                .replace(/_/g, ' ')
-                .replace(/([A-Z])/g, ' $1')
-                .split(' ')
-                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(' ')
-                .replace(/\.\.\.$/, '...'); // Keep ellipses as is
-            }}
-          />
-        </div>
-      );
+    // Only proceed if we have a selected model
+    if (!selectedModel || selectedModel.category !== 'audio') {
+      return null;
     }
     
-    // If we have audio samples from API/hardcoded, render the carousel
-    if (Object.keys(audioSamples).length > 0) {
-      console.log('Rendering audio carousel with samples:', audioSamples);
-      return (
-        <div className="mb-8 p-0">
-          <AudioCarousel 
-            audio={audioSamples}
-            title={selectedModel!.name}
-            carouselId={`${selectedModel!.id}-audio-samples`}
-            formatTrackName={(name) => name} // Names are already formatted
-          />
-        </div>
-      );
-    } 
-    
-    // Loading state
-    if (isAudioLoading && selectedModel?.category === 'audio') {
-      console.log('Showing loading state');
-      return (
-        <div className="mb-8 p-0">
-          <div className="bg-gray-900 rounded-lg p-8 flex items-center justify-center">
-            <p className="text-gray-400">Loading audio samples...</p>
-          </div>
-        </div>
-      );
+    // Check if model has audio examples
+    if (!selectedModel.audioExamples) {
+      return null;
     }
     
-    // No audio samples available
-    console.log('No audio samples available');
-    return null;
+    const audioExamples = selectedModel.audioExamples as any;
+    
+    // Process audio files and embeds from the data structure
+    const processedAudio: Record<string, string> = {};
+    
+    // Handle file array (convert to full paths)
+    if (audioExamples.files && Array.isArray(audioExamples.files)) {
+      audioExamples.files.forEach((filename: string) => {
+        // Create display name by formatting the filename
+        const displayName = filename
+          .replace(/\.mp3$/, '')
+          .replace(/[-_]/g, ' ')
+          .split(' ')
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
+          
+        // Build full path based on company
+        processedAudio[displayName] = `/audio/${companyId}/${filename}`;
+      });
+    }
+    
+    // Add embeds if available
+    if (audioExamples.embeds && typeof audioExamples.embeds === 'object') {
+      Object.entries(audioExamples.embeds).forEach(([key, url]) => {
+        // Format the key name
+        const displayName = key
+          .replace(/_/g, ' ')
+          .replace(/([A-Z])/g, ' $1')
+          .split(' ')
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
+          
+        processedAudio[displayName] = url as string;
+      });
+    }
+    
+    // Only render if we have processed audio to display
+    if (Object.keys(processedAudio).length === 0) {
+      return null;
+    }
+    
+    return (
+      <div className="mb-8 p-0">
+        <AudioCarousel 
+          audio={processedAudio}
+          title={selectedModel.name}
+          carouselId={`${selectedModel.id}-audio-examples`}
+          formatTrackName={(name) => name} // Names are already formatted
+        />
+      </div>
+    );
   };
 
   // Guard: no models 
