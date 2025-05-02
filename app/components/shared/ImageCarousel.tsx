@@ -6,13 +6,13 @@ import React, {
   useLayoutEffect,
   useState,
 } from "react";
+import Image from "next/image";
 import { 
   getValidImageUrl, 
   PLACEHOLDER_IMAGE,
   imageQuality,
   getResponsiveSizes
 } from "../utils/imageUtils";
-import ImageWithFallback from "./ImageWithFallback";
 
 interface ThumbnailScrollerProps {
   activeIndex: number;
@@ -80,6 +80,8 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isKeyboardNav, setIsKeyboardNav] = useState(false);
   const [shouldCenterThumbnails, setShouldCenterThumbnails] = useState(true);
+  const [isImageLoading, setIsImageLoading] = useState(true);
+  const [areThumbnailsLoading, setAreThumbnailsLoading] = useState(true);
   
   // ----- derived values ------------------------------------------------------
   const hasMultipleImages = images.length > 1;
@@ -110,11 +112,13 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   // ----- image navigation ----------------------------------------------------
   const nextImage = useCallback(() => {
     if (!hasMultipleImages) return;
+    setIsImageLoading(true);
     setCurrentImageIndex((i) => (i + 1) % images.length);
   }, [hasMultipleImages, images.length]);
 
   const prevImage = useCallback(() => {
     if (!hasMultipleImages) return;
+    setIsImageLoading(true);
     setCurrentImageIndex((i) =>
       i === 0 ? images.length - 1 : i - 1,
     );
@@ -126,6 +130,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
       if (!hasMultipleImages) return;
       if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
         setIsKeyboardNav(true);
+        setIsImageLoading(true);
         e.key === "ArrowRight" ? nextImage() : prevImage();
         setTimeout(() => setIsKeyboardNav(false), 300);
       }
@@ -151,7 +156,12 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
             className="relative w-full h-full cursor-zoom-in"
             onClick={() => onOpenFullscreen && onOpenFullscreen(currentImage)}
           >
-            <ImageWithFallback
+            {isImageLoading && (
+              <div className="absolute inset-0 z-10 bg-gray-800 flex items-center justify-center">
+                <div className="w-10 h-10 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
+              </div>
+            )}
+            <Image
               key={`image-${currentImageIndex}`}
               src={getValidImageUrl(currentImage)}
               alt={`Example image ${currentImageIndex + 1} from ${title}`}
@@ -160,6 +170,14 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
               sizes={getResponsiveSizes(1200)}
               quality={imageQuality.standard}
               priority={currentImageIndex < 3}
+              onError={() => {
+                // Keep spinner hidden on error
+                setIsImageLoading(false);
+              }}
+              onLoad={() => {
+                // Hide spinner when image loads
+                setIsImageLoading(false);
+              }}
             />
           </div>
         </div>
@@ -206,7 +224,10 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
               <button
                 key={idx}
                 id={`thumbnail-${idx}`}
-                onClick={() => setCurrentImageIndex(idx)}
+                onClick={() => {
+                  setIsImageLoading(true);
+                  setCurrentImageIndex(idx);
+                }}
                 className={`flex-shrink-0 relative w-16 h-16 rounded overflow-hidden cursor-pointer ${
                   idx === currentImageIndex
                     ? "ring-2 ring-cyan-400"
@@ -214,12 +235,19 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                 }`}
                 aria-label={`View image ${idx + 1}`}
               >
-                <ImageWithFallback
+                {areThumbnailsLoading && (
+                  <div className="absolute inset-0 z-10 bg-gray-800 flex items-center justify-center">
+                    <div className="w-4 h-4 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
+                  </div>
+                )}
+                <Image
                   src={getValidImageUrl(img)}
                   alt={`Thumbnail ${idx + 1}`}
                   fill
                   style={{ objectFit: "cover" }}
                   quality={imageQuality.thumbnail}
+                  onError={() => setAreThumbnailsLoading(false)}
+                  onLoad={() => setAreThumbnailsLoading(false)}
                 />
               </button>
             ))}
