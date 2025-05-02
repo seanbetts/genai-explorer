@@ -80,17 +80,46 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isKeyboardNav, setIsKeyboardNav] = useState(false);
   const [shouldCenterThumbnails, setShouldCenterThumbnails] = useState(true);
-  const [isImageLoading, setIsImageLoading] = useState(true);
-  const [loadedThumbnails, setLoadedThumbnails] = useState<Record<number, boolean>>({}); // Track each thumbnail's loading state
+  const [loadingImages, setLoadingImages] = useState<Record<number, boolean>>({}); // Track which main images are loading
+  const [loadedThumbnails, setLoadedThumbnails] = useState<Record<number, boolean>>({}); // Track which thumbnails are loaded
   
-  // Ensure thumbnail loading state is properly tracked
+  // Derived state - if the current image is loading
+  const isImageLoading = loadingImages[currentImageIndex] !== false;
+  
+  // Force all images to be marked as loaded after a timeout
+  // This ensures spinners don't get stuck indefinitely
   useEffect(() => {
-    // When images change, we may need to reset the loading states
-    const initialLoadedState: Record<number, boolean> = {};
+    // Mark all images as loaded after 5 seconds as a fallback
+    const fallbackTimer = setTimeout(() => {
+      const allThumbnailsLoaded: Record<number, boolean> = {};
+      const allImagesLoaded: Record<number, boolean> = {};
+      
+      images.forEach((_, idx) => {
+        allThumbnailsLoaded[idx] = true;
+        allImagesLoaded[idx] = false; // false means "not loading" (loaded)
+      });
+      
+      setLoadedThumbnails(allThumbnailsLoaded);
+      setLoadingImages(allImagesLoaded);
+    }, 5000);
     
-    // Start with all thumbnails in loading state
-    // This will be updated by the onLoad handlers on each thumbnail
-    setLoadedThumbnails(initialLoadedState);
+    return () => clearTimeout(fallbackTimer);
+  }, [images]);
+  
+  // Reset loading states when images array changes
+  useEffect(() => {
+    // Initialize tracking objects
+    const initialLoadedThumbnails: Record<number, boolean> = {};
+    const initialLoadingImages: Record<number, boolean> = {};
+    
+    // Start with thumbnails not loaded
+    // Start with all images in loading state except the current one
+    images.forEach((_, idx) => {
+      initialLoadingImages[idx] = true; // true means "is loading"
+    });
+    
+    setLoadedThumbnails(initialLoadedThumbnails);
+    setLoadingImages(initialLoadingImages);
   }, [images]);
   
   // ----- derived values ------------------------------------------------------
@@ -124,17 +153,29 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   // ----- image navigation ----------------------------------------------------
   const nextImage = useCallback(() => {
     if (!hasMultipleImages) return;
-    setIsImageLoading(true);
-    setCurrentImageIndex((i) => (i + 1) % images.length);
-  }, [hasMultipleImages, images.length]);
+    
+    const newIndex = (currentImageIndex + 1) % images.length;
+    
+    // Mark the new image as loading unless we've already loaded it
+    if (loadingImages[newIndex] !== false) {
+      setLoadingImages(prev => ({...prev, [newIndex]: true}));
+    }
+    
+    setCurrentImageIndex(newIndex);
+  }, [hasMultipleImages, images.length, currentImageIndex, loadingImages]);
 
   const prevImage = useCallback(() => {
     if (!hasMultipleImages) return;
-    setIsImageLoading(true);
-    setCurrentImageIndex((i) =>
-      i === 0 ? images.length - 1 : i - 1,
-    );
-  }, [hasMultipleImages, images.length]);
+    
+    const newIndex = currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
+    
+    // Mark the new image as loading unless we've already loaded it
+    if (loadingImages[newIndex] !== false) {
+      setLoadingImages(prev => ({...prev, [newIndex]: true}));
+    }
+    
+    setCurrentImageIndex(newIndex);
+  }, [hasMultipleImages, images.length, currentImageIndex, loadingImages]);
 
   // keyboard arrows -----------------------------------------------------------
   useEffect(() => {
@@ -142,7 +183,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
       if (!hasMultipleImages) return;
       if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
         setIsKeyboardNav(true);
-        setIsImageLoading(true);
         e.key === "ArrowRight" ? nextImage() : prevImage();
         setTimeout(() => setIsKeyboardNav(false), 300);
       }
@@ -181,14 +221,17 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
               style={{ objectFit: "contain" }}
               sizes={getResponsiveSizes(1200)}
               quality={imageQuality.standard}
-              priority={currentImageIndex < 3}
+              priority={true} // Always prioritize the main image
               onError={() => {
-                // Keep spinner hidden on error
-                setIsImageLoading(false);
+                // Mark as loaded even on error - false means "not loading"
+                setLoadingImages(prev => ({...prev, [currentImageIndex]: false}));
               }}
               onLoad={() => {
-                // Hide spinner when image loads
-                setIsImageLoading(false);
+                // Mark as loaded - false means "not loading"
+                setLoadingImages(prev => ({...prev, [currentImageIndex]: false}));
+                
+                // Also mark this thumbnail as loaded
+                setLoadedThumbnails(prev => ({...prev, [currentImageIndex]: true}));
               }}
             />
           </div>
@@ -238,7 +281,12 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                 id={`thumbnail-${idx}`}
                 onClick={() => {
                   if (idx === currentImageIndex) return; // Skip if already selected
-                  setIsImageLoading(true);
+                  
+                  // Mark as loading unless we've already loaded it
+                  if (loadingImages[idx] !== false) {
+                    setLoadingImages(prev => ({...prev, [idx]: true}));
+                  }
+                  
                   setCurrentImageIndex(idx);
                 }}
                 className={`flex-shrink-0 relative w-16 h-16 rounded overflow-hidden cursor-pointer ${
@@ -259,7 +307,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                   fill
                   style={{ objectFit: "cover" }}
                   quality={imageQuality.thumbnail}
-                  priority={idx < 5} // Prioritize loading the first few thumbnails
+                  priority={idx < 5 || idx === currentImageIndex} // Prioritize loading active and first few thumbnails
                   onError={() => {
                     // Mark this thumbnail as loaded even on error
                     setLoadedThumbnails(prev => ({...prev, [idx]: true}));
