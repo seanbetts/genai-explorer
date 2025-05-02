@@ -6,7 +6,12 @@ import React, {
   useLayoutEffect,
   useState,
 } from "react";
-import { getValidImageUrl, PLACEHOLDER_IMAGE } from "../utils/imageUtils";
+import { 
+  getValidImageUrl, 
+  PLACEHOLDER_IMAGE,
+  imageQuality,
+  getResponsiveSizes
+} from "../utils/imageUtils";
 import ImageWithFallback from "./ImageWithFallback";
 
 interface ThumbnailScrollerProps {
@@ -152,7 +157,8 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
               alt={`Example image ${currentImageIndex + 1} from ${title}`}
               fill
               style={{ objectFit: "contain" }}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 60vw"
+              sizes={getResponsiveSizes(1200)}
+              quality={imageQuality.standard}
               priority={currentImageIndex < 3}
             />
           </div>
@@ -213,6 +219,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                   alt={`Thumbnail ${idx + 1}`}
                   fill
                   style={{ objectFit: "cover" }}
+                  quality={imageQuality.thumbnail}
                 />
               </button>
             ))}

@@ -2,32 +2,27 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  output: 'export', // Use static export for Netlify
-  trailingSlash: true, // Better for static hosting
   images: {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    // For static export, images must be unoptimized
-    unoptimized: true,
-    // Tightened: no external hosts allowed by default
+    // Optimize images to reduce bundle size
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 31536000, // 1 year in seconds
+    // Tightened: no external hosts allowed by default; add patterns here as needed
     remotePatterns: [],
   },
-  // Optimize build
+  // Optimize for Netlify deployment
+  output: 'standalone', // Produces a minimal serverless bundle
   poweredByHeader: false,
   reactStrictMode: true,
   // Optimize bundle size
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Define dynamic routes that should be pre-rendered
-  // This is important for Netlify static deployment
-  exportPathMap: async () => {
-    return {
-      '/': { page: '/' },
-      '/compare': { page: '/compare' },
-      '/_not-found': { page: '/_not-found' },
-    };
+  // Reduce the function size for Netlify
+  experimental: {
+    serverMinification: true,
   },
 };
 

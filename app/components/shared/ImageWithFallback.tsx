@@ -12,6 +12,7 @@ interface ImageWithFallbackProps extends React.ComponentPropsWithoutRef<typeof I
 const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
   src,
   alt,
+  quality = 75, // Default quality for optimization
   ...props
 }) => {
   const [imgSrc, setImgSrc] = useState(src);
@@ -21,6 +22,7 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
       {...props}
       src={imgSrc}
       alt={alt}
+      quality={quality}
       onError={() => setImgSrc(PLACEHOLDER_IMAGE)}
     />
   );

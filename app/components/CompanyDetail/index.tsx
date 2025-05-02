@@ -2,6 +2,7 @@
 
 import React, { Suspense } from 'react';
 import Image from 'next/image';
+import { imageQuality } from '../utils/imageUtils';
 import { Company } from '../types';
 // Dynamically import heavy components per tab
 const ModelTable = React.lazy(() => import('./ModelTable'));
@@ -251,6 +252,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
               alt={`${company.name} logo`}
               width={120}
               height={60}
+              quality={75}
               className={containerStyles.companyLogoImage}
               style={{ objectFit: "contain", maxWidth: "90%", height: "auto", maxHeight: "100%" }}
             />
