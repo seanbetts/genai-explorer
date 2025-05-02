@@ -249,11 +249,21 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                 )}
                 
                 {/* Advanced Features */}
-                {selectedModel.features?.advanced && Object.keys(selectedModel.features.advanced).length > 0 && (
+                {(selectedModel.features?.advanced && Object.keys(selectedModel.features.advanced).length > 0) ||
+                 (selectedModel.apiEndpoints?.available !== undefined) ? (
                   <div className="mb-2">
                     <h4 className="text-sm font-semibold text-cyan-400 mb-2">Advanced</h4>
                     <div className="grid grid-cols-2 gap-2">
-                      {Object.entries(selectedModel.features.advanced)
+                      {/* API Endpoint Availability */}
+                      {selectedModel.apiEndpoints?.available !== undefined && (
+                        <div className="flex items-center h-8">
+                          <i className={`${selectedModel.apiEndpoints.available === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                          <span className={textStyles.body}>API Available</span>
+                        </div>
+                      )}
+                      
+                      {/* Advanced Features */}
+                      {selectedModel.features?.advanced && Object.entries(selectedModel.features.advanced)
                         .map(([key, value]) => (
                           <div key={key} className="flex items-center h-8">
                             <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
@@ -262,7 +272,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         ))}
                     </div>
                   </div>
-                )}
+                ) : null}
               </div>
             </div>
           </div>
@@ -507,7 +517,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         id: 'output-formats',
                         label: 'Output Formats',
                         icon: 'bi-arrow-down-right-square-fill',
-                        iconColor: 'text-fuchsia-500',
+                        iconColor: 'text-cyan-400',
                         renderCell: (data: ApiEndpoint) => {
                           const opts = data.options;
                           return (
@@ -663,12 +673,12 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           );
                         }
                       },
-                      // Output-related fields (fuchsia icons)
+                      // Output-related fields (cyan icons)
                       {
                         id: 'output-file-types',
                         label: 'Output File Types',
                         icon: 'bi-file-earmark-arrow-down',
-                        iconColor: 'text-fuchsia-500',
+                        iconColor: 'text-cyan-400',
                         renderCell: (data: ApiEndpoint) => {
                           const o = data.options?.outputFileTypes;
                           return (
@@ -694,7 +704,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         id: 'output-sizes',
                         label: 'Output Sizes',
                         icon: 'bi-arrows-fullscreen',
-                        iconColor: 'text-fuchsia-500',
+                        iconColor: 'text-cyan-400',
                         renderCell: (data: ApiEndpoint) => {
                           const s = data.options?.outputSize;
                           return (
@@ -720,7 +730,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         id: 'quality-levels',
                         label: 'Quality Levels',
                         icon: 'bi-stars',
-                        iconColor: 'text-fuchsia-500',
+                        iconColor: 'text-cyan-400',
                         renderCell: (data: ApiEndpoint) => {
                           const q = data.options?.outputQuality;
                           return (
@@ -746,7 +756,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         id: 'output-compression',
                         label: 'Output Compression',
                         icon: 'bi-file-zip',
-                        iconColor: 'text-fuchsia-500',
+                        iconColor: 'text-cyan-400',
                         renderCell: (data: ApiEndpoint) => {
                           const oc = data.options?.outputCompression;
                           return (
@@ -758,7 +768,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         id: 'style-options',
                         label: 'Style Options',
                         icon: 'bi-palette',
-                        iconColor: 'text-fuchsia-500',
+                        iconColor: 'text-cyan-400',
                         renderCell: (data: ApiEndpoint) => {
                           const st = data.options?.outputStyle;
                           return (
@@ -784,7 +794,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         id: 'background',
                         label: 'Background',
                         icon: 'bi-square',
-                        iconColor: 'text-fuchsia-500',
+                        iconColor: 'text-cyan-400',
                         renderCell: (data: ApiEndpoint) => {
                           const bg = data.options?.background;
                           return (
@@ -810,7 +820,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         id: 'visual-intensity',
                         label: 'Visual Intensity',
                         icon: 'bi-sliders',
-                        iconColor: 'text-fuchsia-500',
+                        iconColor: 'text-cyan-400',
                         renderCell: (data: ApiEndpoint) => {
                           const vi = data.options?.visualIntesity;
                           return (
@@ -834,7 +844,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         id: 'tileable-output',
                         label: 'Tileable Output',
                         icon: 'bi-grid',
-                        iconColor: 'text-fuchsia-500',
+                        iconColor: 'text-cyan-400',
                         renderCell: (data: ApiEndpoint) => {
                           const t = data.options?.tileable;
                           return (
@@ -846,7 +856,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         id: 'placement-position',
                         label: 'Placement Position',
                         icon: 'bi-bullseye',
-                        iconColor: 'text-fuchsia-500',
+                        iconColor: 'text-cyan-400',
                         renderCell: (data: ApiEndpoint) => {
                           const pp = data.options?.placementPosition;
                           return (
@@ -858,7 +868,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         id: 'placement-alignment',
                         label: 'Placement Alignment',
                         icon: 'bi-layout-text-window',
-                        iconColor: 'text-fuchsia-500',
+                        iconColor: 'text-cyan-400',
                         renderCell: (data: ApiEndpoint) => {
                           const pa = data.options?.placementAlignment;
                           return (
@@ -870,7 +880,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         id: 'max-images',
                         label: 'Max Images',
                         icon: 'bi-images',
-                        iconColor: 'text-fuchsia-500',
+                        iconColor: 'text-cyan-400',
                         renderCell: (data: ApiEndpoint) => {
                           return (
                             data.options?.numberOfImages !== undefined ? 
@@ -915,7 +925,14 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                       <tr key={row.id} className="cursor-pointer">
                         <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
                           <div className={containerStyles.flexCenter}>
-                            <i className={`bi ${row.icon} ${iconStyles.tableRowIcon} ${row.iconColor}`} />
+                            <i className={`bi ${row.icon} ${
+                              // Output-related rows get cyan color
+                              ['output-formats', 'output-file-types', 'output-sizes', 'output-compression', 
+                               'quality-levels', 'style-options', 'background', 'max-images', 
+                               'visual-intensity', 'tileable-output', 'placement-position', 
+                               'placement-alignment'].includes(row.id) 
+                               ? 'text-cyan-400' 
+                               : 'text-fuchsia-500'}`} />
                             <span className={textStyles.primary}>{row.label}</span>
                           </div>
                         </td>
