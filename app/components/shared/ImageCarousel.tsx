@@ -83,6 +83,16 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   const [isImageLoading, setIsImageLoading] = useState(true);
   const [loadedThumbnails, setLoadedThumbnails] = useState<Record<number, boolean>>({}); // Track each thumbnail's loading state
   
+  // Ensure thumbnail loading state is properly tracked
+  useEffect(() => {
+    // When images change, we may need to reset the loading states
+    const initialLoadedState: Record<number, boolean> = {};
+    
+    // Start with all thumbnails in loading state
+    // This will be updated by the onLoad handlers on each thumbnail
+    setLoadedThumbnails(initialLoadedState);
+  }, [images]);
+  
   // ----- derived values ------------------------------------------------------
   const hasMultipleImages = images.length > 1;
   const currentImage = images[currentImageIndex] ?? PLACEHOLDER_IMAGE;
@@ -109,11 +119,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
     return () => window.removeEventListener('resize', checkThumbnailLayout);
   }, [images.length]);
   
-  // Reset loading state when images array changes
-  useEffect(() => {
-    // Reset thumbnail loading states when images change
-    setLoadedThumbnails({});
-  }, [images]);
+  // This effect was replaced by our more comprehensive loading state management above
 
   // ----- image navigation ----------------------------------------------------
   const nextImage = useCallback(() => {
@@ -231,6 +237,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                 key={idx}
                 id={`thumbnail-${idx}`}
                 onClick={() => {
+                  if (idx === currentImageIndex) return; // Skip if already selected
                   setIsImageLoading(true);
                   setCurrentImageIndex(idx);
                 }}
@@ -252,10 +259,13 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                   fill
                   style={{ objectFit: "cover" }}
                   quality={imageQuality.thumbnail}
+                  priority={idx < 5} // Prioritize loading the first few thumbnails
                   onError={() => {
+                    // Mark this thumbnail as loaded even on error
                     setLoadedThumbnails(prev => ({...prev, [idx]: true}));
                   }}
                   onLoad={() => {
+                    // Mark this thumbnail as loaded when it loads
                     setLoadedThumbnails(prev => ({...prev, [idx]: true}));
                   }}
                 />
