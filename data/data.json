@@ -3911,9 +3911,15 @@
           "systemCard": "",
           "modelGuide": "https://helpx.adobe.com/uk/firefly/work-with-audio-and-video/work-with-video/writing-effective-text-prompts-for-video-generation.html",
           "apiDocumentation": "",
-          "videoExamples": [],
+          "videoExamples": {
+            "frog": ["https://images-tv.adobe.com/mpcv3/1024/d442cba5-c05e-41ef-90d7-efacccab3a49_1743635930.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/c5bc3038-35d2-46c2-a455-4f2e7cd95008/5ecc921d-fbd3-4987-8c0b-16f524964cd3/de41d0db5bf94ee9a1fe2bb16da4b681_1743635964-1920x1080.jpg"],
+            "sheep": ["https://images-tv.adobe.com/mpcv3/1041/50769bf1-4de2-4bf8-8287-84f0d2fdee60_1738107257.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/863b4d13-12c1-4736-9753-c3c9f740f7e2/6404c368-1bc2-47ae-8178-d8f597906c42/fdee672aa0da48ccac351f1e3e8bfe76_1736902485-1920x1440.jpg"],
+            "effects": ["https://images-tv.adobe.com/mpcv3/3710/1720e0ba-4815-4d51-a65f-7faea7b67d0d_1728499417.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/b27ade89-e9bb-4a22-9858-0c43b22e7d8a/4486a91a-5f31-4887-9e03-4604fc7a1361/b06e24b8051e4e95a1d7cc19123dec81_1728499446-1920x1080.jpg"],
+            "camera_control": ["https://images-tv.adobe.com/mpcv3/1041/b36bbe5d-f323-4424-a448-767220909215_1728323525.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/5e31c51e-4e48-4864-915d-70adfacf04f3/886d91dd-3eb2-4a90-a004-3ecde7d6ae3e/f0c441da71224fed94abf859bbeefcb4_1728323804-1920x1080.jpg"],
+            "commercially_safe": ["https://images-tv.adobe.com/mpcv3/1041/48f34c41-9f48-4352-95e1-9c65cc716537_1738107316.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/863b4d13-12c1-4736-9753-c3c9f740f7e2/e32b0faa-7d42-4161-ac86-b9aafbe5097b/b0a45774264c47d58c660333ab5bc77a_1736902594-1920x1440.jpg"]
+          },
           "demoVideos": {
-            "your_ideas_in_motion": ["https://clio-assets.adobe.com/clio-playground/video-cache/video-generation/webm/ff-video-gen-intro-video-desktop_2-en_US.webm"],
+            "your_ideas_in_motion": ["https://clio-assets.adobe.com/clio-playground/video-cache/video-generation/webm/ff-video-gen-intro-video-desktop_2-en_US.webm","https://images-tv.adobe.com/mpcv3/3f9704a8-b1e2-4248-9176-2ad96d92c053/7ef26f14-60af-4f0f-8616-c78ed4730b63/471b9a0079d049b5b9a29f25490982fe_1739446221-1920x1080.jpg"],
             "b_roll": ["https://images-tv.adobe.com/mpcv3/7622/6a38d59a-22df-4f03-b254-3a9bc46ee8a5_1740178861.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/bad37330-6a88-4f59-a9ae-abffc7f31387/39d9b5d9af7e4724b7ef9a840c6b4669_1740179024-1920x1080.jpg"],
             "launch_teaser": ["https://images-tv.adobe.com/mpcv3/7622/85a2b1a7-8e06-4ed2-82a3-9573e9c2d72c_1740178199.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/192f3e99-561a-4ea7-be96-ea3acbee609e/233736a590234b698126b4fa0f180656_1740178372-1920x1080.jpg"]
           },
