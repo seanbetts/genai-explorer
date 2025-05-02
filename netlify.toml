@@ -1,9 +1,11 @@
 [build]
   command = "npm run build"
-  publish = ".next"
+  publish = "out"
 
 [build.environment]
   NEXT_TELEMETRY_DISABLED = "1"
+  NODE_OPTIONS = "--max-old-space-size=4096"
+  NEXT_SHARP_PATH = "/tmp/node_modules/sharp"
   
 # Set cache headers for static assets
 [[headers]]
@@ -22,14 +24,17 @@
     w = ":width"
     q = ":quality"
 
-# Split large functions to avoid 250MB limit
-[functions]
-  # Increase timeout for larger functions
-  node_bundler = "esbuild"
-  
+# Handle fallback to index to support Next.js routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
 # Use Netlify Next.js plugin
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+  [plugins.inputs]
+    includeFiles = []
 
 # Add compression
 [build.processing]
