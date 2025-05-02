@@ -130,6 +130,10 @@ export interface Model {
   about?: string; // Detailed description for the model
   exampleImages?: string[]; // Array of image paths
   imageList?: string[]; // Explicit list of image paths to use for static export
+  imageExamples?: {
+    numberOfImages: number;
+    imageFormat?: string;
+  }; // Structured data for image examples
   demoVideos?: Record<string, string | string[]>; // Key-value pairs of demo names and video URLs or [videoURL, thumbnailURL]
   modelGuide?: string; // URL to model guide documentation
   apiDocumentation?: string; // URL to API documentation
@@ -152,7 +156,10 @@ export interface Model {
   safety?: Record<string, any>; // Safety features of the model (can contain boolean values or strings for URLs)
   aspectRatios?: Record<string, boolean>; // Supported aspect ratios for image generation
   videoExamples?: string[] | Record<string, string>; // Example videos for video models
-  audioExamples?: string[] | Record<string, string>; // Example audio clips for audio models
+  audioExamples?: string[] | Record<string, string> | {
+    files: string[];
+    embeds: Record<string, string>;
+  }; // Example audio clips for audio models
   audioList?: Record<string, string>; // Explicit list of audio paths to use for static export
 }
 

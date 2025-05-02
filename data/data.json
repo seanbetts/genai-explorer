@@ -434,6 +434,10 @@
           "systemCard": "https://cdn.openai.com/11998be9-5319-4302-bfbf-1167e093f1fb/Native_Image_Generation_System_Card.pdf",
           "modelGuide": "https://platform.openai.com/docs/guides/image-generation",
           "apiDocumentation": "https://platform.openai.com/docs/api-reference/images",
+          "imageExamples": {
+            "numberOfImages": 47,
+            "imageFormat": "png"
+          },
           "demoVideos": {
             "upload_and_restyle": "https://youtu.be/jevonM6gBcA?si=x2-nqUolnMfRb7JI",
             "transparent_layers": "https://youtu.be/tMhAASk9i1o?si=SQkpMs2p93y-Xkgz",
@@ -1431,6 +1435,10 @@
           "systemCard": "https://storage.googleapis.com/deepmind-media/imagen/imagen_3_tech_report_update_dec2024_v3.pdf",
           "modelGuide": "https://cloud.google.com/vertex-ai/generative-ai/docs/image/overview",
           "apiDocumentation": "https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/imagen-api",
+          "imageExamples": {
+            "numberOfImages": 22,
+            "imageFormat": "webp"
+          },
           "demoVideos": {
             "photorealistic_images":"https://www.youtube.com/watch?v=nEuNwULfGXk"
           },
@@ -3730,6 +3738,10 @@
           "systemCard": "",
           "modelGuide": "https://helpx.adobe.com/firefly/user-guide.html",
           "apiDocumentation": "https://developer.adobe.com/firefly-services/docs/firefly-api/",
+          "imageExamples": {
+            "numberOfImages": 16,
+            "imageFormat": "webp"
+          },
           "demoVideos": {
             "discover": ["https://images-tv.adobe.com/mpcv3/7628/fbbef6db-f4e7-4757-80bd-5706d1a8749e_1739525687.854x480at800_h264.mp4", "https://images-tv.adobe.com/mpcv3/3f9704a8-b1e2-4248-9176-2ad96d92c053/cc227605-babb-4df3-b4f5-194cf6d7d946/e6ead2a7aa1d4561be81f33dc42bba9d_1737456413-1920x1080.jpg"],
             "how_to_use": "https://www.youtube.com/watch?v=lt4k9lVnS1Y",
@@ -4087,6 +4099,10 @@
           "systemCard": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version#h_01JQSR0Q6H0AX8NCC8QGE6C2NZ",
           "modelGuide": "https://docs.midjourney.com/hc/en-us/articles/33329261836941-Getting-Started-Guide",
           "apiDocumentation": "",
+          "imageExamples": {
+            "numberOfImages": 27,
+            "imageFormat": "webp"
+          },
           "demoVideos": {
             "draft_mode": "https://updates.midjourney.com/content/media/2025/04/Draft-Mode-V1.6---Subtitles.mp4"
           },
@@ -4227,6 +4243,10 @@
           "systemCard": "",
           "modelGuide": "",
           "apiDocumentation": "https://platform.stability.ai/docs/api-reference",
+          "imageExamples": {
+            "numberOfImages": 22,
+            "imageFormat": "jpg"
+          },
           "demoVideos": {},
           "termsOfService": "https://platform.stability.ai/legal/terms-of-service",
           "usagePolicy": "https://stability.ai/use-policy",
@@ -4425,6 +4445,10 @@
           "systemCard": "https://arxiv.org/pdf/2504.11346",
           "modelGuide": "",
           "apiDocumentation": "",
+          "imageExamples": {
+            "numberOfImages": 28,
+            "imageFormat": "webp"
+          },
           "demoVideos": {},
           "termsOfService": "https://seed.bytedance.com/en/user-agreement",
           "usagePolicy": "",

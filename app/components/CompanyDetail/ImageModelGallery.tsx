@@ -52,7 +52,7 @@ function formatDemoName(key: string): string {
 // -----------------------------------------------------------------------------
 interface ImageModelGalleryProps {
   models: Model[];
-  /** Company ID for dynamic image discovery */
+  /** Company ID for paths to image files */
   companyId: string;
 }
 
@@ -66,13 +66,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
 
   const selectedModel = models.find((m) => m.id === selectedModelId);
 
-  // ----- state for image URLs fetched dynamically ---------------------------
+  // ----- state for image URLs ---------------------------
   const [imageUrls, setImageUrls] = useState<string[]>([]);
 
-  // ----- state for tracking discovery of images -------------------------
-  const [isDiscovering, setIsDiscovering] = useState(false);
-  
-  // ----- generate and discover valid image paths -------------------------
+  // Generate image paths based on imageExamples data
   useEffect(() => {
     if (!selectedModelId) {
       setImageUrls([]);
@@ -81,90 +78,50 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
     
     // Reset on change
     setImageUrls([]);
-    setIsDiscovering(true);
     
-    // Generate paths for static export and discover valid ones
-    try {
-      const baseDir = `/images/companies/${companyId}/example_images/${selectedModelId}`;
+    // Find the selected model
+    const selectedModelObj = models.find(m => m.id === selectedModelId);
+    if (!selectedModelObj) {
+      return;
+    }
+    
+    // Base directory for this model's images
+    const baseDir = `/images/companies/${companyId}/example_images/${selectedModelId}`;
+    
+    // Check if model has imageExamples with numberOfImages
+    if (selectedModelObj.imageExamples && 
+        typeof selectedModelObj.imageExamples === 'object' && 
+        selectedModelObj.imageExamples.numberOfImages) {
       
-      // For models with explicitly defined image lists, use those
-      const selectedModelObj = models.find(m => m.id === selectedModelId);
+      const numberOfImages = selectedModelObj.imageExamples.numberOfImages;
+      const imageFormat = selectedModelObj.imageExamples.imageFormat || 'webp';
+      const newImageUrls: string[] = [];
       
-      if (selectedModelObj?.imageList && Array.isArray(selectedModelObj.imageList)) {
-        // Use predefined image list if available
-        setImageUrls(selectedModelObj.imageList.map(img => 
-          img.startsWith('/') ? img : `${baseDir}/${img}`
-        ));
-        setIsDiscovering(false);
-      } else if (selectedModelObj?.exampleImages && Array.isArray(selectedModelObj.exampleImages)) {
-        // Use example images if available
-        setImageUrls(selectedModelObj.exampleImages.map(img => 
-          img.startsWith('/') ? img : `${baseDir}/${img}`
-        ));
-        setIsDiscovering(false);
-      } else {
-        // Discover valid images sequentially
-        // This approach checks each image (1.jpg, 1.png, etc.) and stops when no more are found
-        // It avoids displaying 50 thumbnails when only 10 images exist
-        const checkSequentialImages = async () => {
-          const validImages: string[] = [];
-          const extensions = ['.png', '.jpg', '.webp', '.jpeg'];
-          let foundImages = true;
-          let index = 1;
-          
-          // Only try the first 20 images to avoid too many requests
-          while (foundImages && index <= 20) {
-            // For each numeric index, try each file extension
-            const foundForThisIndex = await checkImageWithExtensions(`${baseDir}/${index}`, extensions);
-            
-            if (foundForThisIndex) {
-              // If any extension worked, add the base numeric path
-              validImages.push(`${baseDir}/${index}`);
-              index++;
-            } else {
-              // If no extensions worked for this index, we've reached the end
-              foundImages = false;
-            }
-          }
-          
-          // Update the state with valid images only
-          setImageUrls(validImages.length > 0 ? validImages : []);
-          setIsDiscovering(false);
-        };
-        
-        // Start the discovery process
-        checkSequentialImages();
+      // Generate sequential image paths with the specified format
+      for (let i = 1; i <= numberOfImages; i++) {
+        newImageUrls.push(`${baseDir}/${i}.${imageFormat}`);
       }
-    } catch (err) {
-      console.error('Failed to discover image URLs for', selectedModelId, err);
-      setIsDiscovering(false);
+      
+      setImageUrls(newImageUrls);
+    } 
+    // Fallback to previously supported formats if imageExamples isn't available
+    else if (selectedModelObj.imageList && Array.isArray(selectedModelObj.imageList)) {
+      // Use predefined image list if available
+      setImageUrls(selectedModelObj.imageList.map(img => 
+        img.startsWith('/') ? img : `${baseDir}/${img}`
+      ));
+    } 
+    else if (selectedModelObj.exampleImages && Array.isArray(selectedModelObj.exampleImages)) {
+      // Use example images if available
+      setImageUrls(selectedModelObj.exampleImages.map(img => 
+        img.startsWith('/') ? img : `${baseDir}/${img}`
+      ));
+    }
+    // If no image data is available, use an empty array
+    else {
+      setImageUrls([]);
     }
   }, [companyId, selectedModelId, models]);
-  
-  // Helper function to check if an image with any of the given extensions exists
-  const checkImageWithExtensions = async (basePath: string, extensions: string[]): Promise<boolean> => {
-    // Try each extension
-    for (const ext of extensions) {
-      const fullPath = `${basePath}${ext}`;
-      try {
-        // Create a promise that resolves when the image loads or rejects on error
-        const exists = await new Promise<boolean>((resolve) => {
-          const img = new window.Image();
-          img.onload = () => resolve(true);
-          img.onerror = () => resolve(false);
-          img.src = fullPath;
-        });
-        
-        // If this extension works, return true immediately
-        if (exists) return true;
-      } catch {
-        // Ignore errors and continue checking
-      }
-    }
-    
-    // If no extensions worked, return false
-    return false;
-  };
 
   // ---------------------------------------------------------------------------
   // Render helpers ------------------------------------------------------------
@@ -1107,18 +1064,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
       
       {models.length > 1 && renderModelTabs()}
 
-      {isDiscovering ? (
-        <div className="mb-8 p-0">
-          <div className="flex items-center justify-center h-64 bg-gray-800 rounded-lg">
-            <div className="flex flex-col items-center space-y-4">
-              <div className="w-12 h-12 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
-              <p className="text-sm text-gray-400">Discovering images...</p>
-            </div>
-          </div>
-        </div>
-      ) : (
-        imageUrls.length > 0 && <div className="mb-8 p-0">{renderImageGallery()}</div>
-      )}
+      {imageUrls.length > 0 && <div className="mb-8 p-0">{renderImageGallery()}</div>}
 
       {renderModelDetails()}
 
