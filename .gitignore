@@ -16,6 +16,7 @@
 # next.js
 /.next/
 /out/
+.next/cache
 
 # production
 /build
@@ -23,6 +24,8 @@
 # misc
 .DS_Store
 *.pem
+.cache/
+.netlify/cache/
 
 # debug
 npm-debug.log*
