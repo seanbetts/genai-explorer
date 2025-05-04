@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import VideoCarousel from "../shared/VideoCarousel";
 import { Model } from "../types";
 import { textStyles, headingStyles } from "../utils/theme";
 import {
@@ -366,6 +367,21 @@ const SpecialisedModelGallery: React.FC<SpecialisedModelGalleryProps> = ({ model
           </div>
         </div>
         
+        {/* Demo videos section */}
+        {selectedModel.demoVideos && Object.keys(selectedModel.demoVideos).length > 0 && (
+          <>
+            <h3 className={`${headingStyles.card} mb-3`}>Demo Videos</h3>
+            <div className="mb-8">
+              <VideoCarousel 
+                videos={selectedModel.demoVideos as Record<string, string>}
+                title={selectedModel.name}
+                formatDemoName={formatDemoName}
+                carouselId={`${selectedModel.id}-demo-videos`}
+              />
+            </div>
+          </>
+        )}
+        
         {/* Resources section - only show if at least one resource is available */}
         {(selectedModel.releasePost || 
           selectedModel.releaseVideo || 
@@ -462,12 +478,36 @@ const SpecialisedModelGallery: React.FC<SpecialisedModelGalleryProps> = ({ model
     );
   };
 
+  // Render the hero video carousel at the top
+  const renderHeroVideo = () => {
+    if (!selectedModel || !selectedModel.heroVideo || 
+        (typeof selectedModel.heroVideo === 'object' && Object.keys(selectedModel.heroVideo).length === 0)) {
+      return null;
+    }
+
+    return (
+      <div className="mb-8 p-0">
+        <VideoCarousel 
+          videos={
+            typeof selectedModel.heroVideo === 'object' 
+              ? selectedModel.heroVideo as Record<string, string>
+              : { "hero": selectedModel.heroVideo as string }
+          }
+          title={selectedModel.name}
+          carouselId={`${selectedModel.id}-hero-video`}
+          formatDemoName={formatDemoName}
+        />
+      </div>
+    );
+  };
+
   // Guard: no models 
   if (!models || models.length === 0) return null;
 
   return (
     <>
       {models.length > 1 && renderModelTabs()}
+      {selectedModel && selectedModel.heroVideo && renderHeroVideo()}
       {renderModelDetails()}
     </>
   );
