@@ -156,6 +156,7 @@ export interface Model {
   safety?: Record<string, any>; // Safety features of the model (can contain boolean values or strings for URLs)
   aspectRatios?: Record<string, boolean>; // Supported aspect ratios for image generation
   videoExamples?: string[] | Record<string, string>; // Example videos for video models
+  heroVideo?: string | Record<string, string>; // Hero video for specialized models
   audioExamples?: string[] | Record<string, string> | {
     files: string[];
     embeds: Record<string, string>;

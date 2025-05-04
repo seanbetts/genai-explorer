@@ -106,263 +106,185 @@ const SpecialisedModelGallery: React.FC<SpecialisedModelGalleryProps> = ({ model
         {/* Combined features grid: product, safety, and aspect ratios */}
         {/* Added extra bottom margin to separate from other sections */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {/* Model Features column */}
+          {/* Product Features column */}
           <div>
-            <h3 className={`${headingStyles.card} mb-3`}>Model Features</h3>
-            <div className={`${containerStyles.card} min-h-[30.7rem] h-auto`}>
+            <h3 className={`${headingStyles.card} mb-3`}>Product Features</h3>
+            <div className={`${containerStyles.card} min-h-[15rem] h-auto`}>
               <div className="space-y-4">
-                {/* Specs section - display model capabilities */}
-                {selectedModel.specs && (
+                {/* Dynamic feature categories from model.features object */}
+                {selectedModel.features && Object.keys(selectedModel.features).length > 0 && (
                   <>
-                    <div className="mb-2">
-                      <h4 className="text-sm font-semibold text-cyan-400 mb-2">Capabilities</h4>
-                      <div className="grid grid-cols-2 gap-2">
-                        {/* Boolean features */}
-                        {Object.entries(selectedModel.specs)
-                          .filter(([key, value]) => typeof value === 'boolean' && !["openSource", "commercialUseAllowed"].includes(key))
-                          .map(([key, value]) => (
-                            <div key={key} className="flex items-center h-8">
-                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                              <span className={textStyles.body}>{formatFeatureName(key)}</span>
-                            </div>
-                          ))}
-                      </div>
+                    {/* Map over each feature section (section_1, section_2, etc.) */}
+                    {Object.entries(selectedModel.features).map(([sectionKey, features], index, featuresArray) => {
+                      if (!features || Object.keys(features).length === 0) return null;
                       
-                      {/* Array features */}
-                      {Object.entries(selectedModel.specs || {})
-                        .filter(([key, value]) => 
-                          Array.isArray(value) && 
-                          value.length > 0 &&
-                          !["techniques", "genres", "styles", "integrated"].includes(key)
-                        )
-                        .map(([key, values]) => (
-                          <div key={key} className="mt-4 mb-4">
-                            <h5 className="text-xs font-medium text-gray-300 mb-2">{formatFeatureName(key)}</h5>
-                            <div className="flex flex-wrap gap-2">
-                              {Array.isArray(values) && (values as Array<string | number>).map((value, index) => (
-                                <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
-                                  {value}
-                                </span>
-                              ))}
+                      // Format section name (convert section_1 to Section 1, etc.)
+                      const sectionName = sectionKey.startsWith('section_') 
+                        ? `Section ${sectionKey.split('_')[1]}`
+                        : formatFeatureName(sectionKey);
+                      
+                      // Determine if this is the last feature section to add API availability
+                      const isLastSection = index === featuresArray.length - 1;
+                      
+                      return (
+                        <React.Fragment key={sectionKey}>
+                          <div className="mb-4">
+                            <h4 className="text-sm font-semibold text-cyan-400 mb-2">{sectionName}</h4>
+                            <div className="grid grid-cols-2 gap-2">
+                              {/* Boolean features */}
+                              {Object.entries(features)
+                                .filter(([_, value]) => typeof value === 'boolean')
+                                .map(([key, value]) => (
+                                  <div key={key} className="flex items-center h-8">
+                                    <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                                    <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                                  </div>
+                                ))}
+                              
+                              {/* Add API availability to the last section */}
+                              {isLastSection && selectedModel.apiEndpoints?.available !== undefined && (
+                                <div className="flex items-center h-8">
+                                  <i className={`${selectedModel.apiEndpoints.available === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                                  <span className={textStyles.body}>API Available</span>
+                                </div>
+                              )}
                             </div>
+                            
+                            {/* Array features */}
+                            {Object.entries(features)
+                              .filter(([_, value]) => Array.isArray(value) && value.length > 0)
+                              .map(([key, values]) => (
+                                <div key={key} className="mt-4 mb-4">
+                                  <h5 className="text-xs font-medium text-gray-300 mb-2">{formatFeatureName(key)}</h5>
+                                  <div className="flex flex-wrap gap-2">
+                                    {Array.isArray(values) && (values as Array<string | number>).map((value, index) => (
+                                      <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                        {typeof value === 'number' ? `${value}s` : value}
+                                      </span>
+                                    ))}
+                                  </div>
+                                </div>
+                              ))}
+                              
+                            {/* Object features */}
+                            {Object.entries(features)
+                              .filter(([_, value]) => typeof value === 'object' && value !== null && !Array.isArray(value))
+                              .map(([key, value]) => (
+                                <div key={key} className="mt-4">
+                                  <h5 className="text-xs font-medium text-gray-300 mb-2">{formatFeatureName(key)}</h5>
+                                  <div className="pl-4">
+                                    {Object.entries(value as Record<string, any>).map(([subKey, subValue]) => {
+                                      if (typeof subValue === 'boolean') {
+                                        return (
+                                          <div key={subKey} className="flex items-center h-8">
+                                            <i className={`${subValue === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                                            <span className={textStyles.body}>{formatFeatureName(subKey)}</span>
+                                          </div>
+                                        );
+                                      } else if (Array.isArray(subValue) && subValue.length > 0) {
+                                        return (
+                                          <div key={subKey} className="mt-2 mb-3">
+                                            <h6 className="text-xs font-medium text-gray-400 mb-1">{formatFeatureName(subKey)}</h6>
+                                            <div className="flex flex-wrap gap-1">
+                                              {subValue.map((item, index) => (
+                                                <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                                  {item}
+                                                </span>
+                                              ))}
+                                            </div>
+                                          </div>
+                                        );
+                                      }
+                                      return null;
+                                    })}
+                                  </div>
+                                </div>
+                              ))}
                           </div>
-                        ))}
-                        
-                      {/* Token limits */}
-                      {(selectedModel.specs?.maxInputTokens || selectedModel.specs?.maxOutputTokens) && (
-                        <div className="mt-4 mb-4">
-                          <h5 className="text-xs font-medium text-gray-300 mb-2">Token Limits</h5>
-                          <div className="grid grid-cols-2 gap-2">
-                            {selectedModel.specs?.maxInputTokens && (
-                              <div className="flex items-center h-8">
-                                <i className="bi bi-arrow-right text-fuchsia-500 mr-2" />
-                                <span className={textStyles.body}>
-                                  Max Input: {selectedModel.specs.maxInputTokens.toLocaleString()}
-                                </span>
-                              </div>
-                            )}
-                            {selectedModel.specs?.maxOutputTokens && (
-                              <div className="flex items-center h-8">
-                                <i className="bi bi-arrow-left text-fuchsia-500 mr-2" />
-                                <span className={textStyles.body}>
-                                  Max Output: {selectedModel.specs.maxOutputTokens.toLocaleString()}
-                                </span>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Knowledge cutoff */}
-                      {selectedModel.specs?.knowledgeCutoff && (
-                        <div className="mt-4 mb-4">
-                          <div className="flex items-center h-8">
-                            <i className="bi bi-calendar-check text-fuchsia-500 mr-2" />
-                            <span className={textStyles.body}>
-                              Knowledge Cutoff: {selectedModel.specs.knowledgeCutoff}
-                            </span>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                    <div className="border-b border-gray-700 my-2"></div>
+                          
+                          {/* Add divider if not the last section */}
+                          {index < featuresArray.length - 1 && (
+                            <div className="border-b border-gray-700 my-4"></div>
+                          )}
+                        </React.Fragment>
+                      );
+                    })}
                   </>
                 )}
                 
-                {/* Basic metadata */}
-                <div className="mb-2">
-                  <h4 className="text-sm font-semibold text-cyan-400 mb-2">Model Info</h4>
-                  <div className="grid grid-cols-1 gap-2">
-                    {selectedModel.parameterCount && (
-                      <div className="flex items-center h-8">
-                        <i className="bi bi-cpu text-fuchsia-500 mr-2" />
-                        <span className={textStyles.body}>Parameters: {selectedModel.parameterCount} billion</span>
-                      </div>
-                    )}
-                    {selectedModel.contextLength && (
-                      <div className="flex items-center h-8">
-                        <i className="bi bi-text-paragraph text-fuchsia-500 mr-2" />
-                        <span className={textStyles.body}>Context Length: {selectedModel.contextLength.toLocaleString()} tokens</span>
-                      </div>
-                    )}
-                    {selectedModel.license && (
-                      <div className="flex items-center h-8">
-                        <i className="bi bi-shield-check text-fuchsia-500 mr-2" />
-                        <span className={textStyles.body}>License: {selectedModel.license}</span>
-                      </div>
-                    )}
-                    {selectedModel.specs?.openSource !== undefined && (
-                      <div className="flex items-center h-8">
-                        <i className={`${selectedModel.specs.openSource ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                        <span className={textStyles.body}>Open Source</span>
-                      </div>
-                    )}
-                    {selectedModel.specs?.commercialUseAllowed !== undefined && (
-                      <div className="flex items-center h-8">
-                        <i className={`${selectedModel.specs.commercialUseAllowed ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                        <span className={textStyles.body}>Commercial Use Allowed</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                {/* If there are any specialized techniques */}
-                {selectedModel.specs?.techniques && selectedModel.specs.techniques.length > 0 && (
-                  <>
-                    <div className="border-b border-gray-700 my-2"></div>
-                    <div className="mb-2">
-                      <h4 className="text-sm font-semibold text-cyan-400 mb-2">Techniques</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {selectedModel.specs.techniques.map((technique, index) => (
-                          <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
-                            {technique}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </>
-                )}
               </div>
             </div>
           </div>
           
-          {/* Right column: Integrations and Access */}
+          {/* Right column: Safety Features */}
           <div className="space-y-6">
-            {/* Integrations */}
+            {/* Safety Features */}
             <div>
-              <h3 className={`${headingStyles.card} mb-3`}>Integrations & Formats</h3>
-              <div className={`${containerStyles.card} min-h-[12rem] h-auto`}>
-                {/* Input/Output formats */}
-                {(selectedModel.specs?.inputFormats?.length || selectedModel.specs?.outputFormats?.length) && (
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-cyan-400 mb-3">Formats</h4>
-                    <div className="grid grid-cols-2 gap-x-8 gap-y-4">
-                      {selectedModel.specs?.inputFormats && selectedModel.specs.inputFormats.length > 0 && (
-                        <div>
-                          <h5 className="text-xs font-medium text-gray-300 mb-2">Input Formats</h5>
-                          <div className="flex flex-wrap gap-2">
-                            {selectedModel.specs.inputFormats.map((format, index) => (
-                              <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
-                                {format}
-                              </span>
-                            ))}
+              <h3 className={`${headingStyles.card} mb-3`}>Safety Features</h3>
+              { (Object.keys(selectedModel.safety ?? {}).length > 0 ||
+                  selectedModel.termsOfService ||
+                  selectedModel.usagePolicy ||
+                  selectedModel.commerciallySafe !== undefined) ? (
+              <div className={`${containerStyles.card} min-h-[15rem] h-auto`}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      {Object.entries(selectedModel.safety ?? {})
+                        .filter(([key]) => 
+                          key !== 'ipRespect' && 
+                          key !== 'IPRespect' && 
+                          key !== 'C2PA' && 
+                          key !== 'c2pa'
+                        )
+                        .map(([key, value]) => (
+                          <div key={key} className="flex items-center h-8">
+                            <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                            <span className={textStyles.body}>{formatFeatureName(key)}</span>
                           </div>
-                        </div>
-                      )}
-                      {selectedModel.specs?.outputFormats && selectedModel.specs.outputFormats.length > 0 && (
-                        <div>
-                          <h5 className="text-xs font-medium text-gray-300 mb-2">Output Formats</h5>
-                          <div className="flex flex-wrap gap-2">
-                            {selectedModel.specs.outputFormats.map((format, index) => (
-                              <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
-                                {format}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
+                        ))}
                     </div>
-                  </div>
-                )}
-
-                {/* Integrations */}
-                {selectedModel.specs?.integrated && selectedModel.specs.integrated.length > 0 && (
-                  <div>
-                    <h4 className="text-sm font-semibold text-cyan-400 mb-3">Integrations</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedModel.specs.integrated.map((integration, index) => (
-                        <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
-                          {integration}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-            
-            {/* Access section */}
-            <div>
-              <h3 className={`${headingStyles.card} mb-3`}>Access</h3>
-              <div className={`${containerStyles.card} h-auto`}>
-                {/* API availability */}
-                {selectedModel.apiEndpoints?.available !== undefined && (
-                  <div className="mb-4">
-                    <div className="flex items-center h-8">
-                      <i className={`${selectedModel.apiEndpoints.available ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                      <span className={textStyles.body}>API Available</span>
-                    </div>
-                  </div>
-                )}
-
-                {/* Access types */}
-                {selectedModel.access && selectedModel.access.length > 0 && (
-                  <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-cyan-400 mb-2">Access Methods</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedModel.access.map((accessType, index) => (
-                        <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
-                          {accessType}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Pricing details */}
-                {(selectedModel.specs?.pricingInputPerM !== undefined || 
-                  selectedModel.specs?.pricingOutputPerM !== undefined) && (
-                  <div className="mb-2">
-                    <h4 className="text-sm font-semibold text-cyan-400 mb-2">Pricing (per 1M tokens)</h4>
-                    <div className="grid grid-cols-2 gap-2">
-                      {selectedModel.specs?.pricingInputPerM !== undefined && (
+                    <div className="space-y-2 flex flex-col">
+                      {/* IP Respect */}
+                      {(selectedModel.safety?.IPRespect !== undefined || selectedModel.safety?.ipRespect !== undefined) && (
                         <div className="flex items-center h-8">
-                          <i className="bi bi-arrow-right text-fuchsia-500 mr-2" />
-                          <span className={textStyles.body}>
-                            Input: ${selectedModel.specs.pricingInputPerM.toFixed(2)}
-                          </span>
+                          <i className={`${(selectedModel.safety?.IPRespect === true || selectedModel.safety?.ipRespect === true) ? 
+                            iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
+                          <span className={textStyles.body}>IP Respect</span>
                         </div>
                       )}
-                      {selectedModel.specs?.pricingOutputPerM !== undefined && (
+                      {selectedModel.commerciallySafe !== undefined && (
                         <div className="flex items-center h-8">
-                          <i className="bi bi-arrow-left text-fuchsia-500 mr-2" />
-                          <span className={textStyles.body}>
-                            Output: ${selectedModel.specs.pricingOutputPerM.toFixed(2)}
-                          </span>
+                          <i className={`${selectedModel.commerciallySafe ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
+                          <span className={textStyles.body}>{selectedModel.commerciallySafe ? 'Commercially safe' : 'Not commercially safe'}</span>
                         </div>
                       )}
-                      {selectedModel.specs?.pricingCachedInputPerM !== undefined && (
-                        <div className="flex items-center h-8">
-                          <i className="bi bi-clock-history text-fuchsia-500 mr-2" />
-                          <span className={textStyles.body}>
-                            Cached Input: ${selectedModel.specs.pricingCachedInputPerM.toFixed(2)}
-                          </span>
-                        </div>
+                      {selectedModel.usagePolicy && (
+                        <a
+                          href={selectedModel.usagePolicy}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                        >
+                          <i className="bi bi-shield-check mr-1" /> Usage Policy
+                        </a>
+                      )}
+                      {selectedModel.termsOfService && (
+                        <a
+                          href={selectedModel.termsOfService}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                        >
+                          <i className="bi bi-file-earmark-text mr-1" /> Terms of Service
+                        </a>
                       )}
                     </div>
                   </div>
-                )}
-              </div>
+                </div>
+              ) : (
+              <div className={`${containerStyles.card} min-h-[30.7rem] h-auto flex items-center justify-center`}>
+                  <p className={textStyles.body}>No safety features</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
