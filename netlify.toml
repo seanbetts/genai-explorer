@@ -6,14 +6,11 @@
   NEXT_TELEMETRY_DISABLED = "1"
   NODE_OPTIONS = "--max-old-space-size=4096"
   
-# Enable build cache
+# Enable Next.js build cache
 [build.cache]
   lifecycle = "persist"
   dir = [
-    ".next/cache",
-    "node_modules/.cache",
-    "node_modules",
-    ".next"
+    ".next/cache"
   ]
   
 # Set cache headers for static assets
