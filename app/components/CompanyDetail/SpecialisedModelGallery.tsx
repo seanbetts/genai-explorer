@@ -109,7 +109,7 @@ const SpecialisedModelGallery: React.FC<SpecialisedModelGalleryProps> = ({ model
         {/* Features section */}
         {features && features.length > 0 && (
           <>
-            <h3 className={`${headingStyles.card} mb-3`}>Features</h3>
+            <h3 className={`${headingStyles.card} mb-3`}>Product Features</h3>
             <div className="mb-8">
               <FeatureGrid features={features} />
             </div>
