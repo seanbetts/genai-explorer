@@ -5302,36 +5302,9 @@
             "finance_dashboard": "https://youtu.be/W72Qp1W9XQw?si=rn3_d1ZUyuIiduCY"
           },
           "termsOfService": "https://www.perplexity.ai/hub/legal/terms-of-service",
-          "usagePolicy": "",
-          "securityDetails": "https://www.perplexity.ai/hub/security",
-          "commerciallySafe": false,                       
-          "apiEndpoints": {
-            "available": true,                                     
-            "sonar": {}                                    
-          },
-          "features": {
-            "section_1": {
-              "feature1": true
-            },
-            "section_2": {
-              "feature2": true
-            },
-            "section_3": {
-              "feature3": true
-            },
-            "advanced": {}
-          },
-          "safety": {
-            "chatModelRefusals": false,
-            "promptBlocking": false,
-            "outputBlocking": false,
-            "minorSafeguards": false,
-            "IPRespect": false,
-            "biasMitigation": false
-          }
+          "usagePolicy": ""
         }
       ],
-      "products": [],
       "subscriptions": [
         {
           "tier": "Free",
@@ -5390,36 +5363,9 @@
             "x": ""
           },
           "termsOfService": "",
-          "usagePolicy": "",
-          "security": "",
-          "commerciallySafe": false,                       
-          "apiEndpoints": {
-            "available": false,                                     
-            "sonar": {}                                    
-          },
-          "features": {
-            "section_1": {
-              "feature1": true
-            },
-            "section_2": {
-              "feature2": true
-            },
-            "section_3": {
-              "feature3": true
-            },
-            "advanced": {}
-          },
-          "safety": {
-            "chatModelRefusals": false,
-            "promptBlocking": false,
-            "outputBlocking": false,
-            "minorSafeguards": false,
-            "IPRespect": false,
-            "biasMitigation": false
-          }
+          "usagePolicy": ""
         }
       ],
-      "products": [],
       "subscriptions": []
     },
     {
@@ -5451,36 +5397,9 @@
             "x": ""
           },
           "termsOfService": "",
-          "usagePolicy": "",
-          "security": "",
-          "commerciallySafe": false,                       
-          "apiEndpoints": {
-            "available": false,                                     
-            "sonar": {}                                    
-          },
-          "features": {
-            "section_1": {
-              "feature1": true
-            },
-            "section_2": {
-              "feature2": true
-            },
-            "section_3": {
-              "feature3": true
-            },
-            "advanced": {}
-          },
-          "safety": {
-            "chatModelRefusals": false,
-            "promptBlocking": false,
-            "outputBlocking": false,
-            "minorSafeguards": false,
-            "IPRespect": false,
-            "biasMitigation": false
-          }
+          "usagePolicy": ""
         }
       ],
-      "products": [],
       "subscriptions": []
     },
     {
@@ -5512,36 +5431,9 @@
             "x": ""
           },
           "termsOfService": "",
-          "usagePolicy": "",
-          "security": "",
-          "commerciallySafe": false,                       
-          "apiEndpoints": {
-            "available": false,                                     
-            "sonar": {}                                    
-          },
-          "features": {
-            "section_1": {
-              "feature1": true
-            },
-            "section_2": {
-              "feature2": true
-            },
-            "section_3": {
-              "feature3": true
-            },
-            "advanced": {}
-          },
-          "safety": {
-            "chatModelRefusals": false,
-            "promptBlocking": false,
-            "outputBlocking": false,
-            "minorSafeguards": false,
-            "IPRespect": false,
-            "biasMitigation": false
-          }
+          "usagePolicy": ""
         }
       ],
-      "products": [],
       "subscriptions": []
     },
     {
@@ -5573,36 +5465,9 @@
             "x": ""
           },
           "termsOfService": "",
-          "usagePolicy": "",
-          "security": "",
-          "commerciallySafe": false,                       
-          "apiEndpoints": {
-            "available": false,                                     
-            "sonar": {}                                    
-          },
-          "features": {
-            "section_1": {
-              "feature1": true
-            },
-            "section_2": {
-              "feature2": true
-            },
-            "section_3": {
-              "feature3": true
-            },
-            "advanced": {}
-          },
-          "safety": {
-            "chatModelRefusals": false,
-            "promptBlocking": false,
-            "outputBlocking": false,
-            "minorSafeguards": false,
-            "IPRespect": false,
-            "biasMitigation": false
-          }
+          "usagePolicy": ""
         }
       ],
-      "products": [],
       "subscriptions": []
     }
   ]
