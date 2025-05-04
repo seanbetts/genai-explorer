@@ -24,12 +24,13 @@ jobs:
         with:
           path: |
             ~/.npm
+            .next
             .next/cache
             node_modules
             out
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ github.sha }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/next.config.ts') }}-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/next.config.ts') }}-
             ${{ runner.os }}-nextjs-
       
       - name: Install dependencies

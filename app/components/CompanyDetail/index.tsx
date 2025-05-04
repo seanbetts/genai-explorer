@@ -167,7 +167,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
     hasFrontierModels, hasEnterpriseModels, hasOpenModels, 
     hasImageModels, hasVideoModels, hasAudioModels, 
     hasSpecialisedModels, hasBenchmarkScores,
-    company.products, company.features, setActiveTab
+    company.products, company.features, company.subscriptions, setActiveTab
   ]);
   
   // Utility to update query params without reload

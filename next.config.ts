@@ -26,6 +26,14 @@ const nextConfig: NextConfig = {
   experimental: {
     serverMinification: true,
   },
+  // Enable persistent build caching
+  distDir: process.env.NODE_ENV === 'production' ? '.next' : '.next',
+  onDemandEntries: {
+    // Keep built pages in memory for longer
+    maxInactiveAge: 60 * 60 * 1000,
+    // Number of pages to keep in memory
+    pagesBufferLength: 5,
+  },
 };
 
 export default nextConfig;
