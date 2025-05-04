@@ -136,6 +136,7 @@ const SpecialisedModelGallery: React.FC<SpecialisedModelGalleryProps> = ({ model
           selectedModel.releaseVideo || 
           selectedModel.systemCard || 
           selectedModel.modelPage || 
+          selectedModel.modelGuide ||
           selectedModel.apiDocumentation ||
           selectedModel.licenceLink ||
           selectedModel.termsOfService ||
@@ -241,6 +242,17 @@ const SpecialisedModelGallery: React.FC<SpecialisedModelGalleryProps> = ({ model
                   >
                     <i className="bi bi-shield-check text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
                     <span>Usage Policy</span>
+                  </a>
+                )}
+                {selectedModel.modelGuide && (
+                  <a 
+                    href={selectedModel.modelGuide} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]"
+                  >
+                    <i className="bi bi-book text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <span>Model Guide</span>
                   </a>
                 )}
               </div>
