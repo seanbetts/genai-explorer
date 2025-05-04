@@ -111,107 +111,134 @@ const SpecialisedModelGallery: React.FC<SpecialisedModelGalleryProps> = ({ model
             <h3 className={`${headingStyles.card} mb-3`}>Product Features</h3>
             <div className={`${containerStyles.card} min-h-[15rem] h-auto`}>
               <div className="space-y-4">
-                {/* Dynamic feature categories from model.features object */}
-                {selectedModel.features && Object.keys(selectedModel.features).length > 0 && (
-                  <>
-                    {/* Map over each feature section (section_1, section_2, etc.) */}
-                    {Object.entries(selectedModel.features).map(([sectionKey, features], index, featuresArray) => {
-                      if (!features || Object.keys(features).length === 0) return null;
-                      
-                      // Format section name (convert section_1 to Section 1, etc.)
-                      const sectionName = sectionKey.startsWith('section_') 
-                        ? `Section ${sectionKey.split('_')[1]}`
-                        : formatFeatureName(sectionKey);
-                      
-                      // Determine if this is the last feature section to add API availability
-                      const isLastSection = index === featuresArray.length - 1;
-                      
-                      return (
-                        <React.Fragment key={sectionKey}>
-                          <div className="mb-4">
-                            <h4 className="text-sm font-semibold text-cyan-400 mb-2">{sectionName}</h4>
-                            <div className="grid grid-cols-2 gap-2">
-                              {/* Boolean features */}
-                              {Object.entries(features)
-                                .filter(([_, value]) => typeof value === 'boolean')
-                                .map(([key, value]) => (
-                                  <div key={key} className="flex items-center h-8">
-                                    <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                                    <span className={textStyles.body}>{formatFeatureName(key)}</span>
-                                  </div>
-                                ))}
-                              
-                              {/* Add API availability to the last section */}
-                              {isLastSection && selectedModel.apiEndpoints?.available !== undefined && (
-                                <div className="flex items-center h-8">
-                                  <i className={`${selectedModel.apiEndpoints.available === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                                  <span className={textStyles.body}>API Available</span>
-                                </div>
-                              )}
-                            </div>
-                            
-                            {/* Array features */}
-                            {Object.entries(features)
-                              .filter(([_, value]) => Array.isArray(value) && value.length > 0)
-                              .map(([key, values]) => (
-                                <div key={key} className="mt-4 mb-4">
-                                  <h5 className="text-xs font-medium text-gray-300 mb-2">{formatFeatureName(key)}</h5>
-                                  <div className="flex flex-wrap gap-2">
-                                    {Array.isArray(values) && (values as Array<string | number>).map((value, index) => (
-                                      <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
-                                        {typeof value === 'number' ? `${value}s` : value}
-                                      </span>
-                                    ))}
-                                  </div>
-                                </div>
-                              ))}
-                              
-                            {/* Object features */}
-                            {Object.entries(features)
-                              .filter(([_, value]) => typeof value === 'object' && value !== null && !Array.isArray(value))
-                              .map(([key, value]) => (
-                                <div key={key} className="mt-4">
-                                  <h5 className="text-xs font-medium text-gray-300 mb-2">{formatFeatureName(key)}</h5>
-                                  <div className="pl-4">
-                                    {Object.entries(value as Record<string, any>).map(([subKey, subValue]) => {
-                                      if (typeof subValue === 'boolean') {
-                                        return (
-                                          <div key={subKey} className="flex items-center h-8">
-                                            <i className={`${subValue === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                                            <span className={textStyles.body}>{formatFeatureName(subKey)}</span>
-                                          </div>
-                                        );
-                                      } else if (Array.isArray(subValue) && subValue.length > 0) {
-                                        return (
-                                          <div key={subKey} className="mt-2 mb-3">
-                                            <h6 className="text-xs font-medium text-gray-400 mb-1">{formatFeatureName(subKey)}</h6>
-                                            <div className="flex flex-wrap gap-1">
-                                              {subValue.map((item, index) => (
-                                                <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
-                                                  {item}
-                                                </span>
-                                              ))}
-                                            </div>
-                                          </div>
-                                        );
-                                      }
-                                      return null;
-                                    })}
-                                  </div>
-                                </div>
-                              ))}
-                          </div>
+                {/* Product features or API availability */}
+                {(() => {
+                  // Case 1: Model has feature sections
+                  if (selectedModel.features && Object.keys(selectedModel.features).length > 0) {
+                    return (
+                      <>
+                        {Object.entries(selectedModel.features).map(([sectionKey, features], index, featuresArray) => {
+                          // Format section name (convert section_1 to Section 1, etc.)
+                          const sectionName = sectionKey.startsWith('section_') 
+                            ? `Section ${sectionKey.split('_')[1]}`
+                            : formatFeatureName(sectionKey);
                           
-                          {/* Add divider if not the last section */}
-                          {index < featuresArray.length - 1 && (
-                            <div className="border-b border-gray-700 my-4"></div>
-                          )}
-                        </React.Fragment>
-                      );
-                    })}
-                  </>
-                )}
-                
+                          // Determine if this is the last feature section to add API availability
+                          const isLastSection = index === featuresArray.length - 1;
+                          
+                          // Check if this section actually has any features 
+                          const hasFeatures = Object.keys(features).length > 0;
+                          
+                          return (
+                            <React.Fragment key={sectionKey}>
+                              <div className="mb-4">
+                                <h4 className="text-sm font-semibold text-cyan-400 mb-2">{sectionName}</h4>
+                                <div className="grid grid-cols-2 gap-2">
+                                  {/* Boolean features */}
+                                  {Object.entries(features)
+                                    .filter(([_, value]) => typeof value === 'boolean')
+                                    .map(([key, value]) => (
+                                      <div key={key} className="flex items-center h-8">
+                                        <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                                        <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                                      </div>
+                                    ))}
+                                  
+                                  {/* Add API availability to the last section or to any empty section */}
+                                  {(isLastSection || !hasFeatures) && selectedModel.apiEndpoints?.available !== undefined && (
+                                    <div className="flex items-center h-8">
+                                      <i className={`${selectedModel.apiEndpoints.available === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                                      <span className={textStyles.body}>API Available</span>
+                                    </div>
+                                  )}
+                                  
+                                  {/* Show a message if there are no features and no API availability */}
+                                  {!hasFeatures && selectedModel.apiEndpoints?.available === undefined && (
+                                    <div className="flex items-center h-8 col-span-2 justify-center">
+                                      <span className={textStyles.body}>No features available</span>
+                                    </div>
+                                  )}
+                                </div>
+                                
+                                {/* Array features */}
+                                {Object.entries(features)
+                                  .filter(([_, value]) => Array.isArray(value) && value.length > 0)
+                                  .map(([key, values]) => (
+                                    <div key={key} className="mt-4 mb-4">
+                                      <h5 className="text-xs font-medium text-gray-300 mb-2">{formatFeatureName(key)}</h5>
+                                      <div className="flex flex-wrap gap-2">
+                                        {Array.isArray(values) && (values as Array<string | number>).map((value, index) => (
+                                          <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                            {typeof value === 'number' ? `${value}s` : value}
+                                          </span>
+                                        ))}
+                                      </div>
+                                    </div>
+                                  ))}
+                                
+                                {/* Object features */}
+                                {Object.entries(features)
+                                  .filter(([_, value]) => typeof value === 'object' && value !== null && !Array.isArray(value))
+                                  .map(([key, value]) => (
+                                    <div key={key} className="mt-4">
+                                      <h5 className="text-xs font-medium text-gray-300 mb-2">{formatFeatureName(key)}</h5>
+                                      <div className="pl-4">
+                                        {Object.entries(value as Record<string, any>).map(([subKey, subValue]) => {
+                                          if (typeof subValue === 'boolean') {
+                                            return (
+                                              <div key={subKey} className="flex items-center h-8">
+                                                <i className={`${subValue === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                                                <span className={textStyles.body}>{formatFeatureName(subKey)}</span>
+                                              </div>
+                                            );
+                                          } else if (Array.isArray(subValue) && subValue.length > 0) {
+                                            return (
+                                              <div key={subKey} className="mt-2 mb-3">
+                                                <h6 className="text-xs font-medium text-gray-400 mb-1">{formatFeatureName(subKey)}</h6>
+                                                <div className="flex flex-wrap gap-1">
+                                                  {subValue.map((item, index) => (
+                                                    <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                                      {item}
+                                                    </span>
+                                                  ))}
+                                                </div>
+                                              </div>
+                                            );
+                                          }
+                                          return null;
+                                        })}
+                                      </div>
+                                    </div>
+                                  ))}
+                              </div>
+                              
+                              {/* Add divider if not the last section */}
+                              {index < featuresArray.length - 1 && (
+                                <div className="border-b border-gray-700 my-4"></div>
+                              )}
+                            </React.Fragment>
+                          );
+                        })}
+                      </>
+                    );
+                  } 
+                  // Case 2: No feature sections but has API availability
+                  else if (selectedModel.apiEndpoints?.available !== undefined) {
+                    return (
+                      <div className="mb-4">
+                        <h4 className="text-sm font-semibold text-cyan-400 mb-2">API</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="flex items-center h-8">
+                            <i className={`${selectedModel.apiEndpoints.available === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                            <span className={textStyles.body}>API Available</span>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+                  // Case 3: No features or API
+                  return null;
+                })()}
               </div>
             </div>
           </div>
@@ -275,6 +302,16 @@ const SpecialisedModelGallery: React.FC<SpecialisedModelGalleryProps> = ({ model
                           className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
                         >
                           <i className="bi bi-file-earmark-text mr-1" /> Terms of Service
+                        </a>
+                      )}
+                      {selectedModel.securityDetails && (
+                        <a
+                          href={selectedModel.securityDetails}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                        >
+                          <i className="bi bi-lock mr-1" /> Security Details
                         </a>
                       )}
                     </div>

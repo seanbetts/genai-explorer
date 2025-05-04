@@ -110,6 +110,7 @@ export interface Model {
   licenceType?: string;
   licenceLink?: string;
   huggingFace?: string;
+  securityDetails?: string;
   capabilities?: Capabilities;
   specs?: Specs;
   benchmarkScores?: BenchmarkScore[]; // Benchmark scores for this model
