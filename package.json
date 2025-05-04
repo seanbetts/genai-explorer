@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "prebuild": "ls -la node_modules/.cache || echo 'No cache found'",
     "build": "mkdir -p .next/cache && NODE_ENV=production next build",
+    "postbuild": "ls -la node_modules/.cache || echo 'No cache after build'",
     "start": "next start",
     "lint": "next lint"
   },
