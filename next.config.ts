@@ -22,19 +22,8 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Enable persistent build caching
+  // Basic cache configuration that works with static export
   distDir: '.next',
-  onDemandEntries: {
-    // Keep built pages in memory for longer
-    maxInactiveAge: 60 * 60 * 1000,
-    // Number of pages to keep in memory
-    pagesBufferLength: 5,
-  },
-  // Explicitly configure build cache
-  generateBuildId: async () => {
-    // Return a consistent build ID to improve caching
-    return 'my-build-id'
-  },
   // Optimize build with swc
   experimental: {
     // Reduce the function size for Netlify
