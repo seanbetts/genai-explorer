@@ -27,12 +27,17 @@ const nextConfig: NextConfig = {
     serverMinification: true,
   },
   // Enable persistent build caching
-  distDir: process.env.NODE_ENV === 'production' ? '.next' : '.next',
+  distDir: '.next',
   onDemandEntries: {
     // Keep built pages in memory for longer
     maxInactiveAge: 60 * 60 * 1000,
     // Number of pages to keep in memory
     pagesBufferLength: 5,
+  },
+  // Explicitly enable build cache
+  generateBuildId: async () => {
+    // Return a consistent build ID to improve caching
+    return 'my-build-id'
   },
 };
 

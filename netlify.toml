@@ -11,7 +11,9 @@
   lifecycle = "persist"
   dir = [
     ".next/cache",
-    "node_modules/.cache"
+    "node_modules/.cache",
+    "node_modules",
+    ".next"
   ]
   
 # Set cache headers for static assets
