@@ -5344,25 +5344,32 @@
       "features": [],
       "models": [
         {
-          "id": "xxx",
-          "name": "xxx",
+          "id": "character-ai",
+          "name": "Character.AI",
           "status": "primary",
-          "about": "xxx",
+          "about": "Character.AI leads you to the crossroads where storytelling, gaming, social connection, and creative expression converge to captivate you like never before.",
           "category": "other",
-          "releaseDate": "2022/12/07",
-          "releasePost": "",
+          "releaseDate": "2022/12/05",
+          "releasePost": "https://blog.character.ai/introducing-character/",
           "releaseVideo": "",
           "modelPage": "",
           "systemCard": "",
           "modelGuide": "",
           "apiDocumentation": "",
           "heroVideo": {
-            "xxx": ""
+            "behind_the_scenes": "https://youtu.be/VHiy5F_BDw0?si=N543_1so55ppp-ra"
           },
           "demoVideos": {
-            "x": ""
+            "avatarFX": "https://youtu.be/LEPaWVbRJ1E?si=4wRldhCC-OJOW0sC",
+            "sherlock_holmes": "https://characterai.io/static/logged-out-homepage-character-spotlights/video/sherlock-holmes.mp4",
+            "ellie_williams": "https://characterai.io/static/logged-out-homepage-character-spotlights/video/ellie-williams.mp4",
+            "gojo_saoru": "https://characterai.io/static/logged-out-homepage-character-spotlights/video/gojo-satoru.mp4",
+            "wizard": "https://characterai.io/static/logged-out-homepage-character-spotlights/video/wizard.mp4",
+            "ghost": "https://characterai.io/static/logged-out-homepage-character-spotlights/video/ghost.mp4",
+            "space_adventurer": "https://characterai.io/static/logged-out-homepage-character-spotlights/video/space-adventurer.mp4",
+            "basketball_captian": "https://characterai.io/static/logged-out-homepage-character-spotlights/video/basketball-captain.mp4"
           },
-          "termsOfService": "",
+          "termsOfService": "https://character.ai/tos",
           "usagePolicy": ""
         }
       ],
