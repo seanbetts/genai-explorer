@@ -41,11 +41,11 @@ const nextConfig: NextConfig = {
   },
   swcMinify: true,
   experimental: {
-    ...nextConfig.experimental,
     // These experimental features might help with caching
     turbotrace: {
       logLevel: 'error'
     },
+    serverMinification: true,
   },
 };
 
