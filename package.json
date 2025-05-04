@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "prebuild": "ls -la node_modules/.cache || echo 'No cache found'",
+    "prebuild": "mkdir -p node_modules/.cache && echo 'Cache created: ' $(date) > node_modules/.cache/cache-info.txt && ls -la node_modules/.cache || echo 'Failed to create cache'",
     "build": "mkdir -p .next/cache && NODE_ENV=production next build",
-    "postbuild": "ls -la node_modules/.cache || echo 'No cache after build'",
+    "postbuild": "echo 'Build completed: ' $(date) >> node_modules/.cache/cache-info.txt && ls -la node_modules/.cache || echo 'Cache not found after build'",
     "start": "next start",
     "lint": "next lint"
   },

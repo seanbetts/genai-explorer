@@ -10,8 +10,8 @@
 [build.cache]
   lifecycle = "persist"
   dir = [
-    "node_modules/.cache",
-    "node_modules"
+    "node_modules",
+    "node_modules/.cache"
   ]
   
 # Set cache headers for static assets
