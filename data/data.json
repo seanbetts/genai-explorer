@@ -5244,44 +5244,81 @@
       "logo": "/images/companies/perplexity/logo.png",
       "website": "https://perplexity.ai",
       "description": "Giving people a choice: search that answers, assistants that work. AI that's intelligent, accurate, and trustworthy.",
-      "lastUpdated": "2025-02-20",
+      "lastUpdated": "2025-05-04",
       "features": [],
       "models": [
         {
-          "id": "perplexity-online",
-          "name": "Perplexity Online",
+          "id": "perplexity",
+          "name": "Perplexity",
           "status": "primary",
-          "type": "search",
+          "about": "Your AI-powered Swiss Army Knife for information discovery and curiosity. It's not just about answering questions; it's about empowering you to do more—whether you're looking to summarize content, explore new topics, or even get a little creative.",
           "category": "other",
-          "releaseDate": "2024-09-15",
+          "releaseDate": "2022/12/07",
+          "releasePost": "https://x.com/perplexity_ai/status/1600551871554338816",
+          "releaseVideo": "https://x.com/perplexity_ai/status/1600551871554338816",
           "modelPage": "",
-          "releasePost": "",
-          "releaseVideo": "",
           "systemCard": "",
-          "capabilities": {
-            "intelligence": 4,
-            "speed": 5,
-            "reasoning": 0
+          "modelGuide": "https://www.perplexity.ai/hub/getting-started#what-is-perplexity",
+          "apiDocumentation": "https://docs.perplexity.ai/home",
+          "heroVideo": {
+            "perplexity_questions": "https://youtu.be/4UKM_yvTexI?si=Ma2DDBzuU94V_opd"
           },
-          "specs": {
-            "reasoningTokens": false,
-            "inputFormats": [
-              "text",
-              "url"
-            ],
-            "outputFormats": [
-              "text",
-              "citations"
-            ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null,
-            "realTimeData": true,
-            "sourceAttribution": true,
-            "dataRetrieval": "online search"
+          "demoVideos": {
+            "reservation": "https://youtu.be/a3GjWf1luOI?si=CDoNBpHOHD9R4gl5",
+            "reminder": "https://youtu.be/zqT_31m4nZw?si=RubDPN_IMN_LU-4F",
+            "camera": "https://youtu.be/bPJBwNQd678?si=uG3Mny6zn9ozKQ-2",
+            "deep_research": "https://youtu.be/Z1_M2XtsUwY?si=TQpV2SHFqcQjTdIQ",
+            "finance_dashboard": "https://youtu.be/W72Qp1W9XQw?si=rn3_d1ZUyuIiduCY"
+          },
+          "termsOfService": "https://www.perplexity.ai/hub/legal/terms-of-service",
+          "usagePolicy": "",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {
+            "available": true,                                     
+            "sonar": {}                                    
+          },
+          "features": {
+            "generation": {
+              "textToVideo": true,
+              "imageToVideo": true,
+              "videoToVideo": true,
+              "negativePrompt": true,
+              "resolutions": ["720p","1080p"],
+              "frameRate": null,
+              "durations": [5,10],
+              "numberOfVideos": [1],
+              "videoStyles": []
+            },
+            "editing": {
+              "remix": true,
+              "recut": true,
+              "loop": true,
+              "blend": false,
+              "generativeExpand": true
+            },
+            "enhancement": {
+              "photoRealism": true,
+              "textRendering": true,
+              "characterConsistency": true
+            },
+            "advanced": {
+              "storyboard": false,
+              "cameraControls": {
+                "shotSize": [],
+                "cameraAngle": [],
+                "motion": []
+              },
+              "trainCustomModels": false
+            }
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
           }
         }
       ],
