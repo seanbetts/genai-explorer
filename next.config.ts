@@ -22,10 +22,6 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Reduce the function size for Netlify
-  experimental: {
-    serverMinification: true,
-  },
   // Enable persistent build caching
   distDir: '.next',
   onDemandEntries: {
@@ -39,13 +35,10 @@ const nextConfig: NextConfig = {
     // Return a consistent build ID to improve caching
     return 'my-build-id'
   },
-  swcMinify: true,
+  // Optimize build with swc
   experimental: {
-    // These experimental features might help with caching
-    turbotrace: {
-      logLevel: 'error'
-    },
-    serverMinification: true,
+    // Reduce the function size for Netlify
+    serverMinification: true
   },
 };
 
