@@ -158,9 +158,9 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
       setActiveTab('specialised-models');
     } else if (company.products && company.products.length > 0) {
       setActiveTab('products');
-    } else if (company.features && company.features.length > 0) {
+    } else if (company.features && company.features.length > 0 && !hasSpecialisedModels()) {
       setActiveTab('features');
-    } else {
+    } else if (company.subscriptions && company.subscriptions.length > 0) {
       setActiveTab('subscriptions');
     }
   }, [
@@ -448,8 +448,8 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
             </button>
           )}
           
-          {/* Only render Features tab if company has features */}
-          {company.features && company.features.length > 0 && (
+          {/* Only render Features tab if company has features and no specialized models */}
+          {company.features && company.features.length > 0 && !hasSpecialisedModels() && (
             <button
           className={`py-3 px-6 font-medium font-mono text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
                 activeTab === 'features' 
