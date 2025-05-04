@@ -16,8 +16,6 @@
 # next.js
 /.next/
 /out/
-# Don't ignore cache for Netlify
-!.next/cache/
 
 # production
 /build
