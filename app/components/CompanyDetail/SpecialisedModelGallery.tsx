@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import VideoCarousel from "../shared/VideoCarousel";
-import { Model } from "../types";
+import FeatureGrid from "./FeatureGrid";
+import { Model, Feature } from "../types";
 import { textStyles, headingStyles } from "../utils/theme";
 import {
   containerStyles,
@@ -48,9 +49,11 @@ interface SpecialisedModelGalleryProps {
   models: Model[];
   /** Company ID for dynamic discovery */
   companyId: string;
+  /** Company features to display */
+  features?: Feature[];
 }
 
-const SpecialisedModelGallery: React.FC<SpecialisedModelGalleryProps> = ({ models, companyId }) => {
+const SpecialisedModelGallery: React.FC<SpecialisedModelGalleryProps> = ({ models, companyId, features = [] }) => {
   // ----- state ---------------------------------------------------------------
   const [selectedModelId, setSelectedModelId] = useState<string | null>(
     models.length ? models[0].id : null,
@@ -102,6 +105,16 @@ const SpecialisedModelGallery: React.FC<SpecialisedModelGalleryProps> = ({ model
         </div>
 
         <p className={`${textStyles.body} mb-8`}>{selectedModel.about || selectedModel.description}</p>
+        
+        {/* Features section */}
+        {features && features.length > 0 && (
+          <>
+            <h3 className={`${headingStyles.card} mb-3`}>Features</h3>
+            <div className="mb-8">
+              <FeatureGrid features={features} />
+            </div>
+          </>
+        )}
         
         {/* Demo videos section */}
         {selectedModel.demoVideos && Object.keys(selectedModel.demoVideos).length > 0 && (

@@ -598,6 +598,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
                       model.category === 'other' && model.status !== 'archived'
                     )}
                     companyId={company.id}
+                    features={company.features}
                   />
                 </Suspense>
               </div>
