@@ -6,6 +6,13 @@
   NEXT_TELEMETRY_DISABLED = "1"
   NODE_OPTIONS = "--max-old-space-size=4096"
   
+[build.processing]
+  skip_processing = false
+
+# Enable build cache
+[build.cache]
+  lifecycle = "persist"
+  
 # Set cache headers for static assets
 [[headers]]
   for = "/_next/static/*"
