@@ -3911,9 +3911,15 @@
           "systemCard": "",
           "modelGuide": "https://helpx.adobe.com/uk/firefly/work-with-audio-and-video/work-with-video/writing-effective-text-prompts-for-video-generation.html",
           "apiDocumentation": "",
-          "videoExamples": [],
+          "videoExamples": {
+            "frog": ["https://images-tv.adobe.com/mpcv3/1024/d442cba5-c05e-41ef-90d7-efacccab3a49_1743635930.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/c5bc3038-35d2-46c2-a455-4f2e7cd95008/5ecc921d-fbd3-4987-8c0b-16f524964cd3/de41d0db5bf94ee9a1fe2bb16da4b681_1743635964-1920x1080.jpg"],
+            "sheep": ["https://images-tv.adobe.com/mpcv3/1041/50769bf1-4de2-4bf8-8287-84f0d2fdee60_1738107257.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/863b4d13-12c1-4736-9753-c3c9f740f7e2/6404c368-1bc2-47ae-8178-d8f597906c42/fdee672aa0da48ccac351f1e3e8bfe76_1736902485-1920x1440.jpg"],
+            "effects": ["https://images-tv.adobe.com/mpcv3/3710/1720e0ba-4815-4d51-a65f-7faea7b67d0d_1728499417.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/b27ade89-e9bb-4a22-9858-0c43b22e7d8a/4486a91a-5f31-4887-9e03-4604fc7a1361/b06e24b8051e4e95a1d7cc19123dec81_1728499446-1920x1080.jpg"],
+            "camera_control": ["https://images-tv.adobe.com/mpcv3/1041/b36bbe5d-f323-4424-a448-767220909215_1728323525.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/5e31c51e-4e48-4864-915d-70adfacf04f3/886d91dd-3eb2-4a90-a004-3ecde7d6ae3e/f0c441da71224fed94abf859bbeefcb4_1728323804-1920x1080.jpg"],
+            "commercially_safe": ["https://images-tv.adobe.com/mpcv3/1041/48f34c41-9f48-4352-95e1-9c65cc716537_1738107316.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/863b4d13-12c1-4736-9753-c3c9f740f7e2/e32b0faa-7d42-4161-ac86-b9aafbe5097b/b0a45774264c47d58c660333ab5bc77a_1736902594-1920x1440.jpg"]
+          },
           "demoVideos": {
-            "your_ideas_in_motion": ["https://clio-assets.adobe.com/clio-playground/video-cache/video-generation/webm/ff-video-gen-intro-video-desktop_2-en_US.webm"],
+            "your_ideas_in_motion": ["https://clio-assets.adobe.com/clio-playground/video-cache/video-generation/webm/ff-video-gen-intro-video-desktop_2-en_US.webm","https://images-tv.adobe.com/mpcv3/3f9704a8-b1e2-4248-9176-2ad96d92c053/7ef26f14-60af-4f0f-8616-c78ed4730b63/471b9a0079d049b5b9a29f25490982fe_1739446221-1920x1080.jpg"],
             "b_roll": ["https://images-tv.adobe.com/mpcv3/7622/6a38d59a-22df-4f03-b254-3a9bc46ee8a5_1740178861.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/bad37330-6a88-4f59-a9ae-abffc7f31387/39d9b5d9af7e4724b7ef9a840c6b4669_1740179024-1920x1080.jpg"],
             "launch_teaser": ["https://images-tv.adobe.com/mpcv3/7622/85a2b1a7-8e06-4ed2-82a3-9573e9c2d72c_1740178199.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/192f3e99-561a-4ea7-be96-ea3acbee609e/233736a590234b698126b4fa0f180656_1740178372-1920x1080.jpg"]
           },
@@ -4708,7 +4714,17 @@
           "systemCard": "",
           "modelGuide": "",
           "apiDocumentation": "https://pika.art/api",
-          "videoExamples": [],
+          "videoExamples": {
+            "transform": "https://www.youtube.com/watch?v=YSJd_kf0LYQ",
+            "pikaframes": "videos/pika/1.mp4",
+            "black_or_white": "videos/pika/2.mp4",
+            "drone": "videos/pika/3.mp4",
+            "paint": "videos/pika/4.mp4",
+            "fashion": "videos/pika/5.mp4",
+            "comicbook": "videos/pika/6.mp4",
+            "samurai": "videos/pika/7.mp4",
+            "racoon": "videos/pika/8.mp4"
+          },
           "demoVideos": {
             "text_to_video": ["https://youtu.be/MdJRZaduFr4?si=1Npl5U6L9PVJpJL4"],
             "retry_and_reprompt": ["https://youtu.be/hRam3oUrlRg?si=u1W2fgPTz77mh-Hk"],
@@ -5227,45 +5243,82 @@
       "name": "Perplexity",
       "logo": "/images/companies/perplexity/logo.png",
       "website": "https://perplexity.ai",
-      "description": "AI-powered search and knowledge discovery",
-      "lastUpdated": "2025-02-20",
+      "description": "Giving people a choice: search that answers, assistants that work. AI that's intelligent, accurate, and trustworthy.",
+      "lastUpdated": "2025-05-04",
       "features": [],
       "models": [
         {
-          "id": "perplexity-online",
-          "name": "Perplexity Online",
+          "id": "perplexity",
+          "name": "Perplexity",
           "status": "primary",
-          "type": "search",
+          "about": "Your AI-powered Swiss Army Knife for information discovery and curiosity. It's not just about answering questions; it's about empowering you to do more—whether you're looking to summarize content, explore new topics, or even get a little creative.",
           "category": "other",
-          "releaseDate": "2024-09-15",
+          "releaseDate": "2022/12/07",
+          "releasePost": "https://x.com/perplexity_ai/status/1600551871554338816",
+          "releaseVideo": "https://x.com/perplexity_ai/status/1600551871554338816",
           "modelPage": "",
-          "releasePost": "",
-          "releaseVideo": "",
           "systemCard": "",
-          "capabilities": {
-            "intelligence": 4,
-            "speed": 5,
-            "reasoning": 0
+          "modelGuide": "https://www.perplexity.ai/hub/getting-started#what-is-perplexity",
+          "apiDocumentation": "https://docs.perplexity.ai/home",
+          "heroVideo": {
+            "perplexity_questions": "https://youtu.be/4UKM_yvTexI?si=Ma2DDBzuU94V_opd"
           },
-          "specs": {
-            "reasoningTokens": false,
-            "inputFormats": [
-              "text",
-              "url"
-            ],
-            "outputFormats": [
-              "text",
-              "citations"
-            ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null,
-            "realTimeData": true,
-            "sourceAttribution": true,
-            "dataRetrieval": "online search"
+          "demoVideos": {
+            "reservation": "https://youtu.be/a3GjWf1luOI?si=CDoNBpHOHD9R4gl5",
+            "reminder": "https://youtu.be/zqT_31m4nZw?si=RubDPN_IMN_LU-4F",
+            "camera": "https://youtu.be/bPJBwNQd678?si=uG3Mny6zn9ozKQ-2",
+            "deep_research": "https://youtu.be/Z1_M2XtsUwY?si=TQpV2SHFqcQjTdIQ",
+            "finance_dashboard": "https://youtu.be/W72Qp1W9XQw?si=rn3_d1ZUyuIiduCY"
+          },
+          "termsOfService": "https://www.perplexity.ai/hub/legal/terms-of-service",
+          "usagePolicy": "",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {
+            "available": true,                                     
+            "sonar": {}                                    
+          },
+          "features": {
+            "generation": {
+              "textToVideo": true,
+              "imageToVideo": true,
+              "videoToVideo": true,
+              "negativePrompt": true,
+              "resolutions": ["720p","1080p"],
+              "frameRate": null,
+              "durations": [5,10],
+              "numberOfVideos": [1],
+              "videoStyles": []
+            },
+            "editing": {
+              "remix": true,
+              "recut": true,
+              "loop": true,
+              "blend": false,
+              "generativeExpand": true
+            },
+            "enhancement": {
+              "photoRealism": true,
+              "textRendering": true,
+              "characterConsistency": true
+            },
+            "advanced": {
+              "storyboard": false,
+              "cameraControls": {
+                "shotSize": [],
+                "cameraAngle": [],
+                "motion": []
+              },
+              "trainCustomModels": false
+            }
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
           }
         }
       ],
