@@ -34,10 +34,18 @@ const nextConfig: NextConfig = {
     // Number of pages to keep in memory
     pagesBufferLength: 5,
   },
-  // Explicitly enable build cache
+  // Explicitly configure build cache
   generateBuildId: async () => {
     // Return a consistent build ID to improve caching
     return 'my-build-id'
+  },
+  swcMinify: true,
+  experimental: {
+    ...nextConfig.experimental,
+    // These experimental features might help with caching
+    turbotrace: {
+      logLevel: 'error'
+    },
   },
 };
 
