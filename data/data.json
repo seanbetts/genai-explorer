@@ -5245,19 +5245,50 @@
       "website": "https://perplexity.ai",
       "description": "Giving people a choice: search that answers, assistants that work. AI that's intelligent, accurate, and trustworthy.",
       "lastUpdated": "2025-05-04",
-      "features": [],
+      "features": [
+        {
+          "name": "Internal Knowledge Search",
+          "description": "Allows both Perplexity Pro and Enterprise Pro users to search across internal files alongside the web.",
+          "image": "/images/companies/perplexity/features/knowledge.png",
+          "url": "https://www.perplexity.ai/help-center/en/articles/10352914-what-is-internal-knowledge-search"
+        },
+        {
+          "name": "Pages",
+          "description": "The easiest way to create beautifully designed, comprehensive articles on any topic. ",
+          "image": "/images/companies/perplexity/features/pages.png",
+          "url": "https://www.perplexity.ai/help-center/en/articles/10352968-perplexity-pages"
+        },
+        {
+          "name": "Focus",
+          "description": "Allows Perplexity to zero in on specific sources with pinpoint accuracy and deliver more targeted results.",
+          "image": "/images/companies/perplexity/features/focus.png",
+          "url": "https://www.perplexity.ai/help-center/en/articles/10354753-what-is-focus"
+        },
+        {
+          "name": "Images",
+          "description": "Ask Perplexity to generate and edit images by simply asking questions.",
+          "image": "/images/companies/perplexity/features/images.png",
+          "url": "https://www.perplexity.ai/help-center/en/articles/10354781-generating-images-with-perplexity"
+        },
+        {
+          "name": "Memory",
+          "description": "A feature that allows Perplexity to remember details between your conversations, making your interactions more personalized and efficient.",
+          "image": "/images/companies/perplexity/features/memory.png",
+          "url": "https://www.perplexity.ai/help-center/en/articles/10968016-memory"
+        }
+      ],
       "models": [
         {
           "id": "perplexity",
           "name": "Perplexity",
           "status": "primary",
-          "about": "Your AI-powered Swiss Army Knife for information discovery and curiosity. It's not just about answering questions; it's about empowering you to do more—whether you're looking to summarize content, explore new topics, or even get a little creative.",
+          "about": "Your AI-powered Swiss Army Knife for information discovery and curiosity. It's not just about answering questions; it's about empowering you to do more — whether you're looking to summarize content, explore new topics, or even get a little creative.",
           "category": "other",
           "releaseDate": "2022/12/07",
           "releasePost": "https://x.com/perplexity_ai/status/1600551871554338816",
           "releaseVideo": "https://x.com/perplexity_ai/status/1600551871554338816",
           "modelPage": "",
-          "systemCard": "",
+          "systemCard": "https://trust.perplexity.ai",
           "modelGuide": "https://www.perplexity.ai/hub/getting-started#what-is-perplexity",
           "apiDocumentation": "https://docs.perplexity.ai/home",
           "heroVideo": {
@@ -5272,45 +5303,23 @@
           },
           "termsOfService": "https://www.perplexity.ai/hub/legal/terms-of-service",
           "usagePolicy": "",
-          "commerciallySafe": false,
-          "metadata": {},                          
+          "securityDetails": "https://www.perplexity.ai/hub/security",
+          "commerciallySafe": false,                       
           "apiEndpoints": {
             "available": true,                                     
             "sonar": {}                                    
           },
           "features": {
-            "generation": {
-              "textToVideo": true,
-              "imageToVideo": true,
-              "videoToVideo": true,
-              "negativePrompt": true,
-              "resolutions": ["720p","1080p"],
-              "frameRate": null,
-              "durations": [5,10],
-              "numberOfVideos": [1],
-              "videoStyles": []
+            "section_1": {
+              "feature1": true
             },
-            "editing": {
-              "remix": true,
-              "recut": true,
-              "loop": true,
-              "blend": false,
-              "generativeExpand": true
+            "section_2": {
+              "feature2": true
             },
-            "enhancement": {
-              "photoRealism": true,
-              "textRendering": true,
-              "characterConsistency": true
+            "section_3": {
+              "feature3": true
             },
-            "advanced": {
-              "storyboard": false,
-              "cameraControls": {
-                "shotSize": [],
-                "cameraAngle": [],
-                "motion": []
-              },
-              "trainCustomModels": false
-            }
+            "advanced": {}
           },
           "safety": {
             "chatModelRefusals": false,
@@ -5323,7 +5332,34 @@
         }
       ],
       "products": [],
-      "subscriptions": []
+      "subscriptions": [
+        {
+          "tier": "Free",
+          "type": "consumer",
+          "price": 0,
+          "billingCycle": "month",
+          "url": "https://www.perplexity.ai/pro",
+          "features": [
+            "Unlimited basic searches, fast answers to everyday questions",
+            "Limited Pro searches daily",
+            "Limited access to file uploads, analyze documents and images",
+            "Access to voice mode"
+          ]
+        },
+        {
+          "tier": "Pro",
+          "type": "consumer",
+          "price": 20,
+          "billingCycle": "month",
+          "url": "https://www.perplexity.ai/pro",
+          "features": [
+            "Unlimited access to Perplexity Research, advanced analysis on any topic",
+            "Unlimited Pro searches, 3x more sources and your choice of the latest AI models",
+            "Detailed answers, real-time data",
+            "Upload unlimited documents and images"
+          ]
+        }
+      ]
     },
     {
       "id": "character-ai",
@@ -5335,38 +5371,51 @@
       "features": [],
       "models": [
         {
-          "id": "character-engine",
-          "name": "Character Engine",
+          "id": "xxx",
+          "name": "xxx",
           "status": "primary",
-          "type": "conversation",
+          "about": "xxx",
           "category": "other",
-          "releaseDate": "2024-10-05",
-          "modelPage": "",
+          "releaseDate": "2022/12/07",
           "releasePost": "",
           "releaseVideo": "",
+          "modelPage": "",
           "systemCard": "",
-          "capabilities": {
-            "intelligence": 4,
-            "speed": 5,
-            "reasoning": 0
+          "modelGuide": "",
+          "apiDocumentation": "",
+          "heroVideo": {
+            "xxx": ""
           },
-          "specs": {
-            "reasoningTokens": false,
-            "inputFormats": [
-              "text"
-            ],
-            "outputFormats": [
-              "text"
-            ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null,
-            "memoryCapacity": "extensive",
-            "personalityCustomization": true,
-            "voiceCapabilities": true
+          "demoVideos": {
+            "x": ""
+          },
+          "termsOfService": "",
+          "usagePolicy": "",
+          "security": "",
+          "commerciallySafe": false,                       
+          "apiEndpoints": {
+            "available": false,                                     
+            "sonar": {}                                    
+          },
+          "features": {
+            "section_1": {
+              "feature1": true
+            },
+            "section_2": {
+              "feature2": true
+            },
+            "section_3": {
+              "feature3": true
+            },
+            "advanced": {}
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
           }
         }
       ],
@@ -5383,45 +5432,51 @@
       "features": [],
       "models": [
         {
-          "id": "overdub",
-          "name": "Overdub",
+          "id": "xxx",
+          "name": "xxx",
           "status": "primary",
-          "type": "audio",
+          "about": "xxx",
           "category": "other",
-          "releaseDate": "2024-08-15",
-          "modelPage": "",
+          "releaseDate": "2022/12/07",
           "releasePost": "",
           "releaseVideo": "",
+          "modelPage": "",
           "systemCard": "",
-          "capabilities": {
-            "intelligence": 4,
-            "speed": 5,
-            "reasoning": 0
+          "modelGuide": "",
+          "apiDocumentation": "",
+          "heroVideo": {
+            "xxx": ""
           },
-          "specs": {
-            "reasoningTokens": false,
-            "inputFormats": [
-              "text",
-              "speech"
-            ],
-            "outputFormats": [
-              "speech"
-            ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null,
-            "voiceCloning": true,
-            "emotionControl": true,
-            "languageSupport": [
-              "English",
-              "Spanish",
-              "French",
-              "German",
-              "Japanese"
-            ]
+          "demoVideos": {
+            "x": ""
+          },
+          "termsOfService": "",
+          "usagePolicy": "",
+          "security": "",
+          "commerciallySafe": false,                       
+          "apiEndpoints": {
+            "available": false,                                     
+            "sonar": {}                                    
+          },
+          "features": {
+            "section_1": {
+              "feature1": true
+            },
+            "section_2": {
+              "feature2": true
+            },
+            "section_3": {
+              "feature3": true
+            },
+            "advanced": {}
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
           }
         }
       ],
@@ -5438,40 +5493,51 @@
       "features": [],
       "models": [
         {
-          "id": "perplexity-online",
-          "name": "Perplexity Online",
+          "id": "xxx",
+          "name": "xxx",
           "status": "primary",
-          "type": "search",
+          "about": "xxx",
           "category": "other",
-          "releaseDate": "2024-09-15",
-          "modelPage": "",
+          "releaseDate": "2022/12/07",
           "releasePost": "",
           "releaseVideo": "",
+          "modelPage": "",
           "systemCard": "",
-          "capabilities": {
-            "intelligence": 4,
-            "speed": 5,
-            "reasoning": 0
+          "modelGuide": "",
+          "apiDocumentation": "",
+          "heroVideo": {
+            "xxx": ""
           },
-          "specs": {
-            "reasoningTokens": false,
-            "inputFormats": [
-              "text",
-              "url"
-            ],
-            "outputFormats": [
-              "text",
-              "citations"
-            ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null,
-            "realTimeData": true,
-            "sourceAttribution": true,
-            "dataRetrieval": "online search"
+          "demoVideos": {
+            "x": ""
+          },
+          "termsOfService": "",
+          "usagePolicy": "",
+          "security": "",
+          "commerciallySafe": false,                       
+          "apiEndpoints": {
+            "available": false,                                     
+            "sonar": {}                                    
+          },
+          "features": {
+            "section_1": {
+              "feature1": true
+            },
+            "section_2": {
+              "feature2": true
+            },
+            "section_3": {
+              "feature3": true
+            },
+            "advanced": {}
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
           }
         }
       ],
@@ -5488,49 +5554,51 @@
       "features": [],
       "models": [
         {
-          "id": "copilot",
-          "name": "GitHub Copilot",
+          "id": "xxx",
+          "name": "xxx",
           "status": "primary",
-          "type": "code",
+          "about": "xxx",
           "category": "other",
-          "releaseDate": "2024-11-10",
-          "modelPage": "",
+          "releaseDate": "2022/12/07",
           "releasePost": "",
           "releaseVideo": "",
+          "modelPage": "",
           "systemCard": "",
-          "capabilities": {
-            "intelligence": 5,
-            "speed": 5,
-            "reasoning": 0
+          "modelGuide": "",
+          "apiDocumentation": "",
+          "heroVideo": {
+            "xxx": ""
           },
-          "specs": {
-            "reasoningTokens": false,
-            "inputFormats": [
-              "code",
-              "text",
-              "comments"
-            ],
-            "outputFormats": [
-              "code",
-              "documentation"
-            ],
-            "maxInputTokens": null,
-            "maxOutputTokens": null,
-            "knowledgeCutoff": "",
-            "pricingInputPerM": null,
-            "pricingCachedInputPerM": null,
-            "pricingOutputPerM": null,
-            "languageSupport": [
-              "Most major programming languages"
-            ],
-            "contextAwareness": true,
-            "integrations": [
-              "VS Code",
-              "Visual Studio",
-              "JetBrains IDEs",
-              "Neovim",
-              "GitHub.com"
-            ]
+          "demoVideos": {
+            "x": ""
+          },
+          "termsOfService": "",
+          "usagePolicy": "",
+          "security": "",
+          "commerciallySafe": false,                       
+          "apiEndpoints": {
+            "available": false,                                     
+            "sonar": {}                                    
+          },
+          "features": {
+            "section_1": {
+              "feature1": true
+            },
+            "section_2": {
+              "feature2": true
+            },
+            "section_3": {
+              "feature3": true
+            },
+            "advanced": {}
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
           }
         }
       ],

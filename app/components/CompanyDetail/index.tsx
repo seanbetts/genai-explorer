@@ -408,7 +408,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
                 setActiveTab('specialised-models');
               }}
             >
-              Specialised Models
+              Specialised Model
             </button>
           )}
           
