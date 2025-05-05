@@ -209,9 +209,11 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                                 {(selectedModel.features.generation.resolutions as string[]).map((value, index) => (
                                   <span key={index} className={`px-2 py-1 text-xs rounded ${
                                     brandConfig.name === 'OMG'
-                                      ? 'bg-gray-200 text-gray-800 border border-gray-300 font-sans'
+                                      ? 'bg-gray-200 border border-gray-300 font-sans'
                                       : 'bg-gray-700 text-cyan-400 font-mono'
-                                  }`}>
+                                  }`}
+                                  style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
+                                  
                                     {value}
                                   </span>
                                 ))}
@@ -233,9 +235,11 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                                 {(selectedModel.features.generation.durations as Array<string | number>).map((value, index) => (
                                   <span key={index} className={`px-2 py-1 text-xs rounded ${
                                     brandConfig.name === 'OMG'
-                                      ? 'bg-gray-200 text-gray-800 border border-gray-300 font-sans'
+                                      ? 'bg-gray-200 border border-gray-300 font-sans'
                                       : 'bg-gray-700 text-cyan-400 font-mono'
-                                  }`}>
+                                  }`}
+                                  style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
+                                  
                                     {typeof value === 'number' ? `${value}s` : value}
                                   </span>
                                 ))}
@@ -257,9 +261,11 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                                 {(selectedModel.features.generation.numberOfVideos as Array<string | number>).map((value, index) => (
                                   <span key={index} className={`px-2 py-1 text-xs rounded ${
                                     brandConfig.name === 'OMG'
-                                      ? 'bg-gray-200 text-gray-800 border border-gray-300 font-sans'
+                                      ? 'bg-gray-200 border border-gray-300 font-sans'
                                       : 'bg-gray-700 text-cyan-400 font-mono'
-                                  }`}>
+                                  }`}
+                                  style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
+                                  
                                     {value}
                                   </span>
                                 ))}
@@ -289,9 +295,11 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                               {Array.isArray(values) && (values as Array<string | number>).map((value, index) => (
                                 <span key={index} className={`px-2 py-1 text-xs rounded ${
                                   brandConfig.name === 'OMG'
-                                    ? 'bg-gray-200 text-gray-800 border border-gray-300 font-sans'
+                                    ? 'bg-gray-200 border border-gray-300 font-sans'
                                     : 'bg-gray-700 text-cyan-400 font-mono'
-                                }`}>
+                                }`}
+                                style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
+                                
                                   {value}
                                 </span>
                               ))}
