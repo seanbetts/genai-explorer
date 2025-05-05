@@ -67,7 +67,10 @@ const CategorySection: React.FC<CategorySectionProps> = ({
             {icon && (
               <i className={`bi ${icon} ${iconStyles.iconLeft}`} style={{ color: brandConfig.primaryColor }}></i>
             )}
-            <span style={{ color: brandConfig.primaryColor }}>{title}</span>
+            <span style={{ 
+              color: brandConfig.primaryColor,
+              fontFamily: brandConfig.name === 'OMG' ? 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' : 'monospace'
+            }}>{title}</span>
           </div>
           {/* Divider line using brand-specific styles */}
           <div className="w-full border-b my-2" style={{ borderColor: brandConfig.primaryColor }}></div>

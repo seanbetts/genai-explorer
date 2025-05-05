@@ -76,10 +76,10 @@ export const containerStyles = {
         ? 'h-full bg-gray-200 rounded-lg shadow-md p-5 border border-gray-300 transition-all duration-200'
         : 'h-full bg-gray-800 rounded-lg shadow-md p-5 border border-gray-700 transition-all duration-200',
     categoryTitle: brandConfig.name === 'OMG'
-        ? `text-lg font-semibold text-[${brandConfig.primaryColor}] flex items-center font-mono`
+        ? `text-lg font-semibold text-[${brandConfig.primaryColor}] flex items-center font-sans`
         : 'text-lg font-semibold text-fuchsia-500 flex items-center font-mono',
     categoryTitleInline: brandConfig.name === 'OMG'
-        ? `text-lg font-semibold text-[${brandConfig.primaryColor}] pr-4 flex items-center font-mono`
+        ? `text-lg font-semibold text-[${brandConfig.primaryColor}] pr-4 flex items-center font-sans`
         : 'text-lg font-semibold text-fuchsia-500 pr-4 flex items-center font-mono',
     categorySectionHover: brandConfig.name === 'OMG'
         ? 'hover:border-blue-500'
