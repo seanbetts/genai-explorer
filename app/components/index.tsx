@@ -249,17 +249,18 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
           <div className="flex items-center font-mono text-xs py-1 md:pl-8 space-x-8">
             <Link 
               href="/" 
-              className={`transition-colors flex items-center ${
-                currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
-                  ? 'text-cyan-400'
-                  : 'text-gray-300 hover:text-cyan-400'
-              }`}
+              className="transition-colors flex items-center text-gray-300 hover:text-teal-400"
+              style={{ 
+                color: currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
+                  ? brandConfig.secondaryColor
+                  : ''
+              }}
             >
-              <i className={`bi bi-grid mr-1.5 ${
-                currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
-                  ? 'text-cyan-400'
-                  : 'text-fuchsia-500'
-              }`}></i>
+              <i className="bi bi-grid mr-1.5" 
+                 style={{ color: currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
+                   ? brandConfig.secondaryColor
+                   : brandConfig.primaryColor
+                 }}></i>
               <span>Model Explorer</span>
             </Link>
             
@@ -362,13 +363,14 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
         {/* Show "Coming Soon" message if someone tries to access the compare page directly */}
         {(currentView === 'compare' || isComparePage || compareParam) && (
           <div className="flex flex-col items-center justify-center py-20">
-            <h2 className="text-2xl font-bold text-cyan-400 mb-4">Model Comparer</h2>
+            <h2 className="text-2xl font-bold mb-4" style={{ color: brandConfig.secondaryColor }}>Model Comparer</h2>
             <p className="text-gray-300 text-center max-w-md mb-8">
               This feature is coming soon! We're working on building a comprehensive model comparison tool.
             </p>
             <button
               onClick={goToHome}
-              className="bg-fuchsia-500 hover:bg-fuchsia-600 text-white py-2 px-6 rounded-md transition-colors"
+              className="text-white py-2 px-6 rounded-md transition-colors hover:opacity-90"
+              style={{ backgroundColor: brandConfig.primaryColor }}
             >
               Return to Explorer
             </button>

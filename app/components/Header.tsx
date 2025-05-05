@@ -23,27 +23,29 @@ const Header: React.FC<HeaderProps> = ({
       <div className={containerStyles.headerContent}>
         {/* Left section with back button and bulb image */}
         <div className="flex items-center">
-          {/* Bulb image (always visible and clickable) */}
-          <button
-            type="button"
-            onClick={goToHome}
-            className="p-0 m-0 border-0 bg-transparent cursor-pointer mr-4 hover:opacity-80 transition-opacity"
-            aria-label="Home"
-          >
-            <Image 
-              src="/images/bulb.png" 
-              alt="Bulb" 
-              width={48}
-              height={48}
-            />
-          </button>
+          {/* Bulb image (only visible for personal version) */}
+          {brandConfig.name === 'The Blueprint' && (
+            <button
+              type="button"
+              onClick={goToHome}
+              className="p-0 m-0 border-0 bg-transparent cursor-pointer mr-4 hover:opacity-80 transition-opacity"
+              aria-label="Home"
+            >
+              <Image 
+                src="/images/bulb.png" 
+                alt="Bulb" 
+                width={48}
+                height={48}
+              />
+            </button>
+          )}
           
           {/* Back button (visible in company and benchmark views) */}
           {(currentView === 'company' || currentView === 'benchmark') && (
             <button
               type="button"
               onClick={handleBack}
-              className="flex items-center gap-1 text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer focus:ring-2 focus:ring-cyan-400 focus:ring-offset-0"
+              className="flex items-center gap-1 text-gray-300 hover:text-teal-400 transition-colors cursor-pointer focus:ring-2 focus:ring-teal-400 focus:ring-offset-0"
               aria-label="Go back"
             >
               <i className="bi bi-chevron-left text-lg"></i>
@@ -97,7 +99,7 @@ const Header: React.FC<HeaderProps> = ({
           {/* Data last updated text */}
           {currentView === 'home' && (
             <div className="text-[10px] font-mono mt-2 text-right">
-              Data last updated: <span className="text-cyan-400 font-semibold">{
+              Data last updated: <span style={{ color: brandConfig.secondaryColor }} className="font-semibold">{
                 new Date().toLocaleDateString('en-GB', { 
                   day: 'numeric', 
                   month: 'long', 

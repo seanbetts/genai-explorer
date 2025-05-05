@@ -32,12 +32,10 @@ export const brandConfigs: Record<string, BrandConfig> = {
   omg: {
     name: 'OMG',
     showFooter: false, // No footer for employer version
-    logoPath: '/images/logo.png', // Will update this once employer logo is available
-    headerLinks: [
-      { text: 'Company Site', url: 'https://www.omg.com' } // Replace with actual URL
-    ],
-    primaryColor: '#4F46E5', // indigo-600 (example)
-    secondaryColor: '#10B981', // emerald-500 (example)
+    logoPath: '/images/omg-logo.png', // Using the OMG-specific logo
+    headerLinks: [], // No header links for OMG version
+    primaryColor: '#173E80',
+    secondaryColor: '#437AF6',
   }
 };
 
