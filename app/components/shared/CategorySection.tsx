@@ -65,7 +65,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({
         <div className="mb-4">
           <div className={containerStyles.categoryTitle}>
             {icon && (
-              <i className={`bi ${icon} ${iconStyles.iconLeft}`} style={{ color: brandConfig.secondaryColor }}></i>
+              <i className={`bi ${icon} ${iconStyles.iconLeft}`} style={{ color: brandConfig.primaryColor }}></i>
             )}
             <span style={{ color: brandConfig.primaryColor }}>{title}</span>
           </div>

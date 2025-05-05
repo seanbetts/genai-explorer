@@ -3,17 +3,33 @@ import brandConfig from '../../config/brand';
 
 // Card and container styles with brand-specific theming
 export const containerStyles = {
-    // Card variants with neon borders and dark backgrounds
-    card: 'bg-gray-800 p-5 rounded-lg shadow-md border border-gray-700 transition-all duration-200',
-    cardHover: 'bg-gray-800 p-5 rounded-lg shadow-md border border-gray-700 hover:border-cyan-400 hover:bg-gray-700 transition-all duration-200',
-    cardActive: 'bg-gray-800 p-5 rounded-lg shadow-md border-l-4 border-fuchsia-500 border-t border-r border-b border-gray-700',
-    cardAccent: 'bg-gray-800 p-5 rounded-lg shadow-md border border-fuchsia-500 hover:border-fuchsia-400 transition-all duration-200',
-    cardOutline: 'bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-cyan-400 transition-all duration-200',
-    cardFlat: 'bg-gray-800 p-5 rounded-lg border border-gray-700',
+    // Card variants with brand-specific styling
+    card: brandConfig.name === 'OMG'
+        ? 'bg-gray-200 p-5 rounded-lg shadow-md border border-gray-300 transition-all duration-200'
+        : 'bg-gray-800 p-5 rounded-lg shadow-md border border-gray-700 transition-all duration-200',
+    cardHover: brandConfig.name === 'OMG'
+        ? 'bg-gray-200 p-5 rounded-lg shadow-md border border-gray-300 hover:border-blue-400 hover:bg-gray-100 transition-all duration-200'
+        : 'bg-gray-800 p-5 rounded-lg shadow-md border border-gray-700 hover:border-cyan-400 hover:bg-gray-700 transition-all duration-200',
+    cardActive: brandConfig.name === 'OMG'
+        ? 'bg-gray-200 p-5 rounded-lg shadow-md border-l-4 border-blue-500 border-t border-r border-b border-gray-300'
+        : 'bg-gray-800 p-5 rounded-lg shadow-md border-l-4 border-fuchsia-500 border-t border-r border-b border-gray-700',
+    cardAccent: brandConfig.name === 'OMG'
+        ? 'bg-gray-200 p-5 rounded-lg shadow-md border border-blue-500 hover:border-blue-400 transition-all duration-200'
+        : 'bg-gray-800 p-5 rounded-lg shadow-md border border-fuchsia-500 hover:border-fuchsia-400 transition-all duration-200',
+    cardOutline: brandConfig.name === 'OMG'
+        ? 'bg-gray-200 p-5 rounded-lg border border-gray-300 hover:border-blue-400 transition-all duration-200'
+        : 'bg-gray-800 p-5 rounded-lg border border-gray-700 hover:border-cyan-400 transition-all duration-200',
+    cardFlat: brandConfig.name === 'OMG'
+        ? 'bg-gray-200 p-5 rounded-lg border border-gray-300'
+        : 'bg-gray-800 p-5 rounded-lg border border-gray-700',
     
-    // Section containers with cyberpunk styling
-    section: 'bg-gray-800 rounded-lg px-8 py-7 border border-gray-700',
-    sectionDivider: 'border-t border-fuchsia-900 my-10',
+    // Section containers with brand-specific styling
+    section: brandConfig.name === 'OMG'
+        ? 'bg-gray-200 rounded-lg px-8 py-7 border border-gray-300'
+        : 'bg-gray-800 rounded-lg px-8 py-7 border border-gray-700',
+    sectionDivider: brandConfig.name === 'OMG'
+        ? 'border-t border-gray-300 my-10'
+        : 'border-t border-fuchsia-900 my-10',
     
     // Modern grid layouts with improved spacing
     grid2col: 'grid grid-cols-1 md:grid-cols-2 gap-5',
@@ -55,12 +71,22 @@ export const containerStyles = {
     explorerRowTwo: 'grid items-stretch grid-cols-1 md:grid-cols-[5fr_3fr] gap-5',
     explorerRowFour: 'grid items-stretch grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5',
     
-    // Category section with cyberpunk styling
-    categorySection: 'h-full bg-gray-800 rounded-lg shadow-md p-5 border border-gray-700 transition-all duration-200',
-    categoryTitle: 'text-lg font-semibold text-fuchsia-500 flex items-center font-mono',
-    categoryTitleInline: 'text-lg font-semibold text-fuchsia-500 pr-4 flex items-center font-mono',
-    categorySectionHover: 'hover:border-fuchsia-900',
-    categoryIcon: 'mr-2 text-cyan-400 text-lg',
+    // Category section with brand-specific styling
+    categorySection: brandConfig.name === 'OMG'
+        ? 'h-full bg-gray-200 rounded-lg shadow-md p-5 border border-gray-300 transition-all duration-200'
+        : 'h-full bg-gray-800 rounded-lg shadow-md p-5 border border-gray-700 transition-all duration-200',
+    categoryTitle: brandConfig.name === 'OMG'
+        ? `text-lg font-semibold text-[${brandConfig.primaryColor}] flex items-center font-mono`
+        : 'text-lg font-semibold text-fuchsia-500 flex items-center font-mono',
+    categoryTitleInline: brandConfig.name === 'OMG'
+        ? `text-lg font-semibold text-[${brandConfig.primaryColor}] pr-4 flex items-center font-mono`
+        : 'text-lg font-semibold text-fuchsia-500 pr-4 flex items-center font-mono',
+    categorySectionHover: brandConfig.name === 'OMG'
+        ? 'hover:border-blue-500'
+        : 'hover:border-fuchsia-900',
+    categoryIcon: brandConfig.name === 'OMG'
+        ? `mr-2 text-[${brandConfig.primaryColor}] text-lg`
+        : 'mr-2 text-cyan-400 text-lg',
     
     // Company card with brand-specific hover effects
     companyCardContainer: brandConfig.name === 'OMG'
