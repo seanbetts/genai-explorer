@@ -1,6 +1,7 @@
 // Layout definitions: containers, tables, icons, buttons
+import brandConfig from '../../config/brand';
 
-// Cyberpunk card and container styles with neon borders and dark backgrounds
+// Card and container styles with brand-specific theming
 export const containerStyles = {
     // Card variants with neon borders and dark backgrounds
     card: 'bg-gray-800 p-5 rounded-lg shadow-md border border-gray-700 transition-all duration-200',
@@ -61,10 +62,16 @@ export const containerStyles = {
     categorySectionHover: 'hover:border-fuchsia-900',
     categoryIcon: 'mr-2 text-cyan-400 text-lg',
     
-    // Company card with refined cyberpunk hover effects
-    companyCardContainer: 'flex flex-col items-center h-full min-h-[168px] cursor-pointer p-4 rounded-lg border border-gray-600 bg-gray-200 hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300',
-    companyCardLogoOnly: 'flex items-center justify-center h-full min-h-[168px] cursor-pointer p-4 rounded-lg border border-gray-600 bg-gray-200 hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300',
-    companyCardLogoOnlyMedia: 'flex items-center justify-center h-full cursor-pointer p-4 rounded-lg border border-gray-600 bg-gray-200 hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300',
+    // Company card with brand-specific hover effects
+    companyCardContainer: brandConfig.name === 'OMG'
+        ? 'flex flex-col items-center h-full min-h-[168px] cursor-pointer p-4 rounded-lg border border-gray-300 bg-white hover:border-blue-500 hover:bg-gray-50 hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300'
+        : 'flex flex-col items-center h-full min-h-[168px] cursor-pointer p-4 rounded-lg border border-gray-600 bg-gray-200 hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300',
+    companyCardLogoOnly: brandConfig.name === 'OMG'
+        ? 'flex items-center justify-center h-full min-h-[168px] cursor-pointer p-4 rounded-lg border border-gray-300 bg-white hover:border-blue-500 hover:bg-gray-50 hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300'
+        : 'flex items-center justify-center h-full min-h-[168px] cursor-pointer p-4 rounded-lg border border-gray-600 bg-gray-200 hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300',
+    companyCardLogoOnlyMedia: brandConfig.name === 'OMG'
+        ? 'flex items-center justify-center h-full cursor-pointer p-4 rounded-lg border border-gray-300 bg-white hover:border-blue-500 hover:bg-gray-50 hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300'
+        : 'flex items-center justify-center h-full cursor-pointer p-4 rounded-lg border border-gray-600 bg-gray-200 hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300',
     companyLogo: 'relative h-14 w-full flex items-center justify-center mb-3 bg-white rounded-md p-2',
     companyLogoLarge: 'relative h-16 w-full flex items-center justify-center bg-white rounded-md p-2',
     companyLogoImage: 'mx-auto object-contain max-h-12 max-w-full',
@@ -82,9 +89,13 @@ export const containerStyles = {
     companyDescription: 'text-gray-300 font-mono',
     companyDetailSection: 'mt-6 mb-4 space-y-4',
     
-    // App layout with cyberpunk theme styling
-    appContainer: 'min-h-screen bg-gray-900',
-    header: 'bg-gray-800 shadow-md sticky top-0 z-30 border-b border-gray-700',
+    // App layout with brand-specific theme styling
+    appContainer: brandConfig.name === 'OMG' 
+        ? 'min-h-screen bg-white' 
+        : 'min-h-screen bg-gray-900',
+    header: brandConfig.name === 'OMG' 
+        ? 'bg-white shadow-md sticky top-0 z-30 border-b border-gray-200' 
+        : 'bg-gray-800 shadow-md sticky top-0 z-30 border-b border-gray-700',
     headerContent: 'container mx-auto px-5 py-6 flex items-center justify-between relative h-[90px]', /* Fixed height with padding */
     appTitle: 'text-xl font-semibold cursor-pointer text-fuchsia-500 hover:text-fuchsia-400 transition-colors font-mono',
     mainContent: 'container mx-auto p-5 md:p-6',
@@ -117,44 +128,86 @@ export const containerStyles = {
     legendItem: 'flex items-center gap-3 mr-4'
 };
 
-// Cyberpunk table styles with dark backgrounds and neon accents
+// Table styles with brand-specific theming
 export const tableStyles = {
-    // Base table styles - dark background with neon borders
-    table: 'w-full bg-gray-900 border border-gray-700 rounded-lg shadow-md overflow-hidden font-mono',
+    // Base table styles - light for OMG, dark for Blueprint
+    table: brandConfig.name === 'OMG'
+        ? 'w-full bg-white border border-gray-300 rounded-lg shadow-md overflow-hidden font-mono'
+        : 'w-full bg-gray-900 border border-gray-700 rounded-lg shadow-md overflow-hidden font-mono',
     
-    // Header styles with neon pink accent
-    header: 'bg-gray-800 border-b border-fuchsia-800 sticky top-0',
-    headerCell: 'py-3.5 px-4 text-left font-semibold text-fuchsia-500 tracking-wide text-sm bg-gray-800',
-    headerCellCenter: 'py-3.5 px-4 text-center font-semibold text-fuchsia-500 tracking-wide text-sm bg-gray-800',
-    headerFixed: 'sticky left-0 bg-gray-800 z-10',
+    // Header styles with brand-specific accent
+    header: brandConfig.name === 'OMG'
+        ? 'bg-gray-100 border-b border-gray-300 sticky top-0'
+        : 'bg-gray-800 border-b border-fuchsia-800 sticky top-0',
+    headerCell: brandConfig.name === 'OMG'
+        ? `py-3.5 px-4 text-left font-semibold text-[${brandConfig.primaryColor}] tracking-wide text-sm bg-gray-100`
+        : 'py-3.5 px-4 text-left font-semibold text-fuchsia-500 tracking-wide text-sm bg-gray-800',
+    headerCellCenter: brandConfig.name === 'OMG'
+        ? `py-3.5 px-4 text-center font-semibold text-[${brandConfig.primaryColor}] tracking-wide text-sm bg-gray-100`
+        : 'py-3.5 px-4 text-center font-semibold text-fuchsia-500 tracking-wide text-sm bg-gray-800',
+    headerFixed: brandConfig.name === 'OMG'
+        ? 'sticky left-0 bg-gray-100 z-10'
+        : 'sticky left-0 bg-gray-800 z-10',
     
-    // Cell styles with light text on dark background
-    cell: 'py-3.5 px-4 border-b border-gray-800 text-white transition-colors duration-150',
-    cellCenter: 'py-3.5 px-4 border-b border-gray-800 text-center text-white transition-colors duration-150',
-    cellHighlight: 'bg-fuchsia-900',
+    // Cell styles with brand-specific theming
+    cell: brandConfig.name === 'OMG'
+        ? 'py-3.5 px-4 border-b border-gray-200 text-gray-800 transition-colors duration-150'
+        : 'py-3.5 px-4 border-b border-gray-800 text-white transition-colors duration-150',
+    cellCenter: brandConfig.name === 'OMG'
+        ? 'py-3.5 px-4 border-b border-gray-200 text-center text-gray-800 transition-colors duration-150'
+        : 'py-3.5 px-4 border-b border-gray-800 text-center text-white transition-colors duration-150',
+    cellHighlight: brandConfig.name === 'OMG'
+        ? 'bg-blue-50'
+        : 'bg-fuchsia-900',
     
-    // Row interactions with cyberpunk effects
-    rowHover: 'hover:bg-gray-700 hover:cursor-pointer transition-all duration-150',
-    rowSelected: 'bg-fuchsia-900',
-    rowEven: 'bg-gray-800/40', // Subtle striping
-    rowOdd: 'bg-gray-900',
+    // Row interactions with brand-specific effects
+    rowHover: brandConfig.name === 'OMG'
+        ? 'hover:bg-gray-100 hover:cursor-pointer transition-all duration-150'
+        : 'hover:bg-gray-700 hover:cursor-pointer transition-all duration-150',
+    rowSelected: brandConfig.name === 'OMG'
+        ? 'bg-blue-50'
+        : 'bg-fuchsia-900',
+    rowEven: brandConfig.name === 'OMG'
+        ? 'bg-gray-50/40' // Subtle striping
+        : 'bg-gray-800/40', 
+    rowOdd: brandConfig.name === 'OMG'
+        ? 'bg-white'
+        : 'bg-gray-900',
     
     // Sticky cells
-    stickyCell: 'sticky left-0 bg-gray-900 z-10',
-    stickyLabelCell: 'sticky left-0 bg-gray-800 z-10',
-    stickyCellHover: 'sticky left-0 bg-gray-800 z-10',
+    stickyCell: brandConfig.name === 'OMG'
+        ? 'sticky left-0 bg-white z-10'
+        : 'sticky left-0 bg-gray-900 z-10',
+    stickyLabelCell: brandConfig.name === 'OMG'
+        ? 'sticky left-0 bg-gray-100 z-10'
+        : 'sticky left-0 bg-gray-800 z-10',
+    stickyCellHover: brandConfig.name === 'OMG'
+        ? 'sticky left-0 bg-gray-100 z-10'
+        : 'sticky left-0 bg-gray-800 z-10',
     
     // Content formatting
-    content: 'text-white',
-    contentSecondary: 'text-gray-300 text-sm',
+    content: brandConfig.name === 'OMG'
+        ? 'text-gray-800'
+        : 'text-white',
+    contentSecondary: brandConfig.name === 'OMG'
+        ? 'text-gray-600 text-sm'
+        : 'text-gray-300 text-sm',
     
     // Special cell styles
-    modelName: 'font-medium text-cyan-400 font-mono text-base',
-    metric: 'font-medium text-white tabular-nums font-mono',
+    modelName: brandConfig.name === 'OMG'
+        ? `font-medium text-[${brandConfig.secondaryColor}] font-mono text-base`
+        : 'font-medium text-cyan-400 font-mono text-base',
+    metric: brandConfig.name === 'OMG'
+        ? 'font-medium text-gray-800 tabular-nums font-mono'
+        : 'font-medium text-white tabular-nums font-mono',
     
     // Border utilities
-    borderRight: 'border-r border-gray-800',
-    borderLeft: 'border-l border-gray-800',
+    borderRight: brandConfig.name === 'OMG'
+        ? 'border-r border-gray-200'
+        : 'border-r border-gray-800',
+    borderLeft: brandConfig.name === 'OMG'
+        ? 'border-l border-gray-200'
+        : 'border-l border-gray-800',
     
     // Tables for comparison
     comparison: 'overflow-x-auto border border-gray-700 rounded-lg',

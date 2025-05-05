@@ -136,35 +136,35 @@ export const colors: ColorTheme = {
         },
     },
 
-    // Text colors
+    // Text colors - brand-specific
     text: {
-        primary: 'text-white',           // White text on dark background
-        secondary: 'text-gray-300',      // Light gray secondary text
-        tertiary: 'text-gray-400',       // Medium gray tertiary text
-        light: 'text-gray-500',          // Darker gray light text
-        inverted: 'text-gray-900',       // Dark text on light backgrounds
-        accent: primaryColor.text,       // Primary brand accent text
-        link: `${secondaryColor.text} hover:text-opacity-80`, // Secondary color links
+        primary: brandConfig.name === 'OMG' ? 'text-gray-900' : 'text-white',           // Dark text for OMG, white for Blueprint
+        secondary: brandConfig.name === 'OMG' ? 'text-gray-700' : 'text-gray-300',      // Medium gray for OMG, light for Blueprint
+        tertiary: brandConfig.name === 'OMG' ? 'text-gray-600' : 'text-gray-400',       // Light gray for OMG, medium for Blueprint
+        light: brandConfig.name === 'OMG' ? 'text-gray-500' : 'text-gray-500',          // Same gray for both
+        inverted: brandConfig.name === 'OMG' ? 'text-white' : 'text-gray-900',          // White for OMG, dark for Blueprint
+        accent: primaryColor.text,                                                     // Primary brand accent text
+        link: `${secondaryColor.text} hover:text-opacity-80`,                          // Secondary color links
     },
 
-    // Border colors
+    // Border colors - brand-specific
     border: {
-        lightest: 'border-gray-700',
-        light: 'border-gray-600',
-        default: 'border-gray-500',
-        medium: 'border-gray-400',
+        lightest: brandConfig.name === 'OMG' ? 'border-gray-200' : 'border-gray-700',
+        light: brandConfig.name === 'OMG' ? 'border-gray-300' : 'border-gray-600',
+        default: brandConfig.name === 'OMG' ? 'border-gray-400' : 'border-gray-500',
+        medium: brandConfig.name === 'OMG' ? 'border-gray-500' : 'border-gray-400',
         accent: primaryColor.border,    // Primary brand borders
     },
 
-    // Background colors
+    // Background colors - brand-specific
     bg: {
-        page: 'bg-gray-900',            // Dark background (#1c1d1f)
-        card: 'bg-gray-800',            // Slightly lighter card background
-        offset: 'bg-gray-800',          // Offset background 
-        hover: 'bg-gray-700',           // Hover state
-        active: 'bg-gray-600',          // Active state
-        accent: 'bg-opacity-90',       // Primary accent bg with opacity
-        accentHover: 'bg-opacity-80',  // Primary accent hover with opacity
+        page: brandConfig.name === 'OMG' ? 'bg-white' : 'bg-gray-900',             // White for OMG, dark for Blueprint
+        card: brandConfig.name === 'OMG' ? 'bg-gray-50' : 'bg-gray-800',          // Light gray for OMG, dark for Blueprint
+        offset: brandConfig.name === 'OMG' ? 'bg-gray-100' : 'bg-gray-800',       // Slightly darker for OMG, dark for Blueprint 
+        hover: brandConfig.name === 'OMG' ? 'bg-gray-200' : 'bg-gray-700',        // Hover state
+        active: brandConfig.name === 'OMG' ? 'bg-gray-300' : 'bg-gray-600',       // Active state
+        accent: 'bg-opacity-90',                                                // Primary accent bg with opacity
+        accentHover: 'bg-opacity-80',                                           // Primary accent hover with opacity
     },
 
     // Status colors - cyberpunk neon variants
