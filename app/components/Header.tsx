@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({
             <button
               type="button"
               onClick={handleBack}
-              className="flex items-center gap-1 text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer focus:ring-2 focus:ring-cyan-400 focus:ring-offset-0"
+              className={`flex items-center gap-1 text-gray-300 hover:text-[${brandConfig.secondaryColor}] transition-colors cursor-pointer focus:ring-2 focus:ring-[${brandConfig.secondaryColor}] focus:ring-offset-0`}
               aria-label="Go back"
             >
               <i className="bi bi-chevron-left text-lg"></i>
@@ -80,7 +80,7 @@ const Header: React.FC<HeaderProps> = ({
                 rel="noopener noreferrer" 
                 className="no-underline"
               >
-                <div className="flex font-mono text-[1em] font-medium w-[150px] h-[36px] bg-[#EA00D9] p-2 text-white rounded-[5px] justify-center items-center cursor-pointer hover:-translate-y-[2px] hover:scale-105 transition-all duration-200">
+                <div className={`flex font-mono text-[1em] font-medium w-[150px] h-[36px] bg-[${brandConfig.primaryColor}] p-2 text-white rounded-[5px] justify-center items-center cursor-pointer hover:-translate-y-[2px] hover:scale-105 transition-all duration-200`}>
                   {link.text}
                 </div>
               </a>
@@ -90,7 +90,7 @@ const Header: React.FC<HeaderProps> = ({
           {/* Data last updated text */}
           {currentView === 'home' && (
             <div className="text-[10px] font-mono mt-2 text-right">
-              Data last updated: <span className="text-cyan-400 font-semibold">{
+              Data last updated: <span className={`text-[${brandConfig.secondaryColor}] font-semibold`}>{
                 new Date().toLocaleDateString('en-GB', { 
                   day: 'numeric', 
                   month: 'long', 

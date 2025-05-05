@@ -1,4 +1,5 @@
 // Theme definitions: colors, typography, and category icon/styles
+import brandConfig from '../../config/brand';
 
 // TypeScript interfaces for theme objects
 interface ColorTheme {
@@ -57,7 +58,41 @@ interface TextTheme {
     bodyLarge: string;
 }
 
-// Cyberpunk-themed color system with neon accents
+// Get color classes from brand configuration
+const getPrimaryColor = () => {
+  if (brandConfig.primaryColor.startsWith('#')) {
+    return {
+      bg: `bg-[${brandConfig.primaryColor}]`,
+      text: `text-[${brandConfig.primaryColor}]`,
+      border: `border-[${brandConfig.primaryColor}]`
+    };
+  }
+  return {
+    bg: 'bg-fuchsia-500',
+    text: 'text-fuchsia-500',
+    border: 'border-fuchsia-500'
+  };
+};
+
+const getSecondaryColor = () => {
+  if (brandConfig.secondaryColor.startsWith('#')) {
+    return {
+      bg: `bg-[${brandConfig.secondaryColor}]`,
+      text: `text-[${brandConfig.secondaryColor}]`,
+      border: `border-[${brandConfig.secondaryColor}]`
+    };
+  }
+  return {
+    bg: 'bg-cyan-400',
+    text: 'text-cyan-400',
+    border: 'border-cyan-400'
+  };
+};
+
+const primaryColor = getPrimaryColor();
+const secondaryColor = getSecondaryColor();
+
+// Color system with brand-aware accent colors
 export const colors: ColorTheme = {
     // Base neutrals for backgrounds and text - dark theme
     neutral: {
@@ -73,26 +108,26 @@ export const colors: ColorTheme = {
         900: 'bg-white',    // High contrast text
     },
 
-    // Cyberpunk neon accent colors
+    // Brand-specific accent colors
     accent: {
-        // Neon pink (primary accent)
+        // Primary accent color
         blue: {
-        50: 'bg-fuchsia-900',    // Pink background / hover states
-        100: 'bg-fuchsia-800',   // Pink background (stronger)
-        200: 'bg-fuchsia-700',   // Light borders
-        500: 'bg-fuchsia-600',   // Primary accent
-        600: 'bg-fuchsia-500',   // Hover states
-        text: 'text-fuchsia-500', // Accent text (#EA00D9 equivalent)
-        border: 'border-fuchsia-500', // Neon borders
+        50: `bg-opacity-90`,          // Background opacity
+        100: `bg-opacity-80`,         // Background opacity
+        200: `bg-opacity-70`,         // Light borders
+        500: primaryColor.bg,         // Primary accent background
+        600: primaryColor.bg,         // Hover states
+        text: primaryColor.text,      // Accent text
+        border: primaryColor.border,  // Accent borders
         },
-        // Neon cyan (secondary accent)
+        // Secondary accent color
         amber: {
-        50: 'bg-cyan-900',
-        100: 'bg-cyan-800',
-        text: 'text-cyan-400',  // #0ABDC6 equivalent
-        border: 'border-cyan-400',
+        50: `bg-opacity-90`,
+        100: `bg-opacity-80`,
+        text: secondaryColor.text,    // Secondary text
+        border: secondaryColor.border,// Secondary borders
         },
-        // Additional neon accent
+        // Additional accent - keeping this the same
         emerald: {
         50: 'bg-purple-900',
         100: 'bg-purple-800',
@@ -108,8 +143,8 @@ export const colors: ColorTheme = {
         tertiary: 'text-gray-400',       // Medium gray tertiary text
         light: 'text-gray-500',          // Darker gray light text
         inverted: 'text-gray-900',       // Dark text on light backgrounds
-        accent: 'text-fuchsia-500',      // Neon pink accent text (#EA00D9)
-        link: 'text-cyan-400 hover:text-cyan-300', // Cyan links (#0ABDC6)
+        accent: primaryColor.text,       // Primary brand accent text
+        link: `${secondaryColor.text} hover:text-opacity-80`, // Secondary color links
     },
 
     // Border colors
@@ -118,7 +153,7 @@ export const colors: ColorTheme = {
         light: 'border-gray-600',
         default: 'border-gray-500',
         medium: 'border-gray-400',
-        accent: 'border-fuchsia-500',   // Neon pink borders
+        accent: primaryColor.border,    // Primary brand borders
     },
 
     // Background colors
@@ -128,8 +163,8 @@ export const colors: ColorTheme = {
         offset: 'bg-gray-800',          // Offset background 
         hover: 'bg-gray-700',           // Hover state
         active: 'bg-gray-600',          // Active state
-        accent: 'bg-fuchsia-900',       // Pink accent bg
-        accentHover: 'bg-fuchsia-800',  // Pink accent hover
+        accent: 'bg-opacity-90',       // Primary accent bg with opacity
+        accentHover: 'bg-opacity-80',  // Primary accent hover with opacity
     },
 
     // Status colors - cyberpunk neon variants
@@ -137,11 +172,11 @@ export const colors: ColorTheme = {
         success: { text: 'text-green-400', bg: 'bg-green-900', border: 'border-green-500' },
         error: { text: 'text-red-400', bg: 'bg-red-900', border: 'border-red-500' },
         warning: { text: 'text-yellow-300', bg: 'bg-yellow-900', border: 'border-yellow-500' },
-        info: { text: 'text-cyan-400', bg: 'bg-cyan-900', border: 'border-cyan-500' },
+        info: { text: secondaryColor.text, bg: 'bg-cyan-900', border: secondaryColor.border },
     },
 };
 
-// Typography system with cyberpunk styling
+// Typography system with brandable styling
 export const textStyles: TextTheme = {
     // Color variants - semantic text styles
     primary: colors.text.primary,
@@ -152,8 +187,8 @@ export const textStyles: TextTheme = {
     disabled: colors.text.light,
 
     // Link variants
-    link: colors.text.link,           // Cyan link style with hover state (#0ABDC6)
-    linkAccent: 'text-fuchsia-500 hover:text-fuchsia-400 transition-colors duration-150',  // Neon pink links (#EA00D9)
+    link: colors.text.link,           // Brand-based link style with hover state
+    linkAccent: `${primaryColor.text} hover:text-opacity-80 transition-colors duration-150`,  // Primary accent links
     linkSubtle: 'text-gray-300 hover:text-white transition-colors duration-150',  // Subtle links
 
     // Size variants with optimized line heights
@@ -175,12 +210,9 @@ export const textStyles: TextTheme = {
 
     // Common utility text styles
     caption: 'text-xs leading-5 text-gray-400 font-mono',
-    overline: 'text-xs uppercase tracking-wider font-medium text-fuchsia-500 font-mono',  // Neon pink small text
+    overline: `text-xs uppercase tracking-wider font-medium ${primaryColor.text} font-mono`,  // Primary accent small text
     label: 'text-sm font-medium text-gray-300 font-mono',
     helper: 'text-xs text-gray-400 mt-1 font-mono',
-
-    // Size variant (duplicate removed)
-    // xs already defined above
 
     // Body text convenience combinations
     bodySmall: 'text-sm leading-5 text-gray-300 font-mono',
@@ -188,42 +220,42 @@ export const textStyles: TextTheme = {
     bodyLarge: 'text-lg leading-7 text-white font-mono',
 };
 
-// Cyberpunk heading system with neon accent colors
+// Brand-aware heading system with accent colors
 export const headingStyles = {
-    // Main headings with neon pink accent color
-    h1: 'text-4xl font-bold text-fuchsia-500 mb-8 tracking-tight font-mono',  // Neon pink headings
-    h2: 'text-3xl font-bold text-fuchsia-500 mb-6 tracking-tight font-mono',
-    h3: 'text-2xl font-semibold text-fuchsia-500 mb-4 tracking-tight font-mono',
-    h4: 'text-xl font-semibold text-fuchsia-500 mb-3 tracking-tight font-mono',
-    h5: 'text-lg font-semibold text-fuchsia-500 mb-2 font-mono',
-    h6: 'text-base font-semibold text-fuchsia-500 mb-2 font-mono',
+    // Main headings with primary brand accent color
+    h1: `text-4xl font-bold ${primaryColor.text} mb-8 tracking-tight font-mono`,
+    h2: `text-3xl font-bold ${primaryColor.text} mb-6 tracking-tight font-mono`,
+    h3: `text-2xl font-semibold ${primaryColor.text} mb-4 tracking-tight font-mono`,
+    h4: `text-xl font-semibold ${primaryColor.text} mb-3 tracking-tight font-mono`, 
+    h5: `text-lg font-semibold ${primaryColor.text} mb-2 font-mono`,
+    h6: `text-base font-semibold ${primaryColor.text} mb-2 font-mono`,
 
     // Semantic heading styles for specific uses
-    page: 'text-3xl font-bold text-fuchsia-500 mb-6 tracking-tight font-mono',
-    section: 'text-2xl font-semibold text-fuchsia-500 mb-6 mt-2 tracking-tight font-mono',
-    subsection: 'text-xl font-semibold text-fuchsia-500 mb-4 mt-1 font-mono',
-    card: 'text-lg font-medium text-fuchsia-500 mb-3 font-mono',
+    page: `text-3xl font-bold ${primaryColor.text} mb-6 tracking-tight font-mono`,
+    section: `text-2xl font-semibold ${primaryColor.text} mb-6 mt-2 tracking-tight font-mono`,
+    subsection: `text-xl font-semibold ${primaryColor.text} mb-4 mt-1 font-mono`,
+    card: `text-lg font-medium ${primaryColor.text} mb-3 font-mono`,
 
     // Variations with accent colors
-    accent: 'text-2xl font-semibold text-cyan-400 mb-4 tracking-tight font-mono',  // Cyan accent (#0ABDC6)
-    subtle: 'text-xl font-medium text-gray-300 mb-3 font-mono',
+    accent: `text-2xl font-semibold ${secondaryColor.text} mb-4 tracking-tight font-mono`,  // Secondary accent
+    subtle: 'text-xl font-medium text-gray-300 mb-3 font-mono', // Subtle headings stay the same
 
     // Heading with icon
     withIcon: 'flex items-center gap-2',
 };
 
-// Cyberpunk category styles with dark backgrounds and neon accents
+// Brand-aware category styles with consistent styling
 export const categoryStyles = {
-    // Common cyberpunk styles for all categories
+    // Common styles for all categories using brand colors
     common: {
       bg: 'bg-gray-800',
       border: 'border-gray-700',
       full: 'bg-gray-800 border-gray-700',
-      title: 'text-fuchsia-500 font-mono',
+      title: `${primaryColor.text} font-mono`, // Primary brand color for titles
       shadow: 'shadow-md',
     },
     
-    // Category-specific icons with neon style
+    // Category-specific icons (same icons, styled with brand colors)
     icons: {
       frontier: 'bi-stars',
       open: 'bi-unlock',

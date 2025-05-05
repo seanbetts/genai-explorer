@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:personal": "NEXT_PUBLIC_BRAND=personal next dev --turbopack",
+    "dev:omg": "NEXT_PUBLIC_BRAND=omg next dev --turbopack",
     "build": "NODE_ENV=production next build",
+    "build:personal": "NODE_ENV=production NEXT_PUBLIC_BRAND=personal next build",
+    "build:omg": "NODE_ENV=production NEXT_PUBLIC_BRAND=omg next build",
     "start": "next start",
     "lint": "next lint"
   },
