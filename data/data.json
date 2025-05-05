@@ -5605,7 +5605,7 @@
     },
     {
       "id": "hey-gen",
-      "name": "Hey Gen",
+      "name": "HeyGen",
       "logo": "/images/companies/hey-gen/logo.png",
       "website": "https://www.heygen.com",
       "description": "Our mission is to make visual storytelling accessible to all.",
@@ -5662,8 +5662,8 @@
       ],
       "models": [
         {
-          "id": "hey-gen",
-          "name": "Hey Gen",
+          "id": "hey-gen-5-0",
+          "name": "HeyGen 5.0",
           "status": "primary",
           "about": "The Next-Generation AI Video Platform",
           "category": "other",
@@ -5784,33 +5784,147 @@
       "logo": "/images/companies/github/logo.png",
       "website": "https://github.com",
       "description": "Code hosting and collaboration platform with AI assistance",
-      "lastUpdated": "2025-02-05",
-      "features": [],
+      "lastUpdated": "2025-05-05",
+      "features": [
+        {
+          "name": "Models",
+          "description": "Swap between models like Claude 3.7 Sonnet, OpenAI o1, and Google Gemini 2.0 Flash to crush coding tasks fast or go deep when it counts.",
+          "image": "/images/companies/github/features/models.png",
+          "url": "https://docs.github.com/en/github-models/prototyping-with-ai-models"
+        },
+        {
+          "name": "Code Editing",
+          "description": "Next edit suggestions reveal the ripple effects of your changes across your project—helping you keep everything consistent.",
+          "image": "/images/companies/github/features/edit.png",
+          "url": "https://docs.github.com/en/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot"
+        },
+        {
+          "name": "Code Reviews",
+          "description": "Code review analyzes your work, uncovers hidden bugs, fixes mistakes, and more—before a human ever sees it.",
+          "image": "/images/companies/github/features/review.png",
+          "url": "https://docs.github.com/en/copilot/using-github-copilot/code-review/using-copilot-code-review"
+        },
+        {
+          "name": "Chat",
+          "description": "Chat in your editor to give you code suggestions, explain code, generate unit tests, and suggest code fixes.",
+          "image": "/images/companies/github/features/chat.png",
+          "url": "https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide"
+        },
+        {
+          "name": "Extensions",
+          "description": "Thanks to an ecosystem of third-party extensions, Copilot Chat lets you check logs, toggle features, and deploy apps, without ever leaving your editor.",
+          "image": "/images/companies/github/features/extensions.png",
+          "url": "https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions"
+        },
+        {
+          "name": "Command Line",
+          "description": "Tap into GitHub Copilot in your terminal for instant command-line help.",
+          "image": "/images/companies/github/features/command-line.png",
+          "url": "https://docs.github.com/en/copilot/using-github-copilot/using-github-copilot-in-the-command-line"
+        },
+        {
+          "name": "Agent Mode",
+          "description": "Helps you do it quickly by analyzing code, proposing edits, running tests, and validating results across multiple files.",
+          "image": "/images/companies/github/features/agent-mode.png",
+          "url": "https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode"
+        }
+      ],
       "models": [
         {
-          "id": "xxx",
-          "name": "xxx",
+          "id": "github-copilot",
+          "name": "GitHub CoPilot",
           "status": "primary",
-          "about": "xxx",
+          "about": "AI that builds with you",
           "category": "other",
-          "releaseDate": "2022/12/07",
-          "releasePost": "",
-          "releaseVideo": "",
-          "modelPage": "",
+          "releaseDate": "2021/10/27",
+          "releasePost": "https://github.blog/news-insights/product-news/introducing-github-copilot-ai-pair-programmer/",
+          "releaseVideo": "https://www.youtube.com/watch?v=8JjVNFc2kK4",
+          "modelPage": "https://github.com/features/copilot",
           "systemCard": "",
-          "modelGuide": "",
+          "modelGuide": "https://docs.github.com/en/copilot",
           "apiDocumentation": "",
           "heroVideo": {
-            "xxx": ""
+            "new_features": "https://youtu.be/C95drFKy4ss?si=Fe2NFdYRTO-dUI5X"
           },
           "demoVideos": {
-            "x": ""
+            "copilot-101": "https://youtu.be/jXp5D5ZnxGM",
+            "crafted_prompts": "https://youtu.be/hh1nOX14TyY",
+            "best_practices": "https://youtu.be/2q0BoioYSxQ",
+            "copilot_in_visual_studio": "https://youtu.be/z1ycDvspv8U",
+            "prompt_engineering": "https://youtu.be/9hZsOeIINg8",
+            "visual_studio_best_practices": "https://youtu.be/FfR9Pm631lE"
           },
-          "termsOfService": "",
+          "termsOfService": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
           "usagePolicy": ""
         }
       ],
-      "subscriptions": []
+      "subscriptions": [
+        {
+          "tier": "Free",
+          "type": "consumer",
+          "price": 0,
+          "billingCycle": "month",
+          "url": "https://github.com/features/copilot#pricing",
+          "features": [
+            "50 agent mode or chat requests per month",
+            "2,000 completions per month",
+            "Access to Claude 3.5 Sonnet, GPT-4o, and more"
+          ]
+        },
+        {
+          "tier": "Pro",
+          "type": "consumer",
+          "price": 10,
+          "billingCycle": "month",
+          "url": "https://github.com/features/copilot#pricing",
+          "features": [
+            "Everything in Free",
+            "Unlimited agent mode and chats with GPT-4o",
+            "Unlimited code completions",
+            "Access to code review, Claude 3.7 Sonnet, o1, and more",
+            "6x more premium requests to use latest models than Free, with the option to buy more"
+          ]
+        },
+        {
+          "tier": "Pro+",
+          "type": "consumer",
+          "price": 39,
+          "billingCycle": "month",
+          "url": "https://github.com/features/copilot#pricing",
+          "features": [
+            "Everything in Pro",
+            "Access to all models, including GPT-4.5",
+            "30x more premium requests to use latest models than Free, with the option to buy more"
+          ]
+        },
+        {
+          "tier": "Business",
+          "type": "enterprise",
+          "price": 19,
+          "billingCycle": "user per month",
+          "url": "https://github.com/features/copilot#pricing",
+          "features": [
+            "Unlimited agent mode and chats with GPT-4o",
+            "Unlimited code completions",
+            "Access to code review, Claude 3.5/3.7 Sonnet, o1, and more",
+            "300 premium requests to use latest models per user, with the option to buy more",
+            "User management and usage metrics",
+            "IP indemnity and data privacy"
+          ]
+        },
+        {
+          "tier": "Enterprise",
+          "type": "enterprise",
+          "price": 39,
+          "billingCycle": "user per month",
+          "url": "https://github.com/features/copilot#pricing",
+          "features": [
+            "Everything in Business",
+            "Access to all models, including GPT-4.5",
+            "3.33x more premium requests to use latest models than Business, with the option to buy more"
+          ]
+        }
+      ]
     }
   ]
 }
