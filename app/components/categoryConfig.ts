@@ -54,7 +54,7 @@ export const categoryConfig: CategoryConfigEntry[] = [
   },
   {
     key: 'other',
-    title: 'Specialised AI Platforms',
+    title: 'Specialised Models',
     layout: 'quarter-width',
     showModelCount: 0,
     rowType: 'quad',
