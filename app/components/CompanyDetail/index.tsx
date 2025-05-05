@@ -282,7 +282,12 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
            (!company.products || company.products.length === 0) && 
            (!company.features || company.features.length === 0) && 
            (!company.subscriptions || company.subscriptions.length === 0) && (
-            <button className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 ${brandConfig.name === 'OMG' ? `border-[${brandConfig.secondaryColor}] text-[${brandConfig.secondaryColor}]` : 'border-cyan-400 text-cyan-400'} cursor-default`}>
+            <button 
+              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 cursor-default`}
+              style={{ 
+                borderColor: brandConfig.secondaryColor,
+                color: brandConfig.secondaryColor
+              }}>
               Info
             </button>
           )}
@@ -291,14 +296,28 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {hasFrontierModels() && (
             <button
               className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
-                activeTab === 'frontier-models' 
-                  ? brandConfig.name === 'OMG' 
-                    ? `border-[${brandConfig.secondaryColor}] text-[${brandConfig.secondaryColor}]` 
-                    : 'border-cyan-400 text-cyan-400' 
-                  : brandConfig.name === 'OMG'
-                    ? 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-400'
+                !brandConfig.name === 'OMG' && (
+                  activeTab === 'frontier-models' 
+                    ? 'border-cyan-400 text-cyan-400' 
                     : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
+                )
               }`}
+              style={{ 
+                borderColor: activeTab === 'frontier-models' ? brandConfig.secondaryColor : 'transparent',
+                color: activeTab === 'frontier-models' ? brandConfig.secondaryColor : brandConfig.primaryColor
+              }}
+              onMouseEnter={(e) => {
+                if (activeTab !== 'frontier-models') {
+                  e.currentTarget.style.color = brandConfig.secondaryColor;
+                  e.currentTarget.style.borderColor = brandConfig.secondaryColor;
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeTab !== 'frontier-models') {
+                  e.currentTarget.style.color = brandConfig.primaryColor;
+                  e.currentTarget.style.borderColor = 'transparent';
+                }
+              }}
               onClick={() => {
                 // Enable URL updates on user click
                 initialRender.current = false;
@@ -312,15 +331,23 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Enterprise Models tab if company has enterprise models */}
           {hasEnterpriseModels() && (
             <button
-              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
-                activeTab === 'enterprise-models' 
-                  ? brandConfig.name === 'OMG' 
-                    ? `border-[${brandConfig.secondaryColor}] text-[${brandConfig.secondaryColor}]` 
-                    : 'border-cyan-400 text-cyan-400' 
-                  : brandConfig.name === 'OMG'
-                    ? 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-400'
-                    : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
-              }`}
+              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none`}
+              style={{ 
+                borderColor: activeTab === 'enterprise-models' ? brandConfig.secondaryColor : 'transparent',
+                color: activeTab === 'enterprise-models' ? brandConfig.secondaryColor : brandConfig.primaryColor
+              }}
+              onMouseEnter={(e) => {
+                if (activeTab !== 'enterprise-models') {
+                  e.currentTarget.style.color = brandConfig.secondaryColor;
+                  e.currentTarget.style.borderColor = brandConfig.secondaryColor;
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeTab !== 'enterprise-models') {
+                  e.currentTarget.style.color = brandConfig.primaryColor;
+                  e.currentTarget.style.borderColor = 'transparent';
+                }
+              }}
               onClick={() => {
                 // Enable URL updates on user click
                 initialRender.current = false;
@@ -334,15 +361,23 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Open Models tab if company has open models - moved BEFORE image and video model tabs */}
           {hasOpenModels() && (
             <button
-              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
-                activeTab === 'open-models' 
-                  ? brandConfig.name === 'OMG' 
-                    ? `border-[${brandConfig.secondaryColor}] text-[${brandConfig.secondaryColor}]` 
-                    : 'border-cyan-400 text-cyan-400' 
-                  : brandConfig.name === 'OMG'
-                    ? 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-400'
-                    : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
-              }`}
+              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none`}
+              style={{ 
+                borderColor: activeTab === 'open-models' ? brandConfig.secondaryColor : 'transparent',
+                color: activeTab === 'open-models' ? brandConfig.secondaryColor : brandConfig.primaryColor
+              }}
+              onMouseEnter={(e) => {
+                if (activeTab !== 'open-models') {
+                  e.currentTarget.style.color = brandConfig.secondaryColor;
+                  e.currentTarget.style.borderColor = brandConfig.secondaryColor;
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeTab !== 'open-models') {
+                  e.currentTarget.style.color = brandConfig.primaryColor;
+                  e.currentTarget.style.borderColor = 'transparent';
+                }
+              }}
               onClick={() => {
                 // Enable URL updates on user click
                 initialRender.current = false;
@@ -356,15 +391,23 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Image Models tab if company has image models */}
           {hasImageModels() && (
             <button
-              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
-                activeTab === 'image-models' 
-                  ? brandConfig.name === 'OMG' 
-                    ? `border-[${brandConfig.secondaryColor}] text-[${brandConfig.secondaryColor}]` 
-                    : 'border-cyan-400 text-cyan-400' 
-                  : brandConfig.name === 'OMG'
-                    ? 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-400'
-                    : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
-              }`}
+              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none`}
+              style={{ 
+                borderColor: activeTab === 'image-models' ? brandConfig.secondaryColor : 'transparent',
+                color: activeTab === 'image-models' ? brandConfig.secondaryColor : brandConfig.primaryColor
+              }}
+              onMouseEnter={(e) => {
+                if (activeTab !== 'image-models') {
+                  e.currentTarget.style.color = brandConfig.secondaryColor;
+                  e.currentTarget.style.borderColor = brandConfig.secondaryColor;
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeTab !== 'image-models') {
+                  e.currentTarget.style.color = brandConfig.primaryColor;
+                  e.currentTarget.style.borderColor = 'transparent';
+                }
+              }}
               onClick={() => {
                 // Enable URL updates on user click
                 initialRender.current = false;
@@ -378,15 +421,23 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Video Models tab if company has video models */}
           {hasVideoModels() && (
             <button
-              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
-                activeTab === 'video-models' 
-                  ? brandConfig.name === 'OMG' 
-                    ? `border-[${brandConfig.secondaryColor}] text-[${brandConfig.secondaryColor}]` 
-                    : 'border-cyan-400 text-cyan-400' 
-                  : brandConfig.name === 'OMG'
-                    ? 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-400'
-                    : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
-              }`}
+              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none`}
+              style={{ 
+                borderColor: activeTab === 'video-models' ? brandConfig.secondaryColor : 'transparent',
+                color: activeTab === 'video-models' ? brandConfig.secondaryColor : brandConfig.primaryColor
+              }}
+              onMouseEnter={(e) => {
+                if (activeTab !== 'video-models') {
+                  e.currentTarget.style.color = brandConfig.secondaryColor;
+                  e.currentTarget.style.borderColor = brandConfig.secondaryColor;
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeTab !== 'video-models') {
+                  e.currentTarget.style.color = brandConfig.primaryColor;
+                  e.currentTarget.style.borderColor = 'transparent';
+                }
+              }}
               onClick={() => {
                 // Enable URL updates on user click
                 initialRender.current = false;
@@ -400,15 +451,23 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Audio Models tab if company has audio models */}
           {hasAudioModels() && (
             <button
-              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
-                activeTab === 'audio-models' 
-                  ? brandConfig.name === 'OMG' 
-                    ? `border-[${brandConfig.secondaryColor}] text-[${brandConfig.secondaryColor}]` 
-                    : 'border-cyan-400 text-cyan-400' 
-                  : brandConfig.name === 'OMG'
-                    ? 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-400'
-                    : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
-              }`}
+              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none`}
+              style={{ 
+                borderColor: activeTab === 'audio-models' ? brandConfig.secondaryColor : 'transparent',
+                color: activeTab === 'audio-models' ? brandConfig.secondaryColor : brandConfig.primaryColor
+              }}
+              onMouseEnter={(e) => {
+                if (activeTab !== 'audio-models') {
+                  e.currentTarget.style.color = brandConfig.secondaryColor;
+                  e.currentTarget.style.borderColor = brandConfig.secondaryColor;
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeTab !== 'audio-models') {
+                  e.currentTarget.style.color = brandConfig.primaryColor;
+                  e.currentTarget.style.borderColor = 'transparent';
+                }
+              }}
               onClick={() => {
                 // Enable URL updates on user click
                 initialRender.current = false;
@@ -422,15 +481,23 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Specialised Models tab if company has specialised models */}
           {hasSpecialisedModels() && (
             <button
-              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
-                activeTab === 'specialised-models' 
-                  ? brandConfig.name === 'OMG' 
-                    ? `border-[${brandConfig.secondaryColor}] text-[${brandConfig.secondaryColor}]` 
-                    : 'border-cyan-400 text-cyan-400' 
-                  : brandConfig.name === 'OMG'
-                    ? 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-400'
-                    : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
-              }`}
+              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none`}
+              style={{ 
+                borderColor: activeTab === 'specialised-models' ? brandConfig.secondaryColor : 'transparent',
+                color: activeTab === 'specialised-models' ? brandConfig.secondaryColor : brandConfig.primaryColor
+              }}
+              onMouseEnter={(e) => {
+                if (activeTab !== 'specialised-models') {
+                  e.currentTarget.style.color = brandConfig.secondaryColor;
+                  e.currentTarget.style.borderColor = brandConfig.secondaryColor;
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeTab !== 'specialised-models') {
+                  e.currentTarget.style.color = brandConfig.primaryColor;
+                  e.currentTarget.style.borderColor = 'transparent';
+                }
+              }}
               onClick={() => {
                 // Enable URL updates on user click
                 initialRender.current = false;
@@ -444,15 +511,23 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Benchmarks Tab - Show only if company has models with benchmark scores */}
           {hasBenchmarkScores() && (
             <button
-              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
-                activeTab === 'benchmarks' 
-                  ? brandConfig.name === 'OMG' 
-                    ? `border-[${brandConfig.secondaryColor}] text-[${brandConfig.secondaryColor}]` 
-                    : 'border-cyan-400 text-cyan-400' 
-                  : brandConfig.name === 'OMG'
-                    ? 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-400'
-                    : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
-              }`}
+              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none`}
+              style={{ 
+                borderColor: activeTab === 'benchmarks' ? brandConfig.secondaryColor : 'transparent',
+                color: activeTab === 'benchmarks' ? brandConfig.secondaryColor : brandConfig.primaryColor
+              }}
+              onMouseEnter={(e) => {
+                if (activeTab !== 'benchmarks') {
+                  e.currentTarget.style.color = brandConfig.secondaryColor;
+                  e.currentTarget.style.borderColor = brandConfig.secondaryColor;
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeTab !== 'benchmarks') {
+                  e.currentTarget.style.color = brandConfig.primaryColor;
+                  e.currentTarget.style.borderColor = 'transparent';
+                }
+              }}
               onClick={() => {
                 // Enable URL updates on user click
                 initialRender.current = false;
@@ -466,15 +541,23 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Products tab if company has products */}
           {company.products && company.products.length > 0 && (
             <button
-              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
-                activeTab === 'products' 
-                  ? brandConfig.name === 'OMG' 
-                    ? `border-[${brandConfig.secondaryColor}] text-[${brandConfig.secondaryColor}]` 
-                    : 'border-cyan-400 text-cyan-400' 
-                  : brandConfig.name === 'OMG'
-                    ? 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-400'
-                    : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
-              }`}
+              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none`}
+              style={{ 
+                borderColor: activeTab === 'products' ? brandConfig.secondaryColor : 'transparent',
+                color: activeTab === 'products' ? brandConfig.secondaryColor : brandConfig.primaryColor
+              }}
+              onMouseEnter={(e) => {
+                if (activeTab !== 'products') {
+                  e.currentTarget.style.color = brandConfig.secondaryColor;
+                  e.currentTarget.style.borderColor = brandConfig.secondaryColor;
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeTab !== 'products') {
+                  e.currentTarget.style.color = brandConfig.primaryColor;
+                  e.currentTarget.style.borderColor = 'transparent';
+                }
+              }}
               onClick={() => {
                 // Enable URL updates on user click
                 initialRender.current = false;
@@ -488,15 +571,23 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Features tab if company has features and no specialized models */}
           {company.features && company.features.length > 0 && !hasSpecialisedModels() && (
             <button
-              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
-                activeTab === 'features' 
-                  ? brandConfig.name === 'OMG' 
-                    ? `border-[${brandConfig.secondaryColor}] text-[${brandConfig.secondaryColor}]` 
-                    : 'border-cyan-400 text-cyan-400' 
-                  : brandConfig.name === 'OMG'
-                    ? 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-400'
-                    : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
-              }`}
+              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none`}
+              style={{ 
+                borderColor: activeTab === 'features' ? brandConfig.secondaryColor : 'transparent',
+                color: activeTab === 'features' ? brandConfig.secondaryColor : brandConfig.primaryColor
+              }}
+              onMouseEnter={(e) => {
+                if (activeTab !== 'features') {
+                  e.currentTarget.style.color = brandConfig.secondaryColor;
+                  e.currentTarget.style.borderColor = brandConfig.secondaryColor;
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeTab !== 'features') {
+                  e.currentTarget.style.color = brandConfig.primaryColor;
+                  e.currentTarget.style.borderColor = 'transparent';
+                }
+              }}
               onClick={() => {
                 // Enable URL updates on user click
                 initialRender.current = false;
@@ -510,15 +601,23 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {/* Only render Subscriptions tab if company has subscriptions */}
           {company.subscriptions && company.subscriptions.length > 0 && (
             <button
-              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
-                activeTab === 'subscriptions' 
-                  ? brandConfig.name === 'OMG' 
-                    ? `border-[${brandConfig.secondaryColor}] text-[${brandConfig.secondaryColor}]` 
-                    : 'border-cyan-400 text-cyan-400' 
-                  : brandConfig.name === 'OMG'
-                    ? 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-400'
-                    : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
-              }`}
+              className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none`}
+              style={{ 
+                borderColor: activeTab === 'subscriptions' ? brandConfig.secondaryColor : 'transparent',
+                color: activeTab === 'subscriptions' ? brandConfig.secondaryColor : brandConfig.primaryColor
+              }}
+              onMouseEnter={(e) => {
+                if (activeTab !== 'subscriptions') {
+                  e.currentTarget.style.color = brandConfig.secondaryColor;
+                  e.currentTarget.style.borderColor = brandConfig.secondaryColor;
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (activeTab !== 'subscriptions') {
+                  e.currentTarget.style.color = brandConfig.primaryColor;
+                  e.currentTarget.style.borderColor = 'transparent';
+                }
+              }}
               onClick={() => {
                 // Enable URL updates on user click
                 initialRender.current = false;
