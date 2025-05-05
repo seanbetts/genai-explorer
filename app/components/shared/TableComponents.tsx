@@ -247,14 +247,14 @@ export const tableHoverStyles = `
     width: 100%;
   }
   
-  /* Set consistent background for labels, headers, and legend */
+  /* Set brand-specific background for labels, headers, and legend */
   .sticky-label, thead th {
-    background-color: #2d3748; /* Dark blue-gray for labels and headers */
+    background-color: ${brandConfig.name === 'OMG' ? 'white' : '#2d3748'}; /* White for OMG, dark blue-gray for Blueprint */
   }
   
-  /* For Blueprint theme, legend uses dark blue-gray background */
+  /* Brand-specific legend background */
   .legend-container {
-    background-color: #2d3748; /* Dark blue-gray for Blueprint theme */
+    background-color: ${brandConfig.name === 'OMG' ? 'white' : '#2d3748'}; /* White for OMG, dark blue-gray for Blueprint */
   }
   
   /* For OMG theme, legend uses white background (added via jsx classes) */
@@ -282,7 +282,7 @@ export const tableHoverStyles = `
     position: sticky;
     left: 0;
     z-index: 11;
-    background-color: #2d3748;
+    background-color: ${brandConfig.name === 'OMG' ? 'white' : '#2d3748'};
   }
   
   /* Reset any default hover behaviors */
@@ -292,13 +292,13 @@ export const tableHoverStyles = `
   
   /* Simple row hover effect that changes the entire row */
   .hover-highlight tbody tr:hover td {
-    background-color: #374151 !important; /* Slightly lighter gray on hover */
+    background-color: ${brandConfig.name === 'OMG' ? '#f8fafc' : '#374151'} !important; /* Brand-specific hover color */
     cursor: pointer;
   }
   
   /* Keep sticky label styling consistent on hover */
   .hover-highlight tbody tr:hover td.sticky-label {
-    background-color: #374151 !important; /* Match the row hover color */
+    background-color: ${brandConfig.name === 'OMG' ? '#f8fafc' : '#374151'} !important; /* Match the row hover color with brand-specific shade */
   }
   
   /* Ensure icons remain visible on hover */
@@ -308,7 +308,7 @@ export const tableHoverStyles = `
   
   /* Remove hover effect from column headers */
   .hover-highlight thead tr th {
-    background-color: #2d3748 !important; /* Keep headers at their normal color */
+    background-color: ${brandConfig.name === 'OMG' ? 'white' : '#2d3748'} !important; /* Keep headers at their brand-specific color */
   }
   
   /* Ensure headers don't show cursor pointer */
