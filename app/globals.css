@@ -15,13 +15,14 @@
   --color-foreground: var(--foreground);
   --color-accent-primary: var(--accent-pink);
   --color-accent-secondary: var(--accent-cyan);
-  --font-primary: 'Courier New', Courier, monospace;
+  --font-primary-personal: 'Courier New', Courier, monospace;
+  --font-primary-omg: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Brand-specific font will be applied through Tailwind classes */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Courier New', Courier, monospace;
   margin: 0;
   padding: 0;
 }

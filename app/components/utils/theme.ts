@@ -191,15 +191,15 @@ export const textStyles: TextTheme = {
     linkAccent: `${primaryColor.text} hover:text-opacity-80 transition-colors duration-150`,  // Primary accent links
     linkSubtle: 'text-gray-300 hover:text-white transition-colors duration-150',  // Subtle links
 
-    // Size variants with optimized line heights
-    xs: 'text-xs leading-5 tracking-wide font-mono',  // Added monospace font
-    sm: 'text-sm leading-5 tracking-normal font-mono',
-    base: 'text-base leading-6 tracking-normal font-mono',
-    lg: 'text-lg leading-7 tracking-tight font-mono',
-    xl: 'text-xl leading-7 tracking-tight font-mono',
-    '2xl': 'text-2xl leading-8 tracking-tight font-mono',
-    '3xl': 'text-3xl leading-9 tracking-tight font-mono',
-    '4xl': 'text-4xl leading-10 tracking-tight font-mono',
+    // Size variants with optimized line heights - brand-specific font family
+    xs: brandConfig.name === 'OMG' ? 'text-xs leading-5 tracking-wide font-sans' : 'text-xs leading-5 tracking-wide font-mono',
+    sm: brandConfig.name === 'OMG' ? 'text-sm leading-5 tracking-normal font-sans' : 'text-sm leading-5 tracking-normal font-mono',
+    base: brandConfig.name === 'OMG' ? 'text-base leading-6 tracking-normal font-sans' : 'text-base leading-6 tracking-normal font-mono',
+    lg: brandConfig.name === 'OMG' ? 'text-lg leading-7 tracking-tight font-sans' : 'text-lg leading-7 tracking-tight font-mono',
+    xl: brandConfig.name === 'OMG' ? 'text-xl leading-7 tracking-tight font-sans' : 'text-xl leading-7 tracking-tight font-mono',
+    '2xl': brandConfig.name === 'OMG' ? 'text-2xl leading-8 tracking-tight font-sans' : 'text-2xl leading-8 tracking-tight font-mono',
+    '3xl': brandConfig.name === 'OMG' ? 'text-3xl leading-9 tracking-tight font-sans' : 'text-3xl leading-9 tracking-tight font-mono',
+    '4xl': brandConfig.name === 'OMG' ? 'text-4xl leading-10 tracking-tight font-sans' : 'text-4xl leading-10 tracking-tight font-mono',
 
     // Weight variants
     light: 'font-light',
@@ -208,37 +208,63 @@ export const textStyles: TextTheme = {
     semibold: 'font-semibold',
     bold: 'font-bold',
 
-    // Common utility text styles
-    caption: 'text-xs leading-5 text-gray-400 font-mono',
-    overline: `text-xs uppercase tracking-wider font-medium ${primaryColor.text} font-mono`,  // Primary accent small text
-    label: 'text-sm font-medium text-gray-300 font-mono',
-    helper: 'text-xs text-gray-400 mt-1 font-mono',
+    // Common utility text styles - brand specific font family
+    caption: brandConfig.name === 'OMG' ? 'text-xs leading-5 text-gray-400 font-sans' : 'text-xs leading-5 text-gray-400 font-mono',
+    overline: brandConfig.name === 'OMG' 
+      ? `text-xs uppercase tracking-wider font-medium ${primaryColor.text} font-sans` 
+      : `text-xs uppercase tracking-wider font-medium ${primaryColor.text} font-mono`,
+    label: brandConfig.name === 'OMG' ? 'text-sm font-medium text-gray-300 font-sans' : 'text-sm font-medium text-gray-300 font-mono',
+    helper: brandConfig.name === 'OMG' ? 'text-xs text-gray-400 mt-1 font-sans' : 'text-xs text-gray-400 mt-1 font-mono',
 
-    // Body text convenience combinations
-    bodySmall: 'text-sm leading-5 text-gray-300 font-mono',
-    body: 'text-base leading-6 text-white font-mono',            // White text
-    bodyLarge: 'text-lg leading-7 text-white font-mono',
+    // Body text convenience combinations - brand specific font family
+    bodySmall: brandConfig.name === 'OMG' ? 'text-sm leading-5 text-gray-300 font-sans' : 'text-sm leading-5 text-gray-300 font-mono',
+    body: brandConfig.name === 'OMG' ? 'text-base leading-6 text-gray-900 font-sans' : 'text-base leading-6 text-white font-mono',
+    bodyLarge: brandConfig.name === 'OMG' ? 'text-lg leading-7 text-gray-900 font-sans' : 'text-lg leading-7 text-white font-mono',
 };
 
 // Brand-aware heading system with accent colors
 export const headingStyles = {
     // Main headings with primary brand accent color
-    h1: `text-4xl font-bold ${primaryColor.text} mb-8 tracking-tight font-mono`,
-    h2: `text-3xl font-bold ${primaryColor.text} mb-6 tracking-tight font-mono`,
-    h3: `text-2xl font-semibold ${primaryColor.text} mb-4 tracking-tight font-mono`,
-    h4: `text-xl font-semibold ${primaryColor.text} mb-3 tracking-tight font-mono`, 
-    h5: `text-lg font-semibold ${primaryColor.text} mb-2 font-mono`,
-    h6: `text-base font-semibold ${primaryColor.text} mb-2 font-mono`,
+    h1: brandConfig.name === 'OMG' 
+      ? `text-4xl font-bold ${primaryColor.text} mb-8 tracking-tight font-sans` 
+      : `text-4xl font-bold ${primaryColor.text} mb-8 tracking-tight font-mono`,
+    h2: brandConfig.name === 'OMG' 
+      ? `text-3xl font-bold ${primaryColor.text} mb-6 tracking-tight font-sans` 
+      : `text-3xl font-bold ${primaryColor.text} mb-6 tracking-tight font-mono`,
+    h3: brandConfig.name === 'OMG' 
+      ? `text-2xl font-semibold ${primaryColor.text} mb-4 tracking-tight font-sans` 
+      : `text-2xl font-semibold ${primaryColor.text} mb-4 tracking-tight font-mono`,
+    h4: brandConfig.name === 'OMG' 
+      ? `text-xl font-semibold ${primaryColor.text} mb-3 tracking-tight font-sans` 
+      : `text-xl font-semibold ${primaryColor.text} mb-3 tracking-tight font-mono`,
+    h5: brandConfig.name === 'OMG' 
+      ? `text-lg font-semibold ${primaryColor.text} mb-2 font-sans` 
+      : `text-lg font-semibold ${primaryColor.text} mb-2 font-mono`,
+    h6: brandConfig.name === 'OMG' 
+      ? `text-base font-semibold ${primaryColor.text} mb-2 font-sans` 
+      : `text-base font-semibold ${primaryColor.text} mb-2 font-mono`,
 
     // Semantic heading styles for specific uses
-    page: `text-3xl font-bold ${primaryColor.text} mb-6 tracking-tight font-mono`,
-    section: `text-2xl font-semibold ${primaryColor.text} mb-6 mt-2 tracking-tight font-mono`,
-    subsection: `text-xl font-semibold ${primaryColor.text} mb-4 mt-1 font-mono`,
-    card: `text-lg font-medium ${primaryColor.text} mb-3 font-mono`,
+    page: brandConfig.name === 'OMG' 
+      ? `text-3xl font-bold ${primaryColor.text} mb-6 tracking-tight font-sans` 
+      : `text-3xl font-bold ${primaryColor.text} mb-6 tracking-tight font-mono`,
+    section: brandConfig.name === 'OMG' 
+      ? `text-2xl font-semibold ${primaryColor.text} mb-6 mt-2 tracking-tight font-sans` 
+      : `text-2xl font-semibold ${primaryColor.text} mb-6 mt-2 tracking-tight font-mono`,
+    subsection: brandConfig.name === 'OMG' 
+      ? `text-xl font-semibold ${primaryColor.text} mb-4 mt-1 font-sans` 
+      : `text-xl font-semibold ${primaryColor.text} mb-4 mt-1 font-mono`,
+    card: brandConfig.name === 'OMG' 
+      ? `text-lg font-medium ${primaryColor.text} mb-3 font-sans` 
+      : `text-lg font-medium ${primaryColor.text} mb-3 font-mono`,
 
     // Variations with accent colors
-    accent: `text-2xl font-semibold ${secondaryColor.text} mb-4 tracking-tight font-mono`,  // Secondary accent
-    subtle: 'text-xl font-medium text-gray-300 mb-3 font-mono', // Subtle headings stay the same
+    accent: brandConfig.name === 'OMG' 
+      ? `text-2xl font-semibold ${secondaryColor.text} mb-4 tracking-tight font-sans` 
+      : `text-2xl font-semibold ${secondaryColor.text} mb-4 tracking-tight font-mono`,
+    subtle: brandConfig.name === 'OMG' 
+      ? 'text-xl font-medium text-gray-300 mb-3 font-sans' 
+      : 'text-xl font-medium text-gray-300 mb-3 font-mono',
 
     // Heading with icon
     withIcon: 'flex items-center gap-2',
@@ -251,7 +277,9 @@ export const categoryStyles = {
       bg: 'bg-gray-800',
       border: 'border-gray-700',
       full: 'bg-gray-800 border-gray-700',
-      title: `${primaryColor.text} font-mono`, // Primary brand color for titles
+      title: brandConfig.name === 'OMG' 
+        ? `${primaryColor.text} font-sans` 
+        : `${primaryColor.text} font-mono`, // Primary brand color for titles with brand-specific font
       shadow: 'shadow-md',
     },
     
