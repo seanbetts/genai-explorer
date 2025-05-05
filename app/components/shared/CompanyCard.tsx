@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Company, Model } from '../types';
 import { textStyles } from '../utils/theme';
 import { containerStyles } from '../utils/layout';
+import brandConfig from '../../config/brand';
 
 interface CompanyCardProps {
   company: Company;
@@ -67,6 +68,14 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
       ? containerStyles.companyCardLogoOnlyMedia  // Media category with logo only
       : containerStyles.companyCardLogoOnly       // Regular logo-only card
     : containerStyles.companyCardContainer;       // Card with models
+  
+  // State for hover
+  const [isHovered, setIsHovered] = useState(false);
+  
+  // Border color for hover
+  const hoverStyle = brandConfig.name === 'OMG' && isHovered 
+    ? { borderColor: brandConfig.primaryColor } 
+    : {};
 
   return (
     <div
@@ -74,6 +83,9 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
       role="button"
       tabIndex={0}
       className={`company-card group ${cardClassName}`}
+      style={hoverStyle}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       onClick={() => {
         // Use the section category if provided, otherwise fallback to first model category
         const category = sectionCategory || (company.models.length > 0 ? company.models[0].category : undefined);
@@ -105,8 +117,16 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
           {modelsToDisplay.map((model, idx) => (
             <div 
               key={model.id} 
-              className={containerStyles.companyModel}
-              style={{ fontSize: '0.875rem' }}  // Start with default text-sm size
+              className={brandConfig.name !== 'OMG' ? containerStyles.companyModel : ''}
+              style={{ 
+                fontSize: '0.875rem',  // Start with default text-sm size
+                textAlign: 'center',
+                fontWeight: 'medium',
+                marginBottom: '0.25rem',
+                fontFamily: 'monospace',
+                color: 'rgb(31, 41, 55)', // text-gray-800
+                ...(brandConfig.name === 'OMG' && isHovered && { color: brandConfig.primaryColor })
+              }}
               ref={(el) => {
                 if (el) {
                   // Check if content is larger than container and reduce font size if needed
