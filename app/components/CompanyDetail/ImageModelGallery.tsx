@@ -668,7 +668,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           const cw = data.options?.contextWindow;
                           return (
                             cw !== undefined ? 
-                              <span className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded">
+                              <span className={`px-2 py-0.5 ${brandConfig.name === 'OMG' ? 'bg-gray-200 border border-gray-300 text-gray-800 font-sans' : 'bg-gray-800 text-white font-mono'} text-xs rounded`}>
                                 {cw.toLocaleString()} tokens
                               </span> 
                               : <span className="text-gray-500">-</span>
@@ -687,7 +687,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               Array.isArray(types) && types.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(types) ? types : [types]).map((t) => (
-                                    <span key={t} className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded">
+                                    <span key={t} className={`px-2 py-0.5 ${brandConfig.name === 'OMG' ? 'bg-gray-200 border border-gray-300 text-gray-800 font-sans' : 'bg-gray-800 text-white font-mono'} text-xs rounded`}>
                                       {t}
                                     </span>
                                   ))}
@@ -719,7 +719,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   style={{ color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor }}
                                 />
                               ) : (
-                                <span className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded">
+                                <span className={`px-2 py-0.5 ${brandConfig.name === 'OMG' ? 'bg-gray-200 border border-gray-300 text-gray-800 font-sans' : 'bg-gray-800 text-white font-mono'} text-xs rounded`}>
                                   {mis.toLocaleString()} MB
                                 </span>
                               )
@@ -741,7 +741,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               Array.isArray(mod) && mod.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(mod) ? mod : [mod]).map((lvl) => (
-                                    <span key={lvl} className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded capitalize">
+                                    <span key={lvl} className={`px-2 py-0.5 ${brandConfig.name === 'OMG' ? 'bg-gray-200 border border-gray-300 text-gray-800 font-sans' : 'bg-gray-800 text-white font-mono'} text-xs rounded capitalize`}>
                                       {lvl}
                                     </span>
                                   ))}
@@ -834,7 +834,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               Array.isArray(o) && o.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(o) ? o : [o]).map((t) => (
-                                    <span key={t} className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded">
+                                    <span key={t} className={`px-2 py-0.5 ${brandConfig.name === 'OMG' ? 'bg-gray-200 border border-gray-300 text-gray-800 font-sans' : 'bg-gray-800 text-white font-mono'} text-xs rounded`}>
                                       {t}
                                     </span>
                                   ))}
@@ -863,7 +863,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               Array.isArray(s) && s.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center max-w-[16rem] mx-auto">
                                   {(Array.isArray(s) ? s : [s]).map((sz) => (
-                                    <span key={sz} className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded">
+                                    <span key={sz} className={`px-2 py-0.5 ${brandConfig.name === 'OMG' ? 'bg-gray-200 border border-gray-300 text-gray-800 font-sans' : 'bg-gray-800 text-white font-mono'} text-xs rounded`}>
                                       {sz}
                                     </span>
                                   ))}
@@ -892,7 +892,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               Array.isArray(q) && q.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(q) ? q : [q]).map((ql) => (
-                                    <span key={ql} className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded capitalize">
+                                    <span key={ql} className={`px-2 py-0.5 ${brandConfig.name === 'OMG' ? 'bg-gray-200 border border-gray-300 text-gray-800 font-sans' : 'bg-gray-800 text-white font-mono'} text-xs rounded capitalize`}>
                                       {ql}
                                     </span>
                                   ))}
@@ -942,7 +942,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               Array.isArray(st) && st.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(st) ? st : [st]).map((style) => (
-                                    <span key={style} className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded capitalize">
+                                    <span key={style} className={`px-2 py-0.5 ${brandConfig.name === 'OMG' ? 'bg-gray-200 border border-gray-300 text-gray-800 font-sans' : 'bg-gray-800 text-white font-mono'} text-xs rounded capitalize`}>
                                       {style}
                                     </span>
                                   ))}
@@ -971,7 +971,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               Array.isArray(bg) && bg.length > 0 ? (
                                 <div className="flex flex-wrap gap-1 justify-center">
                                   {(Array.isArray(bg) ? bg : [bg]).map((b) => (
-                                    <span key={b} className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded capitalize">
+                                    <span key={b} className={`px-2 py-0.5 ${brandConfig.name === 'OMG' ? 'bg-gray-200 border border-gray-300 text-gray-800 font-sans' : 'bg-gray-800 text-white font-mono'} text-xs rounded capitalize`}>
                                       {b}
                                     </span>
                                   ))}
@@ -1004,7 +1004,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                 />
                               ) : (
                                 <div className="flex items-center justify-center">
-                                  <span className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded">
+                                  <span className={`px-2 py-0.5 ${brandConfig.name === 'OMG' ? 'bg-gray-200 border border-gray-300 text-gray-800 font-sans' : 'bg-gray-800 text-white font-mono'} text-xs rounded`}>
                                     1-{vi}
                                   </span>
                                 </div>
