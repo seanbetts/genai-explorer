@@ -94,7 +94,7 @@ export const containerStyles = {
         ? 'min-h-screen bg-white' 
         : 'min-h-screen bg-gray-900',
     header: brandConfig.name === 'OMG' 
-        ? 'bg-white shadow-md sticky top-0 z-30 border-b border-gray-200' 
+        ? 'bg-gray-200 shadow-md sticky top-0 z-30 border-b border-gray-300' 
         : 'bg-gray-800 shadow-md sticky top-0 z-30 border-b border-gray-700',
     headerContent: 'container mx-auto px-5 py-6 flex items-center justify-between relative h-[90px]', /* Fixed height with padding */
     appTitle: 'text-xl font-semibold cursor-pointer text-fuchsia-500 hover:text-fuchsia-400 transition-colors font-mono',

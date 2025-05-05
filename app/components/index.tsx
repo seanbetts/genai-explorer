@@ -244,7 +244,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
       />
 
       {/* Features Navigation - visible on all views - sticky */}
-      <div className={`${brandConfig.name === 'OMG' ? 'bg-white border-b border-gray-200' : 'bg-gray-800 border-b border-gray-700'} py-2 shadow-md sticky top-[90px] z-20`}>
+      <div className={`${brandConfig.name === 'OMG' ? 'bg-gray-200 border-b border-gray-300' : 'bg-gray-800 border-b border-gray-700'} py-2 shadow-md sticky top-[90px] z-20`}>
         <div className="container mx-auto px-5">
           <div className="flex items-center font-mono text-xs py-1 md:pl-8 space-x-8">
             <Link 

@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({
   handleBack 
 }) => {
   return (
-    <header className={containerStyles.header}>
+    <header className={`${brandConfig.name === 'OMG' ? 'bg-gray-200' : 'bg-gray-800'} shadow-md sticky top-0 z-30 border-b ${brandConfig.name === 'OMG' ? 'border-gray-300' : 'border-gray-700'}`}>
       <div className={containerStyles.headerContent}>
         {/* Left section with back button and bulb image */}
         <div className="flex items-center">
