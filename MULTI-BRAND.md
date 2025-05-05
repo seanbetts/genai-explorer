@@ -4,23 +4,15 @@ This document outlines the approach for maintaining two versions of the Generati
 1. **Personal Version** - The original design for The Blueprint
 2. **OMG Version** - The employer-specific version with different styling, header, and no footer
 
-## Branch Strategy
+## Single Branch Strategy
 
-We use a dedicated branch strategy to maintain both versions:
+We use a single branch approach with environment variable configuration:
 
 ```
-dev (development branch)
-│
-├── main (personal version branch)
-│
-└── omg (employer version with specific styling)
+main (single production branch)
 ```
 
-### Branch Purposes
-
-- **dev**: Development branch where all new features are initially created and tested
-- **main**: Production branch for the personal version of the explorer (current design)
-- **omg**: Production branch for the OMG version with employer-specific styling, header, and no footer
+All code, including brand-specific configurations, is maintained in one branch. Different versions are built by specifying the brand via environment variables during the build process.
 
 ## Configuration System
 
@@ -35,29 +27,19 @@ All brand-specific customizations are controlled through the brand configuration
 When adding new features or making changes, follow this workflow:
 
 1. **Development**:
-   - Work directly on the `dev` branch
-   - Develop and test the feature
+   - Work directly on the `main` branch or a feature branch
+   - Develop and test the feature with both brands
    - Use brand-agnostic implementation with configuration for brand differences
+   - Test with both `npm run dev:personal` and `npm run dev:omg`
 
-2. **Merging to Personal Version**:
-   - Ensure all changes are committed to `dev`
-   - Test thoroughly
-   - Merge `dev` to `main` branch when ready to deploy the personal version
+2. **Deploying Different Versions**:
+   - Both versions are deployed from the same branch using different build commands
+   - Test thoroughly with both brand configurations before deploying
+   - Make sure any new features work correctly across both brands
    ```bash
-   git checkout main
-   git merge dev
-   ```
-
-3. **Transferring to OMG Version**:
-   - Merge from `dev` to `omg`
-   - Apply any OMG-specific adjustments needed
-   - Test in the OMG brand context
-   - Commit OMG-specific tweaks to the `omg` branch only
-   ```bash
-   git checkout omg
-   git merge dev
-   # Make OMG-specific adjustments
-   git commit -m "Apply OMG-specific styling and configuration"
+   # Test both versions locally before deployment
+   npm run dev:personal
+   npm run dev:omg
    ```
 
 ## Running Different Versions Locally
@@ -84,26 +66,40 @@ npm run build:omg
 
 ## Deployment Process
 
-### Personal Version Deployment
-```bash
-# Build the personal version
-git checkout main
-npm run build:personal
+### Setting Up Netlify for Both Versions
 
-# Deploy to Netlify
-npm run deploy
-```
+1. **Create two separate sites on Netlify**:
+   - One for the personal version (The Blueprint)
+   - One for the OMG version
 
-### OMG Version Deployment
-```bash
-# Build the OMG version
-git checkout omg
-npm run build:omg
+2. **Configure each site**:
 
-# Deploy to GitHub Pages or your preferred hosting
-# Example using gh-pages:
-npx gh-pages -d out -r git@github.com:omg/genai-explorer.git
-```
+   **For The Blueprint site**:
+   ```
+   Repository: [Your GitHub Repository]
+   Branch: main
+   Build command: npm run build:personal
+   Publish directory: out
+   Environment variables:
+     - NEXT_PUBLIC_BRAND=personal
+   ```
+
+   **For the OMG site**:
+   ```
+   Repository: [Your GitHub Repository]
+   Branch: main
+   Build command: npm run build:omg
+   Publish directory: out
+   Environment variables:
+     - NEXT_PUBLIC_BRAND=omg
+   ```
+
+3. **Domain configuration**:
+   - Set custom domains for each site if needed
+   - The code will detect domains containing "omg" as OMG brand automatically
+
+4. **Deploying updates**:
+   Simply push to the main branch, and both Netlify sites will rebuild automatically with their respective brand configurations.
 
 ## Customization Points
 

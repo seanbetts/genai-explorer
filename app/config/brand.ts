@@ -49,7 +49,8 @@ const getBrandKey = (): string => {
   // When running in browser, determine from hostname (optional)
   if (typeof window !== 'undefined') {
     const hostname = window.location.hostname;
-    if (hostname.includes('omg') || hostname.includes('employer')) {
+    // Check if hostname contains omg or is the OMG Netlify site
+    if (hostname.includes('omg') || hostname.includes('genai-explorer-omg')) {
       return 'omg';
     }
   }
