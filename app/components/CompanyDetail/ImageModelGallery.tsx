@@ -219,7 +219,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   'bi bi-x-circle-fill'} mr-2 ${brandConfig.name === 'OMG' && value === true ? 'bi bi-check-circle-fill text-lg' : ''}`}
                                 style={value === true && brandConfig.name === 'OMG' ? 
                                   { color: brandConfig.secondaryColor } : 
-                                  (value === false ? { color: '#ef4444' /* red-500 */ } : {})}
+                                  (value === false ? { color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor } : {})}
                               />
                               <span className={textStyles.body}>{formatFeatureName(key)}</span>
                             </div>
@@ -245,7 +245,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   'bi bi-x-circle-fill'} mr-2 ${brandConfig.name === 'OMG' && value === true ? 'bi bi-check-circle-fill text-lg' : ''}`}
                                 style={value === true && brandConfig.name === 'OMG' ? 
                                   { color: brandConfig.secondaryColor } : 
-                                  (value === false ? { color: '#ef4444' /* red-500 */ } : {})}
+                                  (value === false ? { color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor } : {})}
                               />
                               <span className={textStyles.body}>{formatFeatureName(key)}</span>
                             </div>
@@ -271,7 +271,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   'bi bi-x-circle-fill'} mr-2 ${brandConfig.name === 'OMG' && value === true ? 'bi bi-check-circle-fill text-lg' : ''}`}
                                 style={value === true && brandConfig.name === 'OMG' ? 
                                   { color: brandConfig.secondaryColor } : 
-                                  (value === false ? { color: '#ef4444' /* red-500 */ } : {})}
+                                  (value === false ? { color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor } : {})}
                               />
                               <span className={textStyles.body}>{formatFeatureName(key)}</span>
                             </div>
@@ -297,7 +297,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               'bi bi-x-circle-fill'} mr-2 ${brandConfig.name === 'OMG' && selectedModel.apiEndpoints.available === true ? 'bi bi-check-circle-fill text-lg' : ''}`}
                             style={selectedModel.apiEndpoints.available === true && brandConfig.name === 'OMG' ? 
                               { color: brandConfig.secondaryColor } : 
-                              (selectedModel.apiEndpoints.available === false ? { color: '#ef4444' /* red-500 */ } : {})}
+                              (selectedModel.apiEndpoints.available === false ? { color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor } : {})}
                           />
                           <span className={textStyles.body}>API Available</span>
                         </div>
@@ -313,7 +313,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                 'bi bi-x-circle-fill'} mr-2 ${brandConfig.name === 'OMG' && value === true ? 'bi bi-check-circle-fill text-lg' : ''} ${!value && brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
                               style={value === true && brandConfig.name === 'OMG' ? 
                                 { color: brandConfig.secondaryColor } : 
-                                (!value ? { color: '#ef4444' /* red-500 */ } : {})}
+                                (!value ? { color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor } : {})}
                             />
                             <span className={textStyles.body}>{formatFeatureName(key)}</span>
                           </div>
@@ -351,7 +351,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                 'bi bi-x-circle-fill'} mr-2 ${brandConfig.name === 'OMG' && value === true ? 'bi bi-check-circle-fill text-lg' : ''} ${!value && brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
                               style={value === true && brandConfig.name === 'OMG' ? 
                                 { color: brandConfig.secondaryColor } : 
-                                (!value ? { color: '#ef4444' /* red-500 */ } : {})}
+                                (!value ? { color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor } : {})}
                             />
                             <span className={textStyles.body}>{formatFeatureName(key)}</span>
                           </div>
@@ -366,7 +366,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               'bi bi-x-circle-fill'} mr-3 ${brandConfig.name === 'OMG' && ipRespectEnabled ? 'bi bi-check-circle-fill text-lg' : ''}`}
                             style={ipRespectEnabled && brandConfig.name === 'OMG' ? 
                               { color: brandConfig.secondaryColor } : 
-                              (!ipRespectEnabled ? { color: '#ef4444' /* red-500 */ } : {})}
+                              (!ipRespectEnabled ? { color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor } : {})}
                           />
                           <span className={textStyles.body}>IP Respect</span>
                         </div>
@@ -379,7 +379,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               'bi bi-x-circle-fill'} mr-3 ${brandConfig.name === 'OMG' && selectedModel.commerciallySafe ? 'bi bi-check-circle-fill text-lg' : ''}`}
                             style={selectedModel.commerciallySafe && brandConfig.name === 'OMG' ? 
                               { color: brandConfig.secondaryColor } : 
-                              (!selectedModel.commerciallySafe ? { color: '#ef4444' /* red-500 */ } : {})}
+                              (!selectedModel.commerciallySafe ? { color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor } : {})}
                           />
                           <span className={textStyles.body}>{selectedModel.commerciallySafe ? 'Commercially safe' : 'Not commercially safe'}</span>
                         </div>
@@ -531,8 +531,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               <i 
                                 className={`${supported ? 
                                   (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
-                                  'bi bi-x-circle-fill text-red-500'} mr-2 ${brandConfig.name === 'OMG' ? 'bi bi-check-circle-fill text-lg' : ''}`}
-                                style={supported && brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
+                                  'bi bi-x-circle-fill'} mr-2 ${brandConfig.name === 'OMG' && supported ? 'bi bi-check-circle-fill text-lg' : ''} ${!supported && brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
+                                style={supported && brandConfig.name === 'OMG' ? 
+                                  { color: brandConfig.secondaryColor } : 
+                                  (!supported ? { color: brandConfig.name === 'OMG' ? '#ef4444' : brandConfig.primaryColor } : {})}
                               />
                               <span className={`${textStyles.body} text-sm font-medium ${
                                 brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'
@@ -687,7 +689,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               ) : (
                                 <i 
                                   className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
-                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                  style={{ color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor }}
                                 />
                               )
                             ) : (
@@ -708,7 +710,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               mis === 0 ? (
                                 <i 
                                   className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
-                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                  style={{ color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor }}
                                 />
                               ) : (
                                 <span className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded">
@@ -741,7 +743,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               ) : (
                                 <i 
                                   className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
-                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                  style={{ color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor }}
                                 />
                               )
                             ) : (
@@ -765,7 +767,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   'bi bi-x-circle-fill'} ${brandConfig.name === 'OMG' && m ? 'bi bi-check-circle-fill text-lg' : ''}`}
                                 style={m && brandConfig.name === 'OMG' ? 
                                   { color: brandConfig.secondaryColor } : 
-                                  (!m ? { color: '#ef4444' /* red-500 */ } : {})}
+                                  (!m ? { color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor } : {})}
                               /> :
                               <span className="text-gray-500">-</span>
                           );
@@ -786,7 +788,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   'bi bi-x-circle-fill'} ${brandConfig.name === 'OMG' && sr ? 'bi bi-check-circle-fill text-lg' : ''}`}
                                 style={sr && brandConfig.name === 'OMG' ? 
                                   { color: brandConfig.secondaryColor } : 
-                                  (!sr ? { color: '#ef4444' /* red-500 */ } : {})}
+                                  (!sr ? { color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor } : {})}
                               /> :
                               <span className="text-gray-500">-</span>
                           );
@@ -807,7 +809,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   'bi bi-x-circle-fill'} ${brandConfig.name === 'OMG' && np ? 'bi bi-check-circle-fill text-lg' : ''}`}
                                 style={np && brandConfig.name === 'OMG' ? 
                                   { color: brandConfig.secondaryColor } : 
-                                  (!np ? { color: '#ef4444' /* red-500 */ } : {})}
+                                  (!np ? { color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor } : {})}
                               /> :
                               <span className="text-gray-500">-</span>
                           );
@@ -834,7 +836,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               ) : (
                                 <i 
                                   className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
-                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                  style={{ color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor }}
                                 />
                               )
                             ) : (
@@ -863,7 +865,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               ) : (
                                 <i 
                                   className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
-                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                  style={{ color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor }}
                                 />
                               )
                             ) : (
@@ -892,7 +894,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               ) : (
                                 <i 
                                   className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
-                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                  style={{ color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor }}
                                 />
                               )
                             ) : (
@@ -916,7 +918,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   'bi bi-x-circle-fill'} ${brandConfig.name === 'OMG' && oc ? 'bi bi-check-circle-fill text-lg' : ''} ${!oc && brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
                                 style={oc && brandConfig.name === 'OMG' ? 
                                   { color: brandConfig.secondaryColor } : 
-                                  (!oc ? { color: '#ef4444' /* red-500 */ } : {})}
+                                  (!oc ? { color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor } : {})}
                               /> :
                               <span className="text-gray-500">-</span>
                           );
@@ -942,7 +944,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               ) : (
                                 <i 
                                   className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
-                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                  style={{ color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor }}
                                 />
                               )
                             ) : (
@@ -971,7 +973,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               ) : (
                                 <i 
                                   className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
-                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                  style={{ color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor }}
                                 />
                               )
                             ) : (
@@ -992,7 +994,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               vi === 0 ? (
                                 <i 
                                   className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
-                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                  style={{ color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor }}
                                 />
                               ) : (
                                 <div className="flex items-center justify-center">
@@ -1022,7 +1024,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   'bi bi-x-circle-fill'} ${brandConfig.name === 'OMG' && t ? 'bi bi-check-circle-fill text-lg' : ''} ${!t && brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
                                 style={t && brandConfig.name === 'OMG' ? 
                                   { color: brandConfig.secondaryColor } : 
-                                  (!t ? { color: '#ef4444' /* red-500 */ } : {})}
+                                  (!t ? { color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor } : {})}
                               /> :
                               <span className="text-gray-500">-</span>
                           );
@@ -1043,7 +1045,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   'bi bi-x-circle-fill'} ${brandConfig.name === 'OMG' && pp ? 'bi bi-check-circle-fill text-lg' : ''} ${!pp && brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
                                 style={pp && brandConfig.name === 'OMG' ? 
                                   { color: brandConfig.secondaryColor } : 
-                                  (!pp ? { color: '#ef4444' /* red-500 */ } : {})}
+                                  (!pp ? { color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor } : {})}
                               /> :
                               <span className="text-gray-500">-</span>
                           );
@@ -1064,7 +1066,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   'bi bi-x-circle-fill'} ${brandConfig.name === 'OMG' && pa ? 'bi bi-check-circle-fill text-lg' : ''} ${!pa && brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
                                 style={pa && brandConfig.name === 'OMG' ? 
                                   { color: brandConfig.secondaryColor } : 
-                                  (!pa ? { color: '#ef4444' /* red-500 */ } : {})}
+                                  (!pa ? { color: brandConfig.name === 'OMG' ? '#ef4444' /* red-500 */ : brandConfig.primaryColor } : {})}
                               /> :
                               <span className="text-gray-500">-</span>
                           );
