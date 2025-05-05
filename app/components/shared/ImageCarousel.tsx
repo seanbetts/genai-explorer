@@ -13,6 +13,7 @@ import {
   imageQuality,
   getResponsiveSizes
 } from "../utils/imageUtils";
+import brandConfig from "../../config/brand";
 
 interface ThumbnailScrollerProps {
   activeIndex: number;
@@ -176,23 +177,23 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   // If there are no images to display
   if (images.length === 0) {
     return (
-      <div className="flex items-center justify-center h-96 bg-gray-800 rounded-lg border border-gray-700">
-        <p className="text-lg text-gray-400">No example images available</p>
+      <div className={`flex items-center justify-center h-96 ${brandConfig.name === 'OMG' ? 'bg-white rounded-lg border border-gray-300' : 'bg-gray-800 rounded-lg border border-gray-700'}`}>
+        <p className={`text-lg ${brandConfig.name === 'OMG' ? 'text-gray-500 font-sans' : 'text-gray-400 font-mono'}`}>No example images available</p>
       </div>
     );
   }
 
   return (
     <div className="relative p-0 m-0">
-      <div className="relative h-[500px] bg-gray-900 rounded-lg overflow-hidden group py-4 px-0 m-0">
+      <div className={`relative h-[500px] ${brandConfig.name === 'OMG' ? 'bg-white border border-gray-300' : 'bg-gray-900'} rounded-lg overflow-hidden group py-4 px-0 m-0`}>
         <div className="absolute inset-0 flex items-center py-3 justify-center z-0">
           <div
             className="relative w-full h-full cursor-zoom-in"
             onClick={() => onOpenFullscreen && onOpenFullscreen(currentImage)}
           >
             {isImageLoading && (
-              <div className="absolute inset-0 z-10 bg-gray-800 flex items-center justify-center">
-                <div className="w-10 h-10 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
+              <div className={`absolute inset-0 z-10 ${brandConfig.name === 'OMG' ? 'bg-gray-100' : 'bg-gray-800'} flex items-center justify-center`}>
+                <div className={`w-10 h-10 border-4 ${brandConfig.name === 'OMG' ? 'border-blue-500' : 'border-cyan-400'} border-t-transparent rounded-full animate-spin`}></div>
               </div>
             )}
             <Image
@@ -224,14 +225,14 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
           <>
             <button
               aria-label="Previous image"
-              className="absolute left-3 top-1/2 -translate-y-1/2 bg-gray-800/70 hover:bg-gray-800 p-2 rounded-full"
+              className={`absolute left-3 top-1/2 -translate-y-1/2 ${brandConfig.name === 'OMG' ? 'bg-gray-200/70 hover:bg-gray-300 text-gray-700' : 'bg-gray-800/70 hover:bg-gray-800'} p-2 rounded-full`}
               onClick={prevImage}
             >
               <i className="bi bi-chevron-left" />
             </button>
             <button
               aria-label="Next image"
-              className="absolute right-3 top-1/2 -translate-y-1/2 bg-gray-800/70 hover:bg-gray-800 p-2 rounded-full"
+              className={`absolute right-3 top-1/2 -translate-y-1/2 ${brandConfig.name === 'OMG' ? 'bg-gray-200/70 hover:bg-gray-300 text-gray-700' : 'bg-gray-800/70 hover:bg-gray-800'} p-2 rounded-full`}
               onClick={nextImage}
             >
               <i className="bi bi-chevron-right" />
@@ -241,7 +242,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
 
         {/* counter */}
         {hasMultipleImages && (
-          <div className="absolute bottom-3 right-3 bg-black/70 px-4 py-1.5 rounded-full text-white text-sm font-mono z-10">
+          <div className={`absolute bottom-3 right-3 ${brandConfig.name === 'OMG' ? 'bg-gray-200/90 text-gray-800 font-sans' : 'bg-black/70 text-white font-mono'} px-4 py-1.5 rounded-full text-sm z-10`}>
             {currentImageIndex + 1} / {images.length}
           </div>
         )}
@@ -273,14 +274,18 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                 }}
                 className={`flex-shrink-0 relative w-16 h-16 rounded overflow-hidden cursor-pointer ${
                   idx === currentImageIndex
-                    ? "ring-2 ring-cyan-400"
-                    : "opacity-70 hover:opacity-100"
+                    ? brandConfig.name === 'OMG' 
+                      ? "ring-2 ring-blue-500 border border-gray-300"
+                      : "ring-2 ring-cyan-400"
+                    : brandConfig.name === 'OMG'
+                      ? "opacity-70 hover:opacity-100 border border-gray-300"
+                      : "opacity-70 hover:opacity-100"
                 }`}
                 aria-label={`View image ${idx + 1}`}
               >
                 {!loadedThumbnails[idx] && (
-                  <div className="absolute inset-0 z-10 bg-gray-800 flex items-center justify-center">
-                    <div className="w-4 h-4 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
+                  <div className={`absolute inset-0 z-10 ${brandConfig.name === 'OMG' ? 'bg-gray-100' : 'bg-gray-800'} flex items-center justify-center`}>
+                    <div className={`w-4 h-4 border-2 ${brandConfig.name === 'OMG' ? 'border-blue-500' : 'border-cyan-400'} border-t-transparent rounded-full animate-spin`}></div>
                   </div>
                 )}
                 <Image
