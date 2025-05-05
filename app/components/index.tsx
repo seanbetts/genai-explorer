@@ -255,14 +255,26 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
                   ? brandConfig.primaryColor
                   : brandConfig.name === 'OMG' ? '#374151' : '#d1d5db',
               }}
-              onMouseEnter={(e) => e.currentTarget.style.color = brandConfig.primaryColor}
+              onMouseEnter={(e) => e.currentTarget.style.color = brandConfig.secondaryColor}
               onMouseLeave={(e) => {
-                if (!(currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare'))) {
-                  e.currentTarget.style.color = brandConfig.name === 'OMG' ? '#374151' : '#d1d5db'
+                if (currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')) {
+                  e.currentTarget.style.color = brandConfig.primaryColor;
+                } else {
+                  e.currentTarget.style.color = brandConfig.name === 'OMG' ? '#374151' : '#d1d5db';
                 }
               }}
             >
-              <i className="bi bi-grid mr-1.5" style={{ color: brandConfig.primaryColor }}></i>
+              <i className="bi bi-grid mr-1.5" style={{ color: brandConfig.primaryColor }} 
+              ref={(el) => {
+                if (el) {
+                  el.parentElement?.addEventListener('mouseenter', () => {
+                    el.style.color = brandConfig.secondaryColor;
+                  });
+                  el.parentElement?.addEventListener('mouseleave', () => {
+                    el.style.color = brandConfig.primaryColor;
+                  });
+                }
+              }}></i>
               <span>Model Explorer</span>
             </Link>
             
