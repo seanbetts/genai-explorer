@@ -6,6 +6,7 @@ import CompanyCard from './CompanyCard';
 import { textStyles } from '../utils/theme';
 import { containerStyles, iconStyles } from '../utils/layout';
 import { getLogoSize } from '../utils/logoPresets';
+import brandConfig from '../../config/brand';
 
 interface CategorySectionProps {
   category: CompanyCategory;
@@ -64,12 +65,12 @@ const CategorySection: React.FC<CategorySectionProps> = ({
         <div className="mb-4">
           <div className={containerStyles.categoryTitle}>
             {icon && (
-              <i className={`bi ${icon} ${textStyles.accent} ${iconStyles.iconLeft}`}></i>
+              <i className={`bi ${icon} ${iconStyles.iconLeft}`} style={{ color: brandConfig.secondaryColor }}></i>
             )}
-            <span className={textStyles.primary}>{title}</span>
+            <span style={{ color: brandConfig.primaryColor }}>{title}</span>
           </div>
-          {/* Divider line using centralized styles */}
-          <div className="w-full border-b border-fuchsia-800 my-2"></div>
+          {/* Divider line using brand-specific styles */}
+          <div className="w-full border-b my-2" style={{ borderColor: brandConfig.primaryColor }}></div>
         </div>
         
         <div className={getGridClass()}>
@@ -88,8 +89,16 @@ const CategorySection: React.FC<CategorySectionProps> = ({
     );
   };
 
+  // Set the background color directly based on brand
+  const containerStyle = brandConfig.name === 'OMG' 
+    ? { backgroundColor: '#e5e7eb', borderColor: '#d1d5db' } // gray-200 and gray-300 equivalents 
+    : {};
+
   return (
-    <div className={`${containerStyles.categorySection} ${styleName}`}>
+    <div 
+      className={`${containerStyles.categorySection} ${styleName}`}
+      style={containerStyle}
+    >
       {renderContent()}
     </div>
   );
