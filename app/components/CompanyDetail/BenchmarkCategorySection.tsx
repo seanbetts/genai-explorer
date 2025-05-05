@@ -14,6 +14,7 @@ import {
   getBenchmarkDescription,
   calculateGlobalRankings
 } from '../utils/benchmarkUtils';
+import brandConfig from '../../config/brand';
 
 interface BenchmarkCategorySectionProps {
   category: string;
@@ -231,13 +232,45 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
       const totalModels = globalRankings[benchmark.benchmark_id][model.id].total;
       
       if (globalRank === 1) {
-        rankBadge = <span className="ml-1 text-fuchsia-500 text-xs font-semibold" title={`Rank #${globalRank} of ${totalModels} models`}>#1</span>;
+        rankBadge = <span 
+          className={`ml-1 text-xs font-semibold ${
+            brandConfig.name === 'OMG' 
+              ? 'text-blue-600'
+              : 'text-fuchsia-500'
+          }`}
+          style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}
+          title={`Rank #${globalRank} of ${totalModels} models`}
+        >#1</span>;
       } else if (globalRank === 2) {
-        rankBadge = <span className="ml-1 text-fuchsia-500 text-xs font-semibold" title={`Rank #${globalRank} of ${totalModels} models`}>#2</span>;
+        rankBadge = <span 
+          className={`ml-1 text-xs font-semibold ${
+            brandConfig.name === 'OMG' 
+              ? 'text-blue-600'
+              : 'text-fuchsia-500'
+          }`}
+          style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}
+          title={`Rank #${globalRank} of ${totalModels} models`}
+        >#2</span>;
       } else if (globalRank === 3) {
-        rankBadge = <span className="ml-1 text-fuchsia-500 text-xs font-semibold" title={`Rank #${globalRank} of ${totalModels} models`}>#3</span>;
+        rankBadge = <span 
+          className={`ml-1 text-xs font-semibold ${
+            brandConfig.name === 'OMG' 
+              ? 'text-blue-600'
+              : 'text-fuchsia-500'
+          }`}
+          style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}
+          title={`Rank #${globalRank} of ${totalModels} models`}
+        >#3</span>;
       } else if (globalRank <= 5) {
-        rankBadge = <span className="ml-1 text-fuchsia-500 text-xs font-semibold" title={`Rank #${globalRank} of ${totalModels} models`}>#{globalRank}</span>;
+        rankBadge = <span 
+          className={`ml-1 text-xs font-semibold ${
+            brandConfig.name === 'OMG' 
+              ? 'text-blue-600'
+              : 'text-fuchsia-500'
+          }`}
+          style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}
+          title={`Rank #${globalRank} of ${totalModels} models`}
+        >#{globalRank}</span>;
       }
     }
     
@@ -301,21 +334,35 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
             href={score.source} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="font-medium font-mono text-cyan-400 hover:text-fuchsia-500 transition-colors flex items-center"
+            className={`font-medium transition-colors flex items-center ${
+              brandConfig.name === 'OMG'
+                ? 'font-sans text-blue-600 hover:text-blue-800'
+                : 'font-mono text-cyan-400 hover:text-fuchsia-500'
+            }`}
+            style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
             title={tooltipContent}
           >
             {formatBenchmarkScore(score, benchmark)}{rankBadge}
           </a>
         ) : (
           <div 
-            className="font-medium font-mono text-cyan-400 flex items-center"
+            className={`font-medium flex items-center ${
+              brandConfig.name === 'OMG'
+                ? 'font-sans text-blue-600'
+                : 'font-mono text-cyan-400'
+            }`}
+            style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
             title={tooltipContent}
           >
             {formatBenchmarkScore(score, benchmark)}{rankBadge}
           </div>
         )}
         {score.date && (
-          <div className="text-xs text-gray-400 mt-1">
+          <div className={`text-xs mt-1 ${
+            brandConfig.name === 'OMG'
+              ? 'text-gray-600 font-sans'
+              : 'text-gray-400 font-mono'
+          }`}>
             {new Date(score.date).toLocaleDateString('en-GB', {
               month: 'short',
               year: 'numeric'
@@ -328,10 +375,19 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
 
   return (
     <div className="mb-8">
-      <h3 className="text-lg font-semibold text-fuchsia-500 mb-2 font-mono capitalize">
+      <h3 className={`text-lg font-semibold mb-2 capitalize ${
+        brandConfig.name === 'OMG'
+          ? 'font-sans'
+          : 'text-fuchsia-500 font-mono'
+      }`}
+      style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>
         {category} Benchmarks
       </h3>
-      <p className="text-sm text-gray-400 mb-3">
+      <p className={`text-sm mb-3 ${
+        brandConfig.name === 'OMG'
+          ? 'text-gray-600 font-sans'
+          : 'text-gray-400 font-mono'
+      }`}>
         {getCategoryDescription(category)}
       </p>
       
@@ -340,13 +396,23 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
         <tbody>
           {currentBenchmarks.map(benchmark => (
             <tr key={benchmark.benchmark_id} className="cursor-pointer">
-              <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+              <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={brandConfig.name === 'OMG' ? { backgroundColor: 'white' } : {}}>
                 <div className={containerStyles.flexCenter}>
-                  <i className={`bi bi-graph-up ${iconStyles.tableRowIcon}`}></i>
+                  <i className={`bi bi-graph-up ${iconStyles.tableRowIcon} ${
+                    brandConfig.name === 'OMG'
+                      ? 'text-blue-500'
+                      : ''
+                  }`}
+                  style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}></i>
                   <div className="flex flex-col">
                     <a 
                       href={`/?benchmark=${benchmark.benchmark_id}`}
-                      className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
+                      className={`transition-colors ${
+                        brandConfig.name === 'OMG'
+                          ? 'text-blue-600 hover:text-blue-800 font-sans'
+                          : 'text-cyan-400 hover:text-fuchsia-500 font-mono'
+                      }`}
+                      style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
                       title={`View all data for ${benchmark.benchmark_name}`}
                     >
                       {benchmark.benchmark_name}

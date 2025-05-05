@@ -8,6 +8,7 @@ import BenchmarkCategorySection from './BenchmarkCategorySection';
 import { tableHoverStyles, Legend, SharedTable, TableHeader } from '../shared/TableComponents';
 import { textStyles } from '../utils/theme';
 import { tableStyles, iconStyles, containerStyles } from '../utils/layout';
+import brandConfig from '../../config/brand';
 
 interface BenchmarksTableProps {
   models: Model[];
@@ -86,13 +87,45 @@ const BenchmarkScoreComponent: React.FC<BenchmarkScoreProps> = ({
     const totalModels = globalRankings[benchmark.benchmark_id][model.id].total;
     
     if (globalRank === 1) {
-      rankBadge = <span className="ml-1 text-fuchsia-500 text-xs font-semibold" title={`Rank #${globalRank} of ${totalModels} models`}>#1</span>;
+      rankBadge = <span 
+        className={`ml-1 text-xs font-semibold ${
+          brandConfig.name === 'OMG' 
+            ? 'text-blue-600'
+            : 'text-fuchsia-500'
+        }`}
+        style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}
+        title={`Rank #${globalRank} of ${totalModels} models`}
+      >#1</span>;
     } else if (globalRank === 2) {
-      rankBadge = <span className="ml-1 text-fuchsia-500 text-xs font-semibold" title={`Rank #${globalRank} of ${totalModels} models`}>#2</span>;
+      rankBadge = <span 
+        className={`ml-1 text-xs font-semibold ${
+          brandConfig.name === 'OMG' 
+            ? 'text-blue-600'
+            : 'text-fuchsia-500'
+        }`}
+        style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}
+        title={`Rank #${globalRank} of ${totalModels} models`}
+      >#2</span>;
     } else if (globalRank === 3) {
-      rankBadge = <span className="ml-1 text-fuchsia-500 text-xs font-semibold" title={`Rank #${globalRank} of ${totalModels} models`}>#3</span>;
+      rankBadge = <span 
+        className={`ml-1 text-xs font-semibold ${
+          brandConfig.name === 'OMG' 
+            ? 'text-blue-600'
+            : 'text-fuchsia-500'
+        }`}
+        style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}
+        title={`Rank #${globalRank} of ${totalModels} models`}
+      >#3</span>;
     } else if (globalRank <= 5) {
-      rankBadge = <span className="ml-1 text-fuchsia-500 text-xs font-semibold" title={`Rank #${globalRank} of ${totalModels} models`}>#{globalRank}</span>;
+      rankBadge = <span 
+        className={`ml-1 text-xs font-semibold ${
+          brandConfig.name === 'OMG' 
+            ? 'text-blue-600'
+            : 'text-fuchsia-500'
+        }`}
+        style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}
+        title={`Rank #${globalRank} of ${totalModels} models`}
+      >#{globalRank}</span>;
     }
   }
   
@@ -161,21 +194,35 @@ const BenchmarkScoreComponent: React.FC<BenchmarkScoreProps> = ({
           href={score.source} 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="font-medium font-mono text-cyan-400 hover:text-fuchsia-500 transition-colors flex items-center"
+          className={`font-medium transition-colors flex items-center ${
+            brandConfig.name === 'OMG'
+              ? 'font-sans text-blue-600 hover:text-blue-800'
+              : 'font-mono text-cyan-400 hover:text-fuchsia-500'
+          }`}
+          style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
           title={tooltipContent}
         >
           {formatBenchmarkScore(score, benchmark)}{rankBadge}
         </a>
       ) : (
         <div 
-          className="font-medium font-mono text-cyan-400 flex items-center"
+          className={`font-medium flex items-center ${
+            brandConfig.name === 'OMG'
+              ? 'font-sans text-blue-600'
+              : 'font-mono text-cyan-400'
+          }`}
+          style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
           title={tooltipContent}
         >
           {formatBenchmarkScore(score, benchmark)}{rankBadge}
         </div>
       )}
       {score.date && (
-        <div className="text-xs text-gray-400 mt-1">
+        <div className={`text-xs mt-1 ${
+          brandConfig.name === 'OMG'
+            ? 'text-gray-600 font-sans'
+            : 'text-gray-400 font-mono'
+        }`}>
           {new Date(score.date).toLocaleDateString('en-GB', {
             month: 'short',
             year: 'numeric'
@@ -261,18 +308,32 @@ const FeaturedBenchmarksSectionComponent: React.FC<FeaturedBenchmarksSectionProp
       <tbody>
         {benchmarks.map(benchmark => (
           <tr key={benchmark.benchmark_id} className="cursor-pointer">
-            <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+            <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={brandConfig.name === 'OMG' ? { backgroundColor: 'white' } : {}}>
               <div className={containerStyles.flexCenter}>
-                <i className={`bi bi-graph-up-arrow ${iconStyles.tableRowIcon} text-fuchsia-400`}></i>
+                <i className={`bi bi-graph-up-arrow ${iconStyles.tableRowIcon} ${
+                  brandConfig.name === 'OMG'
+                    ? 'text-blue-500'
+                    : 'text-fuchsia-400'
+                }`}
+                style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}></i>
                 <div className="flex flex-col">
                   <a 
                     href={`/?benchmark=${benchmark.benchmark_id}`}
-                    className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
+                    className={`transition-colors ${
+                      brandConfig.name === 'OMG'
+                        ? 'text-blue-600 hover:text-blue-800 font-sans'
+                        : 'text-cyan-400 hover:text-fuchsia-500 font-mono'
+                    }`}
+                    style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
                     title={`View all data for ${benchmark.benchmark_name}`}
                   >
                     {benchmark.benchmark_name}
                   </a>
-                  <span className="text-xs text-gray-400 mt-1">
+                  <span className={`text-xs mt-1 ${
+                    brandConfig.name === 'OMG'
+                      ? 'text-gray-600 font-sans'
+                      : 'text-gray-400 font-mono'
+                  }`}>
                     {benchmark.benchmark_category}
                   </span>
                 </div>
@@ -482,9 +543,21 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
     return (
       <div className="flex justify-center items-center py-12">
         <div className="animate-pulse flex flex-col items-center">
-          <div className="h-8 w-64 bg-gray-700 rounded mb-4"></div>
-          <div className="h-48 w-full bg-gray-800 rounded"></div>
-          <div className="mt-4 text-gray-400">Loading benchmark data...</div>
+          <div className={`h-8 w-64 rounded mb-4 ${
+            brandConfig.name === 'OMG'
+              ? 'bg-gray-200'
+              : 'bg-gray-700'
+          }`}></div>
+          <div className={`h-48 w-full rounded ${
+            brandConfig.name === 'OMG'
+              ? 'bg-gray-100'
+              : 'bg-gray-800'
+          }`}></div>
+          <div className={`mt-4 ${
+            brandConfig.name === 'OMG'
+              ? 'text-gray-600 font-sans'
+              : 'text-gray-400 font-mono'
+          }`}>Loading benchmark data...</div>
         </div>
       </div>
     );
@@ -492,25 +565,57 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
   
   if (error) {
     return (
-      <div className="bg-red-900/30 border border-red-700 rounded-lg p-4 my-4">
+      <div className={`rounded-lg p-4 my-4 ${
+        brandConfig.name === 'OMG'
+          ? 'bg-red-50 border border-red-200'
+          : 'bg-red-900/30 border border-red-700'
+      }`}>
         <div className="flex items-center">
           <i className="bi bi-exclamation-triangle-fill text-red-500 mr-2 text-xl"></i>
-          <h3 className="text-lg font-medium text-red-400">Error</h3>
+          <h3 className={`text-lg font-medium ${
+            brandConfig.name === 'OMG'
+              ? 'text-red-600 font-sans'
+              : 'text-red-400 font-mono'
+          }`}>Error</h3>
         </div>
-        <p className="mt-2 text-gray-300">{error}</p>
+        <p className={`mt-2 ${
+          brandConfig.name === 'OMG'
+            ? 'text-gray-700 font-sans'
+            : 'text-gray-300 font-mono'
+        }`}>{error}</p>
       </div>
     );
   }
   
   if (!hasScores) {
     return (
-      <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6 my-4 text-center">
-        <i className="bi bi-graph-up text-gray-500 text-4xl mb-3"></i>
-        <h3 className="text-xl font-medium text-gray-300 mb-2">No Benchmark Data Available</h3>
-        <p className="text-gray-400">
+      <div className={`rounded-lg p-6 my-4 text-center ${
+        brandConfig.name === 'OMG'
+          ? 'bg-gray-100 border border-gray-300'
+          : 'bg-gray-800/50 border border-gray-700'
+      }`}>
+        <i className={`bi bi-graph-up text-4xl mb-3 ${
+          brandConfig.name === 'OMG'
+            ? 'text-gray-400'
+            : 'text-gray-500'
+        }`}></i>
+        <h3 className={`text-xl font-medium mb-2 ${
+          brandConfig.name === 'OMG'
+            ? 'text-gray-700 font-sans'
+            : 'text-gray-300 font-mono'
+        }`}>No Benchmark Data Available</h3>
+        <p className={`${
+          brandConfig.name === 'OMG'
+            ? 'text-gray-600 font-sans'
+            : 'text-gray-400 font-mono'
+        }`}>
           No benchmark scores are available for the frontier and open models from this company.
         </p>
-        <p className="text-gray-500 text-sm mt-2">
+        <p className={`text-sm mt-2 ${
+          brandConfig.name === 'OMG'
+            ? 'text-gray-500 font-sans'
+            : 'text-gray-500 font-mono'
+        }`}>
           <i className="bi bi-info-circle mr-1"></i>
           Note: Benchmark data is only shown for frontier and open models.
         </p>
@@ -525,10 +630,19 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
       {/* Featured Benchmarks Section - only shown if there are any featured benchmarks */}
       {featuredBenchmarks.length > 0 && (
         <div className="mb-10">
-          <h3 className="text-lg font-semibold text-fuchsia-500 mb-2 font-mono">
+          <h3 className={`text-lg font-semibold mb-2 ${
+            brandConfig.name === 'OMG'
+              ? 'font-sans'
+              : 'text-fuchsia-500 font-mono'
+          }`}
+          style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>
             Featured Benchmarks
           </h3>
-          <p className="text-sm text-gray-400 mb-3">
+          <p className={`text-sm mb-3 ${
+            brandConfig.name === 'OMG'
+              ? 'text-gray-600 font-sans'
+              : 'text-gray-400 font-mono'
+          }`}>
             Key benchmarks that provide the most representative evaluation of model capabilities
           </p>
           
@@ -561,12 +675,30 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
       })()}
       
       {/* About Benchmarks and Sources - moved to bottom */}
-      <div className="mt-8 bg-gray-800/50 border border-gray-700 rounded-lg p-4">
+      <div className={`mt-8 rounded-lg p-4 ${
+        brandConfig.name === 'OMG'
+          ? 'bg-gray-100 border border-gray-300'
+          : 'bg-gray-800/50 border border-gray-700'
+      }`}>
         <div className="flex items-start gap-3">
-          <i className="bi bi-info-circle-fill text-cyan-500 text-xl mt-0.5"></i>
+          <i className={`bi bi-info-circle-fill text-xl mt-0.5 ${
+            brandConfig.name === 'OMG'
+              ? 'text-blue-600'
+              : 'text-cyan-500'
+          }`}
+          style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}></i>
           <div className="w-full">
-            <h3 className="text-lg font-medium text-cyan-400 mb-2">About Benchmarks</h3>
-            <p className="text-gray-300 text-sm mb-3">
+            <h3 className={`text-lg font-medium mb-2 ${
+              brandConfig.name === 'OMG'
+                ? 'text-blue-600 font-sans'
+                : 'text-cyan-400 font-mono'
+            }`}
+            style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>About Benchmarks</h3>
+            <p className={`text-sm mb-3 ${
+              brandConfig.name === 'OMG'
+                ? 'text-gray-700 font-sans'
+                : 'text-gray-300 font-mono'
+            }`}>
               Benchmarks provide standardized tests to compare model capabilities across different dimensions. 
               Scores shown are raw benchmark scores reported by the model providers.
               Only frontier and open models are included in benchmark comparisons.
@@ -574,13 +706,17 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
               Note that rankings are only computed based on models included in our database, not all models that exist.
             </p>
             
-            <div className="text-sm text-gray-400 border-t border-gray-700 pt-3 mt-2">
+            <div className={`text-sm pt-3 mt-2 ${
+              brandConfig.name === 'OMG'
+                ? 'text-gray-600 border-t border-gray-300 font-sans'
+                : 'text-gray-400 border-t border-gray-700 font-mono'
+            }`}>
               <p className="mb-2">
-                <strong className="text-gray-300">Sources:</strong> Benchmark data is collected from research papers, model provider documentation, and published evaluations.
+                <strong className={brandConfig.name === 'OMG' ? 'text-gray-700' : 'text-gray-300'}>Sources:</strong> Benchmark data is collected from research papers, model provider documentation, and published evaluations.
                 Click on a benchmark name to view its paper, or click on a score to see the source of the benchmark result.
               </p>
               <p>
-                <strong className="text-gray-300">Tooltips:</strong> Hover over benchmark names to see descriptions of what each benchmark measures.
+                <strong className={brandConfig.name === 'OMG' ? 'text-gray-700' : 'text-gray-300'}>Tooltips:</strong> Hover over benchmark names to see descriptions of what each benchmark measures.
                 Hover over scores to view ranking information, data sources, and any notes about the specific result.
               </p>
             </div>
