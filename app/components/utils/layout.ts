@@ -308,9 +308,11 @@ export const iconStyles = {
     error: 'text-red-400',
     info: 'text-cyan-400',
     
-    // Boolean indicator icons
-    booleanTrue: 'text-cyan-400 text-lg bi bi-check-circle-fill',
-    booleanFalse: 'text-fuchsia-500 text-lg bi bi-x-circle-fill',
+    // Boolean indicator icons - secondary for true, red for false
+    booleanTrue: brandConfig.name === 'OMG' 
+        ? `text-[${brandConfig.secondaryColor}] text-lg bi bi-check-circle-fill`
+        : 'text-cyan-400 text-lg bi bi-check-circle-fill',
+    booleanFalse: 'text-red-500 text-lg bi bi-x-circle-fill',
 };
 
 // Cyberpunk button system with neon colors and dark backgrounds

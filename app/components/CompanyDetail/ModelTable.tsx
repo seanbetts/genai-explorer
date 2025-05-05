@@ -213,8 +213,8 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                           <span className="text-sm text-white font-mono mr-2">Uses data for training:</span>
                           {model.specs.dataPrivacy.usesCustomerDataForTraining !== undefined ? (
                             model.specs.dataPrivacy.usesCustomerDataForTraining ? 
-                              <i className={iconStyles.booleanTrue} title="Yes"></i> : 
-                              <i className={iconStyles.booleanFalse} title="No"></i>
+                              <i className="bi bi-check-circle-fill text-lg" style={{ color: brandConfig.secondaryColor }} title="Yes"></i> : 
+                              <i className="bi bi-x-circle-fill text-lg" style={{ color: '#ef4444' /* red-500 */ }} title="No"></i>
                           ) : <span className={textStyles.primary}>-</span>}
                         </div>
                         {model.specs.dataPrivacy.dataRetentionPolicy && model.specs.dataPrivacy.dataRetentionPolicy.length > 0 && (
@@ -283,8 +283,8 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                     <div className="flex items-center justify-center h-full">
                       {model.specs?.securityFeatures && feature in model.specs.securityFeatures ? (
                         model.specs.securityFeatures[feature] ? 
-                          <i className={iconStyles.booleanTrue} title="Yes"></i> : 
-                          <i className={iconStyles.booleanFalse} title="No"></i>
+                          <i className="bi bi-check-circle-fill text-lg" style={{ color: brandConfig.secondaryColor }} title="Yes"></i> : 
+                          <i className="bi bi-x-circle-fill text-lg" style={{ color: '#ef4444' /* red-500 */ }} title="No"></i>
                       ) : (
                         <span className={textStyles.tertiary}>-</span>
                       )}
@@ -467,8 +467,8 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.reasoningTokens !== undefined ? (
                 model.specs.reasoningTokens ? 
-                  <i className={iconStyles.booleanTrue} title="Yes"></i> : 
-                  <i className={iconStyles.booleanFalse} title="No"></i>
+                  <i className="bi bi-check-circle-fill text-lg" style={{ color: brandConfig.secondaryColor }} title="Yes"></i> : 
+                  <i className="bi bi-x-circle-fill text-lg" style={{ color: '#ef4444' /* red-500 */ }} title="No"></i>
               ) : <span className={textStyles.primary}>-</span>}
             </td>
           ))}
