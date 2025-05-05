@@ -45,14 +45,19 @@ const Header: React.FC<HeaderProps> = ({
             <button
               type="button"
               onClick={handleBack}
-              className={`flex items-center gap-1 transition-colors cursor-pointer ${
-                brandConfig.name === 'OMG' 
-                  ? `text-[${brandConfig.primaryColor}] hover:text-[${brandConfig.secondaryColor}] focus:ring-2 focus:ring-[${brandConfig.secondaryColor}] focus:ring-offset-0` 
-                  : 'text-gray-300 hover:text-teal-400 focus:ring-2 focus:ring-teal-400 focus:ring-offset-0'
-              }`}
+              className="flex items-center gap-1 transition-colors cursor-pointer focus:outline-none"
+              style={{
+                color: brandConfig.name === 'OMG' ? brandConfig.primaryColor : '#d1d5db',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = brandConfig.name === 'OMG' ? brandConfig.secondaryColor : '#0ABDC6';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = brandConfig.name === 'OMG' ? brandConfig.primaryColor : '#d1d5db';
+              }}
               aria-label="Go back"
             >
-              <i className={`bi bi-chevron-left text-lg ${brandConfig.name === 'OMG' ? `text-[${brandConfig.primaryColor}]` : ''}`}></i>
+              <i className="bi bi-chevron-left text-lg"></i>
               <span className={`${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-sm`}>Back</span>
             </button>
           )}
