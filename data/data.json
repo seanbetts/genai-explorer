@@ -5456,35 +5456,151 @@
       "name": "Descript",
       "logo": "/images/companies/descript/logo.png",
       "website": "https://descript.com",
-      "description": "AI-powered audio and video editing",
-      "lastUpdated": "2025-02-10",
-      "features": [],
+      "description": "Make video faster. Make more of it. And make it good.",
+      "lastUpdated": "2025-05-05",
+      "features": [
+        {
+          "name": "Video Editing",
+          "description": "Editing video in Descript is as easy as using docs and slides.",
+          "image": "/images/companies/descript/features/video-editing.png",
+          "url": "https://www.descript.com/video-editing"
+        },
+        {
+          "name": "Podcasting",
+          "description": "Multitrack audio editing, just like editing text.",
+          "image": "/images/companies/descript/features/podcasting.png",
+          "url": "https://www.descript.com/podcasting"
+        },
+        {
+          "name": "Clips",
+          "description": "Al picks your best clips, your creativity makes them pop.",
+          "image": "/images/companies/descript/features/clips.png",
+          "url": "https://www.descript.com/clips"
+        },
+        {
+          "name": "Rooms",
+          "description": "Record crystal-clear podcasts and video with anyone, anywhere.",
+          "image": "/images/companies/descript/features/rooms.png",
+          "url": "https://www.descript.com/rooms"
+        },
+        {
+          "name": "Captions",
+          "description": "Add subtitles to extend your reach in a single click.",
+          "image": "/images/companies/descript/features/captions.png",
+          "url": "https://www.descript.com/captions"
+        },
+        {
+          "name": "AI Avatars",
+          "description": "Choose an avatar from our gallery or upload a photo to create your own.",
+          "image": "/images/companies/descript/features/avatars.png",
+          "url": "https://www.descript.com/ai-avatars"
+        },
+        {
+          "name": "Transcription",
+          "description": "It's automatic, with industry-leading accuracy & speed.",
+          "image": "/images/companies/descript/features/transcription.png",
+          "url": "https://www.descript.com/transcription"
+        },
+        {
+          "name": "AI Speech",
+          "description": "Easily create a realistic voice clone or pick from our stock Al voices.",
+          "image": "/images/companies/descript/features/speech.png",
+          "url": "https://www.descript.com/ai-voices"
+        }
+      ],
       "models": [
         {
-          "id": "xxx",
-          "name": "xxx",
+          "id": "descript",
+          "name": "Descript",
           "status": "primary",
-          "about": "xxx",
+          "about": "A new kind of video editor that’s as easy as a doc",
           "category": "other",
-          "releaseDate": "2022/12/07",
-          "releasePost": "",
+          "releaseDate": "2017/12/12",
+          "releasePost": "https://medium.com/descript/introducing-descript-fa37eb193819",
           "releaseVideo": "",
           "modelPage": "",
           "systemCard": "",
-          "modelGuide": "",
+          "modelGuide": "https://help.descript.com/hc/en-us/articles/10164599097485-Descript-tour",
           "apiDocumentation": "",
           "heroVideo": {
-            "xxx": ""
+            "changelog_april_2025": "https://youtu.be/hYv86scI0eM?si=8XLdpFEN2Oo_sG5-"
           },
           "demoVideos": {
-            "x": ""
+            "make_a_video": "https://youtu.be/n6lOvKbGA_4?si=BKLdwiTKm4jnuNaF",
+            "make_a_video_podcast": "https://youtu.be/LxQIVwyq6F0?si=qa6T2Jr8LmVVcI-n",
+            "transcribing": "https://youtu.be/OmnbtbG55_M?si=Armc_JEHwGpQV2dp",
+            "remove_background": "https://youtu.be/79dRQvbmRt4?si=Qtdb4wgiAC4Y6fuF",
+            "edit_videos": "https://youtu.be/7t0_e0Gt6MY?si=5_fxtpCOfGlQvy2_",
+            "enhance_audio": "https://youtu.be/WJTe19_06tc?si=x8vd6OcLevCExhzU",
+            "edit_podcast": "https://youtu.be/DiqN2rgg9RU?si=Y2xJiBXpsog-QHdO",
+            "fix_bad_dialogue": "https://youtu.be/866wu6ux_2M?si=ApVA2N56bD_sI_U5",
+            "animated_captions": "https://youtu.be/2aloNd2iQbE?si=9HsOcLr1cTfpa1RP"
           },
-          "termsOfService": "",
+          "termsOfService": "https://www.descript.com/terms",
           "usagePolicy": ""
         }
       ],
       "subscriptions": [
-        
+        {
+          "tier": "Free",
+          "type": "consumer",
+          "price": 0,
+          "billingCycle": "month",
+          "url": "https://www.descript.com/pricing",
+          "features": [
+            "1 transcription hour / month",
+            "Export 720p, with watermark",
+            "5 uses of Basic AI suite including Filler word removal, Studio sound, Draft show notes, Create clips, and more",
+            "5 minutes of AI speech with stock AI speakers and custom voice clones",
+            "5 minutes of avatars"
+          ]
+        },
+        {
+          "tier": "Hobbyist",
+          "type": "consumer",
+          "price": 24,
+          "billingCycle": "month",
+          "url": "https://www.descript.com/pricing",
+          "features": [
+            "10 transcription hours / month",
+            "Export 1080p, watermark-free",
+            "20 uses / month of Basic AI suite including Filler word removal, Studio sound, Draft show notes, Create clips, and more",
+            "30 minutes / month of AI speech with stock AI speakers and custom voice clones",
+            "5 minutes / month of avatars"
+          ]
+        },
+        {
+          "tier": "Creator",
+          "type": "consumer",
+          "price": 35,
+          "billingCycle": "month",
+          "url": "https://www.descript.com/pricing",
+          "features": [
+            "30 transcription hours / month",
+            "Export 4k, watermark-free",
+            "Unlimited Basic and Advanced AI suite including Eye contact, and 20+ more AI features",
+            "2 hours / month of AI speech",
+            "30 minutes / month of dubbing in 20+ languages",
+            "10 minutes / month of custom avatars",
+            "Unlimited access to royalty-free stock library"
+          ]
+        },
+        {
+          "tier": "Business",
+          "type": "enterprise",
+          "price": 50,
+          "billingCycle": "user per month",
+          "url": "https://www.descript.com/pricing",
+          "features": [
+            "40 transcription hours / month",
+            "Add free Basic seats for collaboration",
+            "Unlimited access to full Professional AI suite including Translation proofread",
+            "5 hours / month of AI speech",
+            "2 hours / month of dubbing in 20+ languages",
+            "30 minutes / month of custom avatars",
+            "Priority support (with SLA)"
+          ]
+        }
       ]
     },
     {
