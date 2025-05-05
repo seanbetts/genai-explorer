@@ -137,12 +137,12 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* Model Features column */}
           <div>
-            <h3 className={`mb-3 ${
+            <h3 className={`mb-3 text-lg font-semibold ${
               brandConfig.name === 'OMG'
-                ? 'text-lg font-semibold text-gray-800 font-sans'
-                : headingStyles.card
+                ? 'font-sans'
+                : 'font-mono'
             }`}
-            style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>
+            style={{ color: brandConfig.primaryColor }}>
               Model Features
             </h3>
             <div className={`min-h-[30.7rem] h-auto ${
@@ -520,12 +520,12 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
           <div className="space-y-6">
             {/* Safety Features */}
             <div>
-              <h3 className={`mb-3 ${
+              <h3 className={`mb-3 text-lg font-semibold ${
                 brandConfig.name === 'OMG'
-                  ? 'text-lg font-semibold text-gray-800 font-sans'
-                  : headingStyles.card
+                  ? 'font-sans'
+                  : 'font-mono'
               }`}
-              style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>
+              style={{ color: brandConfig.primaryColor }}>
                 Safety Features
               </h3>
               { (Object.keys(selectedModel.safety ?? {}).length > 0 ||
@@ -673,12 +673,12 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
             {/* Aspect Ratios */}
             {selectedModel.aspectRatios && Object.keys(selectedModel.aspectRatios).length > 0 && (
               <div>
-                <h3 className={`mb-3 ${
+                <h3 className={`mb-3 text-lg font-semibold ${
                   brandConfig.name === 'OMG'
-                    ? 'text-lg font-semibold text-gray-800 font-sans'
-                    : headingStyles.card
+                    ? 'font-sans'
+                    : 'font-mono'
                 }`}
-                style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>
+                style={{ color: brandConfig.primaryColor }}>
                   Aspect Ratios
                 </h3>
                 <div className={`${
@@ -815,12 +815,12 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
         {/* Demo videos section */}
         {selectedModel.demoVideos && Object.keys(selectedModel.demoVideos).length > 0 && (
           <>
-            <h3 className={`mb-3 ${
+            <h3 className={`mb-3 text-lg font-semibold ${
               brandConfig.name === 'OMG'
-                ? 'text-lg font-semibold text-gray-800 font-sans'
-                : headingStyles.card
+                ? 'font-sans'
+                : 'font-mono'
             }`}
-            style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>
+            style={{ color: brandConfig.primaryColor }}>
               Demo Videos
             </h3>
             <div className="mb-8">
@@ -842,12 +842,12 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
           selectedModel.modelGuide || 
           selectedModel.apiDocumentation) && (
           <>
-            <h3 className={`mb-3 ${
+            <h3 className={`mb-3 text-lg font-semibold ${
               brandConfig.name === 'OMG'
-                ? 'text-lg font-semibold text-gray-800 font-sans'
-                : headingStyles.card
+                ? 'font-sans'
+                : 'font-mono'
             }`}
-            style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>
+            style={{ color: brandConfig.primaryColor }}>
               Resources
             </h3>
             <div className={`mb-6 ${
