@@ -140,10 +140,10 @@ const SpecialisedModelGallery: React.FC<SpecialisedModelGalleryProps> = ({ model
           <>
             <h3 className={`mb-3 ${
               brandConfig.name === 'OMG'
-                ? 'text-gray-900 font-sans text-lg'
-                : headingStyles.card
+                ? 'font-sans text-lg'
+                : 'font-mono text-lg'
             }`}
-            style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>Product Features</h3>
+            style={{ color: brandConfig.primaryColor }}>Product Features</h3>
             <div className="mb-8">
               <FeatureGrid features={features} />
             </div>
@@ -155,10 +155,10 @@ const SpecialisedModelGallery: React.FC<SpecialisedModelGalleryProps> = ({ model
           <>
             <h3 className={`mb-3 ${
               brandConfig.name === 'OMG'
-                ? 'text-gray-900 font-sans text-lg'
-                : headingStyles.card
+                ? 'font-sans text-lg'
+                : 'font-mono text-lg'
             }`}
-            style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>Demo Videos</h3>
+            style={{ color: brandConfig.primaryColor }}>Demo Videos</h3>
             <div className="mb-8">
               <VideoCarousel 
                 videos={selectedModel.demoVideos as Record<string, string>}
@@ -183,10 +183,10 @@ const SpecialisedModelGallery: React.FC<SpecialisedModelGalleryProps> = ({ model
           <>
             <h3 className={`mb-3 ${
               brandConfig.name === 'OMG'
-                ? 'text-gray-900 font-sans text-lg'
-                : headingStyles.card
+                ? 'font-sans text-lg'
+                : 'font-mono text-lg'
             }`}
-            style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>Resources</h3>
+            style={{ color: brandConfig.primaryColor }}>Resources</h3>
             <div className={`${containerStyles.card} mb-6`}>
               <div className="flex flex-wrap justify-center gap-3">
                 {selectedModel.releasePost && (
