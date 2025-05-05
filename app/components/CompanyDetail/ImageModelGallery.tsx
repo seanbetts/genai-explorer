@@ -606,9 +606,12 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                     key={id}
                                     className={`bi ${icon} ${
                                       opts.inputFormats?.includes(id)
-                                        ? iconStyles.activeFormat
+                                        ? (brandConfig.name === 'OMG' ? '' : iconStyles.activeFormat)
                                         : iconStyles.inactiveFormat
-                                    }`}
+                                    } ${iconStyles.lg}`}
+                                    style={opts.inputFormats?.includes(id) && brandConfig.name === 'OMG' 
+                                      ? { color: brandConfig.secondaryColor } 
+                                      : (!opts.inputFormats?.includes(id) ? { color: '#4B5563' /* gray-600 */ } : {})}
                                     title={id.charAt(0).toUpperCase() + id.slice(1)}
                                   />
                                 ))}
@@ -640,9 +643,12 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                     key={id}
                                     className={`bi ${icon} ${
                                       opts.outputFormats?.includes(id)
-                                        ? iconStyles.activeFormat
+                                        ? (brandConfig.name === 'OMG' ? '' : iconStyles.activeFormat)
                                         : iconStyles.inactiveFormat
-                                    }`}
+                                    } ${iconStyles.lg}`}
+                                    style={opts.outputFormats?.includes(id) && brandConfig.name === 'OMG' 
+                                      ? { color: brandConfig.secondaryColor } 
+                                      : (!opts.outputFormats?.includes(id) ? { color: '#4B5563' /* gray-600 */ } : {})}
                                     title={id.charAt(0).toUpperCase() + id.slice(1)}
                                   />
                                 ))}
