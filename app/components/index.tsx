@@ -255,11 +255,16 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
                   ? brandConfig.primaryColor
                   : brandConfig.name === 'OMG' ? '#374151' : '#d1d5db',
               }}
-              onMouseEnter={(e) => e.currentTarget.style.color = brandConfig.secondaryColor}
+              onMouseEnter={(e) => {
+                // Always use secondary color on hover for both brands
+                e.currentTarget.style.color = brandConfig.secondaryColor;
+              }}
               onMouseLeave={(e) => {
                 if (currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')) {
+                  // If active, return to primary
                   e.currentTarget.style.color = brandConfig.primaryColor;
                 } else {
+                  // If not active, return to default text color for the brand
                   e.currentTarget.style.color = brandConfig.name === 'OMG' ? '#374151' : '#d1d5db';
                 }
               }}
@@ -267,12 +272,21 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
               <i className="bi bi-grid mr-1.5" style={{ color: brandConfig.primaryColor }} 
               ref={(el) => {
                 if (el) {
-                  el.parentElement?.addEventListener('mouseenter', () => {
+                  // Remove any existing listeners first to prevent duplicates
+                  el.parentElement?.removeEventListener('mouseenter', () => {});
+                  el.parentElement?.removeEventListener('mouseleave', () => {});
+                  
+                  // Add new listeners
+                  const mouseEnterHandler = () => {
                     el.style.color = brandConfig.secondaryColor;
-                  });
-                  el.parentElement?.addEventListener('mouseleave', () => {
+                  };
+                  
+                  const mouseLeaveHandler = () => {
                     el.style.color = brandConfig.primaryColor;
-                  });
+                  };
+                  
+                  el.parentElement?.addEventListener('mouseenter', mouseEnterHandler);
+                  el.parentElement?.addEventListener('mouseleave', mouseLeaveHandler);
                 }
               }}></i>
               <span>Model Explorer</span>
