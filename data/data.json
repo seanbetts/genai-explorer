@@ -5341,7 +5341,56 @@
       "website": "https://character.ai",
       "description": "Empowers people to connect, learn, and tell stories through interactive entertainment. Millions of people visit Character.AI every month, using our technology to supercharge their imaginations.",
       "lastUpdated": "2025-05-04",
-      "features": [],
+      "features": [
+        {
+          "name": "Personas",
+          "description": "Updating User Personas in your profile settings with details of your desired personality, preferences, and physical traits will make every conversation feel personalized and every interaction with Characters feel alive.",
+          "image": "/images/companies/character-ai/features/personas.png",
+          "url": "https://book.character.ai/character-book/user-personas"
+        },
+        {
+          "name": "Character Profile",
+          "description": "Each Character you create will have a profile that shows some basic elements like their name, avatar and short description. These profiles allow other users to understand what your Character is like and how to best interact with them.",
+          "image": "/images/companies/character-ai/features/character.png",
+          "url": "https://book.character.ai/character-book/character-profile"
+        },
+        {
+          "name": "Dialog Definitions",
+          "description": "Characters can respond based on examples you provide of how they should talk. ",
+          "image": "/images/companies/character-ai/features/dialog.png",
+          "url": "https://book.character.ai/character-book/advanced-creation/dialog-definitions"
+        },
+        {
+          "name": "Character Attributes",
+          "description": "A reference to all the pieces of information you can enter to change the nature of your Character, the way that all the rich variety you see on the Home page is accomplished.",
+          "image": "/images/companies/character-ai/features/attributes.png",
+          "url": "https://book.character.ai/character-book/character-attributes"
+        },
+        {
+          "name": "Character Training",
+          "description": "The Character responses will also be influenced by the feedback it receives during conversations.",
+          "image": "/images/companies/character-ai/features/training.png",
+          "url": "https://book.character.ai/character-book/training-a-character"
+        },
+        {
+          "name": "Image Attachments",
+          "description": "Users can add digital media to their chats by either taking a photo with a mobile camera or uploading an image from their local photo gallery.",
+          "image": "/images/companies/character-ai/features/images.png",
+          "url": "https://blog.character.ai/enhance-your-chat-experience-with-image-attachments/"
+        },
+        {
+          "name": "Image Generation",
+          "description": "With Image Generation, your Characters can add images to your conversations!",
+          "image": "/images/companies/character-ai/features/image-gen.png",
+          "url": "https://book.character.ai/character-book/image-generating-characters"
+        },
+        {
+          "name": "Pinned Memories",
+          "description": "Allows you to save and pin 5 messages in each chat to help your Character remember important details throughout your conversations",
+          "image": "/images/companies/character-ai/features/memories.png",
+          "url": "https://support.character.ai/hc/en-us/articles/24327914463003-New-Feature-Pinned-Memories"
+        }
+      ],
       "models": [
         {
           "id": "character-ai",
@@ -5354,13 +5403,10 @@
           "releaseVideo": "",
           "modelPage": "",
           "systemCard": "",
-          "modelGuide": "",
+          "modelGuide": "https://book.character.ai",
           "apiDocumentation": "",
           "heroVideo": {
-            "behind_the_scenes": "https://youtu.be/VHiy5F_BDw0?si=N543_1so55ppp-ra"
-          },
-          "demoVideos": {
-            "avatarFX": "https://youtu.be/LEPaWVbRJ1E?si=4wRldhCC-OJOW0sC",
+            "behind_the_scenes": "https://youtu.be/VHiy5F_BDw0?si=N543_1so55ppp-ra",
             "sherlock_holmes": "https://characterai.io/static/logged-out-homepage-character-spotlights/video/sherlock-holmes.mp4",
             "ellie_williams": "https://characterai.io/static/logged-out-homepage-character-spotlights/video/ellie-williams.mp4",
             "gojo_saoru": "https://characterai.io/static/logged-out-homepage-character-spotlights/video/gojo-satoru.mp4",
@@ -5369,11 +5415,41 @@
             "space_adventurer": "https://characterai.io/static/logged-out-homepage-character-spotlights/video/space-adventurer.mp4",
             "basketball_captian": "https://characterai.io/static/logged-out-homepage-character-spotlights/video/basketball-captain.mp4"
           },
+          "demoVideos": {
+            "avatarFX": "https://youtu.be/LEPaWVbRJ1E?si=4wRldhCC-OJOW0sC"
+          },
           "termsOfService": "https://character.ai/tos",
           "usagePolicy": ""
         }
       ],
-      "subscriptions": []
+      "subscriptions": [
+        {
+          "tier": "Free",
+          "type": "consumer",
+          "price": 0,
+          "billingCycle": "month",
+          "url": "https://character.ai/",
+          "features": [
+            "Free and unlimited messaging",
+            "Waiting rooms for access",
+            "Slower response times"
+          ]
+        },
+        {
+          "tier": "Character.ai+",
+          "type": "consumer",
+          "price": 9.99,
+          "billingCycle": "month",
+          "url": "https://blog.character.ai/introducing-c-ai/",
+          "features": [
+            "Priority Access - skip the waiting room",
+            "Faster Response Times",
+            "Early Access to new features",
+            "c.ai+ Community Access",
+            "c.ai+ support badge"
+          ]
+        }
+      ]
     },
     {
       "id": "descript",
@@ -5407,7 +5483,9 @@
           "usagePolicy": ""
         }
       ],
-      "subscriptions": []
+      "subscriptions": [
+        
+      ]
     },
     {
       "id": "hey-gen",
