@@ -171,7 +171,9 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                             <div key={key} className="flex items-center h-8">
                               <i className={`${
                                 value === true 
-                                  ? iconStyles.booleanTrue 
+                                  ? brandConfig.name === 'OMG'
+                                    ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                    : iconStyles.booleanTrue 
                                   : brandConfig.name === 'OMG'
                                     ? 'bi bi-x-circle-fill text-red-500'
                                     : 'bi bi-x-circle-fill text-fuchsia-500'
@@ -324,7 +326,9 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                             <div key={key} className="flex items-center h-8">
                               <i className={`${
                                 value === true 
-                                  ? iconStyles.booleanTrue 
+                                  ? brandConfig.name === 'OMG'
+                                    ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                    : iconStyles.booleanTrue 
                                   : brandConfig.name === 'OMG'
                                     ? 'bi bi-x-circle-fill text-red-500'
                                     : 'bi bi-x-circle-fill text-fuchsia-500'
@@ -358,7 +362,9 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                                 <div key={subKey} className="flex items-center h-8">
                                   <i className={`${
                                     subValue === true 
-                                      ? iconStyles.booleanTrue 
+                                      ? brandConfig.name === 'OMG'
+                                        ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                        : iconStyles.booleanTrue 
                                       : brandConfig.name === 'OMG'
                                         ? 'bi bi-x-circle-fill text-red-500'
                                         : 'bi bi-x-circle-fill text-fuchsia-500'
@@ -402,7 +408,9 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                             <div key={key} className="flex items-center h-8">
                               <i className={`${
                                 value === true 
-                                  ? iconStyles.booleanTrue 
+                                  ? brandConfig.name === 'OMG'
+                                    ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                    : iconStyles.booleanTrue 
                                   : brandConfig.name === 'OMG'
                                     ? 'bi bi-x-circle-fill text-red-500'
                                     : 'bi bi-x-circle-fill text-fuchsia-500'
@@ -444,7 +452,9 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                         <div className="flex items-center h-8">
                           <i className={`${
                             selectedModel.apiEndpoints.available === true 
-                              ? iconStyles.booleanTrue 
+                              ? brandConfig.name === 'OMG'
+                                ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                : iconStyles.booleanTrue 
                               : brandConfig.name === 'OMG'
                                 ? 'bi bi-x-circle-fill text-red-500'
                                 : 'bi bi-x-circle-fill text-fuchsia-500'
@@ -466,7 +476,9 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                           <div key={key} className="flex items-center h-8">
                             <i className={`${
                             value === true 
-                              ? iconStyles.booleanTrue 
+                              ? brandConfig.name === 'OMG'
+                                ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                : iconStyles.booleanTrue 
                               : brandConfig.name === 'OMG'
                                 ? 'bi bi-x-circle-fill text-red-500'
                                 : 'bi bi-x-circle-fill text-fuchsia-500'
@@ -538,7 +550,9 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                           <div key={key} className="flex items-center h-8">
                             <i className={`${
                             value === true 
-                              ? iconStyles.booleanTrue 
+                              ? brandConfig.name === 'OMG'
+                                ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                : iconStyles.booleanTrue 
                               : brandConfig.name === 'OMG'
                                 ? 'bi bi-x-circle-fill text-red-500'
                                 : 'bi bi-x-circle-fill text-fuchsia-500'
@@ -556,14 +570,38 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                     <div className="space-y-2 flex flex-col">
                       {hasIPRespectData && (
                         <div className="flex items-center h-8">
-                          <i className={`${ipRespectEnabled ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
-                          <span className={textStyles.body}>IP Respect</span>
+                          <i className={`${
+                            ipRespectEnabled 
+                              ? brandConfig.name === 'OMG'
+                                ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                : iconStyles.booleanTrue 
+                              : brandConfig.name === 'OMG'
+                                ? 'bi bi-x-circle-fill text-red-500'
+                                : 'bi bi-x-circle-fill text-fuchsia-500'
+                          } mr-3`} />
+                          <span className={`${
+                            brandConfig.name === 'OMG'
+                              ? 'text-gray-800 font-sans'
+                              : textStyles.body
+                          }`}>IP Respect</span>
                         </div>
                       )}
                       {selectedModel.commerciallySafe !== undefined && (
                         <div className="flex items-center h-8">
-                          <i className={`${selectedModel.commerciallySafe ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
-                          <span className={textStyles.body}>{selectedModel.commerciallySafe ? 'Commercially safe' : 'Not commercially safe'}</span>
+                          <i className={`${
+                            selectedModel.commerciallySafe 
+                              ? brandConfig.name === 'OMG'
+                                ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                : iconStyles.booleanTrue 
+                              : brandConfig.name === 'OMG'
+                                ? 'bi bi-x-circle-fill text-red-500'
+                                : 'bi bi-x-circle-fill text-fuchsia-500'
+                          } mr-3`} />
+                          <span className={`${
+                            brandConfig.name === 'OMG'
+                              ? 'text-gray-800 font-sans'
+                              : textStyles.body
+                          }`}>{selectedModel.commerciallySafe ? 'Commercially safe' : 'Not commercially safe'}</span>
                         </div>
                       )}
                       {selectedModel.usagePolicy && (
@@ -751,7 +789,9 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                             <div className="flex items-center">
                               <i className={`${
                                 supported 
-                                  ? iconStyles.booleanTrue 
+                                  ? brandConfig.name === 'OMG'
+                                    ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                    : iconStyles.booleanTrue 
                                   : brandConfig.name === 'OMG'
                                     ? 'bi bi-x-circle-fill text-red-500'
                                     : 'bi bi-x-circle-fill text-fuchsia-500'
