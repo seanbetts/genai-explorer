@@ -296,11 +296,13 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
           {hasFrontierModels() && (
             <button
               className={`py-3 px-6 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-base border-b-2 transition-colors cursor-pointer focus:outline-none focus-visible:outline-none ${
-                !brandConfig.name === 'OMG' && (
-                  activeTab === 'frontier-models' 
-                    ? 'border-cyan-400 text-cyan-400' 
-                    : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500'
-                )
+                brandConfig.name !== 'OMG' 
+                  ? (activeTab === 'frontier-models' 
+                      ? 'border-cyan-400 text-cyan-400' 
+                      : 'border-transparent text-gray-400 hover:text-white hover:border-gray-500')
+                  : (activeTab === 'frontier-models'
+                      ? 'border-blue-600 text-blue-600'
+                      : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-400')
               }`}
               style={{ 
                 borderColor: activeTab === 'frontier-models' ? brandConfig.secondaryColor : 'transparent',

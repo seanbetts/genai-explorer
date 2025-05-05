@@ -1040,7 +1040,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                 <tr className="cursor-pointer">
                   <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
                     <div className={containerStyles.flexCenter}>
-                      <span style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : { className: iconStyles.tableRowIcon }}>🤗</span> <span className={textStyles.primary}>Hugging Face</span>
+                      <span className={brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>🤗</span> <span className={textStyles.primary}>Hugging Face</span>
                     </div>
                   </td>
                   {currentModels.map(model => (
