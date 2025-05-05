@@ -273,14 +273,14 @@ export const iconStyles = {
     '2xl': 'text-2xl',
     '3xl': 'text-3xl',
     
-    // Rating icons with neon cyan (same as format icons)
+    // Rating icons with secondary brand color
     ratingContainer: 'flex items-center justify-center',
-    ratingFilled: 'text-cyan-400', // Changed to cyan to match format icons
-    ratingEmpty: 'text-gray-600', // Changed to match inactiveFormat
+    ratingFilled: brandConfig.name === 'OMG' ? `text-[${brandConfig.secondaryColor}]` : 'text-cyan-400', // Secondary brand color
+    ratingEmpty: 'text-gray-600', // Lighter gray to be more visible
     iconSpacing: 'mx-0.5',
     
-    // Format indicators with neon cyan
-    activeFormat: 'text-cyan-400',
+    // Format indicators with secondary brand color
+    activeFormat: brandConfig.name === 'OMG' ? `text-[${brandConfig.secondaryColor}]` : 'text-cyan-400', // Secondary brand color
     inactiveFormat: 'text-gray-600', // Lighter gray to be more visible
     formatContainer: 'flex gap-4 justify-center',
     formatItem: 'flex items-center mx-2',

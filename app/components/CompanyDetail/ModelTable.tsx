@@ -340,7 +340,11 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         {[...Array(5)].map((_, i) => (
           <i 
             key={i} 
-            className={`${i < value ? filledIcon : icon} ${iconStyles.iconSpacing} ${i < value ? iconStyles.activeFormat : iconStyles.inactiveFormat}`}
+            className={`${i < value ? filledIcon : icon} ${iconStyles.iconSpacing}`}
+            style={i < value ? 
+              { color: brandConfig.secondaryColor } : 
+              { color: '#4B5563' /* gray-600 */}
+            }
           ></i>
         ))}
       </div>
@@ -482,11 +486,41 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               <div className={iconStyles.formatContainer}>
-                <i className={`bi bi-file-text-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("text") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Text"></i>
-                <i className={`bi bi-mic-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("speech") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Speech"></i>
-                <i className={`bi bi-image-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("image") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Image"></i>
-                <i className={`bi bi-music-note-beamed ${iconStyles.lg} ${model.specs?.inputFormats?.includes("audio") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Audio"></i>
-                <i className={`bi bi-camera-video-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("video") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Video"></i>
+                <i 
+                  className={`bi bi-file-text-fill ${iconStyles.lg}`} 
+                  style={model.specs?.inputFormats?.includes("text") ? 
+                    { color: brandConfig.secondaryColor } : 
+                    { color: '#4B5563' /* gray-600 */}
+                  } 
+                  title="Text"></i>
+                <i 
+                  className={`bi bi-mic-fill ${iconStyles.lg}`} 
+                  style={model.specs?.inputFormats?.includes("speech") ? 
+                    { color: brandConfig.secondaryColor } : 
+                    { color: '#4B5563' /* gray-600 */}
+                  } 
+                  title="Speech"></i>
+                <i 
+                  className={`bi bi-image-fill ${iconStyles.lg}`} 
+                  style={model.specs?.inputFormats?.includes("image") ? 
+                    { color: brandConfig.secondaryColor } : 
+                    { color: '#4B5563' /* gray-600 */}
+                  } 
+                  title="Image"></i>
+                <i 
+                  className={`bi bi-music-note-beamed ${iconStyles.lg}`} 
+                  style={model.specs?.inputFormats?.includes("audio") ? 
+                    { color: brandConfig.secondaryColor } : 
+                    { color: '#4B5563' /* gray-600 */}
+                  } 
+                  title="Audio"></i>
+                <i 
+                  className={`bi bi-camera-video-fill ${iconStyles.lg}`} 
+                  style={model.specs?.inputFormats?.includes("video") ? 
+                    { color: brandConfig.secondaryColor } : 
+                    { color: '#4B5563' /* gray-600 */}
+                  } 
+                  title="Video"></i>
               </div>
             </td>
           ))}
@@ -504,11 +538,41 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               <div className={iconStyles.formatContainer}>
-                <i className={`bi bi-file-text-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("text") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Text"></i>
-                <i className={`bi bi-mic-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("speech") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Speech"></i>
-                <i className={`bi bi-image-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("image") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Image"></i>
-                <i className={`bi bi-music-note-beamed ${iconStyles.lg} ${model.specs?.outputFormats?.includes("audio") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Audio"></i>
-                <i className={`bi bi-camera-video-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("video") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Video"></i>
+                <i 
+                  className={`bi bi-file-text-fill ${iconStyles.lg}`} 
+                  style={model.specs?.outputFormats?.includes("text") ? 
+                    { color: brandConfig.secondaryColor } : 
+                    { color: '#4B5563' /* gray-600 */}
+                  } 
+                  title="Text"></i>
+                <i 
+                  className={`bi bi-mic-fill ${iconStyles.lg}`} 
+                  style={model.specs?.outputFormats?.includes("speech") ? 
+                    { color: brandConfig.secondaryColor } : 
+                    { color: '#4B5563' /* gray-600 */}
+                  } 
+                  title="Speech"></i>
+                <i 
+                  className={`bi bi-image-fill ${iconStyles.lg}`} 
+                  style={model.specs?.outputFormats?.includes("image") ? 
+                    { color: brandConfig.secondaryColor } : 
+                    { color: '#4B5563' /* gray-600 */}
+                  } 
+                  title="Image"></i>
+                <i 
+                  className={`bi bi-music-note-beamed ${iconStyles.lg}`} 
+                  style={model.specs?.outputFormats?.includes("audio") ? 
+                    { color: brandConfig.secondaryColor } : 
+                    { color: '#4B5563' /* gray-600 */}
+                  } 
+                  title="Audio"></i>
+                <i 
+                  className={`bi bi-camera-video-fill ${iconStyles.lg}`} 
+                  style={model.specs?.outputFormats?.includes("video") ? 
+                    { color: brandConfig.secondaryColor } : 
+                    { color: '#4B5563' /* gray-600 */}
+                  } 
+                  title="Video"></i>
               </div>
             </td>
           ))}
