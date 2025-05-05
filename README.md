@@ -85,6 +85,15 @@ genai-explorer/
 └── next.config.ts          # Next.js configuration
 ```
 
+## Multi-Brand Support
+
+This project supports multiple brand configurations, allowing you to deploy different versions of the application with brand-specific styling, components, and features:
+
+- **Personal Version (The Blueprint)**: Dark theme with Blueprint-specific styling
+- **OMG Version**: Light theme with OMG-specific styling and customizations
+
+Brand-specific configurations are controlled through environment variables and a centralized configuration system. See [MULTI-BRAND.md](MULTI-BRAND.md) for detailed documentation on the multi-brand implementation.
+
 ## Getting Started
 
 1. Clone the repository
@@ -98,20 +107,31 @@ cd genai-explorer
 npm install
 ```
 
-3. Run the development server
+3. Run the development servers
 ```bash
-npm run dev
+# Run both versions simultaneously on different ports
+npm run dev:both
+
+# Or run specific versions
+npm run dev:personal    # Personal version on default port
+npm run dev:omg         # OMG version on default port
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application
+4. Open the appropriate URL in your browser:
+   - Personal version: [http://localhost:3000](http://localhost:3000)
+   - OMG version: [http://localhost:3001](http://localhost:3001) (when using dev:both)
 
 ## Building for Deployment
 
 ```bash
-npm run build
+# Build the personal version
+npm run build:personal
+
+# Build the OMG version
+npm run build:omg
 ```
 
-This generates static files in the `out` directory ready for deployment to Netlify or any static hosting service.
+These commands generate static files in the `out` directory ready for deployment to Netlify or any static hosting service.
 
 ## Contributing
 
