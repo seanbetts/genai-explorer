@@ -110,11 +110,17 @@ export const containerStyles = {
     companyGridHalf: 'grid items-stretch grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5', // Now 4 columns for Open Source Models
     companyGridQuarter: 'grid items-stretch grid-cols-1 sm:grid-cols-2 gap-5', // Matched gap-5 to be consistent with Open Models
     
-    // Company detail with cyberpunk styling
-    companyDetailHeader: 'flex flex-col md:flex-row items-center p-6 rounded-lg border border-gray-700 bg-gray-800 shadow-md',
-    companyLogoContainer: 'relative flex items-center justify-center h-24 w-48 flex-shrink-0 mb-4 md:mb-0 md:mr-8 bg-white rounded-md p-2 hover:border-fuchsia-400 transition-all duration-300 border border-fuchsia-500',
+    // Company detail with brand-specific styling
+    companyDetailHeader: brandConfig.name === 'OMG'
+        ? 'flex flex-col md:flex-row items-center p-6 rounded-lg border border-gray-300 bg-gray-200 shadow-md'
+        : 'flex flex-col md:flex-row items-center p-6 rounded-lg border border-gray-700 bg-gray-800 shadow-md',
+    companyLogoContainer: brandConfig.name === 'OMG'
+        ? 'relative flex items-center justify-center h-24 w-48 flex-shrink-0 mb-4 md:mb-0 md:mr-8 bg-white rounded-md p-2 hover:border-blue-400 transition-all duration-300 border border-blue-500'
+        : 'relative flex items-center justify-center h-24 w-48 flex-shrink-0 mb-4 md:mb-0 md:mr-8 bg-white rounded-md p-2 hover:border-fuchsia-400 transition-all duration-300 border border-fuchsia-500',
     companyDescriptionContainer: 'flex-1 flex items-center',
-    companyDescription: 'text-gray-300 font-mono',
+    companyDescription: brandConfig.name === 'OMG'
+        ? 'text-gray-800 font-sans'
+        : 'text-gray-300 font-mono',
     companyDetailSection: 'mt-6 mb-4 space-y-4',
     
     // App layout with brand-specific theme styling

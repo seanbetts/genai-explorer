@@ -241,7 +241,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
     <div className={`transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       
       <div className={`${containerStyles.flexCol} space-y-10`}>
-        <div className={`${containerStyles.companyDetailHeader} transform transition-all duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-4'} relative ${brandConfig.name === 'OMG' ? 'bg-gray-200 border border-gray-300' : ''}`}>
+        <div className={`${containerStyles.companyDetailHeader} transform transition-all duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-4'} relative`}>
           <a 
             href={company.website} 
             target="_blank" 
