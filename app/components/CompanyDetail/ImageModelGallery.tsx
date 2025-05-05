@@ -213,7 +213,14 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         {Object.entries(selectedModel.features.generation)
                           .map(([key, value]) => (
                             <div key={key} className="flex items-center h-8">
-                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                              <i 
+                                className={`${value === true ? 
+                                  (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
+                                  'bi bi-x-circle-fill'} mr-2 ${brandConfig.name === 'OMG' && value === true ? 'bi bi-check-circle-fill text-lg' : ''}`}
+                                style={value === true && brandConfig.name === 'OMG' ? 
+                                  { color: brandConfig.secondaryColor } : 
+                                  (value === false ? { color: '#ef4444' /* red-500 */ } : {})}
+                              />
                               <span className={textStyles.body}>{formatFeatureName(key)}</span>
                             </div>
                           ))}
@@ -232,7 +239,14 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         {Object.entries(selectedModel.features.editing)
                           .map(([key, value]) => (
                             <div key={key} className="flex items-center h-8">
-                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                              <i 
+                                className={`${value === true ? 
+                                  (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
+                                  'bi bi-x-circle-fill'} mr-2 ${brandConfig.name === 'OMG' && value === true ? 'bi bi-check-circle-fill text-lg' : ''}`}
+                                style={value === true && brandConfig.name === 'OMG' ? 
+                                  { color: brandConfig.secondaryColor } : 
+                                  (value === false ? { color: '#ef4444' /* red-500 */ } : {})}
+                              />
                               <span className={textStyles.body}>{formatFeatureName(key)}</span>
                             </div>
                           ))}
@@ -251,7 +265,14 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         {Object.entries(selectedModel.features.enhancement)
                           .map(([key, value]) => (
                             <div key={key} className="flex items-center h-8">
-                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                              <i 
+                                className={`${value === true ? 
+                                  (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
+                                  'bi bi-x-circle-fill'} mr-2 ${brandConfig.name === 'OMG' && value === true ? 'bi bi-check-circle-fill text-lg' : ''}`}
+                                style={value === true && brandConfig.name === 'OMG' ? 
+                                  { color: brandConfig.secondaryColor } : 
+                                  (value === false ? { color: '#ef4444' /* red-500 */ } : {})}
+                              />
                               <span className={textStyles.body}>{formatFeatureName(key)}</span>
                             </div>
                           ))}
@@ -270,7 +291,14 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                       {/* API Endpoint Availability */}
                       {selectedModel.apiEndpoints?.available !== undefined && (
                         <div className="flex items-center h-8">
-                          <i className={`${selectedModel.apiEndpoints.available === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                          <i 
+                            className={`${selectedModel.apiEndpoints.available === true ? 
+                              (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
+                              'bi bi-x-circle-fill'} mr-2 ${brandConfig.name === 'OMG' && selectedModel.apiEndpoints.available === true ? 'bi bi-check-circle-fill text-lg' : ''}`}
+                            style={selectedModel.apiEndpoints.available === true && brandConfig.name === 'OMG' ? 
+                              { color: brandConfig.secondaryColor } : 
+                              (selectedModel.apiEndpoints.available === false ? { color: '#ef4444' /* red-500 */ } : {})}
+                          />
                           <span className={textStyles.body}>API Available</span>
                         </div>
                       )}
@@ -279,7 +307,14 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                       {selectedModel.features?.advanced && Object.entries(selectedModel.features.advanced)
                         .map(([key, value]) => (
                           <div key={key} className="flex items-center h-8">
-                            <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                            <i 
+                              className={`${value === true ? 
+                                (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
+                                'bi bi-x-circle-fill'} mr-2 ${brandConfig.name === 'OMG' && value === true ? 'bi bi-check-circle-fill text-lg' : ''} ${!value && brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
+                              style={value === true && brandConfig.name === 'OMG' ? 
+                                { color: brandConfig.secondaryColor } : 
+                                (!value ? { color: '#ef4444' /* red-500 */ } : {})}
+                            />
                             <span className={textStyles.body}>{formatFeatureName(key)}</span>
                           </div>
                         ))}
@@ -310,7 +345,14 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         )
                         .map(([key, value]) => (
                           <div key={key} className="flex items-center h-8">
-                            <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
+                            <i 
+                              className={`${value === true ? 
+                                (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
+                                'bi bi-x-circle-fill'} mr-2 ${brandConfig.name === 'OMG' && value === true ? 'bi bi-check-circle-fill text-lg' : ''} ${!value && brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
+                              style={value === true && brandConfig.name === 'OMG' ? 
+                                { color: brandConfig.secondaryColor } : 
+                                (!value ? { color: '#ef4444' /* red-500 */ } : {})}
+                            />
                             <span className={textStyles.body}>{formatFeatureName(key)}</span>
                           </div>
                         ))}
@@ -318,13 +360,27 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     <div className="space-y-2 flex flex-col">
                       {hasIPRespectData && (
                         <div className="flex items-center h-8">
-                          <i className={`${ipRespectEnabled ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
+                          <i 
+                            className={`${ipRespectEnabled ? 
+                              (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
+                              'bi bi-x-circle-fill'} mr-3 ${brandConfig.name === 'OMG' && ipRespectEnabled ? 'bi bi-check-circle-fill text-lg' : ''}`}
+                            style={ipRespectEnabled && brandConfig.name === 'OMG' ? 
+                              { color: brandConfig.secondaryColor } : 
+                              (!ipRespectEnabled ? { color: '#ef4444' /* red-500 */ } : {})}
+                          />
                           <span className={textStyles.body}>IP Respect</span>
                         </div>
                       )}
                       {selectedModel.commerciallySafe !== undefined && (
                         <div className="flex items-center h-8">
-                          <i className={`${selectedModel.commerciallySafe ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
+                          <i 
+                            className={`${selectedModel.commerciallySafe ? 
+                              (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
+                              'bi bi-x-circle-fill'} mr-3 ${brandConfig.name === 'OMG' && selectedModel.commerciallySafe ? 'bi bi-check-circle-fill text-lg' : ''}`}
+                            style={selectedModel.commerciallySafe && brandConfig.name === 'OMG' ? 
+                              { color: brandConfig.secondaryColor } : 
+                              (!selectedModel.commerciallySafe ? { color: '#ef4444' /* red-500 */ } : {})}
+                          />
                           <span className={textStyles.body}>{selectedModel.commerciallySafe ? 'Commercially safe' : 'Not commercially safe'}</span>
                         </div>
                       )}
@@ -629,7 +685,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   ))}
                                 </div>
                               ) : (
-                                <i className={iconStyles.booleanFalse} />
+                                <i 
+                                  className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
+                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                />
                               )
                             ) : (
                               <span className="text-gray-500">-</span>
@@ -647,7 +706,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           return (
                             mis !== undefined ? (
                               mis === 0 ? (
-                                <i className={iconStyles.booleanFalse} />
+                                <i 
+                                  className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
+                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                />
                               ) : (
                                 <span className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded">
                                   {mis.toLocaleString()} MB
@@ -677,7 +739,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   ))}
                                 </div>
                               ) : (
-                                <i className={iconStyles.booleanFalse} />
+                                <i 
+                                  className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
+                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                />
                               )
                             ) : (
                               <span className="text-gray-500">-</span>
@@ -693,7 +758,16 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         renderCell: (data: ApiEndpoint) => {
                           const m = data.options?.mask;
                           return (
-                            m !== undefined ? <i className={m ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
+                            m !== undefined ? 
+                              <i 
+                                className={`${m ? 
+                                  (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
+                                  'bi bi-x-circle-fill'} ${brandConfig.name === 'OMG' && m ? 'bi bi-check-circle-fill text-lg' : ''}`}
+                                style={m && brandConfig.name === 'OMG' ? 
+                                  { color: brandConfig.secondaryColor } : 
+                                  (!m ? { color: '#ef4444' /* red-500 */ } : {})}
+                              /> :
+                              <span className="text-gray-500">-</span>
                           );
                         }
                       },
@@ -705,7 +779,16 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         renderCell: (data: ApiEndpoint) => {
                           const sr = data.options?.structureReference;
                           return (
-                            sr !== undefined ? <i className={sr ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
+                            sr !== undefined ? 
+                              <i 
+                                className={`${sr ? 
+                                  (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
+                                  'bi bi-x-circle-fill'} ${brandConfig.name === 'OMG' && sr ? 'bi bi-check-circle-fill text-lg' : ''}`}
+                                style={sr && brandConfig.name === 'OMG' ? 
+                                  { color: brandConfig.secondaryColor } : 
+                                  (!sr ? { color: '#ef4444' /* red-500 */ } : {})}
+                              /> :
+                              <span className="text-gray-500">-</span>
                           );
                         }
                       },
@@ -717,7 +800,16 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         renderCell: (data: ApiEndpoint) => {
                           const np = data.options?.negativePrompt;
                           return (
-                            np !== undefined ? <i className={np ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
+                            np !== undefined ? 
+                              <i 
+                                className={`${np ? 
+                                  (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
+                                  'bi bi-x-circle-fill'} ${brandConfig.name === 'OMG' && np ? 'bi bi-check-circle-fill text-lg' : ''}`}
+                                style={np && brandConfig.name === 'OMG' ? 
+                                  { color: brandConfig.secondaryColor } : 
+                                  (!np ? { color: '#ef4444' /* red-500 */ } : {})}
+                              /> :
+                              <span className="text-gray-500">-</span>
                           );
                         }
                       },
@@ -740,7 +832,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   ))}
                                 </div>
                               ) : (
-                                <i className={iconStyles.booleanFalse} />
+                                <i 
+                                  className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
+                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                />
                               )
                             ) : (
                               <span className="text-gray-500">-</span>
@@ -766,7 +861,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   ))}
                                 </div>
                               ) : (
-                                <i className={iconStyles.booleanFalse} />
+                                <i 
+                                  className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
+                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                />
                               )
                             ) : (
                               <span className="text-gray-500">-</span>
@@ -792,7 +890,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   ))}
                                 </div>
                               ) : (
-                                <i className={iconStyles.booleanFalse} />
+                                <i 
+                                  className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
+                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                />
                               )
                             ) : (
                               <span className="text-gray-500">-</span>
@@ -808,7 +909,16 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         renderCell: (data: ApiEndpoint) => {
                           const oc = data.options?.outputCompression;
                           return (
-                            oc !== undefined ? <i className={oc ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
+                            oc !== undefined ? 
+                              <i 
+                                className={`${oc ? 
+                                  (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
+                                  'bi bi-x-circle-fill'} ${brandConfig.name === 'OMG' && oc ? 'bi bi-check-circle-fill text-lg' : ''} ${!oc && brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
+                                style={oc && brandConfig.name === 'OMG' ? 
+                                  { color: brandConfig.secondaryColor } : 
+                                  (!oc ? { color: '#ef4444' /* red-500 */ } : {})}
+                              /> :
+                              <span className="text-gray-500">-</span>
                           );
                         }
                       },
@@ -830,7 +940,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   ))}
                                 </div>
                               ) : (
-                                <i className={iconStyles.booleanFalse} />
+                                <i 
+                                  className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
+                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                />
                               )
                             ) : (
                               <span className="text-gray-500">-</span>
@@ -856,7 +969,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                                   ))}
                                 </div>
                               ) : (
-                                <i className={iconStyles.booleanFalse} />
+                                <i 
+                                  className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
+                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                />
                               )
                             ) : (
                               <span className="text-gray-500">-</span>
@@ -874,7 +990,10 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           return (
                             vi !== undefined ? (
                               vi === 0 ? (
-                                <i className={iconStyles.booleanFalse} />
+                                <i 
+                                  className={`bi bi-x-circle-fill ${brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
+                                  style={{ color: '#ef4444' /* red-500 */ }}
+                                />
                               ) : (
                                 <div className="flex items-center justify-center">
                                   <span className="px-2 py-0.5 bg-gray-800 text-xs font-mono rounded">
@@ -896,7 +1015,16 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         renderCell: (data: ApiEndpoint) => {
                           const t = data.options?.tileable;
                           return (
-                            t !== undefined ? <i className={t ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
+                            t !== undefined ? 
+                              <i 
+                                className={`${t ? 
+                                  (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
+                                  'bi bi-x-circle-fill'} ${brandConfig.name === 'OMG' && t ? 'bi bi-check-circle-fill text-lg' : ''} ${!t && brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
+                                style={t && brandConfig.name === 'OMG' ? 
+                                  { color: brandConfig.secondaryColor } : 
+                                  (!t ? { color: '#ef4444' /* red-500 */ } : {})}
+                              /> :
+                              <span className="text-gray-500">-</span>
                           );
                         }
                       },
@@ -908,7 +1036,16 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         renderCell: (data: ApiEndpoint) => {
                           const pp = data.options?.placementPosition;
                           return (
-                            pp !== undefined ? <i className={pp ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
+                            pp !== undefined ? 
+                              <i 
+                                className={`${pp ? 
+                                  (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
+                                  'bi bi-x-circle-fill'} ${brandConfig.name === 'OMG' && pp ? 'bi bi-check-circle-fill text-lg' : ''} ${!pp && brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
+                                style={pp && brandConfig.name === 'OMG' ? 
+                                  { color: brandConfig.secondaryColor } : 
+                                  (!pp ? { color: '#ef4444' /* red-500 */ } : {})}
+                              /> :
+                              <span className="text-gray-500">-</span>
                           );
                         }
                       },
@@ -920,7 +1057,16 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         renderCell: (data: ApiEndpoint) => {
                           const pa = data.options?.placementAlignment;
                           return (
-                            pa !== undefined ? <i className={pa ? iconStyles.booleanTrue : iconStyles.booleanFalse} /> : <span className="text-gray-500">-</span>
+                            pa !== undefined ? 
+                              <i 
+                                className={`${pa ? 
+                                  (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
+                                  'bi bi-x-circle-fill'} ${brandConfig.name === 'OMG' && pa ? 'bi bi-check-circle-fill text-lg' : ''} ${!pa && brandConfig.name === 'OMG' ? 'text-lg' : ''}`}
+                                style={pa && brandConfig.name === 'OMG' ? 
+                                  { color: brandConfig.secondaryColor } : 
+                                  (!pa ? { color: '#ef4444' /* red-500 */ } : {})}
+                              /> :
+                              <span className="text-gray-500">-</span>
                           );
                         }
                       },
