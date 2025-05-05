@@ -2,11 +2,10 @@
 
 import React, { lazy, Suspense, useEffect, useState, useCallback, useMemo } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ExplorerData, Company, Benchmark, BenchmarkScore } from './types';
 import ExplorerView from './ExplorerView';
-import Header from './Header';
-import Footer from './Footer';
 // Dynamically load detail components to reduce initial bundle size
 const CompanyDetail = lazy(() => import('./CompanyDetail'));
 const BenchmarkDetail = lazy(() => import('./BenchmarkDetail'));
@@ -232,11 +231,82 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
   
   return (
     <div className={containerStyles.appContainer + " flex flex-col min-h-screen"}>
-      <Header 
-        currentView={currentView}
-        goToHome={goToHome}
-        handleBack={handleBack}
-      />
+      <header className={containerStyles.header}>
+        <div className={containerStyles.headerContent}>
+          {/* Left section with back button and bulb image */}
+          <div className="flex items-center">
+            {/* Bulb image (always visible and clickable) */}
+            <button
+              type="button"
+              onClick={goToHome}
+              className="p-0 m-0 border-0 bg-transparent cursor-pointer mr-4 hover:opacity-80 transition-opacity"
+              aria-label="Home"
+            >
+              <Image 
+                src="/images/bulb.png" 
+                alt="Bulb" 
+                width={48}
+                height={48}
+              />
+            </button>
+            
+            {/* Back button (visible in company and benchmark views) */}
+            {(currentView === 'company' || currentView === 'benchmark') && (
+              <button
+                type="button"
+                onClick={handleBack}
+                className="flex items-center gap-1 text-gray-300 hover:text-cyan-400 transition-colors cursor-pointer focus:ring-2 focus:ring-cyan-400 focus:ring-offset-0"
+                aria-label="Go back"
+              >
+                <i className="bi bi-chevron-left text-lg"></i>
+                <span className="font-mono text-sm">Back</span>
+              </button>
+            )}
+          </div>
+          
+          {/* Centered logo (clickable home) */}
+          <button
+            type="button"
+            className="absolute left-1/2 transform -translate-x-1/2 cursor-pointer p-0 m-0 border-0 bg-transparent hover:opacity-80 transition-opacity"
+            onClick={goToHome}
+            aria-label="Home"
+          >
+            <Image
+              src="/images/logo.png"
+              alt="The Blueprint - Generative AI Explorer"
+              width={200}
+              height={56}
+              priority
+              className="h-14 w-auto"
+            />
+          </button>
+          
+          {/* Right section with subscribe button and date */}
+          <div className="flex flex-col items-end pr-8">
+            {/* Subscribe button - always visible */}
+            <div className="flex justify-end">
+              <a href="https://www.the-blueprint.ai" target="_blank" rel="noopener noreferrer" className="no-underline">
+                <div className="flex font-mono text-[1em] font-medium w-[150px] h-[36px] bg-[#EA00D9] p-2 text-white rounded-[5px] justify-center items-center cursor-pointer hover:-translate-y-[2px] hover:scale-105 transition-all duration-200">
+                  Subscribe
+                </div>
+              </a>
+            </div>
+            
+            {/* Data last updated text */}
+            {currentView === 'home' && (
+              <div className="text-[10px] font-mono mt-2 text-right">
+                Data last updated: <span className="text-cyan-400 font-semibold">{
+                  new Date().toLocaleDateString('en-GB', { 
+                    day: 'numeric', 
+                    month: 'long', 
+                    year: 'numeric' 
+                  })
+                }</span>
+              </div>
+            )}
+          </div>
+        </div>
+      </header>
 
       {/* Features Navigation - visible on all views - sticky */}
       <div className="bg-gray-800 border-b border-fuchsia-900/50 py-2 shadow-md sticky top-[90px] z-20">
@@ -371,12 +441,129 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
         )}
       </main>
 
-      <Footer 
-        currentView={currentView}
-        topCompanies={topCompanies}
-        topBenchmarks={topBenchmarks}
-        benchmarksLoaded={benchmarksLoaded}
-      />
+      {/* Footer */}
+      <footer className={containerStyles.footer + " mt-auto"}>
+        <div className={containerStyles.footerContent}>
+          <div className="flex flex-col md:flex-row">
+            {/* Left half - navigation lists equally spaced */}
+            <div className="md:w-2/5 flex flex-col md:flex-row md:space-x-20 mb-6 md:mb-0 md:pl-8">
+              {/* Features */}
+              <div className="mb-4 md:mb-0 md:w-1/3">
+                <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Features</h3>
+                <ul className="space-y-0.5">
+                  <li>
+                    <Link 
+                      href="/" 
+                      className={`transition-colors text-xs leading-tight py-0.5 flex items-center ${
+                        currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
+                          ? 'text-cyan-400' 
+                          : 'text-gray-300 hover:text-cyan-400'
+                      }`}
+                    >
+                      <i className={`bi bi-grid mr-1.5 ${
+                        currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
+                          ? 'text-cyan-400'
+                          : 'text-fuchsia-500'
+                      }`}></i>
+                      <span>Model Explorer</span>
+                    </Link>
+                  </li>
+                  {/* Temporarily hidden Model Comparer */}
+                  {false && (
+                    <li>
+                      <a 
+                        href="/compare" 
+                        className={`transition-colors text-xs leading-tight py-0.5 flex items-center ${
+                          currentView === 'compare'
+                            ? 'text-cyan-400' 
+                            : 'text-gray-300 hover:text-cyan-400'
+                        }`}
+                      >
+                        <i className={`bi bi-bar-chart-line mr-1.5 ${
+                          currentView === 'compare'
+                            ? 'text-cyan-400'
+                            : 'text-fuchsia-500'
+                        }`}></i>
+                        <span>Model Comparer</span>
+                      </a>
+                    </li>
+                  )}
+                </ul>
+              </div>
+              
+              {/* Popular Companies */}
+              <div className="mb-4 md:mb-0 md:w-1/3">
+                <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">AI Companies</h3>
+                <ul className="space-y-0.5">
+                  {topCompanies.map(company => (
+                    <li key={company.id}>
+                      <a 
+                        href={`/?company=${company.id}`} 
+                        className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5"
+                      >
+                        {company.name}
+                      </a>
+                    </li>
+                  ))}
+                  {/* Fallback when no companies are loaded yet */}
+                  {topCompanies.length === 0 && (
+                    <li className="text-gray-500 text-xs leading-tight py-0.5">Loading companies...</li>
+                  )}
+                </ul>
+              </div>
+              
+              {/* Benchmarks */}
+              <div className="md:w-1/3">
+                <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Top Benchmarks</h3>
+                <ul className="space-y-0.5">
+                  {topBenchmarks.map(benchmark => (
+                    <li key={benchmark.id}>
+                      <a 
+                        href={`/?benchmark=${benchmark.id}`} 
+                        className="text-gray-300 hover:text-cyan-400 transition-colors text-xs leading-tight block py-0.5"
+                      >
+                        {benchmark.name}
+                      </a>
+                    </li>
+                  ))}
+                  {/* Fallback when benchmark data is still loading */}
+                  {topBenchmarks.length === 0 && !benchmarksLoaded && (
+                    <li className="text-gray-500 text-xs leading-tight py-0.5">Loading benchmarks...</li>
+                  )}
+                </ul>
+              </div>
+            </div>
+            
+            {/* Middle empty space */}
+            <div className="md:flex-grow hidden md:block"></div>
+            
+            {/* Right third - About section - aligned to the right */}
+            <div className="md:w-1/3 md:flex-shrink-0">
+              <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">About</h3>
+              <p className="text-gray-300 text-sm mb-4">
+                The Blueprint's Generative AI Explorer helps people understand the generative AI landscape and explore companies, models, and benchmarks.
+              </p>
+              <div className="flex items-center gap-4 mb-4">
+                <a href="https://github.com/seanbetts/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                  <i className="bi bi-github text-xl"></i>
+                </a>
+                <a href="https://www.the-blueprint.ai" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                  <i className="bi bi-newspaper text-xl"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-xs text-gray-400">
+              © {new Date().getFullYear()} The Blueprint. All rights reserved.
+            </div>
+            <div className="text-xs text-gray-400 flex items-center">
+              Made with <i className="bi bi-heart-fill text-fuchsia-500 mx-1.5"></i> using&nbsp;<a href="https://www.anthropic.com/claude-code" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 transition-colors">Claude Code</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
