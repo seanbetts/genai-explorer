@@ -3413,7 +3413,7 @@
       "features": [
         {
           "name": "Retrieval Augmented Generation (RAG)",
-          "description": "Retrieval Augmented Generation (RAG) is a method for generating text using additional information fetched from an external data source, which can greatly increase the accuracy of the response. ",
+          "description": "Retrieval Augmented Generation (RAG) is a method for generating text using additional information fetched from an external data source, which can greatly increase the accuracy of the response.",
           "image": "/images/companies/cohere/features/rag.png",
           "url": "https://docs.cohere.com/docs/retrieval-augmented-generation-rag"
         },
@@ -5607,35 +5607,176 @@
       "id": "hey-gen",
       "name": "Hey Gen",
       "logo": "/images/companies/hey-gen/logo.png",
-      "website": "",
-      "description": "AI-powered search and knowledge discovery",
-      "lastUpdated": "2025-02-20",
-      "features": [],
-      "models": [
+      "website": "https://www.heygen.com",
+      "description": "Our mission is to make visual storytelling accessible to all.",
+      "lastUpdated": "2025-05-05",
+      "features": [
         {
-          "id": "xxx",
-          "name": "xxx",
-          "status": "primary",
-          "about": "xxx",
-          "category": "other",
-          "releaseDate": "2022/12/07",
-          "releasePost": "",
-          "releaseVideo": "",
-          "modelPage": "",
-          "systemCard": "",
-          "modelGuide": "",
-          "apiDocumentation": "",
-          "heroVideo": {
-            "xxx": ""
-          },
-          "demoVideos": {
-            "x": ""
-          },
-          "termsOfService": "",
-          "usagePolicy": ""
+          "name": "Video Avatars",
+          "description": "Generate high-quality videos instantly, without expensive equipment.",
+          "image": "/images/companies/hey-gen/features/video-avatar.png",
+          "url": "https://www.heygen.com/avatars/ai-video-avatar"
+        },
+        {
+          "name": "Photo Avatars",
+          "description": "Create unlimited AI versions of yourself that speak 170+ languages and rock any style.",
+          "image": "/images/companies/hey-gen/features/photo-avatar.png",
+          "url": "https://www.heygen.com/avatars/ai-photo-avatar"
+        },
+        {
+          "name": "Generative Avatars",
+          "description": "Customise lifelike avatars in seconds.",
+          "image": "/images/companies/hey-gen/features/generative-avatar.png",
+          "url": "https://www.heygen.com/avatars/generative-avatar"
+        },
+        {
+          "name": "UGC Avatars",
+          "description": "Write your script -> Pick an avatar -> Generate video. Stop waiting on production teams.",
+          "image": "/images/companies/hey-gen/features/ugc-avatar.png",
+          "url": "https://www.heygen.com/avatars/ugc"
+        },
+        {
+          "name": "Avatar Looks",
+          "description": "Reimagine your avatar’s style, environment, and personality in real-time. ",
+          "image": "/images/companies/hey-gen/features/avatar-looks.png",
+          "url": "https://www.heygen.com/avatars/avatar-looks"
+        },
+        {
+          "name": "Video Translation",
+          "description": "Turn one video into 70+ languages and 175+ dialects with AI so natural, it’s like you’ve been speaking them all along.",
+          "image": "/images/companies/hey-gen/features/translation.png",
+          "url": "https://www.heygen.com/translate"
+        },
+        {
+          "name": "Localisation",
+          "description": "Your content, your voice, naturally adapted for any audience.",
+          "image": "/images/companies/hey-gen/features/localisation.png",
+          "url": "https://www.heygen.com/translate/language-localization"
+        },
+        {
+          "name": "Interactive Avatar",
+          "description": "Answer questions and guide users through lifelike, unscripted conversations. ",
+          "image": "/images/companies/hey-gen/features/interactive-avatar.png",
+          "url": "https://www.heygen.com/interactive-avatar"
         }
       ],
-      "subscriptions": []
+      "models": [
+        {
+          "id": "hey-gen",
+          "name": "Hey Gen",
+          "status": "primary",
+          "about": "The Next-Generation AI Video Platform",
+          "category": "other",
+          "releaseDate": "2024/03/21",
+          "releasePost": "https://www.producthunt.com/products/heygen#heygen-5-0",
+          "releaseVideo": "https://www.youtube.com/watch?v=iXhxrKrNZHw",
+          "modelPage": "",
+          "systemCard": "",
+          "modelGuide": "https://community.heygen.com/public/collections/heygen-academy-101",
+          "apiDocumentation": "https://docs.heygen.com",
+          "heroVideo": {
+            "hey_gen_5-0": "https://www.youtube.com/watch?v=iXhxrKrNZHw"
+          },
+          "demoVideos": {
+            "introduction": "https://youtu.be/wICY3ZV15QA?si=YO5Jq6XE8-XyOf44",
+            "AI_editing_studio": "https://youtu.be/suE96YZHGTo?si=C3bS3RaV6wEOTVWh",
+            "templates": "https://youtu.be/PpL_UGwkV20?si=5sdz8-ZU-q1J5_XJ",
+            "public_avatars_&_voices": "https://youtu.be/QtgPXgqylCM?si=hi9Runx73bWASFJS",
+            "scripting_&_pronunciation": "https://youtu.be/9paxCJozCeY?si=Z2_mVQF-9EsJJbRd",
+            "assets_&_brand_kit": "https://youtu.be/4KgVLet375w?si=EJdliGUqjFji7R_F",
+            "generating_&_sharing": "https://youtu.be/7qQ8QGkolsE?si=1jx6NzfyUOM65cEz",
+            "hyper_realistic_avatar": "https://youtu.be/q9Ol2QAae3U?si=h377iKKlmsmRNyyO",
+            "custom_photo_avatar": "https://youtu.be/mJQ_VOrq898?si=o_YMJKkMXVe11nnc",
+            "generate_avatar": "https://youtu.be/Wsfk8G_vNT4?si=kFXrTsJrn6if5fv0",
+            "generate_look": "https://youtu.be/g0-I9iUKLQg?si=CwEnvrzlXCEPkoMJ",
+            "custom_voice": "https://youtu.be/7-JJ1nflrf8?si=RgIO7qbNoBmVmHVC"
+          },
+          "termsOfService": "https://www.heygen.com/terms",
+          "usagePolicy": "https://www.heygen.com/moderation-policy"
+        }
+      ],
+      "subscriptions": [
+        {
+          "tier": "Free",
+          "type": "consumer",
+          "price": 0,
+          "billingCycle": "month",
+          "url": "https://www.heygen.com/pricing",
+          "features": [
+            "3 videos per month",
+            "Videos up to 3-mins",
+            "720p video export",
+            "Standard video processing",
+            "1 Custom Video Avatar",
+            "500+ Stock Video Avatars",
+            "30+ languages",
+            "Share & download videos"
+          ]
+        },
+        {
+          "tier": "Creator",
+          "type": "consumer",
+          "price": 29,
+          "billingCycle": "month",
+          "url": "https://www.heygen.com/pricing",
+          "features": [
+            "Unlimited videos",
+            "Videos up to 30-mins",
+            "1080p video export",
+            "Fast video processing",
+            "1 Custom Video Avatar",
+            "1 Custom Interactive Avatar",
+            "700+ Stock Video Avatars",
+            "Voice cloning",
+            "175+ languages",
+            "Generate Looks",
+            "Look Packs",
+            "Watermark removal",
+            "Brand Kit"
+          ]
+        },
+        {
+          "tier": "Team",
+          "type": "consumer",
+          "price": 39,
+          "billingCycle": "user per month",
+          "url": "https://www.heygen.com/pricing",
+          "features": [
+            "Unlimited videos",
+            "Videos up to 30-mins",
+            "4k video export",
+            "Faster video processing",
+            "2 Custom Video Avatar",
+            "2 Custom Interactive Avatar",
+            "Unlimited Photo Avatars",
+            "Edit & proofread translation script",
+            "Workspace collaboration",
+            "Video draft commenting & editing",
+            "Invites & team management",
+            "Pay as you grow",
+            "Scale your brand and centralize assets"
+          ]
+        },
+        {
+          "tier": "Enterprise",
+          "type": "enterprise",
+          "price": null,
+          "billingCycle": "month",
+          "url": "https://www.heygen.com/pricing",
+          "features": [
+            "Unlimited videos",
+            "No video duration max",
+            "4k video export",
+            "Fastest video processing",
+            "Centrally manage roles and access",
+            "SAML/SSO",
+            "Enterprise-grade security & privacy",
+            "Commercial terms",
+            "Priority customer support",
+            "Dedicated customer success manager"
+          ]
+        }
+      ]
     },
     {
       "id": "github",
