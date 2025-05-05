@@ -671,23 +671,23 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
             style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : '#1F2937' }}>
             <div className={containerStyles.legendItems}>
               <div className={containerStyles.legendItem}>
-                <i className={`bi bi-file-text-fill ${iconStyles.activeFormat}`}></i>
+                <i className="bi bi-file-text-fill" style={{ color: brandConfig.secondaryColor }}></i>
                 <span className={`${textStyles.sm} ${textStyles.primary}`}>Text</span>
               </div>
               <div className={containerStyles.legendItem}>
-                <i className={`bi bi-mic-fill ${iconStyles.activeFormat}`}></i>
+                <i className="bi bi-mic-fill" style={{ color: brandConfig.secondaryColor }}></i>
                 <span className={`${textStyles.sm} ${textStyles.primary}`}>Speech</span>
               </div>
               <div className={containerStyles.legendItem}>
-                <i className={`bi bi-image-fill ${iconStyles.activeFormat}`}></i>
+                <i className="bi bi-image-fill" style={{ color: brandConfig.secondaryColor }}></i>
                 <span className={`${textStyles.sm} ${textStyles.primary}`}>Image</span>
               </div>
               <div className={containerStyles.legendItem}>
-                <i className={`bi bi-music-note-beamed ${iconStyles.activeFormat}`}></i>
+                <i className="bi bi-music-note-beamed" style={{ color: brandConfig.secondaryColor }}></i>
                 <span className={`${textStyles.sm} ${textStyles.primary}`}>Audio</span>
               </div>
               <div className={containerStyles.legendItem}>
-                <i className={`bi bi-camera-video-fill ${iconStyles.activeFormat}`}></i>
+                <i className="bi bi-camera-video-fill" style={{ color: brandConfig.secondaryColor }}></i>
                 <span className={`${textStyles.sm} ${textStyles.primary}`}>Video</span>
               </div>
             </div>
