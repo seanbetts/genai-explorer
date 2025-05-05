@@ -652,11 +652,10 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.pricingInputPerM !== undefined && model.specs?.pricingInputPerM !== null ? (
-                <span className={
-                  model.category === 'frontier' 
-                    ? tableStyles.metric 
-                    : 'text-cyan-400 font-medium tabular-nums font-mono'
-                }>
+                <span 
+                  className={model.category === 'frontier' ? tableStyles.metric : (brandConfig.name === 'OMG' ? 'font-medium tabular-nums font-sans' : 'font-medium tabular-nums font-mono')}
+                  style={model.category === 'frontier' ? {} : { color: brandConfig.secondaryColor }}
+                >
                   ${model.specs.pricingInputPerM.toFixed(2)}
                 </span>
               ) : <span className={textStyles.primary}>-</span>}
@@ -676,11 +675,10 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.pricingCachedInputPerM !== undefined && model.specs?.pricingCachedInputPerM !== null ? (
-                <span className={
-                  model.category === 'frontier' 
-                    ? tableStyles.metric 
-                    : 'text-cyan-400 font-medium tabular-nums font-mono'
-                }>
+                <span 
+                  className={model.category === 'frontier' ? tableStyles.metric : (brandConfig.name === 'OMG' ? 'font-medium tabular-nums font-sans' : 'font-medium tabular-nums font-mono')}
+                  style={model.category === 'frontier' ? {} : { color: brandConfig.secondaryColor }}
+                >
                   ${model.specs.pricingCachedInputPerM.toFixed(2)}
                 </span>
               ) : <span className={textStyles.primary}>-</span>}
@@ -700,11 +698,10 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           {currentModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.specs?.pricingOutputPerM !== undefined && model.specs?.pricingOutputPerM !== null ? (
-                <span className={
-                  model.category === 'frontier' 
-                    ? tableStyles.metric 
-                    : 'text-cyan-400 font-medium tabular-nums font-mono'
-                }>
+                <span 
+                  className={model.category === 'frontier' ? tableStyles.metric : (brandConfig.name === 'OMG' ? 'font-medium tabular-nums font-sans' : 'font-medium tabular-nums font-mono')}
+                  style={model.category === 'frontier' ? {} : { color: brandConfig.secondaryColor }}
+                >
                   ${model.specs.pricingOutputPerM.toFixed(2)}
                 </span>
               ) : <span className={textStyles.primary}>-</span>}
@@ -813,14 +810,14 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                   href="https://www.together.ai/pricing#inference" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
+                  style={{ color: brandConfig.secondaryColor }} className="hover:opacity-80 transition-colors"
                 >Together.ai</a>)</>
               ) : (
                 <>(per 1M tokens direct or on <a 
                   href="https://www.together.ai/pricing#inference" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-cyan-400 hover:text-fuchsia-500 transition-colors"
+                  style={{ color: brandConfig.secondaryColor }} className="hover:opacity-80 transition-colors"
                 >Together.ai</a> for open models)</>
               )}
             </span>
