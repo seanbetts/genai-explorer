@@ -145,7 +145,11 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
             style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>
               Model Features
             </h3>
-            <div className={`${containerStyles.card} min-h-[30.7rem] h-auto`}>
+            <div className={`min-h-[30.7rem] h-auto ${
+              brandConfig.name === 'OMG'
+                ? 'bg-white rounded-lg border border-gray-300 p-5'
+                : containerStyles.card
+            }`}>
               <div className="space-y-4">
                 {/* Generation Features */}
                 {selectedModel.features?.generation && Object.keys(selectedModel.features.generation).length > 0 && (
@@ -516,7 +520,11 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                   selectedModel.termsOfService ||
                   selectedModel.usagePolicy ||
                   selectedModel.commerciallySafe !== undefined) ? (
-              <div className={`${containerStyles.card} min-h-[12rem] h-auto`}>
+              <div className={`min-h-[12rem] h-auto ${
+                brandConfig.name === 'OMG'
+                  ? 'bg-white rounded-lg border border-gray-300 p-5'
+                  : containerStyles.card
+              }`}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       {Object.entries(selectedModel.safety ?? {})
@@ -610,8 +618,16 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                   </div>
                 </div>
               ) : (
-              <div className={`${containerStyles.card} min-h-[12rem] h-auto flex items-center justify-center`}>
-                  <p className={textStyles.body}>No safety features</p>
+              <div className={`min-h-[12rem] h-auto flex items-center justify-center ${
+                brandConfig.name === 'OMG'
+                  ? 'bg-white rounded-lg border border-gray-300 p-5'
+                  : containerStyles.card
+              }`}>
+                  <p className={`${
+                    brandConfig.name === 'OMG'
+                      ? 'text-gray-600 font-sans'
+                      : textStyles.body
+                  }`}>No safety features</p>
                 </div>
               )}
             </div>
@@ -627,7 +643,11 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                 style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>
                   Aspect Ratios
                 </h3>
-                <div className={`${containerStyles.card}`}>
+                <div className={`${
+                  brandConfig.name === 'OMG'
+                    ? 'bg-white rounded-lg border border-gray-300 p-5'
+                    : containerStyles.card
+                }`}>
                   <div className="grid grid-cols-2 gap-4">
                     {Object.entries(selectedModel.aspectRatios)
                       .map(([ratio, supported]) => {
@@ -790,7 +810,11 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
             style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>
               Resources
             </h3>
-            <div className={`${containerStyles.card} mb-6`}>
+            <div className={`mb-6 ${
+              brandConfig.name === 'OMG'
+                ? 'bg-white rounded-lg border border-gray-300 p-5'
+                : containerStyles.card
+            }`}>
               <div className="flex flex-wrap justify-center gap-3">
                 {selectedModel.releasePost && (
                   <a 
