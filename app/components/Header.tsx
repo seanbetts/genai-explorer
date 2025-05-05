@@ -98,8 +98,8 @@ const Header: React.FC<HeaderProps> = ({
           
           {/* Data last updated text */}
           {currentView === 'home' && (
-            <div className="text-[10px] font-mono mt-2 text-right">
-              Data last updated: <span style={{ color: brandConfig.secondaryColor }} className="font-semibold">{
+            <div className={`text-[10px] font-mono mt-2 text-right ${brandConfig.name === 'OMG' ? 'text-gray-600' : 'text-gray-400'}`}>
+              Data last updated: <span style={{ color: brandConfig.name === 'OMG' ? brandConfig.primaryColor : brandConfig.secondaryColor }} className="font-semibold">{
                 new Date().toLocaleDateString('en-GB', { 
                   day: 'numeric', 
                   month: 'long', 
