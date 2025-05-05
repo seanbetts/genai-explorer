@@ -500,14 +500,12 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
                           : 'bg-gray-700'
                       }`}>
                         <div 
-                          className={`absolute top-0 left-0 h-full rounded-full ${
-                            brandConfig.name === 'OMG'
-                              ? 'bg-blue-600'
-                              : 'bg-gradient-to-r from-cyan-500 to-fuchsia-500'
-                          }`}
+                          className="absolute top-0 left-0 h-full rounded-full"
                           style={{ 
                             width: `${percentage}%`,
-                            backgroundColor: brandConfig.name === 'OMG' ? brandConfig.primaryColor : undefined
+                            background: brandConfig.name === 'OMG' 
+                              ? `linear-gradient(to right, ${brandConfig.secondaryColor}, ${brandConfig.primaryColor})`
+                              : 'linear-gradient(to right, #0ABDC6, #EA00D9)' // from-cyan-500 to-fuchsia-500
                           }}
                         ></div>
                       </div>
