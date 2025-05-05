@@ -431,7 +431,7 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
         return (
           <div className={`mb-12 p-6 rounded-lg border ${
             brandConfig.name === 'OMG'
-              ? 'bg-white border-gray-200'
+              ? 'bg-gray-50 border-gray-200'
               : 'bg-gray-800/30 border-gray-700'
           }`}>
             <div className="flex items-center justify-between mb-2">
@@ -518,7 +518,7 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
               {sortedScores.length > 15 && (
                 <div className={`absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t to-transparent pointer-events-none ${
                   brandConfig.name === 'OMG'
-                    ? 'from-white'
+                    ? 'from-gray-50'
                     : 'from-gray-800/30'
                 }`}></div>
               )}
@@ -542,7 +542,7 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
           </div>
           <div className={`overflow-x-auto rounded-lg border ${
             brandConfig.name === 'OMG'
-              ? 'bg-white border-gray-200'
+              ? 'bg-gray-50 border-gray-200'
               : 'bg-gray-800/30 border-gray-700'
           }`}>
             <table className="min-w-full">
