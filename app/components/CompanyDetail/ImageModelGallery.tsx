@@ -559,7 +559,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
             <h3 className={`mt-6 mb-2 ${brandConfig.name === 'OMG' ? 'text-lg font-semibold font-sans' : 'text-lg font-semibold font-mono'}`} style={{ color: brandConfig.primaryColor }}>API Endpoints</h3>
             <div className="table-wrapper">
               <div className="table-scroll-container" onScroll={handleTableScroll}>
-                <table className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}>
+                <table className={`${tableStyles.table} divide-y ${brandConfig.name === 'OMG' ? 'divide-gray-300' : 'divide-gray-700'} hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}>
                   <thead className={tableStyles.header}>
                     <tr>
                       <th className={`${tableStyles.headerCell} ${tableStyles.headerFixed} sticky-header-corner`} style={{width: '250px', minWidth: '250px'}} />
@@ -567,7 +567,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         .filter(([key]) => key !== 'available')
                         .map(([ep], index, array) => (
                           <th key={ep} className={`${tableStyles.headerCellCenter} table-header-cell`} style={{ width: `${100 / array.length}%` }}>
-                            <div className={`${tableStyles.modelName} text-center`}>{formatEndpointName(ep)} Endpoint</div>
+                            <div className={`text-center ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'}`} style={{ color: brandConfig.secondaryColor }}>{formatEndpointName(ep)} Endpoint</div>
                           </th>
                         ))}
                     </tr>
@@ -1119,17 +1119,26 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                       return filteredRows;
                     })().map((row, index) => (
                       <tr key={row.id} className="cursor-pointer">
-                        <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+                        <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={brandConfig.name === 'OMG' ? { backgroundColor: 'white' } : {}}>
                           <div className={containerStyles.flexCenter}>
                             <i className={`bi ${row.icon} ${
-                              // Output-related rows get cyan color
+                              // Output-related rows get cyan/secondary color, others get fuchsia/primary color
                               ['output-formats', 'output-file-types', 'output-sizes', 'output-compression', 
                                'quality-levels', 'style-options', 'background', 'max-images', 
                                'visual-intensity', 'tileable-output', 'placement-position', 
                                'placement-alignment'].includes(row.id) 
-                               ? 'text-cyan-400' 
-                               : 'text-fuchsia-500'}`} />
-                            <span className={textStyles.primary}>{row.label}</span>
+                               ? brandConfig.name === 'OMG' ? '' : 'text-cyan-400' 
+                               : brandConfig.name === 'OMG' ? '' : 'text-fuchsia-500'}`} 
+                              style={brandConfig.name === 'OMG' ? 
+                                (['output-formats', 'output-file-types', 'output-sizes', 'output-compression', 
+                                 'quality-levels', 'style-options', 'background', 'max-images', 
+                                 'visual-intensity', 'tileable-output', 'placement-position', 
+                                 'placement-alignment'].includes(row.id))
+                                  ? { color: brandConfig.secondaryColor } 
+                                  : { color: brandConfig.primaryColor }
+                                : {}}
+                            />
+                            <span className={`${textStyles.primary} ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'}`}>{row.label}</span>
                           </div>
                         </td>
                         {Object.entries(selectedModel.apiEndpoints || {})
