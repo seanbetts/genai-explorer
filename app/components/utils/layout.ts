@@ -41,29 +41,59 @@ export const containerStyles = {
     gridAutoFitWide: 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5',
     gridAutoFitNarrow: 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4',
     
-    // Feature/card layouts with cyberpunk styling to match company cards
+    // Feature/card layouts with styling based on brand
     featureGrid: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr mx-auto',
-    featureCard: 'flex flex-col rounded-lg border border-gray-600 bg-gray-200 overflow-hidden hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer no-underline w-full h-full relative',
-    featureImage: 'relative h-36 bg-gray-800 flex-shrink-0 border-b border-gray-600',
-    featureContent: 'p-5 flex-1 flex flex-col overflow-hidden relative pb-16',
-    featureTitle: 'text-lg font-semibold mb-3 text-gray-800 font-mono group-hover:text-fuchsia-600',
-    featureDescription: 'text-gray-700 text-sm font-mono',
+    featureCard: brandConfig.name === 'OMG'
+        ? 'flex flex-col rounded-lg border border-gray-300 bg-white overflow-hidden hover:border-blue-400 hover:bg-gray-50 hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer no-underline w-full h-full relative'
+        : 'flex flex-col rounded-lg border border-gray-600 bg-gray-200 overflow-hidden hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer no-underline w-full h-full relative',
+    featureImage: brandConfig.name === 'OMG'
+        ? 'relative h-36 bg-gray-100 flex-shrink-0 border-b border-gray-300'
+        : 'relative h-36 bg-gray-800 flex-shrink-0 border-b border-gray-600',
+    featureContent: brandConfig.name === 'OMG'
+        ? 'p-5 flex-1 flex flex-col overflow-hidden relative pb-16 bg-white'
+        : 'p-5 flex-1 flex flex-col overflow-hidden relative pb-16',
+    featureTitle: brandConfig.name === 'OMG'
+        ? 'text-lg font-semibold mb-3 text-gray-800 font-sans group-hover:text-blue-600'
+        : 'text-lg font-semibold mb-3 text-gray-800 font-mono group-hover:text-fuchsia-600',
+    featureDescription: brandConfig.name === 'OMG'
+        ? 'text-gray-700 text-sm font-sans'
+        : 'text-gray-700 text-sm font-mono',
     featureFooter: 'flex items-end justify-end',
-    featureLink: 'text-fuchsia-600 hover:text-fuchsia-500 text-sm flex items-center group font-mono',
+    featureLink: brandConfig.name === 'OMG'
+        ? 'text-blue-600 hover:text-blue-500 text-sm flex items-center group font-sans'
+        : 'text-fuchsia-600 hover:text-fuchsia-500 text-sm flex items-center group font-mono',
     
     // Subscription card styles with fixed width so incomplete rows center correctly
     subscriptionGrid: 'flex flex-wrap justify-center gap-6',
-    subscriptionCard: 'flex flex-col rounded-lg border border-gray-600 bg-gray-200 overflow-hidden hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer no-underline w-80 relative',
-    subscriptionHeader: 'px-5 py-3 bg-[#2d3748] border-b border-gray-600 h-[70px] flex flex-col justify-center', /* Fixed height header for consistency */
-    subscriptionContent: 'px-5 pt-5 pb-10 flex-1 flex flex-col overflow-hidden', /* Increased bottom padding further */
-    subscriptionTier: 'text-lg font-semibold text-fuchsia-500 font-mono leading-tight',
-    subscriptionType: 'px-2 py-0.5 bg-gray-600 rounded text-xs text-cyan-400 font-mono',
-    subscriptionPrice: 'text-xl font-bold text-gray-800 font-mono mb-4',
-    subscriptionPriceUnit: 'text-xs text-gray-600 font-normal font-mono',
+    subscriptionCard: brandConfig.name === 'OMG'
+        ? 'flex flex-col rounded-lg border border-gray-300 bg-white overflow-hidden hover:border-blue-400 hover:bg-gray-50 hover:shadow-md hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer no-underline w-80 relative'
+        : 'flex flex-col rounded-lg border border-gray-600 bg-gray-200 overflow-hidden hover:border-fuchsia-500 hover:bg-gray-100 hover:shadow-[0_0_10px_rgba(234,0,217,0.4)] hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer no-underline w-80 relative',
+    subscriptionHeader: brandConfig.name === 'OMG'
+        ? 'px-5 py-3 bg-gray-100 border-b border-gray-300 h-[70px] flex flex-col justify-center' /* Fixed height header for consistency */
+        : 'px-5 py-3 bg-[#2d3748] border-b border-gray-600 h-[70px] flex flex-col justify-center', /* Fixed height header for consistency */
+    subscriptionContent: brandConfig.name === 'OMG'
+        ? 'px-5 pt-5 pb-10 flex-1 flex flex-col overflow-hidden bg-white' /* Increased bottom padding further */
+        : 'px-5 pt-5 pb-10 flex-1 flex flex-col overflow-hidden', /* Increased bottom padding further */
+    subscriptionTier: brandConfig.name === 'OMG'
+        ? 'text-lg font-semibold text-blue-600 font-sans leading-tight'
+        : 'text-lg font-semibold text-fuchsia-500 font-mono leading-tight',
+    subscriptionType: brandConfig.name === 'OMG'
+        ? 'px-2 py-0.5 bg-gray-200 rounded text-xs text-blue-600 font-sans'
+        : 'px-2 py-0.5 bg-gray-600 rounded text-xs text-cyan-400 font-mono',
+    subscriptionPrice: brandConfig.name === 'OMG'
+        ? 'text-xl font-bold text-gray-800 font-sans mb-4'
+        : 'text-xl font-bold text-gray-800 font-mono mb-4',
+    subscriptionPriceUnit: brandConfig.name === 'OMG'
+        ? 'text-xs text-gray-600 font-normal font-sans'
+        : 'text-xs text-gray-600 font-normal font-mono',
     subscriptionFeatureList: 'space-y-2 text-sm flex-1',
     subscriptionFeatureItem: 'flex items-start',
-    subscriptionFeatureCheck: 'text-fuchsia-500 mr-2 flex-shrink-0',
-    subscriptionFeatureText: 'text-gray-700 font-mono',
+    subscriptionFeatureCheck: brandConfig.name === 'OMG'
+        ? 'text-blue-600 mr-2 flex-shrink-0'
+        : 'text-fuchsia-500 mr-2 flex-shrink-0',
+    subscriptionFeatureText: brandConfig.name === 'OMG'
+        ? 'text-gray-700 font-sans'
+        : 'text-gray-700 font-mono',
     
     // Explorer view layouts with consistent spacing
     explorerContainer: 'space-y-6',
