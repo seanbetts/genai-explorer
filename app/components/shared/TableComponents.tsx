@@ -90,7 +90,7 @@ export const TableHeader: React.FC<TableHeaderProps> = ({
             {showReleaseDates ? (
               <div className="flex flex-col items-center justify-between h-16 py-0">
                 <div className="flex items-center mt-0">
-                  <div className={`${tableStyles.modelName} text-center`}>{item.name}</div>
+                  <div className={`text-center`} style={{ color: brandConfig.secondaryColor }}>{item.name}</div>
                 </div>
                 <div className="text-xs text-gray-400 font-normal">
                   {item.releaseDate 
@@ -104,7 +104,7 @@ export const TableHeader: React.FC<TableHeaderProps> = ({
               </div>
             ) : (
               <div className="relative group">
-                <div className={`${tableStyles.modelName} text-center`}>{item.name}</div>
+                <div className={`text-center`} style={{ color: brandConfig.secondaryColor }}>{item.name}</div>
                 {item.description && (
                   <div className="text-xs text-gray-400 text-center mt-0.5">
                     {item.description}
@@ -200,7 +200,7 @@ interface SectionTitleProps {
 
 export const SectionTitle: React.FC<SectionTitleProps> = ({ children }) => {
   return (
-    <h3 className="text-lg font-semibold text-fuchsia-500 mt-6 mb-2 font-mono">
+    <h3 className={`text-lg font-semibold mt-6 mb-2 ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'}`} style={{ color: brandConfig.secondaryColor }}>
       {children}
     </h3>
   );

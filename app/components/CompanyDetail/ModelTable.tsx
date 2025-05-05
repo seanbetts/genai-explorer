@@ -368,7 +368,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     <>
       {/* Release Date Row */}
       <tr className="cursor-pointer">
-        <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+        <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
           <div className={containerStyles.flexCenter}>
             <i className={`bi bi-calendar-date ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Date</span>
           </div>
@@ -388,7 +388,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
 
       {/* Type Row */}
       <tr className="cursor-pointer">
-        <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+        <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
           <div className={containerStyles.flexCenter}>
             <i className={`bi bi-box ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Type</span>
           </div>
@@ -677,23 +677,23 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
             style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : '#1F2937' }}>
             <div className={containerStyles.legendItems}>
               <div className={containerStyles.legendItem}>
-                <i className="bi bi-file-text-fill" style={{ color: brandConfig.secondaryColor }}></i>
+                <i className="bi bi-file-text-fill" style={{ color: brandConfig.primaryColor }}></i>
                 <span className={`${textStyles.sm} ${textStyles.primary}`}>Text</span>
               </div>
               <div className={containerStyles.legendItem}>
-                <i className="bi bi-mic-fill" style={{ color: brandConfig.secondaryColor }}></i>
+                <i className="bi bi-mic-fill" style={{ color: brandConfig.primaryColor }}></i>
                 <span className={`${textStyles.sm} ${textStyles.primary}`}>Speech</span>
               </div>
               <div className={containerStyles.legendItem}>
-                <i className="bi bi-image-fill" style={{ color: brandConfig.secondaryColor }}></i>
+                <i className="bi bi-image-fill" style={{ color: brandConfig.primaryColor }}></i>
                 <span className={`${textStyles.sm} ${textStyles.primary}`}>Image</span>
               </div>
               <div className={containerStyles.legendItem}>
-                <i className="bi bi-music-note-beamed" style={{ color: brandConfig.secondaryColor }}></i>
+                <i className="bi bi-music-note-beamed" style={{ color: brandConfig.primaryColor }}></i>
                 <span className={`${textStyles.sm} ${textStyles.primary}`}>Audio</span>
               </div>
               <div className={containerStyles.legendItem}>
-                <i className="bi bi-camera-video-fill" style={{ color: brandConfig.secondaryColor }}></i>
+                <i className="bi bi-camera-video-fill" style={{ color: brandConfig.primaryColor }}></i>
                 <span className={`${textStyles.sm} ${textStyles.primary}`}>Video</span>
               </div>
             </div>

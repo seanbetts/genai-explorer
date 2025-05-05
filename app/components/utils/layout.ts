@@ -177,16 +177,16 @@ export const tableStyles = {
     
     // Header styles with brand-specific accent
     header: brandConfig.name === 'OMG'
-        ? 'bg-gray-100 border-b border-gray-300 sticky top-0'
+        ? 'bg-white border-b border-gray-300 sticky top-0'
         : 'bg-gray-800 border-b border-fuchsia-800 sticky top-0',
     headerCell: brandConfig.name === 'OMG'
-        ? `py-3.5 px-4 text-left font-semibold text-[${brandConfig.primaryColor}] tracking-wide text-sm bg-gray-100`
+        ? `py-3.5 px-4 text-left font-semibold text-[${brandConfig.primaryColor}] tracking-wide text-sm bg-white`
         : 'py-3.5 px-4 text-left font-semibold text-fuchsia-500 tracking-wide text-sm bg-gray-800',
     headerCellCenter: brandConfig.name === 'OMG'
-        ? `py-3.5 px-4 text-center font-semibold text-[${brandConfig.primaryColor}] tracking-wide text-sm bg-gray-100`
+        ? `py-3.5 px-4 text-center font-semibold text-[${brandConfig.primaryColor}] tracking-wide text-sm bg-white`
         : 'py-3.5 px-4 text-center font-semibold text-fuchsia-500 tracking-wide text-sm bg-gray-800',
     headerFixed: brandConfig.name === 'OMG'
-        ? 'sticky left-0 bg-gray-100 z-10'
+        ? 'sticky left-0 bg-white z-10'
         : 'sticky left-0 bg-gray-800 z-10',
     
     // Cell styles with brand-specific theming
@@ -219,10 +219,10 @@ export const tableStyles = {
         ? 'sticky left-0 bg-white z-10'
         : 'sticky left-0 bg-gray-900 z-10',
     stickyLabelCell: brandConfig.name === 'OMG'
-        ? 'sticky left-0 bg-gray-100 z-10'
+        ? 'sticky left-0 bg-white z-10'
         : 'sticky left-0 bg-gray-800 z-10',
     stickyCellHover: brandConfig.name === 'OMG'
-        ? 'sticky left-0 bg-gray-100 z-10'
+        ? 'sticky left-0 bg-white z-10'
         : 'sticky left-0 bg-gray-800 z-10',
     
     // Content formatting
@@ -285,8 +285,8 @@ export const iconStyles = {
     formatContainer: 'flex gap-4 justify-center',
     formatItem: 'flex items-center mx-2',
     
-    // Table row label icons with neon pink
-    tableRowIcon: 'text-fuchsia-500',
+    // Table row label icons with primary brand color
+    tableRowIcon: brandConfig.name === 'OMG' ? `text-[${brandConfig.primaryColor}]` : 'text-fuchsia-500',
     
     // Icon positioning utilities with increased spacing
     iconLeft: 'mr-3',
