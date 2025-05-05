@@ -249,18 +249,20 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
           <div className="flex items-center font-mono text-xs py-1 md:pl-8 space-x-8">
             <Link 
               href="/" 
-              className={`transition-colors flex items-center ${brandConfig.name === 'OMG' ? 'text-gray-700' : 'text-gray-300'} hover:text-[${brandConfig.secondaryColor}]`}
+              className="transition-colors flex items-center"
               style={{ 
                 color: currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
-                  ? brandConfig.secondaryColor
-                  : ''
+                  ? brandConfig.primaryColor
+                  : brandConfig.name === 'OMG' ? '#374151' : '#d1d5db',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = brandConfig.primaryColor}
+              onMouseLeave={(e) => {
+                if (!(currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare'))) {
+                  e.currentTarget.style.color = brandConfig.name === 'OMG' ? '#374151' : '#d1d5db'
+                }
               }}
             >
-              <i className="bi bi-grid mr-1.5" 
-                 style={{ color: currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
-                   ? brandConfig.secondaryColor
-                   : brandConfig.primaryColor
-                 }}></i>
+              <i className="bi bi-grid mr-1.5" style={{ color: brandConfig.primaryColor }}></i>
               <span>Model Explorer</span>
             </Link>
             
