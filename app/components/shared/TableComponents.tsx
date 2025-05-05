@@ -292,13 +292,13 @@ export const tableHoverStyles = `
   
   /* Simple row hover effect that changes the entire row */
   .hover-highlight tbody tr:hover td {
-    background-color: ${brandConfig.name === 'OMG' ? '#f8fafc' : '#374151'} !important; /* Brand-specific hover color */
+    background-color: ${brandConfig.name === 'OMG' ? '#F3F4F6' : '#374151'} !important; /* Brand-specific hover color */
     cursor: pointer;
   }
   
   /* Keep sticky label styling consistent on hover */
   .hover-highlight tbody tr:hover td.sticky-label {
-    background-color: ${brandConfig.name === 'OMG' ? '#f8fafc' : '#374151'} !important; /* Match the row hover color with brand-specific shade */
+    background-color: ${brandConfig.name === 'OMG' ? '#F3F4F6' : '#374151'} !important; /* Match the row hover color with brand-specific shade */
   }
   
   /* Ensure icons remain visible on hover */

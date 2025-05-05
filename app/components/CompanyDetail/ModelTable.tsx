@@ -81,7 +81,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-tag-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Model Version</span>
+              <i className={`bi bi-tag-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Model Version</span>
             </div>
           </td>
           {currentModels.map(model => (
@@ -96,7 +96,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           <tr className="cursor-pointer">
             <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
               <div className={containerStyles.flexCenter}>
-                <i className={`bi bi-database-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Grounding Sources</span>
+                <i className={`bi bi-database-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Grounding Sources</span>
               </div>
             </td>
             {currentModels.map(model => (
@@ -169,7 +169,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               <tr className="cursor-pointer">
                 <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
                   <div className={containerStyles.flexCenter}>
-                    <i className={`bi bi-puzzle-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Integrations</span>
+                    <i className={`bi bi-puzzle-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Integrations</span>
                   </div>
                 </td>
                 {currentModels.map(model => (
@@ -202,7 +202,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               <tr className="cursor-pointer">
                 <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
                   <div className={containerStyles.flexCenter}>
-                    <i className={`bi bi-shield-lock-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Data Privacy</span>
+                    <i className={`bi bi-shield-lock-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Data Privacy</span>
                   </div>
                 </td>
                 {currentModels.map(model => (
@@ -274,7 +274,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               <tr className="cursor-pointer h-[60px]" key={feature}>
                 <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
                   <div className="flex items-center gap-3 h-full">
-                    <i className={`bi bi-shield-check ${iconStyles.tableRowIcon}`}></i> 
+                    <i className={`bi bi-shield-check ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> 
                     <span className={textStyles.primary}>{feature}</span>
                   </div>
                 </td>
@@ -370,7 +370,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       <tr className="cursor-pointer">
         <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
           <div className={containerStyles.flexCenter}>
-            <i className={`bi bi-calendar-date ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Date</span>
+            <i className={`bi bi-calendar-date ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Release Date</span>
           </div>
         </td>
         {currentModels.map(model => (
@@ -390,7 +390,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       <tr className="cursor-pointer">
         <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
           <div className={containerStyles.flexCenter}>
-            <i className={`bi bi-box ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Type</span>
+            <i className={`bi bi-box ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Type</span>
           </div>
         </td>
         {currentModels.map(model => (
@@ -408,7 +408,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-circle-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Intelligence</span>
+              <i className={`bi bi-circle-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Intelligence</span>
             </div>
           </td>
           {currentModels.map(model => (
@@ -424,7 +424,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-lightning-charge-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Speed</span>
+              <i className={`bi bi-lightning-charge-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Speed</span>
             </div>
           </td>
           {currentModels.map(model => (
@@ -440,7 +440,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-lightbulb-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Reasoning</span>
+              <i className={`bi bi-lightbulb-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Reasoning</span>
             </div>
           </td>
           {currentModels.map(model => (
@@ -456,7 +456,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-lightbulb ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Reasoning Tokens</span>
+              <i className={`bi bi-lightbulb ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Reasoning Tokens</span>
             </div>
           </td>
           {currentModels.map(model => (
@@ -476,7 +476,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-arrow-up-right-square-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Input Formats</span>
+              <i className={`bi bi-arrow-up-right-square-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Input Formats</span>
             </div>
           </td>
           {currentModels.map(model => (
@@ -498,7 +498,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-arrow-down-right-square-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Output Formats</span>
+              <i className={`bi bi-arrow-down-right-square-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Output Formats</span>
             </div>
           </td>
           {currentModels.map(model => (
@@ -525,7 +525,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-sign-turn-right-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Max Input</span>
+              <i className={`bi bi-sign-turn-right-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Max Input</span>
             </div>
           </td>
           {currentModels.map(model => (
@@ -543,7 +543,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-sign-turn-left-fill ${iconStyles.tableRowIcon} transform rotate-180`}></i> <span className={textStyles.primary}>Max Output</span>
+              <i className={`bi bi-sign-turn-left-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon} transform rotate-180`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Max Output</span>
             </div>
           </td>
           {currentModels.map(model => (
@@ -561,7 +561,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-calendar-check-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Knowledge Cutoff</span>
+              <i className={`bi bi-calendar-check-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Knowledge Cutoff</span>
             </div>
           </td>
           {currentModels.map(model => (
@@ -582,7 +582,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-currency-dollar ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Input</span>
+              <i className={`bi bi-currency-dollar ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Input</span>
             </div>
           </td>
           {currentModels.map(model => (
@@ -606,7 +606,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-clock-history ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Cached Input</span>
+              <i className={`bi bi-clock-history ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Cached Input</span>
             </div>
           </td>
           {currentModels.map(model => (
@@ -630,7 +630,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-cash-stack ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Output</span>
+              <i className={`bi bi-cash-stack ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Output</span>
             </div>
           </td>
           {currentModels.map(model => (
@@ -783,7 +783,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                 <tr className="cursor-pointer">
                   <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
                     <div className={containerStyles.flexCenter}>
-                      <i className={`bi bi-newspaper ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Post</span>
+                      <i className={`bi bi-newspaper ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Release Post</span>
                     </div>
                   </td>
                   {currentModels.map(model => (
@@ -814,7 +814,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                 <tr className="cursor-pointer">
                   <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
                     <div className={containerStyles.flexCenter}>
-                      <i className={`bi bi-play-btn ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Video</span>
+                      <i className={`bi bi-play-btn ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Release Video</span>
                     </div>
                   </td>
                   {currentModels.map(model => (
@@ -847,7 +847,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                 <tr className="cursor-pointer">
                   <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
                     <div className={containerStyles.flexCenter}>
-                      <i className={`bi bi-list-check ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Release Notes</span>
+                      <i className={`bi bi-list-check ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Release Notes</span>
                     </div>
                   </td>
                   {currentModels.map(model => (
@@ -878,7 +878,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                 <tr className="cursor-pointer">
                   <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
                     <div className={containerStyles.flexCenter}>
-                      <i className={`bi bi-globe2 ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Model Page</span>
+                      <i className={`bi bi-globe2 ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Model Page</span>
                     </div>
                   </td>
                   {currentModels.map(model => (
@@ -909,7 +909,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                 <tr className="cursor-pointer">
                   <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
                     <div className={containerStyles.flexCenter}>
-                      <i className={`bi bi-file-earmark-text ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>System Card</span>
+                      <i className={`bi bi-file-earmark-text ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>System Card</span>
                     </div>
                   </td>
                   {currentModels.map(model => (
@@ -940,7 +940,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                 <tr className="cursor-pointer">
                   <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
                     <div className={containerStyles.flexCenter}>
-                      <i className={`bi bi-shield-check ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Licence</span>
+                      <i className={`bi bi-shield-check ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Licence</span>
                     </div>
                   </td>
                   {currentModels.map(model => (
@@ -979,7 +979,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                 <tr className="cursor-pointer">
                   <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
                     <div className={containerStyles.flexCenter}>
-                      <span className={iconStyles.tableRowIcon}>🤗</span> <span className={textStyles.primary}>Hugging Face</span>
+                      <span style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : { className: iconStyles.tableRowIcon }}>🤗</span> <span className={textStyles.primary}>Hugging Face</span>
                     </div>
                   </td>
                   {currentModels.map(model => (

@@ -170,9 +170,9 @@ export const containerStyles = {
 
 // Table styles with brand-specific theming
 export const tableStyles = {
-    // Base table styles - light for OMG, dark for Blueprint
+    // Base table styles - grey for OMG, dark for Blueprint
     table: brandConfig.name === 'OMG'
-        ? 'w-full bg-white border border-gray-300 rounded-lg shadow-md overflow-hidden font-sans'
+        ? 'w-full bg-gray-100 border border-gray-300 rounded-lg shadow-md overflow-hidden font-sans'
         : 'w-full bg-gray-900 border border-gray-700 rounded-lg shadow-md overflow-hidden font-mono',
     
     // Header styles with brand-specific accent
@@ -191,10 +191,10 @@ export const tableStyles = {
     
     // Cell styles with brand-specific theming
     cell: brandConfig.name === 'OMG'
-        ? 'py-3.5 px-4 border-b border-gray-200 text-gray-800 transition-colors duration-150'
+        ? 'py-3.5 px-4 border-b border-gray-200 text-gray-800 transition-colors duration-150 bg-gray-100'
         : 'py-3.5 px-4 border-b border-gray-800 text-white transition-colors duration-150',
     cellCenter: brandConfig.name === 'OMG'
-        ? 'py-3.5 px-4 border-b border-gray-200 text-center text-gray-800 transition-colors duration-150'
+        ? 'py-3.5 px-4 border-b border-gray-200 text-center text-gray-800 transition-colors duration-150 bg-gray-100'
         : 'py-3.5 px-4 border-b border-gray-800 text-center text-white transition-colors duration-150',
     cellHighlight: brandConfig.name === 'OMG'
         ? 'bg-blue-50'
@@ -208,21 +208,21 @@ export const tableStyles = {
         ? 'bg-blue-50'
         : 'bg-fuchsia-900',
     rowEven: brandConfig.name === 'OMG'
-        ? 'bg-gray-50/40' // Subtle striping
+        ? 'bg-gray-100/60' // Subtle striping
         : 'bg-gray-800/40', 
     rowOdd: brandConfig.name === 'OMG'
-        ? 'bg-white'
+        ? 'bg-gray-100'
         : 'bg-gray-900',
     
     // Sticky cells
     stickyCell: brandConfig.name === 'OMG'
-        ? 'sticky left-0 bg-white z-10'
+        ? 'sticky left-0 bg-gray-100 z-10'
         : 'sticky left-0 bg-gray-900 z-10',
     stickyLabelCell: brandConfig.name === 'OMG'
         ? 'sticky left-0 bg-white z-10'
         : 'sticky left-0 bg-gray-800 z-10',
     stickyCellHover: brandConfig.name === 'OMG'
-        ? 'sticky left-0 bg-white z-10'
+        ? 'sticky left-0 bg-gray-100 z-10'
         : 'sticky left-0 bg-gray-800 z-10',
     
     // Content formatting
