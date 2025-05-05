@@ -241,7 +241,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
     <div className={`transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       
       <div className={`${containerStyles.flexCol} space-y-10`}>
-        <div className={`${containerStyles.companyDetailHeader} transform transition-all duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-4'} relative`}>
+        <div className={`${containerStyles.companyDetailHeader} transform transition-all duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-4'} relative ${brandConfig.name === 'OMG' ? 'bg-gray-200 border border-gray-300' : ''}`}>
           <a 
             href={company.website} 
             target="_blank" 
@@ -531,7 +531,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
         </div>
         
         {/* Content container with reduced top padding */}
-        <div className={`bg-gray-800 rounded-lg px-8 pt-3 pb-7 border border-gray-700 transform transition-all duration-500 delay-100 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+        <div className={`${brandConfig.name === 'OMG' ? 'bg-gray-200 border-gray-300' : 'bg-gray-800 border-gray-700'} rounded-lg px-8 pt-3 pb-7 border transform transition-all duration-500 delay-100 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
           
           {/* Tab Content */}
           <div className={containerStyles.companyDetailSection}>
