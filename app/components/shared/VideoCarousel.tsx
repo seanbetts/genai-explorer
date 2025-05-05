@@ -6,6 +6,7 @@ import React, {
   useLayoutEffect,
   useState,
 } from "react";
+import brandConfig from "../../config/brand";
 
 interface ThumbnailScrollerProps {
   activeIndex: number;
@@ -197,8 +198,8 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
   // If there are no videos to display
   if (videoEntries.length === 0) {
     return (
-      <div className="flex items-center justify-center h-96 bg-gray-800 rounded-lg border border-gray-700">
-        <p className="text-lg text-gray-400">No demo videos available</p>
+      <div className={`flex items-center justify-center h-96 ${brandConfig.name === 'OMG' ? 'bg-white rounded-lg border border-gray-300' : 'bg-gray-800 rounded-lg border border-gray-700'}`}>
+        <p className={`text-lg ${brandConfig.name === 'OMG' ? 'text-gray-500 font-sans' : 'text-gray-400 font-mono'}`}>No demo videos available</p>
       </div>
     );
   }
@@ -214,7 +215,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
 
   return (
     <div className="relative p-0 m-0">
-      <div className="relative min-h-[500px] bg-gray-900 rounded-lg overflow-hidden group py-3 px-0 m-0">
+      <div className={`relative min-h-[500px] ${brandConfig.name === 'OMG' ? 'bg-white border border-gray-300' : 'bg-gray-900'} rounded-lg overflow-hidden group py-3 px-0 m-0`}>
         <div className="flex items-center justify-center z-0 w-full h-full">
           {canEmbed ? (
             <div className="w-[85%] aspect-video">
@@ -257,7 +258,11 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
                       }
                     }}
                   >
-                    <div className="w-24 h-24 rounded-full bg-fuchsia-500/80 flex items-center justify-center shadow-lg border-2 border-cyan-400 hover:bg-fuchsia-500/90 transition-all duration-200 hover:scale-105">
+                    <div className={`w-24 h-24 rounded-full ${
+                      brandConfig.name === 'OMG' 
+                        ? 'bg-blue-500/80 border-2 border-blue-700 hover:bg-blue-500/90' 
+                        : 'bg-fuchsia-500/80 border-2 border-cyan-400 hover:bg-fuchsia-500/90'
+                    } flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-105`}>
                       <i className="bi bi-play-fill text-white text-5xl ml-2"></i>
                     </div>
                   </div>
@@ -266,12 +271,16 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center space-y-4">
-              <p className="text-lg text-gray-400">External video</p>
+              <p className={`text-lg ${brandConfig.name === 'OMG' ? 'text-gray-600 font-sans' : 'text-gray-400 font-mono'}`}>External video</p>
               <a 
                 href={currentVideoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 font-mono rounded transition-colors flex items-center gap-2"
+                className={`px-4 py-2 ${
+                  brandConfig.name === 'OMG' 
+                    ? 'bg-gray-100 hover:bg-gray-200 text-blue-600 hover:text-blue-700 font-sans border border-gray-300' 
+                    : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 font-mono'
+                } rounded transition-colors flex items-center gap-2`}
               >
                 <i className="bi bi-play-circle text-xl"></i>
                 <span>Watch video</span>
@@ -285,14 +294,22 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
           <>
             <button
               aria-label="Previous video"
-              className="absolute left-3 top-1/2 -translate-y-1/2 bg-gray-800/70 hover:bg-gray-800 p-2 rounded-full z-20"
+              className={`absolute left-3 top-1/2 -translate-y-1/2 ${
+                brandConfig.name === 'OMG' 
+                  ? 'bg-gray-200/70 hover:bg-gray-300 text-gray-700' 
+                  : 'bg-gray-800/70 hover:bg-gray-800'
+              } p-2 rounded-full z-20`}
               onClick={prevVideo}
             >
               <i className="bi bi-chevron-left" />
             </button>
             <button
               aria-label="Next video"
-              className="absolute right-3 top-1/2 -translate-y-1/2 bg-gray-800/70 hover:bg-gray-800 p-2 rounded-full z-20"
+              className={`absolute right-3 top-1/2 -translate-y-1/2 ${
+                brandConfig.name === 'OMG' 
+                  ? 'bg-gray-200/70 hover:bg-gray-300 text-gray-700' 
+                  : 'bg-gray-800/70 hover:bg-gray-800'
+              } p-2 rounded-full z-20`}
               onClick={nextVideo}
             >
               <i className="bi bi-chevron-right" />
@@ -302,7 +319,11 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
 
         {/* counter */}
         {hasMultipleVideos && (
-          <div className="absolute bottom-3 right-3 bg-black/70 px-4 py-1.5 rounded-full text-white text-sm font-mono z-20">
+          <div className={`absolute bottom-3 right-3 ${
+            brandConfig.name === 'OMG' 
+              ? 'bg-gray-200/90 text-gray-800 font-sans' 
+              : 'bg-black/70 text-white font-mono'
+          } px-4 py-1.5 rounded-full text-sm z-20`}>
             {currentVideoIndex + 1} / {videoEntries.length}
           </div>
         )}
@@ -313,7 +334,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
       {/* thumbnails */}
       {videoEntries.length > 1 && (
         <div 
-          className={`mt-2 overflow-x-auto scrollbar-hide outline-none focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 ${hasFocus && showFocusRing ? 'bg-gray-800/30 rounded' : ''}`}
+          className={`mt-2 overflow-x-auto scrollbar-hide outline-none focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0 ${hasFocus && showFocusRing ? brandConfig.name === 'OMG' ? 'bg-gray-100/50 rounded' : 'bg-gray-800/30 rounded' : ''}`}
           onMouseEnter={() => setHasFocus(true)}
           onMouseLeave={() => {
             setHasFocus(false);
@@ -380,17 +401,25 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
                   }}
                   className={`flex-shrink-0 flex flex-col items-center justify-center w-28 h-20 rounded overflow-hidden cursor-pointer group focus:outline-none ${
                     idx === currentVideoIndex
-                      ? "bg-cyan-900/90 text-cyan-400 ring-2 ring-cyan-400"
-                      : "bg-gray-700 hover:bg-gray-600 hover:ring-1 hover:ring-fuchsia-500/50 text-cyan-400"
+                      ? brandConfig.name === 'OMG'
+                        ? "bg-blue-100 text-blue-700 ring-2 ring-blue-500 border border-gray-300"
+                        : "bg-cyan-900/90 text-cyan-400 ring-2 ring-cyan-400"
+                      : brandConfig.name === 'OMG'
+                        ? "bg-white hover:bg-gray-100 hover:ring-1 hover:ring-blue-500/50 text-blue-600 border border-gray-300"
+                        : "bg-gray-700 hover:bg-gray-600 hover:ring-1 hover:ring-fuchsia-500/50 text-cyan-400"
                   }`}
                   aria-label={`View video ${formatDemoName(name)}`}
                 >
                   <i className={`bi bi-play-circle-fill text-xl mt-2 ${
                     idx === currentVideoIndex 
-                      ? "text-cyan-400" 
-                      : "text-fuchsia-500 group-hover:text-cyan-400"
+                      ? brandConfig.name === 'OMG'
+                        ? "text-blue-600" 
+                        : "text-cyan-400"
+                      : brandConfig.name === 'OMG'
+                        ? "text-blue-500 group-hover:text-blue-600"
+                        : "text-fuchsia-500 group-hover:text-cyan-400"
                   }`}></i>
-                  <div className="text-center px-1 pb-3 font-mono line-clamp-2" style={{ fontSize: "0.8rem" }}>
+                  <div className={`text-center px-1 pb-3 ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} line-clamp-2`} style={{ fontSize: "0.8rem" }}>
                     {formatDemoName(name)}
                   </div>
                 </button>

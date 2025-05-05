@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useState } from "react";
+import brandConfig from "../../config/brand";
 
 // -----------------------------------------------------------------------------
 // Main audio carousel component -------------------------------------------------
@@ -81,8 +82,8 @@ const AudioCarousel: React.FC<AudioCarouselProps> = ({
   // If there are no audios to display
   if (audioEntries.length === 0) {
     return (
-      <div className="flex items-center justify-center h-64 bg-gray-800 rounded-lg border border-gray-700">
-        <p className="text-lg text-gray-400">No audio examples available</p>
+      <div className={`flex items-center justify-center h-64 ${brandConfig.name === 'OMG' ? 'bg-white rounded-lg border border-gray-300' : 'bg-gray-800 rounded-lg border border-gray-700'}`}>
+        <p className={`text-lg ${brandConfig.name === 'OMG' ? 'text-gray-500 font-sans' : 'text-gray-400 font-mono'}`}>No audio examples available</p>
       </div>
     );
   }
@@ -97,13 +98,15 @@ const AudioCarousel: React.FC<AudioCarouselProps> = ({
 
   return (
     <div className="relative p-0 m-0">
-      <div className="relative min-h-[300px] bg-gray-900 rounded-lg overflow-hidden group py-6 px-0 m-0">
+      <div className={`relative min-h-[300px] ${brandConfig.name === 'OMG' ? 'bg-white border border-gray-300' : 'bg-gray-900'} rounded-lg overflow-hidden group py-6 px-0 m-0`}>
         <div className="flex items-center justify-center z-0 w-full h-full">
           {/* Render different audio players based on URL type */}
           {isLocalFile ? (
             <div className="w-full max-w-3xl flex flex-col items-center justify-center px-4 h-full">
               <div className="flex flex-col items-center justify-center h-full py-12 w-full">
-                <p className="text-cyan-400 font-mono text-sm mb-6">{formatTrackName ? formatTrackName(currentTrackName) : currentTrackName}</p>
+                <p className={`${brandConfig.name === 'OMG' ? 'text-blue-600 font-sans' : 'text-cyan-400 font-mono'} text-sm mb-6`}>
+                  {formatTrackName ? formatTrackName(currentTrackName) : currentTrackName}
+                </p>
                 <div className="w-full max-w-3xl flex justify-center">
                   <audio 
                     src={currentAudioUrl}
@@ -138,14 +141,22 @@ const AudioCarousel: React.FC<AudioCarouselProps> = ({
           <>
             <button
               aria-label="Previous audio"
-              className="absolute left-3 top-1/2 -translate-y-1/2 bg-gray-800/70 hover:bg-gray-800 p-2 rounded-full z-20"
+              className={`absolute left-3 top-1/2 -translate-y-1/2 ${
+                brandConfig.name === 'OMG' 
+                  ? 'bg-gray-200/70 hover:bg-gray-300 text-gray-700' 
+                  : 'bg-gray-800/70 hover:bg-gray-800'
+              } p-2 rounded-full z-20`}
               onClick={prevAudio}
             >
               <i className="bi bi-chevron-left" />
             </button>
             <button
               aria-label="Next audio"
-              className="absolute right-3 top-1/2 -translate-y-1/2 bg-gray-800/70 hover:bg-gray-800 p-2 rounded-full z-20"
+              className={`absolute right-3 top-1/2 -translate-y-1/2 ${
+                brandConfig.name === 'OMG' 
+                  ? 'bg-gray-200/70 hover:bg-gray-300 text-gray-700' 
+                  : 'bg-gray-800/70 hover:bg-gray-800'
+              } p-2 rounded-full z-20`}
               onClick={nextAudio}
             >
               <i className="bi bi-chevron-right" />
@@ -155,7 +166,11 @@ const AudioCarousel: React.FC<AudioCarouselProps> = ({
 
         {/* counter */}
         {hasMultipleAudios && (
-          <div className="absolute bottom-3 right-3 bg-black/70 px-4 py-1.5 rounded-full text-white text-sm font-mono z-20">
+          <div className={`absolute bottom-3 right-3 ${
+            brandConfig.name === 'OMG' 
+              ? 'bg-gray-200/90 text-gray-800 font-sans' 
+              : 'bg-black/70 text-white font-mono'
+          } px-4 py-1.5 rounded-full text-sm z-20`}>
             {currentAudioIndex + 1} / {audioEntries.length}
           </div>
         )}
@@ -205,17 +220,25 @@ const AudioCarousel: React.FC<AudioCarouselProps> = ({
                   }}
                   className={`flex-shrink-0 flex flex-col items-center justify-center w-32 h-16 rounded overflow-hidden cursor-pointer group focus:outline-none ${
                     idx === currentAudioIndex
-                      ? "bg-cyan-900/90 text-cyan-400 ring-2 ring-cyan-400"
-                      : "bg-gray-700 hover:bg-gray-600 hover:ring-1 hover:ring-fuchsia-500/50 text-cyan-400"
+                      ? brandConfig.name === 'OMG'
+                        ? "bg-blue-100 text-blue-700 ring-2 ring-blue-500 border border-gray-300"
+                        : "bg-cyan-900/90 text-cyan-400 ring-2 ring-cyan-400"
+                      : brandConfig.name === 'OMG'
+                        ? "bg-white hover:bg-gray-100 hover:ring-1 hover:ring-blue-500/50 text-blue-600 border border-gray-300"
+                        : "bg-gray-700 hover:bg-gray-600 hover:ring-1 hover:ring-fuchsia-500/50 text-cyan-400"
                   }`}
                   aria-label={`Play track "${formattedName}"`}
                 >
                   <i className={`bi bi-music-note-beamed text-xl ${
                     idx === currentAudioIndex 
-                      ? "text-cyan-400" 
-                      : "text-fuchsia-500 group-hover:text-cyan-400"
+                      ? brandConfig.name === 'OMG'
+                        ? "text-blue-600" 
+                        : "text-cyan-400"
+                      : brandConfig.name === 'OMG'
+                        ? "text-blue-500 group-hover:text-blue-600"
+                        : "text-fuchsia-500 group-hover:text-cyan-400"
                   }`}></i>
-                  <div className="text-center px-1 pb-1 font-mono truncate w-full" style={{ fontSize: "0.7rem" }}>
+                  <div className={`text-center px-1 pb-1 ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} truncate w-full`} style={{ fontSize: "0.7rem" }}>
                     {formattedName}
                   </div>
                 </button>
