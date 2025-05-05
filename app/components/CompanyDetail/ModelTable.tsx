@@ -5,6 +5,7 @@ import { Model } from '../types';
 import { textStyles } from '../utils/theme';
 import { tableStyles, iconStyles, containerStyles } from '../utils/layout';
 import { shouldShowTogetherPricing } from '../utils/modelUtils';
+import brandConfig from '../../config/brand';
 import { 
   SharedTable, 
   TableHeader, 
@@ -665,7 +666,9 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       <div className="header-area">
         {/* Format Icons Legend (centered) */}
         <div className={`${containerStyles.legend} transform transition-all duration-500 mb-3`}>
-          <div className={`${containerStyles.legendBox} hover:shadow-md transition-all duration-300 hover:border-fuchsia-700 legend-container`}>
+          <div 
+            className={`${containerStyles.legendBox} hover:shadow-md transition-all duration-300 ${brandConfig.name === 'OMG' ? 'hover:border-blue-500' : 'hover:border-fuchsia-700'}`}
+            style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : '#1F2937' }}>
             <div className={containerStyles.legendItems}>
               <div className={containerStyles.legendItem}>
                 <i className={`bi bi-file-text-fill ${iconStyles.activeFormat}`}></i>
