@@ -6,6 +6,7 @@ import ImageCarousel from "../shared/ImageCarousel";
 import VideoCarousel from "../shared/VideoCarousel";
 import { Model, ApiEndpoint } from "../types";
 import { textStyles, headingStyles } from "../utils/theme";
+import brandConfig from "../../config/brand";
 import {
   containerStyles,
   iconStyles,
@@ -131,11 +132,19 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
       {models.map((model) => (
         <button
           key={model.id}
-          className={`py-2 px-4 font-medium font-mono text-sm focus:outline-none focus-visible:outline-none ${
+          className={`py-2 px-4 font-medium ${
+            brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'
+          } text-sm focus:outline-none focus-visible:outline-none ${
             selectedModelId === model.id
-              ? "border-cyan-400 text-cyan-400"
-              : "border-transparent text-gray-400 hover:text-white hover:border-gray-500"
+              ? brandConfig.name === 'OMG' 
+                ? `border-[${brandConfig.secondaryColor}] text-[${brandConfig.secondaryColor}]` 
+                : "border-cyan-400 text-cyan-400"
+              : brandConfig.name === 'OMG'
+                ? "border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-300"
+                : "border-transparent text-gray-400 hover:text-white hover:border-gray-500"
           }`}
+          style={selectedModelId === model.id ? 
+            { borderColor: brandConfig.secondaryColor, color: brandConfig.secondaryColor } : {}}
           onClick={() => {
             setSelectedModelId(model.id);
           }}
@@ -168,12 +177,16 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
       <div className="mb-8">
         {/* heading + release date */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between md:gap-2 mb-1">
-          <h2 className="text-2xl font-semibold text-fuchsia-500 mt-2 tracking-tight font-mono">
+          <h2 className={`text-2xl font-semibold mt-2 tracking-tight ${
+            brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'
+          }`} style={{ color: brandConfig.primaryColor }}>
             {selectedModel.name}
           </h2>
           {selectedModel.releaseDate && (
-            <div className="flex items-center text-sm text-gray-400 font-mono mt-4">
-              <i className="bi bi-calendar-event text-fuchsia-500 mr-2" />
+            <div className={`flex items-center text-sm ${
+              brandConfig.name === 'OMG' ? 'text-gray-600 font-sans' : 'text-gray-400 font-mono'
+            } mt-4`}>
+              <i className="bi bi-calendar-event mr-2" style={{ color: brandConfig.primaryColor }} />
               <span>
                 Released: {new Date(selectedModel.releaseDate).toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" })}
               </span>
@@ -195,7 +208,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                 {selectedModel.features?.generation && Object.keys(selectedModel.features.generation).length > 0 && (
                   <>
                     <div className="mb-2">
-                      <h4 className="text-sm font-semibold text-cyan-400 mb-2">Generation</h4>
+                      <h4 className={`text-sm font-semibold mb-2 ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'}`} style={{ color: brandConfig.secondaryColor }}>Generation</h4>
                       <div className="grid grid-cols-2 gap-2">
                         {Object.entries(selectedModel.features.generation)
                           .map(([key, value]) => (
@@ -214,7 +227,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                 {selectedModel.features?.editing && Object.keys(selectedModel.features.editing).length > 0 && (
                   <>
                     <div className="mb-2">
-                      <h4 className="text-sm font-semibold text-cyan-400 mb-2">Editing</h4>
+                      <h4 className={`text-sm font-semibold mb-2 ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'}`} style={{ color: brandConfig.secondaryColor }}>Editing</h4>
                       <div className="grid grid-cols-2 gap-2">
                         {Object.entries(selectedModel.features.editing)
                           .map(([key, value]) => (
@@ -233,7 +246,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                 {selectedModel.features?.enhancement && Object.keys(selectedModel.features.enhancement).length > 0 && (
                   <>
                     <div className="mb-2">
-                      <h4 className="text-sm font-semibold text-cyan-400 mb-2">Enhancement</h4>
+                      <h4 className={`text-sm font-semibold mb-2 ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'}`} style={{ color: brandConfig.secondaryColor }}>Enhancement</h4>
                       <div className="grid grid-cols-2 gap-2">
                         {Object.entries(selectedModel.features.enhancement)
                           .map(([key, value]) => (
@@ -252,7 +265,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                 {(selectedModel.features?.advanced && Object.keys(selectedModel.features.advanced).length > 0) ||
                  (selectedModel.apiEndpoints?.available !== undefined) ? (
                   <div className="mb-2">
-                    <h4 className="text-sm font-semibold text-cyan-400 mb-2">Advanced</h4>
+                    <h4 className={`text-sm font-semibold mb-2 ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'}`} style={{ color: brandConfig.secondaryColor }}>Advanced</h4>
                     <div className="grid grid-cols-2 gap-2">
                       {/* API Endpoint Availability */}
                       {selectedModel.apiEndpoints?.available !== undefined && (
@@ -320,7 +333,12 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           href={selectedModel.usagePolicy}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                          className={`px-3 py-1 ${
+                            brandConfig.name === 'OMG' 
+                              ? 'bg-gray-200 hover:bg-gray-100 text-xs font-sans rounded transition-colors inline-flex items-center gap-1 w-fit mt-2'
+                              : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2'
+                          }`}
+                          style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
                         >
                           <i className="bi bi-shield-check mr-1" /> Usage Policy
                         </a>
@@ -330,7 +348,12 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           href={selectedModel.termsOfService}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                          className={`px-3 py-1 ${
+                            brandConfig.name === 'OMG' 
+                              ? 'bg-gray-200 hover:bg-gray-100 text-xs font-sans rounded transition-colors inline-flex items-center gap-1 w-fit mt-2'
+                              : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2'
+                          }`}
+                          style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
                         >
                           <i className="bi bi-file-earmark-text mr-1" /> Terms of Service
                         </a>
@@ -340,7 +363,12 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                           href={c2paDocsUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                          className={`px-3 py-1 ${
+                            brandConfig.name === 'OMG' 
+                              ? 'bg-gray-200 hover:bg-gray-100 text-xs font-sans rounded transition-colors inline-flex items-center gap-1 w-fit mt-2'
+                              : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2'
+                          }`}
+                          style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
                         >
                           <i className="bi bi-patch-check-fill mr-1" /> C2PA Metadata
                         </a>
@@ -414,16 +442,29 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                         
                         return (
                           <div key={ratio} className="flex items-center">
-                            <div className={`w-16 h-10 relative mr-3 rounded border ${supported ? 'border-cyan-400' : 'border-gray-600 opacity-50'}`}>
-                              <div className="absolute inset-0 rounded bg-gray-700 flex items-center justify-center">
+                            <div className={`w-16 h-10 relative mr-3 rounded border ${
+                              supported ? 
+                                (brandConfig.name === 'OMG' ? 'border-blue-600' : 'border-cyan-400') :
+                                (brandConfig.name === 'OMG' ? 'border-gray-300 opacity-50' : 'border-gray-600 opacity-50')
+                            }`}
+                            style={supported && brandConfig.name === 'OMG' ? { borderColor: brandConfig.secondaryColor } : {}}>
+                              <div className={`absolute inset-0 rounded ${
+                                brandConfig.name === 'OMG' ? 'bg-gray-100' : 'bg-gray-700'
+                              } flex items-center justify-center`}>
                                 <svg width="100%" height="100%" viewBox="0 0 16 10">
                                   <rect
                                     x={offsetX}
                                     y={offsetY}
                                     width={scaledWidth}
                                     height={scaledHeight}
-                                    fill={supported ? "#D946EF" : "#6B7280"}
-                                    stroke={supported ? "#F5D0FE" : "#4B5563"}
+                                    fill={supported ? 
+                                      (brandConfig.name === 'OMG' ? brandConfig.secondaryColor : "#D946EF") : 
+                                      (brandConfig.name === 'OMG' ? "#9CA3AF" : "#6B7280")
+                                    }
+                                    stroke={supported ? 
+                                      (brandConfig.name === 'OMG' ? "#DBEAFE" : "#F5D0FE") : 
+                                      (brandConfig.name === 'OMG' ? "#E5E7EB" : "#4B5563")
+                                    }
                                     strokeWidth="0.3"
                                     rx="0.3"
                                   />
@@ -431,8 +472,15 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                               </div>
                             </div>
                             <div className="flex items-center">
-                              <i className={`${supported ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                              <span className={`${textStyles.body} text-sm font-medium`}>{capitalizedRatio}</span>
+                              <i 
+                                className={`${supported ? 
+                                  (brandConfig.name === 'OMG' ? '' : iconStyles.booleanTrue) : 
+                                  'bi bi-x-circle-fill text-red-500'} mr-2 ${brandConfig.name === 'OMG' ? 'bi bi-check-circle-fill text-lg' : ''}`}
+                                style={supported && brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
+                              />
+                              <span className={`${textStyles.body} text-sm font-medium ${
+                                brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'
+                              }`}>{capitalizedRatio}</span>
                             </div>
                           </div>
                         );
@@ -984,9 +1032,16 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     href={selectedModel.releasePost} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]"
+                    className={`px-3 py-3 ${
+                      brandConfig.name === 'OMG' 
+                        ? 'bg-gray-100 hover:bg-gray-50 text-sm font-sans rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]'
+                        : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]'
+                    }`}
+                    style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
                   >
-                    <i className="bi bi-newspaper text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <i className={`bi bi-newspaper text-xl ${
+                      brandConfig.name === 'OMG' ? 'group-hover:text-blue-700' : 'text-fuchsia-500 group-hover:text-cyan-400'
+                    }`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i>
                     <span>Release Post</span>
                   </a>
                 )}
@@ -995,9 +1050,16 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     href={selectedModel.releaseVideo} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]"
+                    className={`px-3 py-3 ${
+                      brandConfig.name === 'OMG' 
+                        ? 'bg-gray-100 hover:bg-gray-50 text-sm font-sans rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]'
+                        : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]'
+                    }`}
+                    style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
                   >
-                    <i className="bi bi-play-btn text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <i className={`bi bi-play-btn text-xl ${
+                      brandConfig.name === 'OMG' ? 'group-hover:text-blue-700' : 'text-fuchsia-500 group-hover:text-cyan-400'
+                    }`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i>
                     <span>Release Video</span>
                   </a>
                 )}
@@ -1006,9 +1068,16 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     href={selectedModel.systemCard} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]"
+                    className={`px-3 py-3 ${
+                      brandConfig.name === 'OMG' 
+                        ? 'bg-gray-100 hover:bg-gray-50 text-sm font-sans rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]'
+                        : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]'
+                    }`}
+                    style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
                   >
-                    <i className="bi bi-file-earmark-text text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <i className={`bi bi-file-earmark-text text-xl ${
+                      brandConfig.name === 'OMG' ? 'group-hover:text-blue-700' : 'text-fuchsia-500 group-hover:text-cyan-400'
+                    }`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i>
                     <span>System Card</span>
                   </a>
                 )}
@@ -1016,10 +1085,17 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                   <a 
                     href={selectedModel.modelPage} 
                     target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]"
+                    rel="noopener noreferrer"
+                    className={`px-3 py-3 ${
+                      brandConfig.name === 'OMG' 
+                        ? 'bg-gray-100 hover:bg-gray-50 text-sm font-sans rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]'
+                        : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]'
+                    }`}
+                    style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
                   >
-                    <i className="bi bi-globe2 text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <i className={`bi bi-globe2 text-xl ${
+                      brandConfig.name === 'OMG' ? 'group-hover:text-blue-700' : 'text-fuchsia-500 group-hover:text-cyan-400'
+                    }`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i>
                     <span>Model Page</span>
                   </a>
                 )}
@@ -1028,9 +1104,16 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     href={selectedModel.modelGuide} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]"
+                    className={`px-3 py-3 ${
+                      brandConfig.name === 'OMG' 
+                        ? 'bg-gray-100 hover:bg-gray-50 text-sm font-sans rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]'
+                        : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]'
+                    }`}
+                    style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
                   >
-                    <i className="bi bi-book text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <i className={`bi bi-book text-xl ${
+                      brandConfig.name === 'OMG' ? 'group-hover:text-blue-700' : 'text-fuchsia-500 group-hover:text-cyan-400'
+                    }`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i>
                     <span>Model Guide</span>
                   </a>
                 )}
@@ -1039,9 +1122,16 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                     href={selectedModel.apiDocumentation} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]"
+                    className={`px-3 py-3 ${
+                      brandConfig.name === 'OMG' 
+                        ? 'bg-gray-100 hover:bg-gray-50 text-sm font-sans rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]'
+                        : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]'
+                    }`}
+                    style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
                   >
-                    <i className="bi bi-code-square text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <i className={`bi bi-code-square text-xl ${
+                      brandConfig.name === 'OMG' ? 'group-hover:text-blue-700' : 'text-fuchsia-500 group-hover:text-cyan-400'
+                    }`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i>
                     <span>API Documentation</span>
                   </a>
                 )}
