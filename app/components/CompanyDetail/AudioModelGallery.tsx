@@ -9,6 +9,7 @@ import {
   containerStyles,
   iconStyles,
 } from "../utils/layout";
+import brandConfig from "../../config/brand";
 
 // -----------------------------------------------------------------------------
 // Utility helpers -------------------------------------------------------------
@@ -63,10 +64,14 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
       {models.map((model) => (
         <button
           key={model.id}
-          className={`py-2 px-4 font-medium font-mono text-sm focus:outline-none focus-visible:outline-none ${
+          className={`py-2 px-4 font-medium ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-sm focus:outline-none focus-visible:outline-none ${
             selectedModelId === model.id
-              ? "border-cyan-400 text-cyan-400"
-              : "border-transparent text-gray-400 hover:text-white hover:border-gray-500"
+              ? brandConfig.name === 'OMG'
+                ? "border-blue-500 text-blue-600" 
+                : "border-cyan-400 text-cyan-400"
+              : brandConfig.name === 'OMG'
+                ? "border-transparent text-gray-600 hover:text-blue-700 hover:border-blue-400"
+                : "border-transparent text-gray-400 hover:text-white hover:border-gray-500"
           }`}
           onClick={() => {
             setSelectedModelId(model.id);
@@ -100,12 +105,25 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
       <div className="mb-8">
         {/* heading + release date */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between md:gap-2 mb-1">
-          <h2 className="text-2xl font-semibold text-fuchsia-500 mt-2 tracking-tight font-mono">
+          <h2 className={`text-2xl font-semibold mt-2 tracking-tight ${
+            brandConfig.name === 'OMG'
+              ? 'text-blue-700 font-sans'
+              : 'text-fuchsia-500 font-mono'
+            }`}
+            style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}
+          >
             {selectedModel.name}
           </h2>
           {selectedModel.releaseDate && (
-            <div className="flex items-center text-sm text-gray-400 font-mono mt-4">
-              <i className="bi bi-calendar-event text-fuchsia-500 mr-2" />
+            <div className={`flex items-center text-sm ${
+              brandConfig.name === 'OMG'
+                ? 'text-gray-600 font-sans'
+                : 'text-gray-400 font-mono'
+              } mt-4`}>
+              <i className={`bi bi-calendar-event mr-2 ${
+                brandConfig.name === 'OMG' ? '' : 'text-fuchsia-500'
+              }`} 
+              style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}} />
               <span>
                 Released: {new Date(selectedModel.releaseDate).toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" })}
               </span>
@@ -120,22 +138,54 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* Model Features column */}
           <div>
-            <h3 className={`${headingStyles.card} mb-3`}>Model Features</h3>
-            <div className={`${containerStyles.card} min-h-[30.7rem] h-auto`}>
+            <h3 className={`mb-3 text-lg font-semibold ${
+              brandConfig.name === 'OMG'
+                ? 'font-sans'
+                : 'font-mono'
+            }`}
+            style={{ color: brandConfig.primaryColor }}>
+              Model Features
+            </h3>
+            <div className={`min-h-[30.7rem] h-auto ${
+              brandConfig.name === 'OMG'
+                ? 'bg-white rounded-lg border border-gray-300 p-5'
+                : containerStyles.card
+            }`}>
               <div className="space-y-4">
                 {/* Generation Features */}
                 {selectedModel.features?.generation && Object.keys(selectedModel.features.generation).length > 0 && (
                   <>
                     <div className="mb-2">
-                      <h4 className="text-sm font-semibold text-cyan-400 mb-2">Generation</h4>
+                      <h4 className={`text-sm font-semibold mb-2 ${
+                        brandConfig.name === 'OMG'
+                          ? 'text-blue-600 font-sans'
+                          : 'text-cyan-400 font-mono'
+                      }`}
+                      style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
+                        Generation
+                      </h4>
                       <div className="grid grid-cols-2 gap-2">
                         {/* Boolean features */}
                         {Object.entries(selectedModel.features.generation)
-                          .filter(([key, value]) => typeof value === 'boolean')
+                          .filter(([_, value]) => typeof value === 'boolean')
                           .map(([key, value]) => (
                             <div key={key} className="flex items-center h-8">
-                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                              <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                              <i className={`${
+                                value === true 
+                                  ? brandConfig.name === 'OMG'
+                                    ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                    : iconStyles.booleanTrue 
+                                  : brandConfig.name === 'OMG'
+                                    ? 'bi bi-x-circle-fill text-red-500'
+                                    : 'bi bi-x-circle-fill text-fuchsia-500'
+                              } mr-2`} />
+                              <span className={`${
+                                brandConfig.name === 'OMG'
+                                  ? 'text-gray-800 font-sans'
+                                  : textStyles.body
+                              }`}>
+                                {formatFeatureName(key)}
+                              </span>
                             </div>
                           ))}
                       </div>
@@ -147,10 +197,19 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                        selectedModel.features.generation.durations.length > 0 && (
                         <div className="mt-4 mb-4 flex flex-row justify-between space-x-2">
                           <div className="flex-1">
-                            <h5 className="text-xs font-medium text-gray-300 mb-2">Durations</h5>
+                            <h5 className={`text-xs font-medium mb-2 ${
+                              brandConfig.name === 'OMG'
+                                ? 'text-gray-600 font-sans'
+                                : 'text-gray-300 font-mono'
+                            }`}>Durations</h5>
                             <div className="flex flex-wrap gap-2">
                               {(selectedModel.features.generation.durations as Array<string | number>).map((value, index) => (
-                                <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                <span key={index} className={`px-2 py-1 text-xs rounded ${
+                                  brandConfig.name === 'OMG'
+                                    ? 'bg-gray-200 border border-gray-300 font-sans'
+                                    : 'bg-gray-700 text-cyan-400 font-mono'
+                                }`}
+                                style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
                                   {typeof value === 'number' 
                                     ? value === 9999
                                       ? "Unlimited"
@@ -176,10 +235,19 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                         )
                         .map(([key, values]) => (
                           <div key={key} className="mt-4 mb-4">
-                            <h5 className="text-xs font-medium text-gray-300 mb-2">{formatFeatureName(key)}</h5>
+                            <h5 className={`text-xs font-medium mb-2 ${
+                              brandConfig.name === 'OMG'
+                                ? 'text-gray-600 font-sans'
+                                : 'text-gray-300 font-mono'
+                            }`}>{formatFeatureName(key)}</h5>
                             <div className="flex flex-wrap gap-2">
                               {Array.isArray(values) && (values as Array<string | number>).map((value, index) => (
-                                <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                <span key={index} className={`px-2 py-1 text-xs rounded ${
+                                  brandConfig.name === 'OMG'
+                                    ? 'bg-gray-200 border border-gray-300 font-sans'
+                                    : 'bg-gray-700 text-cyan-400 font-mono'
+                                }`}
+                                style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
                                   {value}
                                 </span>
                               ))}
@@ -187,7 +255,11 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                           </div>
                         ))}
                     </div>
-                    <div className="border-b border-gray-700 my-2"></div>
+                    <div className={`border-b my-2 ${
+                      brandConfig.name === 'OMG'
+                        ? 'border-gray-200'
+                        : 'border-gray-700'
+                    }`}></div>
                   </>
                 )}
                 
@@ -195,14 +267,35 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                 {selectedModel.features?.editing && Object.keys(selectedModel.features.editing).length > 0 && (
                   <>
                     <div className="mb-2">
-                      <h4 className="text-sm font-semibold text-cyan-400 mb-2">Editing</h4>
+                      <h4 className={`text-sm font-semibold mb-2 ${
+                        brandConfig.name === 'OMG'
+                          ? 'text-blue-600 font-sans'
+                          : 'text-cyan-400 font-mono'
+                      }`}
+                      style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
+                        Editing
+                      </h4>
                       <div className="grid grid-cols-2 gap-2">
                         {Object.entries(selectedModel.features.editing)
                           .filter(([_, value]) => typeof value === 'boolean')
                           .map(([key, value]) => (
                             <div key={key} className="flex items-center h-8">
-                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                              <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                              <i className={`${
+                                value === true 
+                                  ? brandConfig.name === 'OMG'
+                                    ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                    : iconStyles.booleanTrue 
+                                  : brandConfig.name === 'OMG'
+                                    ? 'bi bi-x-circle-fill text-red-500'
+                                    : 'bi bi-x-circle-fill text-fuchsia-500'
+                              } mr-2`} />
+                              <span className={`${
+                                brandConfig.name === 'OMG'
+                                  ? 'text-gray-800 font-sans'
+                                  : textStyles.body
+                              }`}>
+                                {formatFeatureName(key)}
+                              </span>
                             </div>
                           ))}
                       </div>
@@ -212,19 +305,44 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                         .filter(([_, value]) => typeof value === 'object' && value !== null && !Array.isArray(value))
                         .map(([key, value]) => (
                           <div key={key} className="mt-4">
-                            <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
+                            <h4 className={`text-sm font-semibold mb-2 ${
+                              brandConfig.name === 'OMG'
+                                ? 'text-blue-600 font-sans'
+                                : 'text-cyan-400 font-mono'
+                            }`}
+                            style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
+                              {formatFeatureName(key)}
+                            </h4>
                             <div className="pl-4">
                               {Object.entries(value as Record<string, any>).map(([subKey, subValue]) => (
                                 <div key={subKey} className="flex items-center h-8">
-                                  <i className={`${subValue === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                                  <span className={textStyles.body}>{formatFeatureName(subKey)}</span>
+                                  <i className={`${
+                                    subValue === true 
+                                      ? brandConfig.name === 'OMG'
+                                        ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                        : iconStyles.booleanTrue 
+                                      : brandConfig.name === 'OMG'
+                                        ? 'bi bi-x-circle-fill text-red-500'
+                                        : 'bi bi-x-circle-fill text-fuchsia-500'
+                                  } mr-2`} />
+                                  <span className={`${
+                                    brandConfig.name === 'OMG'
+                                      ? 'text-gray-800 font-sans'
+                                      : textStyles.body
+                                  }`}>
+                                    {formatFeatureName(subKey)}
+                                  </span>
                                 </div>
                               ))}
                             </div>
                           </div>
                         ))}
                     </div>
-                    <div className="border-b border-gray-700 my-2"></div>
+                    <div className={`border-b my-2 ${
+                      brandConfig.name === 'OMG'
+                        ? 'border-gray-200'
+                        : 'border-gray-700'
+                    }`}></div>
                   </>
                 )}
                 
@@ -232,18 +350,43 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                 {selectedModel.features?.enhancement && Object.keys(selectedModel.features.enhancement).length > 0 && (
                   <>
                     <div className="mb-2">
-                      <h4 className="text-sm font-semibold text-cyan-400 mb-2">Enhancement</h4>
+                      <h4 className={`text-sm font-semibold mb-2 ${
+                        brandConfig.name === 'OMG'
+                          ? 'text-blue-600 font-sans'
+                          : 'text-cyan-400 font-mono'
+                      }`}
+                      style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
+                        Enhancement
+                      </h4>
                       <div className="grid grid-cols-2 gap-2">
                         {Object.entries(selectedModel.features.enhancement)
                           .map(([key, value]) => (
                             <div key={key} className="flex items-center h-8">
-                              <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                              <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                              <i className={`${
+                                value === true 
+                                  ? brandConfig.name === 'OMG'
+                                    ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                    : iconStyles.booleanTrue 
+                                  : brandConfig.name === 'OMG'
+                                    ? 'bi bi-x-circle-fill text-red-500'
+                                    : 'bi bi-x-circle-fill text-fuchsia-500'
+                              } mr-2`} />
+                              <span className={`${
+                                brandConfig.name === 'OMG'
+                                  ? 'text-gray-800 font-sans'
+                                  : textStyles.body
+                              }`}>
+                                {formatFeatureName(key)}
+                              </span>
                             </div>
                           ))}
                       </div>
                     </div>
-                    <div className="border-b border-gray-700 my-2"></div>
+                    <div className={`border-b my-2 ${
+                      brandConfig.name === 'OMG'
+                        ? 'border-gray-200'
+                        : 'border-gray-700'
+                    }`}></div>
                   </>
                 )}
                 
@@ -251,13 +394,34 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                 {(selectedModel.features?.advanced && Object.keys(selectedModel.features.advanced).length > 0) ||
                  (selectedModel.apiEndpoints?.available !== undefined) ? (
                   <div className="mb-2">
-                    <h4 className="text-sm font-semibold text-cyan-400 mb-2">Advanced</h4>
+                    <h4 className={`text-sm font-semibold mb-2 ${
+                      brandConfig.name === 'OMG'
+                        ? 'text-blue-600 font-sans'
+                        : 'text-cyan-400 font-mono'
+                    }`}
+                    style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
+                      Advanced
+                    </h4>
                     <div className="grid grid-cols-2 gap-2">
                       {/* API Endpoint Availability */}
                       {selectedModel.apiEndpoints?.available !== undefined && (
                         <div className="flex items-center h-8">
-                          <i className={`${selectedModel.apiEndpoints.available === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                          <span className={textStyles.body}>API Available</span>
+                          <i className={`${
+                            selectedModel.apiEndpoints.available === true 
+                              ? brandConfig.name === 'OMG'
+                                ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                : iconStyles.booleanTrue 
+                              : brandConfig.name === 'OMG'
+                                ? 'bi bi-x-circle-fill text-red-500'
+                                : 'bi bi-x-circle-fill text-fuchsia-500'
+                          } mr-2`} />
+                          <span className={`${
+                            brandConfig.name === 'OMG'
+                              ? 'text-gray-800 font-sans'
+                              : textStyles.body
+                          }`}>
+                            API Available
+                          </span>
                         </div>
                       )}
                       
@@ -266,8 +430,22 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                         .filter(([_, value]) => typeof value === 'boolean')
                         .map(([key, value]) => (
                           <div key={key} className="flex items-center h-8">
-                            <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                            <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                            <i className={`${
+                              value === true 
+                                ? brandConfig.name === 'OMG'
+                                  ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                  : iconStyles.booleanTrue 
+                                : brandConfig.name === 'OMG'
+                                  ? 'bi bi-x-circle-fill text-red-500'
+                                  : 'bi bi-x-circle-fill text-fuchsia-500'
+                            } mr-2`} />
+                            <span className={`${
+                              brandConfig.name === 'OMG'
+                                ? 'text-gray-800 font-sans'
+                                : textStyles.body
+                            }`}>
+                              {formatFeatureName(key)}
+                            </span>
                           </div>
                         ))}
                     </div>
@@ -277,12 +455,33 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                       .filter(([_, value]) => typeof value === 'object' && value !== null && !Array.isArray(value) && Object.keys(value as object).length > 0)
                       .map(([key, value]) => (
                         <div key={key} className="mt-4">
-                          <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
+                          <h4 className={`text-sm font-semibold mb-2 ${
+                            brandConfig.name === 'OMG'
+                              ? 'text-blue-600 font-sans'
+                              : 'text-cyan-400 font-mono'
+                          }`}
+                          style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
+                            {formatFeatureName(key)}
+                          </h4>
                           <div className="pl-4">
                             {Object.entries(value as Record<string, any>).map(([subKey, subValue]) => (
                               <div key={subKey} className="flex items-center h-8">
-                                <i className={`${subValue === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                                <span className={textStyles.body}>{formatFeatureName(subKey)}</span>
+                                <i className={`${
+                                  subValue === true 
+                                    ? brandConfig.name === 'OMG'
+                                      ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                      : iconStyles.booleanTrue 
+                                    : brandConfig.name === 'OMG'
+                                      ? 'bi bi-x-circle-fill text-red-500'
+                                      : 'bi bi-x-circle-fill text-fuchsia-500'
+                                } mr-2`} />
+                                <span className={`${
+                                  brandConfig.name === 'OMG'
+                                    ? 'text-gray-800 font-sans'
+                                    : textStyles.body
+                                }`}>
+                                  {formatFeatureName(subKey)}
+                                </span>
                               </div>
                             ))}
                           </div>
@@ -298,12 +497,23 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
           <div className="space-y-6">
             {/* Safety Features */}
             <div>
-              <h3 className={`${headingStyles.card} mb-3`}>Safety Features</h3>
+              <h3 className={`mb-3 text-lg font-semibold ${
+                brandConfig.name === 'OMG'
+                  ? 'font-sans'
+                  : 'font-mono'
+              }`}
+              style={{ color: brandConfig.primaryColor }}>
+                Safety Features
+              </h3>
               { (Object.keys(selectedModel.safety ?? {}).length > 0 ||
                   selectedModel.termsOfService ||
                   selectedModel.usagePolicy ||
                   selectedModel.commerciallySafe !== undefined) ? (
-              <div className={`${containerStyles.card} min-h-[12rem] h-auto`}>
+              <div className={`min-h-[12rem] h-auto ${
+                brandConfig.name === 'OMG'
+                  ? 'bg-white rounded-lg border border-gray-300 p-5'
+                  : containerStyles.card
+              }`}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       {Object.entries(selectedModel.safety ?? {})
@@ -315,22 +525,60 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                         )
                         .map(([key, value]) => (
                           <div key={key} className="flex items-center h-8">
-                            <i className={`${value === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                            <span className={textStyles.body}>{formatFeatureName(key)}</span>
+                            <i className={`${
+                              value === true 
+                                ? brandConfig.name === 'OMG'
+                                  ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                  : iconStyles.booleanTrue 
+                                : brandConfig.name === 'OMG'
+                                  ? 'bi bi-x-circle-fill text-red-500'
+                                  : 'bi bi-x-circle-fill text-fuchsia-500'
+                            } mr-2`} />
+                            <span className={`${
+                              brandConfig.name === 'OMG'
+                                ? 'text-gray-800 font-sans'
+                                : textStyles.body
+                            }`}>
+                              {formatFeatureName(key)}
+                            </span>
                           </div>
                         ))}
                     </div>
                     <div className="space-y-2 flex flex-col">
                       {hasIPRespectData && (
                         <div className="flex items-center h-8">
-                          <i className={`${ipRespectEnabled ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
-                          <span className={textStyles.body}>IP Respect</span>
+                          <i className={`${
+                            ipRespectEnabled 
+                              ? brandConfig.name === 'OMG'
+                                ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                : iconStyles.booleanTrue 
+                              : brandConfig.name === 'OMG'
+                                ? 'bi bi-x-circle-fill text-red-500'
+                                : 'bi bi-x-circle-fill text-fuchsia-500'
+                          } mr-3`} />
+                          <span className={`${
+                            brandConfig.name === 'OMG'
+                              ? 'text-gray-800 font-sans'
+                              : textStyles.body
+                          }`}>IP Respect</span>
                         </div>
                       )}
                       {selectedModel.commerciallySafe !== undefined && (
                         <div className="flex items-center h-8">
-                          <i className={`${selectedModel.commerciallySafe ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-3`} />
-                          <span className={textStyles.body}>{selectedModel.commerciallySafe ? 'Commercially safe' : 'Not commercially safe'}</span>
+                          <i className={`${
+                            selectedModel.commerciallySafe 
+                              ? brandConfig.name === 'OMG'
+                                ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                : iconStyles.booleanTrue 
+                              : brandConfig.name === 'OMG'
+                                ? 'bi bi-x-circle-fill text-red-500'
+                                : 'bi bi-x-circle-fill text-fuchsia-500'
+                          } mr-3`} />
+                          <span className={`${
+                            brandConfig.name === 'OMG'
+                              ? 'text-gray-800 font-sans'
+                              : textStyles.body
+                          }`}>{selectedModel.commerciallySafe ? 'Commercially safe' : 'Not commercially safe'}</span>
                         </div>
                       )}
                       {selectedModel.usagePolicy && (
@@ -338,9 +586,15 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                           href={selectedModel.usagePolicy}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                          className={`px-3 py-1 text-xs rounded transition-colors inline-flex items-center gap-1 w-fit mt-2 ${
+                            brandConfig.name === 'OMG'
+                              ? 'bg-gray-100 hover:bg-gray-200 text-blue-600 hover:text-blue-800 font-sans border border-gray-300'
+                              : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 font-mono'
+                          }`}
                         >
-                          <i className="bi bi-shield-check mr-1" /> Usage Policy
+                          <i className={`bi bi-shield-check mr-1 ${
+                            brandConfig.name === 'OMG' ? 'text-blue-700' : ''
+                          }`} /> Usage Policy
                         </a>
                       )}
                       {selectedModel.termsOfService && (
@@ -348,9 +602,15 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                           href={selectedModel.termsOfService}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                          className={`px-3 py-1 text-xs rounded transition-colors inline-flex items-center gap-1 w-fit mt-2 ${
+                            brandConfig.name === 'OMG'
+                              ? 'bg-gray-100 hover:bg-gray-200 text-blue-600 hover:text-blue-800 font-sans border border-gray-300'
+                              : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 font-mono'
+                          }`}
                         >
-                          <i className="bi bi-file-earmark-text mr-1" /> Terms of Service
+                          <i className={`bi bi-file-earmark-text mr-1 ${
+                            brandConfig.name === 'OMG' ? 'text-blue-700' : ''
+                          }`} /> Terms of Service
                         </a>
                       )}
                       {c2paDocsUrl && (
@@ -358,17 +618,31 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                           href={c2paDocsUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1 w-fit mt-2"
+                          className={`px-3 py-1 text-xs rounded transition-colors inline-flex items-center gap-1 w-fit mt-2 ${
+                            brandConfig.name === 'OMG'
+                              ? 'bg-gray-100 hover:bg-gray-200 text-blue-600 hover:text-blue-800 font-sans border border-gray-300'
+                              : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 font-mono'
+                          }`}
                         >
-                          <i className="bi bi-patch-check-fill mr-1" /> C2PA Metadata
+                          <i className={`bi bi-patch-check-fill mr-1 ${
+                            brandConfig.name === 'OMG' ? 'text-blue-700' : ''
+                          }`} /> C2PA Metadata
                         </a>
                       )}
                     </div>
                   </div>
                 </div>
               ) : (
-              <div className={`${containerStyles.card} min-h-[12rem] h-auto flex items-center justify-center`}>
-                  <p className={textStyles.body}>No safety features</p>
+              <div className={`min-h-[12rem] h-auto flex items-center justify-center ${
+                brandConfig.name === 'OMG'
+                  ? 'bg-white rounded-lg border border-gray-300 p-5'
+                  : containerStyles.card
+              }`}>
+                  <p className={`${
+                    brandConfig.name === 'OMG'
+                      ? 'text-gray-600 font-sans'
+                      : textStyles.body
+                  }`}>No safety features</p>
                 </div>
               )}
             </div>
@@ -380,8 +654,19 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
               (Array.isArray(selectedModel.features.other.voiceFeatures) && selectedModel.features.other.voiceFeatures.length > 0) || 
               (Array.isArray(selectedModel.features.other.languages) && selectedModel.features.other.languages.length > 0)) && (
               <div>
-                <h3 className={`${headingStyles.card} mb-3`}>Voice Features</h3>
-                <div className={`${containerStyles.card} min-h-[12rem] h-auto`}>
+                <h3 className={`mb-3 text-lg font-semibold ${
+                  brandConfig.name === 'OMG'
+                    ? 'font-sans'
+                    : 'font-mono'
+                }`}
+                style={{ color: brandConfig.primaryColor }}>
+                  Voice Features
+                </h3>
+                <div className={`min-h-[12rem] h-auto ${
+                  brandConfig.name === 'OMG'
+                    ? 'bg-white rounded-lg border border-gray-300 p-5'
+                    : containerStyles.card
+                }`}>
                   <div className="space-y-4">
                     {/* Arrays of values like voices, languages, etc. */}
                     {Object.entries(selectedModel.features.other).map(([key, values]) => {
@@ -392,26 +677,63 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                         
                         return (
                           <div key={key} className="mb-4">
-                            <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
+                            <h4 className={`text-sm font-semibold mb-2 ${
+                              brandConfig.name === 'OMG'
+                                ? 'text-blue-600 font-sans'
+                                : 'text-cyan-400 font-mono'
+                            }`}
+                            style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
+                              {formatFeatureName(key)}
+                            </h4>
                             <div className="flex flex-wrap gap-2">
                               {displayLanguages.map((value, index) => (
-                                <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                <span key={index} className={`px-2 py-1 text-xs rounded ${
+                                  brandConfig.name === 'OMG'
+                                    ? 'bg-gray-200 border border-gray-300 font-sans'
+                                    : 'bg-gray-700 text-cyan-400 font-mono'
+                                }`}
+                                style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
                                   {value}
                                 </span>
                               ))}
                               <div className="inline-block relative">
                                 <span 
-                                  className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded cursor-help hover:bg-gray-600 transition-colors peer"
+                                  className={`px-2 py-1 text-xs rounded cursor-help transition-colors peer ${
+                                    brandConfig.name === 'OMG'
+                                      ? 'bg-gray-200 border border-gray-300 hover:bg-gray-300 font-sans'
+                                      : 'bg-gray-700 text-cyan-400 hover:bg-gray-600 font-mono'
+                                  }`}
+                                  style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}
                                   title={values.slice(5).join(', ')}
                                 >
                                   +{remainingCount} more
                                 </span>
-                                <div className="absolute left-0 bottom-full mb-2 w-80 bg-gray-800 p-3 rounded shadow-lg border border-gray-700 opacity-0 invisible peer-hover:visible peer-hover:opacity-100 hover:opacity-100 hover:visible z-50 transition-all duration-300 delay-75 hover:delay-[1000ms]">
-                                  <div className="absolute -bottom-2 left-3 w-4 h-4 bg-gray-800 border-r border-b border-gray-700 transform rotate-45"></div>
-                                  <h5 className="text-xs font-semibold text-fuchsia-500 mb-2">Additional Languages</h5>
+                                <div className={`absolute left-0 bottom-full mb-2 w-80 p-3 rounded shadow-lg opacity-0 invisible peer-hover:visible peer-hover:opacity-100 hover:opacity-100 hover:visible z-50 transition-all duration-300 delay-75 hover:delay-[1000ms] ${
+                                  brandConfig.name === 'OMG'
+                                    ? 'bg-white border border-gray-300'
+                                    : 'bg-gray-800 border border-gray-700'
+                                }`}>
+                                  <div className={`absolute -bottom-2 left-3 w-4 h-4 ${
+                                    brandConfig.name === 'OMG'
+                                      ? 'bg-white border-r border-b border-gray-300'
+                                      : 'bg-gray-800 border-r border-b border-gray-700'
+                                  } transform rotate-45`}></div>
+                                  <h5 className={`text-xs font-semibold mb-2 ${
+                                    brandConfig.name === 'OMG'
+                                      ? 'text-blue-600 font-sans'
+                                      : 'text-fuchsia-500 font-mono'
+                                  }`}
+                                  style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>
+                                    Additional Languages
+                                  </h5>
                                   <div className="flex flex-wrap gap-2 max-h-60 overflow-y-auto">
                                     {values.slice(5).map((value, index) => (
-                                      <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                      <span key={index} className={`px-2 py-1 text-xs rounded ${
+                                        brandConfig.name === 'OMG'
+                                          ? 'bg-gray-200 border border-gray-300 font-sans'
+                                          : 'bg-gray-700 text-cyan-400 font-mono'
+                                      }`}
+                                      style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
                                         {value}
                                       </span>
                                     ))}
@@ -426,11 +748,23 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                       // Standard rendering for other arrays
                       return (
                         <div key={key} className="mb-4">
-                          <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
+                          <h4 className={`text-sm font-semibold mb-2 ${
+                            brandConfig.name === 'OMG'
+                              ? 'text-blue-600 font-sans'
+                              : 'text-cyan-400 font-mono'
+                          }`}
+                          style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
+                            {formatFeatureName(key)}
+                          </h4>
                           {Array.isArray(values) && values.length > 0 && (
                             <div className="flex flex-wrap gap-2">
                               {values.map((value, index) => (
-                                <span key={index} className="px-2 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded">
+                                <span key={index} className={`px-2 py-1 text-xs rounded ${
+                                  brandConfig.name === 'OMG'
+                                    ? 'bg-gray-200 border border-gray-300 font-sans'
+                                    : 'bg-gray-700 text-cyan-400 font-mono'
+                                }`}
+                                style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
                                   {value}
                                 </span>
                               ))}
@@ -441,8 +775,22 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                             <div className="pl-4">
                               {Object.entries(values as Record<string, any>).map(([subKey, subValue]) => (
                                 <div key={subKey} className="flex items-center h-8">
-                                  <i className={`${subValue === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                                  <span className={textStyles.body}>{formatFeatureName(subKey)}</span>
+                                  <i className={`${
+                                    subValue === true 
+                                      ? brandConfig.name === 'OMG'
+                                        ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                        : iconStyles.booleanTrue 
+                                      : brandConfig.name === 'OMG'
+                                        ? 'bi bi-x-circle-fill text-red-500'
+                                        : 'bi bi-x-circle-fill text-fuchsia-500'
+                                  } mr-2`} />
+                                  <span className={`${
+                                    brandConfig.name === 'OMG'
+                                      ? 'text-gray-800 font-sans'
+                                      : textStyles.body
+                                  }`}>
+                                    {formatFeatureName(subKey)}
+                                  </span>
                                 </div>
                               ))}
                             </div>
@@ -460,7 +808,14 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
         {/* Demo videos section */}
         {selectedModel.demoVideos && Object.keys(selectedModel.demoVideos).length > 0 && (
           <>
-            <h3 className={`${headingStyles.card} mb-3`}>Demo Videos</h3>
+            <h3 className={`mb-3 text-lg font-semibold ${
+              brandConfig.name === 'OMG'
+                ? 'font-sans'
+                : 'font-mono'
+            }`}
+            style={{ color: brandConfig.primaryColor }}>
+              Demo Videos
+            </h3>
             <div className="mb-8">
               <VideoCarousel 
                 videos={selectedModel.demoVideos}
@@ -480,17 +835,36 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
           selectedModel.modelGuide || 
           selectedModel.apiDocumentation) && (
           <>
-            <h3 className={`${headingStyles.card} mb-3`}>Resources</h3>
-            <div className={`${containerStyles.card} mb-6`}>
+            <h3 className={`mb-3 text-lg font-semibold ${
+              brandConfig.name === 'OMG'
+                ? 'font-sans'
+                : 'font-mono'
+            }`}
+            style={{ color: brandConfig.primaryColor }}>
+              Resources
+            </h3>
+            <div className={`mb-6 ${
+              brandConfig.name === 'OMG'
+                ? 'bg-white rounded-lg border border-gray-300 p-5'
+                : containerStyles.card
+            }`}>
               <div className="flex flex-wrap justify-center gap-3">
                 {selectedModel.releasePost && (
                   <a 
                     href={selectedModel.releasePost} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]"
+                    className={`px-3 py-3 text-sm rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px] ${
+                      brandConfig.name === 'OMG'
+                        ? 'bg-gray-100 hover:bg-gray-200 text-blue-600 font-sans border border-gray-300'
+                        : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 font-mono'
+                    }`}
                   >
-                    <i className="bi bi-newspaper text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <i className={`bi bi-newspaper text-xl ${
+                      brandConfig.name === 'OMG'
+                        ? 'text-blue-700 group-hover:text-blue-800'
+                        : 'text-fuchsia-500 group-hover:text-cyan-400'
+                    }`}></i>
                     <span>Release Post</span>
                   </a>
                 )}
@@ -499,9 +873,17 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                     href={selectedModel.releaseVideo} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]"
+                    className={`px-3 py-3 text-sm rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px] ${
+                      brandConfig.name === 'OMG'
+                        ? 'bg-gray-100 hover:bg-gray-200 text-blue-600 font-sans border border-gray-300'
+                        : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 font-mono'
+                    }`}
                   >
-                    <i className="bi bi-play-btn text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <i className={`bi bi-play-btn text-xl ${
+                      brandConfig.name === 'OMG'
+                        ? 'text-blue-700 group-hover:text-blue-800'
+                        : 'text-fuchsia-500 group-hover:text-cyan-400'
+                    }`}></i>
                     <span>Release Video</span>
                   </a>
                 )}
@@ -510,9 +892,17 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                     href={selectedModel.systemCard} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]"
+                    className={`px-3 py-3 text-sm rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px] ${
+                      brandConfig.name === 'OMG'
+                        ? 'bg-gray-100 hover:bg-gray-200 text-blue-600 font-sans border border-gray-300'
+                        : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 font-mono'
+                    }`}
                   >
-                    <i className="bi bi-file-earmark-text text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <i className={`bi bi-file-earmark-text text-xl ${
+                      brandConfig.name === 'OMG'
+                        ? 'text-blue-700 group-hover:text-blue-800'
+                        : 'text-fuchsia-500 group-hover:text-cyan-400'
+                    }`}></i>
                     <span>System Card</span>
                   </a>
                 )}
@@ -521,9 +911,17 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                     href={selectedModel.modelPage} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]"
+                    className={`px-3 py-3 text-sm rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px] ${
+                      brandConfig.name === 'OMG'
+                        ? 'bg-gray-100 hover:bg-gray-200 text-blue-600 font-sans border border-gray-300'
+                        : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 font-mono'
+                    }`}
                   >
-                    <i className="bi bi-globe2 text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <i className={`bi bi-globe2 text-xl ${
+                      brandConfig.name === 'OMG'
+                        ? 'text-blue-700 group-hover:text-blue-800'
+                        : 'text-fuchsia-500 group-hover:text-cyan-400'
+                    }`}></i>
                     <span>Model Page</span>
                   </a>
                 )}
@@ -532,9 +930,17 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                     href={selectedModel.modelGuide} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]"
+                    className={`px-3 py-3 text-sm rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px] ${
+                      brandConfig.name === 'OMG'
+                        ? 'bg-gray-100 hover:bg-gray-200 text-blue-600 font-sans border border-gray-300'
+                        : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 font-mono'
+                    }`}
                   >
-                    <i className="bi bi-book text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <i className={`bi bi-book text-xl ${
+                      brandConfig.name === 'OMG'
+                        ? 'text-blue-700 group-hover:text-blue-800'
+                        : 'text-fuchsia-500 group-hover:text-cyan-400'
+                    }`}></i>
                     <span>Model Guide</span>
                   </a>
                 )}
@@ -543,9 +949,17 @@ const AudioModelGallery: React.FC<AudioModelGalleryProps> = ({ models, companyId
                     href={selectedModel.apiDocumentation} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="px-3 py-3 bg-gray-700 hover:bg-gray-600 text-cyan-400 text-sm font-mono rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px]"
+                    className={`px-3 py-3 text-sm rounded transition-colors flex flex-col items-center justify-center gap-2 group w-[200px] h-[90px] ${
+                      brandConfig.name === 'OMG'
+                        ? 'bg-gray-100 hover:bg-gray-200 text-blue-600 font-sans border border-gray-300'
+                        : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 font-mono'
+                    }`}
                   >
-                    <i className="bi bi-code-square text-xl text-fuchsia-500 group-hover:text-cyan-400"></i>
+                    <i className={`bi bi-code-square text-xl ${
+                      brandConfig.name === 'OMG'
+                        ? 'text-blue-700 group-hover:text-blue-800'
+                        : 'text-fuchsia-500 group-hover:text-cyan-400'
+                    }`}></i>
                     <span>API Documentation</span>
                   </a>
                 )}
