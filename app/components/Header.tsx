@@ -49,7 +49,7 @@ const Header: React.FC<HeaderProps> = ({
               aria-label="Go back"
             >
               <i className="bi bi-chevron-left text-lg"></i>
-              <span className="font-mono text-sm">Back</span>
+              <span className={`${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-sm`}>Back</span>
             </button>
           )}
         </div>
@@ -83,7 +83,7 @@ const Header: React.FC<HeaderProps> = ({
                 rel="noopener noreferrer" 
                 className="no-underline"
               >
-                <div className={`flex font-mono text-[1em] font-medium w-[150px] h-[36px] 
+                <div className={`flex ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} text-[1em] font-medium w-[150px] h-[36px] 
                     ${brandConfig.name === 'The Blueprint' && link.text === 'Subscribe' 
                       ? 'bg-[#EA00D9]' 
                       : brandConfig.name === 'OMG' 
@@ -98,7 +98,7 @@ const Header: React.FC<HeaderProps> = ({
           
           {/* Data last updated text */}
           {currentView === 'home' && (
-            <div className={`text-[10px] font-mono mt-2 text-right ${brandConfig.name === 'OMG' ? 'text-gray-600' : 'text-gray-400'}`}>
+            <div className={`text-[10px] ${brandConfig.name === 'OMG' ? 'font-sans text-gray-600' : 'font-mono text-gray-400'} mt-2 text-right`}>
               Data last updated: <span style={{ color: brandConfig.name === 'OMG' ? brandConfig.primaryColor : brandConfig.secondaryColor }} className="font-semibold">{
                 new Date().toLocaleDateString('en-GB', { 
                   day: 'numeric', 

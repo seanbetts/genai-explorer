@@ -123,7 +123,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
                 textAlign: 'center',
                 fontWeight: 'medium',
                 marginBottom: '0.25rem',
-                fontFamily: 'monospace',
+                fontFamily: brandConfig.name === 'OMG' ? 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' : 'monospace',
                 color: 'rgb(31, 41, 55)', // text-gray-800
                 ...(brandConfig.name === 'OMG' && isHovered && { color: brandConfig.primaryColor })
               }}
