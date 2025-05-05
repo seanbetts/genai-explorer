@@ -3,6 +3,7 @@
 import React from 'react';
 import { textStyles } from '../utils/theme';
 import { tableStyles, containerStyles } from '../utils/layout';
+import brandConfig from '../../config/brand';
 
 // Shared table component for consistent table layout across different table types
 interface SharedTableProps {
@@ -38,7 +39,7 @@ interface LegendProps {
 export const Legend: React.FC<LegendProps> = ({ items }) => {
   return (
     <div className="flex justify-center w-full my-2">
-      <div className="bg-gray-800 border border-gray-700 rounded-lg p-2 px-4 hover:shadow-md transition-all duration-300 hover:border-fuchsia-700 legend-container">
+      <div className="border rounded-lg p-2 px-4 hover:shadow-md transition-all duration-300 legend-container">
         <div className="flex flex-wrap justify-center gap-4">
           {items.map((item, index) => (
             <div key={index} className="flex items-center gap-2 py-1">
@@ -219,6 +220,11 @@ export const handleTableScroll = (e: React.UIEvent<HTMLDivElement>) => {
 
 // Shared styling for tables
 export const tableHoverStyles = `
+  /* Define brand colors as CSS variables for use in the styles */
+  :root {
+    --brand-primary: ${brandConfig.primaryColor};
+    --brand-secondary: ${brandConfig.secondaryColor};
+  }
   /* Table layout and scrolling */
   .table-scroll-container {
     overflow-x: auto;
@@ -242,9 +248,17 @@ export const tableHoverStyles = `
   }
   
   /* Set consistent background for labels, headers, and legend */
-  .sticky-label, thead th, .legend-container {
+  .sticky-label, thead th {
     background-color: #2d3748; /* Dark blue-gray for labels and headers */
   }
+  
+  /* For Blueprint theme, legend uses dark blue-gray background */
+  .legend-container {
+    background-color: #2d3748; /* Dark blue-gray for Blueprint theme */
+  }
+  
+  /* For OMG theme, legend uses white background (added via jsx classes) */
+  /* This is overridden in ModelTable.tsx with containerStyles.legendBox for OMG */
   
   /* Make first column sticky */
   .sticky-label {
@@ -345,8 +359,8 @@ export const tableHoverStyles = `
   }
   
   .pagination-button:hover:not(:disabled) {
-    border-color: #f0abfc; /* fuchsia-400 */
-    background-color: #374151;
+    border-color: ${brandConfig.secondaryColor}; /* secondary brand color */
+    background-color: ${brandConfig.name === 'OMG' ? '#f8fafc' : '#374151'};
   }
   
   .pagination-button:disabled {
@@ -355,9 +369,10 @@ export const tableHoverStyles = `
   }
   
   .pagination-info {
-    color: #a0aec0; /* gray-400 */
+    color: ${brandConfig.primaryColor}; /* Use brand primary color */
     font-size: 0.75rem;
     margin: 0 0.25rem;
+    font-weight: 600;
   }
 `;
 
