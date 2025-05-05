@@ -201,7 +201,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* Model Features column */}
           <div>
-            <h3 className={`${headingStyles.card} mb-3`}>Model Features</h3>
+            <h3 className={`mb-3 ${brandConfig.name === 'OMG' ? 'text-lg font-semibold font-sans' : 'text-lg font-semibold font-mono'}`} style={{ color: brandConfig.primaryColor }}>Model Features</h3>
             <div className={`${containerStyles.card} min-h-[30.7rem] h-auto`}>
               <div className="space-y-4">
                 {/* Generation Features */}
@@ -293,7 +293,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
           <div className="space-y-6">
             {/* Safety Features */}
             <div>
-              <h3 className={`${headingStyles.card} mb-3`}>Safety Features</h3>
+              <h3 className={`mb-3 ${brandConfig.name === 'OMG' ? 'text-lg font-semibold font-sans' : 'text-lg font-semibold font-mono'}`} style={{ color: brandConfig.primaryColor }}>Safety Features</h3>
               { (Object.keys(selectedModel.safety ?? {}).length > 0 ||
                   selectedModel.termsOfService ||
                   selectedModel.usagePolicy ||
@@ -386,7 +386,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
             {/* Aspect Ratios */}
             {selectedModel.aspectRatios && Object.keys(selectedModel.aspectRatios).length > 0 && (
               <div>
-                <h3 className={`${headingStyles.card} mb-3`}>Aspect Ratios</h3>
+                <h3 className={`mb-3 ${brandConfig.name === 'OMG' ? 'text-lg font-semibold font-sans' : 'text-lg font-semibold font-mono'}`} style={{ color: brandConfig.primaryColor }}>Aspect Ratios</h3>
                 <div className={`${containerStyles.card}`}>
                   <div className="grid grid-cols-2 gap-4">
                     {Object.entries(selectedModel.aspectRatios)
@@ -498,7 +498,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
          'available' in selectedModel.apiEndpoints && selectedModel.apiEndpoints.available && (
           <div className="mb-8">
             {/* API Endpoints header */}
-            <h3 className="text-lg font-semibold text-fuchsia-500 mt-6 mb-2 font-mono">API Endpoints</h3>
+            <h3 className={`mt-6 mb-2 ${brandConfig.name === 'OMG' ? 'text-lg font-semibold font-sans' : 'text-lg font-semibold font-mono'}`} style={{ color: brandConfig.primaryColor }}>API Endpoints</h3>
             <div className="table-wrapper">
               <div className="table-scroll-container" onScroll={handleTableScroll}>
                 <table className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}>
@@ -1004,7 +1004,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
         {/* Demo videos section */}
         {selectedModel.demoVideos && Object.keys(selectedModel.demoVideos).length > 0 && (
           <>
-            <h3 className={`${headingStyles.card} mb-3`}>Demo Videos</h3>
+            <h3 className={`mb-3 ${brandConfig.name === 'OMG' ? 'text-lg font-semibold font-sans' : 'text-lg font-semibold font-mono'}`} style={{ color: brandConfig.primaryColor }}>Demo Videos</h3>
             <div className="mb-8">
               <VideoCarousel 
                 videos={selectedModel.demoVideos}
@@ -1024,7 +1024,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
           selectedModel.modelGuide || 
           selectedModel.apiDocumentation) && (
           <>
-            <h3 className={`${headingStyles.card} mb-3`}>Resources</h3>
+            <h3 className={`mb-3 ${brandConfig.name === 'OMG' ? 'text-lg font-semibold font-sans' : 'text-lg font-semibold font-mono'}`} style={{ color: brandConfig.primaryColor }}>Resources</h3>
             <div className={`${containerStyles.card} mb-6`}>
               <div className="flex flex-wrap justify-center gap-3">
                 {selectedModel.releasePost && (
