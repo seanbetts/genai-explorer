@@ -155,9 +155,15 @@ export const containerStyles = {
     spacerLg: 'h-8',
     
     // Legend container with cyberpunk styling that matches row labels
-    legend: 'max-w-3xl mx-auto mt-0 rounded-lg border border-gray-700',
-    legendBox: 'flex items-center p-4 rounded-lg',
-    legendLabel: 'text-fuchsia-500 text-sm mr-4 font-mono',
+    legend: brandConfig.name === 'OMG'
+        ? 'max-w-3xl mx-auto mt-0 rounded-lg border border-gray-300'
+        : 'max-w-3xl mx-auto mt-0 rounded-lg border border-gray-700',
+    legendBox: brandConfig.name === 'OMG'
+        ? 'flex items-center p-4 rounded-lg bg-white'
+        : 'flex items-center p-4 rounded-lg',
+    legendLabel: brandConfig.name === 'OMG'
+        ? `text-[${brandConfig.primaryColor}] text-sm mr-4 font-sans`
+        : 'text-fuchsia-500 text-sm mr-4 font-mono',
     legendItems: 'flex items-center flex-wrap gap-3',
     legendItem: 'flex items-center gap-3 mr-4'
 };
@@ -166,7 +172,7 @@ export const containerStyles = {
 export const tableStyles = {
     // Base table styles - light for OMG, dark for Blueprint
     table: brandConfig.name === 'OMG'
-        ? 'w-full bg-white border border-gray-300 rounded-lg shadow-md overflow-hidden font-mono'
+        ? 'w-full bg-white border border-gray-300 rounded-lg shadow-md overflow-hidden font-sans'
         : 'w-full bg-gray-900 border border-gray-700 rounded-lg shadow-md overflow-hidden font-mono',
     
     // Header styles with brand-specific accent
@@ -229,10 +235,10 @@ export const tableStyles = {
     
     // Special cell styles
     modelName: brandConfig.name === 'OMG'
-        ? `font-medium text-[${brandConfig.secondaryColor}] font-mono text-base`
+        ? `font-medium text-[${brandConfig.secondaryColor}] font-sans text-base`
         : 'font-medium text-cyan-400 font-mono text-base',
     metric: brandConfig.name === 'OMG'
-        ? 'font-medium text-gray-800 tabular-nums font-mono'
+        ? 'font-medium text-gray-800 tabular-nums font-sans'
         : 'font-medium text-white tabular-nums font-mono',
     
     // Border utilities

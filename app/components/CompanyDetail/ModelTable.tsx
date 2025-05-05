@@ -104,7 +104,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                 {model.specs?.groundingSources && model.specs.groundingSources.length > 0 ? (
                   <div className="flex flex-wrap justify-center gap-1">
                     {model.specs.groundingSources.map((source, i) => (
-                      <span key={i} className="px-2 py-1 bg-gray-700 text-xs font-mono rounded inline-block m-0.5">
+                      <span key={i} className={`px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 text-gray-800' : 'bg-gray-700 text-white'} text-xs ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} rounded inline-block m-0.5`}>
                         {source}
                       </span>
                     ))}
@@ -180,7 +180,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                           {model.specs.integrations.map((integration, i) => (
                             <span 
                               key={i} 
-                              className="bg-gray-700 px-1.5 py-0.5 rounded text-xs font-mono inline-block whitespace-nowrap overflow-hidden text-ellipsis" 
+                              className={`px-1.5 py-0.5 ${brandConfig.name === 'OMG' ? 'bg-gray-200 text-gray-800' : 'bg-gray-700 text-white'} text-xs ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} rounded inline-block whitespace-nowrap overflow-hidden text-ellipsis`} 
                               title={integration}
                               style={{maxWidth: '100%'}}
                             >
@@ -220,7 +220,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                         {model.specs.dataPrivacy.dataRetentionPolicy && model.specs.dataPrivacy.dataRetentionPolicy.length > 0 && (
                           <div className="text-gray-300 text-xs text-center">
                             {model.specs.dataPrivacy.dataRetentionPolicy.map((policy, i) => (
-                              <div key={i} className="mb-1 text-xs font-mono">{policy}</div>
+                              <div key={i} className={`mb-1 text-xs ${brandConfig.name === 'OMG' ? 'font-sans text-gray-700' : 'font-mono text-gray-300'}`}>{policy}</div>
                             ))}
                           </div>
                         )}
@@ -232,7 +232,10 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                               href={model.specs.dataPrivacy.documentation} 
                               target="_blank" 
                               rel="noopener noreferrer" 
-                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                              className={`px-3 py-1 ${brandConfig.name === 'OMG' 
+                            ? `bg-gray-200 hover:bg-gray-300 text-[${brandConfig.secondaryColor}] hover:text-[${brandConfig.primaryColor}]` 
+                            : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500'
+                          } text-xs ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} rounded transition-colors inline-flex items-center gap-1`}
                               title="View data privacy documentation"
                             >
                               🔗 Documentation
@@ -247,7 +250,10 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                               href={model.specs.dataPrivacy.termsOfUse} 
                               target="_blank" 
                               rel="noopener noreferrer" 
-                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                              className={`px-3 py-1 ${brandConfig.name === 'OMG' 
+                            ? `bg-gray-200 hover:bg-gray-300 text-[${brandConfig.secondaryColor}] hover:text-[${brandConfig.primaryColor}]` 
+                            : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500'
+                          } text-xs ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} rounded transition-colors inline-flex items-center gap-1`}
                               title="View terms of use"
                             >
                               🔗 Terms of Use
@@ -787,7 +793,10 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                           href={model.releasePost} 
                           target="_blank" 
                           rel="noopener noreferrer" 
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                          className={`px-3 py-1 ${brandConfig.name === 'OMG' 
+                            ? `bg-gray-200 hover:bg-gray-300 text-[${brandConfig.secondaryColor}] hover:text-[${brandConfig.primaryColor}]` 
+                            : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500'
+                          } text-xs ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} rounded transition-colors inline-flex items-center gap-1`}
                           title="Read release post"
                         >
                           🔗 Link
@@ -815,7 +824,10 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                           href={model.releaseVideo} 
                           target="_blank" 
                           rel="noopener noreferrer" 
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                          className={`px-3 py-1 ${brandConfig.name === 'OMG' 
+                            ? `bg-gray-200 hover:bg-gray-300 text-[${brandConfig.secondaryColor}] hover:text-[${brandConfig.primaryColor}]` 
+                            : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500'
+                          } text-xs ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} rounded transition-colors inline-flex items-center gap-1`}
                           title="Watch release video"
                         >
                           🔗 Link
@@ -845,7 +857,10 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                           href={model.releaseNotes} 
                           target="_blank" 
                           rel="noopener noreferrer" 
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                          className={`px-3 py-1 ${brandConfig.name === 'OMG' 
+                            ? `bg-gray-200 hover:bg-gray-300 text-[${brandConfig.secondaryColor}] hover:text-[${brandConfig.primaryColor}]` 
+                            : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500'
+                          } text-xs ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} rounded transition-colors inline-flex items-center gap-1`}
                           title="View release notes"
                         >
                           🔗 Link
@@ -873,7 +888,10 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                           href={model.modelPage} 
                           target="_blank" 
                           rel="noopener noreferrer" 
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                          className={`px-3 py-1 ${brandConfig.name === 'OMG' 
+                            ? `bg-gray-200 hover:bg-gray-300 text-[${brandConfig.secondaryColor}] hover:text-[${brandConfig.primaryColor}]` 
+                            : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500'
+                          } text-xs ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} rounded transition-colors inline-flex items-center gap-1`}
                           title="Visit model page"
                         >
                           🔗 Link
@@ -901,7 +919,10 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                           href={model.systemCard} 
                           target="_blank" 
                           rel="noopener noreferrer" 
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                          className={`px-3 py-1 ${brandConfig.name === 'OMG' 
+                            ? `bg-gray-200 hover:bg-gray-300 text-[${brandConfig.secondaryColor}] hover:text-[${brandConfig.primaryColor}]` 
+                            : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500'
+                          } text-xs ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} rounded transition-colors inline-flex items-center gap-1`}
                           title="View system card"
                         >
                           🔗 Link
@@ -931,13 +952,16 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                               href={model.licenceLink} 
                               target="_blank" 
                               rel="noopener noreferrer" 
-                              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                              className={`px-3 py-1 ${brandConfig.name === 'OMG' 
+                            ? `bg-gray-200 hover:bg-gray-300 text-[${brandConfig.secondaryColor}] hover:text-[${brandConfig.primaryColor}]` 
+                            : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500'
+                          } text-xs ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} rounded transition-colors inline-flex items-center gap-1`}
                               title={`${model.licenceType} licence details`}
                             >
                               🔗 {model.licenceType}
                             </a>
                           ) : (
-                            <span className="px-3 py-1 bg-gray-700 text-cyan-400 text-xs font-mono rounded inline-block">
+                            <span className={`px-3 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 text-gray-800' : 'bg-gray-700 text-cyan-400'} text-xs ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} rounded inline-block`}>
                               {model.licenceType}
                             </span>
                           )}
@@ -965,7 +989,10 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
                           href={model.huggingFace} 
                           target="_blank" 
                           rel="noopener noreferrer" 
-                          className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500 text-xs font-mono rounded transition-colors inline-flex items-center gap-1"
+                          className={`px-3 py-1 ${brandConfig.name === 'OMG' 
+                            ? `bg-gray-200 hover:bg-gray-300 text-[${brandConfig.secondaryColor}] hover:text-[${brandConfig.primaryColor}]` 
+                            : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-fuchsia-500'
+                          } text-xs ${brandConfig.name === 'OMG' ? 'font-sans' : 'font-mono'} rounded transition-colors inline-flex items-center gap-1`}
                           title="View on Hugging Face"
                         >
                           🔗 Link
