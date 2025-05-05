@@ -202,7 +202,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
           {/* Model Features column */}
           <div>
             <h3 className={`mb-3 ${brandConfig.name === 'OMG' ? 'text-lg font-semibold font-sans' : 'text-lg font-semibold font-mono'}`} style={{ color: brandConfig.primaryColor }}>Model Features</h3>
-            <div className={`${containerStyles.card} min-h-[30.7rem] h-auto`}>
+            <div className={`${containerStyles.card} min-h-[30.7rem] h-auto`} style={brandConfig.name === 'OMG' ? { backgroundColor: 'white' } : {}}>
               <div className="space-y-4">
                 {/* Generation Features */}
                 {selectedModel.features?.generation && Object.keys(selectedModel.features.generation).length > 0 && (
@@ -333,7 +333,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                   selectedModel.termsOfService ||
                   selectedModel.usagePolicy ||
                   selectedModel.commerciallySafe !== undefined) ? (
-              <div className={`${containerStyles.card} min-h-[12rem] h-auto`}>
+              <div className={`${containerStyles.card} min-h-[12rem] h-auto`} style={brandConfig.name === 'OMG' ? { backgroundColor: 'white' } : {}}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       {Object.entries(selectedModel.safety ?? {})
@@ -433,7 +433,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
                   </div>
                 </div>
               ) : (
-              <div className={`${containerStyles.card} min-h-[12rem] h-auto flex items-center justify-center`}>
+              <div className={`${containerStyles.card} min-h-[12rem] h-auto flex items-center justify-center`} style={brandConfig.name === 'OMG' ? { backgroundColor: 'white' } : {}}>
                   <p className={textStyles.body}>No safety features</p>
                 </div>
               )}
@@ -443,7 +443,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
             {selectedModel.aspectRatios && Object.keys(selectedModel.aspectRatios).length > 0 && (
               <div>
                 <h3 className={`mb-3 ${brandConfig.name === 'OMG' ? 'text-lg font-semibold font-sans' : 'text-lg font-semibold font-mono'}`} style={{ color: brandConfig.primaryColor }}>Aspect Ratios</h3>
-                <div className={`${containerStyles.card}`}>
+                <div className={`${containerStyles.card}`} style={brandConfig.name === 'OMG' ? { backgroundColor: 'white' } : {}}>
                   <div className="grid grid-cols-2 gap-4">
                     {Object.entries(selectedModel.aspectRatios)
                       .map(([ratio, supported]) => {
@@ -1173,7 +1173,7 @@ const ImageModelGallery: React.FC<ImageModelGalleryProps> = ({ models, companyId
           selectedModel.apiDocumentation) && (
           <>
             <h3 className={`mb-3 ${brandConfig.name === 'OMG' ? 'text-lg font-semibold font-sans' : 'text-lg font-semibold font-mono'}`} style={{ color: brandConfig.primaryColor }}>Resources</h3>
-            <div className={`${containerStyles.card} mb-6`}>
+            <div className={`${containerStyles.card} mb-6`} style={brandConfig.name === 'OMG' ? { backgroundColor: 'white' } : {}}>
               <div className="flex flex-wrap justify-center gap-3">
                 {selectedModel.releasePost && (
                   <a 
