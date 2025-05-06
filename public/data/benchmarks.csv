@@ -1227,3 +1227,119 @@ phi-4,microsoft,mmlu-pro,70.4,2025-04-23,,MMLU-Pro Leaderboard,https://huggingfa
 phi-3-5-mini,microsoft,mmlu-pro,52.8,2025-04-23,,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
 gpt-4-5,openai,browse-comp,0.9,2025-04-10,,BrowseComp announcement,https://openai.com/index/browsecomp/
 o1,openai,browse-comp,9.9,2025-04-10,,BrowseComp announcement,https://openai.com/index/browsecomp/
+nova-premier-1-0,amazon,mmlu,87.4,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-pro-1-0,amazon,mmlu,85.9,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-5-sonnet,anthropic,mmlu,88.3,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-7-sonnet,anthropic,mmlu,90.1,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+gpt-4-5,openai,mmlu,91.3,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-premier-1-0,amazon,gpqa-diamond,57.1,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-pro-1-0,amazon,gpqa-diamond,50.0,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-5-sonnet,anthropic,gpqa-diamond,65.0,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-7-sonnet,anthropic,gpqa-diamond,68.0,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+gpt-4-5,openai,gpqa-diamond,71.4,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-premier-1-0,amazon,aime-2025,16.0,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-pro-1-0,amazon,aime-2025,5.3,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-5-sonnet,anthropic,aime-2025,4.7,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-7-sonnet,anthropic,aime-2025,18.0,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+gpt-4-5,openai,aime-2025,30.0,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-premier-1-0,amazon,math-500,82.0,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-pro-1-0,amazon,math-500,76.6,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-5-sonnet,anthropic,math-500,78.0,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-7-sonnet,anthropic,math-500,82.2,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+gpt-4-5,openai,math-500,88.0,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-premier-1-0,amazon,big-bench-hard,28.1,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-pro-1-0,amazon,big-bench-hard,22.3,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-5-sonnet,anthropic,big-bench-hard,30.4,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-7-sonnet,anthropic,big-bench-hard,32.8,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+gpt-4-5,openai,big-bench-hard,33.1,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-premier-1-0,amazon,if-eval,91.5,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-pro-1-0,amazon,if-eval,92.1,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-5-sonnet,anthropic,if-eval,90.2,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-7-sonnet,anthropic,if-eval,90.8,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+gpt-4-5,openai,if-eval,93.3,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-premier-1-0,amazon,mmmu,68.0,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-pro-1-0,amazon,mmmu,62.0,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-5-sonnet,anthropic,mmmu,70.4,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-7-sonnet,anthropic,mmmu,71.8,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+gpt-4-5,openai,mmmu,74.4,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-premier-1-0,amazon,charxiv-reasoning,48.8,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-pro-1-0,amazon,charxiv-reasoning,40.6,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-5-sonnet,anthropic,charxiv-reasoning,60.2,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-7-sonnet,anthropic,charxiv-reasoning,64.2,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+gpt-4-5,openai,charxiv-reasoning,55.4,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-premier-1-0,amazon,ego-schema,73.8,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-pro-1-0,amazon,ego-schema,72.1,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+gpt-4-5,openai,ego-schema,68.8,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-premier-1-0,amazon,simple-qa,86.3,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-pro-1-0,amazon,simple-qa,84.6,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-5-sonnet,anthropic,simple-qa,87.4,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-7-sonnet,anthropic,simple-qa,91.1,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+gpt-4-5,openai,simple-qa,89.1,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+nova-premier-1-0,amazon,swe-bench-verified,42.4,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-5-sonnet,anthropic,swe-bench-verified,49.0,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+claude-3-7-sonnet,anthropic,swe-bench-verified,62.3,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+gpt-4-5,openai,swe-bench-verified,38.0,2025-04-30,,Amazon Nova Premier announcement,https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/
+qwen-3-235b-a22b,alibaba,aime-2024,85.7,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-32b,alibaba,aime-2024,81.4,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+o1,openai,aime-2024,74.3,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+r1,deepseek,aime-2024,79.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+grok-3,xai,aime-2024,83.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemini-2-5-pro,google,aime-2024,92.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+o3-mini,openai,aime-2024,79.6,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-235b-a22b,alibaba,aime-2025,81.5,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-32b,alibaba,aime-2025,72.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+o1,openai,aime-2025,79.2,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+r1,deepseek,aime-2025,70.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+grok-3,xai,aime-2025,77.3,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemini-2-5-pro,google,aime-2025,86.7,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+o3-mini,openai,aime-2025,74.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-235b-a22b,alibaba,live-code-bench,70.7,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-32b,alibaba,live-code-bench,65.7,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+o1,openai,live-code-bench,63.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+r1,deepseek,live-code-bench,64.3,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+grok-3,xai,live-code-bench,70.6,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemini-2-5-pro,google,live-code-bench,70.4,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+o3-mini,openai,live-code-bench,66.3,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-235b-a22b,alibaba,codeforces,2056.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-32b,alibaba,codeforces,1977.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+o1,openai,codeforces,1891.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+r1,deepseek,codeforces,2029.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemini-2-5-pro,google,codeforces,2001.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+o3-mini,openai,codeforces,2036.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-235b-a22b,alibaba,aider-polyglot,61.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-32b,alibaba,aider-polyglot,50.2,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+o1,openai,aider-polyglot,61.7,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+r1,deepseek,aider-polyglot,56.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+grok-3,xai,aider-polyglot,53.3,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemini-2-5-pro,google,aider-polyglot,72.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+o3-mini,openai,aider-polyglot,53.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-235b-a22b,alibaba,multi-if,71.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-32b,alibaba,multi-if,73.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+o1,openai,multi-if,48.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+r1,deepseek,multi-if,67.7,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemini-2-5-pro,google,multi-if,77.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+o3-mini,openai,multi-if,48.4,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-4b,alibaba,aime-2024,73.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemma-3-27b,google,aime-2024,32.6,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+v3,deepseek,aime-2024,39.2,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gpt-4o,openai,aime-2024,11.1,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-4b,alibaba,aime-2025,65.6,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemma-3-27b,google,aime-2025,24.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+v3,deepseek,aime-2025,28.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gpt-4o,openai,aime-2025,7.6,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-4b,alibaba,live-code-bench,54.2,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemma-3-27b,google,live-code-bench,26.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+v3,deepseek,live-code-bench,33.1,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gpt-4o,openai,live-code-bench,32.7,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-4b,alibaba,codeforces,1671.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemma-3-27b,google,codeforces,1063.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+v3,deepseek,codeforces,1134.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gpt-4o,openai,codeforces,864.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-4b,alibaba,gpqa-diamond,55.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemma-3-27b,google,gpqa-diamond,42.4,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+v3,deepseek,gpqa-diamond,59.1,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gpt-4o,openai,gpqa-diamond,46.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+qwen-3-4b,alibaba,multi-if,66.3,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemma-3-27b,google,multi-if,69.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+v3,deepseek,multi-if,55.6,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gpt-4o,openai,multi-if,65.6,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/

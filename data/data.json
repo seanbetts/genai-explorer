@@ -1797,6 +1797,42 @@
       "features": [],
       "models": [
         {
+          "id": "nova-premier-1-0",
+          "name": "Nova Premier",
+          "status": "primary",
+          "type": "Large Multimodal Model",
+          "category": "frontier",
+          "releaseDate": "2025-04-30",
+          "modelPage": "",
+          "releasePost": "https://aws.amazon.com/blogs/aws/amazon-nova-premier-our-most-capable-model-for-complex-tasks-and-teacher-for-model-distillation/",
+          "releaseVideo": "",
+          "systemCard": "https://assets.amazon.science/f6/c5/79dceb124593b3356566ad6723af/the-amazon-nova-premier-technical-report-and-model-card.pdf",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://aws.amazon.com/service-terms/",
+          "capabilities": {
+            "intelligence": 4,
+            "speed": 2,
+            "reasoning": 2
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "image",
+              "video"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 1000000,
+            "maxOutputTokens": 5000,
+            "knowledgeCutoff": "n/a",
+            "pricingInputPerM": 2.5,
+            "pricingCachedInputPerM": null,
+            "pricingOutputPerM": 12.5
+          }
+        },
+        {
           "id": "nova-pro-1-0",
           "name": "Nova Pro",
           "status": "primary",
@@ -1810,7 +1846,7 @@
           "licenceType": "Proprietary",
           "licenceLink": "https://aws.amazon.com/service-terms/",
           "capabilities": {
-            "intelligence": 4,
+            "intelligence": 3,
             "speed": 3,
             "reasoning": 2
           },
@@ -1846,7 +1882,7 @@
           "licenceType": "Proprietary",
           "licenceLink": "https://aws.amazon.com/service-terms/",
           "capabilities": {
-            "intelligence": 3,
+            "intelligence": 2,
             "speed": 4,
             "reasoning": 1
           },
@@ -2562,7 +2598,7 @@
           "releasePost": "https://mistral.ai/news/mistral-small-3-1",
           "releaseVideo": "",
           "systemCard": "",
-          "licenceType": "Apache 2",
+          "licenceType": "Apache 2.0",
           "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
           "huggingFace": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503",
           "capabilities": {
@@ -2890,6 +2926,257 @@
           "url": "https://platform.deepseek.com/"
         }
       ],
+      "subscriptions": []
+    },
+    {
+      "id": "alibaba",
+      "name": "Alibaba",
+      "logo": "/images/companies/alibaba/logo.png",
+      "website": "https://www.alibaba.com",
+      "description": "",
+      "lastUpdated": "2025-05-06",
+      "features": [],
+      "models": [
+        {
+          "id": "qwen-3-235b-a22b",
+          "name": "Qwen3-235B-A22B",
+          "status": "primary",
+          "type": "Large Hybrid Model",
+          "category": "open",
+          "releaseDate": "2025-04-29",
+          "modelPage": "https://chat.qwen.ai",
+          "releasePost": "https://qwenlm.github.io/blog/qwen3/",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "Apache 2.0",
+          "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
+          "huggingFace": "https://huggingface.co/Qwen/Qwen3-235B-A22B",
+          "capabilities": {
+            "intelligence": 4,
+            "speed": 2,
+            "reasoning": 3
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4000,
+            "knowledgeCutoff": "n/a",
+            "pricingInputPerM": 0.2,
+            "pricingOutputPerM": 0.6
+          }
+        },
+        {
+          "id": "qwen-3-32b",
+          "name": "Qwen-3 32B",
+          "status": "primary",
+          "type": "Large Hybrid Model",
+          "category": "open",
+          "releaseDate": "2025-04-29",
+          "modelPage": "https://chat.qwen.ai",
+          "releasePost": "https://qwenlm.github.io/blog/qwen3/",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "Apache 2.0",
+          "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
+          "huggingFace": "https://huggingface.co/Qwen/Qwen3-32B",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 3,
+            "reasoning": 3
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4000,
+            "knowledgeCutoff": "n/a",
+            "pricingInputPerM": 0.8,
+            "pricingOutputPerM": 0.8
+          }
+        },
+        {
+          "id": "qwen-3-14b",
+          "name": "Qwen-3 14B",
+          "status": "primary",
+          "type": "Large Hybrid Model",
+          "category": "open",
+          "releaseDate": "2025-04-29",
+          "modelPage": "https://chat.qwen.ai",
+          "releasePost": "https://qwenlm.github.io/blog/qwen3/",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "Apache 2.0",
+          "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
+          "huggingFace": "https://huggingface.co/Qwen/Qwen3-14B",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 4,
+            "reasoning": 2
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4000,
+            "knowledgeCutoff": "n/a",
+            "pricingInputPerM": 0.3,
+            "pricingOutputPerM": 0.3
+          }
+        },
+        {
+          "id": "qwen-3-8b",
+          "name": "Qwen-3 8B",
+          "status": "primary",
+          "type": "Large Hybrid Model",
+          "category": "open",
+          "releaseDate": "2025-04-29",
+          "modelPage": "https://chat.qwen.ai",
+          "releasePost": "https://qwenlm.github.io/blog/qwen3/",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "Apache 2.0",
+          "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
+          "huggingFace": "https://huggingface.co/Qwen/Qwen3-8B",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 4,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": 4000,
+            "knowledgeCutoff": "n/a",
+            "pricingInputPerM": 0.2,
+            "pricingOutputPerM": 0.2
+          }
+        },
+        {
+          "id": "qwen-3-4b",
+          "name": "Qwen-3 4B",
+          "status": "secondary",
+          "type": "Large Hybrid Model",
+          "category": "open",
+          "releaseDate": "2025-04-29",
+          "modelPage": "https://chat.qwen.ai",
+          "releasePost": "https://qwenlm.github.io/blog/qwen3/",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "Apache 2.0",
+          "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
+          "huggingFace": "https://huggingface.co/Qwen/Qwen3-4B",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 5,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 32000,
+            "maxOutputTokens": 4000,
+            "knowledgeCutoff": "n/a",
+            "pricingInputPerM": 0.1,
+            "pricingOutputPerM": 0.1
+          }
+        },
+        {
+          "id": "qwen-3-1-7b",
+          "name": "Qwen-3 1.7B",
+          "status": "secondary",
+          "type": "Large Hybrid Model",
+          "category": "open",
+          "releaseDate": "2025-04-29",
+          "modelPage": "https://chat.qwen.ai",
+          "releasePost": "https://qwenlm.github.io/blog/qwen3/",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "Apache 2.0",
+          "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
+          "huggingFace": "https://huggingface.co/Qwen/Qwen3-1.7B",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 5,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 32000,
+            "maxOutputTokens": 4000,
+            "knowledgeCutoff": "n/a",
+            "pricingInputPerM": 0.1,
+            "pricingOutputPerM": 0.1
+          }
+        },
+        {
+          "id": "qwen-3-0-6b",
+          "name": "Qwen-3 0.6B",
+          "status": "secondary",
+          "type": "Large Hybrid Model",
+          "category": "open",
+          "releaseDate": "2025-04-29",
+          "modelPage": "https://chat.qwen.ai",
+          "releasePost": "https://qwenlm.github.io/blog/qwen3/",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "Apache 2.0",
+          "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
+          "huggingFace": "https://huggingface.co/Qwen/Qwen3-0.6B",
+          "capabilities": {
+            "intelligence": 2,
+            "speed": 5,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 32000,
+            "maxOutputTokens": 4000,
+            "knowledgeCutoff": "n/a",
+            "pricingInputPerM": 0.1,
+            "pricingOutputPerM": 0.1
+          }
+        }
+      ],
+      "products": [],
       "subscriptions": []
     },
     {
