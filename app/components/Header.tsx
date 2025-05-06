@@ -11,12 +11,14 @@ interface HeaderProps {
   currentView: string;
   goToHome: () => void;
   handleBack: () => void;
+  lastUpdated?: string; // Optional date string for data last updated
 }
 
 const Header: React.FC<HeaderProps> = ({ 
   currentView, 
   goToHome,
-  handleBack 
+  handleBack,
+  lastUpdated
 }) => {
   return (
     <header className={`${brandConfig.name === 'OMG' ? 'bg-gray-200' : 'bg-gray-800'} shadow-md sticky top-0 z-30 border-b ${brandConfig.name === 'OMG' ? 'border-gray-300' : 'border-gray-700'}`}>
@@ -106,10 +108,10 @@ const Header: React.FC<HeaderProps> = ({
           </div>
           
           {/* Data last updated text */}
-          {currentView === 'home' && (
+          {currentView === 'home' && lastUpdated && (
             <div className={`text-[10px] ${brandConfig.name === 'OMG' ? 'font-sans text-gray-600' : 'font-mono text-gray-400'} mt-2 text-right`}>
               Data last updated: <span style={{ color: brandConfig.name === 'OMG' ? brandConfig.primaryColor : brandConfig.secondaryColor }} className="font-semibold">{
-                new Date().toLocaleDateString('en-GB', { 
+                new Date(lastUpdated).toLocaleDateString('en-GB', { 
                   day: 'numeric', 
                   month: 'long', 
                   year: 'numeric' 

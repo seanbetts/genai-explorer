@@ -28,6 +28,22 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [benchmarkLastUpdated, setBenchmarkLastUpdated] = useState<Date | null>(null);
+  
+  // Find the most recent lastUpdated date from all companies
+  const mostRecentUpdateDate = useMemo(() => {
+    if (!data.companies || data.companies.length === 0) return null;
+    
+    return data.companies.reduce((latestDate, company) => {
+      if (!company.lastUpdated) return latestDate;
+      
+      const companyDate = new Date(company.lastUpdated);
+      return !latestDate || companyDate > latestDate ? companyDate : latestDate;
+    }, null as Date | null);
+  }, [data.companies]);
+  
+  const lastUpdatedString = useMemo(() => 
+    mostRecentUpdateDate ? mostRecentUpdateDate.toISOString().split('T')[0] : undefined
+  , [mostRecentUpdateDate]);
 
   // Make explorer data globally available for other components
   useEffect(() => {
@@ -241,6 +257,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
         currentView={currentView} 
         goToHome={goToHome} 
         handleBack={handleBack}
+        lastUpdated={lastUpdatedString}
       />
 
       {/* Features Navigation - visible on all views - sticky */}
