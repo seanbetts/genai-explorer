@@ -216,14 +216,6 @@
     "benchmark_paper": "https://artofproblemsolving.com/wiki/index.php/AIME_Problems_and_Solutions"
   },
   {
-    "benchmark_id": "frontier-math",
-    "benchmark_name": "FrontierMath",
-    "benchmark_category": "maths",
-    "featured_benchmark": false,
-    "benchmark_description": "Presents hundreds of unpublished, expert-level mathematics problems that specialists spend days solving",
-    "benchmark_paper": "https://epoch.ai/frontiermath/the-benchmark"
-  },
-  {
     "benchmark_id": "gsm8k",
     "benchmark_name": "GSM8K",
     "benchmark_category": "maths",
@@ -366,14 +358,6 @@
     "featured_benchmark": true,
     "benchmark_description": "A multiple-choice text benchmark for LLMs where individuals with unspecialized (high school) knowledge outperform SOTA models.",
     "benchmark_paper": "https://simple-bench.com"
-  },
-  {
-    "benchmark_id": "paper-bench",
-    "benchmark_name": "PaperBench",
-    "benchmark_category": "science",
-    "featured_benchmark": false,
-    "benchmark_description": "A benchmark evaluating the ability of AI agents to replicate state-of-the-art AI research",
-    "benchmark_paper": "https://openai.com/index/paperbench/"
   },
   {
     "benchmark_id": "ai2d",

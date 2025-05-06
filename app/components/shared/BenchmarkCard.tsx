@@ -56,15 +56,17 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
             }}
           >
             {benchmark.benchmark_name}
-            {benchmark.featured_benchmark && (
-              <span className="ml-2 text-xs px-1.5 py-0.5 rounded" style={{ 
+          </h3>
+          {benchmark.featured_benchmark && (
+            <div className="mt-1">
+              <span className="text-xs px-1.5 py-0.5 rounded inline-block" style={{ 
                 backgroundColor: brandConfig.secondaryColor,
                 color: 'white'
               }}>
                 Featured
               </span>
-            )}
-          </h3>
+            </div>
+          )}
         </div>
         
         <div className="flex-grow text-sm px-2 text-center" style={{ 

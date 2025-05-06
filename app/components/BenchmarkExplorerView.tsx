@@ -98,8 +98,8 @@ const BenchmarkExplorerView: React.FC<BenchmarkExplorerViewProps> = ({ onBenchma
       'coding': 'bi-code-square',
       'factuality': 'bi-check-circle',
       'maths': 'bi-calculator',
-      'multimodal': 'bi-image-text',
-      'science': 'bi-flask',
+      'multimodal': 'bi-camera-video', // Updated icon for multimodal
+      'science': 'bi-journal-richtext', // Updated icon for scientific knowledge
       'agentic': 'bi-robot',
       'research': 'bi-journal-text'
     };
