@@ -22,45 +22,49 @@ export const benchmarkCategoryConfig: BenchmarkCategoryConfigEntry[] = [
   {
     key: 'reasoning',
     title: 'Reasoning & Logic',
-    layout: 'half-width',
-    columns: 3,
-    rowType: 'double',
+    layout: 'full-width',
+    columns: 4,
+    rowType: 'single',
     description: 'Benchmark tests that measure logical reasoning capabilities.'
   },
   {
     key: 'coding',
     title: 'Coding & Programming',
-    layout: 'half-width',
-    columns: 3,
-    rowType: 'double',
+    layout: 'full-width',
+    columns: 4,
+    rowType: 'single',
     description: 'Evaluation of code generation and software engineering capabilities.'
   },
   {
     key: 'factuality',
     title: 'Factuality & Knowledge',
-    layout: 'quarter-width',
-    rowType: 'quad',
+    layout: 'full-width',
+    columns: 4,
+    rowType: 'single',
     description: 'Tests that measure models\' factual accuracy and knowledge retrieval.'
   },
   {
     key: 'maths',
     title: 'Mathematics',
-    layout: 'quarter-width',
-    rowType: 'quad',
+    layout: 'full-width',
+    columns: 4,
+    rowType: 'single',
     description: 'Benchmarks focused on mathematical problem-solving abilities.'
   },
   {
     key: 'multimodal',
     title: 'Multimodal',
-    layout: 'quarter-width',
-    rowType: 'quad',
+    layout: 'full-width',
+    columns: 4,
+    rowType: 'single',
     description: 'Tests for models that process multiple modalities like vision and text.'
   },
   {
     key: 'science',
     title: 'Scientific Knowledge',
-    layout: 'quarter-width',
-    rowType: 'quad',
+    layout: 'full-width',
+    columns: 4,
+    rowType: 'single',
     description: 'Benchmarks focused on scientific domain knowledge and problem-solving.'
   },
   {

@@ -62,10 +62,8 @@ const BenchmarkExplorerView: React.FC<BenchmarkExplorerViewProps> = ({ onBenchma
     }
   }, [dataLoaded]);
   
-  // Extract rows of categories from config
-  const singleRow = benchmarkCategoryConfig.filter(c => c.rowType === 'single');
-  const doubleRow = benchmarkCategoryConfig.filter(c => c.rowType === 'double');
-  const quadRow = benchmarkCategoryConfig.filter(c => c.rowType === 'quad');
+  // All categories in a single array
+  const allCategories = benchmarkCategoryConfig;
   
   // Ref for the two-column row
   const twoColRef = useRef<HTMLDivElement>(null);
@@ -113,8 +111,8 @@ const BenchmarkExplorerView: React.FC<BenchmarkExplorerViewProps> = ({ onBenchma
   if (!isLoaded) {
     return (
       <div className={`${containerStyles.explorerContainer} animate-pulse`}>  
-        {/* Single-row skeletons */}
-        {singleRow.map(entry => (
+        {/* Category skeletons */}
+        {allCategories.map(entry => (
           <div key={`skeleton-${entry.key}`} className="mb-6">
             <div className="h-6 rounded w-1/4 mb-4" style={{ backgroundColor: brandConfig.name === 'OMG' ? '#d1d5db' : '#374151' }}></div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
@@ -124,32 +122,6 @@ const BenchmarkExplorerView: React.FC<BenchmarkExplorerViewProps> = ({ onBenchma
             </div>
           </div>
         ))}
-        {/* Two-column row skeletons */}
-        <div className={`${containerStyles.explorerRowTwo} mb-6`}>  
-          {doubleRow.map(entry => (
-            <div key={`skeleton-double-${entry.key}`} className="mb-6 flex flex-col">
-              <div className="h-6 rounded w-1/4 mb-4" style={{ backgroundColor: brandConfig.name === 'OMG' ? '#d1d5db' : '#374151' }}></div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {Array(3).fill(0).map((_, i) => (
-                  <div key={i} className="h-24 rounded" style={{ backgroundColor: brandConfig.name === 'OMG' ? '#d1d5db' : '#374151' }}></div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-        {/* Four-column row skeletons */}
-        <div className={containerStyles.explorerRowFour}>
-          {quadRow.map(entry => (
-            <div key={`skeleton-quad-${entry.key}`} className="mb-6 flex flex-col">
-              <div className="h-6 rounded w-1/4 mb-4" style={{ backgroundColor: brandConfig.name === 'OMG' ? '#d1d5db' : '#374151' }}></div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                {Array(4).fill(0).map((_, i) => (
-                  <div key={i} className="h-24 rounded" style={{ backgroundColor: brandConfig.name === 'OMG' ? '#d1d5db' : '#374151' }}></div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     );
   }
@@ -157,11 +129,11 @@ const BenchmarkExplorerView: React.FC<BenchmarkExplorerViewProps> = ({ onBenchma
   // Main content after load
   return (
     <div className={`${containerStyles.explorerContainer} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
-      {/* Single-row categories */}
-      {singleRow.map((entry: BenchmarkCategoryConfigEntry) => (
+      {/* All categories in a vertical list */}
+      {allCategories.map((entry: BenchmarkCategoryConfigEntry, index) => (
         <div
           key={entry.key}
-          className={`transform transition-all duration-500 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+          className={`transform transition-all duration-500 mb-8 delay-${Math.min(index * 50, 300)} ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
         >
           <BenchmarkCategorySection
             category={entry.key}
@@ -177,49 +149,6 @@ const BenchmarkExplorerView: React.FC<BenchmarkExplorerViewProps> = ({ onBenchma
           />
         </div>
       ))}
-      
-      {/* Two-column row */}
-      <div
-        ref={twoColRef}
-        className={`${containerStyles.explorerRowTwo} transform transition-all duration-500 delay-100 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-      >
-        {doubleRow.map(entry => (
-          <BenchmarkCategorySection
-            key={entry.key}
-            category={entry.key}
-            title={entry.title}
-            description={entry.description}
-            benchmarks={categorizedBenchmarks[entry.key] || []}
-            scores={benchmarkScores}
-            styleName={`${getCategoryStyle(entry.key)} ${getCategoryShadow(entry.key)} ${containerStyles.categorySectionHover}`}
-            onBenchmarkSelect={onBenchmarkSelect}
-            layout={entry.layout}
-            columns={entry.columns}
-            icon={getCategoryIcon(entry.key)}
-          />
-        ))}
-      </div>
-      
-      {/* Four-column row */}
-      <div
-        className={`${containerStyles.explorerRowFour} transform transition-all duration-500 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-      >
-        {quadRow.map(entry => (
-          <BenchmarkCategorySection
-            key={entry.key}
-            category={entry.key}
-            title={entry.title}
-            description={entry.description}
-            benchmarks={categorizedBenchmarks[entry.key] || []}
-            scores={benchmarkScores}
-            styleName={`${getCategoryStyle(entry.key)} ${getCategoryShadow(entry.key)} ${containerStyles.categorySectionHover}`}
-            onBenchmarkSelect={onBenchmarkSelect}
-            layout={entry.layout}
-            columns={entry.columns}
-            icon={getCategoryIcon(entry.key)}
-          />
-        ))}
-      </div>
     </div>
   );
 };

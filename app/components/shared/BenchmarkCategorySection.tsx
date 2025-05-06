@@ -32,18 +32,9 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
   columns = 4,
   icon = '',
 }) => {
-  // Get appropriate grid class based on layout and columns prop
+  // All benchmark categories use the same full-width grid layout
   const getGridClass = () => {
-    if (layout === 'full-width' && columns === 5) {
-      // Custom grid with 5 columns for featured benchmarks
-      return 'grid items-stretch grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5';
-    } else if (layout === 'full-width') {
-      return containerStyles.companyGridFull;
-    } else if (layout === 'half-width') {
-      return containerStyles.companyGridHalf;
-    } else {
-      return containerStyles.companyGridQuarter;
-    }
+    return 'grid items-stretch grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5';
   };
 
   // Sort benchmarks to show featured ones first
