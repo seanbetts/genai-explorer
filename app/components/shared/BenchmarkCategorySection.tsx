@@ -49,10 +49,23 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
   
   // Render content with consistent layout for all categories
   const renderContent = () => {
-    // Calculate scores count for each benchmark
-    const benchmarkScoreCounts = scores.reduce((counts, score) => {
+    // Calculate unique model count for each benchmark
+    const benchmarkModelCounts = scores.reduce((counts, score) => {
       const id = score.benchmark_id;
-      counts[id] = (counts[id] || 0) + 1;
+      
+      if (!counts[id]) {
+        counts[id] = new Set();
+      }
+      
+      // Add this model_id to the set of unique models for this benchmark
+      counts[id].add(score.model_id);
+      
+      return counts;
+    }, {} as Record<string, Set<string>>);
+    
+    // Convert sets to counts
+    const benchmarkScoreCounts = Object.entries(benchmarkModelCounts).reduce((counts, [benchmarkId, modelSet]) => {
+      counts[benchmarkId] = modelSet.size;
       return counts;
     }, {} as Record<string, number>);
     

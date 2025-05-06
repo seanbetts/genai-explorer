@@ -79,7 +79,7 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
           <div className="text-xs" style={{ 
             color: brandConfig.name === 'OMG' ? 'rgb(107, 114, 128)' : 'rgb(156, 163, 175)' 
           }}>
-            {scoreCount} model scores
+            {scoreCount} model{scoreCount !== 1 ? 's' : ''} ranked
           </div>
           
           {benchmark.benchmark_paper && (
