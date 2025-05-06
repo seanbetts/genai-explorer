@@ -22,8 +22,9 @@ import brandConfig from '../config/brand';
 
 interface AIExplorerProps {
   initialData: ExplorerData;
+  benchmarkPageContent?: React.ReactNode;
 }
-const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
+const AIExplorer: React.FC<AIExplorerProps> = ({ initialData, benchmarkPageContent }) => {
   const data: ExplorerData = initialData;
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -82,9 +83,11 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
       view = 'benchmark';
     } else if (isComparePage || compareParam) {
       view = 'compare';
+    } else if (benchmarkPageContent) {
+      view = 'benchmarks';
     }
     setCurrentView(view);
-  }, [selectedCompany, benchmarkId, isComparePage, compareParam]);
+  }, [selectedCompany, benchmarkId, isComparePage, compareParam, benchmarkPageContent]);
   
   // Convert URL tab parameter to category key for highlighting
   const getActiveCategoryFromTab = (tab: string | null): string => {
@@ -309,6 +312,58 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
               <span>Model Explorer</span>
             </Link>
             
+            {/* Benchmark Explorer Link */}
+            <Link 
+              href="/benchmarks" 
+              className="transition-colors flex items-center"
+              style={{ 
+                color: currentView === 'benchmarks'
+                  ? brandConfig.primaryColor
+                  : brandConfig.name === 'OMG' ? '#374151' : '#d1d5db',
+              }}
+              onMouseEnter={(e) => {
+                // Always use secondary color on hover for both brands
+                e.currentTarget.style.color = brandConfig.secondaryColor;
+              }}
+              onMouseLeave={(e) => {
+                if (currentView === 'benchmarks') {
+                  // If active, return to primary
+                  e.currentTarget.style.color = brandConfig.primaryColor;
+                } else {
+                  // If not active, return to default text color for the brand
+                  e.currentTarget.style.color = brandConfig.name === 'OMG' ? '#374151' : '#d1d5db';
+                }
+              }}
+            >
+              <i className="bi bi-trophy mr-1.5" style={{ 
+                color: currentView === 'benchmarks' ? brandConfig.secondaryColor : brandConfig.primaryColor 
+              }} 
+              ref={(el) => {
+                if (el) {
+                  // Remove any existing listeners first to prevent duplicates
+                  el.parentElement?.removeEventListener('mouseenter', () => {});
+                  el.parentElement?.removeEventListener('mouseleave', () => {});
+                  
+                  // Add new listeners
+                  const mouseEnterHandler = () => {
+                    el.style.color = brandConfig.secondaryColor;
+                  };
+                  
+                  const mouseLeaveHandler = () => {
+                    if (currentView === 'benchmarks') {
+                      el.style.color = brandConfig.secondaryColor;
+                    } else {
+                      el.style.color = brandConfig.primaryColor;
+                    }
+                  };
+                  
+                  el.parentElement?.addEventListener('mouseenter', mouseEnterHandler);
+                  el.parentElement?.addEventListener('mouseleave', mouseLeaveHandler);
+                }
+              }}></i>
+              <span>Benchmark Explorer</span>
+            </Link>
+            
             {/* Temporarily hidden Model Comparer */}
             {false && (
               <a 
@@ -387,6 +442,13 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
               onLastUpdatedChange={handleBenchmarkLastUpdatedChange}
             />
           </Suspense>
+        )}
+        
+        {/* Benchmark Explorer page content */}
+        {currentView === 'benchmarks' && benchmarkPageContent && (
+          <div className="container mx-auto px-5">
+            {benchmarkPageContent}
+          </div>
         )}
         
         {/* Temporarily hidden Model Comparer */}
