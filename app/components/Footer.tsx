@@ -32,7 +32,7 @@ const Footer: React.FC<FooterProps> = ({
       <div className={containerStyles.footerContent}>
         <div className="flex flex-col md:flex-row">
           {/* Left half - navigation lists equally spaced */}
-          <div className="md:w-2/5 flex flex-col md:flex-row md:space-x-20 mb-6 md:mb-0 md:pl-8">
+          <div className="md:w-3/6 flex flex-col md:flex-row md:space-x-22 mb-6 md:mb-0 md:pl-8">
             {/* Features */}
             <div className="mb-4 md:mb-0 md:w-1/3">
               <h3 className="text-fuchsia-500 text-sm font-semibold mb-2">Features</h3>
