@@ -205,6 +205,8 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
               sizes={getResponsiveSizes(1200)}
               quality={imageQuality.standard}
               priority={true} // Always prioritize the main image
+              placeholder="blur"
+              blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect width='100%25' height='100%25' fill='%23f3f4f6'/%3E%3C/svg%3E"
               onError={() => {
                 // Mark as loaded even on error - false means "not loading"
                 setLoadingImages(prev => ({...prev, [currentImageIndex]: false}));
@@ -294,7 +296,11 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                   fill
                   style={{ objectFit: "cover" }}
                   quality={imageQuality.thumbnail}
+                  loading={idx < 5 ? 'eager' : 'lazy'} // Lazy load non-critical thumbnails
                   priority={idx < 5 || idx === currentImageIndex} // Prioritize loading active and first few thumbnails
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect width='100%25' height='100%25' fill='%23f3f4f6'/%3E%3C/svg%3E"
+                  sizes="64px" // Thumbnails are 64px wide
                   onError={() => {
                     // Mark this thumbnail as loaded even on error
                     setLoadedThumbnails(prev => ({...prev, [idx]: true}));
