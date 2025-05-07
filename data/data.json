@@ -1397,7 +1397,7 @@
         },
         {
           "id": "gemini-2-0",
-          "name": "Gemini 2.0",
+          "name": "Gemini-2.0",
           "status": "archived",
           "type": "Large Language Model",
           "category": "frontier",
@@ -1413,7 +1413,7 @@
         },
         {
           "id": "gemini-2-0-flash-thinking",
-          "name": "Gemini 2.0 Flash Thinking",
+          "name": "Gemini-2.0 Flash Thinking",
           "status": "archived",
           "type": "Large Language Model",
           "category": "frontier",
@@ -1429,7 +1429,7 @@
         },
         {
           "id": "gemini-1-5-pro",
-          "name": "Gemini 1.5 Pro",
+          "name": "Gemini-1.5 Pro",
           "status": "archived",
           "type": "Large Language Model",
           "category": "frontier",
@@ -1445,7 +1445,7 @@
         },
         {
           "id": "gemini-1-5-flash",
-          "name": "Gemini 1.5 Flash",
+          "name": "Gemini-1.5 Flash",
           "status": "archived",
           "type": "Large Language Model",
           "category": "frontier",
