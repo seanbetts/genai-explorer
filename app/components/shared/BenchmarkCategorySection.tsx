@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { Benchmark, BenchmarkCategory, BenchmarkScore } from '../types';
+import React, { useEffect, useState } from 'react';
+import { Benchmark, BenchmarkCategory, BenchmarkScore, Company, Model, ExplorerData } from '../types';
 import BenchmarkCard from './BenchmarkCard';
 import { textStyles } from '../utils/theme';
 import { containerStyles, iconStyles } from '../utils/layout';
@@ -32,6 +32,42 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
   columns = 4,
   icon = '',
 }) => {
+  // State to hold the model and company mappings
+  const [modelMap, setModelMap] = useState<Record<string, string>>({});
+  const [companyMap, setCompanyMap] = useState<Record<string, string>>({});
+  
+  // Load model and company data from the global explorer data
+  useEffect(() => {
+    const loadMappings = () => {
+      if (typeof window === 'undefined') return;
+      
+      // Access the global explorer data that was set in the AIExplorer component
+      const explorerData = (window as any).__EXPLORER_DATA__ as ExplorerData | undefined;
+      
+      if (!explorerData) return;
+      
+      // Create mappings from IDs to names
+      const newModelMap: Record<string, string> = {};
+      const newCompanyMap: Record<string, string> = {};
+      
+      // Process all companies and their models
+      explorerData.companies.forEach(company => {
+        // Add company mapping
+        newCompanyMap[company.id] = company.name;
+        
+        // Add model mappings
+        company.models.forEach(model => {
+          newModelMap[model.id] = model.name;
+        });
+      });
+      
+      // Update state with the mappings
+      setModelMap(newModelMap);
+      setCompanyMap(newCompanyMap);
+    };
+    
+    loadMappings();
+  }, []);
   // All benchmark categories use the same full-width grid layout
   const getGridClass = () => {
     return 'grid items-stretch grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5';
@@ -69,6 +105,33 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
       return counts;
     }, {} as Record<string, number>);
     
+    // Find top model for each benchmark
+    const topModels = benchmarks.reduce((result, benchmark) => {
+      // Get all scores for this benchmark
+      const benchmarkScores = scores.filter(score => score.benchmark_id === benchmark.benchmark_id);
+      
+      if (benchmarkScores.length === 0) {
+        return result;
+      }
+      
+      // Sort by score (highest first)
+      const sortedScores = [...benchmarkScores].sort((a, b) => b.score - a.score);
+      const topScore = sortedScores[0];
+      
+      // Get model and company names from our maps, or use IDs as fallbacks
+      const modelName = modelMap[topScore.model_id] || topScore.model_id;
+      const companyName = companyMap[topScore.company_id] || topScore.company_id;
+      
+      // Store top model information
+      result[benchmark.benchmark_id] = {
+        name: modelName,
+        score: topScore.score,
+        company: companyName
+      };
+      
+      return result;
+    }, {} as Record<string, { name: string; score: number; company: string }>);
+    
     return (
       <>
         <div className="mb-4">
@@ -98,6 +161,7 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
                 benchmark={benchmark}
                 scoreCount={benchmarkScoreCounts[benchmark.benchmark_id] || 0}
                 onClick={() => onBenchmarkSelect(benchmark.benchmark_id)}
+                topModel={topModels[benchmark.benchmark_id]}
               />
             ))}
           </div>

@@ -9,12 +9,18 @@ interface BenchmarkCardProps {
   benchmark: Benchmark;
   scoreCount: number;
   onClick: () => void;
+  topModel?: {
+    name: string;
+    score: number;
+    company: string;
+  };
 }
 
 const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
   benchmark,
   scoreCount,
   onClick,
+  topModel,
 }) => {
   // State for hover
   const [isHovered, setIsHovered] = useState(false);
@@ -81,6 +87,38 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
         }}>
           {benchmark.benchmark_description || "No description available."}
         </div>
+        
+        {topModel && (
+          <div className="mt-3 mb-2 px-3 py-2 mx-2 rounded-md" style={{
+            backgroundColor: brandConfig.name === 'OMG' ? '#f3f4f6' : '#f1f5f9',
+            borderLeft: `3px solid ${brandConfig.primaryColor}`
+          }}>
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="text-xs mb-1" style={{ color: 'rgb(75, 85, 99)' }}>
+                  <span className="font-medium">{topModel.company}</span>
+                </div>
+                <div className="flex items-center">
+                  <i className="bi bi-trophy-fill mr-2 text-sm" style={{ color: brandConfig.primaryColor }}></i>
+                  <span className="text-xs font-medium" style={{ color: 'rgb(31, 41, 55)' }}>
+                    {topModel.name}
+                  </span>
+                </div>
+              </div>
+              <div className="self-center">
+                <div 
+                  className="text-xs font-bold px-2 py-1 rounded" 
+                  style={{ 
+                    backgroundColor: brandConfig.primaryColor,
+                    color: 'white'
+                  }}
+                >
+                  {topModel.score.toFixed(1)}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
         
         <div className="mt-3 flex justify-between items-center px-2">
           <div className="text-xs font-medium" style={{ 
