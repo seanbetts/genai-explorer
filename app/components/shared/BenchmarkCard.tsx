@@ -55,7 +55,7 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
       aria-label={`${benchmark.benchmark_name} - Click to view details`}
       title={`${benchmark.benchmark_name} - Click to view details`}
     >
-      <div className="flex flex-col h-full relative">
+      <div className="flex flex-col h-full w-full relative">
         {benchmark.featured_benchmark && (
           <i 
             className="bi bi-star-fill text-3xl absolute"
@@ -69,7 +69,7 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
             title="Featured Benchmark"
           ></i>
         )}
-        <div className="text-center mb-2">
+        <div className="text-center mb-2 w-full">
           <h3 
             className="font-semibold text-lg mb-1"
             style={{ 
@@ -82,30 +82,34 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
           </h3>
         </div>
         
-        <div className="flex-grow text-sm px-2 text-center" style={{ 
-          color: brandConfig.name === 'OMG' ? 'rgb(75, 85, 99)' : 'rgb(17, 24, 39)' // Updated to near-black for personal version
+        <div className="flex-grow text-sm px-2 text-center w-full" style={{ 
+          color: brandConfig.name === 'OMG' ? 'rgb(75, 85, 99)' : 'rgb(17, 24, 39)', // Updated to near-black for personal version
+          minHeight: '2.5rem' // Minimum height for description area
         }}>
           {benchmark.benchmark_description || "No description available."}
         </div>
         
         {topModel && (
-          <div className="mt-3 mb-2 px-3 py-2 mx-2 rounded-md" style={{
+          <div className="mt-3 mb-2 px-3 py-2 mx-2 rounded-md w-auto" style={{
             backgroundColor: brandConfig.name === 'OMG' ? '#f3f4f6' : '#f1f5f9',
             borderLeft: `3px solid ${brandConfig.primaryColor}`
           }}>
-            <div className="flex items-center justify-between">
-              <div>
+            <div className="flex items-center justify-between w-full">
+              <div className="flex-grow">
                 <div className="text-xs mb-1" style={{ color: 'rgb(75, 85, 99)' }}>
                   <span className="font-medium">{topModel.company}</span>
                 </div>
                 <div className="flex items-center">
                   <i className="bi bi-trophy-fill mr-2 text-sm" style={{ color: brandConfig.primaryColor }}></i>
-                  <span className="text-xs font-medium" style={{ color: 'rgb(31, 41, 55)' }}>
+                  <span className="text-xs font-medium truncate" style={{ 
+                    color: 'rgb(31, 41, 55)',
+                    maxWidth: '140px'
+                  }}>
                     {topModel.name}
                   </span>
                 </div>
               </div>
-              <div className="self-center">
+              <div className="self-center ml-2 flex-shrink-0">
                 <div 
                   className="text-xs font-bold px-2 py-1 rounded" 
                   style={{ 
@@ -120,7 +124,7 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
           </div>
         )}
         
-        <div className="mt-3 flex justify-between items-center px-2">
+        <div className="mt-3 flex justify-between items-center px-2 w-full">
           <div className="text-xs font-medium" style={{ 
             color: brandConfig.name === 'OMG' ? 'rgb(107, 114, 128)' : 'rgb(75, 85, 99)',
             display: 'flex',
