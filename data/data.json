@@ -3621,6 +3621,108 @@
           }
         },
         {
+          "id": "phi-4-reasoning-plus",
+          "name": "Phi-4 Reasoning Plus",
+          "status": "primary",
+          "type": "Large Reasoning Model",
+          "category": "open",
+          "releaseDate": "2025-04-30",
+          "modelPage": "",
+          "releasePost": "https://azure.microsoft.com/en-us/blog/one-year-of-phi-small-language-models-making-big-leaps-in-ai/",
+          "releaseVideo": "",
+          "systemCard": "https://arxiv.org/pdf/2504.21318",
+          "licenceType": "MIT",
+          "licenceLink": "https://choosealicense.com/licenses/mit/",
+          "huggingFace": "https://huggingface.co/microsoft/Phi-4-reasoning-plus",
+          "capabilities": {
+            "intelligence": 4,
+            "speed": 3,
+            "reasoning": 4
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 32768,
+            "maxOutputTokens": 4096,
+            "knowledgeCutoff": "December 2025",
+            "pricingInputPerM": 0.3,
+            "pricingOutputPerM": 0.3
+          }
+        },
+        {
+          "id": "phi-4-reasoning",
+          "name": "Phi-4 Reasoning",
+          "status": "primary",
+          "type": "Large Reasoning Model",
+          "category": "open",
+          "releaseDate": "2025-04-30",
+          "modelPage": "",
+          "releasePost": "https://azure.microsoft.com/en-us/blog/one-year-of-phi-small-language-models-making-big-leaps-in-ai/",
+          "releaseVideo": "",
+          "systemCard": "https://arxiv.org/pdf/2504.21318",
+          "licenceType": "MIT",
+          "licenceLink": "https://choosealicense.com/licenses/mit/",
+          "huggingFace": "https://huggingface.co/microsoft/Phi-4-reasoning",
+          "capabilities": {
+            "intelligence": 4,
+            "speed": 4,
+            "reasoning": 3
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 32768,
+            "maxOutputTokens": 4096,
+            "knowledgeCutoff": "December 2025",
+            "pricingInputPerM": 0.3,
+            "pricingOutputPerM": 0.3
+          }
+        },
+        {
+          "id": "phi-4-mini-reasoning",
+          "name": "Phi-4 Mini Reasoning",
+          "status": "secondary",
+          "type": "Large Reasoning Model",
+          "category": "open",
+          "releaseDate": "2025-04-30",
+          "modelPage": "",
+          "releasePost": "https://azure.microsoft.com/en-us/blog/one-year-of-phi-small-language-models-making-big-leaps-in-ai/",
+          "releaseVideo": "",
+          "systemCard": "https://arxiv.org/pdf/2504.21318",
+          "licenceType": "MIT",
+          "licenceLink": "https://choosealicense.com/licenses/mit/",
+          "huggingFace": "https://huggingface.co/microsoft/Phi-4-mini-reasoning",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 5,
+            "reasoning": 2
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 32768,
+            "maxOutputTokens": 4096,
+            "knowledgeCutoff": "December 2025",
+            "pricingInputPerM": 0.1,
+            "pricingOutputPerM": 0.1
+          }
+        },
+        {
           "id": "phi-4-mm",
           "name": "Phi-4 Multimodal",
           "status": "primary",
@@ -3694,7 +3796,7 @@
         {
           "id": "phi-4-mini",
           "name": "Phi-4 Mini",
-          "status": "primary",
+          "status": "secondary",
           "type": "Large Language Model",
           "category": "open",
           "releaseDate": "2024-12-13",
