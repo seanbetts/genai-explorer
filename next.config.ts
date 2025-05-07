@@ -6,10 +6,12 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    // Required for static export with { output: 'export' }
+    // IMPORTANT: Must use unoptimized: true when output: 'export' is set
     unoptimized: true,
-    // Optimize images to reduce bundle size
+    // These formats only apply when not using unoptimized: true
     formats: ['image/webp', 'image/avif'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
     minimumCacheTTL: 31536000, // 1 year in seconds
     // Tightened: no external hosts allowed by default; add patterns here as needed
     remotePatterns: [],

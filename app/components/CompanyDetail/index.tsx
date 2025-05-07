@@ -250,13 +250,26 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
             title="Visit website"
           >
             <Image 
-              src={company.logo && company.logo.startsWith("/") ? company.logo : "/images/companies/placeholder.png"} 
+              src={company.logo && company.logo.startsWith("/") 
+                ? company.logo.endsWith('.webp') 
+                  ? company.logo 
+                  : company.logo.replace(/\.(png|jpg|jpeg)$/, '.webp')
+                : "/images/companies/placeholder.webp"} 
               alt={`${company.name} logo`}
               width={120}
               height={60}
               quality={75}
               className={containerStyles.companyLogoImage}
               style={{ objectFit: "contain", maxWidth: "90%", height: "auto", maxHeight: "100%" }}
+              onError={(e) => {
+                console.error(`Error loading company logo:`, company.logo);
+                // Fallback to original format if WebP fails
+                if (e.currentTarget.src.endsWith('.webp') && company.logo) {
+                  e.currentTarget.src = company.logo;
+                } else {
+                  e.currentTarget.src = "/images/companies/placeholder.svg";
+                }
+              }}
             />
           </a>
           <div className={containerStyles.companyDescriptionContainer}>

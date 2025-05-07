@@ -34,10 +34,14 @@ const Header: React.FC<HeaderProps> = ({
               aria-label="Home"
             >
               <Image 
-                src="/images/bulb.png" 
+                src="/images/bulb.webp" 
                 alt="Bulb" 
                 width={48}
                 height={48}
+                onError={(e) => {
+                  console.error("Error loading bulb image");
+                  e.currentTarget.src = "/images/bulb.png";
+                }}
               />
             </button>
           )}
@@ -79,6 +83,13 @@ const Header: React.FC<HeaderProps> = ({
             height={56}
             priority
             className="h-14 w-auto"
+            onError={(e) => {
+              console.error("Error loading brand logo:", brandConfig.logoPath);
+              // If webp fails, try to fall back to original png
+              if (brandConfig.logoPath.endsWith('.webp')) {
+                e.currentTarget.src = brandConfig.logoPath.replace('.webp', '.png');
+              }
+            }}
           />
         </button>
         

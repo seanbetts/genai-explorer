@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Company, Model } from '../types';
 import { textStyles } from '../utils/theme';
 import { containerStyles } from '../utils/layout';
+import { getValidImageUrl } from '../utils/imageUtils';
 import brandConfig from '../../config/brand';
 
 interface CompanyCardProps {
@@ -104,12 +105,21 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
     >
       <div className={showLogoOnly ? containerStyles.companyLogoLarge : containerStyles.companyLogo}>
         <Image 
-          src={company.logo && company.logo.startsWith("/") ? company.logo : "/images/companies/placeholder.png"} 
+          src={getValidImageUrl(company.logo && company.logo.startsWith("/") ? company.logo : "/images/companies/placeholder.png")}
           alt={`${company.name} logo`}
           className={containerStyles.companyLogoImage}
           width={imageSize.width}
           height={imageSize.height}
           style={standardizedLogoStyle}
+          onError={(e) => {
+            console.error(`Error loading logo for ${company.name}:`, company.logo);
+            // Fallback to original format if WebP fails
+            if (e.currentTarget.src.endsWith('.webp') && company.logo) {
+              e.currentTarget.src = company.logo;
+            } else {
+              e.currentTarget.src = "/images/companies/placeholder.svg";
+            }
+          }}
         />
       </div>
       {!showLogoOnly && (

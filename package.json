@@ -13,7 +13,9 @@
     "build:personal": "NODE_ENV=production NEXT_PUBLIC_BRAND=personal next build",
     "build:omg": "NODE_ENV=production NEXT_PUBLIC_BRAND=omg next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "images:convert": "node scripts/convert-to-webp.js",
+    "images:optimize": "node scripts/convert-to-webp.js --directory=public/images --quality=85 --delete"
   },
   "dependencies": {
     "bootstrap-icons": "^1.11.3",
