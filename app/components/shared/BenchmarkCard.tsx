@@ -19,20 +19,23 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
   // State for hover
   const [isHovered, setIsHovered] = useState(false);
   
-  // Border color for hover
-  const hoverStyle = brandConfig.name === 'OMG' && isHovered 
-    ? { borderColor: brandConfig.primaryColor } 
-    : {};
+  // Border colors
+  const borderStyle = benchmark.featured_benchmark 
+    ? { borderColor: brandConfig.secondaryColor } 
+    : brandConfig.name === 'OMG' 
+      ? { borderColor: isHovered ? brandConfig.primaryColor : '#e5e7eb' } 
+      : { borderColor: isHovered ? brandConfig.primaryColor : '#374151' };
 
   return (
     <div
       key={benchmark.benchmark_id}
       role="button"
       tabIndex={0}
-      className={`benchmark-card group ${containerStyles.companyCardContainer} ${benchmark.featured_benchmark ? 'border-2' : ''}`}
+      className={`benchmark-card group ${containerStyles.companyCardContainer} ${benchmark.featured_benchmark ? 'border-2' : 'border'} shadow-md hover:shadow-lg transition-all duration-200`}
       style={{
-        ...hoverStyle,
-        ...(benchmark.featured_benchmark ? { borderColor: brandConfig.secondaryColor } : {})
+        ...borderStyle,
+        background: brandConfig.name === 'OMG' ? '#ffffff' : '#f9fafb', // Light background for both versions
+        transform: isHovered ? 'translateY(-2px)' : 'none'
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -49,10 +52,11 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
       <div className="flex flex-col h-full">
         <div className="text-center mb-2">
           <h3 
-            className="font-medium text-md"
+            className="font-semibold text-lg mb-1"
             style={{ 
               fontFamily: brandConfig.name === 'OMG' ? 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' : 'monospace',
-              color: isHovered ? brandConfig.primaryColor : 'rgb(31, 41, 55)'
+              color: isHovered ? brandConfig.primaryColor : 'rgb(31, 41, 55)', // Dark text for both versions
+              textShadow: 'none'
             }}
           >
             {benchmark.benchmark_name}
@@ -76,9 +80,12 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
         </div>
         
         <div className="mt-3 flex justify-between items-center px-2">
-          <div className="text-xs" style={{ 
-            color: brandConfig.name === 'OMG' ? 'rgb(107, 114, 128)' : 'rgb(156, 163, 175)' 
+          <div className="text-xs font-medium" style={{ 
+            color: brandConfig.name === 'OMG' ? 'rgb(107, 114, 128)' : 'rgb(75, 85, 99)',
+            display: 'flex',
+            alignItems: 'center'
           }}>
+            <i className="bi bi-bar-chart-line mr-1" style={{ color: brandConfig.primaryColor }}></i>
             {scoreCount} model{scoreCount !== 1 ? 's' : ''} ranked
           </div>
           
@@ -87,8 +94,12 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
               href={benchmark.benchmark_paper} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-xs flex items-center transition-all"
-              style={{ color: brandConfig.primaryColor }}
+              className="text-xs font-medium flex items-center transition-all px-2 py-1 rounded"
+              style={{ 
+                color: 'white',
+                backgroundColor: brandConfig.secondaryColor,
+                boxShadow: '0 1px 2px rgba(0,0,0,0.1)'
+              }}
               onClick={(e) => {
                 e.stopPropagation();  // Prevent card click when clicking the link
               }}
