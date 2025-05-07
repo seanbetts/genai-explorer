@@ -64,6 +64,10 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
       // Update state with the mappings
       setModelMap(newModelMap);
       setCompanyMap(newCompanyMap);
+      
+      // Log mappings for debugging
+      console.log('Company mappings loaded:', Object.keys(newCompanyMap).length);
+      console.log('Model mappings loaded:', Object.keys(newModelMap).length);
     };
     
     loadMappings();
@@ -119,8 +123,12 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
       const topScore = sortedScores[0];
       
       // Get model and company names from our maps, or use IDs as fallbacks
-      const modelName = modelMap[topScore.model_id] || topScore.model_id;
-      const companyName = companyMap[topScore.company_id] || topScore.company_id;
+      // Clean the IDs by trimming whitespace which exists in some benchmark CSV entries
+      const cleanCompanyId = topScore.company_id.trim();
+      const cleanModelId = topScore.model_id.trim();
+      
+      const modelName = modelMap[cleanModelId] || cleanModelId;
+      const companyName = companyMap[cleanCompanyId] || cleanCompanyId;
       
       // Store top model information
       result[benchmark.benchmark_id] = {
