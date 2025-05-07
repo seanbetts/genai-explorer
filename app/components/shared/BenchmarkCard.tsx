@@ -70,7 +70,7 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
         </div>
         
         <div className="flex-grow text-sm px-2 text-center" style={{ 
-          color: brandConfig.name === 'OMG' ? 'rgb(75, 85, 99)' : 'rgb(209, 213, 219)' 
+          color: brandConfig.name === 'OMG' ? 'rgb(75, 85, 99)' : 'rgb(17, 24, 39)' // Updated to near-black for personal version
         }}>
           {benchmark.benchmark_description || "No description available."}
         </div>
