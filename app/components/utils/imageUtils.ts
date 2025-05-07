@@ -19,6 +19,28 @@ export const IMAGE_FORMATS = ['webp', 'avif', 'png', 'jpg', 'jpeg'];
  * @param imagePath The image path to validate
  * @returns A valid image URL or the placeholder
  */
+/**
+ * Maps file extensions to the corresponding webp path
+ * This helps us reference the correct file format after conversion
+ */
+const imagePathMap: Map<string, string[]> = new Map([
+  // Main logos
+  ['/images/logo.png', ['/images/logo.webp']],
+  ['/images/omg-logo.png', ['/images/omg-logo.webp']],
+  ['/images/bulb.png', ['/images/bulb.webp']],
+  ['/images/placeholder.png', ['/images/placeholder.webp', '/images/placeholder.svg']],
+  
+  // Common company logos and placeholders
+  ['/images/companies/placeholder.png', ['/images/companies/placeholder.webp', '/images/companies/placeholder.svg']],
+  ['/images/logo.svg', ['/images/logo.webp']],
+]);
+
+/**
+ * Checks both the original and WebP versions of an image
+ * 
+ * @param imagePath The original image path
+ * @returns Best available image path or placeholder
+ */
 export const getValidImageUrl = (imagePath: string | undefined): string => {
   // Check if path is missing, empty, or invalid
   if (!imagePath || imagePath.length <= 1) {
@@ -28,32 +50,55 @@ export const getValidImageUrl = (imagePath: string | undefined): string => {
   try {
     // For absolute URLs, verify they're properly formatted
     if (imagePath.startsWith("http")) {
-      new URL(imagePath); // Will throw if invalid URL
-      return imagePath;
+      try {
+        new URL(imagePath); // Will throw if invalid URL
+        return imagePath;
+      } catch (e) {
+        console.error("Invalid external URL:", imagePath);
+        return PLACEHOLDER_IMAGE;
+      }
     }
     
     // For relative paths, ensure they start with /
     if (!imagePath.startsWith("/")) {
+      console.error("Invalid relative path (missing starting /)", imagePath);
       return PLACEHOLDER_IMAGE;
     }
     
-    // WebP conversion check
-    if (imagePath.endsWith('.png') || imagePath.endsWith('.jpg') || imagePath.endsWith('.jpeg')) {
-      // Check if WebP version exists
-      const webpPath = `${imagePath.substring(0, imagePath.lastIndexOf('.'))}.webp`;
-      
-      // In a real app, you'd check if the WebP version exists, but for now
-      // we'll just prefer the WebP extension if we've converted the images
-      const webpExists = true; // Placeholder for file existence check
-      
-      if (webpExists) {
+    // Check if the path is directly in our map
+    if (imagePathMap.has(imagePath)) {
+      const alternatives = imagePathMap.get(imagePath)!;
+      return alternatives[0]; // Return the first alternative
+    }
+    
+    // If the original path already ends with .webp, .svg or other supported formats, use it directly
+    if (imagePath.endsWith('.webp') || imagePath.endsWith('.svg') || imagePath.endsWith('.avif')) {
+      return imagePath;
+    }
+    
+    // Company logos special case - these are the most common references
+    if (imagePath.includes('/images/companies/')) {
+      if (imagePath.endsWith('.png') || imagePath.endsWith('.jpg') || imagePath.endsWith('.jpeg')) {
+        const basePath = imagePath.substring(0, imagePath.lastIndexOf('.'));
+        // Check if we have specifically converted this logo
+        const webpPath = `${basePath}.webp`;
+        
+        // For company logos, use WebP version
         return webpPath;
       }
     }
     
+    // General case for other images (.png, .jpg, .jpeg)
+    if (imagePath.endsWith('.png') || imagePath.endsWith('.jpg') || imagePath.endsWith('.jpeg')) {
+      const basePath = imagePath.substring(0, imagePath.lastIndexOf('.'));
+      return `${basePath}.webp`;
+    }
+    
+    // If we get here, just use the original path
     return imagePath;
   } catch (e) {
-    // Invalid URL format
+    // Invalid URL format or other error
+    console.error("Error in getValidImageUrl:", e, "for path:", imagePath);
     return PLACEHOLDER_IMAGE;
   }
 };

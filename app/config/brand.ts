@@ -21,7 +21,7 @@ export const brandConfigs: Record<string, BrandConfig> = {
   personal: {
     name: 'The Blueprint',
     showFooter: true,
-    logoPath: '/images/logo.png',
+    logoPath: '/images/logo.webp',
     headerLinks: [
       { text: 'Subscribe', url: 'https://www.the-blueprint.ai' }
     ],
@@ -32,7 +32,7 @@ export const brandConfigs: Record<string, BrandConfig> = {
   omg: {
     name: 'OMG',
     showFooter: false, // No footer for employer version
-    logoPath: '/images/omg-logo.png', // Using the OMG-specific logo
+    logoPath: '/images/omg-logo.webp', // Using the OMG-specific logo
     headerLinks: [], // No header links for OMG version
     primaryColor: '#173E80',
     secondaryColor: '#437AF6',
