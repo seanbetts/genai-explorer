@@ -8,6 +8,7 @@ import { categoryStyles } from './utils/theme';
 import brandConfig from '../config/brand';
 import { loadBenchmarkMetadata, loadBenchmarkScores, groupBenchmarksByCategory } from './utils/benchmarkUtils';
 import BenchmarkCategorySection from './shared/BenchmarkCategorySection';
+import BenchmarkCard from './shared/BenchmarkCard';
 
 interface BenchmarkExplorerViewProps {
   onBenchmarkSelect: (benchmarkId: string) => void;
@@ -67,6 +68,52 @@ const BenchmarkExplorerView: React.FC<BenchmarkExplorerViewProps> = ({ onBenchma
   
   // Ref for the two-column row
   const twoColRef = useRef<HTMLDivElement>(null);
+  
+  // Helper function to get the top model for a benchmark
+  const getBenchmarkTopModel = (benchmarkId: string) => {
+    if (!dataLoaded) return null;
+    
+    // Get all scores for this benchmark
+    const filteredScores = benchmarkScores.filter(score => score.benchmark_id === benchmarkId);
+    
+    if (filteredScores.length === 0) return null;
+    
+    // Sort by score (highest first)
+    const sortedScores = [...filteredScores].sort((a, b) => b.score - a.score);
+    const topScore = sortedScores[0];
+    
+    // Get model and company names
+    // Clean the IDs by trimming whitespace which might exist in some benchmark entries
+    const cleanCompanyId = topScore.company_id.trim();
+    const cleanModelId = topScore.model_id.trim();
+    
+    // Get model and company names from global data if available
+    let modelName = cleanModelId;
+    let companyName = cleanCompanyId;
+    
+    if (typeof window !== 'undefined') {
+      const explorerData = (window as any).__EXPLORER_DATA__;
+      if (explorerData && explorerData.companies) {
+        // Find company
+        const company = explorerData.companies.find((c: any) => c.id === cleanCompanyId);
+        if (company) {
+          companyName = company.name;
+          
+          // Find model
+          const model = company.models.find((m: any) => m.id === cleanModelId);
+          if (model) {
+            modelName = model.name;
+          }
+        }
+      }
+    }
+    
+    return {
+      name: modelName,
+      score: topScore.score,
+      company: companyName
+    };
+  };
 
   // Equalize heights of cards in two-column row after load
   useEffect(() => {
@@ -126,14 +173,75 @@ const BenchmarkExplorerView: React.FC<BenchmarkExplorerViewProps> = ({ onBenchma
     );
   }
   
+  // Function to gather all featured benchmarks
+  const getFeaturedBenchmarks = () => {
+    // Collect all benchmarks from each category
+    const allBenchmarks = Object.values(categorizedBenchmarks).flat();
+    // Filter for only featured benchmarks
+    return allBenchmarks.filter(benchmark => benchmark.featured_benchmark);
+  };
+  
+  // Get featured benchmarks
+  const featuredBenchmarks = getFeaturedBenchmarks();
+  
   // Main content after load
   return (
     <div className={`${containerStyles.explorerContainer} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
+      {/* Featured Benchmarks Section - shown only if there are featured benchmarks */}
+      {featuredBenchmarks.length > 0 && (
+        <div
+          className={`transform transition-all duration-500 delay-100 mb-10 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+        >
+          <div className={containerStyles.categorySection} style={{ 
+            backgroundColor: brandConfig.name === 'OMG' ? '#e5e7eb' : '#1a1a2e', // Same grey as other categories for OMG
+            borderColor: brandConfig.secondaryColor,
+            borderWidth: '2px'
+          }}>
+            <div className="mb-4">
+              <div className={containerStyles.categoryTitle}>
+                <i className="bi bi-star-fill mr-2" style={{ color: brandConfig.secondaryColor }}></i>
+                <span style={{ 
+                  color: brandConfig.secondaryColor,
+                  fontFamily: brandConfig.name === 'OMG' ? 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' : 'monospace'
+                }}>Featured Benchmarks</span>
+              </div>
+              <div className={`text-sm ${brandConfig.name === 'OMG' ? 'font-sans text-gray-600' : 'font-mono text-gray-400'} mt-1 mb-2`}>
+                Top benchmarks that provide the most relevant insights into model capabilities
+              </div>
+              {/* Divider line using brand-specific styles */}
+              <div className="w-full border-b my-2" style={{ borderColor: brandConfig.secondaryColor }}></div>
+            </div>
+            
+            <div className="grid items-stretch grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+              {featuredBenchmarks.map(benchmark => (
+                <BenchmarkCard 
+                  key={`featured-${benchmark.benchmark_id}`}
+                  benchmark={{
+                    ...benchmark,
+                    // Don't show the star in the featured section
+                    featured_benchmark: false
+                  }}
+                  scoreCount={benchmarkScores.filter(score => score.benchmark_id === benchmark.benchmark_id)
+                    .reduce((acc, score) => {
+                      acc.add(score.model_id);
+                      return acc;
+                    }, new Set()).size}
+                  onClick={() => onBenchmarkSelect(benchmark.benchmark_id)}
+                  topModel={getBenchmarkTopModel(benchmark.benchmark_id)}
+                  // Add category icon
+                  categoryIcon={getCategoryIcon(benchmark.benchmark_category as BenchmarkCategory)}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+      
       {/* All categories in a vertical list */}
       {allCategories.map((entry: BenchmarkCategoryConfigEntry, index) => (
         <div
           key={entry.key}
-          className={`transform transition-all duration-500 mb-8 delay-${Math.min(index * 50, 300)} ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+          className={`transform transition-all duration-500 mb-8 delay-${Math.min((index + 1) * 50, 350)} ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
         >
           <BenchmarkCategorySection
             category={entry.key}

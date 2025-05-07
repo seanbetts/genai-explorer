@@ -14,6 +14,7 @@ interface BenchmarkCardProps {
     score: number;
     company: string;
   };
+  categoryIcon?: string; // Optional category icon
 }
 
 const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
@@ -21,6 +22,7 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
   scoreCount,
   onClick,
   topModel,
+  categoryIcon,
 }) => {
   // State for hover
   const [isHovered, setIsHovered] = useState(false);
@@ -56,6 +58,7 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
       title={`${benchmark.benchmark_name} - Click to view details`}
     >
       <div className="flex flex-col h-full w-full relative">
+        {/* Show featured star if it's a featured benchmark */}
         {benchmark.featured_benchmark && (
           <i 
             className="bi bi-star-fill text-3xl absolute"
@@ -67,6 +70,20 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
               zIndex: 1 // Ensure star appears above other elements
             }}
             title="Featured Benchmark"
+          ></i>
+        )}
+        
+        {/* Show category icon when provided */}
+        {categoryIcon && (
+          <i 
+            className={`bi ${categoryIcon} text-3xl absolute`}
+            style={{ 
+              color: brandConfig.secondaryColor,
+              filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.3))',
+              top: '-12px',
+              right: '-8px',
+              zIndex: 1
+            }}
           ></i>
         )}
         <div className="text-center mb-2 w-full">
