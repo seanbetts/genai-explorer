@@ -40,18 +40,63 @@ const Footer: React.FC<FooterProps> = ({
                 <li>
                   <Link 
                     href="/" 
-                    className={`transition-colors text-xs leading-tight py-0.5 flex items-center ${
-                      currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
-                        ? 'text-cyan-400' 
-                        : 'text-gray-300 hover:text-cyan-400'
-                    }`}
+                    className="transition-colors text-xs leading-tight py-0.5 flex items-center"
+                    style={{ 
+                      color: currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
+                        ? '#FFFFFF' 
+                        : '#d1d5db'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = brandConfig.secondaryColor;
+                      // Also change the icon color
+                      const icon = e.currentTarget.querySelector('i');
+                      if (icon) icon.style.color = brandConfig.secondaryColor;
+                    }}
+                    onMouseLeave={(e) => {
+                      // Reset icon color first
+                      const icon = e.currentTarget.querySelector('i');
+                      if (icon) icon.style.color = brandConfig.primaryColor;
+                      
+                      if (currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')) {
+                        e.currentTarget.style.color = '#FFFFFF';
+                      } else {
+                        e.currentTarget.style.color = '#d1d5db';
+                      }
+                    }}
                   >
-                    <i className={`bi bi-grid mr-1.5 ${
-                      currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
-                        ? 'text-cyan-400'
-                        : 'text-fuchsia-500'
-                    }`}></i>
+                    <i className="bi bi-grid mr-1.5" style={{ color: brandConfig.primaryColor }}></i>
                     <span>Model Explorer</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/benchmarks" 
+                    className="transition-colors text-xs leading-tight py-0.5 flex items-center"
+                    style={{ 
+                      color: currentView === 'benchmarks'
+                        ? '#FFFFFF' 
+                        : '#d1d5db'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = brandConfig.secondaryColor;
+                      // Also change the icon color
+                      const icon = e.currentTarget.querySelector('i');
+                      if (icon) icon.style.color = brandConfig.secondaryColor;
+                    }}
+                    onMouseLeave={(e) => {
+                      // Reset icon color first
+                      const icon = e.currentTarget.querySelector('i');
+                      if (icon) icon.style.color = brandConfig.primaryColor;
+                      
+                      if (currentView === 'benchmarks') {
+                        e.currentTarget.style.color = '#FFFFFF';
+                      } else {
+                        e.currentTarget.style.color = '#d1d5db';
+                      }
+                    }}
+                  >
+                    <i className="bi bi-trophy mr-1.5" style={{ color: brandConfig.primaryColor }}></i>
+                    <span>Benchmark Explorer</span>
                   </Link>
                 </li>
                 {/* Temporarily hidden Model Comparer */}
