@@ -5,6 +5,39 @@ import { Benchmark } from '../types';
 import { containerStyles } from '../utils/layout';
 import brandConfig from '../../config/brand';
 
+// Helper function to format benchmark scores according to their type
+const formatBenchmarkScore = (benchmarkId: string, score: number): string => {
+  // Helper to add thousands separator
+  const formatWithThousands = (num: number): string => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+  
+  // Integer benchmarks - no decimals
+  if (benchmarkId === 'codeforces' || benchmarkId === 'chatbot-arena') {
+    const rounded = Math.round(score);
+    return formatWithThousands(rounded);
+  }
+  
+  // AIME benchmarks - with decimal point as requested
+  if (benchmarkId.includes('aime')) {
+    return score.toFixed(1);
+  }
+  
+  // Dollar-based benchmarks (with $ sign)
+  if (benchmarkId === 'swe-lancer' || benchmarkId === 'swe-lancer-ic-swe-diamond') {
+    const rounded = Math.round(score);
+    return `$${formatWithThousands(rounded)}`;
+  }
+  
+  // Special benchmarks with two decimal points
+  if (benchmarkId === 'humanitys-last-exam' || benchmarkId === 'multi-challenge') {
+    return score.toFixed(2);
+  }
+  
+  // Default formatting with 1 decimal place
+  return score.toFixed(1);
+};
+
 interface BenchmarkCardProps {
   benchmark: Benchmark;
   scoreCount: number;
@@ -134,7 +167,7 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
                     color: 'white'
                   }}
                 >
-                  {topModel.score.toFixed(1)}
+                  {formatBenchmarkScore(benchmark.benchmark_id, topModel.score)}
                 </div>
               </div>
             </div>
