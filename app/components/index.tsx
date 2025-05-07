@@ -272,7 +272,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData, benchmarkPageConte
               className="transition-colors flex items-center"
               style={{ 
                 color: currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
-                  ? '#FFFFFF' // White text for active state to match Benchmark Explorer
+                  ? brandConfig.name === 'OMG' ? '#000000' : '#FFFFFF' // Black for OMG, white for personal
                   : brandConfig.name === 'OMG' ? '#4B5563' : '#d1d5db', // Using consistent gray color
               }}
               onMouseEnter={(e) => {
@@ -289,8 +289,8 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData, benchmarkPageConte
                 
                 // Then reset text color
                 if (currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')) {
-                  // If active, return to white
-                  e.currentTarget.style.color = '#FFFFFF';
+                  // If active, return to black for OMG or white for personal
+                  e.currentTarget.style.color = brandConfig.name === 'OMG' ? '#000000' : '#FFFFFF';
                 } else {
                   // If not active, return to default text color for the brand
                   e.currentTarget.style.color = brandConfig.name === 'OMG' ? '#4B5563' : '#d1d5db';
@@ -310,7 +310,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData, benchmarkPageConte
               className="transition-colors flex items-center"
               style={{ 
                 color: currentView === 'benchmarks'
-                  ? '#FFFFFF'  // White text for active state to match Model Explorer
+                  ? brandConfig.name === 'OMG' ? '#000000' : '#FFFFFF'  // Black for OMG, white for personal
                   : brandConfig.name === 'OMG' ? '#4B5563' : '#d1d5db', // Using consistent gray color
               }}
               onMouseEnter={(e) => {
@@ -327,8 +327,8 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData, benchmarkPageConte
                 
                 // Then reset text color
                 if (currentView === 'benchmarks') {
-                  // If active, return to white
-                  e.currentTarget.style.color = '#FFFFFF';
+                  // If active, return to black for OMG or white for personal
+                  e.currentTarget.style.color = brandConfig.name === 'OMG' ? '#000000' : '#FFFFFF';
                 } else {
                   // If not active, return to default text color for the brand
                   e.currentTarget.style.color = brandConfig.name === 'OMG' ? '#4B5563' : '#d1d5db';
