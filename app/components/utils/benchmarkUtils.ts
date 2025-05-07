@@ -105,6 +105,11 @@ export const loadBenchmarkScores = async (): Promise<BenchmarkScore[]> => {
           return false;
         }
         
+        // Trim whitespace from string fields to handle inconsistencies in CSV
+        if (row.model_id) row.model_id = row.model_id.trim();
+        if (row.company_id) row.company_id = row.company_id.trim();
+        if (row.benchmark_id) row.benchmark_id = row.benchmark_id.trim();
+        
         // Ensure score is a number
         if (typeof row.score !== 'number') {
           try {

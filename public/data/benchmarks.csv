@@ -1,74 +1,74 @@
 model_id,company_id,becnhmark_id,score,date,notes,source_name,source
-gemini-1-5-pro, google-deepmind,ai2d,94.4,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google-deepmind,ai2d,94.4,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google-deepmind,ai2d,91.7,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro, google-deepmind,big-bench-hard,89.2,2024-02-15,3-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google-deepmind,big-bench-hard,89.2,2024-02-15,3-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google-deepmind,big-bench-hard,85.5,2024-02-15,3-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro, google-deepmind,doc-vqa,93.1,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google-deepmind,doc-vqa,93.1,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google-deepmind,doc-vqa,89.9,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro, google-deepmind,drop,74.9,2024-02-15,Variable shots,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google-deepmind,drop,74.9,2024-02-15,Variable shots,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google-deepmind,drop,78.4,2024-02-15,Variable shots,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro, google-deepmind,ego-schema,72.2,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google-deepmind,ego-schema,72.2,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google-deepmind,ego-schema,65.7,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro, google-deepmind,gpqa-diamond,46.2,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google-deepmind,gpqa-diamond,46.2,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google-deepmind,gpqa-diamond,39.5,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro, google-deepmind,gsm8k,90.8,2024-02-15,11-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google-deepmind,gsm8k,90.8,2024-02-15,11-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google-deepmind,gsm8k,86.2,2024-02-15,11-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro, google-deepmind,hellaswag,93.3,2024-02-15,10-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google-deepmind,hellaswag,93.3,2024-02-15,10-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google-deepmind,hellaswag,86.5,2024-02-15,10-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro, google-deepmind,hidden-math,20.1,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google-deepmind,hidden-math,20.1,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google-deepmind,hidden-math,6.7,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro, google-deepmind,human-eval,93.3,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google-deepmind,human-eval,93.3,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google-deepmind,human-eval,86.5,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro, google-deepmind,math,67.7,2024-02-15,4-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google-deepmind,math,67.7,2024-02-15,4-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google-deepmind,math,54.9,2024-02-15,4-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro, google-deepmind,math-vista,63.9,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google-deepmind,math-vista,63.9,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google-deepmind,math-vista,58.4,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro, google-deepmind,mgsm,87.5,2024-02-15,8-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google-deepmind,mgsm,87.5,2024-02-15,8-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google-deepmind,mgsm,82.6,2024-02-15,8-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro, google-deepmind,mmlu,85.9,2024-02-15,5-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google-deepmind,mmlu,85.9,2024-02-15,5-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google-deepmind,mmlu,78.9,2024-02-15,5-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
-gemini-1-5-pro, google-deepmind,mmmu,62.2,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
+gemini-1-5-pro,google-deepmind,mmmu,62.2,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google-deepmind,mmmu,56.1,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 command-r-plus,cohere,if-eval,76.64,2024-06-20,,HF Open LLM Leaderboard,https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard
 command-r-plus,cohere,math,8.01,2024-06-20,,HF Open LLM Leaderboard,https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard
 command-r-plus,cohere,mmlu-pro,33.24,2024-06-20,,HF Open LLM Leaderboard,https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard
-gemini-1-5-pro, google-deepmind,ai2d,94.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google-deepmind,ai2d,94.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-5-sonnet,anthropic,ai2d,94.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-opus,anthropic,ai2d,88.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 gpt-4o,openai,ai2d,94.2,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro, google-deepmind,big-bench-hard,89.2,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google-deepmind,big-bench-hard,89.2,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-5-sonnet,anthropic,big-bench-hard,93.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-opus,anthropic,big-bench-hard,86.8,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro, google-deepmind,drop,74.9,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google-deepmind,drop,74.9,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-5-sonnet,anthropic,drop,87.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-opus,anthropic,drop,83.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 gpt-4o,openai,drop,83.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-5-sonnet,anthropic,gpqa-diamond,59.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-opus,anthropic,gpqa-diamond,50.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 gpt-4o,openai,gpqa-diamond,53.6,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro, google-deepmind,gsm8k,90.8,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google-deepmind,gsm8k,90.8,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-5-sonnet,anthropic,gsm8k,96.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-opus,anthropic,gsm8k,95.0,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro, google-deepmind,human-eval,84.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google-deepmind,human-eval,84.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-5-sonnet,anthropic,human-eval,92.0,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-opus,anthropic,human-eval,84.9,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 gpt-4o,openai,human-eval,90.2,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro, google-deepmind,math,67.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google-deepmind,math,67.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-5-sonnet,anthropic,math,71.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-opus,anthropic,math,60.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 gpt-4o,openai,math,76.6,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro, google-deepmind,math-vista,63.9,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google-deepmind,math-vista,63.9,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-5-sonnet,anthropic,math-vista,67.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-opus,anthropic,math-vista,50.5,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 gpt-4o,openai,math-vista,63.8,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro, google-deepmind,mgsm,87.5,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google-deepmind,mgsm,87.5,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-5-sonnet,anthropic,mgsm,91.6,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-opus,anthropic,mgsm,90.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 gpt-4o,openai,mgsm,90.5,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-5-sonnet,anthropic,mmlu,88.3,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-opus,anthropic,mmlu,85.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 gpt-4o,openai,mmlu,88.7,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
-gemini-1-5-pro, google-deepmind,mmmu,62.2,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
+gemini-1-5-pro,google-deepmind,mmmu,62.2,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-5-sonnet,anthropic,mmmu,68.3,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 claude-3-opus,anthropic,mmmu,59.4,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
 gpt-4o,openai,mmmu,69.1,2024-06-21,,Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/claude-3-5-sonnet
@@ -92,7 +92,7 @@ llama-3-1-405b,meta,mmlu,88.6,2024-07-23,0-shot,Llama 3.1 announcement,https://a
 llama-3-1-8b,meta,mmlu,73.0,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
 llama-3-3-70b,meta,mmlu,86.0,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
 gpt-4o,openai,mmlu,88.7,2024-07-23,0-shot,Llama 3.1 announcement,https://ai.meta.com/blog/meta-llama-3-1/
-gemini-1-5-pro, google-deepmind,doc-vqa,93.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gemini-1-5-pro,google-deepmind,doc-vqa,93.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 claude-3-5-sonnet,anthropic,doc-vqa,95.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 claude-3-opus,anthropic,doc-vqa,89.3,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 llama-3-1-405b,meta,doc-vqa,92.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
@@ -101,7 +101,7 @@ gpt-4o,openai,doc-vqa,92.8,2024-08-13,,Grok 2 announcement,https://x.ai/news/gro
 grok-1-5,xai,doc-vqa,85.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 grok-2,xai,doc-vqa,93.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 grok-2-mini,xai,doc-vqa,93.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gemini-1-5-pro, google-deepmind,gpqa-diamond,46.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gemini-1-5-pro,google-deepmind,gpqa-diamond,46.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 claude-3-5-sonnet,anthropic,gpqa-diamond,59.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 claude-3-opus,anthropic,gpqa-diamond,50.4,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 llama-3-1-405b,meta,gpqa-diamond,51.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
@@ -110,7 +110,7 @@ gpt-4o,openai,gpqa-diamond,53.6,2024-08-13,,Grok 2 announcement,https://x.ai/new
 grok-1-5,xai,gpqa-diamond,35.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 grok-2,xai,gpqa-diamond,56.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 grok-2-mini,xai,gpqa-diamond,51.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gemini-1-5-pro, google-deepmind,human-eval,71.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gemini-1-5-pro,google-deepmind,human-eval,71.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 claude-3-5-sonnet,anthropic,human-eval,92.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 claude-3-opus,anthropic,human-eval,84.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 llama-3-1-405b,meta,human-eval,89.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
@@ -119,7 +119,7 @@ gpt-4o,openai,human-eval,90.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/
 grok-1-5,xai,human-eval,74.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 grok-2,xai,human-eval,88.4,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 grok-2-mini,xai,human-eval,85.7,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gemini-1-5-pro, google-deepmind,math,67.7,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gemini-1-5-pro,google-deepmind,math,67.7,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 claude-3-5-sonnet,anthropic,math,71.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 claude-3-opus,anthropic,math,60.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 llama-3-1-405b,meta,math,73.8,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
@@ -128,7 +128,7 @@ gpt-4o,openai,math,76.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 grok-1-5,xai,math,50.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 grok-2,xai,math,76.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 grok-2-mini,xai,math,73.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gemini-1-5-pro, google-deepmind,math-vista,63.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gemini-1-5-pro,google-deepmind,math-vista,63.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 claude-3-5-sonnet,anthropic,math-vista,67.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 claude-3-opus,anthropic,math-vista,50.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 gpt-4-turbo,openai,math-vista,58.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
@@ -136,7 +136,7 @@ gpt-4o,openai,math-vista,63.8,2024-08-13,,Grok 2 announcement,https://x.ai/news/
 grok-1-5,xai,math-vista,52.8,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 grok-2,xai,math-vista,69.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 grok-2-mini,xai,math-vista,68.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gemini-1-5-pro, google-deepmind,mmlu,85.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gemini-1-5-pro,google-deepmind,mmlu,85.9,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 claude-3-5-sonnet,anthropic,mmlu,88.3,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 claude-3-opus,anthropic,mmlu,85.7,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 llama-3-1-405b,meta,mmlu,88.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
@@ -145,7 +145,7 @@ gpt-4o,openai,mmlu,88.7,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 grok-1-5,xai,mmlu,81.3,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 grok-2,xai,mmlu,87.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 grok-2-mini,xai,mmlu,86.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gemini-1-5-pro, google-deepmind,mmlu-pro,69.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gemini-1-5-pro,google-deepmind,mmlu-pro,69.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 claude-3-5-sonnet,anthropic,mmlu-pro,76.1,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 claude-3-opus,anthropic,mmlu-pro,68.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 llama-3-1-405b,meta,mmlu-pro,73.3,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
@@ -154,7 +154,7 @@ gpt-4o,openai,mmlu-pro,72.6,2024-08-13,,Grok 2 announcement,https://x.ai/news/gr
 grok-1-5,xai,mmlu-pro,51.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 grok-2,xai,mmlu-pro,75.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 grok-2-mini,xai,mmlu-pro,72.0,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
-gemini-1-5-pro, google-deepmind,mmmu,62.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
+gemini-1-5-pro,google-deepmind,mmmu,62.2,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 claude-3-5-sonnet,anthropic,mmmu,68.3,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 claude-3-opus,anthropic,mmmu,59.4,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
 llama-3-1-405b,meta,mmmu,64.5,2024-08-13,,Grok 2 announcement,https://x.ai/news/grok-2
@@ -264,7 +264,7 @@ claude-3-5-haiku,anthropic,aime-2024,5.3,2024-10-22,,New Claude 3.5 Sonnet annou
 claude-3-5-sonnet,anthropic,aime-2024,16.0,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 claude-3-5-sonnet,anthropic,aime-2024,9.6,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 gpt-4o,openai,aime-2024,9.3,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gemini-1-5-pro, google-deepmind,gpqa-diamond,59.1,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gemini-1-5-pro,google-deepmind,gpqa-diamond,59.1,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 claude-3-5-haiku,anthropic,gpqa-diamond,41.6,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 claude-3-5-sonnet,anthropic,gpqa-diamond,65.0,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 claude-3-5-sonnet,anthropic,gpqa-diamond,59.4,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
@@ -276,19 +276,19 @@ claude-3-5-sonnet,anthropic,human-eval,93.7,2024-10-22,,New Claude 3.5 Sonnet an
 claude-3-5-sonnet,anthropic,human-eval,92.0,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 gpt-4o,openai,human-eval,90.2,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 gpt-4o-mini,openai,human-eval,87.2,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gemini-1-5-pro, google-deepmind,math,86.5,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gemini-1-5-pro,google-deepmind,math,86.5,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 claude-3-5-haiku,anthropic,math,69.2,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 claude-3-5-sonnet,anthropic,math,78.3,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 claude-3-5-sonnet,anthropic,math,71.1,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 gemini-1-5-flash,google-deepmind,math,77.9,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 gpt-4o,openai,math,76.6,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 gpt-4o-mini,openai,math,70.2,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gemini-1-5-pro, google-deepmind,mmlu-pro,75.8,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gemini-1-5-pro,google-deepmind,mmlu-pro,75.8,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 claude-3-5-haiku,anthropic,mmlu-pro,65.0,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 claude-3-5-sonnet,anthropic,mmlu-pro,78.0,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 claude-3-5-sonnet,anthropic,mmlu-pro,75.1,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 gemini-1-5-flash,google-deepmind,mmlu-pro,67.3,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gemini-1-5-pro, google-deepmind,mmmu,65.9,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
+gemini-1-5-pro,google-deepmind,mmmu,65.9,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 claude-3-5-sonnet,anthropic,mmmu,70.4,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 claude-3-5-sonnet,anthropic,mmmu,68.3,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 gemini-1-5-flash,google-deepmind,mmmu,62.3,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
@@ -303,26 +303,26 @@ claude-3-5-sonnet,anthropic,tau-bench-airline,36.0,2024-10-22,,New Claude 3.5 So
 claude-3-5-haiku,anthropic,tau-bench-retail,51.0,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 claude-3-5-sonnet,anthropic,tau-bench-retail,69.2,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
 claude-3-5-sonnet,anthropic,tau-bench-retail,62.6,2024-10-22,,New Claude 3.5 Sonnet announcement,https://www.anthropic.com/news/3-5-models-and-computer-use
-gemini-1-5-pro, google-deepmind,ai2d,94.6,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+gemini-1-5-pro,google-deepmind,ai2d,94.6,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
 claude-3-5-sonnet,anthropic,ai2d,76.9,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
 pixtral-large,mistral,ai2d,93.8,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
 gpt-4o,openai,ai2d,93.2,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
-gemini-1-5-pro, google-deepmind,doc-vqa,92.3,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+gemini-1-5-pro,google-deepmind,doc-vqa,92.3,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
 claude-3-5-sonnet,anthropic,doc-vqa,88.6,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
 llama-3-2-90b,meta,doc-vqa,85.7,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
 pixtral-large,mistral,doc-vqa,93.3,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
 gpt-4o,openai,doc-vqa,88.5,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
-gemini-1-5-pro, google-deepmind,math-vista,67.8,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+gemini-1-5-pro,google-deepmind,math-vista,67.8,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
 claude-3-5-sonnet,anthropic,math-vista,67.1,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
 llama-3-2-90b,meta,math-vista,49.1,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
 pixtral-large,mistral,math-vista,69.4,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
 gpt-4o,openai,math-vista,65.4,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
-gemini-1-5-pro, google-deepmind,mmmu,66.3,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
+gemini-1-5-pro,google-deepmind,mmmu,66.3,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
 claude-3-5-sonnet,anthropic,mmmu,68.4,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
 llama-3-2-90b,meta,mmmu,53.7,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
 pixtral-large,mistral,mmmu,64.0,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
 gpt-4o,openai,mmmu,68.6,2024-11-18,,Pixtral Large announcement,https://mistral.ai/news/pixtral-large
-gemini-1-5-pro, google-deepmind,arc,95.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
+gemini-1-5-pro,google-deepmind,arc,95.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-lite-1-0,amazon,arc,92.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-micro-1-0,amazon,arc,90.2,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-pro-1-0,amazon,arc,94.8,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -335,7 +335,7 @@ llama-3-2-11b,meta,arc,83.4,2024-12-03,,Amazon Nova announcement,https://aws.ama
 llama-3-2-90b,meta,arc,94.8,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o,openai,arc,96.2,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o-mini,openai,arc,92.3,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
-gemini-1-5-pro, google-deepmind,big-bench-hard,89.2,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
+gemini-1-5-pro,google-deepmind,big-bench-hard,89.2,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-lite-1-0,amazon,big-bench-hard,82.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-micro-1-0,amazon,big-bench-hard,79.5,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-pro-1-0,amazon,big-bench-hard,86.9,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -345,7 +345,7 @@ gemini-1-5-flash,google-deepmind,big-bench-hard,85.5,2024-12-03,,Amazon Nova ann
 gemini-1-5-flash,google-deepmind,big-bench-hard,69.5,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o,openai,big-bench-hard,83.0,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o-mini,openai,big-bench-hard,81.0,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
-gemini-1-5-pro, google-deepmind,drop,74.9,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
+gemini-1-5-pro,google-deepmind,drop,74.9,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-lite-1-0,amazon,drop,80.2,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-micro-1-0,amazon,drop,79.3,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-pro-1-0,amazon,drop,85.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -355,7 +355,7 @@ gemini-1-5-flash,google-deepmind,drop,78.4,2024-12-03,,Amazon Nova announcement,
 gemini-1-5-flash,google-deepmind,drop,68.1,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o,openai,drop,83.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o-mini,openai,drop,79.7,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
-gemini-1-5-pro, google-deepmind,gpqa-diamond,55.1,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
+gemini-1-5-pro,google-deepmind,gpqa-diamond,55.1,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-lite-1-0,amazon,gpqa-diamond,42.0,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-micro-1-0,amazon,gpqa-diamond,40.0,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-pro-1-0,amazon,gpqa-diamond,46.9,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -368,7 +368,7 @@ llama-3-2-11b,meta,gpqa-diamond,32.8,2024-12-03,,Amazon Nova announcement,https:
 llama-3-2-90b,meta,gpqa-diamond,46.7,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o,openai,gpqa-diamond,48.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o-mini,openai,gpqa-diamond,41.7,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
-gemini-1-5-pro, google-deepmind,gsm8k,90.8,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
+gemini-1-5-pro,google-deepmind,gsm8k,90.8,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-lite-1-0,amazon,gsm8k,94.5,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-micro-1-0,amazon,gsm8k,92.3,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-pro-1-0,amazon,gsm8k,94.8,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -381,7 +381,7 @@ llama-3-2-11b,meta,gsm8k,84.5,2024-12-03,,Amazon Nova announcement,https://aws.a
 llama-3-2-90b,meta,gsm8k,95.1,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o,openai,gsm8k,92.6,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o-mini,openai,gsm8k,86.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
-gemini-1-5-pro, google-deepmind,human-eval,87.8,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
+gemini-1-5-pro,google-deepmind,human-eval,87.8,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-lite-1-0,amazon,human-eval,85.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-micro-1-0,amazon,human-eval,81.1,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-pro-1-0,amazon,human-eval,89.0,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -394,7 +394,7 @@ llama-3-2-11b,meta,human-eval,72.6,2024-12-03,,Amazon Nova announcement,https://
 llama-3-2-90b,meta,human-eval,80.5,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o,openai,human-eval,90.2,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o-mini,openai,human-eval,87.2,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
-gemini-1-5-pro, google-deepmind,if-eval,91.7,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
+gemini-1-5-pro,google-deepmind,if-eval,91.7,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-lite-1-0,amazon,if-eval,89.7,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-micro-1-0,amazon,if-eval,87.2,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-pro-1-0,amazon,if-eval,92.1,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -407,7 +407,7 @@ llama-3-2-11b,meta,if-eval,85.0,2024-12-03,,Amazon Nova announcement,https://aws
 llama-3-2-90b,meta,if-eval,90.9,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o,openai,if-eval,89.8,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o-mini,openai,if-eval,87.4,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
-gemini-1-5-pro, google-deepmind,math,86.5,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
+gemini-1-5-pro,google-deepmind,math,86.5,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-lite-1-0,amazon,math,73.3,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-micro-1-0,amazon,math,69.3,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-pro-1-0,amazon,math,76.6,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -420,7 +420,7 @@ llama-3-2-11b,meta,math,51.9,2024-12-03,,Amazon Nova announcement,https://aws.am
 llama-3-2-90b,meta,math,68.0,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o,openai,math,76.7,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 gpt-4o-mini,openai,math,70.2,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
-gemini-1-5-pro, google-deepmind,mmlu,85.9,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
+gemini-1-5-pro,google-deepmind,mmlu,85.9,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-lite-1-0,amazon,mmlu,80.5,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-micro-1-0,amazon,mmlu,77.6,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
 nova-pro-1-0,amazon,mmlu,85.9,2024-12-03,,Amazon Nova announcement,https://aws.amazon.com/ai/generative-ai/nova/understanding/
@@ -523,67 +523,67 @@ v3,deepseek,swe-bench-verified,42.0,2025-01-20,,DeepSeek R1 announcement,https:/
 gpt-4o,openai,swe-bench-verified,38.8,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
 o1,openai,swe-bench-verified,48.9,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
 o1-mini,openai,swe-bench-verified,41.6,2025-01-20,,DeepSeek R1 announcement,https://github.com/deepseek-ai/DeepSeek-R1
-gemini-1-5-pro, google-deepmind,bird-sql,54.4,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash, google-deepmind,bird-sql,58.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite, google-deepmind,bird-sql,57.4,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro, google-deepmind,bird-sql,59.3,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google-deepmind,bird-sql,54.4,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google-deepmind,bird-sql,58.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google-deepmind,bird-sql,57.4,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google-deepmind,bird-sql,59.3,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
 gemini-1-5-flash,google-deepmind,bird-sql,45.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro, google-deepmind,co-vo-st2,40.1,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash, google-deepmind,co-vo-st2,39.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite, google-deepmind,co-vo-st2,38.4,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro, google-deepmind,co-vo-st2,40.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google-deepmind,co-vo-st2,40.1,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google-deepmind,co-vo-st2,39.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google-deepmind,co-vo-st2,38.4,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google-deepmind,co-vo-st2,40.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
 gemini-1-5-flash,google-deepmind,co-vo-st2,37.4,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro, google-deepmind,ego-schema,71.2,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash, google-deepmind,ego-schema,71.1,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite, google-deepmind,ego-schema,67.2,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro, google-deepmind,ego-schema,71.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google-deepmind,ego-schema,71.2,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google-deepmind,ego-schema,71.1,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google-deepmind,ego-schema,67.2,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google-deepmind,ego-schema,71.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
 gemini-1-5-flash,google-deepmind,ego-schema,66.8,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro, google-deepmind,facts-grounding,80.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash, google-deepmind,facts-grounding,84.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite, google-deepmind,facts-grounding,83.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro, google-deepmind,facts-grounding,82.8,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google-deepmind,facts-grounding,80.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google-deepmind,facts-grounding,84.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google-deepmind,facts-grounding,83.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google-deepmind,facts-grounding,82.8,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
 gemini-1-5-flash,google-deepmind,facts-grounding,82.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro, google-deepmind,gpqa-diamond,59.1,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash, google-deepmind,gpqa-diamond,60.1,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite, google-deepmind,gpqa-diamond,51.5,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro, google-deepmind,gpqa-diamond,64.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google-deepmind,gpqa-diamond,59.1,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google-deepmind,gpqa-diamond,60.1,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google-deepmind,gpqa-diamond,51.5,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google-deepmind,gpqa-diamond,64.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
 gemini-1-5-flash,google-deepmind,gpqa-diamond,51.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro, google-deepmind,hidden-math,52.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash, google-deepmind,hidden-math,63.5,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite, google-deepmind,hidden-math,55.4,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro, google-deepmind,hidden-math,65.2,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google-deepmind,hidden-math,52.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google-deepmind,hidden-math,63.5,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google-deepmind,hidden-math,55.4,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google-deepmind,hidden-math,65.2,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
 gemini-1-5-flash,google-deepmind,hidden-math,47.2,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro, google-deepmind,live-code-bench,34.2,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash, google-deepmind,live-code-bench,34.5,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite, google-deepmind,live-code-bench,28.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro, google-deepmind,live-code-bench,36.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google-deepmind,live-code-bench,34.2,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google-deepmind,live-code-bench,34.5,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google-deepmind,live-code-bench,28.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google-deepmind,live-code-bench,36.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
 gemini-1-5-flash,google-deepmind,live-code-bench,30.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro, google-deepmind,math,86.5,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash, google-deepmind,math,90.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite, google-deepmind,math,86.8,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro, google-deepmind,math,91.8,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google-deepmind,math,86.5,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google-deepmind,math,90.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google-deepmind,math,86.8,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google-deepmind,math,91.8,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
 gemini-1-5-flash,google-deepmind,math,77.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro, google-deepmind,mmlu-pro,75.8,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash, google-deepmind,mmlu-pro,77.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite, google-deepmind,mmlu-pro,71.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro, google-deepmind,mmlu-pro,79.1,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google-deepmind,mmlu-pro,75.8,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google-deepmind,mmlu-pro,77.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google-deepmind,mmlu-pro,71.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google-deepmind,mmlu-pro,79.1,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
 gemini-1-5-flash,google-deepmind,mmlu-pro,67.3,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro, google-deepmind,mmmu,65.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash, google-deepmind,mmmu,71.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite, google-deepmind,mmmu,68.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro, google-deepmind,mmmu,72.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google-deepmind,mmmu,65.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google-deepmind,mmmu,71.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google-deepmind,mmmu,68.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google-deepmind,mmmu,72.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
 gemini-1-5-flash,google-deepmind,mmmu,62.3,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro, google-deepmind,mrcr,82.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash, google-deepmind,mrcr,70.5,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite, google-deepmind,mrcr,58.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro, google-deepmind,mrcr,74.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google-deepmind,mrcr,82.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google-deepmind,mrcr,70.5,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google-deepmind,mrcr,58.0,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google-deepmind,mrcr,74.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
 gemini-1-5-flash,google-deepmind,mrcr,71.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-1-5-pro, google-deepmind,simple-qa,24.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash, google-deepmind,simple-qa,29.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-lite, google-deepmind,simple-qa,21.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-pro, google-deepmind,simple-qa,44.3,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-1-5-pro,google-deepmind,simple-qa,24.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash,google-deepmind,simple-qa,29.9,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-flash-lite,google-deepmind,simple-qa,21.7,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
+gemini-2-0-pro,google-deepmind,simple-qa,44.3,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
 gemini-1-5-flash,google-deepmind,simple-qa,8.6,2025-02-05,,Gemini 2.0 announcement,https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/
-gemini-2-0-flash-thinking, google-deepmind,aime-2024,73.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0-flash-thinking,google-deepmind,aime-2024,73.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 claude-3-5-sonnet,anthropic,aime-2024,16.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 r1,deepseek,aime-2024,79.8,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 v3,deepseek,aime-2024,39.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
@@ -593,19 +593,19 @@ o1-mini,openai,aime-2024,87.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/
 o3-mini,openai,aime-2024,79.6,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 grok-3,xai,aime-2024,93.3,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
 grok-3-mini,xai,aime-2024,95.8,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0-flash-thinking, google-deepmind,aime-2025,53.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0-flash-thinking,google-deepmind,aime-2025,53.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 r1,deepseek,aime-2025,70.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 o1,openai,aime-2025,79.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 o1-mini,openai,aime-2025,86.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 o3-mini,openai,aime-2025,76.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 grok-3,xai,aime-2025,93.3,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
 grok-3-mini,xai,aime-2025,90.8,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0, google-deepmind,ego-schema,71.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0,google-deepmind,ego-schema,71.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 gpt-4o,openai,ego-schema,72.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 grok-3,xai,ego-schema,74.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 grok-3-mini,xai,ego-schema,74.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0, google-deepmind,gpqa-diamond,64.7,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0-flash-thinking, google-deepmind,gpqa-diamond,74.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0,google-deepmind,gpqa-diamond,64.7,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0-flash-thinking,google-deepmind,gpqa-diamond,74.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 claude-3-5-sonnet,anthropic,gpqa-diamond,65.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 r1,deepseek,gpqa-diamond,71.5,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 v3,deepseek,gpqa-diamond,59.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
@@ -615,8 +615,8 @@ o1-mini,openai,gpqa-diamond,79.7,2025-02-19,,Grok 3 announcement,https://x.ai/ne
 o3-mini,openai,gpqa-diamond,76.8,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 grok-3,xai,gpqa-diamond,84.6,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
 grok-3-mini,xai,gpqa-diamond,84.0,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0, google-deepmind,live-code-bench,36.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0-flash-thinking, google-deepmind,live-code-bench,45.8,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0,google-deepmind,live-code-bench,36.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0-flash-thinking,google-deepmind,live-code-bench,45.8,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 claude-3-5-sonnet,anthropic,live-code-bench,40.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 r1,deepseek,live-code-bench,64.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 v3,deepseek,live-code-bench,33.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
@@ -626,24 +626,24 @@ o1-mini,openai,live-code-bench,74.1,2025-02-19,,Grok 3 announcement,https://x.ai
 o3-mini,openai,live-code-bench,66.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 grok-3,xai,live-code-bench,79.4,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
 grok-3-mini,xai,live-code-bench,80.4,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0, google-deepmind,loft,75.6,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0,google-deepmind,loft,75.6,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 claude-3-5-sonnet,anthropic,loft,69.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 gpt-4o,openai,loft,78.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 grok-3,xai,loft,83.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 grok-3-mini,xai,loft,83.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0, google-deepmind,mmlu-pro,79.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0,google-deepmind,mmlu-pro,79.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 claude-3-5-sonnet,anthropic,mmlu-pro,78.0,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 v3,deepseek,mmlu-pro,75.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 gpt-4o,openai,mmlu-pro,72.6,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 grok-3,xai,mmlu-pro,79.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 grok-3-mini,xai,mmlu-pro,78.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0, google-deepmind,mmmu,72.7,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0-flash-thinking, google-deepmind,mmmu,75.4,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0,google-deepmind,mmmu,72.7,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0-flash-thinking,google-deepmind,mmmu,75.4,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 claude-3-5-sonnet,anthropic,mmmu,70.4,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 gpt-4o,openai,mmmu,69.1,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 o1,openai,mmmu,78.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 grok-3,xai,mmmu,78.0,2025-02-19,Extended thinking,Grok 3 announcement,https://x.ai/news/grok-3
-gemini-2-0, google-deepmind,simple-qa,44.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
+gemini-2-0,google-deepmind,simple-qa,44.3,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 claude-3-5-sonnet,anthropic,simple-qa,28.4,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 v3,deepseek,simple-qa,24.9,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
 gpt-4o,openai,simple-qa,38.2,2025-02-19,,Grok 3 announcement,https://x.ai/news/grok-3
@@ -688,8 +688,8 @@ o1,openai,tau-bench-airline,54.2,2025-02-24,,Claude 3.7 Sonnet announcement,http
 claude-3-5-sonnet,anthropic,tau-bench-retail,71.5,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
 claude-3-7-sonnet,anthropic,tau-bench-retail,81.2,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
 o1,openai,tau-bench-retail,73.5,2025-02-24,,Claude 3.7 Sonnet announcement,https://www.anthropic.com/news/claude-3-7-sonnet
-gemini-2-0-flash, google-deepmind,ai2d,82.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
-gemini-2-0-flash-lite, google-deepmind,ai2d,77.6,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash,google-deepmind,ai2d,82.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash-lite,google-deepmind,ai2d,77.6,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 claude-3-5-sonnet,anthropic,ai2d,70.6,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 phi-4-mm,microsoft,ai2d,82.3,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 gpt-4o,openai,ai2d,83.8,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
@@ -697,8 +697,8 @@ gpt-4o-mini,openai,ai2d,75.2,2025-02-27,,Phi-4 announcement,https://arxiv.org/pd
 gpt-4-5,openai,aime-2024,36.7,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
 gpt-4o,openai,aime-2024,9.3,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
 o3-mini,openai,aime-2024,87.3,2025-02-27,High,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-gemini-2-0-flash, google-deepmind,doc-vqa,92.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
-gemini-2-0-flash-lite, google-deepmind,doc-vqa,91.2,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash,google-deepmind,doc-vqa,92.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash-lite,google-deepmind,doc-vqa,91.2,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 claude-3-5-sonnet,anthropic,doc-vqa,95.2,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 phi-4-mm,microsoft,doc-vqa,93.2,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 gpt-4o,openai,doc-vqa,90.9,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
@@ -706,20 +706,20 @@ gpt-4o-mini,openai,doc-vqa,84.2,2025-02-27,,Phi-4 announcement,https://arxiv.org
 gpt-4-5,openai,gpqa-diamond,71.4,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
 gpt-4o,openai,gpqa-diamond,53.6,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
 o3-mini,openai,gpqa-diamond,79.7,2025-02-27,High,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-gemini-2-0-flash, google-deepmind,math-vista,47.2,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
-gemini-2-0-flash-lite, google-deepmind,math-vista,57.6,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash,google-deepmind,math-vista,47.2,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash-lite,google-deepmind,math-vista,57.6,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 claude-3-5-sonnet,anthropic,math-vista,56.9,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 phi-4-mm,microsoft,math-vista,62.4,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 gpt-4o,openai,math-vista,56.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 gpt-4o-mini,openai,math-vista,38.8,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
-gemini-2-0-flash, google-deepmind,mmlu-pro,54.4,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
-gemini-2-0-flash-lite, google-deepmind,mmlu-pro,45.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash,google-deepmind,mmlu-pro,54.4,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash-lite,google-deepmind,mmlu-pro,45.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 claude-3-5-sonnet,anthropic,mmlu-pro,54.3,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 phi-4-mm,microsoft,mmlu-pro,38.5,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 gpt-4o,openai,mmlu-pro,53.0,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 gpt-4o-mini,openai,mmlu-pro,40.8,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
-gemini-2-0-flash, google-deepmind,mmmu,64.7,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
-gemini-2-0-flash-lite, google-deepmind,mmmu,54.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash,google-deepmind,mmmu,64.7,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
+gemini-2-0-flash-lite,google-deepmind,mmmu,54.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 claude-3-5-sonnet,anthropic,mmmu,55.8,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 phi-4-mm,microsoft,mmmu,55.1,2025-02-27,,Phi-4 announcement,https://arxiv.org/pdf/2503.01743
 gpt-4-5,openai,mmmu,74.4,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
@@ -735,191 +735,191 @@ o3-mini,openai,swe-bench-verified,61.0,2025-02-27,High,GPT-4.5 announcement,http
 gpt-4-5,openai,swe-lancer-ic-swe-diamond,186125.0,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
 gpt-4o,openai,swe-lancer-ic-swe-diamond,138750.0,2025-02-27,,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
 o3-mini,openai,swe-lancer-ic-swe-diamond,89625.0,2025-02-27,High,GPT-4.5 announcement,https://openai.com/index/introducing-gpt-4-5/
-gemma-3-12b, google-deepmind,ai2d,84.2,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,ai2d,84.5,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,ai2d,74.8,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-12b, google-deepmind,big-bench-hard,85.7,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-1b, google-deepmind,big-bench-hard,39.1,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,big-bench-hard,87.6,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,big-bench-hard,72.2,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-12b, google-deepmind,bird-sql,47.9,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-1b, google-deepmind,bird-sql,6.4,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,bird-sql,54.4,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,bird-sql,36.3,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-12b, google-deepmind,doc-vqa,87.1,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,doc-vqa,86.6,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,doc-vqa,75.8,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-12b, google-deepmind,drop,72.2,2025-03-12,1-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-1b, google-deepmind,drop,42.4,2025-03-12,1-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,drop,77.2,2025-03-12,1-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,drop,60.1,2025-03-12,1-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-12b, google-deepmind,facts-grounding,75.8,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-1b, google-deepmind,facts-grounding,36.4,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,facts-grounding,74.9,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,facts-grounding,70.1,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-12b, google-deepmind,gpqa-diamond,40.9,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-1b, google-deepmind,gpqa-diamond,19.2,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,gpqa-diamond,42.4,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,gpqa-diamond,30.8,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-12b, google-deepmind,gsm8k,94.4,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-1b, google-deepmind,gsm8k,62.8,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,gsm8k,95.9,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,gsm8k,89.2,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-12b, google-deepmind,hellaswag,84.2,2025-03-12,10-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-1b, google-deepmind,hellaswag,62.3,2025-03-12,10-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,hellaswag,85.6,2025-03-12,10-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,hellaswag,77.2,2025-03-12,10-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-12b, google-deepmind,hidden-math,54.5,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-1b, google-deepmind,hidden-math,15.8,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,hidden-math,60.3,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,hidden-math,43.0,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-12b, google-deepmind,human-eval,85.4,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-1b, google-deepmind,human-eval,41.5,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,human-eval,87.8,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,human-eval,71.3,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-12b, google-deepmind,if-eval,88.9,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-1b, google-deepmind,if-eval,80.2,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,if-eval,90.4,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,if-eval,90.2,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-12b, google-deepmind,math,83.8,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-1b, google-deepmind,math,48.0,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,math,89.0,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,math,75.6,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-12b, google-deepmind,mgsm,64.3,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-1b, google-deepmind,mgsm,2.04,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,mgsm,74.3,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,mgsm,34.7,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-12b, google-deepmind,mmlu-pro,60.6,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-1b, google-deepmind,mmlu-pro,14.7,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,mmlu-pro,67.5,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,mmlu-pro,43.6,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-12b, google-deepmind,mmmu,59.6,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,mmmu,64.9,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,mmmu,48.8,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-12b, google-deepmind,simple-qa,6.3,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-1b, google-deepmind,simple-qa,2.2,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,simple-qa,10.0,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-4b, google-deepmind,simple-qa,4.0,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
-gemma-3-27b, google-deepmind,ai2d,84.5,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-12b,google-deepmind,ai2d,84.2,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,ai2d,84.5,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,ai2d,74.8,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-12b,google-deepmind,big-bench-hard,85.7,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-1b,google-deepmind,big-bench-hard,39.1,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,big-bench-hard,87.6,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,big-bench-hard,72.2,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-12b,google-deepmind,bird-sql,47.9,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-1b,google-deepmind,bird-sql,6.4,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,bird-sql,54.4,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,bird-sql,36.3,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-12b,google-deepmind,doc-vqa,87.1,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,doc-vqa,86.6,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,doc-vqa,75.8,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-12b,google-deepmind,drop,72.2,2025-03-12,1-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-1b,google-deepmind,drop,42.4,2025-03-12,1-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,drop,77.2,2025-03-12,1-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,drop,60.1,2025-03-12,1-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-12b,google-deepmind,facts-grounding,75.8,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-1b,google-deepmind,facts-grounding,36.4,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,facts-grounding,74.9,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,facts-grounding,70.1,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-12b,google-deepmind,gpqa-diamond,40.9,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-1b,google-deepmind,gpqa-diamond,19.2,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,gpqa-diamond,42.4,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,gpqa-diamond,30.8,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-12b,google-deepmind,gsm8k,94.4,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-1b,google-deepmind,gsm8k,62.8,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,gsm8k,95.9,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,gsm8k,89.2,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-12b,google-deepmind,hellaswag,84.2,2025-03-12,10-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-1b,google-deepmind,hellaswag,62.3,2025-03-12,10-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,hellaswag,85.6,2025-03-12,10-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,hellaswag,77.2,2025-03-12,10-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-12b,google-deepmind,hidden-math,54.5,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-1b,google-deepmind,hidden-math,15.8,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,hidden-math,60.3,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,hidden-math,43.0,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-12b,google-deepmind,human-eval,85.4,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-1b,google-deepmind,human-eval,41.5,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,human-eval,87.8,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,human-eval,71.3,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-12b,google-deepmind,if-eval,88.9,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-1b,google-deepmind,if-eval,80.2,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,if-eval,90.4,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,if-eval,90.2,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-12b,google-deepmind,math,83.8,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-1b,google-deepmind,math,48.0,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,math,89.0,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,math,75.6,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-12b,google-deepmind,mgsm,64.3,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-1b,google-deepmind,mgsm,2.04,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,mgsm,74.3,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,mgsm,34.7,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-12b,google-deepmind,mmlu-pro,60.6,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-1b,google-deepmind,mmlu-pro,14.7,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,mmlu-pro,67.5,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,mmlu-pro,43.6,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-12b,google-deepmind,mmmu,59.6,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,mmmu,64.9,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,mmmu,48.8,2025-03-12,,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-12b,google-deepmind,simple-qa,6.3,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-1b,google-deepmind,simple-qa,2.2,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,simple-qa,10.0,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-4b,google-deepmind,simple-qa,4.0,2025-03-12,0-shot,Gemma 3 model card,https://ai.google.dev/gemma/docs/core/model_card_3
+gemma-3-27b,google-deepmind,ai2d,84.5,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 claude-3-5-haiku,anthropic,ai2d,92.1,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 mistral-small-3-1,mistral,ai2d,93.72,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 gpt-4o-mini,openai,ai2d,88.1,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
-gemma-3-27b, google-deepmind,doc-vqa,86.6,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google-deepmind,doc-vqa,86.6,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 claude-3-5-haiku,anthropic,doc-vqa,90.0,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 mistral-small-3-1,mistral,doc-vqa,94.08,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 gpt-4o-mini,openai,doc-vqa,86.7,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
-gemma-3-27b, google-deepmind,gpqa-diamond,42.4,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google-deepmind,gpqa-diamond,42.4,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 claude-3-5-haiku,anthropic,gpqa-diamond,41.6,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 mistral-small-3-1,mistral,gpqa-diamond,45.96,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 gpt-4o-mini,openai,gpqa-diamond,39.39,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
-gemma-3-27b, google-deepmind,human-eval,87.8,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google-deepmind,human-eval,87.8,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 claude-3-5-haiku,anthropic,human-eval,88.1,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 mistral-small-3-1,mistral,human-eval,88.41,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 gpt-4o-mini,openai,human-eval,87.2,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
-gemma-3-27b, google-deepmind,math,89.0,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google-deepmind,math,89.0,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 claude-3-5-haiku,anthropic,math,69.2,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 mistral-small-3-1,mistral,math,69.3,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 gpt-4o-mini,openai,math,70.2,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
-gemma-3-27b, google-deepmind,math-vista,67.6,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google-deepmind,math-vista,67.6,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 claude-3-5-haiku,anthropic,math-vista,61.6,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 mistral-small-3-1,mistral,math-vista,68.91,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 gpt-4o-mini,openai,math-vista,56.7,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
-gemma-3-27b, google-deepmind,mmlu,76.9,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google-deepmind,mmlu,76.9,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 claude-3-5-haiku,anthropic,mmlu,77.6,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 mistral-small-3-1,mistral,mmlu,80.62,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 gpt-4o-mini,openai,mmlu,82.0,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
-gemma-3-27b, google-deepmind,mmlu-pro,67.5,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google-deepmind,mmlu-pro,67.5,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 claude-3-5-haiku,anthropic,mmlu-pro,65.0,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 mistral-small-3-1,mistral,mmlu-pro,66.76,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 gpt-4o-mini,openai,mmlu-pro,61.7,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
-gemma-3-27b, google-deepmind,mmmu,64.9,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google-deepmind,mmmu,64.9,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 claude-3-5-haiku,anthropic,mmmu,60.5,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 mistral-small-3-1,mistral,mmmu,62.8,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 gpt-4o-mini,openai,mmmu,59.4,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
-gemma-3-27b, google-deepmind,simple-qa,10.0,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
+gemma-3-27b,google-deepmind,simple-qa,10.0,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 claude-3-5-haiku,anthropic,simple-qa,8.02,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 mistral-small-3-1,mistral,simple-qa,10.43,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
 gpt-4o-mini,openai,simple-qa,9.5,2025-03-17,,Mistral Small 3.1 announcement,https://mistral.ai/news/mistral-small-3-1
-gemini-2-5-pro, google-deepmind,aider-polyglot,74.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google-deepmind,aider-polyglot,74.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 claude-3-7-sonnet,anthropic,aider-polyglot,64.9,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,aider-polyglot,56.9,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 gpt-4-5,openai,aider-polyglot,44.9,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 o3-mini,openai,aider-polyglot,60.4,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro, google-deepmind,aime-2024,92.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google-deepmind,aime-2024,92.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 claude-3-7-sonnet,anthropic,aime-2024,61.3,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,aime-2024,79.8,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 gpt-4-5,openai,aime-2024,36.7,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 o3-mini,openai,aime-2024,87.3,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 grok-3,xai,aime-2024,83.9,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro, google-deepmind,aime-2025,86.7,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google-deepmind,aime-2025,86.7,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 claude-3-7-sonnet,anthropic,aime-2025,49.5,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,aime-2025,70.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 o3-mini,openai,aime-2025,86.5,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 grok-3,xai,aime-2025,77.3,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro, google-deepmind,gpqa-diamond,84.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google-deepmind,gpqa-diamond,84.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 claude-3-7-sonnet,anthropic,gpqa-diamond,78.2,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,gpqa-diamond,71.5,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 gpt-4-5,openai,gpqa-diamond,71.4,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 o3-mini,openai,gpqa-diamond,79.7,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 grok-3,xai,gpqa-diamond,80.2,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro, google-deepmind,humanitys-last-exam,18.8,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google-deepmind,humanitys-last-exam,18.8,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 claude-3-7-sonnet,anthropic,humanitys-last-exam,8.9,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,humanitys-last-exam,8.6,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 gpt-4-5,openai,humanitys-last-exam,6.4,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 o3-mini,openai,humanitys-last-exam,14.0,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro, google-deepmind,live-code-bench,70.4,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google-deepmind,live-code-bench,70.4,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,live-code-bench,64.3,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 o3-mini,openai,live-code-bench,74.1,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 grok-3,xai,live-code-bench,70.6,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro, google-deepmind,mmmu,81.7,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google-deepmind,mmmu,81.7,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 claude-3-7-sonnet,anthropic,mmmu,75.0,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 gpt-4-5,openai,mmmu,74.4,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 grok-3,xai,mmmu,76.0,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro, google-deepmind,simple-qa,52.9,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google-deepmind,simple-qa,52.9,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,simple-qa,30.1,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 gpt-4-5,openai,simple-qa,62.5,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 o3-mini,openai,simple-qa,13.8,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 grok-3,xai,simple-qa,43.6,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-5-pro, google-deepmind,swe-bench-verified,63.8,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
+gemini-2-5-pro,google-deepmind,swe-bench-verified,63.8,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 claude-3-7-sonnet,anthropic,swe-bench-verified,70.3,2025-03-25,Extended thinking,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 r1,deepseek,swe-bench-verified,49.2,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 gpt-4-5,openai,swe-bench-verified,38.0,2025-03-25,,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
 o3-mini,openai,swe-bench-verified,49.3,2025-03-25,High,Gemini 2.5 announcement,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/
-gemini-2-0-flash-lite, google-deepmind,doc-vqa,91.2,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-gemma-3-27b, google-deepmind,doc-vqa,90.4,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash-lite,google-deepmind,doc-vqa,91.2,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemma-3-27b,google-deepmind,doc-vqa,90.4,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 llama-4-maverick,meta,doc-vqa,94.4,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 llama-4-scout,meta,doc-vqa,94.4,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 mistral-small-3-1,mistral,doc-vqa,94.1,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 gpt-4o,openai,doc-vqa,92.8,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-gemini-2-0-flash, google-deepmind,gpqa-diamond,60.1,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-gemini-2-0-flash-lite, google-deepmind,gpqa-diamond,51.5,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-gemma-3-27b, google-deepmind,gpqa-diamond,42.4,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash,google-deepmind,gpqa-diamond,60.1,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash-lite,google-deepmind,gpqa-diamond,51.5,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemma-3-27b,google-deepmind,gpqa-diamond,42.4,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 llama-4-maverick,meta,gpqa-diamond,69.8,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 llama-4-scout,meta,gpqa-diamond,57.2,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 mistral-small-3-1,mistral,gpqa-diamond,46.0,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 gpt-4o,openai,gpqa-diamond,53.6,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-gemini-2-0-flash, google-deepmind,live-code-bench,34.5,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-gemini-2-0-flash-lite, google-deepmind,live-code-bench,28.9,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-gemma-3-27b, google-deepmind,live-code-bench,29.7,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash,google-deepmind,live-code-bench,34.5,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash-lite,google-deepmind,live-code-bench,28.9,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemma-3-27b,google-deepmind,live-code-bench,29.7,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 llama-4-maverick,meta,live-code-bench,43.4,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 llama-4-scout,meta,live-code-bench,32.8,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 gpt-4o,openai,live-code-bench,32.3,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-gemini-2-0-flash, google-deepmind,math-vista,73.1,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-gemini-2-0-flash-lite, google-deepmind,math-vista,57.6,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-gemma-3-27b, google-deepmind,math-vista,67.6,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash,google-deepmind,math-vista,73.1,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash-lite,google-deepmind,math-vista,57.6,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemma-3-27b,google-deepmind,math-vista,67.6,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 llama-4-maverick,meta,math-vista,73.7,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 llama-4-scout,meta,math-vista,70.7,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 mistral-small-3-1,mistral,math-vista,68.9,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 gpt-4o,openai,math-vista,63.8,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-gemini-2-0-flash, google-deepmind,mmlu-pro,77.6,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-gemini-2-0-flash-lite, google-deepmind,mmlu-pro,71.6,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-gemma-3-27b, google-deepmind,mmlu-pro,67.5,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash,google-deepmind,mmlu-pro,77.6,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash-lite,google-deepmind,mmlu-pro,71.6,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemma-3-27b,google-deepmind,mmlu-pro,67.5,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 llama-4-maverick,meta,mmlu-pro,80.5,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 llama-4-scout,meta,mmlu-pro,74.3,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 mistral-small-3-1,mistral,mmlu-pro,66.8,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-gemini-2-0-flash, google-deepmind,mmmu,71.7,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-gemini-2-0-flash-lite, google-deepmind,mmmu,68.0,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-gemma-3-27b, google-deepmind,mmmu,64.9,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash,google-deepmind,mmmu,71.7,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemini-2-0-flash-lite,google-deepmind,mmmu,68.0,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+gemma-3-27b,google-deepmind,mmmu,64.9,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 llama-4-maverick,meta,mmmu,73.4,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 llama-4-scout,meta,mmmu,69.4,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
 mistral-small-3-1,mistral,mmmu,62.8,2025-04-05,,Llama 4 announcement,https://ai.meta.com/blog/llama-4-multimodal-intelligence/
@@ -1125,57 +1125,57 @@ o1,openai,tau-bench-retail,70.8,2025-04-16,High,o3 & o4-mini announcement,https:
 o3,openai,tau-bench-retail,70.4,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
 o3-mini,openai,tau-bench-retail,57.6,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
 o4-mini,openai,tau-bench-retail,65.6,2025-04-16,High,o3 & o4-mini announcement,https://openai.com/index/introducing-o3-and-o4-mini/
-gemini-2-0-flash, google-deepmind,aider-polyglot,22.2,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash, google-deepmind,aider-polyglot,51.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google-deepmind,aider-polyglot,22.2,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google-deepmind,aider-polyglot,51.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 claude-3-7-sonnet,anthropic,aider-polyglot,64.9,2025-04-17,Extended thinking,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 r1,deepseek,aider-polyglot,56.9,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 o4-mini,openai,aider-polyglot,68.9,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 grok-3,xai,aider-polyglot,53.3,2025-04-17,Extended thinking,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash, google-deepmind,aime-2024,32.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash, google-deepmind,aime-2024,88.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google-deepmind,aime-2024,32.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google-deepmind,aime-2024,88.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 claude-3-7-sonnet,anthropic,aime-2024,61.3,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 r1,deepseek,aime-2024,79.8,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 o4-mini,openai,aime-2024,93.4,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 grok-3,xai,aime-2024,83.9,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash, google-deepmind,aime-2025,27.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash, google-deepmind,aime-2025,78.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google-deepmind,aime-2025,27.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google-deepmind,aime-2025,78.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 claude-3-7-sonnet,anthropic,aime-2025,49.5,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 r1,deepseek,aime-2025,70.0,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 o4-mini,openai,aime-2025,92.7,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 grok-3,xai,aime-2025,77.3,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash, google-deepmind,gpqa-diamond,60.1,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash, google-deepmind,gpqa-diamond,78.3,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google-deepmind,gpqa-diamond,60.1,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google-deepmind,gpqa-diamond,78.3,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 claude-3-7-sonnet,anthropic,gpqa-diamond,78.2,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 r1,deepseek,gpqa-diamond,71.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 o4-mini,openai,gpqa-diamond,81.4,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 grok-3,xai,gpqa-diamond,80.2,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash, google-deepmind,humanitys-last-exam,5.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash, google-deepmind,humanitys-last-exam,12.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google-deepmind,humanitys-last-exam,5.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google-deepmind,humanitys-last-exam,12.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 claude-3-7-sonnet,anthropic,humanitys-last-exam,8.9,2025-04-17,Extended thinking,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 r1,deepseek,humanitys-last-exam,8.6,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 o4-mini,openai,humanitys-last-exam,14.3,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash, google-deepmind,live-code-bench,34.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash, google-deepmind,live-code-bench,63.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google-deepmind,live-code-bench,34.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google-deepmind,live-code-bench,63.5,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 r1,deepseek,live-code-bench,64.3,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 grok-3,xai,live-code-bench,70.6,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash, google-deepmind,mmmu,71.7,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash, google-deepmind,mmmu,76.7,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google-deepmind,mmmu,71.7,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google-deepmind,mmmu,76.7,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 claude-3-7-sonnet,anthropic,mmmu,75.0,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 o4-mini,openai,mmmu,81.6,2025-04-17,pass@1,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 grok-3,xai,mmmu,76.0,2025-04-17,"Extended thinking, pass@1",Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash, google-deepmind,mrcr,74.2,2025-04-17,128k (average),Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash, google-deepmind,mrcr,84.6,2025-04-17,128k (average),Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-0-flash, google-deepmind,simple-qa,29.9,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-2-5-flash, google-deepmind,simple-qa,29.7,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google-deepmind,mrcr,74.2,2025-04-17,128k (average),Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google-deepmind,mrcr,84.6,2025-04-17,128k (average),Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-0-flash,google-deepmind,simple-qa,29.9,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
+gemini-2-5-flash,google-deepmind,simple-qa,29.7,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 r1,deepseek,simple-qa,30.1,2025-04-17,,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
 grok-3,xai,simple-qa,43.6,2025-04-17,Extended thinking,Gemini 2.5 Flash announcement,https://blog.google/products/gemini/gemini-2-5-flash-preview/
-gemini-1-5-pro, google-deepmind,chatbot-arena,1260.0,2025-04-21,,April 21st update,https://lmarena.ai
-gemini-2-0-flash, google-deepmind,chatbot-arena,1354.0,2025-04-21,,April 21st update,https://lmarena.ai
-gemini-2-0-flash-lite, google-deepmind,chatbot-arena,1311.0,2025-04-21,,April 21st update,https://lmarena.ai
-gemini-2-0-flash-thinking, google-deepmind,chatbot-arena,1380.0,2025-04-21,,April 21st update,https://lmarena.ai
-gemini-2-5-flash, google-deepmind,chatbot-arena,1392.0,2025-04-21,,April 21st update,https://lmarena.ai
-gemini-2-5-pro, google-deepmind,chatbot-arena,1439.0,2025-04-21,,April 21st update,https://lmarena.ai
-gemma-3-27b, google-deepmind,chatbot-arena,1342.0,2025-04-21,,April 21st update,https://lmarena.ai
+gemini-1-5-pro,google-deepmind,chatbot-arena,1260.0,2025-04-21,,April 21st update,https://lmarena.ai
+gemini-2-0-flash,google-deepmind,chatbot-arena,1354.0,2025-04-21,,April 21st update,https://lmarena.ai
+gemini-2-0-flash-lite,google-deepmind,chatbot-arena,1311.0,2025-04-21,,April 21st update,https://lmarena.ai
+gemini-2-0-flash-thinking,google-deepmind,chatbot-arena,1380.0,2025-04-21,,April 21st update,https://lmarena.ai
+gemini-2-5-flash,google-deepmind,chatbot-arena,1392.0,2025-04-21,,April 21st update,https://lmarena.ai
+gemini-2-5-pro,google-deepmind,chatbot-arena,1439.0,2025-04-21,,April 21st update,https://lmarena.ai
+gemma-3-27b,google-deepmind,chatbot-arena,1342.0,2025-04-21,,April 21st update,https://lmarena.ai
 claude-3-5-sonnet,anthropic,chatbot-arena,1283.0,2025-04-21,,April 21st update,https://lmarena.ai
 claude-3-7-sonnet,anthropic,chatbot-arena,1293.0,2025-04-21,,April 21st update,https://lmarena.ai
 command-a,cohere,chatbot-arena,1303.0,2025-04-21,,April 21st update,https://lmarena.ai
@@ -1195,8 +1195,8 @@ o3-mini,openai,chatbot-arena,1305.0,2025-04-21,,April 21st update,https://lmaren
 grok-2,xai,chatbot-arena,1288.0,2025-04-21,,April 21st update,https://lmarena.ai
 grok-2-mini,xai,chatbot-arena,1266.0,2025-04-21,,April 21st update,https://lmarena.ai
 grok-3,xai,chatbot-arena,1402.0,2025-04-21,,April 21st update,https://lmarena.ai
-gemini-1-5-pro, google-deepmind,simple-bench,27.1,2025-04-21,,SimpleBench,https://simple-bench.com
-gemini-2-5-pro, google-deepmind,simple-bench,51.6,2025-04-21,,SimpleBench,https://simple-bench.com
+gemini-1-5-pro,google-deepmind,simple-bench,27.1,2025-04-21,,SimpleBench,https://simple-bench.com
+gemini-2-5-pro,google-deepmind,simple-bench,51.6,2025-04-21,,SimpleBench,https://simple-bench.com
 claude-3-5-sonnet,anthropic,simple-bench,41.4,2025-04-21,,SimpleBench,https://simple-bench.com
 claude-3-7-sonnet,anthropic,simple-bench,46.4,2025-04-21,Thinking,SimpleBench,https://simple-bench.com
 claude-3-opus,anthropic,simple-bench,23.5,2025-04-21,,SimpleBench,https://simple-bench.com
@@ -1219,7 +1219,7 @@ o3-mini,openai,simple-bench,22.8,2025-04-21,High,SimpleBench,https://simple-benc
 o4-mini,openai,simple-bench,38.7,2025-04-21,,SimpleBench,https://simple-bench.com
 grok-2,xai,simple-bench,22.7,2025-04-21,,SimpleBench,https://simple-bench.com
 grok-3,xai,simple-bench,36.1,2025-04-21,,SimpleBench,https://simple-bench.com
-gemini-2-5-pro, google-deepmind,mmlu-pro,84.52,2025-04-23,,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
+gemini-2-5-pro,google-deepmind,mmlu-pro,84.52,2025-04-23,,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
 claude-3-7-sonnet,anthropic,mmlu-pro,84.0,2025-04-23,Extended Thinking,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
 phi-3-5-mini,microsoft,mmlu-pro,52.8,2025-04-23,,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
 phi-4,microsoft,mmlu-pro,70.4,2025-04-23,,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
@@ -1227,15 +1227,15 @@ gpt-4-5,openai,mmlu-pro,86.1,2025-04-23,,MMLU-Pro Leaderboard,https://huggingfac
 gpt-4o,openai,mmlu-pro,77.9,2025-04-23,,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
 o1,openai,mmlu-pro,89.3,2025-04-23,,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
 grok-2,xai,mmlu-pro,75.46,2025-04-23,,MMLU-Pro Leaderboard,https://huggingface.co/spaces/TIGER-Lab/MMLU-Pro
-gemini-2-5-pro, google-deepmind,aider-polyglot,72.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemini-2-5-pro,google-deepmind,aider-polyglot,72.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-235b-a22b,alibaba,aider-polyglot,61.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-32b,alibaba,aider-polyglot,50.2,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 r1,deepseek,aider-polyglot,56.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 o1,openai,aider-polyglot,61.7,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 o3-mini,openai,aider-polyglot,53.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 grok-3,xai,aider-polyglot,53.3,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
-gemini-2-5-pro, google-deepmind,aime-2024,92.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
-gemma-3-27b, google-deepmind,aime-2024,32.6,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemini-2-5-pro,google-deepmind,aime-2024,92.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemma-3-27b,google-deepmind,aime-2024,32.6,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-235b-a22b,alibaba,aime-2024,85.7,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-32b,alibaba,aime-2024,81.4,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-4b,alibaba,aime-2024,73.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
@@ -1245,8 +1245,8 @@ gpt-4o,openai,aime-2024,11.1,2025-04-29,,Qwen 3 announcement,https://qwenlm.gith
 o1,openai,aime-2024,74.3,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 o3-mini,openai,aime-2024,79.6,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 grok-3,xai,aime-2024,83.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
-gemini-2-5-pro, google-deepmind,aime-2025,86.7,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
-gemma-3-27b, google-deepmind,aime-2025,24.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemini-2-5-pro,google-deepmind,aime-2025,86.7,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemma-3-27b,google-deepmind,aime-2025,24.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-235b-a22b,alibaba,aime-2025,81.5,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-32b,alibaba,aime-2025,72.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-4b,alibaba,aime-2025,65.6,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
@@ -1256,8 +1256,8 @@ gpt-4o,openai,aime-2025,7.6,2025-04-29,,Qwen 3 announcement,https://qwenlm.githu
 o1,openai,aime-2025,79.2,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 o3-mini,openai,aime-2025,74.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 grok-3,xai,aime-2025,77.3,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
-gemini-2-5-pro, google-deepmind,codeforces,2001.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
-gemma-3-27b, google-deepmind,codeforces,1063.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemini-2-5-pro,google-deepmind,codeforces,2001.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemma-3-27b,google-deepmind,codeforces,1063.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-235b-a22b,alibaba,codeforces,2056.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-32b,alibaba,codeforces,1977.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-4b,alibaba,codeforces,1671.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
@@ -1266,12 +1266,12 @@ v3,deepseek,codeforces,1134.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.git
 gpt-4o,openai,codeforces,864.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 o1,openai,codeforces,1891.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 o3-mini,openai,codeforces,2036.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
-gemma-3-27b, google-deepmind,gpqa-diamond,42.4,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemma-3-27b,google-deepmind,gpqa-diamond,42.4,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-4b,alibaba,gpqa-diamond,55.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 v3,deepseek,gpqa-diamond,59.1,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 gpt-4o,openai,gpqa-diamond,46.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
-gemini-2-5-pro, google-deepmind,live-code-bench,70.4,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
-gemma-3-27b, google-deepmind,live-code-bench,26.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemini-2-5-pro,google-deepmind,live-code-bench,70.4,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemma-3-27b,google-deepmind,live-code-bench,26.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-235b-a22b,alibaba,live-code-bench,70.7,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-32b,alibaba,live-code-bench,65.7,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-4b,alibaba,live-code-bench,54.2,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
@@ -1281,8 +1281,8 @@ gpt-4o,openai,live-code-bench,32.7,2025-04-29,,Qwen 3 announcement,https://qwenl
 o1,openai,live-code-bench,63.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 o3-mini,openai,live-code-bench,66.3,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 grok-3,xai,live-code-bench,70.6,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
-gemini-2-5-pro, google-deepmind,multi-if,77.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
-gemma-3-27b, google-deepmind,multi-if,69.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemini-2-5-pro,google-deepmind,multi-if,77.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
+gemma-3-27b,google-deepmind,multi-if,69.8,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-235b-a22b,alibaba,multi-if,71.9,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-32b,alibaba,multi-if,73.0,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/
 qwen-3-4b,alibaba,multi-if,66.3,2025-04-29,,Qwen 3 announcement,https://qwenlm.github.io/blog/qwen3/

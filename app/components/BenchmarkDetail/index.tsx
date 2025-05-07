@@ -467,7 +467,9 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
                   const modelName = model ? model.name : score.model_id.split('-').map(word => 
                     word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
                   
-                  const company = companies[score.company_id];
+                  // Trim whitespace from company_id to handle inconsistencies in CSV
+                  const companyId = score.company_id?.trim();
+                  const company = companies[companyId];
                   const percentage = (score.score / maxScale) * 100;
                   
                   return (
@@ -595,7 +597,9 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
                   const modelName = model ? model.name : score.model_id.split('-').map(word => 
                     word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
                   
-                  const company = companies[score.company_id];
+                  // Trim whitespace from company_id to handle inconsistencies in CSV
+                  const companyId = score.company_id?.trim();
+                  const company = companies[companyId];
                   const formattedDate = new Date(score.date).toLocaleDateString('en-GB', {
                     day: 'numeric',
                     month: 'short',
