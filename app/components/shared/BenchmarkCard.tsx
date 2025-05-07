@@ -31,7 +31,7 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
       key={benchmark.benchmark_id}
       role="button"
       tabIndex={0}
-      className={`benchmark-card group ${containerStyles.companyCardContainer} ${benchmark.featured_benchmark ? 'border-2' : 'border'} shadow-md hover:shadow-lg transition-all duration-200`}
+      className={`benchmark-card group ${containerStyles.companyCardContainer} ${benchmark.featured_benchmark ? 'border-2' : 'border'} shadow-md hover:shadow-lg transition-all duration-200 overflow-visible`}
       style={{
         ...borderStyle,
         background: brandConfig.name === 'OMG' ? '#ffffff' : '#f9fafb', // Light background for both versions
@@ -49,7 +49,20 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
       aria-label={`${benchmark.benchmark_name} - Click to view details`}
       title={`${benchmark.benchmark_name} - Click to view details`}
     >
-      <div className="flex flex-col h-full">
+      <div className="flex flex-col h-full relative">
+        {benchmark.featured_benchmark && (
+          <i 
+            className="bi bi-star-fill text-3xl absolute"
+            style={{ 
+              color: brandConfig.secondaryColor,
+              filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.3))',
+              top: '-12px',
+              right: '-8px',
+              zIndex: 1 // Ensure star appears above other elements
+            }}
+            title="Featured Benchmark"
+          ></i>
+        )}
         <div className="text-center mb-2">
           <h3 
             className="font-semibold text-lg mb-1"
@@ -61,16 +74,6 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
           >
             {benchmark.benchmark_name}
           </h3>
-          {benchmark.featured_benchmark && (
-            <div className="mt-1">
-              <span className="text-xs px-1.5 py-0.5 rounded inline-block" style={{ 
-                backgroundColor: brandConfig.secondaryColor,
-                color: 'white'
-              }}>
-                Featured
-              </span>
-            </div>
-          )}
         </div>
         
         <div className="flex-grow text-sm px-2 text-center" style={{ 
