@@ -111,7 +111,8 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
 
   // Sort scores by value (highest first)
   const sortedScores = useMemo(() => {
-    // Sort by score value without filtering out models that don't exist in allModels
+    // We assume scores already contains only the latest score for each model
+    // from the useEffect that sets scores with Object.values(latestScores)
     return [...scores].sort((a, b) => b.score - a.score);
   }, [scores]);
   

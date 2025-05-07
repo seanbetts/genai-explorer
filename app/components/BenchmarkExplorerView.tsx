@@ -6,7 +6,7 @@ import { benchmarkCategoryConfig, BenchmarkCategoryConfigEntry } from './benchma
 import { containerStyles } from './utils/layout';
 import { categoryStyles } from './utils/theme';
 import brandConfig from '../config/brand';
-import { loadBenchmarkMetadata, loadBenchmarkScores, groupBenchmarksByCategory } from './utils/benchmarkUtils';
+import { loadBenchmarkMetadata, loadBenchmarkScores, groupBenchmarksByCategory, getLatestScoreForModelAndBenchmark, getUniqueModelScores } from './utils/benchmarkUtils';
 import BenchmarkCategorySection from './shared/BenchmarkCategorySection';
 import BenchmarkCard from './shared/BenchmarkCard';
 
@@ -73,13 +73,13 @@ const BenchmarkExplorerView: React.FC<BenchmarkExplorerViewProps> = ({ onBenchma
   const getBenchmarkTopModel = (benchmarkId: string) => {
     if (!dataLoaded) return null;
     
-    // Get all scores for this benchmark
-    const filteredScores = benchmarkScores.filter(score => score.benchmark_id === benchmarkId);
+    // Get uniqueModelScores for this benchmark (only most recent score for each model)
+    const uniqueScores = getUniqueModelScores(benchmarkScores, benchmarkId);
     
-    if (filteredScores.length === 0) return null;
+    if (uniqueScores.length === 0) return null;
     
     // Sort by score (highest first)
-    const sortedScores = [...filteredScores].sort((a, b) => b.score - a.score);
+    const sortedScores = [...uniqueScores].sort((a, b) => b.score - a.score);
     const topScore = sortedScores[0];
     
     // Get model and company names
@@ -227,7 +227,7 @@ const BenchmarkExplorerView: React.FC<BenchmarkExplorerViewProps> = ({ onBenchma
                       return acc;
                     }, new Set()).size}
                   onClick={() => onBenchmarkSelect(benchmark.benchmark_id)}
-                  topModel={getBenchmarkTopModel(benchmark.benchmark_id)}
+                  topModel={getBenchmarkTopModel(benchmark.benchmark_id) || undefined}
                   // Add category icon
                   categoryIcon={getCategoryIcon(benchmark.benchmark_category as BenchmarkCategory)}
                 />

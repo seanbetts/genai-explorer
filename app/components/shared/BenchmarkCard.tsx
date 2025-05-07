@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Benchmark } from '../types';
 import { containerStyles } from '../utils/layout';
 import brandConfig from '../../config/brand';
+import { getUniqueModelScores } from '../utils/benchmarkUtils';
 
 // Helper function to format benchmark scores according to their type
 const formatBenchmarkScore = (benchmarkId: string, score: number): string => {

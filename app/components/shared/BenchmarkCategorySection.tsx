@@ -6,6 +6,7 @@ import BenchmarkCard from './BenchmarkCard';
 import { textStyles } from '../utils/theme';
 import { containerStyles, iconStyles } from '../utils/layout';
 import brandConfig from '../../config/brand';
+import { getUniqueModelScores } from '../utils/benchmarkUtils';
 
 interface BenchmarkCategorySectionProps {
   category: BenchmarkCategory;
@@ -111,15 +112,15 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
     
     // Find top model for each benchmark
     const topModels = benchmarks.reduce((result, benchmark) => {
-      // Get all scores for this benchmark
-      const benchmarkScores = scores.filter(score => score.benchmark_id === benchmark.benchmark_id);
+      // Get unique scores for each model (most recent only)
+      const uniqueScores = getUniqueModelScores(scores, benchmark.benchmark_id);
       
-      if (benchmarkScores.length === 0) {
+      if (uniqueScores.length === 0) {
         return result;
       }
       
       // Sort by score (highest first)
-      const sortedScores = [...benchmarkScores].sort((a, b) => b.score - a.score);
+      const sortedScores = [...uniqueScores].sort((a, b) => b.score - a.score);
       const topScore = sortedScores[0];
       
       // Get model and company names from our maps, or use IDs as fallbacks
