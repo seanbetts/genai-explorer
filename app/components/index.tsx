@@ -22,8 +22,9 @@ import brandConfig from '../config/brand';
 
 interface AIExplorerProps {
   initialData: ExplorerData;
+  benchmarkPageContent?: React.ReactNode;
 }
-const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
+const AIExplorer: React.FC<AIExplorerProps> = ({ initialData, benchmarkPageContent }) => {
   const data: ExplorerData = initialData;
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -82,9 +83,11 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
       view = 'benchmark';
     } else if (isComparePage || compareParam) {
       view = 'compare';
+    } else if (benchmarkPageContent) {
+      view = 'benchmarks';
     }
     setCurrentView(view);
-  }, [selectedCompany, benchmarkId, isComparePage, compareParam]);
+  }, [selectedCompany, benchmarkId, isComparePage, compareParam, benchmarkPageContent]);
   
   // Convert URL tab parameter to category key for highlighting
   const getActiveCategoryFromTab = (tab: string | null): string => {
@@ -269,44 +272,74 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
               className="transition-colors flex items-center"
               style={{ 
                 color: currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')
-                  ? brandConfig.primaryColor
-                  : brandConfig.name === 'OMG' ? '#374151' : '#d1d5db',
+                  ? brandConfig.name === 'OMG' ? '#000000' : '#FFFFFF' // Black for OMG, white for personal
+                  : brandConfig.name === 'OMG' ? '#4B5563' : '#d1d5db', // Using consistent gray color
               }}
               onMouseEnter={(e) => {
                 // Always use secondary color on hover for both brands
                 e.currentTarget.style.color = brandConfig.secondaryColor;
+                // Also change the icon color
+                const icon = e.currentTarget.querySelector('i');
+                if (icon) icon.style.color = brandConfig.secondaryColor;
               }}
               onMouseLeave={(e) => {
+                // Reset icon color first
+                const icon = e.currentTarget.querySelector('i');
+                if (icon) icon.style.color = brandConfig.primaryColor;
+                
+                // Then reset text color
                 if (currentView === 'home' && !searchParams.has('company') && !searchParams.has('benchmark') && !searchParams.has('compare')) {
-                  // If active, return to primary
-                  e.currentTarget.style.color = brandConfig.primaryColor;
+                  // If active, return to black for OMG or white for personal
+                  e.currentTarget.style.color = brandConfig.name === 'OMG' ? '#000000' : '#FFFFFF';
                 } else {
                   // If not active, return to default text color for the brand
-                  e.currentTarget.style.color = brandConfig.name === 'OMG' ? '#374151' : '#d1d5db';
+                  e.currentTarget.style.color = brandConfig.name === 'OMG' ? '#4B5563' : '#d1d5db';
                 }
               }}
             >
-              <i className="bi bi-grid mr-1.5" style={{ color: brandConfig.primaryColor }} 
-              ref={(el) => {
-                if (el) {
-                  // Remove any existing listeners first to prevent duplicates
-                  el.parentElement?.removeEventListener('mouseenter', () => {});
-                  el.parentElement?.removeEventListener('mouseleave', () => {});
-                  
-                  // Add new listeners
-                  const mouseEnterHandler = () => {
-                    el.style.color = brandConfig.secondaryColor;
-                  };
-                  
-                  const mouseLeaveHandler = () => {
-                    el.style.color = brandConfig.primaryColor;
-                  };
-                  
-                  el.parentElement?.addEventListener('mouseenter', mouseEnterHandler);
-                  el.parentElement?.addEventListener('mouseleave', mouseLeaveHandler);
-                }
-              }}></i>
+              <i 
+                className="bi bi-grid mr-1.5" 
+                style={{ color: brandConfig.primaryColor }}
+              ></i>
               <span>Model Explorer</span>
+            </Link>
+            
+            {/* Benchmark Explorer Link */}
+            <Link 
+              href="/benchmarks" 
+              className="transition-colors flex items-center"
+              style={{ 
+                color: currentView === 'benchmarks'
+                  ? brandConfig.name === 'OMG' ? '#000000' : '#FFFFFF'  // Black for OMG, white for personal
+                  : brandConfig.name === 'OMG' ? '#4B5563' : '#d1d5db', // Using consistent gray color
+              }}
+              onMouseEnter={(e) => {
+                // Always use secondary color on hover for both brands
+                e.currentTarget.style.color = brandConfig.secondaryColor;
+                // Also change the icon color
+                const icon = e.currentTarget.querySelector('i');
+                if (icon) icon.style.color = brandConfig.secondaryColor;
+              }}
+              onMouseLeave={(e) => {
+                // Reset icon color first
+                const icon = e.currentTarget.querySelector('i');
+                if (icon) icon.style.color = brandConfig.primaryColor;
+                
+                // Then reset text color
+                if (currentView === 'benchmarks') {
+                  // If active, return to black for OMG or white for personal
+                  e.currentTarget.style.color = brandConfig.name === 'OMG' ? '#000000' : '#FFFFFF';
+                } else {
+                  // If not active, return to default text color for the brand
+                  e.currentTarget.style.color = brandConfig.name === 'OMG' ? '#4B5563' : '#d1d5db';
+                }
+              }}
+            >
+              <i 
+                className="bi bi-trophy mr-1.5" 
+                style={{ color: brandConfig.primaryColor }}
+              ></i>
+              <span>Benchmark Explorer</span>
             </Link>
             
             {/* Temporarily hidden Model Comparer */}
@@ -387,6 +420,13 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData }) => {
               onLastUpdatedChange={handleBenchmarkLastUpdatedChange}
             />
           </Suspense>
+        )}
+        
+        {/* Benchmark Explorer page content */}
+        {currentView === 'benchmarks' && benchmarkPageContent && (
+          <div className="container mx-auto px-5">
+            {benchmarkPageContent}
+          </div>
         )}
         
         {/* Temporarily hidden Model Comparer */}

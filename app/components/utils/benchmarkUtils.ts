@@ -433,3 +433,28 @@ export const companyHasBenchmarkData = async (companyId: string): Promise<boolea
     return false;
   }
 };
+
+/**
+ * Get a filtered list of benchmark scores that includes only the most recent score for each model
+ * This is used for ranking and displaying the top model and score for each benchmark
+ */
+export const getUniqueModelScores = (
+  scores: BenchmarkScore[], 
+  benchmarkId: string
+): BenchmarkScore[] => {
+  const benchmarkScores = scores.filter(score => score.benchmark_id.trim() === benchmarkId.trim());
+  
+  // Get unique model IDs
+  const uniqueModelIds = Array.from(new Set(benchmarkScores.map(score => score.model_id.trim())));
+  
+  // For each model ID, get the most recent score
+  const uniqueScores: BenchmarkScore[] = [];
+  uniqueModelIds.forEach(modelId => {
+    const latestScore = getLatestScoreForModelAndBenchmark(benchmarkScores, modelId, benchmarkId);
+    if (latestScore) {
+      uniqueScores.push(latestScore);
+    }
+  });
+  
+  return uniqueScores;
+};

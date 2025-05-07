@@ -111,6 +111,8 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
 
   // Sort scores by value (highest first)
   const sortedScores = useMemo(() => {
+    // We assume scores already contains only the latest score for each model
+    // from the useEffect that sets scores with Object.values(latestScores)
     return [...scores].sort((a, b) => b.score - a.score);
   }, [scores]);
   
@@ -374,7 +376,7 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
                 brandConfig.name === 'OMG'
                   ? 'text-gray-900 font-sans'
                   : 'text-white font-mono'
-              }`}>{scores.length}</p>
+              }`}>{sortedScores.length}</p>
             </div>
             <div className={`rounded-lg p-3 border w-40 ${
               brandConfig.name === 'OMG'
@@ -462,7 +464,8 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
               <div className="space-y-3 mt-6 max-h-[600px] overflow-y-auto pr-6 custom-scrollbar">
                 {sortedScores.map((score, index) => {
                   const model = allModels[score.model_id];
-                  if (!model) return null;
+                  const modelName = model ? model.name : score.model_id.split('-').map(word => 
+                    word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
                   
                   const company = companies[score.company_id];
                   const percentage = (score.score / maxScale) * 100;
@@ -480,7 +483,7 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
                             ? 'text-blue-600 font-sans'
                             : 'text-cyan-400 font-mono'
                         }`}
-                        style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>{model.name}</div>
+                        style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>{modelName}</div>
                         <div className={`text-sm ${
                           brandConfig.name === 'OMG'
                             ? 'text-gray-600 font-sans'
@@ -589,7 +592,8 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
               }`}>
                 {sortedScores.map((score, index) => {
                   const model = allModels[score.model_id];
-                  if (!model) return null;
+                  const modelName = model ? model.name : score.model_id.split('-').map(word => 
+                    word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
                   
                   const company = companies[score.company_id];
                   const formattedDate = new Date(score.date).toLocaleDateString('en-GB', {
@@ -626,9 +630,9 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
                               : 'text-cyan-400 font-mono'
                           }`}
                           style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
-                            {model.name}
+                            {modelName}
                           </span>
-                          {model.status === 'archived' && (
+                          {model?.status === 'archived' && (
                             <span className={`ml-2 px-1.5 py-0.5 text-xs rounded ${
                               brandConfig.name === 'OMG'
                                 ? 'bg-gray-200 text-gray-600 font-sans'
@@ -638,7 +642,7 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
                             </span>
                           )}
                         </div>
-                        {model.releaseDate && (
+                        {model?.releaseDate && (
                           <div className={`text-xs ${
                             brandConfig.name === 'OMG'
                               ? 'text-gray-600 font-sans'
