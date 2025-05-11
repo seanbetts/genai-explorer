@@ -491,7 +491,8 @@
             "transparent_layers": "https://youtu.be/tMhAASk9i1o?si=SQkpMs2p93y-Xkgz",
             "text_rendering": "https://youtu.be/NO7Uo2ii1Sw?si=cWPt6XOgRlChApYZ",
             "detailed_directions": "https://youtu.be/ELwb_emN1p0?si=ipfBPyDOdlGcXK2I",
-            "character_consistency": "https://youtu.be/PFsOUNfBhzI?si=5P1WSszCgNqTiIIr"
+            "character_consistency": "https://youtu.be/PFsOUNfBhzI?si=5P1WSszCgNqTiIIr",
+            "on-brand_visuals": "https://www.youtube.com/watch?v=GAf0KHM4fnk"
           },
           "termsOfService": "https://openai.com/policies/terms-of-use/",
           "usagePolicy": "https://openai.com/policies/creating-images-and-videos-in-line-with-our-policies/",
@@ -5573,17 +5574,17 @@
       "logo": "/images/companies/suno/logo.png",
       "website": "https://suno.com/",
       "description": "Building a future where anyone can make great music.",
-      "lastUpdated": "2025-04-29",
+      "lastUpdated": "2025-05-11",
       "features": [],
       "models": [
         {
-          "id": "v4",
-          "name": "Suno v4",
+          "id": "v4_5",
+          "name": "Suno v4.5",
           "status": "primary",
           "about": "Better audio, sharper lyrics, and more dynamic song structures",
           "category": "audio",
           "releaseDate": "2024-11-19",
-          "releasePost": "https://suno.com/blog/v4",
+          "releasePost": "https://suno.com/blog/introducing-v4-5",
           "releaseVideo": "",
           "modelPage": "https://suno.com/explore",
           "systemCard": "",
@@ -6222,7 +6223,7 @@
       "logo": "/images/companies/hey-gen/logo.png",
       "website": "https://www.heygen.com",
       "description": "Our mission is to make visual storytelling accessible to all.",
-      "lastUpdated": "2025-05-05",
+      "lastUpdated": "2025-05-11",
       "features": [
         {
           "name": "Video Avatars",
@@ -6292,6 +6293,7 @@
           },
           "demoVideos": {
             "introduction": "https://youtu.be/wICY3ZV15QA?si=YO5Jq6XE8-XyOf44",
+            "avatar_IV": "https://youtu.be/RQVE4WPrczw?si=SRN2bfLar3j76otz",
             "AI_editing_studio": "https://youtu.be/suE96YZHGTo?si=C3bS3RaV6wEOTVWh",
             "templates": "https://youtu.be/PpL_UGwkV20?si=5sdz8-ZU-q1J5_XJ",
             "public_avatars_&_voices": "https://youtu.be/QtgPXgqylCM?si=hi9Runx73bWASFJS",
