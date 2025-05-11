@@ -2775,7 +2775,7 @@
       "logo": "/images/companies/mistral/logo.png",
       "website": "https://mistral.ai",
       "description": "We exist to make frontier AI accessible to everyone.",
-      "lastUpdated": "2025-04-19",
+      "lastUpdated": "2025-05-11",
       "features": [],
       "models": [
         {
@@ -2810,6 +2810,41 @@
             "knowledgeCutoff": "",
             "pricingInputPerM": 2,
             "pricingOutputPerM": 6
+          }
+        },
+        {
+          "id": "mistral-medium-3",
+          "name": "Mistral Medium",
+          "status": "primary",
+          "type": "Large Multimodal Model",
+          "category": "open",
+          "releaseDate": "2025-05-07",
+          "modelPage": "",
+          "releasePost": "https://mistral.ai/news/mistral-medium-3",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "Apache 2.0",
+          "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
+          "huggingFace": "",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 4,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": 0.4,
+            "pricingOutputPerM": 2
           }
         },
         {

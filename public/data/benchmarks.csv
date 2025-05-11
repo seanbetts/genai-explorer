@@ -1410,3 +1410,45 @@ o3-mini,openai,live-code-bench,69.5,2025-04-30,,Phi-4 Reasoning announcement,htt
 phi-4-reasoning,microsoft,live-code-bench,53.8,2025-04-30,,Phi-4 Reasoning announcement,https://huggingface.co/microsoft/Phi-4-reasoning-plus
 phi-4-reasoning-plus,microsoft,live-code-bench,53.1,2025-04-30,,Phi-4 Reasoning announcement,https://huggingface.co/microsoft/Phi-4-reasoning-plus
 r1,deepseek,live-code-bench,62.8,2025-04-30,,Phi-4 Reasoning announcement,https://huggingface.co/microsoft/Phi-4-reasoning-plus
+mistral-medium-3,mistral,human-eval,92.1,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+llama-4-maverick,meta,human-eval,85.4,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+gpt-4o,openai,human-eval,91.5,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+claude-3-7-sonnet,anthropic,human-eval,92.1,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+command-a,cohere,human-eval,82.9,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+mistral-medium-3,mistral,live-code-bench,30.3,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+llama-4-maverick,meta,live-code-bench,28.7,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+gpt-4o,openai,live-code-bench,31.4,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+claude-3-7-sonnet,anthropic,live-code-bench,36.0,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+command-a,cohere,live-code-bench,26.3,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+mistral-medium-3,mistral,if-eval,89.4,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+llama-4-maverick,meta,if-eval,88.9,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+gpt-4o,openai,if-eval,87.2,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+claude-3-7-sonnet,anthropic,if-eval,91.8,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+command-a,cohere,if-eval,89.7,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+mistral-medium-3,mistral,math-500,91.0,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+llama-4-maverick,meta,math-500,90.0,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+gpt-4o,openai,math-500,76.4,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+claude-3-7-sonnet,anthropic,math-500,83.0,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+command-a,cohere,math-500,82.0,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+mistral-medium-3,mistral,gpqa-diamond,57.1,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+llama-4-maverick,meta,gpqa-diamond,61.1,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+gpt-4o,openai,gpqa-diamond,52.5,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+claude-3-7-sonnet,anthropic,gpqa-diamond,69.7,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+command-a,cohere,gpqa-diamond,46.5,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+mistral-medium-3,mistral,mmlu-pro,38.5,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+llama-4-maverick,meta,mmlu-pro,80.4,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+gpt-4o,openai,mmlu-pro,75.8,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+claude-3-7-sonnet,anthropic,mmlu-pro,80.0,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+command-a,cohere,mmlu-pro,68.9,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+mistral-medium-3,mistral,mmmu,66.1,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+llama-4-maverick,meta,mmmu,71.8,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+gpt-4o,openai,mmmu,68.7,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+claude-3-7-sonnet,anthropic,mmmu,71.3,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+mistral-medium-3,mistral,doc-vqa,95.3,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+llama-4-maverick,meta,doc-vqa,94.1,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+gpt-4o,openai,doc-vqa,85.9,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+claude-3-7-sonnet,anthropic,doc-vqa,84.3,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+mistral-medium-3,mistral,ai2d,93.7,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+llama-4-maverick,meta,ai2d,84.4,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+gpt-4o,openai,ai2d,93.3,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
+claude-3-7-sonnet,anthropic,ai2d,78.8,2025-05-07,,Mistral Medium 3 announcement,https://mistral.ai/news/mistral-medium-3
