@@ -402,9 +402,9 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
   
   // Filter for only frontier and open models, then sort - memoized for performance
   const sortedModels = useMemo(() => {
-    // Filter for only frontier and open models
+    // Filter for only frontier and open models, excluding archived models
     const filteredModels = [...models].filter(model => 
-      model.category === 'frontier' || model.category === 'open'
+      (model.category === 'frontier' || model.category === 'open') && model.status !== 'archived'
     );
     
     return enrichModels(filteredModels).sort((a, b) => {

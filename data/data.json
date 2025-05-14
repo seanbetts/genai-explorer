@@ -253,7 +253,7 @@
         {
           "id": "o1",
           "name": "o1",
-          "status": "secondary",
+          "status": "archived",
           "type": "Large Reasoning Model",
           "category": "frontier",
           "releaseDate": "2024-12-17",
@@ -289,7 +289,7 @@
         {
           "id": "o3-mini",
           "name": "o3-mini",
-          "status": "secondary",
+          "status": "archived",
           "type": "Large Reasoning Model",
           "category": "frontier",
           "releaseDate": "2025-01-31",
