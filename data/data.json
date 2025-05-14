@@ -28,7 +28,7 @@
         },
         {
           "name": "Shopping",
-          "description": "Get product recommendations with visual product details, pricing, and reviews",
+          "description": "Get product recommendations with visual product details, pricing, and reviews.",
           "image": "/images/companies/openai/features/shopping.png",
           "url": "https://openai.com/chatgpt/search-product-discovery/"
         },
