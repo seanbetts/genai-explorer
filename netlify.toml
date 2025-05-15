@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build:netlify"
+  command = "npm install @tailwindcss/postcss@4.1.6 tailwindcss@4.1.6 && npm run build:netlify"
   publish = "out"
 
 [build.environment]
