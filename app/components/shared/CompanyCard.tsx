@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { Company, Model } from '../types';
 import { textStyles } from '../utils/theme';
 import { containerStyles } from '../utils/layout';
 import { getValidImageUrl } from '../utils/imageUtils';
+import OptimizedImage from '../utils/OptimizedImage';
 import brandConfig from '../../config/brand';
 
 interface CompanyCardProps {
@@ -104,22 +104,15 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
       title={`${company.name} - Click to view details`}
     >
       <div className={showLogoOnly ? containerStyles.companyLogoLarge : containerStyles.companyLogo}>
-        <Image 
+        <OptimizedImage 
           src={getValidImageUrl(company.logo && company.logo.startsWith("/") ? company.logo : "/images/companies/placeholder.png")}
           alt={`${company.name} logo`}
           className={containerStyles.companyLogoImage}
           width={imageSize.width}
           height={imageSize.height}
           style={standardizedLogoStyle}
-          onError={(e) => {
-            console.error(`Error loading logo for ${company.name}:`, company.logo);
-            // Fallback to original format if WebP fails
-            if (e.currentTarget.src.endsWith('.webp') && company.logo) {
-              e.currentTarget.src = company.logo;
-            } else {
-              e.currentTarget.src = "/images/companies/placeholder.svg";
-            }
-          }}
+          sizes={`(max-width: 640px) 80px, (max-width: 768px) 100px, ${imageSize.width}px`}
+          priority={company.id === 'openai' || company.id === 'google-deepmind' || company.id === 'anthropic'} // Prioritize loading of major companies
         />
       </div>
       {!showLogoOnly && (

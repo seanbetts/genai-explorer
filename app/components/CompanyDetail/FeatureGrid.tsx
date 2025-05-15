@@ -1,32 +1,26 @@
 'use client';
 
-import React, { useState } from 'react';
-import Image from 'next/image';
+import React from 'react';
 import { Feature } from '../types';
 import { textStyles } from '../utils/theme';
 import { containerStyles, buttonStyles } from '../utils/layout';
-import { getValidImageUrl, PLACEHOLDER_IMAGE } from '../utils/imageUtils';
+import { getValidImageUrl } from '../utils/imageUtils';
+import OptimizedImage from '../utils/OptimizedImage';
 
-// Component to handle image loading with fallback
-const ImageWithFallback = ({ src, alt, ...props }: {
+// Feature image component optimized for SEO and performance
+const FeatureImage = ({ src, alt, ...props }: {
   src: string;
   alt: string;
   [key: string]: any;
 }) => {
-  const [imgSrc, setImgSrc] = useState(src);
-  const [imgError, setImgError] = useState(false);
-  
   return (
-    <Image
+    <OptimizedImage
       {...props}
-      src={imgSrc}
+      src={getValidImageUrl(src)}
       alt={alt}
-      quality={imgError ? 100 : 85} // Higher quality for placeholder
-      unoptimized={imgError} // Skip optimization for placeholder
-      onError={() => {
-        setImgSrc(PLACEHOLDER_IMAGE);
-        setImgError(true);
-      }}
+      quality={80}
+      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 320px"
+      loading="lazy"
     />
   );
 };
@@ -52,9 +46,9 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ features }) => {
               onClick={feature.url ? () => window.open(feature.url, '_blank', 'noopener') : undefined}
             >
               <div className={containerStyles.featureImage}>
-                <ImageWithFallback
-                  src={getValidImageUrl(feature.image)}
-                  alt={feature.name}
+                <FeatureImage
+                  src={feature.image}
+                  alt={`${feature.name} - Feature`}
                   fill
                   style={{ objectFit: "cover" }}
                 />

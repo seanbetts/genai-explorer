@@ -1,32 +1,26 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { Product } from '../types';
 import { textStyles } from '../utils/theme';
 import { containerStyles, buttonStyles } from '../utils/layout';
 import { getValidImageUrl, PLACEHOLDER_IMAGE } from '../utils/imageUtils';
+import OptimizedImage from '../utils/OptimizedImage';
 
-// Component to handle image loading with fallback
-const ImageWithFallback = ({ src, alt, ...props }: {
+// Product image component optimized for SEO and performance
+const ProductImage = ({ src, alt, ...props }: {
   src: string;
   alt: string;
   [key: string]: any;
 }) => {
-  const [imgSrc, setImgSrc] = useState(src);
-  const [imgError, setImgError] = useState(false);
-  
   return (
-    <Image
+    <OptimizedImage
       {...props}
-      src={imgSrc}
+      src={getValidImageUrl(src)}
       alt={alt}
-      quality={imgError ? 100 : 85} // Higher quality for placeholder
-      unoptimized={imgError} // Skip optimization for placeholder
-      onError={() => {
-        setImgSrc(PLACEHOLDER_IMAGE);
-        setImgError(true);
-      }}
+      quality={80}
+      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 320px"
+      loading="lazy"
     />
   );
 };
@@ -52,9 +46,9 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
               onClick={product.url ? () => window.open(product.url, '_blank', 'noopener') : undefined}
             >
               <div className={containerStyles.featureImage}>
-                <ImageWithFallback
-                  src={getValidImageUrl(product.image)}
-                  alt={product.name}
+                <ProductImage
+                  src={product.image}
+                  alt={`${product.name} - Product from ${product.name}`}
                   fill
                   style={{ objectFit: "cover" }}
                 />

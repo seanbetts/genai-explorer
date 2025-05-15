@@ -1,9 +1,10 @@
 'use client';
 
 import React, { Suspense } from 'react';
-import Image from 'next/image';
 import { imageQuality } from '../utils/imageUtils';
 import { Company } from '../types';
+import JsonLd, { generateCompanyJsonLd, generateAiModelJsonLd } from '../utils/JsonLd';
+import OptimizedImage from '../utils/OptimizedImage';
 // Dynamically import heavy components per tab
 const ModelTable = React.lazy(() => import('./ModelTable'));
 const ProductGrid = React.lazy(() => import('./ProductGrid'));
@@ -237,8 +238,22 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
     
     return () => clearTimeout(timer);
   }, [setIsVisible]);
+  // Generate company structured data
+  const companyJsonLd = generateCompanyJsonLd(company);
+  
+  // Generate model structured data for featured models
+  const featuredModel = company.models.find(model => 
+    model.status === 'primary' || company.models[0]
+  );
+  const modelJsonLd = featuredModel 
+    ? generateAiModelJsonLd(featuredModel, company) 
+    : null;
+
   return (
     <div className={`transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      {/* JSON-LD Structured Data */}
+      <JsonLd data={companyJsonLd} />
+      {modelJsonLd && <JsonLd data={modelJsonLd} />}
       
       <div className={`${containerStyles.flexCol} space-y-10`}>
         <div className={`${containerStyles.companyDetailHeader} transform transition-all duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-4'} relative`}>
@@ -249,27 +264,18 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
             className={containerStyles.companyLogoContainer}
             title="Visit website"
           >
-            <Image 
+            <OptimizedImage 
               src={company.logo && company.logo.startsWith("/") 
-                ? company.logo.endsWith('.webp') 
-                  ? company.logo 
-                  : company.logo.replace(/\.(png|jpg|jpeg)$/, '.webp')
+                ? company.logo
                 : "/images/companies/placeholder.webp"} 
               alt={`${company.name} logo`}
               width={120}
               height={60}
-              quality={75}
+              quality={85}
               className={containerStyles.companyLogoImage}
               style={{ objectFit: "contain", maxWidth: "90%", height: "auto", maxHeight: "100%" }}
-              onError={(e) => {
-                console.error(`Error loading company logo:`, company.logo);
-                // Fallback to original format if WebP fails
-                if (e.currentTarget.src.endsWith('.webp') && company.logo) {
-                  e.currentTarget.src = company.logo;
-                } else {
-                  e.currentTarget.src = "/images/companies/placeholder.svg";
-                }
-              }}
+              priority={true} // This is an important above-the-fold image
+              sizes="(max-width: 640px) 100px, 120px"
             />
           </a>
           <div className={containerStyles.companyDescriptionContainer}>

@@ -15,7 +15,8 @@
     "start": "next start",
     "lint": "next lint",
     "images:convert": "node scripts/convert-to-webp.js",
-    "images:optimize": "node scripts/convert-to-webp.js --directory=public/images --quality=85 --delete"
+    "images:optimize": "node scripts/convert-to-webp.js --directory=public/images --quality=85 --delete",
+    "prebuild": "npm run images:optimize"
   },
   "dependencies": {
     "bootstrap-icons": "^1.11.3",

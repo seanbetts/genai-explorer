@@ -3,6 +3,12 @@ import AIExplorer from '../components';
 import type { ExplorerData } from '../components/types';
 import explorerData from '@/data/data.json';
 import ClientOnly from '../components/utils/ClientOnly';
+import { generateMetadataWithCanonical } from '../components/utils/canonicalUrl';
+import type { Metadata } from 'next';
+
+export const generateMetadata = (): Metadata => {
+  return generateMetadataWithCanonical('compare');
+};
 
 export default function ComparePage() {
   // Load static explorer data at build time

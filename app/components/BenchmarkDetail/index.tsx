@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { Benchmark, BenchmarkScore, Model } from '../types';
+import JsonLd, { generateBenchmarkJsonLd } from '../utils/JsonLd';
 import { 
   loadBenchmarkMetadata, 
   loadBenchmarkScores, 
@@ -247,8 +248,13 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
   // Get benchmark description
   const description = benchmark.benchmark_description || getBenchmarkDescription(benchmark.benchmark_id);
 
+  // Generate benchmark structured data
+  const benchmarkJsonLd = generateBenchmarkJsonLd(benchmark, sortedScores);
+
   return (
     <div className="w-full max-w-7xl mx-auto px-4">
+      {/* JSON-LD Structured Data */}
+      <JsonLd data={benchmarkJsonLd} />
       {/* Header section */}
       <div className="mb-8">
         <div className="mb-4">
