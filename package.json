@@ -16,8 +16,9 @@
     "lint": "next lint",
     "images:convert": "node scripts/convert-to-webp.js",
     "images:optimize": "node scripts/convert-to-webp.js --directory=public/images --quality=85 --delete",
-    "images:optimize:node": "node scripts/optimize-images-node.js",
-    "prebuild": "npm run images:optimize || npm run images:optimize:node || echo 'Image optimization skipped'"
+    "images:optimize:node": "node scripts/optimize-images-node.js --directory=public/images --quality=85 --delete",
+    "images:optimize:netlify": "npm install --no-save sharp glob && node scripts/optimize-images-node.js --directory=public/images --quality=85 --delete",
+    "prebuild": "npm run images:optimize || npm run images:optimize:node || npm run images:optimize:netlify || echo 'Image optimization skipped'"
   },
   "dependencies": {
     "bootstrap-icons": "^1.11.3",
