@@ -1,7 +1,9 @@
 import { MetadataRoute } from 'next'
-import explorerData from '@/data/data.json'
-import benchmarksData from '@/public/data/benchmarks-meta.json'
 import currentBrand from './config/brand'
+
+// Import data files with relative paths
+import explorerData from '../data/data.json'
+import benchmarksData from '../public/data/benchmarks-meta.json'
 
 // For static export
 export const dynamic = 'force-static'

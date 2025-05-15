@@ -1,5 +1,5 @@
 [build]
-  command = "npm install --no-save sharp glob && npm run build"
+  command = "npm run build"
   publish = "out"
 
 [build.environment]
@@ -19,12 +19,6 @@
   for = "/_next/static/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
-
-# Image optimization removed since we're using unoptimized: true
-
-# Use custom WebP converter plugin
-[[plugins]]
-  package = "/netlify/plugins/webp-converter"
 
 # Use Netlify Next.js plugin
 [[plugins]]
