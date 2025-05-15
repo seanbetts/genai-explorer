@@ -12,6 +12,7 @@
     "build": "NODE_ENV=production next build",
     "build:personal": "NODE_ENV=production NEXT_PUBLIC_BRAND=personal next build",
     "build:omg": "NODE_ENV=production NEXT_PUBLIC_BRAND=omg next build",
+    "build:netlify": "NODE_ENV=production next build",
     "start": "next start",
     "lint": "next lint",
     "images:convert": "node scripts/convert-to-webp.js",
@@ -19,6 +20,7 @@
   },
   "dependencies": {
     "bootstrap-icons": "^1.11.3",
+    "module-alias": "^2.2.3",
     "next": "15.3.0",
     "papaparse": "^5.5.2",
     "react": "^19.0.0",

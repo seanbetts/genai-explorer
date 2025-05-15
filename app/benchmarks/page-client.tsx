@@ -4,7 +4,7 @@ import React, { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 import { ExplorerData } from '../components/types';
-import explorerData from '@/data/data.json';
+import explorerData from '../../data/data.json';
 import AIExplorer from '../components';
 
 // Dynamically import the BenchmarkExplorerView component

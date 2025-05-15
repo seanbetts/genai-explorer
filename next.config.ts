@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -26,10 +27,24 @@ const nextConfig: NextConfig = {
   },
   // Basic cache configuration that works with static export
   distDir: '.next',
-  // Optimize build with swc
+  // Optimize build with swc 
   experimental: {
     // Reduce the function size for Netlify
-    serverMinification: true
+    serverMinification: true,
+  },
+  // Turbopack configuration (moved outside experimental as it's now stable)
+  turbopack: {
+    resolveAlias: {
+      '@': path.resolve(__dirname),
+    },
+  },
+  // Add webpack configuration for module resolution
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': path.resolve(__dirname),
+    };
+    return config;
   },
 };
 

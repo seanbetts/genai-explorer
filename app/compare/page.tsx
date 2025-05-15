@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import AIExplorer from '../components';
 import type { ExplorerData } from '../components/types';
-import explorerData from '@/data/data.json';
+import explorerData from '../../data/data.json';
 import ClientOnly from '../components/utils/ClientOnly';
 import type { Metadata } from 'next';
 import { generatePageMetadata } from '../lib/metadata';
