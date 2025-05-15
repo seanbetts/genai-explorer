@@ -4,6 +4,7 @@ import "./globals.css";
 // Import brand config for conditional metadata
 import brandConfig from './config/brand';
 import JsonLd, { generateExplorerJsonLd } from './components/utils/JsonLd';
+import GoogleAnalytics from './components/utils/GoogleAnalytics';
 import MobileNotification from './components/MobileNotification';
 
 // Base metadata function that respects brand settings
@@ -117,6 +118,9 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         {shouldIncludeStructuredData && explorerJsonLd && <JsonLd data={explorerJsonLd} />}
+        
+        {/* Only include Google Analytics if SEO is enabled for this brand */}
+        {brandConfig.seo?.enabled && <GoogleAnalytics />}
       </head>
       <body className={`antialiased h-full ${fontClass}`}>
         <MobileNotification>
