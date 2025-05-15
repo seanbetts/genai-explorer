@@ -3,11 +3,15 @@ import AIExplorer from '../components';
 import type { ExplorerData } from '../components/types';
 import explorerData from '@/data/data.json';
 import ClientOnly from '../components/utils/ClientOnly';
-import { generateMetadataWithCanonical } from '../components/utils/canonicalUrl';
 import type { Metadata } from 'next';
+import { generatePageMetadata } from '../lib/metadata';
 
 export const generateMetadata = (): Metadata => {
-  return generateMetadataWithCanonical('compare');
+  return generatePageMetadata(
+    'compare', 
+    'Model Comparison Tool', 
+    'Compare different AI models side-by-side to evaluate features, specifications, and benchmark performance.'
+  );
 };
 
 export default function ComparePage() {

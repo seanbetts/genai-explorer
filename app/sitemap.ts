@@ -2,6 +2,10 @@ import { MetadataRoute } from 'next'
 import explorerData from '@/data/data.json'
 import benchmarksData from '@/public/data/benchmarks-meta.json'
 
+// For static export
+export const dynamic = 'force-static'
+export const revalidate = 86400 // Revalidate once per day
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://explorer.the-blueprint.ai'
   const lastModified = new Date()

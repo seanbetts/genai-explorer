@@ -3,11 +3,11 @@ import AIExplorer from './components';
 import type { ExplorerData } from './components/types';
 import explorerData from '@/data/data.json';
 import ClientOnly from './components/utils/ClientOnly';
-import { generateMetadataWithCanonical } from './components/utils/canonicalUrl';
 import type { Metadata } from 'next';
+import { generatePageMetadata } from './lib/metadata';
 
 export const generateMetadata = (): Metadata => {
-  return generateMetadataWithCanonical();
+  return generatePageMetadata();
 };
 
 export default function Home() {
