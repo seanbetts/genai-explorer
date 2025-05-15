@@ -4,6 +4,7 @@ import "./globals.css";
 // Import brand config for conditional metadata
 import brandConfig from './config/brand';
 import JsonLd, { generateExplorerJsonLd } from './components/utils/JsonLd';
+import MobileNotification from './components/MobileNotification';
 
 // Base metadata function that respects brand settings
 function generateMetadata(): Metadata {
@@ -118,7 +119,9 @@ export default function RootLayout({
         {shouldIncludeStructuredData && explorerJsonLd && <JsonLd data={explorerJsonLd} />}
       </head>
       <body className={`antialiased h-full ${fontClass}`}>
-        {children}
+        <MobileNotification>
+          {children}
+        </MobileNotification>
       </body>
     </html>
   );
