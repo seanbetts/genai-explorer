@@ -16,7 +16,8 @@
     "lint": "next lint",
     "images:convert": "node scripts/convert-to-webp.js",
     "images:optimize": "node scripts/convert-to-webp.js --directory=public/images --quality=85 --delete",
-    "prebuild": "npm run images:optimize"
+    "images:optimize:node": "node scripts/optimize-images-node.js",
+    "prebuild": "npm run images:optimize || npm run images:optimize:node || echo 'Image optimization skipped'"
   },
   "dependencies": {
     "bootstrap-icons": "^1.11.3",
@@ -34,6 +35,8 @@
     "concurrently": "^9.1.2",
     "eslint": "^9.25.1",
     "eslint-config-next": "^15.3.1",
+    "glob": "^7.2.0",
+    "sharp": "^0.32.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

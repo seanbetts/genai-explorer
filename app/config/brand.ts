@@ -13,6 +13,24 @@ export type BrandConfig = {
   }>;
   primaryColor: string;
   secondaryColor: string;
+  // SEO-related configurations
+  seo: {
+    enabled: boolean;
+    baseUrl?: string;
+    enableRobots: boolean;
+    enableSitemap: boolean;
+    enableMetaTags: boolean;
+    enableStructuredData: boolean;
+    // Add crawler allowances as needed
+    crawlers: {
+      google: boolean;
+      openai: boolean;
+      anthropic: boolean;
+      perplexity: boolean;
+      mistral: boolean;
+      meta: boolean;
+    };
+  };
   // Add other brand-specific configurations as needed
 };
 
@@ -27,6 +45,22 @@ export const brandConfigs: Record<string, BrandConfig> = {
     ],
     primaryColor: '#EA00D9', // fuchsia-500
     secondaryColor: '#0ABDC6', // cyan-400
+    seo: {
+      enabled: true,
+      baseUrl: 'https://explorer.the-blueprint.ai',
+      enableRobots: true,
+      enableSitemap: true,
+      enableMetaTags: true,
+      enableStructuredData: true,
+      crawlers: {
+        google: true,
+        openai: true,
+        anthropic: true,
+        perplexity: true,
+        mistral: true,
+        meta: true
+      }
+    }
   },
   
   omg: {
@@ -36,6 +70,21 @@ export const brandConfigs: Record<string, BrandConfig> = {
     headerLinks: [], // No header links for OMG version
     primaryColor: '#173E80',
     secondaryColor: '#437AF6',
+    seo: {
+      enabled: false, // Disable all SEO features for OMG version
+      enableRobots: false,
+      enableSitemap: false,
+      enableMetaTags: false,
+      enableStructuredData: false,
+      crawlers: {
+        google: false,
+        openai: false,
+        anthropic: false,
+        perplexity: false,
+        mistral: false,
+        meta: false
+      }
+    }
   }
 };
 

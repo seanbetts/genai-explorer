@@ -43,17 +43,17 @@ args.forEach(arg => {
 try {
   execSync('cwebp -version', { stdio: 'ignore' });
 } catch (error) {
-  // Check if we're running in Netlify environment
-  if (process.env.NETLIFY === 'true') {
+  // Check if we're running in CI environment (Netlify, Vercel, etc.)
+  if (process.env.NETLIFY === 'true' || process.env.CI === 'true' || process.env.VERCEL === '1') {
     console.warn(`
-Warning: cwebp command not found but we're in a Netlify environment.
+Warning: cwebp command not found but we're in a CI environment.
 Skipping image conversion to prevent build failure.
 `);
     process.exit(0); // Exit gracefully with success code
   } else {
-    console.error(`
-Error: cwebp command not found. 
-Please install WebP tools first:
+    console.warn(`
+Warning: cwebp command not found. 
+Skipping image conversion. For best results, install WebP tools:
 
 On Mac:
   brew install webp
@@ -64,7 +64,7 @@ On Ubuntu/Debian:
 On Windows with Chocolatey:
   choco install webp
   `);
-    process.exit(1);
+    process.exit(0); // Exit gracefully even in local development
   }
 }
 

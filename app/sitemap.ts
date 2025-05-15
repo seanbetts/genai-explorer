@@ -1,13 +1,21 @@
 import { MetadataRoute } from 'next'
 import explorerData from '@/data/data.json'
 import benchmarksData from '@/public/data/benchmarks-meta.json'
+import currentBrand from './config/brand'
 
 // For static export
 export const dynamic = 'force-static'
 export const revalidate = 86400 // Revalidate once per day
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://explorer.the-blueprint.ai'
+  // For OMG version or if SEO disabled, return an empty sitemap
+  if (!currentBrand.seo || !currentBrand.seo.enabled || !currentBrand.seo.enableSitemap) {
+    return []
+  }
+  
+  const baseUrl = currentBrand.seo.baseUrl || 
+                  process.env.NEXT_PUBLIC_BASE_URL || 
+                  'https://explorer.the-blueprint.ai'
   const lastModified = new Date()
   
   // Main routes
