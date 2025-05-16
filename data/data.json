@@ -824,6 +824,12 @@
           "description": "An open‑source command‑line tool that brings the power of our latest reasoning models directly to your terminal.",
           "image": "/images/companies/openai/products/codex-cli.png",
           "url": "https://help.openai.com/en/articles/11096431-openai-codex-cli-getting-started"
+        },
+        {
+          "name": "Codex",
+          "description": "A cloud-based software engineering agent that can work on many tasks in parallel",
+          "image": "/images/companies/openai/products/codex.webp",
+          "url": "https://openai.com/index/introducing-codex/"
         }
       ],
       "subscriptions": [
