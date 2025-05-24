@@ -89,7 +89,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
       clearTimeout(timer);
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []); // Remove showStickyHeader from dependencies to prevent loop
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   
   // Helper function to check if any model has a specified property
   const hasAnyModelCapability = (key: string): boolean => {
