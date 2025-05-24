@@ -150,15 +150,15 @@ const VideoModelTable: React.FC<VideoModelTableProps> = ({ selectedModels, onMod
       <div className={`w-12 h-8 relative rounded border ${
         supported ? (brandConfig.name === 'OMG' ? 'border-blue-500' : 'border-cyan-400') : 'border-gray-600 opacity-50'
       }`}>
-        <div className="absolute inset-0 rounded bg-gray-700 flex items-center justify-center">
+        <div className="absolute inset-0 rounded bg-gray-200 flex items-center justify-center">
           <svg width="100%" height="100%" viewBox="0 0 16 10">
             <rect
               x={offsetX}
               y={offsetY}
               width={scaledWidth}
               height={scaledHeight}
-              fill={supported ? "#D946EF" : "#6B7280"}
-              stroke={supported ? "#F5D0FE" : "#4B5563"}
+              fill={supported ? (brandConfig.name === 'OMG' ? "#437AF6" : "#D946EF") : "#6B7280"}
+              stroke={supported ? (brandConfig.name === 'OMG' ? "#93C5FD" : "#F5D0FE") : "#4B5563"}
               strokeWidth="0.3"
               rx="0.3"
             />
