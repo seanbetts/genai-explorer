@@ -342,7 +342,7 @@ export const iconStyles = {
     booleanTrue: brandConfig.name === 'OMG' 
         ? `text-[${brandConfig.secondaryColor}] text-lg bi bi-check-circle-fill`
         : 'text-cyan-400 text-lg bi bi-check-circle-fill',
-    booleanFalse: 'text-red-500 text-lg bi bi-x-circle-fill',
+    booleanFalse: 'text-fuchsia-500 text-lg bi bi-x-circle-fill',
 };
 
 // Cyberpunk button system with neon colors and dark backgrounds

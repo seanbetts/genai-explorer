@@ -77,7 +77,7 @@ export const TableHeader: React.FC<TableHeaderProps> = ({
     <thead>
       <tr className={tableStyles.header}>
         <th className={`${tableStyles.headerCell} ${tableStyles.headerFixed} sticky-header-corner`} 
-            style={{width: '250px', minWidth: '250px'}}>
+            style={{width: '300px', minWidth: '300px'}}>
           {cornerContent}
         </th>
         {items.map(item => (
@@ -142,7 +142,7 @@ export const TableColGroup: React.FC<TableColGroupProps> = ({ items }) => {
   const columnWidth = items.length > 0 ? `${100 / items.length}%` : 'auto';
   return (
     <colgroup>
-      <col style={{width: '250px'}} />
+      <col style={{width: '300px'}} />
       {items.map((item, index) => (
         <col key={`col-${item.id}`} style={{width: columnWidth}} />
       ))}
