@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { Model } from '../types';
+import React, { useState, useEffect } from 'react';
+import { Model, Benchmark, BenchmarkScore } from '../types';
 import { containerStyles, tableStyles, iconStyles } from '../utils/layout';
 import { textStyles } from '../utils/theme';
 import { 
@@ -11,6 +11,11 @@ import {
   SectionTitle,
   Legend
 } from '../shared/TableComponents';
+import { 
+  loadBenchmarkMetadata, 
+  loadBenchmarkScores, 
+  getLatestScoreForModelAndBenchmark 
+} from '../utils/benchmarkUtils';
 
 interface FrontierOpenModelTableProps {
   selectedModels: Model[];
@@ -19,6 +24,29 @@ interface FrontierOpenModelTableProps {
 }
 
 const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selectedModels, onModelRemove, clearAllButton }) => {
+  const [benchmarks, setBenchmarks] = useState<Benchmark[]>([]);
+  const [benchmarkScores, setBenchmarkScores] = useState<BenchmarkScore[]>([]);
+  const [loading, setLoading] = useState(true);
+  
+  // Load benchmark data when component mounts
+  useEffect(() => {
+    const loadBenchmarkData = async () => {
+      try {
+        const [benchmarkMeta, scores] = await Promise.all([
+          loadBenchmarkMetadata(),
+          loadBenchmarkScores()
+        ]);
+        setBenchmarks(benchmarkMeta);
+        setBenchmarkScores(scores);
+      } catch (error) {
+        console.error('Error loading benchmark data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadBenchmarkData();
+  }, []);
   
   // Helper function to check if any model has a specified property
   const hasAnyModelCapability = (key: string): boolean => {
@@ -31,6 +59,15 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
     return selectedModels.some(model => 
       model.specs && key in model.specs && model.specs[key as keyof typeof model.specs] !== undefined
     );
+  };
+  
+  // Get featured benchmarks
+  const featuredBenchmarks = benchmarks.filter(b => b.featured_benchmark);
+  
+  // Helper function to get latest score for a model and benchmark
+  const getModelBenchmarkScore = (modelId: string, benchmarkId: string): number | null => {
+    const score = getLatestScoreForModelAndBenchmark(benchmarkScores, modelId, benchmarkId);
+    return score ? score.score : null;
   };
 
   // Format model items for header
@@ -365,6 +402,155 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
     </>
   );
 
+  // Generate featured benchmark rows
+  const renderFeaturedBenchmarkRows = () => {
+    if (loading || featuredBenchmarks.length === 0) return null;
+    
+    return (
+      <>
+        {featuredBenchmarks.map(benchmark => (
+          <tr key={benchmark.benchmark_id} className="cursor-pointer">
+            <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+              <div className={containerStyles.flexCenter}>
+                <i className={`bi bi-award ${iconStyles.tableRowIcon}`}></i> 
+                <span className={textStyles.primary}>{benchmark.benchmark_name}</span>
+              </div>
+            </td>
+            {selectedModels.map(model => (
+              <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                {(() => {
+                  const score = getModelBenchmarkScore(model.id, benchmark.benchmark_id);
+                  return score !== null ? (
+                    <span className={tableStyles.metric}>{score.toFixed(1)}</span>
+                  ) : (
+                    <span className={textStyles.primary}>-</span>
+                  );
+                })()}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </>
+    );
+  };
+
+  // Generate resources rows
+  const renderResourcesRows = () => {
+    const hasAnyResource = selectedModels.some(model => 
+      model.modelPage || model.releasePost || model.systemCard || model.huggingFace
+    );
+    
+    if (!hasAnyResource) return null;
+    
+    return (
+      <>
+        {/* Model Page */}
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-file-text ${iconStyles.tableRowIcon}`}></i> 
+              <span className={textStyles.primary}>Model Page</span>
+            </div>
+          </td>
+          {selectedModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              {model.modelPage ? (
+                <a 
+                  href={model.modelPage} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                >
+                  <i className="bi bi-box-arrow-up-right"></i>
+                </a>
+              ) : (
+                <span className={textStyles.primary}>-</span>
+              )}
+            </td>
+          ))}
+        </tr>
+
+        {/* Release Post */}
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-newspaper ${iconStyles.tableRowIcon}`}></i> 
+              <span className={textStyles.primary}>Release Post</span>
+            </div>
+          </td>
+          {selectedModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              {model.releasePost ? (
+                <a 
+                  href={model.releasePost} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                >
+                  <i className="bi bi-box-arrow-up-right"></i>
+                </a>
+              ) : (
+                <span className={textStyles.primary}>-</span>
+              )}
+            </td>
+          ))}
+        </tr>
+
+        {/* System Card */}
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-shield-check ${iconStyles.tableRowIcon}`}></i> 
+              <span className={textStyles.primary}>System Card</span>
+            </div>
+          </td>
+          {selectedModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              {model.systemCard ? (
+                <a 
+                  href={model.systemCard} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                >
+                  <i className="bi bi-box-arrow-up-right"></i>
+                </a>
+              ) : (
+                <span className={textStyles.primary}>-</span>
+              )}
+            </td>
+          ))}
+        </tr>
+
+        {/* Hugging Face */}
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-github ${iconStyles.tableRowIcon}`}></i> 
+              <span className={textStyles.primary}>Hugging Face</span>
+            </div>
+          </td>
+          {selectedModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              {model.huggingFace ? (
+                <a 
+                  href={model.huggingFace} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                >
+                  <i className="bi bi-box-arrow-up-right"></i>
+                </a>
+              ) : (
+                <span className={textStyles.primary}>-</span>
+              )}
+            </td>
+          ))}
+        </tr>
+      </>
+    );
+  };
+
   if (selectedModels.length === 0) {
     return (
       <div className="text-center py-10">
@@ -376,6 +562,10 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
   // Check if we need to show each table section
   const hasContextData = hasAnyModelSpec("maxInputTokens") || hasAnyModelSpec("maxOutputTokens") || hasAnyModelSpec("knowledgeCutoff") || selectedModels.some(m => m.contextLength);
   const hasPricingData = hasAnyModelSpec("pricingInputPerM") || hasAnyModelSpec("pricingOutputPerM");
+  const hasFeaturedBenchmarks = !loading && featuredBenchmarks.length > 0;
+  const hasResourceData = selectedModels.some(model => 
+    model.modelPage || model.releasePost || model.systemCard || model.huggingFace
+  );
 
   return (
     <div>
@@ -421,6 +611,19 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
         </div>
       )}
       
+      {/* Featured Benchmarks Table */}
+      {hasFeaturedBenchmarks && (
+        <div className="mb-6">
+          <SectionTitle>Featured Benchmarks</SectionTitle>
+          <SharedTable>
+            <TableColGroup items={headerItems} />
+            <tbody>
+              {renderFeaturedBenchmarkRows()}
+            </tbody>
+          </SharedTable>
+        </div>
+      )}
+      
       {/* Pricing Table */}
       {hasPricingData && (
         <div className="mb-6">
@@ -432,6 +635,19 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
             <TableColGroup items={headerItems} />
             <tbody>
               {renderPricingRows()}
+            </tbody>
+          </SharedTable>
+        </div>
+      )}
+      
+      {/* Resources Table */}
+      {hasResourceData && (
+        <div className="mb-6">
+          <SectionTitle>Resources</SectionTitle>
+          <SharedTable>
+            <TableColGroup items={headerItems} />
+            <tbody>
+              {renderResourcesRows()}
             </tbody>
           </SharedTable>
         </div>
