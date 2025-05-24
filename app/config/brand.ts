@@ -7,6 +7,7 @@ export type BrandConfig = {
   name: string;
   showFooter: boolean;
   logoPath: string;
+  faviconPath: string;
   headerLinks: Array<{
     text: string;
     url: string;
@@ -40,6 +41,7 @@ export const brandConfigs: Record<string, BrandConfig> = {
     name: 'The Blueprint',
     showFooter: true,
     logoPath: '/images/logo.webp',
+    faviconPath: '/favicon.ico',
     headerLinks: [
       { text: 'Subscribe', url: 'https://www.the-blueprint.ai' }
     ],
@@ -67,6 +69,7 @@ export const brandConfigs: Record<string, BrandConfig> = {
     name: 'OMG',
     showFooter: false, // No footer for employer version
     logoPath: '/images/omg-logo.webp', // Using the OMG-specific logo
+    faviconPath: '/omg-favicon.ico',
     headerLinks: [], // No header links for OMG version
     primaryColor: '#173E80',
     secondaryColor: '#437AF6',
