@@ -48,6 +48,26 @@ img[src$=".svg"]:not([src^="data:"]):not([src*="/"])::before {
   content: "";
   display: block;
   width: 100%;
+}
+
+/* Floating sticky header border radius override */
+.floating-sticky-header .table-scroll-container {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* Remove all border radius from floating header */
+.square-bottom-corners {
+  border-radius: 0 !important;
+}
+
+img[src*="error"]::before,
+img:not([src])::before,
+img[src=""]::before,
+img[src$=".png"]:not([src^="data:"]):not([src*="/"])::before,
+img[src$=".jpg"]:not([src^="data:"]):not([src*="/"])::before,
+img[src$=".jpeg"]:not([src^="data:"]):not([src*="/"])::before,
+img[src$=".svg"]:not([src^="data:"]):not([src*="/"])::before {
   height: 100%;
   position: absolute;
   top: 0;

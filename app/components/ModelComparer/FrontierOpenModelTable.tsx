@@ -736,11 +736,22 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
     <div>
       {/* Floating sticky header - appears when original header is out of view */}
       {showStickyHeader && (
-        <div className="fixed top-33 left-1/2 transform -translate-x-1/2 z-30 border-b border-fuchsia-500" style={{ width: '1230px', borderTopLeftRadius: '0.5rem', borderTopRightRadius: '0.5rem', borderBottomLeftRadius: '0 !important', borderBottomRightRadius: '0 !important' }}>
-          <SharedTable>
+        <div className="floating-sticky-header fixed top-32 left-1/2 transform -translate-x-1/2 z-30" style={{ 
+          marginTop: '3px',
+          width: '1228px',
+          borderTopLeftRadius: '0.5rem',
+          borderTopRightRadius: '0.5rem',
+          borderBottomLeftRadius: '0',
+          borderBottomRightRadius: '0',
+          overflow: 'hidden',
+          backgroundColor: '#2d3748',
+          borderTop: '1px solid #1c1d1f',
+          borderBottom: '0.5px solid #EA00D9'
+        }}>
+          <table className="table-fixed w-full border-collapse">
             <TableColGroup items={headerItems} />
             <TableHeader items={headerItems} />
-          </SharedTable>
+          </table>
         </div>
       )}
 
@@ -755,13 +766,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
             { icon: <i className={`bi bi-camera-video-fill ${iconStyles.activeFormat}`}></i>, label: "Video" }
           ]}
         />
-        <div className="absolute right-0 flex gap-2">
-          <button 
-            onClick={() => setShowStickyHeader(!showStickyHeader)}
-            className="px-2 py-1 text-xs bg-gray-700 text-cyan-400 rounded"
-          >
-            Test Sticky: {showStickyHeader ? 'ON' : 'OFF'}
-          </button>
+        <div className="absolute right-0">
           {clearAllButton}
         </div>
       </div>

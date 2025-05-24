@@ -15,11 +15,11 @@ export const SharedTable: React.FC<SharedTableProps> = ({ children, className = 
   return (
     <div className="table-wrapper">
       <div 
-        className="table-scroll-container" 
+        className={`table-scroll-container ${className}`}
         onScroll={handleTableScroll}
       >
         <table
-          className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed ${className}`}
+          className={`${tableStyles.table} divide-y divide-gray-700 hover:shadow-md transition-all duration-300 hover-highlight table-fixed`}
         >
           {children}
         </table>
