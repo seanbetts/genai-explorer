@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Model, Benchmark, BenchmarkScore } from '../types';
 import { containerStyles, tableStyles, iconStyles } from '../utils/layout';
 import { textStyles } from '../utils/theme';
@@ -29,6 +29,9 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
   const [benchmarkScores, setBenchmarkScores] = useState<BenchmarkScore[]>([]);
   const [rankings, setRankings] = useState<Record<string, Record<string, { rank: number; total: number }>>>({});
   const [loading, setLoading] = useState(true);
+  const [showStickyHeader, setShowStickyHeader] = useState(false);
+  
+  const tableHeaderRef = useRef<HTMLDivElement>(null);
   
   // Load benchmark data when component mounts
   useEffect(() => {
@@ -51,6 +54,42 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
     
     loadBenchmarkData();
   }, []);
+
+  // Handle scroll to show/hide sticky header
+  useEffect(() => {
+    const handleScroll = () => {
+      if (tableHeaderRef.current) {
+        const rect = tableHeaderRef.current.getBoundingClientRect();
+        // Site header appears to be around 80-100px tall, so we need to account for that
+        // Show sticky header when top of original header moves out of view (behind site header)
+        const siteHeaderHeight = 135; // Approximate height of the site header
+        const shouldShow = rect.top <= siteHeaderHeight;
+        
+        setShowStickyHeader(shouldShow);
+        
+        // Debug logging
+        console.log('Scroll detected:', {
+          rectTop: rect.top,
+          rectBottom: rect.bottom,
+          siteHeaderHeight,
+          windowScrollY: window.scrollY,
+          shouldShow,
+          currentState: showStickyHeader
+        });
+      }
+    };
+
+    // Initial check after a short delay to ensure DOM is ready
+    const timer = setTimeout(handleScroll, 100);
+    
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // Remove showStickyHeader from dependencies to prevent loop
   
   // Helper function to check if any model has a specified property
   const hasAnyModelCapability = (key: string): boolean => {
@@ -695,6 +734,16 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
 
   return (
     <div>
+      {/* Floating sticky header - appears when original header is out of view */}
+      {showStickyHeader && (
+        <div className="fixed top-33 left-1/2 transform -translate-x-1/2 z-30 border-b border-fuchsia-500" style={{ width: '1230px', borderTopLeftRadius: '0.5rem', borderTopRightRadius: '0.5rem', borderBottomLeftRadius: '0 !important', borderBottomRightRadius: '0 !important' }}>
+          <SharedTable>
+            <TableColGroup items={headerItems} />
+            <TableHeader items={headerItems} />
+          </SharedTable>
+        </div>
+      )}
+
       {/* Legend centered with Clear All button on the right */}
       <div className="relative flex justify-center items-center mb-4">
         <Legend
@@ -706,76 +755,79 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
             { icon: <i className={`bi bi-camera-video-fill ${iconStyles.activeFormat}`}></i>, label: "Video" }
           ]}
         />
-        <div className="absolute right-0">
+        <div className="absolute right-0 flex gap-2">
+          <button 
+            onClick={() => setShowStickyHeader(!showStickyHeader)}
+            className="px-2 py-1 text-xs bg-gray-700 text-cyan-400 rounded"
+          >
+            Test Sticky: {showStickyHeader ? 'ON' : 'OFF'}
+          </button>
           {clearAllButton}
         </div>
       </div>
       
-      {/* Main Capabilities and Formats Table */}
-      <div className="mb-6">
+      {/* Single unified table with all sections */}
+      <div ref={tableHeaderRef}>
         <SharedTable>
           <TableColGroup items={headerItems} />
           <TableHeader items={headerItems} />
           <tbody>
-            {renderCapabilitiesRows()}
-          </tbody>
+          {/* Main Capabilities and Formats */}
+          {renderCapabilitiesRows()}
+          
+          {/* Context & Limits Section */}
+          {hasContextData && (
+            <>
+              <tr>
+                <td colSpan={selectedModels.length + 1} className="bg-gray-800/50 px-4 py-2 border-t border-gray-700">
+                  <SectionTitle>Context & Limits</SectionTitle>
+                </td>
+              </tr>
+              {renderContextRows()}
+            </>
+          )}
+          
+          {/* Featured Benchmarks Section */}
+          {hasFeaturedBenchmarks && (
+            <>
+              <tr>
+                <td colSpan={selectedModels.length + 1} className="bg-gray-800/50 px-4 py-2 border-t border-gray-700">
+                  <SectionTitle>Featured Benchmarks</SectionTitle>
+                </td>
+              </tr>
+              {renderFeaturedBenchmarkRows()}
+            </>
+          )}
+          
+          {/* Pricing Section */}
+          {hasPricingData && (
+            <>
+              <tr>
+                <td colSpan={selectedModels.length + 1} className="bg-gray-800/50 px-4 py-2 border-t border-gray-700">
+                  <SectionTitle>
+                    Pricing
+                    <span className="text-xs text-gray-400 ml-2 font-normal">(per 1M tokens)</span>
+                  </SectionTitle>
+                </td>
+              </tr>
+              {renderPricingRows()}
+            </>
+          )}
+          
+          {/* Resources Section */}
+          {hasResourceData && (
+            <>
+              <tr>
+                <td colSpan={selectedModels.length + 1} className="bg-gray-800/50 px-4 py-2 border-t border-gray-700">
+                  <SectionTitle>Resources</SectionTitle>
+                </td>
+              </tr>
+              {renderResourcesRows()}
+            </>
+          )}
+        </tbody>
         </SharedTable>
       </div>
-      
-      {/* Context Table (Max Input/Output and Knowledge Cutoff) */}
-      {hasContextData && (
-        <div className="mb-6">
-          <SectionTitle>Context & Limits</SectionTitle>
-          <SharedTable>
-            <TableColGroup items={headerItems} />
-            <tbody>
-              {renderContextRows()}
-            </tbody>
-          </SharedTable>
-        </div>
-      )}
-      
-      {/* Featured Benchmarks Table */}
-      {hasFeaturedBenchmarks && (
-        <div className="mb-6">
-          <SectionTitle>Featured Benchmarks</SectionTitle>
-          <SharedTable>
-            <TableColGroup items={headerItems} />
-            <tbody>
-              {renderFeaturedBenchmarkRows()}
-            </tbody>
-          </SharedTable>
-        </div>
-      )}
-      
-      {/* Pricing Table */}
-      {hasPricingData && (
-        <div className="mb-6">
-          <SectionTitle>
-            Pricing
-            <span className="text-xs text-gray-400 ml-2 font-normal">(per 1M tokens)</span>
-          </SectionTitle>
-          <SharedTable>
-            <TableColGroup items={headerItems} />
-            <tbody>
-              {renderPricingRows()}
-            </tbody>
-          </SharedTable>
-        </div>
-      )}
-      
-      {/* Resources Table */}
-      {hasResourceData && (
-        <div className="mb-6">
-          <SectionTitle>Resources</SectionTitle>
-          <SharedTable>
-            <TableColGroup items={headerItems} />
-            <tbody>
-              {renderResourcesRows()}
-            </tbody>
-          </SharedTable>
-        </div>
-      )}
     </div>
   );
 };
