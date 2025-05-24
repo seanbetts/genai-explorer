@@ -60,7 +60,9 @@ const ImageModelTable: React.FC<ImageModelTableProps> = ({ selectedModels, onMod
   };
 
   const hasAnySafetyFeature = (): boolean => {
-    return selectedModels.some(model => model.safety && Object.keys(model.safety).length > 0);
+    return selectedModels.some(model => 
+      model.safety && Object.values(model.safety).some(value => value === true)
+    );
   };
 
   const hasAnyEnhancementFeature = (): boolean => {
