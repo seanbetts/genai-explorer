@@ -39,7 +39,7 @@ interface LegendProps {
 export const Legend: React.FC<LegendProps> = ({ items }) => {
   return (
     <div className="flex justify-center w-full my-2">
-      <div className="border rounded-lg p-2 px-4 hover:shadow-md transition-all duration-300 legend-container">
+      <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-3 px-4 legend-container">
         <div className="flex flex-wrap justify-center gap-4">
           {items.map((item, index) => (
             <div key={index} className="flex items-center gap-2 py-1">
@@ -117,7 +117,7 @@ export const TableHeader: React.FC<TableHeaderProps> = ({
                       e.stopPropagation();
                       item.onRemove?.();
                     }}
-                    className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center bg-gray-700 hover:bg-gray-600 border border-gray-600 rounded-full text-fuchsia-500 hover:text-fuchsia-400 z-20"
+                    className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center bg-gray-700 hover:bg-gray-600 border border-gray-600 rounded-full text-fuchsia-500 hover:text-fuchsia-400 z-20 cursor-pointer"
                     aria-label={`Remove ${item.name} from comparison`}
                     title={`Remove ${item.name} from comparison`}
                   >

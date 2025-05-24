@@ -310,7 +310,7 @@ export const iconStyles = {
     iconSpacing: 'mx-0.5',
     
     // Format indicators with secondary brand color
-    activeFormat: brandConfig.name === 'OMG' ? `text-[${brandConfig.secondaryColor}]` : 'text-cyan-400', // Secondary brand color
+    activeFormat: brandConfig.name === 'OMG' ? `text-[${brandConfig.secondaryColor}]` : 'text-fuchsia-500', // Primary brand color
     inactiveFormat: 'text-gray-600', // Lighter gray to be more visible
     formatContainer: 'flex gap-4 justify-center',
     formatItem: 'flex items-center mx-2',

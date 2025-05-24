@@ -27,7 +27,7 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
   const router = useRouter();
   const [selectedModels, setSelectedModels] = useState<Model[]>([]);
   const [allModels, setAllModels] = useState<Model[]>([]);
-  const [displayLimit, setDisplayLimit] = useState<number>(20); // Number of models to display
+  const [displayLimit, setDisplayLimit] = useState<number>(8); // Number of models to display (2 rows of 4)
   
   // Model type selection state
   const [selectedModelType, setSelectedModelType] = useState<string | null>(null);
@@ -140,6 +140,8 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
       setSelectedModelType(null);
       setSelectedModels([]);
       updateUrlWithSelectedModels([]);
+      // Reset pagination when going back
+      setDisplayLimit(8);
     }
   }, [resetToTypeSelection, updateUrlWithSelectedModels]);
   
@@ -570,12 +572,15 @@ const applyFilters = useCallback((
                 setSelectedModels([]);
                 updateUrlWithSelectedModels([]);
               }}
-              className="bg-gray-700 hover:bg-gray-600 text-gray-300 py-1.5 px-3 rounded focus:outline-none focus:ring-2 focus:ring-fuchsia-500 border border-gray-600 flex flex-col items-center"
+              className="group bg-gray-800/60 hover:bg-fuchsia-500/20 text-gray-300 hover:text-fuchsia-400 py-1.5 px-3 rounded-md border border-gray-600/50 hover:border-fuchsia-400/50 focus:outline-none focus:ring-2 focus:ring-fuchsia-400/50 transition-all duration-200 cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-gray-800/60 disabled:hover:text-gray-300 disabled:hover:border-gray-600/50"
               aria-label="Clear all selected models"
               disabled={selectedModels.length === 0}
             >
-              <span className="text-xs">Clear All</span>
-              <span className="text-[10px] text-gray-400 mt-0.5">({selectedModels.length}/4)</span>
+              <div className="flex items-center gap-1.5">
+                <i className="bi bi-trash3 text-xs group-hover:scale-110 transition-transform duration-200"></i>
+                <span className="text-xs font-medium">Clear All</span>
+                <span className="text-[10px] text-gray-500 group-hover:text-fuchsia-300 ml-0.5">({selectedModels.length}/4)</span>
+              </div>
             </button>
           </div>
         </div>
@@ -735,7 +740,6 @@ const applyFilters = useCallback((
           
       {/* Model Selection */}
       <div className="bg-gray-800/30 p-6 rounded-lg border border-gray-700 mb-6">
-        <h2 className="text-xl font-semibold text-white mb-4">Available Models</h2>
         {selectedModels.length === 0 ? (
           <div className="text-gray-300 mb-4 text-center bg-gray-700/30 p-4 rounded-lg border border-gray-600">
             <i className="bi bi-info-circle mr-2 text-fuchsia-500" aria-hidden="true"></i>
@@ -826,7 +830,7 @@ const applyFilters = useCallback((
               <div 
                 key={model.id}
                 onClick={() => handleModelSelect(model)}
-                className="bg-gray-700 hover:bg-gray-600 cursor-pointer p-3 rounded-lg border border-gray-600 hover:border-fuchsia-500 transition-all"
+                className="bg-gray-700 hover:bg-gray-600 cursor-pointer p-3 rounded-lg border border-gray-600 hover:border-fuchsia-500 transition-all group relative"
                 tabIndex={0}
                 role="button"
                 aria-label={`Add ${model.name} by ${model.companyName} to comparison`}
@@ -836,11 +840,16 @@ const applyFilters = useCallback((
                   }
                 }}
               >
-                <div className="font-medium text-cyan-400 mb-1">{model.name}</div>
-                <div className="text-xs text-gray-300">{model.companyName}</div>
-                <div className="text-xs text-gray-400 mt-2 flex items-center">
-                  <i className="bi bi-plus-circle mr-1.5 text-fuchsia-500" aria-hidden="true"></i>
-                  Add to comparison
+                <div className="flex items-start justify-between">
+                  <div className="flex-1 min-w-0">
+                    <div className="font-medium text-cyan-400 mb-1 truncate">{model.name}</div>
+                    <div className="text-xs text-gray-300">{model.companyName}</div>
+                  </div>
+                  <div className="ml-3 flex-shrink-0">
+                    <div className="w-8 h-8 bg-gray-600 group-hover:bg-fuchsia-500 rounded-full flex items-center justify-center transition-all duration-200">
+                      <i className="bi bi-plus text-lg text-fuchsia-500 group-hover:text-white" aria-hidden="true"></i>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -853,7 +862,7 @@ const applyFilters = useCallback((
             No models found matching your filters
             <div className="mt-2">
               <button 
-                className="text-cyan-400 underline"
+                className="text-cyan-400 underline cursor-pointer"
                 onClick={() => {
                   // Reset filter states
                   setSearchTerm('');
@@ -871,19 +880,33 @@ const applyFilters = useCallback((
           </div>
         )}
         
-        {/* Pagination - "Show more" button */}
-        {allModels.length > displayLimit && (
+        {/* Pagination buttons */}
+        {allModels.length > 8 && (
           <div className="mt-4 text-center">
-            <button 
-              className="bg-gray-700 hover:bg-gray-600 text-cyan-400 px-4 py-2 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
-              onClick={() => {
-                // Show all remaining models
-                setDisplayLimit(allModels.length);
-              }}
-              aria-label="Show all remaining models"
-            >
-              Show all {allModels.length} models
-            </button>
+            {displayLimit < allModels.length ? (
+              <button 
+                className="bg-gray-700 hover:bg-gray-600 text-cyan-400 px-4 py-2 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 cursor-pointer"
+                onClick={() => {
+                  // Show all remaining models
+                  setDisplayLimit(allModels.length);
+                }}
+                aria-label="Show all remaining models"
+              >
+                Show all {allModels.length} models
+              </button>
+            ) : (
+              <button 
+                className="bg-gray-700 hover:bg-gray-600 text-gray-400 px-4 py-2 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 cursor-pointer"
+                onClick={() => {
+                  // Collapse back to 8 models
+                  setDisplayLimit(8);
+                }}
+                aria-label="Show less models"
+              >
+                <i className="bi bi-chevron-up mr-1"></i>
+                Show less
+              </button>
+            )}
           </div>
         )}
       </div>
