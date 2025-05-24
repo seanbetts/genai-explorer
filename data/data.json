@@ -913,7 +913,7 @@
       "logo": "/images/companies/anthropic/logo.png",
       "website": "https://anthropic.com",
       "description": "AI research and products that put safety at the frontier",
-      "lastUpdated": "2025-04-19",
+      "lastUpdated": "2025-05-24",
       "features": [
         {
           "name": "Projects",
@@ -1270,7 +1270,7 @@
       "logo": "/images/companies/google-deepmind/logo.png",
       "website": "https://deepmind.google",
       "description": "A team of scientists, engineers, ethicists and more, working to build the next generation of AI systems safely and responsibly.",
-      "lastUpdated": "2025-04-19",
+      "lastUpdated": "2025-05-24",
       "features": [
         {
           "name": "Canvas",
@@ -3049,7 +3049,7 @@
       "logo": "/images/companies/mistral/logo.png",
       "website": "https://mistral.ai",
       "description": "We exist to make frontier AI accessible to everyone.",
-      "lastUpdated": "2025-05-11",
+      "lastUpdated": "2025-05-24",
       "features": [],
       "models": [
         {
