@@ -14,7 +14,8 @@ import {
 import { 
   loadBenchmarkMetadata, 
   loadBenchmarkScores, 
-  getLatestScoreForModelAndBenchmark 
+  getLatestScoreForModelAndBenchmark,
+  calculateGlobalRankings 
 } from '../utils/benchmarkUtils';
 
 interface FrontierOpenModelTableProps {
@@ -26,18 +27,21 @@ interface FrontierOpenModelTableProps {
 const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selectedModels, onModelRemove, clearAllButton }) => {
   const [benchmarks, setBenchmarks] = useState<Benchmark[]>([]);
   const [benchmarkScores, setBenchmarkScores] = useState<BenchmarkScore[]>([]);
+  const [rankings, setRankings] = useState<Record<string, Record<string, { rank: number; total: number }>>>({});
   const [loading, setLoading] = useState(true);
   
   // Load benchmark data when component mounts
   useEffect(() => {
     const loadBenchmarkData = async () => {
       try {
-        const [benchmarkMeta, scores] = await Promise.all([
+        const [benchmarkMeta, scores, rankingsData] = await Promise.all([
           loadBenchmarkMetadata(),
-          loadBenchmarkScores()
+          loadBenchmarkScores(),
+          calculateGlobalRankings()
         ]);
         setBenchmarks(benchmarkMeta);
         setBenchmarkScores(scores);
+        setRankings(rankingsData);
       } catch (error) {
         console.error('Error loading benchmark data:', error);
       } finally {
@@ -64,10 +68,26 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
   // Get featured benchmarks
   const featuredBenchmarks = benchmarks.filter(b => b.featured_benchmark);
   
-  // Helper function to get latest score for a model and benchmark
-  const getModelBenchmarkScore = (modelId: string, benchmarkId: string): number | null => {
-    const score = getLatestScoreForModelAndBenchmark(benchmarkScores, modelId, benchmarkId);
-    return score ? score.score : null;
+  // Helper function to get latest score for a model and benchmark with metadata
+  const getModelBenchmarkData = (modelId: string, benchmarkId: string): { 
+    score: number | null; 
+    date: string | null; 
+    rank: number | null; 
+    source: string | null;
+    sourceName: string | null;
+    notes: string | null;
+  } => {
+    const scoreData = getLatestScoreForModelAndBenchmark(benchmarkScores, modelId, benchmarkId);
+    const ranking = rankings[benchmarkId]?.[modelId];
+    
+    return {
+      score: scoreData ? scoreData.score : null,
+      date: scoreData ? scoreData.date : null,
+      rank: ranking ? ranking.rank : null,
+      source: scoreData ? (scoreData.source || null) : null,
+      sourceName: scoreData ? (scoreData.source_name || null) : null,
+      notes: scoreData ? (scoreData.notes || null) : null,
+    };
   };
 
   // Format model items for header
@@ -299,21 +319,6 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
         </tr>
       )}
 
-      {/* Context Length */}
-      <tr className="cursor-pointer">
-        <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-          <div className={containerStyles.flexCenter}>
-            <i className={`bi bi-text-paragraph ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Context Length</span>
-          </div>
-        </td>
-        {selectedModels.map(model => (
-          <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-            {model.contextLength ? (
-              <span className={textStyles.primary}>{model.contextLength.toLocaleString()} tokens</span>
-            ) : <span className={textStyles.primary}>-</span>}
-          </td>
-        ))}
-      </tr>
 
       {/* Max Output Tokens Row */}
       {hasAnyModelSpec("maxOutputTokens") && (
@@ -413,17 +418,101 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
             <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
               <div className={containerStyles.flexCenter}>
                 <i className={`bi bi-award ${iconStyles.tableRowIcon}`}></i> 
-                <span className={textStyles.primary}>{benchmark.benchmark_name}</span>
+                <div className="flex flex-col">
+                  <a 
+                    href={`/?benchmark=${benchmark.benchmark_id}`}
+                    className="transition-colors text-cyan-400 hover:text-fuchsia-500 font-mono"
+                    title={`View all data for ${benchmark.benchmark_name}`}
+                  >
+                    {benchmark.benchmark_name}
+                  </a>
+                  <span className="text-xs text-gray-400 capitalize">{benchmark.benchmark_category}</span>
+                </div>
               </div>
             </td>
             {selectedModels.map(model => (
               <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
                 {(() => {
-                  const score = getModelBenchmarkScore(model.id, benchmark.benchmark_id);
-                  return score !== null ? (
-                    <span className={tableStyles.metric}>{score.toFixed(1)}</span>
-                  ) : (
-                    <span className={textStyles.primary}>-</span>
+                  const { score, date, rank, source, sourceName, notes } = getModelBenchmarkData(model.id, benchmark.benchmark_id);
+                  
+                  if (score === null) {
+                    return <span className={textStyles.primary}>-</span>;
+                  }
+                  
+                  // Format score based on benchmark type
+                  let formattedScore: string;
+                  if (benchmark.benchmark_id === 'chatbot-arena') {
+                    // For Chatbot Arena, show as integer with thousands separator
+                    formattedScore = Math.round(score).toLocaleString();
+                  } else {
+                    // For other benchmarks, show one decimal place
+                    formattedScore = score.toFixed(1);
+                  }
+                  
+                  // Add ranking badge if in top 5
+                  let rankBadge = null;
+                  if (rank && rank <= 5) {
+                    rankBadge = (
+                      <span className="ml-1 text-xs font-semibold text-fuchsia-500">
+                        #{rank}
+                      </span>
+                    );
+                  }
+
+                  // Create tooltip content exactly like in BenchmarksTable
+                  const tooltipContent = (() => {
+                    let content = '';
+                    
+                    // Add global ranking info if available
+                    if (rank) {
+                      const totalModels = rankings[benchmark.benchmark_id] ? Object.keys(rankings[benchmark.benchmark_id]).length : 0;
+                      content += `Rank: #${rank} of ${totalModels} models`;
+                    }
+                    
+                    // Add source info
+                    if (sourceName) {
+                      content += content ? '\n' : '';
+                      content += `Source: ${sourceName}`;
+                    }
+                    
+                    // Add notes if available
+                    if (notes) {
+                      content += content ? '\n' : '';
+                      content += `Notes: ${notes}`;
+                    }
+                    
+                    return content;
+                  })();
+                  
+                  return (
+                    <div className="flex flex-col items-center">
+                      {source ? (
+                        <a 
+                          href={source} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="font-medium transition-colors flex items-center font-mono text-cyan-400 hover:text-fuchsia-500"
+                          title={tooltipContent}
+                        >
+                          {formattedScore}{rankBadge}
+                        </a>
+                      ) : (
+                        <div 
+                          className="font-medium flex items-center font-mono text-cyan-400"
+                          title={tooltipContent}
+                        >
+                          {formattedScore}{rankBadge}
+                        </div>
+                      )}
+                      {date && (
+                        <div className="text-xs text-gray-400 font-mono mt-1">
+                          {new Date(date).toLocaleDateString('en-GB', {
+                            month: 'short',
+                            year: 'numeric'
+                          })}
+                        </div>
+                      )}
+                    </div>
                   );
                 })()}
               </td>
@@ -437,39 +526,13 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
   // Generate resources rows
   const renderResourcesRows = () => {
     const hasAnyResource = selectedModels.some(model => 
-      model.modelPage || model.releasePost || model.systemCard || model.huggingFace
+      model.modelPage || model.releasePost || model.releaseVideo || model.systemCard || model.huggingFace || model.licenceType
     );
     
     if (!hasAnyResource) return null;
     
     return (
       <>
-        {/* Model Page */}
-        <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-            <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-file-text ${iconStyles.tableRowIcon}`}></i> 
-              <span className={textStyles.primary}>Model Page</span>
-            </div>
-          </td>
-          {selectedModels.map(model => (
-            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {model.modelPage ? (
-                <a 
-                  href={model.modelPage} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
-                >
-                  <i className="bi bi-box-arrow-up-right"></i>
-                </a>
-              ) : (
-                <span className={textStyles.primary}>-</span>
-              )}
-            </td>
-          ))}
-        </tr>
-
         {/* Release Post */}
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
@@ -485,9 +548,64 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                   href={model.releasePost} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
                 >
-                  <i className="bi bi-box-arrow-up-right"></i>
+                  <i className="bi bi-link-45deg text-xs"></i>
+                  Link
+                </a>
+              ) : (
+                <span className={textStyles.primary}>-</span>
+              )}
+            </td>
+          ))}
+        </tr>
+
+        {/* Release Video */}
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-play-circle ${iconStyles.tableRowIcon}`}></i> 
+              <span className={textStyles.primary}>Release Video</span>
+            </div>
+          </td>
+          {selectedModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              {model.releaseVideo ? (
+                <a 
+                  href={model.releaseVideo} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                >
+                  <i className="bi bi-link-45deg text-xs"></i>
+                  Link
+                </a>
+              ) : (
+                <span className={textStyles.primary}>-</span>
+              )}
+            </td>
+          ))}
+        </tr>
+
+        {/* Model Page */}
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-globe ${iconStyles.tableRowIcon}`}></i> 
+              <span className={textStyles.primary}>Model Page</span>
+            </div>
+          </td>
+          {selectedModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              {model.modelPage ? (
+                <a 
+                  href={model.modelPage} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                >
+                  <i className="bi bi-link-45deg text-xs"></i>
+                  Link
                 </a>
               ) : (
                 <span className={textStyles.primary}>-</span>
@@ -500,7 +618,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-shield-check ${iconStyles.tableRowIcon}`}></i> 
+              <i className={`bi bi-file-text ${iconStyles.tableRowIcon}`}></i> 
               <span className={textStyles.primary}>System Card</span>
             </div>
           </td>
@@ -511,9 +629,10 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                   href={model.systemCard} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
                 >
-                  <i className="bi bi-box-arrow-up-right"></i>
+                  <i className="bi bi-link-45deg text-xs"></i>
+                  Link
                 </a>
               ) : (
                 <span className={textStyles.primary}>-</span>
@@ -522,25 +641,32 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           ))}
         </tr>
 
-        {/* Hugging Face */}
+        {/* Licence */}
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-github ${iconStyles.tableRowIcon}`}></i> 
-              <span className={textStyles.primary}>Hugging Face</span>
+              <i className={`bi bi-shield-check ${iconStyles.tableRowIcon}`}></i> 
+              <span className={textStyles.primary}>Licence</span>
             </div>
           </td>
           {selectedModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {model.huggingFace ? (
-                <a 
-                  href={model.huggingFace} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
-                >
-                  <i className="bi bi-box-arrow-up-right"></i>
-                </a>
+              {model.licenceType ? (
+                model.licenceLink ? (
+                  <a 
+                    href={model.licenceLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                  >
+                    <i className="bi bi-link-45deg text-xs"></i>
+                    {model.licenceType}
+                  </a>
+                ) : (
+                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 text-cyan-400 rounded border border-gray-600 text-xs">
+                    {model.licenceType}
+                  </span>
+                )
               ) : (
                 <span className={textStyles.primary}>-</span>
               )}
@@ -560,7 +686,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
   }
 
   // Check if we need to show each table section
-  const hasContextData = hasAnyModelSpec("maxInputTokens") || hasAnyModelSpec("maxOutputTokens") || hasAnyModelSpec("knowledgeCutoff") || selectedModels.some(m => m.contextLength);
+  const hasContextData = hasAnyModelSpec("maxInputTokens") || hasAnyModelSpec("maxOutputTokens") || hasAnyModelSpec("knowledgeCutoff");
   const hasPricingData = hasAnyModelSpec("pricingInputPerM") || hasAnyModelSpec("pricingOutputPerM");
   const hasFeaturedBenchmarks = !loading && featuredBenchmarks.length > 0;
   const hasResourceData = selectedModels.some(model => 
