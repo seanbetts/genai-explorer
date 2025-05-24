@@ -274,6 +274,73 @@ const ImageModelTable: React.FC<ImageModelTableProps> = ({ selectedModels, onMod
     );
   };
 
+  // Helper function to create aspect ratio SVG
+  const createAspectRatioSVG = (ratio: string, supported: boolean) => {
+    // Extract exact aspect ratio from the label
+    let width = 4, height = 3; // Default to 4:3
+    
+    // Extract the ratio values from parentheses, e.g. "(4:3)" -> [4, 3]
+    const ratioMatch = ratio.match(/\((\d+):(\d+)\)/);
+    if (ratioMatch && ratioMatch.length === 3) {
+      width = parseInt(ratioMatch[1], 10);
+      height = parseInt(ratioMatch[2], 10);
+    } else {
+      // Fallback to predefined values if regex fails
+      if (ratio.includes('(4:3)')) {
+        width = 4; height = 3; // Landscape
+      } else if (ratio.includes('(3:4)')) {
+        width = 3; height = 4; // Portrait
+      } else if (ratio.includes('(1:1)')) {
+        width = 1; height = 1; // Square
+      } else if (ratio.includes('(16:9)')) {
+        width = 16; height = 9; // Widescreen
+      } else if (ratio.includes('(9:16)')) {
+        width = 9; height = 16; // Vertical
+      }
+    }
+    
+    // Normalize to fit within our display box with padding
+    const viewBoxWidth = 16; 
+    const viewBoxHeight = 10;
+    const padding = 1.5; // Add padding on all sides
+    
+    const availableWidth = viewBoxWidth - (padding * 2);
+    const availableHeight = viewBoxHeight - (padding * 2);
+    
+    // Determine which dimension (width or height) is the limiting factor
+    const widthRatio = availableWidth / width;
+    const heightRatio = availableHeight / height;
+    const scale = Math.min(widthRatio, heightRatio);
+    
+    const scaledWidth = width * scale;
+    const scaledHeight = height * scale;
+    
+    // Calculate position to center the shape
+    const offsetX = (viewBoxWidth - scaledWidth) / 2;
+    const offsetY = (viewBoxHeight - scaledHeight) / 2;
+    
+    return (
+      <div className={`w-12 h-8 relative rounded border ${
+        supported ? 'border-cyan-400' : 'border-gray-600 opacity-50'
+      }`}>
+        <div className="absolute inset-0 rounded bg-gray-700 flex items-center justify-center">
+          <svg width="100%" height="100%" viewBox="0 0 16 10">
+            <rect
+              x={offsetX}
+              y={offsetY}
+              width={scaledWidth}
+              height={scaledHeight}
+              fill={supported ? "#D946EF" : "#6B7280"}
+              stroke={supported ? "#F5D0FE" : "#4B5563"}
+              strokeWidth="0.3"
+              rx="0.3"
+            />
+          </svg>
+        </div>
+      </div>
+    );
+  };
+
   // Render aspect ratios
   const renderAspectRatioRows = () => {
     if (!hasAnyAspectRatio()) return null;
@@ -296,9 +363,9 @@ const ImageModelTable: React.FC<ImageModelTableProps> = ({ selectedModels, onMod
             </td>
             {selectedModels.map(model => (
               <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-                {model.aspectRatios?.[ratio] ? 
-                  <i className={iconStyles.booleanTrue} title="Supported"></i> : 
-                  <i className={iconStyles.booleanFalse} title="Not supported"></i>}
+                <div className="flex justify-center">
+                  {createAspectRatioSVG(ratio, model.aspectRatios?.[ratio] || false)}
+                </div>
               </td>
             ))}
           </tr>
