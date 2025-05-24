@@ -745,7 +745,6 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           borderBottomRightRadius: '0',
           overflow: 'hidden',
           backgroundColor: '#2d3748',
-          borderTop: '1px solid #1c1d1f',
           borderBottom: '0.5px solid #EA00D9'
         }}>
           <table className="table-fixed w-full border-collapse">
@@ -784,7 +783,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           {hasContextData && (
             <>
               <tr>
-                <td colSpan={selectedModels.length + 1} className="bg-gray-800/50 px-4 py-2 border-t border-gray-700">
+                <td colSpan={selectedModels.length + 1} className="bg-gray-800/30 px-4 py-2">
                   <SectionTitle>Context & Limits</SectionTitle>
                 </td>
               </tr>
@@ -796,7 +795,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           {hasFeaturedBenchmarks && (
             <>
               <tr>
-                <td colSpan={selectedModels.length + 1} className="bg-gray-800/50 px-4 py-2 border-t border-gray-700">
+                <td colSpan={selectedModels.length + 1} className="bg-gray-800/30 px-4 py-2">
                   <SectionTitle>Featured Benchmarks</SectionTitle>
                 </td>
               </tr>
@@ -808,7 +807,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           {hasPricingData && (
             <>
               <tr>
-                <td colSpan={selectedModels.length + 1} className="bg-gray-800/50 px-4 py-2 border-t border-gray-700">
+                <td colSpan={selectedModels.length + 1} className="bg-gray-800/30 px-4 py-2">
                   <SectionTitle>
                     Pricing
                     <span className="text-xs text-gray-400 ml-2 font-normal">(per 1M tokens)</span>
@@ -823,7 +822,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           {hasResourceData && (
             <>
               <tr>
-                <td colSpan={selectedModels.length + 1} className="bg-gray-800/50 px-4 py-2 border-t border-gray-700">
+                <td colSpan={selectedModels.length + 1} className="bg-gray-800/30 px-4 py-2">
                   <SectionTitle>Resources</SectionTitle>
                 </td>
               </tr>

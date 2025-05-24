@@ -61,6 +61,7 @@ img[src$=".svg"]:not([src^="data:"]):not([src*="/"])::before {
   border-radius: 0 !important;
 }
 
+
 img[src*="error"]::before,
 img:not([src])::before,
 img[src=""]::before,
