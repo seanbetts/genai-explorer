@@ -310,7 +310,7 @@ const FeaturedBenchmarksSectionComponent: React.FC<FeaturedBenchmarksSectionProp
           <tr key={benchmark.benchmark_id} className="cursor-pointer">
             <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={brandConfig.name === 'OMG' ? { backgroundColor: 'white' } : {}}>
               <div className={containerStyles.flexCenter}>
-                <i className={`bi bi-graph-up-arrow ${iconStyles.tableRowIcon} ${
+                <i className={`bi bi-award ${iconStyles.tableRowIcon} ${
                   brandConfig.name === 'OMG'
                     ? 'text-blue-500'
                     : 'text-fuchsia-400'
@@ -594,7 +594,7 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
           ? 'bg-gray-100 border border-gray-300'
           : 'bg-gray-800/50 border border-gray-700'
       }`}>
-        <i className={`bi bi-graph-up text-4xl mb-3 ${
+        <i className={`bi bi-award text-4xl mb-3 ${
           brandConfig.name === 'OMG'
             ? 'text-gray-400'
             : 'text-gray-500'

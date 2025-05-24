@@ -263,7 +263,7 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
               ? 'text-gray-900 font-sans'
               : 'text-white font-mono'
           }`}>
-            <i className={`bi bi-graph-up-arrow mr-3 text-2xl ${
+            <i className={`bi bi-award mr-3 text-2xl ${
               brandConfig.name === 'OMG'
                 ? 'text-blue-600'
                 : 'text-fuchsia-400'

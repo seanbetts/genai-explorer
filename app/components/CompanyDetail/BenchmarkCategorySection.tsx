@@ -398,7 +398,7 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
             <tr key={benchmark.benchmark_id} className="cursor-pointer">
               <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={brandConfig.name === 'OMG' ? { backgroundColor: 'white' } : {}}>
                 <div className={containerStyles.flexCenter}>
-                  <i className={`bi bi-graph-up ${iconStyles.tableRowIcon} ${
+                  <i className={`bi bi-award ${iconStyles.tableRowIcon} ${
                     brandConfig.name === 'OMG'
                       ? 'text-blue-500'
                       : ''
