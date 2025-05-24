@@ -145,7 +145,7 @@ export const TableColGroup: React.FC<TableColGroupProps> = ({ items }) => {
   return (
     <colgroup>
       <col style={{width: '300px'}} />
-      {items.map((item, index) => (
+      {items.map((item) => (
         <col key={`col-${item.id}`} style={{width: columnWidth}} />
       ))}
     </colgroup>
