@@ -83,7 +83,7 @@ export const TableHeader: React.FC<TableHeaderProps> = ({
         {items.map(item => (
           <th 
             key={item.id} 
-            className={`${tableStyles.headerCellCenter} table-header-cell`}
+            className={`${tableStyles.headerCellCenter} table-header-cell relative`}
             style={{width: columnWidth}}
             title={item.description}
           >
@@ -103,28 +103,28 @@ export const TableHeader: React.FC<TableHeaderProps> = ({
                 </div>
               </div>
             ) : (
-              <div className="relative group">
+              <div className="group pr-6">
                 <div className={`text-center`} style={{ color: brandConfig.secondaryColor }}>{item.name}</div>
                 {item.description && (
                   <div className="text-xs text-gray-400 text-center mt-0.5">
                     {item.description}
                   </div>
                 )}
-                {/* Remove button - always visible if onRemove is provided */}
-                {item.onRemove && (
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      item.onRemove?.();
-                    }}
-                    className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center bg-gray-700 hover:bg-gray-600 border border-gray-600 rounded-full text-fuchsia-500 hover:text-fuchsia-400 z-20 cursor-pointer"
-                    aria-label={`Remove ${item.name} from comparison`}
-                    title={`Remove ${item.name} from comparison`}
-                  >
-                    <i className="bi bi-x text-xs"></i>
-                  </button>
-                )}
               </div>
+            )}
+            {/* Remove button - always visible if onRemove is provided - positioned relative to th */}
+            {item.onRemove && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  item.onRemove?.();
+                }}
+                className="absolute top-2 right-2 h-5 w-5 flex items-center justify-center bg-gray-700 hover:bg-gray-600 border border-gray-600 rounded-full text-fuchsia-500 hover:text-fuchsia-400 z-20 cursor-pointer"
+                aria-label={`Remove ${item.name} from comparison`}
+                title={`Remove ${item.name} from comparison`}
+              >
+                <i className="bi bi-x text-xs"></i>
+              </button>
             )}
           </th>
         ))}
