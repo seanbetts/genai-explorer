@@ -9,8 +9,7 @@ import {
   SharedTable, 
   TableHeader, 
   TableColGroup,
-  SectionTitle,
-  Legend
+  SectionTitle
 } from '../shared/TableComponents';
 import { 
   loadBenchmarkMetadata, 
@@ -411,7 +410,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                 <span className={
                   model.category === 'frontier' 
                     ? tableStyles.metric 
-                    : `${brandConfig.name === 'OMG' ? 'text-blue-500' : 'text-cyan-400'} font-medium tabular-nums font-mono`
+                    : `${brandConfig.name === 'OMG' ? 'text-blue-500 font-medium tabular-nums font-sans' : 'text-cyan-400 font-medium tabular-nums font-mono'}`
                 }>
                   ${model.specs.pricingInputPerM.toFixed(2)}
                 </span>
@@ -435,7 +434,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                 <span className={
                   model.category === 'frontier' 
                     ? tableStyles.metric 
-                    : `${brandConfig.name === 'OMG' ? 'text-blue-500' : 'text-cyan-400'} font-medium tabular-nums font-mono`
+                    : `${brandConfig.name === 'OMG' ? 'text-blue-500 font-medium tabular-nums font-sans' : 'text-cyan-400 font-medium tabular-nums font-mono'}`
                 }>
                   ${model.specs.pricingOutputPerM.toFixed(2)}
                 </span>
@@ -461,7 +460,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                 <div className="flex flex-col">
                   <a 
                     href={`/?benchmark=${benchmark.benchmark_id}`}
-                    className={`transition-colors ${brandConfig.name === 'OMG' ? 'text-blue-500 hover:text-blue-600' : 'text-cyan-400 hover:text-fuchsia-500'} font-mono`}
+                    className={`transition-colors ${brandConfig.name === 'OMG' ? 'text-blue-500 hover:text-blue-600 font-sans' : 'text-cyan-400 hover:text-fuchsia-500 font-mono'}`}
                     title={`View all data for ${benchmark.benchmark_name}`}
                   >
                     {benchmark.benchmark_name}
@@ -493,7 +492,10 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                   let rankBadge = null;
                   if (rank && rank <= 5) {
                     rankBadge = (
-                      <span className={`ml-1 text-xs font-semibold ${brandConfig.name === 'OMG' ? 'text-blue-600' : 'text-fuchsia-500'}`}>
+                      <span 
+                        className={`ml-1 text-xs font-semibold ${brandConfig.name === 'OMG' ? 'text-blue-600' : 'text-fuchsia-500'}`}
+                        style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}
+                      >
                         #{rank}
                       </span>
                     );
@@ -531,14 +533,14 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                           href={source} 
                           target="_blank" 
                           rel="noopener noreferrer" 
-                          className={`font-medium transition-colors flex items-center font-mono ${brandConfig.name === 'OMG' ? 'text-blue-500 hover:text-blue-600' : 'text-cyan-400 hover:text-fuchsia-500'}`}
+                          className={`font-medium transition-colors flex items-center ${brandConfig.name === 'OMG' ? 'font-sans text-blue-500 hover:text-blue-600' : 'font-mono text-cyan-400 hover:text-fuchsia-500'}`}
                           title={tooltipContent}
                         >
                           {formattedScore}{rankBadge}
                         </a>
                       ) : (
                         <div 
-                          className={`font-medium flex items-center font-mono ${brandConfig.name === 'OMG' ? 'text-blue-500' : 'text-cyan-400'}`}
+                          className={`font-medium flex items-center ${brandConfig.name === 'OMG' ? 'font-sans text-blue-500' : 'font-mono text-cyan-400'}`}
                           title={tooltipContent}
                         >
                           {formattedScore}{rankBadge}
@@ -745,8 +747,8 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           borderBottomLeftRadius: '0',
           borderBottomRightRadius: '0',
           overflow: 'hidden',
-          backgroundColor: '#2d3748',
-          borderBottom: '0.5px solid #EA00D9'
+          backgroundColor: brandConfig.name === 'OMG' ? '#f9fafb' : '#2d3748',
+          borderBottom: brandConfig.name === 'OMG' ? `0.5px solid ${brandConfig.primaryColor}` : '0.5px solid #EA00D9'
         }}>
           <table className="table-fixed w-full border-collapse">
             <TableColGroup items={headerItems} />
@@ -755,17 +757,36 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
         </div>
       )}
 
-      {/* Legend with Clear All button */}
+      {/* Format Icons Legend (centered) */}
       <div className="relative flex justify-center items-center mb-4">
-        <Legend
-          items={[
-            { icon: <i className={`bi bi-file-text-fill ${iconStyles.activeFormat}`}></i>, label: "Text" },
-            { icon: <i className={`bi bi-mic-fill ${iconStyles.activeFormat}`}></i>, label: "Speech" },
-            { icon: <i className={`bi bi-image-fill ${iconStyles.activeFormat}`}></i>, label: "Image" },
-            { icon: <i className={`bi bi-music-note-beamed ${iconStyles.activeFormat}`}></i>, label: "Audio" },
-            { icon: <i className={`bi bi-camera-video-fill ${iconStyles.activeFormat}`}></i>, label: "Video" }
-          ]}
-        />
+        <div className={`${containerStyles.legend} transform transition-all duration-500`}>
+          <div 
+            className={`${containerStyles.legendBox} hover:shadow-md transition-all duration-300 ${brandConfig.name === 'OMG' ? 'hover:border-blue-500' : 'hover:border-fuchsia-700'}`}
+            style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : '#1F2937' }}>
+            <div className={containerStyles.legendItems}>
+              <div className={containerStyles.legendItem}>
+                <i className="bi bi-file-text-fill" style={{ color: brandConfig.name === 'OMG' ? brandConfig.secondaryColor : brandConfig.primaryColor }}></i>
+                <span className={`${textStyles.sm} ${textStyles.primary}`}>Text</span>
+              </div>
+              <div className={containerStyles.legendItem}>
+                <i className="bi bi-mic-fill" style={{ color: brandConfig.name === 'OMG' ? brandConfig.secondaryColor : brandConfig.primaryColor }}></i>
+                <span className={`${textStyles.sm} ${textStyles.primary}`}>Speech</span>
+              </div>
+              <div className={containerStyles.legendItem}>
+                <i className="bi bi-image-fill" style={{ color: brandConfig.name === 'OMG' ? brandConfig.secondaryColor : brandConfig.primaryColor }}></i>
+                <span className={`${textStyles.sm} ${textStyles.primary}`}>Image</span>
+              </div>
+              <div className={containerStyles.legendItem}>
+                <i className="bi bi-music-note-beamed" style={{ color: brandConfig.name === 'OMG' ? brandConfig.secondaryColor : brandConfig.primaryColor }}></i>
+                <span className={`${textStyles.sm} ${textStyles.primary}`}>Audio</span>
+              </div>
+              <div className={containerStyles.legendItem}>
+                <i className="bi bi-camera-video-fill" style={{ color: brandConfig.name === 'OMG' ? brandConfig.secondaryColor : brandConfig.primaryColor }}></i>
+                <span className={`${textStyles.sm} ${textStyles.primary}`}>Video</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="absolute right-0">
           {clearAllButton}
         </div>

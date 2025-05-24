@@ -229,9 +229,9 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onTypeSelected, res
         disabled={selectedModels.length === 0}
       >
         <div className="flex items-center gap-1.5">
-          <i className={`bi bi-trash3 text-xs ${brandConfig.name === 'OMG' ? 'text-blue-600' : 'text-fuchsia-500'} group-hover:scale-110 transition-transform duration-200`}></i>
+          <i className={`bi bi-trash3 text-xs ${brandConfig.name === 'OMG' ? 'text-blue-500' : 'text-fuchsia-500'} group-hover:scale-110 transition-transform duration-200`}></i>
           <span className="text-xs font-medium">Clear All</span>
-          <span className={`text-[10px] ${brandConfig.name === 'OMG' ? 'text-gray-600 group-hover:text-blue-600' : 'text-gray-500 group-hover:text-fuchsia-400'} ml-0.5`}>({selectedModels.length}/4)</span>
+          <span className={`text-[10px] ${brandConfig.name === 'OMG' ? 'text-gray-600 group-hover:text-blue-500' : 'text-gray-500 group-hover:text-fuchsia-400'} ml-0.5`}>({selectedModels.length}/4)</span>
         </div>
       </button>
     );

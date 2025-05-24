@@ -305,18 +305,18 @@ export const iconStyles = {
     
     // Rating icons with secondary brand color
     ratingContainer: 'flex items-center justify-center',
-    ratingFilled: brandConfig.name === 'OMG' ? `text-[${brandConfig.secondaryColor}]` : 'text-cyan-400', // Secondary brand color
+    ratingFilled: brandConfig.name === 'OMG' ? 'text-blue-500' : 'text-cyan-400', // Secondary brand color
     ratingEmpty: 'text-gray-600', // Lighter gray to be more visible
     iconSpacing: 'mx-0.5',
     
     // Format indicators with secondary brand color
-    activeFormat: brandConfig.name === 'OMG' ? `text-[${brandConfig.secondaryColor}]` : 'text-fuchsia-500', // Secondary brand color
+    activeFormat: brandConfig.name === 'OMG' ? 'text-blue-500' : 'text-fuchsia-500', // Secondary brand color
     inactiveFormat: 'text-gray-600', // Lighter gray to be more visible
     formatContainer: 'flex gap-4 justify-center',
     formatItem: 'flex items-center mx-2',
     
     // Table row label icons with primary brand color
-    tableRowIcon: brandConfig.name === 'OMG' ? `text-[${brandConfig.primaryColor}]` : 'text-fuchsia-500',
+    tableRowIcon: brandConfig.name === 'OMG' ? 'text-blue-600' : 'text-fuchsia-500',
     
     // Icon positioning utilities with increased spacing
     iconLeft: 'mr-3',
@@ -340,9 +340,11 @@ export const iconStyles = {
     
     // Boolean indicator icons - secondary for true, red for false
     booleanTrue: brandConfig.name === 'OMG' 
-        ? `text-[${brandConfig.secondaryColor}] text-lg bi bi-check-circle-fill`
+        ? 'text-blue-500 text-lg bi bi-check-circle-fill'
         : 'text-cyan-400 text-lg bi bi-check-circle-fill',
-    booleanFalse: 'text-fuchsia-500 text-lg bi bi-x-circle-fill',
+    booleanFalse: brandConfig.name === 'OMG' 
+        ? 'text-red-500 text-lg bi bi-x-circle-fill'
+        : 'text-fuchsia-500 text-lg bi bi-x-circle-fill',
 };
 
 // Brand-aware button system with conditional styling

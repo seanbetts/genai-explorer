@@ -120,7 +120,7 @@ export const TableHeader: React.FC<TableHeaderProps> = ({
                   item.onRemove?.();
                 }}
                 className={brandConfig.name === 'OMG'
-                  ? `absolute top-2 right-2 h-5 w-5 flex items-center justify-center bg-gray-200 hover:bg-gray-300 border border-gray-400 rounded-full text-[${brandConfig.primaryColor}] hover:text-[${brandConfig.primaryColor}]/80 z-20 cursor-pointer`
+                  ? 'absolute top-2 right-2 h-5 w-5 flex items-center justify-center bg-gray-200 hover:bg-gray-300 border border-gray-400 rounded-full text-blue-500 hover:text-blue-600 z-20 cursor-pointer'
                   : "absolute top-2 right-2 h-5 w-5 flex items-center justify-center bg-gray-700 hover:bg-gray-600 border border-gray-600 rounded-full text-fuchsia-500 hover:text-fuchsia-400 z-20 cursor-pointer"}
                 aria-label={`Remove ${item.name} from comparison`}
                 title={`Remove ${item.name} from comparison`}
