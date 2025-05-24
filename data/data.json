@@ -1783,7 +1783,7 @@
         },
         {
           "id": "imagen-3",
-          "name": "Imagen",
+          "name": "Imagen 3",
           "status": "archived",
           "about": "Text-to-image model, capable of generating images with even better detail, richer lighting and fewer distracting artifacts than our previous models.",
           "category": "image",

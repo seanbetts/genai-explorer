@@ -733,22 +733,19 @@ const applyFilters = useCallback((
       {selectedModelType && (
         <>
           
-          {/* Info message if no models are selected */}
-          {selectedModels.length === 0 && (
-            <div className="bg-gray-800/30 p-6 rounded-lg border border-gray-700 mb-6 text-center">
-              <div className="text-gray-300">
-                <i className="bi bi-info-circle mr-2 text-fuchsia-500" aria-hidden="true"></i>
-                Select models from below to start comparing (up to 4 models).
-              </div>
-            </div>
-          )}
-      
       {/* Model Selection */}
       <div className="bg-gray-800/30 p-6 rounded-lg border border-gray-700 mb-6">
         <h2 className="text-xl font-semibold text-white mb-4">Available Models</h2>
-        <p className="text-gray-300 mb-4">
-          Select up to 4 models to compare their specifications and capabilities.
-        </p>
+        {selectedModels.length === 0 ? (
+          <div className="text-gray-300 mb-4 text-center bg-gray-700/30 p-4 rounded-lg border border-gray-600">
+            <i className="bi bi-info-circle mr-2 text-fuchsia-500" aria-hidden="true"></i>
+            Select models from below to start comparing (up to 4 models).
+          </div>
+        ) : (
+          <p className="text-gray-300 mb-4">
+            Select up to 4 models to compare their specifications and capabilities.
+          </p>
+        )}
         
         {/* Search and filter controls */}
         <div className="flex flex-col md:flex-row gap-3 mb-4">
@@ -783,73 +780,39 @@ const applyFilters = useCallback((
               Enter model name or company to filter the list of available models
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row gap-2">
-            <div>
-              <label htmlFor="company-filter" className="sr-only">Filter models by company</label>
-              <select 
-                id="company-filter"
-                className="w-full sm:w-auto bg-gray-700 border border-gray-600 rounded px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
-                value={companyFilter}
-                onChange={(e) => {
-                  try {
-                    // Filter by company
-                    const newCompanyFilter = e.target.value;
-                    setCompanyFilter(newCompanyFilter);
-                    applyFilters(searchTerm, newCompanyFilter, typeFilter);
-                  } catch (error) {
-                    console.error("Error filtering by company:", error);
-                    setAllModels(allModelsMemo);
-                  }
-                }}
-                aria-describedby="company-filter-description"
-              >
-                <option value="all">All Companies</option>
-                {Array.from(new Set(allModelsMemo.map(model => model.companyId)))
-                  .filter(Boolean)
-                  .map(companyId => {
-                    const company = allModelsMemo.find(model => model.companyId === companyId);
-                    return (
-                      <option key={companyId} value={companyId}>
-                        {company?.companyName || "Unknown Company"}
-                      </option>
-                    );
-                  })}
-              </select>
-              <div id="company-filter-description" className="sr-only">
-                Select a company to filter the list of available models
-              </div>
-            </div>
-            <div>
-              <label htmlFor="type-filter" className="sr-only">Filter models by type</label>
-              <select 
-                id="type-filter"
-                className="w-full sm:w-auto bg-gray-700 border border-gray-600 rounded px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
-                value={typeFilter}
-                onChange={(e) => {
-                  try {
-                    // Filter by model type
-                    const newTypeFilter = e.target.value;
-                    setTypeFilter(newTypeFilter);
-                    applyFilters(searchTerm, companyFilter, newTypeFilter);
-                  } catch (error) {
-                    console.error("Error filtering by type:", error);
-                    setAllModels(allModelsMemo);
-                  }
-                }}
-                aria-describedby="type-filter-description"
-              >
-                <option value="all">All Types</option>
-                <option value="frontier">Frontier</option>
-                <option value="open">Open</option>
-                <option value="enterprise">Enterprise</option>
-                <option value="image">Image</option>
-                <option value="video">Video</option>
-                <option value="audio">Audio</option>
-                <option value="other">Other</option>
-              </select>
-              <div id="type-filter-description" className="sr-only">
-                Select a model type to filter the list of available models
-              </div>
+          <div>
+            <label htmlFor="company-filter" className="sr-only">Filter models by company</label>
+            <select 
+              id="company-filter"
+              className="w-full sm:w-auto bg-gray-700 border border-gray-600 rounded px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
+              value={companyFilter}
+              onChange={(e) => {
+                try {
+                  // Filter by company
+                  const newCompanyFilter = e.target.value;
+                  setCompanyFilter(newCompanyFilter);
+                  applyFilters(searchTerm, newCompanyFilter, typeFilter);
+                } catch (error) {
+                  console.error("Error filtering by company:", error);
+                  setAllModels(allModelsMemo);
+                }
+              }}
+              aria-describedby="company-filter-description"
+            >
+              <option value="all">All Companies</option>
+              {Array.from(new Set(allModelsMemo.map(model => model.companyId)))
+                .filter(Boolean)
+                .map(companyId => {
+                  const company = allModelsMemo.find(model => model.companyId === companyId);
+                  return (
+                    <option key={companyId} value={companyId}>
+                      {company?.companyName || "Unknown Company"}
+                    </option>
+                  );
+                })}
+            </select>
+            <div id="company-filter-description" className="sr-only">
+              Select a company to filter the list of available models
             </div>
           </div>
         </div>
@@ -914,23 +877,7 @@ const applyFilters = useCallback((
             <button 
               className="bg-gray-700 hover:bg-gray-600 text-cyan-400 px-4 py-2 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
               onClick={() => {
-                // Increase the display limit by 20 each time
-                setDisplayLimit(prevLimit => prevLimit + 20);
-              }}
-              aria-label="Load more models"
-            >
-              Show more models ({allModels.length - displayLimit} remaining)
-            </button>
-          </div>
-        )}
-        
-        {/* "Show all" button if there's a lot of models */}
-        {allModels.length > displayLimit + 40 && (
-          <div className="mt-2 text-center">
-            <button 
-              className="text-cyan-400 text-sm"
-              onClick={() => {
-                // Show all models
+                // Show all remaining models
                 setDisplayLimit(allModels.length);
               }}
               aria-label="Show all remaining models"
