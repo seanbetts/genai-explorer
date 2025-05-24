@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Model } from '../types';
 import { containerStyles, tableStyles, iconStyles } from '../utils/layout';
 import { textStyles } from '../utils/theme';
+import brandConfig from '../../config/brand';
 import { 
   SharedTable, 
   TableHeader, 
@@ -147,7 +148,7 @@ const VideoModelTable: React.FC<VideoModelTableProps> = ({ selectedModels, onMod
     
     return (
       <div className={`w-12 h-8 relative rounded border ${
-        supported ? 'border-cyan-400' : 'border-gray-600 opacity-50'
+        supported ? (brandConfig.name === 'OMG' ? 'border-blue-500' : 'border-cyan-400') : 'border-gray-600 opacity-50'
       }`}>
         <div className="absolute inset-0 rounded bg-gray-700 flex items-center justify-center">
           <svg width="100%" height="100%" viewBox="0 0 16 10">
@@ -341,7 +342,7 @@ const VideoModelTable: React.FC<VideoModelTableProps> = ({ selectedModels, onMod
               {model.features?.generation?.resolutions && Array.isArray(model.features.generation.resolutions) && model.features.generation.resolutions.length > 0 ? (
                 <div className="flex flex-wrap gap-1 justify-center">
                   {(model.features.generation.resolutions as string[]).map((resolution: string) => (
-                    <span key={resolution} className="inline-block px-2 py-1 bg-gray-700 text-cyan-400 rounded border border-gray-600 text-xs">
+                    <span key={resolution} className={`inline-block px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 text-blue-600 rounded border border-gray-300' : 'bg-gray-700 text-cyan-400 rounded border border-gray-600'} text-xs`}>
                       {resolution}
                     </span>
                   ))}
@@ -368,7 +369,7 @@ const VideoModelTable: React.FC<VideoModelTableProps> = ({ selectedModels, onMod
               {model.features?.generation?.durations && Array.isArray(model.features.generation.durations) && model.features.generation.durations.length > 0 ? (
                 <div className="flex flex-wrap gap-1 justify-center">
                   {(model.features.generation.durations as number[]).map((duration: number) => (
-                    <span key={duration} className="inline-block px-2 py-1 bg-gray-700 text-cyan-400 rounded border border-gray-600 text-xs">
+                    <span key={duration} className={`inline-block px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 text-blue-600 rounded border border-gray-300' : 'bg-gray-700 text-cyan-400 rounded border border-gray-600'} text-xs`}>
                       {duration}s
                     </span>
                   ))}
@@ -395,7 +396,7 @@ const VideoModelTable: React.FC<VideoModelTableProps> = ({ selectedModels, onMod
               {model.features?.generation?.numberOfVideos && Array.isArray(model.features.generation.numberOfVideos) && model.features.generation.numberOfVideos.length > 0 ? (
                 <div className="flex flex-wrap gap-1 justify-center">
                   {(model.features.generation.numberOfVideos as number[]).map((count: number) => (
-                    <span key={count} className="inline-block px-2 py-1 bg-gray-700 text-cyan-400 rounded border border-gray-600 text-xs">
+                    <span key={count} className={`inline-block px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 text-blue-600 rounded border border-gray-300' : 'bg-gray-700 text-cyan-400 rounded border border-gray-600'} text-xs`}>
                       {count}
                     </span>
                   ))}
@@ -422,7 +423,7 @@ const VideoModelTable: React.FC<VideoModelTableProps> = ({ selectedModels, onMod
               {model.features?.generation?.videoStyles && Array.isArray(model.features.generation.videoStyles) && model.features.generation.videoStyles.length > 0 ? (
                 <div className="flex flex-wrap gap-1 justify-center">
                   {(model.features.generation.videoStyles as string[]).map((style: string) => (
-                    <span key={style} className="inline-block px-2 py-1 bg-gray-700 text-cyan-400 rounded border border-gray-600 text-xs capitalize">
+                    <span key={style} className={`inline-block px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 text-blue-600 rounded border border-gray-300' : 'bg-gray-700 text-cyan-400 rounded border border-gray-600'} text-xs capitalize`}>
                       {style}
                     </span>
                   ))}
@@ -447,7 +448,7 @@ const VideoModelTable: React.FC<VideoModelTableProps> = ({ selectedModels, onMod
           {selectedModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.features?.generation?.frameRate ? (
-                <span className="inline-block px-2 py-1 bg-gray-700 text-cyan-400 rounded border border-gray-600 text-xs">
+                <span className={`inline-block px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 text-blue-600 rounded border border-gray-300' : 'bg-gray-700 text-cyan-400 rounded border border-gray-600'} text-xs`}>
                   {model.features.generation.frameRate} fps
                 </span>
               ) : (
@@ -687,7 +688,7 @@ const VideoModelTable: React.FC<VideoModelTableProps> = ({ selectedModels, onMod
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.releasePost ? (
                 <a href={model.releasePost} target="_blank" rel="noopener noreferrer" 
-                   className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs">
+                   className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}>
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
                 </a>
@@ -710,7 +711,7 @@ const VideoModelTable: React.FC<VideoModelTableProps> = ({ selectedModels, onMod
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.releaseVideo ? (
                 <a href={model.releaseVideo} target="_blank" rel="noopener noreferrer" 
-                   className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs">
+                   className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}>
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
                 </a>
@@ -733,7 +734,7 @@ const VideoModelTable: React.FC<VideoModelTableProps> = ({ selectedModels, onMod
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.modelPage ? (
                 <a href={model.modelPage} target="_blank" rel="noopener noreferrer" 
-                   className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs">
+                   className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}>
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
                 </a>
@@ -756,7 +757,7 @@ const VideoModelTable: React.FC<VideoModelTableProps> = ({ selectedModels, onMod
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.systemCard ? (
                 <a href={model.systemCard} target="_blank" rel="noopener noreferrer" 
-                   className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs">
+                   className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}>
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
                 </a>
@@ -779,7 +780,7 @@ const VideoModelTable: React.FC<VideoModelTableProps> = ({ selectedModels, onMod
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.termsOfService ? (
                 <a href={model.termsOfService} target="_blank" rel="noopener noreferrer" 
-                   className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs">
+                   className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}>
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
                 </a>
@@ -802,7 +803,7 @@ const VideoModelTable: React.FC<VideoModelTableProps> = ({ selectedModels, onMod
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.usagePolicy ? (
                 <a href={model.usagePolicy} target="_blank" rel="noopener noreferrer" 
-                   className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs">
+                   className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}>
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
                 </a>
@@ -864,7 +865,7 @@ const VideoModelTable: React.FC<VideoModelTableProps> = ({ selectedModels, onMod
                       href={value} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                      className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}
                     >
                       <i className="bi bi-link-45deg text-xs"></i>
                       {key}

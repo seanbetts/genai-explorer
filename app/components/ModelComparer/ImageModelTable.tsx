@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Model } from '../types';
 import { containerStyles, tableStyles, iconStyles } from '../utils/layout';
 import { textStyles } from '../utils/theme';
+import brandConfig from '../../config/brand';
 import { 
   SharedTable, 
   TableHeader, 
@@ -350,7 +351,7 @@ const ImageModelTable: React.FC<ImageModelTableProps> = ({ selectedModels, onMod
     
     return (
       <div className={`w-12 h-8 relative rounded border ${
-        supported ? 'border-cyan-400' : 'border-gray-600 opacity-50'
+        supported ? (brandConfig.name === 'OMG' ? 'border-blue-500' : 'border-cyan-400') : 'border-gray-600 opacity-50'
       }`}>
         <div className="absolute inset-0 rounded bg-gray-700 flex items-center justify-center">
           <svg width="100%" height="100%" viewBox="0 0 16 10">
@@ -424,7 +425,7 @@ const ImageModelTable: React.FC<ImageModelTableProps> = ({ selectedModels, onMod
                   href={model.releasePost} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                  className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}
                 >
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
@@ -451,7 +452,7 @@ const ImageModelTable: React.FC<ImageModelTableProps> = ({ selectedModels, onMod
                   href={model.releaseVideo} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                  className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}
                 >
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
@@ -478,7 +479,7 @@ const ImageModelTable: React.FC<ImageModelTableProps> = ({ selectedModels, onMod
                   href={model.modelPage} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                  className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}
                 >
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
@@ -505,7 +506,7 @@ const ImageModelTable: React.FC<ImageModelTableProps> = ({ selectedModels, onMod
                   href={model.systemCard} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                  className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}
                 >
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
@@ -532,7 +533,7 @@ const ImageModelTable: React.FC<ImageModelTableProps> = ({ selectedModels, onMod
                   href={model.termsOfService} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                  className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}
                 >
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
@@ -559,7 +560,7 @@ const ImageModelTable: React.FC<ImageModelTableProps> = ({ selectedModels, onMod
                   href={model.usagePolicy} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                  className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}
                 >
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
@@ -674,7 +675,7 @@ const ImageModelTable: React.FC<ImageModelTableProps> = ({ selectedModels, onMod
                       href={value} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                      className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}
                     >
                       <i className="bi bi-link-45deg text-xs"></i>
                       {key}

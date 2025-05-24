@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Model } from '../types';
 import { containerStyles, tableStyles, iconStyles } from '../utils/layout';
 import { textStyles } from '../utils/theme';
+import brandConfig from '../../config/brand';
 import { 
   SharedTable, 
   TableHeader, 
@@ -324,7 +325,7 @@ const AudioModelTable: React.FC<AudioModelTableProps> = ({ selectedModels, onMod
               {model.features?.generation?.durations && Array.isArray(model.features.generation.durations) && model.features.generation.durations.length > 0 ? (
                 <div className="flex flex-wrap gap-1 justify-center">
                   {(model.features.generation.durations as number[]).map((duration: number) => (
-                    <span key={duration} className="inline-block px-2 py-1 bg-gray-700 text-cyan-400 rounded border border-gray-600 text-xs">
+                    <span key={duration} className={`inline-block px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 text-blue-600 rounded border border-gray-300' : 'bg-gray-700 text-cyan-400 rounded border border-gray-600'} text-xs`}>
                       {duration === 9999 ? 'Unlimited' : `${duration}s`}
                     </span>
                   ))}
@@ -351,7 +352,7 @@ const AudioModelTable: React.FC<AudioModelTableProps> = ({ selectedModels, onMod
               {model.features?.generation?.outputFormats && Array.isArray(model.features.generation.outputFormats) && model.features.generation.outputFormats.length > 0 ? (
                 <div className="flex flex-wrap gap-1 justify-center">
                   {(model.features.generation.outputFormats as string[]).map((format: string) => (
-                    <span key={format} className="inline-block px-2 py-1 bg-gray-700 text-cyan-400 rounded border border-gray-600 text-xs uppercase">
+                    <span key={format} className={`inline-block px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 text-blue-600 rounded border border-gray-300' : 'bg-gray-700 text-cyan-400 rounded border border-gray-600'} text-xs uppercase`}>
                       {format}
                     </span>
                   ))}
@@ -521,7 +522,7 @@ const AudioModelTable: React.FC<AudioModelTableProps> = ({ selectedModels, onMod
             {selectedModels.map(model => (
               <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
                 {model.features?.other?.voices && Array.isArray(model.features.other.voices) && model.features.other.voices.length > 0 ? (
-                  <span className="inline-block px-2 py-1 bg-gray-700 text-cyan-400 rounded border border-gray-600 text-xs">
+                  <span className={`inline-block px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 text-blue-600 rounded border border-gray-300' : 'bg-gray-700 text-cyan-400 rounded border border-gray-600'} text-xs`}>
                     {model.features.other.voices.length} voices
                   </span>
                 ) : (
@@ -546,7 +547,7 @@ const AudioModelTable: React.FC<AudioModelTableProps> = ({ selectedModels, onMod
                 {model.features?.other?.voiceFeatures && Array.isArray(model.features.other.voiceFeatures) && model.features.other.voiceFeatures.length > 0 ? (
                   <div className="flex flex-wrap gap-1 justify-center">
                     {(model.features.other.voiceFeatures as string[]).slice(0, 3).map((feature: string) => (
-                      <span key={feature} className="inline-block px-2 py-1 bg-gray-700 text-cyan-400 rounded border border-gray-600 text-xs capitalize">
+                      <span key={feature} className={`inline-block px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 text-blue-600 rounded border border-gray-300' : 'bg-gray-700 text-cyan-400 rounded border border-gray-600'} text-xs capitalize`}>
                         {feature}
                       </span>
                     ))}
@@ -576,7 +577,7 @@ const AudioModelTable: React.FC<AudioModelTableProps> = ({ selectedModels, onMod
             {selectedModels.map(model => (
               <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
                 {model.features?.other?.languages && Array.isArray(model.features.other.languages) && model.features.other.languages.length > 0 ? (
-                  <span className="inline-block px-2 py-1 bg-gray-700 text-cyan-400 rounded border border-gray-600 text-xs">
+                  <span className={`inline-block px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 text-blue-600 rounded border border-gray-300' : 'bg-gray-700 text-cyan-400 rounded border border-gray-600'} text-xs`}>
                     {model.features.other.languages.length} languages
                   </span>
                 ) : (
@@ -608,7 +609,7 @@ const AudioModelTable: React.FC<AudioModelTableProps> = ({ selectedModels, onMod
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.releasePost ? (
                 <a href={model.releasePost} target="_blank" rel="noopener noreferrer" 
-                   className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs">
+                   className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}>
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
                 </a>
@@ -631,7 +632,7 @@ const AudioModelTable: React.FC<AudioModelTableProps> = ({ selectedModels, onMod
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.releaseVideo ? (
                 <a href={model.releaseVideo} target="_blank" rel="noopener noreferrer" 
-                   className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs">
+                   className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}>
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
                 </a>
@@ -654,7 +655,7 @@ const AudioModelTable: React.FC<AudioModelTableProps> = ({ selectedModels, onMod
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.modelPage ? (
                 <a href={model.modelPage} target="_blank" rel="noopener noreferrer" 
-                   className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs">
+                   className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}>
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
                 </a>
@@ -677,7 +678,7 @@ const AudioModelTable: React.FC<AudioModelTableProps> = ({ selectedModels, onMod
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.systemCard ? (
                 <a href={model.systemCard} target="_blank" rel="noopener noreferrer" 
-                   className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs">
+                   className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}>
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
                 </a>
@@ -700,7 +701,7 @@ const AudioModelTable: React.FC<AudioModelTableProps> = ({ selectedModels, onMod
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.termsOfService ? (
                 <a href={model.termsOfService} target="_blank" rel="noopener noreferrer" 
-                   className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs">
+                   className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}>
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
                 </a>
@@ -723,7 +724,7 @@ const AudioModelTable: React.FC<AudioModelTableProps> = ({ selectedModels, onMod
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               {model.usagePolicy ? (
                 <a href={model.usagePolicy} target="_blank" rel="noopener noreferrer" 
-                   className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs">
+                   className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}>
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
                 </a>
@@ -785,7 +786,7 @@ const AudioModelTable: React.FC<AudioModelTableProps> = ({ selectedModels, onMod
                       href={value} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                      className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}
                     >
                       <i className="bi bi-link-45deg text-xs"></i>
                       {key}

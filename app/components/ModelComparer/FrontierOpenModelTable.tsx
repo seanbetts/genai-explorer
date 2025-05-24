@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Model, Benchmark, BenchmarkScore } from '../types';
 import { containerStyles, tableStyles, iconStyles } from '../utils/layout';
 import { textStyles } from '../utils/theme';
+import brandConfig from '../../config/brand';
 import { 
   SharedTable, 
   TableHeader, 
@@ -410,7 +411,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                 <span className={
                   model.category === 'frontier' 
                     ? tableStyles.metric 
-                    : 'text-cyan-400 font-medium tabular-nums font-mono'
+                    : `${brandConfig.name === 'OMG' ? 'text-blue-500' : 'text-cyan-400'} font-medium tabular-nums font-mono`
                 }>
                   ${model.specs.pricingInputPerM.toFixed(2)}
                 </span>
@@ -434,7 +435,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                 <span className={
                   model.category === 'frontier' 
                     ? tableStyles.metric 
-                    : 'text-cyan-400 font-medium tabular-nums font-mono'
+                    : `${brandConfig.name === 'OMG' ? 'text-blue-500' : 'text-cyan-400'} font-medium tabular-nums font-mono`
                 }>
                   ${model.specs.pricingOutputPerM.toFixed(2)}
                 </span>
@@ -460,7 +461,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                 <div className="flex flex-col">
                   <a 
                     href={`/?benchmark=${benchmark.benchmark_id}`}
-                    className="transition-colors text-cyan-400 hover:text-fuchsia-500 font-mono"
+                    className={`transition-colors ${brandConfig.name === 'OMG' ? 'text-blue-500 hover:text-blue-600' : 'text-cyan-400 hover:text-fuchsia-500'} font-mono`}
                     title={`View all data for ${benchmark.benchmark_name}`}
                   >
                     {benchmark.benchmark_name}
@@ -492,7 +493,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                   let rankBadge = null;
                   if (rank && rank <= 5) {
                     rankBadge = (
-                      <span className="ml-1 text-xs font-semibold text-fuchsia-500">
+                      <span className={`ml-1 text-xs font-semibold ${brandConfig.name === 'OMG' ? 'text-blue-600' : 'text-fuchsia-500'}`}>
                         #{rank}
                       </span>
                     );
@@ -530,14 +531,14 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                           href={source} 
                           target="_blank" 
                           rel="noopener noreferrer" 
-                          className="font-medium transition-colors flex items-center font-mono text-cyan-400 hover:text-fuchsia-500"
+                          className={`font-medium transition-colors flex items-center font-mono ${brandConfig.name === 'OMG' ? 'text-blue-500 hover:text-blue-600' : 'text-cyan-400 hover:text-fuchsia-500'}`}
                           title={tooltipContent}
                         >
                           {formattedScore}{rankBadge}
                         </a>
                       ) : (
                         <div 
-                          className="font-medium flex items-center font-mono text-cyan-400"
+                          className={`font-medium flex items-center font-mono ${brandConfig.name === 'OMG' ? 'text-blue-500' : 'text-cyan-400'}`}
                           title={tooltipContent}
                         >
                           {formattedScore}{rankBadge}
@@ -587,7 +588,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                   href={model.releasePost} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                  className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}
                 >
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
@@ -614,7 +615,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                   href={model.releaseVideo} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                  className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}
                 >
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
@@ -641,7 +642,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                   href={model.modelPage} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                  className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}
                 >
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
@@ -668,7 +669,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                   href={model.systemCard} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                  className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}
                 >
                   <i className="bi bi-link-45deg text-xs"></i>
                   Link
@@ -696,13 +697,13 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
                     href={model.licenceLink} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400 transition-all text-xs"
+                    className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 hover:bg-gray-300 text-blue-600 hover:text-blue-700 rounded border border-gray-300 hover:border-blue-500' : 'bg-gray-700 hover:bg-gray-600 text-cyan-400 hover:text-cyan-300 rounded border border-gray-600 hover:border-cyan-400'} transition-all text-xs`}
                   >
                     <i className="bi bi-link-45deg text-xs"></i>
                     {model.licenceType}
                   </a>
                 ) : (
-                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 text-cyan-400 rounded border border-gray-600 text-xs">
+                  <span className={`inline-flex items-center gap-1 px-2 py-1 ${brandConfig.name === 'OMG' ? 'bg-gray-200 text-blue-600 rounded border border-gray-300' : 'bg-gray-700 text-cyan-400 rounded border border-gray-600'} text-xs`}>
                     {model.licenceType}
                   </span>
                 )
