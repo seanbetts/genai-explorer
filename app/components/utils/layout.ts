@@ -310,7 +310,7 @@ export const iconStyles = {
     iconSpacing: 'mx-0.5',
     
     // Format indicators with secondary brand color
-    activeFormat: brandConfig.name === 'OMG' ? `text-[${brandConfig.secondaryColor}]` : 'text-fuchsia-500', // Primary brand color
+    activeFormat: brandConfig.name === 'OMG' ? `text-[${brandConfig.secondaryColor}]` : 'text-fuchsia-500', // Secondary brand color
     inactiveFormat: 'text-gray-600', // Lighter gray to be more visible
     formatContainer: 'flex gap-4 justify-center',
     formatItem: 'flex items-center mx-2',
@@ -345,11 +345,15 @@ export const iconStyles = {
     booleanFalse: 'text-fuchsia-500 text-lg bi bi-x-circle-fill',
 };
 
-// Cyberpunk button system with neon colors and dark backgrounds
+// Brand-aware button system with conditional styling
 export const buttonStyles = {
-    // Primary action buttons with neon pink (#EA00D9)
-    primary: 'bg-fuchsia-600 hover:bg-fuchsia-500 active:bg-fuchsia-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-150 font-mono cursor-pointer',
-    secondary: 'bg-gray-800 hover:bg-gray-700 active:bg-gray-600 text-white border border-fuchsia-500 font-medium py-2 px-4 rounded-md transition-all duration-150 font-mono cursor-pointer',
+    // Primary action buttons with brand colors
+    primary: brandConfig.name === 'OMG' 
+        ? `bg-[${brandConfig.primaryColor}] hover:bg-[${brandConfig.primaryColor}]/90 active:bg-[${brandConfig.primaryColor}]/80 text-white font-medium py-2 px-4 rounded-md transition-colors duration-150 font-sans cursor-pointer`
+        : 'bg-fuchsia-600 hover:bg-fuchsia-500 active:bg-fuchsia-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-150 font-mono cursor-pointer',
+    secondary: brandConfig.name === 'OMG'
+        ? `bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-gray-900 border border-[${brandConfig.primaryColor}] font-medium py-2 px-4 rounded-md transition-all duration-150 font-sans cursor-pointer`
+        : 'bg-gray-800 hover:bg-gray-700 active:bg-gray-600 text-white border border-fuchsia-500 font-medium py-2 px-4 rounded-md transition-all duration-150 font-mono cursor-pointer',
     
     // Additional button variants
     tertiary: 'bg-gray-700 hover:bg-gray-600 active:bg-gray-500 text-white font-medium py-2 px-4 rounded-md transition-colors duration-150 font-mono',
@@ -357,23 +361,35 @@ export const buttonStyles = {
     success: 'bg-green-900 hover:bg-green-800 active:bg-green-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-150 font-mono',
     
     // Text button variants
-    text: 'text-white hover:text-fuchsia-500 hover:bg-gray-800 py-2 px-3 rounded-md transition-all duration-150 font-mono',
-    textPrimary: 'text-fuchsia-500 hover:text-fuchsia-400 hover:bg-gray-800 py-2 px-3 rounded-md transition-all duration-150 font-mono',
+    text: brandConfig.name === 'OMG'
+        ? `text-gray-900 hover:text-[${brandConfig.primaryColor}] hover:bg-gray-100 py-2 px-3 rounded-md transition-all duration-150 font-sans`
+        : 'text-white hover:text-fuchsia-500 hover:bg-gray-800 py-2 px-3 rounded-md transition-all duration-150 font-mono',
+    textPrimary: brandConfig.name === 'OMG'
+        ? `text-[${brandConfig.primaryColor}] hover:text-[${brandConfig.primaryColor}]/80 hover:bg-gray-100 py-2 px-3 rounded-md transition-all duration-150 font-sans`
+        : 'text-fuchsia-500 hover:text-fuchsia-400 hover:bg-gray-800 py-2 px-3 rounded-md transition-all duration-150 font-mono',
     
-    // Link style buttons with neon colors
-    link: 'text-cyan-400 hover:text-cyan-300 transition-colors duration-150 cursor-pointer font-mono',
-    linkMuted: 'text-gray-300 hover:text-white transition-colors duration-150 cursor-pointer font-mono',
+    // Link style buttons with brand colors
+    link: brandConfig.name === 'OMG'
+        ? `text-[${brandConfig.secondaryColor}] hover:text-[${brandConfig.secondaryColor}]/80 transition-colors duration-150 cursor-pointer font-sans`
+        : 'text-cyan-400 hover:text-cyan-300 transition-colors duration-150 cursor-pointer font-mono',
+    linkMuted: brandConfig.name === 'OMG'
+        ? 'text-gray-600 hover:text-gray-900 transition-colors duration-150 cursor-pointer font-sans'
+        : 'text-gray-300 hover:text-white transition-colors duration-150 cursor-pointer font-mono',
     
-    // Button sizes with cyberpunk styling
-    xs: 'py-1 px-2 text-xs rounded font-mono',
-    sm: 'py-1.5 px-3 text-sm font-mono',
-    md: 'py-2 px-4 text-sm font-mono',
-    lg: 'py-2.5 px-5 text-base font-mono',
-    xl: 'py-3 px-6 text-base font-mono',
+    // Button sizes with brand-aware styling
+    xs: brandConfig.name === 'OMG' ? 'py-1 px-2 text-xs rounded font-sans' : 'py-1 px-2 text-xs rounded font-mono',
+    sm: brandConfig.name === 'OMG' ? 'py-1.5 px-3 text-sm font-sans' : 'py-1.5 px-3 text-sm font-mono',
+    md: brandConfig.name === 'OMG' ? 'py-2 px-4 text-sm font-sans' : 'py-2 px-4 text-sm font-mono',
+    lg: brandConfig.name === 'OMG' ? 'py-2.5 px-5 text-base font-sans' : 'py-2.5 px-5 text-base font-mono',
+    xl: brandConfig.name === 'OMG' ? 'py-3 px-6 text-base font-sans' : 'py-3 px-6 text-base font-mono',
     
     // Special button styles
-    iconButton: 'p-2 rounded-md hover:bg-gray-800 text-gray-300 hover:text-white transition-colors duration-150',
-    iconButtonPrimary: 'p-2 rounded-md hover:bg-gray-800 text-fuchsia-500 hover:text-fuchsia-400 transition-colors duration-150',
+    iconButton: brandConfig.name === 'OMG'
+        ? 'p-2 rounded-md hover:bg-gray-100 text-gray-600 hover:text-gray-900 transition-colors duration-150'
+        : 'p-2 rounded-md hover:bg-gray-800 text-gray-300 hover:text-white transition-colors duration-150',
+    iconButtonPrimary: brandConfig.name === 'OMG'
+        ? `p-2 rounded-md hover:bg-gray-100 text-[${brandConfig.primaryColor}] hover:text-[${brandConfig.primaryColor}]/80 transition-colors duration-150`
+        : 'p-2 rounded-md hover:bg-gray-800 text-fuchsia-500 hover:text-fuchsia-400 transition-colors duration-150',
     pill: 'rounded-full',
     outline: 'bg-transparent border border-current',
     
@@ -385,8 +401,10 @@ export const buttonStyles = {
     withLeftIcon: 'inline-flex items-center',
     withRightIcon: 'inline-flex items-center justify-center',
     
-    // Cyberpunk-specific button
-    subscribe: 'bg-fuchsia-600 text-white font-sans text-sm font-medium py-2 px-4 rounded transition-colors duration-150 hover:bg-fuchsia-500',
+    // Brand-specific subscription button
+    subscribe: brandConfig.name === 'OMG'
+        ? `bg-[${brandConfig.primaryColor}] text-white font-sans text-sm font-medium py-2 px-4 rounded transition-colors duration-150 hover:bg-[${brandConfig.primaryColor}]/90`
+        : 'bg-fuchsia-600 text-white font-sans text-sm font-medium py-2 px-4 rounded transition-colors duration-150 hover:bg-fuchsia-500',
 };
 
 // Comprehensive spacing system with improved vertical rhythm

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { ExplorerData, Model } from '../types';
 import { containerStyles, tableStyles, iconStyles } from '../utils/layout';
 import { textStyles } from '../utils/theme';
+import brandConfig from '../../config/brand';
 import { 
   SharedTable, 
   TableHeader, 
@@ -360,11 +361,11 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
       <div className="w-full max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-6">
-          <h1 className="text-2xl font-semibold text-white mb-2 flex items-center justify-center gap-3">
-            <i className="bi bi-bar-chart-line text-fuchsia-500"></i>
+          <h1 className={`text-2xl font-semibold ${textStyles.primary} mb-2 flex items-center justify-center gap-3`}>
+            <i className={`bi bi-bar-chart-line ${brandConfig.name === 'OMG' ? `text-[${brandConfig.primaryColor}]` : 'text-fuchsia-500'}`}></i>
             Model Comparer
           </h1>
-          <p className="text-gray-300">
+          <p className={textStyles.secondary}>
             Choose the type of models you'd like to compare.
           </p>
         </div>
@@ -374,15 +375,23 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
             <button
               key={type.id}
               onClick={() => handleTypeSelection(type.id)}
-              className="bg-gradient-to-br from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 border border-gray-600 hover:border-fuchsia-500 hover:shadow-lg hover:shadow-fuchsia-500/20 rounded-xl p-6 text-center transition-all duration-300 group transform hover:-translate-y-1 cursor-pointer"
+              className={brandConfig.name === 'OMG' 
+                ? `bg-gradient-to-br from-gray-100 to-gray-200 hover:from-gray-50 hover:to-gray-100 border border-gray-300 hover:border-[${brandConfig.primaryColor}] hover:shadow-lg hover:shadow-[${brandConfig.primaryColor}]/20 rounded-xl p-6 text-center transition-all duration-300 group transform hover:-translate-y-1 cursor-pointer`
+                : "bg-gradient-to-br from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 border border-gray-600 hover:border-fuchsia-500 hover:shadow-lg hover:shadow-fuchsia-500/20 rounded-xl p-6 text-center transition-all duration-300 group transform hover:-translate-y-1 cursor-pointer"}
               disabled={type.count === 0}
             >
               <div className="flex flex-col items-center justify-between h-full space-y-4">
-                <div className="w-16 h-16 bg-gray-800 group-hover:bg-gray-700 rounded-full flex items-center justify-center transition-all duration-300">
-                  <i className={`${type.icon} text-3xl text-fuchsia-500 group-hover:text-cyan-400 group-hover:scale-110 transition-all duration-300`}></i>
+                <div className={brandConfig.name === 'OMG'
+                  ? "w-16 h-16 bg-gray-200 group-hover:bg-gray-100 rounded-full flex items-center justify-center transition-all duration-300"
+                  : "w-16 h-16 bg-gray-800 group-hover:bg-gray-700 rounded-full flex items-center justify-center transition-all duration-300"}>
+                  <i className={`${type.icon} text-3xl ${brandConfig.name === 'OMG' 
+                    ? `text-[${brandConfig.primaryColor}] group-hover:text-[${brandConfig.secondaryColor}]`
+                    : 'text-fuchsia-500 group-hover:text-cyan-400'} group-hover:scale-110 transition-all duration-300`}></i>
                 </div>
                 <div className="flex-1 flex flex-col justify-center">
-                  <h3 className="text-lg font-semibold text-white text-center group-hover:text-cyan-400 transition-colors">
+                  <h3 className={`text-lg font-semibold ${brandConfig.name === 'OMG' 
+                    ? `text-gray-900 text-center group-hover:text-[${brandConfig.secondaryColor}]`
+                    : 'text-white text-center group-hover:text-cyan-400'} transition-colors`}>
                     {type.title}
                   </h3>
                 </div>
@@ -392,7 +401,9 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
                       Coming soon
                     </span>
                   ) : (
-                    <span className="text-xs bg-fuchsia-500/20 group-hover:bg-cyan-400/20 border border-fuchsia-500/30 group-hover:border-cyan-400/30 px-3 py-1 rounded-full text-fuchsia-400 group-hover:text-cyan-400 transition-all duration-300">
+                    <span className={brandConfig.name === 'OMG'
+                      ? `text-xs bg-[${brandConfig.primaryColor}]/20 group-hover:bg-[${brandConfig.secondaryColor}]/20 border border-[${brandConfig.primaryColor}]/30 group-hover:border-[${brandConfig.secondaryColor}]/30 px-3 py-1 rounded-full text-[${brandConfig.primaryColor}] group-hover:text-[${brandConfig.secondaryColor}] transition-all duration-300`
+                      : "text-xs bg-fuchsia-500/20 group-hover:bg-cyan-400/20 border border-fuchsia-500/30 group-hover:border-cyan-400/30 px-3 py-1 rounded-full text-fuchsia-400 group-hover:text-cyan-400 transition-all duration-300"}>
                       {type.count} models
                     </span>
                   )}
@@ -415,17 +426,19 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
         <>
           {/* Header */}
           <div className="text-center mb-6">
-            <h1 className="text-2xl font-semibold text-white mb-2 flex items-center justify-center gap-3">
-              <i className="bi bi-bar-chart-line text-fuchsia-500"></i>
+            <h1 className={`text-2xl font-semibold ${textStyles.primary} mb-2 flex items-center justify-center gap-3`}>
+              <i className={`bi bi-bar-chart-line ${brandConfig.name === 'OMG' ? `text-[${brandConfig.primaryColor}]` : 'text-fuchsia-500'}`}></i>
               Model Comparer
             </h1>
-            <p className="text-gray-300">
+            <p className={textStyles.secondary}>
               Select models to compare their specifications and capabilities (up to 4 models).
             </p>
           </div>
           
       {/* Model Selection */}
-      <div className="bg-gray-800/30 p-6 rounded-lg border border-gray-700 mb-6">
+      <div className={brandConfig.name === 'OMG' 
+        ? "bg-gray-100/50 p-6 rounded-lg border border-gray-300 mb-6"
+        : "bg-gray-800/30 p-6 rounded-lg border border-gray-700 mb-6"}>
         
         {/* Search and filter controls */}
         <div className="flex flex-col md:flex-row gap-3 mb-4">
@@ -439,7 +452,9 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
                 id="model-search"
                 type="text"
                 placeholder="Search models..."
-                className="w-full bg-gray-700 border border-gray-600 rounded pl-10 pr-10 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
+                className={brandConfig.name === 'OMG'
+                  ? `w-full bg-white border border-gray-300 rounded pl-10 pr-10 px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[${brandConfig.primaryColor}]`
+                  : "w-full bg-gray-700 border border-gray-600 rounded pl-10 pr-10 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"}
                 value={searchTerm}
                 onChange={(e) => {
                   // Simple client-side filtering with basic error handling
@@ -519,7 +534,9 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
               <div 
                 key={model.id}
                 onClick={() => handleModelSelect(model)}
-                className="bg-gray-700 hover:bg-gray-600 cursor-pointer p-3 rounded-lg border border-gray-600 hover:border-fuchsia-500 transition-all group relative"
+                className={brandConfig.name === 'OMG'
+                  ? `bg-gray-50 hover:bg-gray-100 cursor-pointer p-3 rounded-lg border border-gray-300 hover:border-[${brandConfig.primaryColor}] transition-all group relative`
+                  : "bg-gray-700 hover:bg-gray-600 cursor-pointer p-3 rounded-lg border border-gray-600 hover:border-fuchsia-500 transition-all group relative"}
                 tabIndex={0}
                 role="button"
                 aria-label={`Add ${model.name} by ${model.companyName} to comparison`}
@@ -531,12 +548,16 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
               >
                 <div className="flex items-start justify-between">
                   <div className="flex-1 min-w-0">
-                    <div className="font-medium text-cyan-400 mb-1 truncate">{model.name}</div>
-                    <div className="text-xs text-gray-300">{model.companyName}</div>
+                    <div className={`font-medium ${brandConfig.name === 'OMG' ? `text-[${brandConfig.secondaryColor}]` : 'text-cyan-400'} mb-1 truncate`}>{model.name}</div>
+                    <div className={`text-xs ${brandConfig.name === 'OMG' ? 'text-gray-600' : 'text-gray-300'}`}>{model.companyName}</div>
                   </div>
                   <div className="ml-3 flex-shrink-0">
-                    <div className="w-8 h-8 bg-gray-600 group-hover:bg-fuchsia-500 rounded-full flex items-center justify-center transition-all duration-200">
-                      <i className="bi bi-plus text-lg text-fuchsia-500 group-hover:text-white" aria-hidden="true"></i>
+                    <div className={brandConfig.name === 'OMG'
+                      ? `w-8 h-8 bg-gray-300 group-hover:bg-[${brandConfig.primaryColor}] rounded-full flex items-center justify-center transition-all duration-200`
+                      : "w-8 h-8 bg-gray-600 group-hover:bg-fuchsia-500 rounded-full flex items-center justify-center transition-all duration-200"}>
+                      <i className={`bi bi-plus text-lg ${brandConfig.name === 'OMG' 
+                        ? `text-[${brandConfig.primaryColor}] group-hover:text-white`
+                        : 'text-fuchsia-500 group-hover:text-white'}`} aria-hidden="true"></i>
                     </div>
                   </div>
                 </div>
@@ -551,7 +572,7 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
             No models found matching your filters
             <div className="mt-2">
               <button 
-                className="text-cyan-400 underline cursor-pointer"
+                className={brandConfig.name === 'OMG' ? `text-[${brandConfig.secondaryColor}] underline cursor-pointer` : "text-cyan-400 underline cursor-pointer"}
                 onClick={() => {
                   // Reset filter states
                   setSearchTerm('');
@@ -574,7 +595,9 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
           <div className="mt-4 text-center">
             {displayLimit < allModels.length ? (
               <button 
-                className="bg-gray-700 hover:bg-gray-600 text-cyan-400 px-4 py-2 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 cursor-pointer"
+                className={brandConfig.name === 'OMG'
+                  ? `bg-gray-100 hover:bg-gray-200 text-[${brandConfig.secondaryColor}] px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[${brandConfig.primaryColor}] cursor-pointer`
+                  : "bg-gray-700 hover:bg-gray-600 text-cyan-400 px-4 py-2 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 cursor-pointer"}
                 onClick={() => {
                   // Show all remaining models
                   setDisplayLimit(allModels.length);
@@ -585,7 +608,9 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
               </button>
             ) : (
               <button 
-                className="bg-gray-700 hover:bg-gray-600 text-gray-400 px-4 py-2 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 cursor-pointer"
+                className={brandConfig.name === 'OMG'
+                  ? "bg-gray-100 hover:bg-gray-200 text-gray-600 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[${brandConfig.primaryColor}] cursor-pointer"
+                  : "bg-gray-700 hover:bg-gray-600 text-gray-400 px-4 py-2 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 cursor-pointer"}
                 onClick={() => {
                   // Collapse back to 8 models
                   setDisplayLimit(8);
@@ -602,7 +627,9 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
       
           {/* Comparison Table - only show when models are selected */}
           {selectedModels.length > 0 && (
-            <div className="bg-gray-800/30 p-6 rounded-lg border border-gray-700">
+            <div className={brandConfig.name === 'OMG' 
+              ? "bg-gray-100/50 p-6 rounded-lg border border-gray-300"
+              : "bg-gray-800/30 p-6 rounded-lg border border-gray-700"}>
               {renderComparison()}
             </div>
           )}
