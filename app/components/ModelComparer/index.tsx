@@ -439,7 +439,7 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
                 id="model-search"
                 type="text"
                 placeholder="Search models..."
-                className="w-full bg-gray-700 border border-gray-600 rounded pl-10 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
+                className="w-full bg-gray-700 border border-gray-600 rounded pl-10 pr-10 px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
                 value={searchTerm}
                 onChange={(e) => {
                   // Simple client-side filtering with basic error handling
@@ -455,6 +455,19 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
                 aria-label="Search models by name or company"
                 aria-describedby="search-description"
               />
+              {searchTerm && (
+                <button
+                  type="button"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-200 transition-colors"
+                  onClick={() => {
+                    setSearchTerm('');
+                    applyFilters('', companyFilter, typeFilter);
+                  }}
+                  aria-label="Clear search"
+                >
+                  <i className="bi bi-x-lg text-sm" aria-hidden="true"></i>
+                </button>
+              )}
             </div>
             <div id="search-description" className="sr-only">
               Enter model name or company to filter the list of available models

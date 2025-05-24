@@ -695,20 +695,18 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
 
   return (
     <div>
-      {/* Legend with Clear All button */}
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex-1">
-          <Legend
-            items={[
-              { icon: <i className={`bi bi-file-text-fill ${iconStyles.activeFormat}`}></i>, label: "Text" },
-              { icon: <i className={`bi bi-mic-fill ${iconStyles.activeFormat}`}></i>, label: "Speech" },
-              { icon: <i className={`bi bi-image-fill ${iconStyles.activeFormat}`}></i>, label: "Image" },
-              { icon: <i className={`bi bi-music-note-beamed ${iconStyles.activeFormat}`}></i>, label: "Audio" },
-              { icon: <i className={`bi bi-camera-video-fill ${iconStyles.activeFormat}`}></i>, label: "Video" }
-            ]}
-          />
-        </div>
-        <div className="pr-8">
+      {/* Legend centered with Clear All button on the right */}
+      <div className="relative flex justify-center items-center mb-4">
+        <Legend
+          items={[
+            { icon: <i className={`bi bi-file-text-fill ${iconStyles.activeFormat}`}></i>, label: "Text" },
+            { icon: <i className={`bi bi-mic-fill ${iconStyles.activeFormat}`}></i>, label: "Speech" },
+            { icon: <i className={`bi bi-image-fill ${iconStyles.activeFormat}`}></i>, label: "Image" },
+            { icon: <i className={`bi bi-music-note-beamed ${iconStyles.activeFormat}`}></i>, label: "Audio" },
+            { icon: <i className={`bi bi-camera-video-fill ${iconStyles.activeFormat}`}></i>, label: "Video" }
+          ]}
+        />
+        <div className="absolute right-0">
           {clearAllButton}
         </div>
       </div>
