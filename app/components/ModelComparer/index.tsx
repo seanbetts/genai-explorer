@@ -91,6 +91,20 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
               }
             }
             
+            // Filter out models without sufficient comparison data
+            // Check if model has meaningful capabilities, specs, or other comparison data
+            const hasCapabilities = model.capabilities && Object.keys(model.capabilities).length > 0;
+            const hasSpecs = model.specs && Object.keys(model.specs).length > 0;
+            const hasFeatures = model.features && Object.keys(model.features).length > 0;
+            const hasAspectRatios = model.aspectRatios && Object.keys(model.aspectRatios).length > 0;
+            const hasSafety = model.safety && Object.keys(model.safety).length > 0;
+            const hasDetailedInfo = model.about || model.contextLength;
+            
+            // Only include models that have meaningful comparison data beyond just basic info
+            if (!hasCapabilities && !hasSpecs && !hasFeatures && !hasAspectRatios && !hasSafety && !hasDetailedInfo) {
+              return;
+            }
+            
             // Add company info to the model
             modelsArray.push({
               ...model,
@@ -112,10 +126,46 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
     });
   }, [data, selectedModelType]);
   
+  // Apply filters function to centralize filtering logic
+  const applyFilters = useCallback((
+    search: string, 
+    company: string, 
+    type: string
+  ) => {
+    try {
+      // Start with all models
+      let filtered = [...allModelsMemo];
+      
+      // Apply search term filter
+      if (search) {
+        filtered = filtered.filter(model => 
+          (model.name?.toLowerCase() || "").includes(search) || 
+          (model.companyName?.toLowerCase() || "").includes(search)
+        );
+      }
+      
+      // Apply company filter
+      if (company !== "all") {
+        filtered = filtered.filter(model => model.companyId === company);
+      }
+      
+      // Apply type filter
+      if (type !== "all") {
+        filtered = filtered.filter(model => model.category === type);
+      }
+      
+      // Update the models
+      setAllModels(filtered);
+    } catch (error) {
+      console.error("Error applying filters:", error);
+      setAllModels(allModelsMemo);
+    }
+  }, [allModelsMemo]);
+  
   // Set initial models from URL or defaults (runs once on load)
   useEffect(() => {
-    // Initialize all models
-    setAllModels(allModelsMemo);
+    // Apply current filters to initialize the filtered model list
+    applyFilters(searchTerm, companyFilter, typeFilter);
     
     try {
       // Get model IDs from URL parameter
@@ -134,11 +184,15 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
       // Fallback to empty selection if there's an error
       setSelectedModels([]);
     }
-  }, [allModelsMemo, searchParams, router]);
+  }, [allModelsMemo, searchParams, router, applyFilters, searchTerm, companyFilter, typeFilter]);
   
   // Handle type selection
   const handleTypeSelection = useCallback((typeId: string) => {
     setSelectedModelType(typeId);
+    // Clear filters when switching model types
+    setSearchTerm('');
+    setCompanyFilter('all');
+    setTypeFilter('all');
     if (onTypeSelected) {
       onTypeSelected();
     }
@@ -150,48 +204,13 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
       setSelectedModelType(null);
       setSelectedModels([]);
       updateUrlWithSelectedModels([]);
-      // Reset pagination when going back
+      // Reset filters and pagination when going back
+      setSearchTerm('');
+      setCompanyFilter('all');
+      setTypeFilter('all');
       setDisplayLimit(8);
     }
   }, [resetToTypeSelection, updateUrlWithSelectedModels]);
-  
-  // Helper function to check if any model has a specified property
-
-// Apply filters function to centralize filtering logic
-const applyFilters = useCallback((
-  search: string, 
-  company: string, 
-  type: string
-) => {
-  try {
-    // Start with all models
-    let filtered = [...allModelsMemo];
-    
-    // Apply search term filter
-    if (search) {
-      filtered = filtered.filter(model => 
-        (model.name?.toLowerCase() || "").includes(search) || 
-        (model.companyName?.toLowerCase() || "").includes(search)
-      );
-    }
-    
-    // Apply company filter
-    if (company !== "all") {
-      filtered = filtered.filter(model => model.companyId === company);
-    }
-    
-    // Apply type filter
-    if (type !== "all") {
-      filtered = filtered.filter(model => model.category === type);
-    }
-    
-    // Update the models
-    setAllModels(filtered);
-  } catch (error) {
-    console.error("Error applying filters:", error);
-    setAllModels(allModelsMemo);
-  }
-}, [allModelsMemo]);
 
   
   const renderComparison = () => {
@@ -271,6 +290,39 @@ const applyFilters = useCallback((
     updateUrlWithSelectedModels(newSelectedModels);
   };
   
+  // Helper function to count models with comparison data for a given category
+  const getModelCountForCategory = (category: string) => {
+    let count = 0;
+    data.companies.forEach(company => {
+      if (company.models) {
+        company.models.forEach(model => {
+          // Apply category filter
+          if (category === 'frontier-open') {
+            if (model.category !== 'frontier' && model.category !== 'open') {
+              return;
+            }
+          } else if (model.category !== category) {
+            return;
+          }
+          
+          // Apply the same filtering logic as allModelsMemo
+          const hasCapabilities = model.capabilities && Object.keys(model.capabilities).length > 0;
+          const hasSpecs = model.specs && Object.keys(model.specs).length > 0;
+          const hasFeatures = model.features && Object.keys(model.features).length > 0;
+          const hasAspectRatios = model.aspectRatios && Object.keys(model.aspectRatios).length > 0;
+          const hasSafety = model.safety && Object.keys(model.safety).length > 0;
+          const hasDetailedInfo = model.about || model.contextLength;
+          
+          // Only count models that have meaningful comparison data
+          if (hasCapabilities || hasSpecs || hasFeatures || hasAspectRatios || hasSafety || hasDetailedInfo) {
+            count++;
+          }
+        });
+      }
+    });
+    return count;
+  };
+
   // Model type selection interface
   const renderModelTypeSelection = () => {
     const modelTypes = [
@@ -279,32 +331,28 @@ const applyFilters = useCallback((
         title: 'Frontier & Open Models',
         description: 'Compare text-based language models including frontier and open source options',
         icon: 'bi-chat-square-text',
-        count: data.companies.reduce((total, company) => 
-          total + (company.models?.filter(m => m.category === 'frontier' || m.category === 'open').length || 0), 0)
+        count: getModelCountForCategory('frontier-open')
       },
       {
         id: 'image',
         title: 'Image Models',
         description: 'Compare image generating models',
         icon: 'bi-image',
-        count: data.companies.reduce((total, company) => 
-          total + (company.models?.filter(m => m.category === 'image').length || 0), 0)
+        count: getModelCountForCategory('image')
       },
       {
         id: 'video',
         title: 'Video Models',
         description: 'Compare video generating models',
         icon: 'bi-camera-video',
-        count: data.companies.reduce((total, company) => 
-          total + (company.models?.filter(m => m.category === 'video').length || 0), 0)
+        count: getModelCountForCategory('video')
       },
       {
         id: 'audio',
         title: 'Audio Models',
         description: 'Compare audio generating models',
         icon: 'bi-music-note-beamed',
-        count: data.companies.reduce((total, company) => 
-          total + (company.models?.filter(m => m.category === 'audio').length || 0), 0)
+        count: getModelCountForCategory('audio')
       }
     ];
 
