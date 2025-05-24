@@ -342,24 +342,43 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData, benchmarkPageConte
               <span>Benchmark Explorer</span>
             </Link>
             
-            {/* Temporarily hidden Model Comparer */}
-            {false && (
-              <a 
-                href="/compare" 
-                className={`transition-colors flex items-center ${
-                  currentView === 'compare'
-                    ? 'text-cyan-400' 
-                    : 'text-gray-300 hover:text-cyan-400'
-                }`}
-              >
-                <i className={`bi bi-bar-chart-line mr-1.5 ${
-                  currentView === 'compare'
-                    ? 'text-cyan-400'
-                    : 'text-fuchsia-500'
-                }`}></i>
-                <span>Model Comparer</span>
-              </a>
-            )}
+            {/* Model Comparer Link */}
+            <Link 
+              href="/compare" 
+              className="transition-colors flex items-center"
+              style={{ 
+                color: currentView === 'compare'
+                  ? brandConfig.name === 'OMG' ? '#000000' : '#FFFFFF'  // Black for OMG, white for personal
+                  : brandConfig.name === 'OMG' ? '#4B5563' : '#d1d5db', // Using consistent gray color
+              }}
+              onMouseEnter={(e) => {
+                // Always use secondary color on hover for both brands
+                e.currentTarget.style.color = brandConfig.secondaryColor;
+                // Also change the icon color
+                const icon = e.currentTarget.querySelector('i');
+                if (icon) icon.style.color = brandConfig.secondaryColor;
+              }}
+              onMouseLeave={(e) => {
+                // Reset icon color first
+                const icon = e.currentTarget.querySelector('i');
+                if (icon) icon.style.color = brandConfig.primaryColor;
+                
+                // Then reset text color
+                if (currentView === 'compare') {
+                  // If active, return to black for OMG or white for personal
+                  e.currentTarget.style.color = brandConfig.name === 'OMG' ? '#000000' : '#FFFFFF';
+                } else {
+                  // If not active, return to default text color for the brand
+                  e.currentTarget.style.color = brandConfig.name === 'OMG' ? '#4B5563' : '#d1d5db';
+                }
+              }}
+            >
+              <i 
+                className="bi bi-bar-chart-line mr-1.5" 
+                style={{ color: brandConfig.primaryColor }}
+              ></i>
+              <span>Model Comparer</span>
+            </Link>
             
             {/* Breadcrumb navigation - hidden for now 
             <div className="hidden ml-auto text-gray-400 md:pr-8">
@@ -429,8 +448,8 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData, benchmarkPageConte
           </div>
         )}
         
-        {/* Temporarily hidden Model Comparer */}
-        {false && (currentView === 'compare' || isComparePage || compareParam) && (
+        {/* Model Comparer */}
+        {(currentView === 'compare' || isComparePage || compareParam) && (
           <Suspense fallback={
             <div className="animate-pulse p-6 space-y-6">
               <div className="h-6 bg-gray-700 rounded w-32 mx-auto"></div>
@@ -445,22 +464,6 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData, benchmarkPageConte
           </Suspense>
         )}
         
-        {/* Show "Coming Soon" message if someone tries to access the compare page directly */}
-        {(currentView === 'compare' || isComparePage || compareParam) && (
-          <div className="flex flex-col items-center justify-center py-20">
-            <h2 className="text-2xl font-bold mb-4" style={{ color: brandConfig.secondaryColor }}>Model Comparer</h2>
-            <p className="text-gray-300 text-center max-w-md mb-8">
-              This feature is coming soon! We're working on building a comprehensive model comparison tool.
-            </p>
-            <button
-              onClick={goToHome}
-              className="text-white py-2 px-6 rounded-md transition-colors hover:opacity-90"
-              style={{ backgroundColor: brandConfig.primaryColor }}
-            >
-              Return to Explorer
-            </button>
-          </div>
-        )}
       </main>
 
       {/* Brand-aware Footer component - only visible for personal brand */}

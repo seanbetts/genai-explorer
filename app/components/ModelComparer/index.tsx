@@ -27,6 +27,9 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack }) => {
   const [allModels, setAllModels] = useState<Model[]>([]);
   const [displayLimit, setDisplayLimit] = useState<number>(20); // Number of models to display
   
+  // Model type selection state
+  const [selectedModelType, setSelectedModelType] = useState<string | null>(null);
+  
   // Filter states
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [companyFilter, setCompanyFilter] = useState<string>('all');
@@ -52,7 +55,7 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack }) => {
     }
   }, [router]);
   
-  // Extract and process all models from data (once)
+  // Extract and process all models from data (filtered by selected type)
   const allModelsMemo = useMemo(() => {
     // Flatten all models from all companies into a single array
     const modelsArray: Model[] = [];
@@ -60,6 +63,28 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack }) => {
       data.companies.forEach(company => {
         if (company.models) {
           company.models.forEach(model => {
+            // Filter by selected model type
+            if (selectedModelType) {
+              if (selectedModelType === 'frontier-open') {
+                // Include frontier and open models
+                if (model.category !== 'frontier' && model.category !== 'open') {
+                  return;
+                }
+              } else if (selectedModelType === 'image') {
+                if (model.category !== 'image') {
+                  return;
+                }
+              } else if (selectedModelType === 'video') {
+                if (model.category !== 'video') {
+                  return;
+                }
+              } else if (selectedModelType === 'audio') {
+                if (model.category !== 'audio') {
+                  return;
+                }
+              }
+            }
+            
             // Add company info to the model
             modelsArray.push({
               ...model,
@@ -73,7 +98,7 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack }) => {
       console.error("Error processing model data:", error);
     }
     return modelsArray;
-  }, [data]);
+  }, [data, selectedModelType]);
   
   // Set initial models from URL or defaults (runs once on load)
   useEffect(() => {
@@ -593,17 +618,143 @@ const applyFilters = useCallback((
     updateUrlWithSelectedModels(newSelectedModels);
   };
   
-  return (
-    <div className="w-full max-w-7xl mx-auto">
-      {/* Info message if no models are selected */}
-      {selectedModels.length === 0 && (
-        <div className="bg-gray-800/30 p-6 rounded-lg border border-gray-700 mb-6 text-center">
-          <div className="text-gray-300">
-            <i className="bi bi-info-circle mr-2 text-fuchsia-500" aria-hidden="true"></i>
-            Please select models from below to start comparing (up to 5 models).
+  // Model type selection interface
+  const renderModelTypeSelection = () => {
+    const modelTypes = [
+      {
+        id: 'frontier-open',
+        title: 'Frontier & Open Models',
+        description: 'Compare text-based language models including frontier and open source options',
+        icon: 'bi-chat-square-text',
+        count: data.companies.reduce((total, company) => 
+          total + (company.models?.filter(m => m.category === 'frontier' || m.category === 'open').length || 0), 0)
+      },
+      {
+        id: 'image',
+        title: 'Image Models',
+        description: 'Compare image generating models',
+        icon: 'bi-image',
+        count: data.companies.reduce((total, company) => 
+          total + (company.models?.filter(m => m.category === 'image').length || 0), 0)
+      },
+      {
+        id: 'video',
+        title: 'Video Models',
+        description: 'Compare video generating models',
+        icon: 'bi-camera-video',
+        count: data.companies.reduce((total, company) => 
+          total + (company.models?.filter(m => m.category === 'video').length || 0), 0)
+      },
+      {
+        id: 'audio',
+        title: 'Audio Models',
+        description: 'Compare audio generating models',
+        icon: 'bi-music-note-beamed',
+        count: data.companies.reduce((total, company) => 
+          total + (company.models?.filter(m => m.category === 'audio').length || 0), 0)
+      }
+    ];
+
+    return (
+      <div className="w-full max-w-7xl mx-auto">
+        <div className="bg-gray-800/30 p-8 rounded-lg border border-gray-700 mb-6">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold text-white mb-4 flex items-center justify-center gap-3">
+              <i className="bi bi-bar-chart-line text-fuchsia-500"></i>
+              Model Comparer
+            </h2>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Choose the type of models you'd like to compare.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            {modelTypes.map(type => (
+              <button
+                key={type.id}
+                onClick={() => setSelectedModelType(type.id)}
+                className="bg-gradient-to-br from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 border border-gray-600 hover:border-fuchsia-500 hover:shadow-lg hover:shadow-fuchsia-500/20 rounded-xl p-6 text-center transition-all duration-300 group transform hover:-translate-y-1"
+                disabled={type.count === 0}
+              >
+                <div className="flex flex-col items-center justify-between h-full space-y-4">
+                  <div className="w-16 h-16 bg-gray-800 group-hover:bg-gray-700 rounded-full flex items-center justify-center transition-all duration-300">
+                    <i className={`${type.icon} text-3xl text-fuchsia-500 group-hover:text-cyan-400 group-hover:scale-110 transition-all duration-300`}></i>
+                  </div>
+                  <div className="flex-1 flex flex-col justify-center">
+                    <h3 className="text-lg font-semibold text-white text-center group-hover:text-cyan-400 transition-colors">
+                      {type.title}
+                    </h3>
+                  </div>
+                  <div className="flex justify-center">
+                    {type.count === 0 ? (
+                      <span className="text-xs bg-gray-600 px-3 py-1 rounded-full text-gray-400">
+                        Coming soon
+                      </span>
+                    ) : (
+                      <span className="text-xs bg-fuchsia-500/20 group-hover:bg-cyan-400/20 border border-fuchsia-500/30 group-hover:border-cyan-400/30 px-3 py-1 rounded-full text-fuchsia-400 group-hover:text-cyan-400 transition-all duration-300">
+                        {type.count} models
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </button>
+            ))}
           </div>
         </div>
-      )}
+      </div>
+    );
+  };
+
+  return (
+    <div className="w-full max-w-7xl mx-auto">
+      {/* Show type selection if no type is selected */}
+      {!selectedModelType && renderModelTypeSelection()}
+      
+      {/* Show model selection and comparison if type is selected */}
+      {selectedModelType && (
+        <>
+          {/* Header with back to type selection */}
+          <div className="bg-gray-800/30 p-4 rounded-lg border border-gray-700 mb-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => {
+                    setSelectedModelType(null);
+                    setSelectedModels([]);
+                    updateUrlWithSelectedModels([]);
+                  }}
+                  className="text-gray-400 hover:text-cyan-400 transition-colors"
+                  aria-label="Back to model type selection"
+                >
+                  <i className="bi bi-chevron-left text-lg"></i>
+                </button>
+                <div>
+                  <h2 className="text-lg font-semibold text-white">
+                    {selectedModelType === 'frontier-open' ? 'Frontier & Open Models' :
+                     selectedModelType === 'image' ? 'Image Models' :
+                     selectedModelType === 'video' ? 'Video Models' :
+                     selectedModelType === 'audio' ? 'Audio Models' : 'Models'}
+                  </h2>
+                  <p className="text-sm text-gray-400">Select up to 4 models to compare</p>
+                </div>
+              </div>
+              {selectedModels.length > 0 && (
+                <div className="text-sm text-gray-300">
+                  {selectedModels.length}/4 models selected
+                </div>
+              )}
+            </div>
+          </div>
+          
+          {/* Info message if no models are selected */}
+          {selectedModels.length === 0 && (
+            <div className="bg-gray-800/30 p-6 rounded-lg border border-gray-700 mb-6 text-center">
+              <div className="text-gray-300">
+                <i className="bi bi-info-circle mr-2 text-fuchsia-500" aria-hidden="true"></i>
+                Select models from below to start comparing (up to 4 models).
+              </div>
+            </div>
+          )}
       
       {/* Model Selection */}
       <div className="bg-gray-800/30 p-6 rounded-lg border border-gray-700 mb-6">
@@ -803,11 +954,13 @@ const applyFilters = useCallback((
         )}
       </div>
       
-      {/* Comparison Table - only show when models are selected */}
-      {selectedModels.length > 0 && (
-        <div className="bg-gray-800/30 p-6 rounded-lg border border-gray-700">
-          {renderComparison()}
-        </div>
+          {/* Comparison Table - only show when models are selected */}
+          {selectedModels.length > 0 && (
+            <div className="bg-gray-800/30 p-6 rounded-lg border border-gray-700">
+              {renderComparison()}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

@@ -99,26 +99,37 @@ const Footer: React.FC<FooterProps> = ({
                     <span>Benchmark Explorer</span>
                   </Link>
                 </li>
-                {/* Temporarily hidden Model Comparer */}
-                {false && (
-                  <li>
-                    <a 
-                      href="/compare" 
-                      className={`transition-colors text-xs leading-tight py-0.5 flex items-center ${
-                        currentView === 'compare'
-                          ? 'text-cyan-400' 
-                          : 'text-gray-300 hover:text-cyan-400'
-                      }`}
-                    >
-                      <i className={`bi bi-bar-chart-line mr-1.5 ${
-                        currentView === 'compare'
-                          ? 'text-cyan-400'
-                          : 'text-fuchsia-500'
-                      }`}></i>
-                      <span>Model Comparer</span>
-                    </a>
-                  </li>
-                )}
+                <li>
+                  <Link 
+                    href="/compare" 
+                    className="transition-colors text-xs leading-tight py-0.5 flex items-center"
+                    style={{ 
+                      color: currentView === 'compare'
+                        ? '#FFFFFF' 
+                        : '#d1d5db'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = brandConfig.secondaryColor;
+                      // Also change the icon color
+                      const icon = e.currentTarget.querySelector('i');
+                      if (icon) icon.style.color = brandConfig.secondaryColor;
+                    }}
+                    onMouseLeave={(e) => {
+                      // Reset icon color first
+                      const icon = e.currentTarget.querySelector('i');
+                      if (icon) icon.style.color = brandConfig.primaryColor;
+                      
+                      if (currentView === 'compare') {
+                        e.currentTarget.style.color = '#FFFFFF';
+                      } else {
+                        e.currentTarget.style.color = '#d1d5db';
+                      }
+                    }}
+                  >
+                    <i className="bi bi-bar-chart-line mr-1.5" style={{ color: brandConfig.primaryColor }}></i>
+                    <span>Model Comparer</span>
+                  </Link>
+                </li>
               </ul>
             </div>
             
