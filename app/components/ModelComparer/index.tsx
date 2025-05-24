@@ -18,9 +18,11 @@ import { useSearchParams, useRouter } from 'next/navigation';
 interface ModelComparerProps {
   data: ExplorerData;
   onBack: () => void;
+  onTypeSelected?: () => void;
+  resetToTypeSelection?: boolean;
 }
 
-const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack }) => {
+const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelected, resetToTypeSelection }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [selectedModels, setSelectedModels] = useState<Model[]>([]);
@@ -123,6 +125,23 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack }) => {
       setSelectedModels([]);
     }
   }, [allModelsMemo, searchParams, router]);
+  
+  // Handle type selection
+  const handleTypeSelection = useCallback((typeId: string) => {
+    setSelectedModelType(typeId);
+    if (onTypeSelected) {
+      onTypeSelected();
+    }
+  }, [onTypeSelected]);
+  
+  // Reset to type selection when requested by parent
+  useEffect(() => {
+    if (resetToTypeSelection) {
+      setSelectedModelType(null);
+      setSelectedModels([]);
+      updateUrlWithSelectedModels([]);
+    }
+  }, [resetToTypeSelection, updateUrlWithSelectedModels]);
   
   // Helper function to check if any model has a specified property
   // Memoize the hasAnyModelCapability function for performance
@@ -672,8 +691,8 @@ const applyFilters = useCallback((
             {modelTypes.map(type => (
               <button
                 key={type.id}
-                onClick={() => setSelectedModelType(type.id)}
-                className="bg-gradient-to-br from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 border border-gray-600 hover:border-fuchsia-500 hover:shadow-lg hover:shadow-fuchsia-500/20 rounded-xl p-6 text-center transition-all duration-300 group transform hover:-translate-y-1"
+                onClick={() => handleTypeSelection(type.id)}
+                className="bg-gradient-to-br from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 border border-gray-600 hover:border-fuchsia-500 hover:shadow-lg hover:shadow-fuchsia-500/20 rounded-xl p-6 text-center transition-all duration-300 group transform hover:-translate-y-1 cursor-pointer"
                 disabled={type.count === 0}
               >
                 <div className="flex flex-col items-center justify-between h-full space-y-4">
@@ -713,38 +732,6 @@ const applyFilters = useCallback((
       {/* Show model selection and comparison if type is selected */}
       {selectedModelType && (
         <>
-          {/* Header with back to type selection */}
-          <div className="bg-gray-800/30 p-4 rounded-lg border border-gray-700 mb-6">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => {
-                    setSelectedModelType(null);
-                    setSelectedModels([]);
-                    updateUrlWithSelectedModels([]);
-                  }}
-                  className="text-gray-400 hover:text-cyan-400 transition-colors"
-                  aria-label="Back to model type selection"
-                >
-                  <i className="bi bi-chevron-left text-lg"></i>
-                </button>
-                <div>
-                  <h2 className="text-lg font-semibold text-white">
-                    {selectedModelType === 'frontier-open' ? 'Frontier & Open Models' :
-                     selectedModelType === 'image' ? 'Image Models' :
-                     selectedModelType === 'video' ? 'Video Models' :
-                     selectedModelType === 'audio' ? 'Audio Models' : 'Models'}
-                  </h2>
-                  <p className="text-sm text-gray-400">Select up to 4 models to compare</p>
-                </div>
-              </div>
-              {selectedModels.length > 0 && (
-                <div className="text-sm text-gray-300">
-                  {selectedModels.length}/4 models selected
-                </div>
-              )}
-            </div>
-          </div>
           
           {/* Info message if no models are selected */}
           {selectedModels.length === 0 && (

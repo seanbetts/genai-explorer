@@ -14,13 +14,15 @@ interface HeaderProps {
   goToHome: () => void;
   handleBack: () => void;
   lastUpdated?: string; // Optional date string for data last updated
+  isInModelSelection?: boolean; // Track if we're in model selection phase
 }
 
 const Header: React.FC<HeaderProps> = ({ 
   currentView, 
   goToHome,
   handleBack,
-  lastUpdated
+  lastUpdated,
+  isInModelSelection = false
 }) => {
   const isMobile = useIsMobile();
   const [isMobileView, setIsMobileView] = useState(false);
@@ -39,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({
       {isMobileView ? (
         <div className="flex justify-center items-center py-3">
           {/* Only show back button and centered logo on mobile */}
-          {(currentView === 'company' || currentView === 'benchmark') ? (
+          {(currentView === 'company' || currentView === 'benchmark' || (currentView === 'compare' && isInModelSelection)) ? (
             <div className="flex items-center justify-between w-full px-4">
               {/* Back button */}
               <button
@@ -132,8 +134,8 @@ const Header: React.FC<HeaderProps> = ({
               </button>
             )}
             
-            {/* Back button (visible in company and benchmark views) */}
-            {(currentView === 'company' || currentView === 'benchmark') && (
+            {/* Back button (visible in company, benchmark, and model selection views) */}
+            {(currentView === 'company' || currentView === 'benchmark' || (currentView === 'compare' && isInModelSelection)) && (
               <button
                 type="button"
                 onClick={handleBack}

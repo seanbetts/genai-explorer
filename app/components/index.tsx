@@ -74,6 +74,12 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData, benchmarkPageConte
   // The currentView state should be initialized after hydration
   const [currentView, setCurrentView] = useState('home');
   
+  // Track if we're in model selection phase (vs type selection)
+  const [isInModelSelection, setIsInModelSelection] = useState(false);
+  
+  // Track when we need to reset the ModelComparer to type selection
+  const [resetModelComparer, setResetModelComparer] = useState(false);
+  
   // Update the current view after component mounts to avoid hydration issues
   useEffect(() => {
     let view = 'home';
@@ -88,6 +94,17 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData, benchmarkPageConte
     }
     setCurrentView(view);
   }, [selectedCompany, benchmarkId, isComparePage, compareParam, benchmarkPageContent]);
+  
+  // Reset the ModelComparer reset flag after it's been processed
+  useEffect(() => {
+    if (resetModelComparer) {
+      // Reset the flag after a brief delay to ensure the ModelComparer has processed it
+      const timer = setTimeout(() => {
+        setResetModelComparer(false);
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [resetModelComparer]);
   
   // Convert URL tab parameter to category key for highlighting
   const getActiveCategoryFromTab = (tab: string | null): string => {
@@ -241,7 +258,12 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData, benchmarkPageConte
     // For company pages, always go back to the landscape view
     if (currentView === 'company') {
       router.push('/');
-    } 
+    }
+    // For compare pages in model selection phase, go back to type selection
+    else if (currentView === 'compare' && isInModelSelection) {
+      setIsInModelSelection(false);
+      setResetModelComparer(true);
+    }
     // For other pages (like benchmark), use browser history if possible
     else if (typeof window !== 'undefined' && window.history.length > 1) {
       window.history.back();
@@ -261,6 +283,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData, benchmarkPageConte
         goToHome={goToHome} 
         handleBack={handleBack}
         lastUpdated={lastUpdatedString}
+        isInModelSelection={isInModelSelection}
       />
 
       {/* Features Navigation - visible on all views - sticky */}
@@ -460,6 +483,8 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData, benchmarkPageConte
             <ModelComparer 
               data={data}
               onBack={handleBack}
+              onTypeSelected={() => setIsInModelSelection(true)}
+              resetToTypeSelection={resetModelComparer}
             />
           </Suspense>
         )}
