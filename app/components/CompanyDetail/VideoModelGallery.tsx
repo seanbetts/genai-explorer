@@ -507,14 +507,63 @@ const VideoModelGallery: React.FC<VideoModelGalleryProps> = ({ models, companyId
                       .filter(([_, value]) => typeof value === 'object' && value !== null && !Array.isArray(value) && Object.keys(value as object).length > 0)
                       .map(([key, value]) => (
                         <div key={key} className="mt-4">
-                          <h4 className="text-sm font-semibold text-cyan-400 mb-2">{formatFeatureName(key)}</h4>
+                          <h4 className={`text-sm font-semibold mb-2 ${
+                            brandConfig.name === 'OMG'
+                              ? 'text-blue-600 font-sans'
+                              : 'text-cyan-400 font-mono'
+                          }`}
+                          style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
+                            {formatFeatureName(key)}
+                          </h4>
                           <div className="pl-4">
-                            {Object.entries(value as Record<string, any>).map(([subKey, subValue]) => (
-                              <div key={subKey} className="flex items-center h-8">
-                                <i className={`${subValue === true ? iconStyles.booleanTrue : 'bi bi-x-circle-fill text-fuchsia-500'} mr-2`} />
-                                <span className={textStyles.body}>{formatFeatureName(subKey)}</span>
-                              </div>
-                            ))}
+                            {Object.entries(value as Record<string, any>).map(([subKey, subValue]) => {
+                              // Handle array values (like camera control options)
+                              if (Array.isArray(subValue) && subValue.length > 0) {
+                                return (
+                                  <div key={subKey} className="mb-3">
+                                    <h5 className={`text-xs font-medium mb-2 ${
+                                      brandConfig.name === 'OMG'
+                                        ? 'text-gray-600 font-sans'
+                                        : 'text-gray-300 font-mono'
+                                    }`}>{formatFeatureName(subKey)}</h5>
+                                    <div className="flex flex-wrap gap-2">
+                                      {subValue.map((option, index) => (
+                                        <span key={index} className={`px-2 py-1 text-xs rounded ${
+                                          brandConfig.name === 'OMG'
+                                            ? 'bg-gray-200 border border-gray-300 font-sans'
+                                            : 'bg-gray-700 text-cyan-400 font-mono'
+                                        }`}
+                                        style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}>
+                                          {option}
+                                        </span>
+                                      ))}
+                                    </div>
+                                  </div>
+                                );
+                              }
+                              
+                              // Handle boolean values
+                              return (
+                                <div key={subKey} className="flex items-center h-8">
+                                  <i className={`${
+                                    subValue === true 
+                                      ? brandConfig.name === 'OMG'
+                                        ? 'bi bi-check-circle-fill text-lg text-blue-500'
+                                        : iconStyles.booleanTrue 
+                                      : brandConfig.name === 'OMG'
+                                        ? 'bi bi-x-circle-fill text-red-500'
+                                        : 'bi bi-x-circle-fill text-fuchsia-500'
+                                  } mr-2`} />
+                                  <span className={`${
+                                    brandConfig.name === 'OMG'
+                                      ? 'text-gray-800 font-sans'
+                                      : textStyles.body
+                                  }`}>
+                                    {formatFeatureName(subKey)}
+                                  </span>
+                                </div>
+                              );
+                            })}
                           </div>
                         </div>
                       ))}

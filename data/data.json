@@ -948,6 +948,76 @@
       ],
       "models": [
         {
+          "id": "claude-4-opus",
+          "name": "Claude-4 Opus",
+          "status": "primary",
+          "type": "Large Hybrid Model",
+          "category": "frontier",
+          "releaseDate": "2025-05-22",
+          "modelPage": "https://www.anthropic.com/claude/opus",
+          "releasePost": "https://www.anthropic.com/news/claude-4",
+          "releaseVideo": "https://youtu.be/oqUclC3gqKs",
+          "systemCard": "https://www-cdn.anthropic.com/6be99a52cb68eb70eb9572b4cafad13df32ed995.pdf",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://www.anthropic.com/legal/consumer-terms",
+          "capabilities": {
+            "intelligence": 5,
+            "speed": 3,
+            "reasoning": 5
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 200000,
+            "maxOutputTokens": 64000,
+            "knowledgeCutoff": "March 2025",
+            "pricingInputPerM": 15,
+            "pricingCachedInputPerM": 1.5,
+            "pricingOutputPerM": 75
+          }
+        },
+        {
+          "id": "claude-4-sonnet",
+          "name": "Claude-4 Sonnet",
+          "status": "primary",
+          "type": "Large Hybrid Model",
+          "category": "frontier",
+          "releaseDate": "2025-05-22",
+          "modelPage": "https://www.anthropic.com/claude/sonnet",
+          "releasePost": "https://www.anthropic.com/news/claude-4",
+          "releaseVideo": "https://youtu.be/oqUclC3gqKs",
+          "systemCard": "https://www-cdn.anthropic.com/6be99a52cb68eb70eb9572b4cafad13df32ed995.pdf",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://www.anthropic.com/legal/consumer-terms",
+          "capabilities": {
+            "intelligence": 4,
+            "speed": 3,
+            "reasoning": 4
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 200000,
+            "maxOutputTokens": 64000,
+            "knowledgeCutoff": "March 2025",
+            "pricingInputPerM": 3,
+            "pricingCachedInputPerM": 0.3,
+            "pricingOutputPerM": 15
+          }
+        },
+        {
           "id": "claude-3-5-haiku",
           "name": "Claude-3.5 Haiku",
           "status": "primary",
@@ -985,7 +1055,7 @@
         {
           "id": "claude-3-opus",
           "name": "Claude-3 Opus",
-          "status": "primary",
+          "status": "archived",
           "type": "Large Language Model",
           "category": "frontier",
           "releaseDate": "2024-03-04",
@@ -1020,7 +1090,7 @@
         {
           "id": "claude-3-7-sonnet",
           "name": "Claude-3.7 Sonnet",
-          "status": "primary",
+          "status": "archived",
           "type": "Large Hybrid Model",
           "category": "frontier",
           "releaseDate": "2025-02-24",
@@ -1612,9 +1682,109 @@
           }
         },
         {
-          "id": "imagen-3",
-          "name": "Imagen 3",
+          "id": "imagen-4",
+          "name": "Imagen 4",
           "status": "primary",
+          "about": "Text-to-image model, capable of generating images with even better detail, richer lighting and fewer distracting artifacts than our previous models.",
+          "category": "image",
+          "releaseDate": "2025-05-20",
+          "releasePost": "https://blog.google/technology/ai/generative-media-models-io-2025/",
+          "releaseVideo": "",
+          "modelPage": "https://deepmind.google/models/imagen/",
+          "systemCard": "https://storage.googleapis.com/deepmind-media/Model-Cards/Imagen-4-Model-Card.pdf",
+          "modelGuide": "https://cloud.google.com/vertex-ai/generative-ai/docs/image/overview",
+          "apiDocumentation": "https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/imagen-api",
+          "imageExamples": {
+            "numberOfImages": 32,
+            "imageFormat": "webp"
+          },
+          "demoVideos": {},
+          "termsOfService": "https://policies.google.com/terms",
+          "usagePolicy": "https://cloud.google.com/vertex-ai/generative-ai/docs/image/responsible-ai-imagen#imagen-guidelines",
+          "commerciallySafe": false,
+          "metadata": {
+            "synthID": "https://deepmind.google/technologies/synthid/"
+          },                          
+          "apiEndpoints": {
+            "available": true,                                      
+            "generate": {
+              "options": {
+                "inputFormats": [
+                  "text"
+                ],
+                "outputFormats": [
+                  "image"
+                ],
+                "background": [],
+                "moderation": ["block low+","block medium+","block high","block none"],
+                "numberOfImages": 4,
+                "contextWindow": 480,
+                "outputCompression": true,
+                "inputFileTypes": [],
+                "maxInputSize": 0,
+                "mask": true,
+                "outputFileTypes": ["png","jpeg"],
+                "outputQuality": [],
+                "outputSize": [],
+                "outputStyle": ["photograph","digital art","landscape","sketch","watercolor","cyberpunk","pop art"],
+                "visualIntesity": 0,
+                "tileable": false,
+                "structureReference": false,
+                "negativePrompt": true,
+                "placementPosition": false,
+                "placementAlignment": false,
+                "pricing": {}
+              }
+            }                                    
+          },
+          "features": {
+            "generation": {
+              "textToImage": true,
+              "imageToImage": true,
+              "textToVector": false
+            },
+            "editing": {
+              "multiTurnGeneration": false,
+              "imageVariations": false,
+              "inPainting": true,
+              "generativeExpand": true,
+              "backgroundRemoval": false,
+              "generativeRecolor": false
+            },
+            "enhancement": {
+              "photoRealism": true,
+              "textRendering": true,
+              "upscaling": true,
+              "transparentLayers": true,
+              "characterConsistency": true
+            },
+            "advanced": {
+              "styleKits": false,
+              "hexCodes": false,
+              "moodBoarding": false,
+              "trainCustomModels": true
+            }
+          },
+          "aspectRatios": {
+            "landscape (4:3)": true,
+            "portrait (3:4)": true,
+            "square (1:1)": true,
+            "widescreen (16:9)": true,
+            "vertical (9:16)": true
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": true,
+            "outputBlocking": true,
+            "minorSafeguards": true,
+            "IPRespect": false,
+            "biasMitigation": true
+          }
+        },
+        {
+          "id": "imagen-3",
+          "name": "Imagen",
+          "status": "archived",
           "about": "Text-to-image model, capable of generating images with even better detail, richer lighting and fewer distracting artifacts than our previous models.",
           "category": "image",
           "releaseDate": "2024-12-16",
@@ -1714,9 +1884,101 @@
           }
         },
         {
-          "id": "veo-2",
-          "name": "Veo",
+          "id": "veo-3",
+          "name": "Veo 3",
           "status": "primary",
+          "about": "State-of-the-art video generation model",
+          "category": "video",
+          "releaseDate": "2025-05-20",
+          "releasePost": "https://blog.google/technology/ai/generative-media-models-io-2025/",
+          "releaseVideo": "",
+          "modelPage": "https://deepmind.google/models/veo/",
+          "systemCard": "",
+          "modelGuide": "",
+          "apiDocumentation": "https://cloud.google.com/vertex-ai/generative-ai/docs/video/generate-videos",
+          "videoExamples": {
+            "chrome_city": "https://youtu.be/BrMQffbI25o",
+            "sizzling_onions": "https://youtu.be/5SJd35VkZtk",
+            "feather's_journey": "https://youtu.be/vcHxAwDwPOg",
+            "classical_violinist": "https://youtu.be/o55ukJOIHBM",
+            "forest_spirit": "https://youtu.be/TZKXpkh5V6U",
+            "crystaline_flowers_bloom": "https://youtu.be/34Omj__CeKk",
+            "sweet_typing": "https://youtu.be/tc00I7rtU2s",
+            "irish_coast": "https://youtu.be/ffRaD7sY0TQ",
+            "magical_origami": "https://youtu.be/KhcwvoJiP3I",
+            "off-road_rally": "https://youtu.be/SPF4MGL7K5I",
+            "dialog": "https://youtu.be/QYnJ3qJ5qJQ",
+            "duck_interrogation": "https://youtu.be/vEP4GCijXXo",
+            "owl_and_badger": "https://youtu.be/vv6Ryg5iyh8",
+            "sailor_and_the_sea": "https://youtu.be/mCFMn0UkRt0"
+          },
+          "demoVideos": {},
+          "termsOfService": "https://policies.google.com/terms",
+          "usagePolicy": "",
+          "commerciallySafe": false,
+          "metadata": {},                          
+          "apiEndpoints": {   
+            "available": true,                                      
+            "xxx": {}                                    
+          },
+          "features": {
+            "generation": {
+              "textToVideo": true,
+              "imageToVideo": true,
+              "videoToVideo": false,
+              "negativePrompt": true,
+              "soundEffects": true,
+              "ambientNoise": true,
+              "dialogue": true,
+              "resolutions": ["720p", "1080p", "4k"],
+              "frameRate": 24,
+              "durations": [5,6,7,8],
+              "numberOfVideos": [1,2],
+              "videoStyles": []
+            },
+            "editing": {
+              "remix": false,
+              "recut": false,
+              "loop": false,
+              "blend": false,
+              "generativeExpand": true,
+              "generativeExtend": false
+            },
+            "enhancement": {
+              "photoRealism": true,
+              "textRendering": false,
+              "characterConsistency": true,
+              "upscaling": false
+            },
+            "advanced": {
+              "storyboard": false,
+              "cameraControls": {
+                "motion": ["zoom in","zoom out","move left","move right","move up","move down"]
+              },
+              "trainCustomModels": false
+            }
+          },
+          "aspectRatios": {
+            "landscape (4:3)": false,
+            "portrait (3:4)": false,
+            "square (1:1)": false,
+            "widescreen (16:9)": true,
+            "vertical (9:16)": true,
+            "ultrawide (21:9)": false
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
+          }
+        },
+        {
+          "id": "veo-2",
+          "name": "Veo 2",
+          "status": "archived",
           "about": "State-of-the-art video generation model",
           "category": "video",
           "releaseDate": "2024-12-16",
@@ -2793,7 +3055,7 @@
         {
           "id": "mistral-large-2",
           "name": "Mistral Large",
-          "status": "primary",
+          "status": "archived",
           "type": "Large Language Model",
           "category": "open",
           "releaseDate": "2024-07-24",
@@ -2960,6 +3222,40 @@
             "knowledgeCutoff": "",
             "pricingInputPerM": 0.04,
             "pricingOutputPerM": 0.04
+          }
+        },
+        {
+          "id": "devstral-small-2505",
+          "name": "Devstral",
+          "status": "primary",
+          "type": "Large Language Model",
+          "category": "open",
+          "releaseDate": "2025-05-21",
+          "modelPage": "",
+          "releasePost": "https://mistral.ai/news/devstral",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "Apache 2.0",
+          "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
+          "huggingFace": "https://huggingface.co/mistralai/Devstral-Small-2505",
+          "capabilities": {
+            "intelligence": 3,
+            "speed": 4,
+            "reasoning": 1
+          },
+          "specs": {
+            "reasoningTokens": false,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": 0.1,
+            "pricingOutputPerM": 0.3
           }
         },
         {
