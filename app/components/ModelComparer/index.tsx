@@ -99,7 +99,13 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onBack, onTypeSelec
     } catch (error) {
       console.error("Error processing model data:", error);
     }
-    return modelsArray;
+    
+    // Sort models by release date descending (newest first)
+    return modelsArray.sort((a, b) => {
+      const dateA = a.releaseDate ? new Date(a.releaseDate).getTime() : 0;
+      const dateB = b.releaseDate ? new Date(b.releaseDate).getTime() : 0;
+      return dateB - dateA; // Descending order (newest first)
+    });
   }, [data, selectedModelType]);
   
   // Set initial models from URL or defaults (runs once on load)
@@ -577,7 +583,7 @@ const applyFilters = useCallback((
               disabled={selectedModels.length === 0}
             >
               <div className="flex items-center gap-1.5">
-                <i className="bi bi-trash3 text-xs group-hover:scale-110 transition-transform duration-200"></i>
+                <i className="bi bi-trash3 text-xs text-fuchsia-500 group-hover:scale-110 transition-transform duration-200"></i>
                 <span className="text-xs font-medium">Clear All</span>
                 <span className="text-[10px] text-gray-500 group-hover:text-fuchsia-300 ml-0.5">({selectedModels.length}/4)</span>
               </div>
@@ -681,49 +687,48 @@ const applyFilters = useCallback((
 
     return (
       <div className="w-full max-w-7xl mx-auto">
-        <div className="bg-gray-800/30 p-8 rounded-lg border border-gray-700 mb-6">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-semibold text-white mb-4 flex items-center justify-center gap-3">
-              <i className="bi bi-bar-chart-line text-fuchsia-500"></i>
-              Model Comparer
-            </h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Choose the type of models you'd like to compare.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
-            {modelTypes.map(type => (
-              <button
-                key={type.id}
-                onClick={() => handleTypeSelection(type.id)}
-                className="bg-gradient-to-br from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 border border-gray-600 hover:border-fuchsia-500 hover:shadow-lg hover:shadow-fuchsia-500/20 rounded-xl p-6 text-center transition-all duration-300 group transform hover:-translate-y-1 cursor-pointer"
-                disabled={type.count === 0}
-              >
-                <div className="flex flex-col items-center justify-between h-full space-y-4">
-                  <div className="w-16 h-16 bg-gray-800 group-hover:bg-gray-700 rounded-full flex items-center justify-center transition-all duration-300">
-                    <i className={`${type.icon} text-3xl text-fuchsia-500 group-hover:text-cyan-400 group-hover:scale-110 transition-all duration-300`}></i>
-                  </div>
-                  <div className="flex-1 flex flex-col justify-center">
-                    <h3 className="text-lg font-semibold text-white text-center group-hover:text-cyan-400 transition-colors">
-                      {type.title}
-                    </h3>
-                  </div>
-                  <div className="flex justify-center">
-                    {type.count === 0 ? (
-                      <span className="text-xs bg-gray-600 px-3 py-1 rounded-full text-gray-400">
-                        Coming soon
-                      </span>
-                    ) : (
-                      <span className="text-xs bg-fuchsia-500/20 group-hover:bg-cyan-400/20 border border-fuchsia-500/30 group-hover:border-cyan-400/30 px-3 py-1 rounded-full text-fuchsia-400 group-hover:text-cyan-400 transition-all duration-300">
-                        {type.count} models
-                      </span>
-                    )}
-                  </div>
+        {/* Header */}
+        <div className="text-center mb-6">
+          <h1 className="text-2xl font-semibold text-white mb-2 flex items-center justify-center gap-3">
+            <i className="bi bi-bar-chart-line text-fuchsia-500"></i>
+            Model Comparer
+          </h1>
+          <p className="text-gray-300">
+            Choose the type of models you'd like to compare.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+          {modelTypes.map(type => (
+            <button
+              key={type.id}
+              onClick={() => handleTypeSelection(type.id)}
+              className="bg-gradient-to-br from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 border border-gray-600 hover:border-fuchsia-500 hover:shadow-lg hover:shadow-fuchsia-500/20 rounded-xl p-6 text-center transition-all duration-300 group transform hover:-translate-y-1 cursor-pointer"
+              disabled={type.count === 0}
+            >
+              <div className="flex flex-col items-center justify-between h-full space-y-4">
+                <div className="w-16 h-16 bg-gray-800 group-hover:bg-gray-700 rounded-full flex items-center justify-center transition-all duration-300">
+                  <i className={`${type.icon} text-3xl text-fuchsia-500 group-hover:text-cyan-400 group-hover:scale-110 transition-all duration-300`}></i>
                 </div>
-              </button>
-            ))}
-          </div>
+                <div className="flex-1 flex flex-col justify-center">
+                  <h3 className="text-lg font-semibold text-white text-center group-hover:text-cyan-400 transition-colors">
+                    {type.title}
+                  </h3>
+                </div>
+                <div className="flex justify-center">
+                  {type.count === 0 ? (
+                    <span className="text-xs bg-gray-600 px-3 py-1 rounded-full text-gray-400">
+                      Coming soon
+                    </span>
+                  ) : (
+                    <span className="text-xs bg-fuchsia-500/20 group-hover:bg-cyan-400/20 border border-fuchsia-500/30 group-hover:border-cyan-400/30 px-3 py-1 rounded-full text-fuchsia-400 group-hover:text-cyan-400 transition-all duration-300">
+                      {type.count} models
+                    </span>
+                  )}
+                </div>
+              </div>
+            </button>
+          ))}
         </div>
       </div>
     );
@@ -737,19 +742,19 @@ const applyFilters = useCallback((
       {/* Show model selection and comparison if type is selected */}
       {selectedModelType && (
         <>
+          {/* Header */}
+          <div className="text-center mb-6">
+            <h1 className="text-2xl font-semibold text-white mb-2 flex items-center justify-center gap-3">
+              <i className="bi bi-bar-chart-line text-fuchsia-500"></i>
+              Model Comparer
+            </h1>
+            <p className="text-gray-300">
+              Select models to compare their specifications and capabilities (up to 4 models).
+            </p>
+          </div>
           
       {/* Model Selection */}
       <div className="bg-gray-800/30 p-6 rounded-lg border border-gray-700 mb-6">
-        {selectedModels.length === 0 ? (
-          <div className="text-gray-300 mb-4 text-center bg-gray-700/30 p-4 rounded-lg border border-gray-600">
-            <i className="bi bi-info-circle mr-2 text-fuchsia-500" aria-hidden="true"></i>
-            Select models from below to start comparing (up to 4 models).
-          </div>
-        ) : (
-          <p className="text-gray-300 mb-4">
-            Select up to 4 models to compare their specifications and capabilities.
-          </p>
-        )}
         
         {/* Search and filter controls */}
         <div className="flex flex-col md:flex-row gap-3 mb-4">
