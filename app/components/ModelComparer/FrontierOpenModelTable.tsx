@@ -754,7 +754,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
         </div>
       )}
 
-      {/* Legend centered with Clear All button on the right */}
+      {/* Legend with Clear All button */}
       <div className="relative flex justify-center items-center mb-4">
         <Legend
           items={[
@@ -770,68 +770,71 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
         </div>
       </div>
       
-      {/* Single unified table with all sections */}
-      <div ref={tableHeaderRef}>
+      {/* Basic Information Table */}
+      <div ref={tableHeaderRef} className="mb-6">
         <SharedTable>
           <TableColGroup items={headerItems} />
           <TableHeader items={headerItems} />
           <tbody>
-          {/* Main Capabilities and Formats */}
-          {renderCapabilitiesRows()}
-          
-          {/* Context & Limits Section */}
-          {hasContextData && (
-            <>
-              <tr>
-                <td colSpan={selectedModels.length + 1} className="bg-gray-800/30 px-4 py-2">
-                  <SectionTitle>Context & Limits</SectionTitle>
-                </td>
-              </tr>
-              {renderContextRows()}
-            </>
-          )}
-          
-          {/* Featured Benchmarks Section */}
-          {hasFeaturedBenchmarks && (
-            <>
-              <tr>
-                <td colSpan={selectedModels.length + 1} className="bg-gray-800/30 px-4 py-2">
-                  <SectionTitle>Featured Benchmarks</SectionTitle>
-                </td>
-              </tr>
-              {renderFeaturedBenchmarkRows()}
-            </>
-          )}
-          
-          {/* Pricing Section */}
-          {hasPricingData && (
-            <>
-              <tr>
-                <td colSpan={selectedModels.length + 1} className="bg-gray-800/30 px-4 py-2">
-                  <SectionTitle>
-                    Pricing
-                    <span className="text-xs text-gray-400 ml-2 font-normal">(per 1M tokens)</span>
-                  </SectionTitle>
-                </td>
-              </tr>
-              {renderPricingRows()}
-            </>
-          )}
-          
-          {/* Resources Section */}
-          {hasResourceData && (
-            <>
-              <tr>
-                <td colSpan={selectedModels.length + 1} className="bg-gray-800/30 px-4 py-2">
-                  <SectionTitle>Resources</SectionTitle>
-                </td>
-              </tr>
-              {renderResourcesRows()}
-            </>
-          )}
-        </tbody>
+            {renderCapabilitiesRows()}
+          </tbody>
         </SharedTable>
       </div>
+      
+      {/* Context & Limits Section */}
+      {hasContextData && (
+        <div className="mb-6">
+          <SectionTitle>Context & Limits</SectionTitle>
+          <SharedTable>
+            <TableColGroup items={headerItems} />
+            <tbody>
+              {renderContextRows()}
+            </tbody>
+          </SharedTable>
+        </div>
+      )}
+      
+      {/* Featured Benchmarks Section */}
+      {hasFeaturedBenchmarks && (
+        <div className="mb-6">
+          <SectionTitle>Featured Benchmarks</SectionTitle>
+          <SharedTable>
+            <TableColGroup items={headerItems} />
+            <tbody>
+              {renderFeaturedBenchmarkRows()}
+            </tbody>
+          </SharedTable>
+        </div>
+      )}
+      
+      {/* Pricing Section */}
+      {hasPricingData && (
+        <div className="mb-6">
+          <SectionTitle>
+            Pricing
+            <span className="text-xs text-gray-400 ml-2 font-normal">(per 1M tokens)</span>
+          </SectionTitle>
+          <SharedTable>
+            <TableColGroup items={headerItems} />
+            <tbody>
+              {renderPricingRows()}
+            </tbody>
+          </SharedTable>
+        </div>
+      )}
+      
+      {/* Resources Section */}
+      {hasResourceData && (
+        <div className="mb-6">
+          <SectionTitle>Resources</SectionTitle>
+          <SharedTable>
+            <TableColGroup items={headerItems} />
+            <tbody>
+              {renderResourcesRows()}
+            </tbody>
+          </SharedTable>
+        </div>
+      )}
     </div>
   );
 };
