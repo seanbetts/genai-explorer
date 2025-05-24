@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Model } from '../types';
 import { containerStyles, tableStyles, iconStyles } from '../utils/layout';
 import { textStyles } from '../utils/theme';
@@ -18,7 +18,34 @@ interface ImageModelTableProps {
 }
 
 const ImageModelTable: React.FC<ImageModelTableProps> = ({ selectedModels, onModelRemove, clearAllButton }) => {
+  const [showStickyHeader, setShowStickyHeader] = useState(false);
+  const tableHeaderRef = useRef<HTMLDivElement>(null);
   
+  // Handle scroll to show/hide sticky header
+  useEffect(() => {
+    const handleScroll = () => {
+      if (tableHeaderRef.current) {
+        const rect = tableHeaderRef.current.getBoundingClientRect();
+        // Site header appears to be around 80-100px tall, so we need to account for that
+        // Show sticky header when top of original header moves out of view (behind site header)
+        const siteHeaderHeight = 135; // Approximate height of the site header
+        const shouldShow = rect.top <= siteHeaderHeight;
+        
+        setShowStickyHeader(shouldShow);
+      }
+    };
+
+    // Initial check after a short delay to ensure DOM is ready
+    const timer = setTimeout(handleScroll, 100);
+    
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // Remove showStickyHeader from dependencies to prevent loop
 
   const hasAnyModelFeature = (category: string, key: string): boolean => {
     return selectedModels.some(model => 
@@ -672,13 +699,33 @@ const ImageModelTable: React.FC<ImageModelTableProps> = ({ selectedModels, onMod
 
   return (
     <div>
+      {/* Floating sticky header - appears when original header is out of view */}
+      {showStickyHeader && (
+        <div className="floating-sticky-header fixed top-32 left-1/2 transform -translate-x-1/2 z-30" style={{ 
+          marginTop: '3px',
+          width: '1228px',
+          borderTopLeftRadius: '0.5rem',
+          borderTopRightRadius: '0.5rem',
+          borderBottomLeftRadius: '0',
+          borderBottomRightRadius: '0',
+          overflow: 'hidden',
+          backgroundColor: '#2d3748',
+          borderBottom: '0.5px solid #EA00D9'
+        }}>
+          <table className="table-fixed w-full border-collapse">
+            <TableColGroup items={headerItems} />
+            <TableHeader items={headerItems} />
+          </table>
+        </div>
+      )}
+
       {/* Clear All button */}
       <div className="flex justify-end items-center mb-4">
         {clearAllButton}
       </div>
       
       {/* Basic Information Table */}
-      <div className="mb-6">
+      <div ref={tableHeaderRef} className="mb-6">
         <SharedTable>
           <TableColGroup items={headerItems} />
           <TableHeader items={headerItems} />
