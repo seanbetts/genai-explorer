@@ -20,7 +20,7 @@ export function generatePageMetadata(
   description?: string
 ): Metadata {
   const canonicalUrl = createCanonicalUrl(path);
-  const pageTitle = title ? `${title} | Generative AI Explorer` : 'Generative AI Explorer | The Blueprint';
+  const pageTitle = title ? `${title} | Generative AI Explorer | The Blueprint` : 'Generative AI Explorer | The Blueprint';
   const pageDescription = description || 'A comprehensive explorer for generative AI models, companies, benchmarks and capabilities. Compare frontier models, view benchmarks, and explore AI capabilities.';
   
   return {

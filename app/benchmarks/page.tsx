@@ -7,7 +7,7 @@ import { generatePageMetadata } from '../lib/metadata';
 export const generateMetadata = (): Metadata => {
   return generatePageMetadata(
     'benchmarks', 
-    'AI Benchmark Explorer', 
+    'AI Benchmarks', 
     'Compare performance benchmarks for generative AI models across different categories including reasoning, coding, and multimodal capabilities.'
   );
 };
