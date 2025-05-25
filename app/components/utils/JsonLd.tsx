@@ -94,7 +94,7 @@ export const generateExplorerJsonLd = () => {
   return {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Generative AI Explorer",
+    "name": "Generative AI Explorer | The Blueprint",
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "Any",
     "offers": {
