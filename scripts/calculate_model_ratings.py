@@ -37,8 +37,6 @@ TARGET_MODEL_TYPES = [
 
 def load_data() -> Tuple[Dict, pd.DataFrame, Dict]:
     """Load all required data files."""
-    print("Loading data files...")
-    
     # Load models data
     with open('data/data.json', 'r') as f:
         companies_data = json.load(f)
@@ -77,40 +75,21 @@ def extract_target_models(companies_data: Dict) -> Dict[str, Dict]:
                     'output_price': float(output_price) if output_price is not None else None,
                 }
     
-    print(f"Found {len(models)} models of target types:")
-    for model_type in TARGET_MODEL_TYPES:
-        count = sum(1 for m in models.values() if m['type'] == model_type)
-        print(f"  {model_type}: {count}")
-    
-    # Count models with pricing
-    models_with_pricing = sum(1 for m in models.values() 
-                             if m['input_price'] is not None and m['output_price'] is not None)
-    print(f"Models with pricing data: {models_with_pricing}")
-    
     return models
 
 def create_benchmark_category_mapping(benchmarks_meta: List[Dict]) -> Dict[str, str]:
     """Create mapping from benchmark_id to category."""
     mapping = {}
-    categories = set()
     
     for benchmark in benchmarks_meta:
         benchmark_id = benchmark['benchmark_id']
         category = benchmark['benchmark_category']
         mapping[benchmark_id] = category
-        categories.add(category)
-    
-    print(f"Found {len(mapping)} benchmarks across {len(categories)} categories:")
-    for category in sorted(categories):
-        count = sum(1 for cat in mapping.values() if cat == category)
-        print(f"  {category}: {count} benchmarks")
     
     return mapping
 
 def deduplicate_scores(benchmarks_df: pd.DataFrame, models: Dict) -> pd.DataFrame:
     """Keep only the latest score per model-benchmark pair."""
-    print("Deduplicating benchmark scores...")
-    
     # Filter for target models only
     target_model_ids = set(models.keys())
     filtered_df = benchmarks_df[benchmarks_df['model_id'].isin(target_model_ids)].copy()
@@ -121,20 +100,10 @@ def deduplicate_scores(benchmarks_df: pd.DataFrame, models: Dict) -> pd.DataFram
     # Sort by date and keep last (latest) entry for each model-benchmark pair
     deduplicated = filtered_df.sort_values('date').groupby(['model_id', 'benchmark_id']).tail(1)
     
-    original_count = len(filtered_df)
-    final_count = len(deduplicated)
-    duplicates_removed = original_count - final_count
-    
-    print(f"Original scores: {original_count}")
-    print(f"After deduplication: {final_count}")
-    print(f"Duplicate scores removed: {duplicates_removed}")
-    
     return deduplicated
 
 def normalize_and_rate_benchmarks(df: pd.DataFrame) -> pd.DataFrame:
     """Normalize each benchmark to 0-1 scale and convert to 1-5 ratings."""
-    print("Normalizing benchmark scores and converting to ratings...")
-    
     df = df.copy()
     df['normalized_score'] = 0.0
     df['rating_1_to_5'] = 0
@@ -154,10 +123,9 @@ def normalize_and_rate_benchmarks(df: pd.DataFrame) -> pd.DataFrame:
                 valid_scores.append(score)
                 valid_indices.append(idx)
             except (ValueError, TypeError):
-                print(f"  Warning: Invalid score '{df.loc[idx, 'score']}' in {benchmark_id}, skipping")
+                continue
         
         if not valid_scores:
-            print(f"  Warning: No valid scores for {benchmark_id}, skipping")
             continue
         
         min_score = min(valid_scores)
@@ -166,7 +134,6 @@ def normalize_and_rate_benchmarks(df: pd.DataFrame) -> pd.DataFrame:
         # Handle degenerate cases
         if len(valid_scores) == 1 or max_score == min_score:
             # Degenerate case: assign neutral rating of 3
-            print(f"  {benchmark_id}: Degenerate case, assigning rating 3")
             for idx in valid_indices:
                 df.loc[idx, 'normalized_score'] = 0.5
                 df.loc[idx, 'rating_1_to_5'] = 3
@@ -197,8 +164,6 @@ def normalize_and_rate_benchmarks(df: pd.DataFrame) -> pd.DataFrame:
 def calculate_benchmark_category_ratings(df: pd.DataFrame, models: Dict, 
                                        benchmark_categories: Dict) -> Dict[str, Dict[str, Optional[float]]]:
     """Calculate category ratings by averaging 1-5 ratings within each category."""
-    print("Calculating benchmark category ratings...")
-    
     model_ratings = {}
     
     # Get all categories
@@ -227,21 +192,11 @@ def calculate_benchmark_category_ratings(df: pd.DataFrame, models: Dict,
                 # No benchmarks in this category for this model
                 model_ratings[model_id][category] = None
     
-    # Print summary statistics
-    for category in sorted(all_categories):
-        ratings = [r[category] for r in model_ratings.values() if r[category] is not None]
-        if ratings:
-            avg_rating = sum(ratings) / len(ratings)
-            print(f"  {category}: {len(ratings)} models, avg = {avg_rating:.2f}")
-    
     return model_ratings
 
 def calculate_pricing_ratings(models: Dict) -> Dict[str, Optional[float]]:
-    """Calculate pricing affordability ratings using percentile-based approach."""
-    print("Calculating pricing affordability ratings...")
-    
+    """Calculate pricing affordability ratings using min-max normalization."""
     # Extract models with pricing data
-    models_with_pricing = {}
     composite_scores = {}
     
     for model_id, model_data in models.items():
@@ -251,25 +206,17 @@ def calculate_pricing_ratings(models: Dict) -> Dict[str, Optional[float]]:
         if input_price is not None and output_price is not None:
             # Weighted composite cost (70% input, 30% output)
             composite_cost = (0.7 * input_price) + (0.3 * output_price)
-            models_with_pricing[model_id] = model_data
             composite_scores[model_id] = composite_cost
     
-    print(f"Models with pricing data: {len(models_with_pricing)}")
-    
     if not composite_scores:
-        print("No models with pricing data found")
         return {model_id: None for model_id in models.keys()}
     
-    # Calculate percentile-based ratings
+    # Calculate min-max normalized ratings
     costs = sorted(composite_scores.values())
     min_cost = min(costs)
     max_cost = max(costs)
-    n = len(costs)
-    
-    print(f"Cost range: ${min_cost:.3f} - ${max_cost:.3f} per million tokens")
     
     if max_cost == min_cost:
-        print("All models have the same cost, assigning rating 3.00")
         ratings = {model_id: 3.0 for model_id in composite_scores.keys()}
     else:
         # Use min-max normalization for more precise ratings
@@ -286,29 +233,11 @@ def calculate_pricing_ratings(models: Dict) -> Dict[str, Optional[float]]:
             rating = 1.0 + (4.0 * affordability_score)
             
             ratings[model_id] = rating
-        
-        print(f"Cost normalization: ${min_cost:.3f} (rating 5.00) to ${max_cost:.3f} (rating 1.00)")
     
     # Extend to all models (None for models without pricing)
     all_ratings = {}
     for model_id in models.keys():
         all_ratings[model_id] = ratings.get(model_id, None)
-    
-    # Print distribution by rating ranges
-    total_with_pricing = len(ratings)
-    if total_with_pricing > 0:
-        rating_ranges = {
-            "1.00-1.99": sum(1 for r in ratings.values() if 1.0 <= r < 2.0),
-            "2.00-2.99": sum(1 for r in ratings.values() if 2.0 <= r < 3.0),
-            "3.00-3.99": sum(1 for r in ratings.values() if 3.0 <= r < 4.0),
-            "4.00-4.99": sum(1 for r in ratings.values() if 4.0 <= r < 5.0),
-            "5.00": sum(1 for r in ratings.values() if r >= 5.0)
-        }
-        
-        print("  Rating distribution:")
-        for range_label, count in rating_ranges.items():
-            percentage = (count / total_with_pricing) * 100
-            print(f"    {range_label}: {count} models ({percentage:.1f}%)")
     
     return all_ratings
 
@@ -362,23 +291,46 @@ def output_comprehensive_csv(models: Dict, benchmark_ratings: Dict, pricing_rati
     
     print(f"Results written to {output_file}")
     
-    # Print summary statistics
-    print("\\nComprehensive Ratings Summary:")
-    print(f"Total models: {len(models)}")
-    print(f"Benchmark categories: {', '.join(categories)}")
+    # Print simplified summary
+    print("\\n" + "="*50)
+    print("MODEL RATINGS SUMMARY")
+    print("="*50)
+    print(f"Total models processed: {len(models)}")
     
-    # Benchmark category stats
-    for category in categories:
+    # Count models with pricing
+    models_with_pricing = sum(1 for m in models.values() 
+                             if m['input_price'] is not None and m['output_price'] is not None)
+    print(f"Models with pricing data: {models_with_pricing}")
+    
+    # Benchmark category averages
+    print("\\nBenchmark category averages:")
+    for category in sorted(categories):
         ratings = [r[category] for r in benchmark_ratings.values() if r[category] is not None]
         if ratings:
             avg_rating = sum(ratings) / len(ratings)
-            print(f"  {category}: {len(ratings)} models, avg = {avg_rating:.2f}")
+            print(f"  {category}: {avg_rating:.2f} (n={len(ratings)})")
     
-    # Pricing stats
+    # Pricing affordability average
     pricing_ratings_valid = [r for r in pricing_ratings.values() if r is not None]
     if pricing_ratings_valid:
         avg_pricing = sum(pricing_ratings_valid) / len(pricing_ratings_valid)
-        print(f"  Pricing affordability: {len(pricing_ratings_valid)} models, avg = {avg_pricing:.2f}")
+        print(f"\\nPricing affordability average: {avg_pricing:.2f} (n={len(pricing_ratings_valid)})")
+        
+        # Pricing distribution
+        rating_ranges = {
+            "1.00-1.99": sum(1 for r in pricing_ratings_valid if 1.0 <= r < 2.0),
+            "2.00-2.99": sum(1 for r in pricing_ratings_valid if 2.0 <= r < 3.0),
+            "3.00-3.99": sum(1 for r in pricing_ratings_valid if 3.0 <= r < 4.0),
+            "4.00-4.99": sum(1 for r in pricing_ratings_valid if 4.0 <= r < 5.0),
+            "5.00": sum(1 for r in pricing_ratings_valid if r >= 5.0)
+        }
+        
+        print("\\nPricing distribution:")
+        for range_label, count in rating_ranges.items():
+            percentage = (count / len(pricing_ratings_valid)) * 100
+            print(f"  {range_label}: {count} models ({percentage:.1f}%)")
+    
+    print("="*50)
 
 def main():
     """Main execution function."""
@@ -401,7 +353,7 @@ def main():
         deduplicated_df = deduplicate_scores(benchmarks_df, models)
         
         # Normalize and convert to ratings
-        rated_df, benchmark_stats = normalize_and_rate_benchmarks(deduplicated_df)
+        rated_df, _ = normalize_and_rate_benchmarks(deduplicated_df)
         
         # Calculate benchmark category ratings
         benchmark_ratings = calculate_benchmark_category_ratings(rated_df, models, benchmark_categories)
