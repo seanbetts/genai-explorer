@@ -1,4 +1,12 @@
 #!/usr/bin/env python3
+"""
+Process benchmarks from Excel file and generate comprehensive model data pipeline.
+
+This script:
+1. Reads benchmark data from Excel file and converts to CSV and JSON formats
+2. Automatically runs model ratings calculation to generate comprehensive ratings
+3. Provides a complete data processing pipeline for the web application
+"""
 import os
 import pandas as pd
 import json
@@ -56,5 +64,62 @@ def main():
         json.dump(records, f, ensure_ascii=False, indent=2)
     print(f'✔ Written {len(records)} meta entries to {JSON_OUT}')
 
+def run_model_ratings():
+    """Run the model ratings calculation after processing benchmarks."""
+    import subprocess
+    import sys
+    
+    print("\n" + "="*60)
+    print("Running model ratings calculation...")
+    print("="*60)
+    
+    try:
+        # Run the model ratings script
+        result = subprocess.run([
+            sys.executable, 
+            'scripts/calculate_model_ratings.py'
+        ], capture_output=True, text=True, check=True)
+        
+        # Print the output
+        print(result.stdout)
+        if result.stderr:
+            print("Warnings/Errors:")
+            print(result.stderr)
+            
+        print("Model ratings calculation completed successfully!")
+        
+    except subprocess.CalledProcessError as e:
+        print(f"Error running model ratings calculation: {e}")
+        print(f"Return code: {e.returncode}")
+        if e.stdout:
+            print(f"Output: {e.stdout}")
+        if e.stderr:
+            print(f"Error output: {e.stderr}")
+        return False
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        return False
+    
+    return True
+
 if __name__ == '__main__':
+    # Process benchmarks first
     main()
+    
+    # Then run model ratings calculation
+    print("\n" + "="*60)
+    print("Benchmark processing completed. Starting model ratings calculation...")
+    success = run_model_ratings()
+    
+    if success:
+        print("\n" + "="*60)
+        print("✅ Complete pipeline finished successfully!")
+        print("- Benchmarks processed and saved to public/data/")
+        print("- Model ratings calculated and saved to data/model_ratings.csv")
+        print("="*60)
+    else:
+        print("\n" + "="*60)
+        print("❌ Pipeline completed with errors in model ratings calculation")
+        print("- Benchmarks were processed successfully")
+        print("- Model ratings calculation failed - check output above")
+        print("="*60)

@@ -102,7 +102,7 @@ genai-explorer/
 ├── scripts/                # Utility scripts
 │   ├── calculate_model_ratings.py  # Model rating calculation script
 │   ├── convert-to-webp.js        # Image conversion script
-│   └── process_benchmarks.py     # Benchmark processing script
+│   └── process_benchmarks.py     # Complete data processing pipeline
 ├── netlify.toml            # Netlify configuration
 └── next.config.ts          # Next.js configuration
 ```
@@ -187,7 +187,13 @@ To regenerate comprehensive model ratings:
 python scripts/calculate_model_ratings.py
 ```
 
-This processes the latest benchmark and pricing data and outputs `data/model_ratings.csv` with ratings for:
+To run the complete data processing pipeline (recommended for data updates):
+```bash
+python scripts/process_benchmarks.py
+```
+This processes benchmark data from Excel, converts to CSV/JSON formats, then automatically calculates comprehensive model ratings.
+
+The output includes `data/model_ratings.csv` with ratings for:
 
 **Performance Categories:**
 - **General Intelligence**: Knowledge and reasoning benchmarks
