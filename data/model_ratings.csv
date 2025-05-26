@@ -1,0 +1,89 @@
+model_id,model_name,model_type,company,General Intelligence,STEM,agentic,coding,reasoning
+qwen-3-0-6b,Qwen-3 0.6B,Large Hybrid Model,Alibaba,n/a,n/a,n/a,n/a,n/a
+qwen-3-1-7b,Qwen-3 1.7B,Large Hybrid Model,Alibaba,n/a,n/a,n/a,n/a,n/a
+qwen-3-14b,Qwen-3 14B,Large Hybrid Model,Alibaba,n/a,n/a,n/a,n/a,n/a
+qwen-3-235b-a22b,Qwen-3 235B,Large Hybrid Model,Alibaba,n/a,4,4,4,n/a
+qwen-3-32b,Qwen-3 32B,Large Hybrid Model,Alibaba,n/a,4,4,4,n/a
+qwen-3-4b,Qwen-3 4B,Large Hybrid Model,Alibaba,n/a,4,3,3,n/a
+qwen-3-8b,Qwen-3 8B,Large Hybrid Model,Alibaba,n/a,n/a,n/a,n/a,n/a
+nova-micro-1-0,Nova Micro,Large Language Model,Amazon,3,4,4,4,4
+nova-lite-1-0,Nova Lite,Large Multimodal Model,Amazon,3,4,5,4,4
+nova-premier-1-0,Nova Premier,Large Multimodal Model,Amazon,4,3,5,3,2
+nova-pro-1-0,Nova Pro,Large Multimodal Model,Amazon,4,3,5,5,3
+claude-3-7-sonnet,Claude-3.7 Sonnet,Large Hybrid Model,Anthropic,4,3,5,4,3
+claude-4-opus,Claude-4 Opus,Large Hybrid Model,Anthropic,4,4,5,5,n/a
+claude-4-sonnet,Claude-4 Sonnet,Large Hybrid Model,Anthropic,4,4,5,5,n/a
+claude-3-opus,Claude-3 Opus,Large Language Model,Anthropic,4,4,n/a,4,4
+claude-3-0-haiku,Claude-3.0 Haiku,Large Language Model,Anthropic,2,3,n/a,n/a,n/a
+claude-3-0-sonnet,Claude-3.0 Sonnet,Large Language Model,Anthropic,n/a,n/a,n/a,n/a,n/a
+claude-3-5-haiku,Claude-3.5 Haiku,Large Language Model,Anthropic,3,3,3,4,4
+claude-3-5-sonnet,Claude-3.5 Sonnet,Large Language Model,Anthropic,4,3,4,3,4
+command-a,Command A,Large Language Model,Cohere,3,3,5,3,n/a
+command-r,Command R,Large Language Model,Cohere,n/a,n/a,n/a,n/a,n/a
+command-r-plus,Command R+,Large Language Model,Cohere,2,1,3,n/a,2
+command-r7b,Command R7B,Large Language Model,Cohere,2,2,3,n/a,n/a
+aya-vision,Aya Vision,Large Multimodal Model,Cohere,n/a,n/a,n/a,n/a,n/a
+v3,V3,Large Language Model,Deepseek,4,3,3,3,4
+r1,R1,Large Reasoning Model,Deepseek,4,4,4,4,3
+gemini-2-0-flash,Gemini-2.0 Flash,Large Hybrid Model,Google DeepMind,3,4,n/a,3,1
+gemini-2-5-flash,Gemini-2.5 Flash,Large Hybrid Model,Google DeepMind,4,5,n/a,4,3
+gemini-1-5-flash,Gemini-1.5 Flash,Large Language Model,Google DeepMind,3,4,5,3,4
+gemini-1-5-pro,Gemini-1.5 Pro,Large Language Model,Google DeepMind,4,4,5,4,4
+gemini-2-0,Gemini-2.0,Large Language Model,Google DeepMind,4,4,n/a,2,n/a
+gemini-2-0-flash-lite,Gemini-2.0 Flash Lite,Large Language Model,Google DeepMind,3,3,n/a,4,n/a
+gemini-2-0-flash-thinking,Gemini-2.0 Flash Thinking,Large Language Model,Google DeepMind,4,4,n/a,3,n/a
+gemini-2-0-pro,Gemini-2.0 Pro,Large Language Model,Google DeepMind,4,5,n/a,4,n/a
+gemma-3-1b,Gemma-3 1B,Large Language Model,Google DeepMind,1,1,3,1,1
+gemini-2-5-pro,Gemini-2.5 Pro,Large Multimodal Model,Google DeepMind,4,5,5,4,5
+gemma-3-12b,Gemma-3 12B,Large Multimodal Model,Google DeepMind,3,4,4,4,4
+gemma-3-27b,Gemma-3 27B,Large Multimodal Model,Google DeepMind,3,3,4,4,4
+gemma-3-4b,Gemma-3 4B,Large Multimodal Model,Google DeepMind,2,3,5,3,3
+llama-3-1-405b,Llama-3.1 405B,Large Language Model,Meta,3,3,4,2,4
+llama-3-1-70b,Llama-3.1 70B,Large Language Model,Meta,n/a,n/a,n/a,n/a,n/a
+llama-3-1-8b,Llama-3.1 8B,Large Language Model,Meta,2,3,4,3,2
+llama-3-2-1b,Llama-3.2 1B,Large Language Model,Meta,n/a,n/a,n/a,n/a,n/a
+llama-3-2-3b,Llama-3.2 3B,Large Language Model,Meta,n/a,n/a,n/a,n/a,n/a
+llama-3-3-70b,Llama-3.3 70B,Large Language Model,Meta,2,4,4,4,2
+llama-3-2-11b,Llama-3.2 11B,Large Multimodal Model,Meta,2,3,4,3,1
+llama-3-2-90b,Llama-3.2 90B,Large Multimodal Model,Meta,3,4,5,4,5
+llama-4-maverick,Llama-4 Maverick,Large Multimodal Model,Meta,5,4,4,3,3
+llama-4-scout,Llama-4 Scout,Large Multimodal Model,Meta,4,3,n/a,2,n/a
+copilot-chat,Copilot Chat,Large Language Model,Microsoft,n/a,n/a,n/a,n/a,n/a
+copilot-pro-chat,Copilot Pro Chat,Large Language Model,Microsoft,n/a,n/a,n/a,n/a,n/a
+m365-copilot,M365 Copilot,Large Language Model,Microsoft,n/a,n/a,n/a,n/a,n/a
+phi-3-5-mini,Phi-3.5 Mini,Large Language Model,Microsoft,2,3,n/a,3,3
+phi-3-5-moe,Phi-3.5 MoE,Large Language Model,Microsoft,3,4,n/a,3,4
+phi-3-5-vision,Phi-3.5 Vision,Large Language Model,Microsoft,n/a,n/a,n/a,n/a,n/a
+phi-4,Phi-4,Large Language Model,Microsoft,4,2,1,4,n/a
+phi-4-mini,Phi-4 Mini,Large Language Model,Microsoft,n/a,1,n/a,n/a,n/a
+phi-4-mm,Phi-4 Multimodal,Large Language Model,Microsoft,3,3,n/a,n/a,n/a
+phi-4-mini-reasoning,Phi-4 Mini Reasoning,Large Reasoning Model,Microsoft,n/a,3,n/a,n/a,n/a
+phi-4-reasoning,Phi-4 Reasoning,Large Reasoning Model,Microsoft,4,4,4,4,n/a
+phi-4-reasoning-plus,Phi-4 Reasoning Plus,Large Reasoning Model,Microsoft,4,4,4,4,n/a
+codestral-25-01,Codestral,Large Language Model,Mistral AI,n/a,n/a,n/a,n/a,n/a
+devstral-small-2505,Devstral,Large Language Model,Mistral AI,n/a,n/a,n/a,3,n/a
+ministral-3B,Ministral 3B,Large Language Model,Mistral AI,n/a,n/a,n/a,n/a,n/a
+ministral-8B,Ministral 8B,Large Language Model,Mistral AI,n/a,n/a,n/a,n/a,n/a
+mistral-large-2,Mistral Large,Large Language Model,Mistral AI,1,n/a,n/a,n/a,2
+mistral-medium-3,Mistral Medium,Large Multimodal Model,Mistral AI,3,4,4,4,n/a
+mistral-small-3-1,Mistral Small,Large Multimodal Model,Mistral AI,3,4,n/a,5,n/a
+pixtral-large,Pixtral Large,Large Multimodal Model,Mistral AI,4,4,n/a,n/a,n/a
+gpt-4-1-mini,GPT 4.1 Mini,Large Language Model,OpenAI,4,4,3,3,4
+gpt-4-1-nano,GPT 4.1 Nano,Large Language Model,OpenAI,2,2,1,1,1
+gpt-4-turbo,GPT-4 Turbo,Large Language Model,OpenAI,3,3,n/a,4,2
+gpt-4-1,GPT-4.1,Large Language Model,OpenAI,4,4,4,4,3
+gpt-4-5,GPT-4.5,Large Multimodal Model,OpenAI,4,3,4,4,3
+gpt-4o,GPT-4o,Large Multimodal Model,OpenAI,3,3,3,3,4
+gpt-4o-mini,GPT-4o Mini,Large Multimodal Model,OpenAI,2,3,2,2,3
+o1,o1,Large Reasoning Model,OpenAI,4,4,4,4,4
+o1-mini,o1-mini,Large Reasoning Model,OpenAI,3,4,4,3,3
+o1-pro,o1-pro,Large Reasoning Model,OpenAI,n/a,n/a,n/a,n/a,2
+o3,o3,Large Reasoning Model,OpenAI,4,5,4,5,5
+o3-mini,o3-mini,Large Reasoning Model,OpenAI,3,5,3,3,3
+o4-mini,o4-mini,Large Reasoning Model,OpenAI,5,5,4,4,4
+grok-3-mini,Grok-3 Mini,Large Hybrid Model,xAI,4,5,n/a,5,n/a
+grok-1-5,Grok 1.5,Large Language Model,xAI,3,2,n/a,3,n/a
+grok-2,Grok 2,Large Language Model,xAI,4,3,n/a,5,2
+grok-2-mini,Grok 2 Mini,Large Language Model,xAI,3,3,n/a,4,n/a
+grok-2-vision,Grok 2 Vision,Large Language Model,xAI,n/a,n/a,n/a,n/a,n/a
+grok-3,Grok-3,Large Language Model,xAI,4,4,n/a,4,3
