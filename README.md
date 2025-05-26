@@ -179,9 +179,25 @@ The application includes a comprehensive model rating system that generates stan
 
 ### Pricing Affordability Methodology
 - **Composite Scoring**: Combines input (70%) and output (30%) pricing per million tokens
-- **Min-Max Normalization**: Scales costs to 1.00-5.00 range with 2 decimal precision
+- **Percentile-Based Normalization**: Uses 10th-90th percentile range to handle extreme outliers
+- **Outlier Management**: Caps extreme costs to prevent skewing (e.g., GPT-4.5 at $97.50 vs median $0.30)
 - **Affordability Scale**: Rating 5.00 = Most affordable, Rating 1.00 = Most expensive
-- **Smooth Distribution**: Provides granular differentiation across the full cost spectrum
+- **Balanced Distribution**: Creates realistic spread across all rating tiers (1-5) instead of clustering
+
+### Enhanced Console Output
+The rating calculation script provides comprehensive visual feedback including:
+- **Histogram Visualization**: Vertical bar charts showing rating distribution for each category
+- **Distribution Analysis**: Percentage breakdown across all rating tiers (1-5)
+- **Performance Insights**: Easy identification of category strengths and weaknesses
+- **Pricing Analysis**: Clear view of model affordability patterns
+
+Example output format:
+```
+General Intelligence: 3.30 (n=63)
+            █   █   █    
+1   2   3   4   5
+5%  22% 40% 32% 2%
+```
 
 ### Usage
 To regenerate comprehensive model ratings:

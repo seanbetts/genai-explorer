@@ -195,7 +195,7 @@ def calculate_benchmark_category_ratings(df: pd.DataFrame, models: Dict,
     return model_ratings
 
 def calculate_pricing_ratings(models: Dict) -> Dict[str, Optional[float]]:
-    """Calculate pricing affordability ratings using min-max normalization."""
+    """Calculate pricing affordability ratings using percentile-based normalization to handle outliers."""
     # Extract models with pricing data
     composite_scores = {}
     
@@ -211,25 +211,39 @@ def calculate_pricing_ratings(models: Dict) -> Dict[str, Optional[float]]:
     if not composite_scores:
         return {model_id: None for model_id in models.keys()}
     
-    # Calculate min-max normalized ratings
+    # Sort costs for percentile calculation
     costs = sorted(composite_scores.values())
-    min_cost = min(costs)
-    max_cost = max(costs)
     
-    if max_cost == min_cost:
+    if len(costs) == 1:
         ratings = {model_id: 3.0 for model_id in composite_scores.keys()}
     else:
-        # Use min-max normalization for more precise ratings
-        # Invert the scale so lower cost = higher rating
+        # Use percentile-based normalization to handle outliers
+        # Cap extreme outliers at 90th percentile for better distribution
+        p10_index = int(len(costs) * 0.10)
+        p90_index = int(len(costs) * 0.90)
+        
+        min_cost = costs[p10_index] if p10_index < len(costs) else costs[0]
+        max_cost = costs[p90_index] if p90_index < len(costs) else costs[-1]
+        
+        # Ensure we have a reasonable range
+        if max_cost == min_cost:
+            # Fallback to simple min-max if percentile range is too narrow
+            min_cost = costs[0]
+            max_cost = costs[-1]
+        
         ratings = {}
         for model_id, cost in composite_scores.items():
-            # Normalize cost to 0-1 range
-            normalized_cost = (cost - min_cost) / (max_cost - min_cost)
+            # Cap outliers to prevent extreme skewing
+            capped_cost = max(min_cost, min(cost, max_cost))
+            
+            # Normalize cost to 0-1 range using capped values
+            normalized_cost = (capped_cost - min_cost) / (max_cost - min_cost) if max_cost != min_cost else 0.0
             
             # Invert for affordability (lower cost = higher rating)
             affordability_score = 1.0 - normalized_cost
             
-            # Scale to 1-5 range (no rounding, keep precision)
+            # Scale to 1-5 range with better distribution
+            # Use a curve that gives more granularity in the middle ranges
             rating = 1.0 + (4.0 * affordability_score)
             
             ratings[model_id] = rating
@@ -240,6 +254,74 @@ def calculate_pricing_ratings(models: Dict) -> Dict[str, Optional[float]]:
         all_ratings[model_id] = ratings.get(model_id, None)
     
     return all_ratings
+
+def create_distribution_histogram(counts: List[int], total: int, max_height: int = 8) -> List[str]:
+    """Create a vertical histogram for rating distribution."""
+    if total == 0:
+        return ["     " for _ in range(max_height)]
+    
+    # Calculate heights for each rating (1-5)
+    heights = []
+    for count in counts:
+        if total > 0:
+            height = int((count / total) * max_height)
+            heights.append(height)
+        else:
+            heights.append(0)
+    
+    # Create the histogram lines from top to bottom
+    histogram_lines = []
+    for level in range(max_height, 0, -1):
+        line = ""
+        for i, height in enumerate(heights):
+            if height >= level:
+                line += "█"
+            else:
+                line += " "
+            # Add spacing between columns except for the last one
+            if i < len(heights) - 1:
+                line += "   "
+        histogram_lines.append(line)
+    
+    return histogram_lines
+
+def print_category_distribution(category_name: str, ratings: List[float], indent: str = "  "):
+    """Print detailed distribution for a category with vertical histogram."""
+    if not ratings:
+        print(f"{indent}{category_name}: No data")
+        return
+    
+    avg_rating = sum(ratings) / len(ratings)
+    
+    # Calculate distribution
+    ranges = {
+        "1": sum(1 for r in ratings if 1.0 <= r < 2.0),
+        "2": sum(1 for r in ratings if 2.0 <= r < 3.0),
+        "3": sum(1 for r in ratings if 3.0 <= r < 4.0),
+        "4": sum(1 for r in ratings if 4.0 <= r < 5.0),
+        "5": sum(1 for r in ratings if r >= 5.0)
+    }
+    
+    total = len(ratings)
+    counts = [ranges["1"], ranges["2"], ranges["3"], ranges["4"], ranges["5"]]
+    histogram_lines = create_distribution_histogram(counts, total, max_height=5)
+    
+    print(f"{indent}{category_name}: {avg_rating:.2f} (n={total})")
+    
+    # Print the histogram
+    for line in histogram_lines:
+        print(f"{indent}  {line}")
+    
+    # Print rating labels and percentages with consistent spacing
+    print(f"{indent}  1   2   3   4   5")
+    
+    percentages = []
+    for rating, count in ranges.items():
+        pct = (count / total) * 100
+        percentages.append(f"{pct:.0f}%")
+    
+    # Format percentages with matching spacing
+    print(f"{indent}  {percentages[0]:<3} {percentages[1]:<3} {percentages[2]:<3} {percentages[3]:<3} {percentages[4]}")
 
 def output_comprehensive_csv(models: Dict, benchmark_ratings: Dict, pricing_ratings: Dict,
                            output_file: str = 'public/data/model_ratings.csv'):
@@ -292,7 +374,7 @@ def output_comprehensive_csv(models: Dict, benchmark_ratings: Dict, pricing_rati
     print(f"Results written to {output_file}")
     
     # Print simplified summary
-    print("\\n" + "="*50)
+    print("\n" + "="*50)
     print("MODEL RATINGS SUMMARY")
     print("="*50)
     print(f"Total models processed: {len(models)}")
@@ -302,35 +384,20 @@ def output_comprehensive_csv(models: Dict, benchmark_ratings: Dict, pricing_rati
                              if m['input_price'] is not None and m['output_price'] is not None)
     print(f"Models with pricing data: {models_with_pricing}")
     
-    # Benchmark category averages
-    print("\\nBenchmark category averages:")
+    # Benchmark category distributions
+    print("\nBenchmark Categories:")
     for category in sorted(categories):
         ratings = [r[category] for r in benchmark_ratings.values() if r[category] is not None]
-        if ratings:
-            avg_rating = sum(ratings) / len(ratings)
-            print(f"  {category}: {avg_rating:.2f} (n={len(ratings)})")
+        print_category_distribution(category, ratings)
+        print()  # Add spacing between categories
     
-    # Pricing affordability average
+    # Pricing affordability distribution
     pricing_ratings_valid = [r for r in pricing_ratings.values() if r is not None]
     if pricing_ratings_valid:
-        avg_pricing = sum(pricing_ratings_valid) / len(pricing_ratings_valid)
-        print(f"\\nPricing affordability average: {avg_pricing:.2f} (n={len(pricing_ratings_valid)})")
-        
-        # Pricing distribution
-        rating_ranges = {
-            "1.00-1.99": sum(1 for r in pricing_ratings_valid if 1.0 <= r < 2.0),
-            "2.00-2.99": sum(1 for r in pricing_ratings_valid if 2.0 <= r < 3.0),
-            "3.00-3.99": sum(1 for r in pricing_ratings_valid if 3.0 <= r < 4.0),
-            "4.00-4.99": sum(1 for r in pricing_ratings_valid if 4.0 <= r < 5.0),
-            "5.00": sum(1 for r in pricing_ratings_valid if r >= 5.0)
-        }
-        
-        print("\\nPricing distribution:")
-        for range_label, count in rating_ranges.items():
-            percentage = (count / len(pricing_ratings_valid)) * 100
-            print(f"  {range_label}: {count} models ({percentage:.1f}%)")
+        print("Pricing Affordability:")
+        print_category_distribution("Affordability", pricing_ratings_valid)
     
-    print("="*50)
+    print("\n" + "="*50)
 
 def main():
     """Main execution function."""
