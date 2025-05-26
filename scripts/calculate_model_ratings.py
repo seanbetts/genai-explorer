@@ -1,15 +1,21 @@
 #!/usr/bin/env python3
 """
-Calculate model ratings by benchmark category using simplified leaderboard methodology.
+Calculate comprehensive model ratings combining benchmark performance and pricing affordability.
 
-This script implements the core methodology improvements:
-1. Deduplicate scores (latest per model-benchmark pair)
-2. Normalize each benchmark to 0-1 scale using min-max
-3. Convert to 1-5 ratings with half-up rounding
-4. Average ratings within categories (no re-scaling)
-5. Handle degenerate cases properly
-6. Use proper rounding rules
-7. Return n/a for missing categories
+This script processes model data to create:
+1. Benchmark ratings (1-5) across categories using leaderboard-standard methodology
+2. Pricing affordability ratings (1-5) using percentile-based approach
+3. Combined output CSV with all ratings for each model
+
+Benchmark methodology:
+- Deduplicates scores (latest per model-benchmark pair)
+- Per-benchmark min-max normalization with half-up rounding
+- Averages ratings within categories without re-scaling
+
+Pricing methodology:
+- Combines input/output pricing (70%/30% weighting)
+- Percentile-based ratings to handle outliers
+- Rating 5 = Most affordable, Rating 1 = Most expensive
 """
 
 import json
@@ -56,17 +62,30 @@ def extract_target_models(companies_data: Dict) -> Dict[str, Dict]:
             
         for model in company['models']:
             if model.get('type') in TARGET_MODEL_TYPES:
+                specs = model.get('specs', {})
+                
+                # Extract pricing data if available
+                input_price = specs.get('pricingInputPerM')
+                output_price = specs.get('pricingOutputPerM')
+                
                 models[model['id']] = {
                     'id': model['id'],
                     'name': model['name'],
                     'type': model['type'],
-                    'company': company['name']
+                    'company': company['name'],
+                    'input_price': float(input_price) if input_price is not None else None,
+                    'output_price': float(output_price) if output_price is not None else None,
                 }
     
     print(f"Found {len(models)} models of target types:")
     for model_type in TARGET_MODEL_TYPES:
         count = sum(1 for m in models.values() if m['type'] == model_type)
         print(f"  {model_type}: {count}")
+    
+    # Count models with pricing
+    models_with_pricing = sum(1 for m in models.values() 
+                             if m['input_price'] is not None and m['output_price'] is not None)
+    print(f"Models with pricing data: {models_with_pricing}")
     
     return models
 
@@ -90,7 +109,7 @@ def create_benchmark_category_mapping(benchmarks_meta: List[Dict]) -> Dict[str, 
 
 def deduplicate_scores(benchmarks_df: pd.DataFrame, models: Dict) -> pd.DataFrame:
     """Keep only the latest score per model-benchmark pair."""
-    print("Deduplicating scores...")
+    print("Deduplicating benchmark scores...")
     
     # Filter for target models only
     target_model_ids = set(models.keys())
@@ -147,16 +166,11 @@ def normalize_and_rate_benchmarks(df: pd.DataFrame) -> pd.DataFrame:
         # Handle degenerate cases
         if len(valid_scores) == 1 or max_score == min_score:
             # Degenerate case: assign neutral rating of 3
-            print(f"  {benchmark_id}: Degenerate case (single model or min==max), assigning rating 3")
+            print(f"  {benchmark_id}: Degenerate case, assigning rating 3")
             for idx in valid_indices:
                 df.loc[idx, 'normalized_score'] = 0.5
                 df.loc[idx, 'rating_1_to_5'] = 3
-            benchmark_stats[benchmark_id] = {
-                'min': min_score,
-                'max': max_score,
-                'range': 0,
-                'degenerate': True
-            }
+            benchmark_stats[benchmark_id] = {'degenerate': True}
             continue
         
         # Normal case: min-max normalize and convert to ratings
@@ -169,7 +183,6 @@ def normalize_and_rate_benchmarks(df: pd.DataFrame) -> pd.DataFrame:
             normalized = (score - min_score) / score_range
             
             # Convert to 1-5 rating with half-up rounding
-            # rating = round_half_up(1 + 4 × norm_score)
             rating_decimal = Decimal(str(1 + 4 * normalized))
             rating = int(rating_decimal.quantize(Decimal('1'), rounding=ROUND_HALF_UP))
             rating = max(1, min(5, rating))  # Ensure bounds
@@ -177,21 +190,14 @@ def normalize_and_rate_benchmarks(df: pd.DataFrame) -> pd.DataFrame:
             df.loc[idx, 'normalized_score'] = normalized
             df.loc[idx, 'rating_1_to_5'] = rating
         
-        benchmark_stats[benchmark_id] = {
-            'min': min_score,
-            'max': max_score,
-            'range': score_range,
-            'degenerate': False
-        }
-        
-        print(f"  {benchmark_id}: range=[{min_score:.1f}, {max_score:.1f}]")
+        benchmark_stats[benchmark_id] = {'degenerate': False}
     
     return df, benchmark_stats
 
-def calculate_category_ratings(df: pd.DataFrame, models: Dict, 
-                             benchmark_categories: Dict) -> Dict[str, Dict[str, Optional[float]]]:
+def calculate_benchmark_category_ratings(df: pd.DataFrame, models: Dict, 
+                                       benchmark_categories: Dict) -> Dict[str, Dict[str, Optional[float]]]:
     """Calculate category ratings by averaging 1-5 ratings within each category."""
-    print("Calculating category ratings...")
+    print("Calculating benchmark category ratings...")
     
     model_ratings = {}
     
@@ -226,27 +232,103 @@ def calculate_category_ratings(df: pd.DataFrame, models: Dict,
         ratings = [r[category] for r in model_ratings.values() if r[category] is not None]
         if ratings:
             avg_rating = sum(ratings) / len(ratings)
-            min_rating = min(ratings)
-            max_rating = max(ratings)
-            print(f"  {category}: {len(ratings)} models, avg = {avg_rating:.2f}, range = [{min_rating:.1f}, {max_rating:.1f}]")
+            print(f"  {category}: {len(ratings)} models, avg = {avg_rating:.2f}")
     
     return model_ratings
 
-def output_csv(models: Dict, model_ratings: Dict, benchmark_stats: Dict, 
-               output_file: str = 'data/model_ratings.csv'):
-    """Output results to CSV file."""
+def calculate_pricing_ratings(models: Dict) -> Dict[str, Optional[int]]:
+    """Calculate pricing affordability ratings using percentile-based approach."""
+    print("Calculating pricing affordability ratings...")
     
-    # Get all categories
+    # Extract models with pricing data
+    models_with_pricing = {}
+    composite_scores = {}
+    
+    for model_id, model_data in models.items():
+        input_price = model_data['input_price']
+        output_price = model_data['output_price']
+        
+        if input_price is not None and output_price is not None:
+            # Weighted composite cost (70% input, 30% output)
+            composite_cost = (0.7 * input_price) + (0.3 * output_price)
+            models_with_pricing[model_id] = model_data
+            composite_scores[model_id] = composite_cost
+    
+    print(f"Models with pricing data: {len(models_with_pricing)}")
+    
+    if not composite_scores:
+        print("No models with pricing data found")
+        return {model_id: None for model_id in models.keys()}
+    
+    # Calculate percentile-based ratings
+    costs = sorted(composite_scores.values())
+    min_cost = min(costs)
+    max_cost = max(costs)
+    n = len(costs)
+    
+    print(f"Cost range: ${min_cost:.3f} - ${max_cost:.3f} per million tokens")
+    
+    if max_cost == min_cost:
+        print("All models have the same cost, assigning rating 3")
+        ratings = {model_id: 3 for model_id in composite_scores.keys()}
+    else:
+        # Calculate percentile thresholds
+        p20 = costs[int(0.2 * n)] if n > 1 else costs[0]
+        p40 = costs[int(0.4 * n)] if n > 1 else costs[0]
+        p60 = costs[int(0.6 * n)] if n > 1 else costs[0]
+        p80 = costs[int(0.8 * n)] if n > 1 else costs[0]
+        
+        print(f"Percentile thresholds: ${p20:.3f}, ${p40:.3f}, ${p60:.3f}, ${p80:.3f}")
+        
+        ratings = {}
+        for model_id, cost in composite_scores.items():
+            if cost <= p20:
+                rating = 5  # Most affordable
+            elif cost <= p40:
+                rating = 4  # Very affordable
+            elif cost <= p60:
+                rating = 3  # Moderately priced
+            elif cost <= p80:
+                rating = 2  # Expensive
+            else:
+                rating = 1  # Most expensive
+            
+            ratings[model_id] = rating
+    
+    # Extend to all models (None for models without pricing)
+    all_ratings = {}
+    for model_id in models.keys():
+        all_ratings[model_id] = ratings.get(model_id, None)
+    
+    # Print distribution
+    rating_counts = {}
+    for rating in [1, 2, 3, 4, 5]:
+        rating_counts[rating] = sum(1 for r in ratings.values() if r == rating)
+    
+    total_with_pricing = len(ratings)
+    for rating in [1, 2, 3, 4, 5]:
+        count = rating_counts[rating]
+        percentage = (count / total_with_pricing) * 100 if total_with_pricing > 0 else 0
+        print(f"  Rating {rating}: {count} models ({percentage:.1f}%)")
+    
+    return all_ratings
+
+def output_comprehensive_csv(models: Dict, benchmark_ratings: Dict, pricing_ratings: Dict,
+                           output_file: str = 'data/model_ratings.csv'):
+    """Output comprehensive ratings to CSV file."""
+    
+    # Get all benchmark categories
     all_categories = set()
-    for ratings in model_ratings.values():
+    for ratings in benchmark_ratings.values():
         all_categories.update(ratings.keys())
     
     categories = sorted(list(all_categories))
     
-    print(f"Writing results to {output_file}...")
+    print(f"Writing comprehensive results to {output_file}...")
     
     with open(output_file, 'w', newline='') as csvfile:
-        fieldnames = ['model_id', 'model_name', 'model_type', 'company'] + categories
+        fieldnames = (['model_id', 'model_name', 'model_type', 'company'] + 
+                     categories + ['pricing_affordability'])
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
         writer.writeheader()
@@ -262,34 +344,39 @@ def output_csv(models: Dict, model_ratings: Dict, benchmark_stats: Dict,
                 'company': model_info['company']
             }
             
-            # Add category ratings (rounded to nearest whole number)
+            # Add benchmark category ratings (rounded to nearest whole number)
             for category in categories:
-                rating = model_ratings[model_id].get(category)
+                rating = benchmark_ratings[model_id].get(category)
                 if rating is not None:
                     row[category] = round(rating)
                 else:
                     row[category] = 'n/a'
+            
+            # Add pricing affordability rating
+            pricing_rating = pricing_ratings.get(model_id)
+            row['pricing_affordability'] = pricing_rating if pricing_rating is not None else 'n/a'
             
             writer.writerow(row)
     
     print(f"Results written to {output_file}")
     
     # Print summary statistics
-    print("\\nSummary:")
+    print("\\nComprehensive Ratings Summary:")
     print(f"Total models: {len(models)}")
-    print(f"Categories: {', '.join(categories)}")
-    print(f"Benchmarks processed: {len(benchmark_stats)}")
-    print(f"Degenerate benchmarks: {sum(1 for s in benchmark_stats.values() if s.get('degenerate', False))}")
+    print(f"Benchmark categories: {', '.join(categories)}")
     
+    # Benchmark category stats
     for category in categories:
-        ratings = [r[category] for r in model_ratings.values() if r[category] is not None]
+        ratings = [r[category] for r in benchmark_ratings.values() if r[category] is not None]
         if ratings:
             avg_rating = sum(ratings) / len(ratings)
-            min_rating = min(ratings)
-            max_rating = max(ratings)
-            print(f"  {category}: {len(ratings)} models rated, avg = {avg_rating:.2f}, range = [{min_rating:.1f}, {max_rating:.1f}]")
-        else:
-            print(f"  {category}: No models rated")
+            print(f"  {category}: {len(ratings)} models, avg = {avg_rating:.2f}")
+    
+    # Pricing stats
+    pricing_ratings_valid = [r for r in pricing_ratings.values() if r is not None]
+    if pricing_ratings_valid:
+        avg_pricing = sum(pricing_ratings_valid) / len(pricing_ratings_valid)
+        print(f"  Pricing affordability: {len(pricing_ratings_valid)} models, avg = {avg_pricing:.2f}")
 
 def main():
     """Main execution function."""
@@ -304,6 +391,7 @@ def main():
             print("No models found of target types!")
             return
         
+        # === BENCHMARK RATINGS ===
         # Create benchmark category mapping
         benchmark_categories = create_benchmark_category_mapping(benchmarks_meta)
         
@@ -313,11 +401,14 @@ def main():
         # Normalize and convert to ratings
         rated_df, benchmark_stats = normalize_and_rate_benchmarks(deduplicated_df)
         
-        # Calculate category ratings
-        model_ratings = calculate_category_ratings(rated_df, models, benchmark_categories)
+        # Calculate benchmark category ratings
+        benchmark_ratings = calculate_benchmark_category_ratings(rated_df, models, benchmark_categories)
         
-        # Output results
-        output_csv(models, model_ratings, benchmark_stats)
+        # === PRICING RATINGS ===
+        pricing_ratings = calculate_pricing_ratings(models)
+        
+        # === OUTPUT COMBINED RESULTS ===
+        output_comprehensive_csv(models, benchmark_ratings, pricing_ratings)
         
     except FileNotFoundError as e:
         print(f"Error: Could not find required data file - {e}")

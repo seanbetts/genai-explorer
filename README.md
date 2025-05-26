@@ -34,11 +34,18 @@ The Generative AI Explorer is designed to help everyone get a better understandi
   - **Audio Generation**: Voice and music generation models with audio samples
   - **Specialized AI Platforms**: Specialized platforms leveraging generative AI for specific tasks
 - **Benchmark Explorer**: Performance data on industry-standard benchmarks with:
-  - Benchmark categorization (usability, agentic, coding, factuality, maths, multimodal, reasoning, research, science)
+  - Benchmark categorization (General Intelligence, STEM, agentic, coding, reasoning)
   - Featured benchmarks section highlighting the most prominent and popular benchmarks
   - Performance rankings of all models for each benchmark
   - Historical scores with sources and dates
   - Detailed benchmark information with links to research papers
+- **Comprehensive Model Rating System**: Industry-standard 1-5 rating system covering both performance and affordability:
+  - **Benchmark Performance**: Processes 88+ models across 47 benchmarks using leaderboard methodology
+  - **Pricing Affordability**: Percentile-based ratings combining input/output costs (70%/30% weighting)
+  - Deduplicates scores keeping only latest per model-benchmark pair
+  - Applies per-benchmark min-max normalization with half-up rounding
+  - Handles outliers using percentile thresholds for balanced distribution
+  - Produces realistic spread across all rating levels (1-5)
 - **Resource Links**: Access to documentation, model cards, research papers, and more
 - **Responsive UI**: Optimized for both desktop and mobile viewing
 - **Static Generation**: Pre-rendered pages for fast loading and SEO benefits
@@ -85,13 +92,15 @@ genai-explorer/
 │   ├── config/             # Brand configuration
 │   └── page.tsx            # Main entry point
 ├── data/                   # Data sources
-│   └── data.json           # Company and model data
+│   ├── data.json           # Company and model data
+│   └── model_ratings.csv   # Generated model ratings by category
 ├── public/                 # Static assets
 │   ├── audio/              # Audio examples
 │   ├── data/               # Benchmark data files
 │   ├── images/             # Company logos and media
 │   └── videos/             # Video examples
 ├── scripts/                # Utility scripts
+│   ├── calculate_model_ratings.py  # Model rating calculation script
 │   ├── convert-to-webp.js        # Image conversion script
 │   └── process_benchmarks.py     # Benchmark processing script
 ├── netlify.toml            # Netlify configuration
@@ -155,6 +164,41 @@ The application includes a Model Comparer feature that allows users to:
 - Identify the best model for specific use cases
 - View detailed specifications in a comparative format
 
+## Comprehensive Model Rating System
+
+The application includes a comprehensive model rating system that generates standardized 1-5 ratings covering both performance and affordability:
+
+### Benchmark Performance Methodology
+- **Deduplication**: Keeps only the latest score per model-benchmark pair (removed 593+ duplicates)
+- **Normalization**: Per-benchmark min-max scaling to 0-1 range
+- **Rating Conversion**: Half-up rounding to convert to 1-5 integer ratings
+- **Category Aggregation**: Simple average of ratings within each category
+- **Missing Data Handling**: Returns 'n/a' for categories without benchmark data
+
+### Pricing Affordability Methodology
+- **Composite Scoring**: Combines input (70%) and output (30%) pricing per million tokens
+- **Percentile-Based Ratings**: Uses quintiles to handle outliers and ensure balanced distribution
+- **Affordability Scale**: Rating 5 = Most affordable, Rating 1 = Most expensive
+- **Outlier Handling**: Prevents extreme costs from skewing the entire scale
+
+### Usage
+To regenerate comprehensive model ratings:
+```bash
+python scripts/calculate_model_ratings.py
+```
+
+This processes the latest benchmark and pricing data and outputs `data/model_ratings.csv` with ratings for:
+
+**Performance Categories:**
+- **General Intelligence**: Knowledge and reasoning benchmarks
+- **STEM**: Science, technology, engineering, and mathematics
+- **agentic**: Tool use and autonomous task completion
+- **coding**: Programming and software development
+- **reasoning**: Logic, problem-solving, and analytical thinking
+
+**Affordability:**
+- **pricing_affordability**: Cost-effectiveness rating based on API pricing
+
 ## Contributing
 
 Contributions to improve the explorer are welcome. Please feel free to submit a pull request or open an issue to discuss potential enhancements. Suggestions for new categories, companies, models, or benchmarks that would benefit users are particularly appreciated.
@@ -165,6 +209,7 @@ The application uses structured data formats:
 - **data.json**: Main data file with comprehensive information on companies, models, features, products, and specifications
 - **benchmarks.csv**: CSV format for benchmark scores by model and benchmark
 - **benchmarks-meta.json**: Metadata about benchmarks including categories, descriptions, and source information
+- **model_ratings.csv**: Generated 1-5 ratings for models covering both benchmark performance and pricing affordability
 
 The data structure is designed to be extensible, allowing new companies, models, and benchmarks to be added easily.
 
