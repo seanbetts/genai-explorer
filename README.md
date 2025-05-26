@@ -171,15 +171,15 @@ The application includes a comprehensive model rating system that generates stan
 ### Benchmark Performance Methodology
 - **Deduplication**: Keeps only the latest score per model-benchmark pair (removed 593+ duplicates)
 - **Normalization**: Per-benchmark min-max scaling to 0-1 range
-- **Rating Conversion**: Half-up rounding to convert to 1-5 integer ratings
+- **Rating Conversion**: Half-up rounding to convert to 1-5 ratings with 2 decimal precision
 - **Category Aggregation**: Simple average of ratings within each category
 - **Missing Data Handling**: Returns 'n/a' for categories without benchmark data
 
 ### Pricing Affordability Methodology
 - **Composite Scoring**: Combines input (70%) and output (30%) pricing per million tokens
-- **Percentile-Based Ratings**: Uses quintiles to handle outliers and ensure balanced distribution
-- **Affordability Scale**: Rating 5 = Most affordable, Rating 1 = Most expensive
-- **Outlier Handling**: Prevents extreme costs from skewing the entire scale
+- **Min-Max Normalization**: Scales costs to 1.00-5.00 range with 2 decimal precision
+- **Affordability Scale**: Rating 5.00 = Most affordable, Rating 1.00 = Most expensive
+- **Smooth Distribution**: Provides granular differentiation across the full cost spectrum
 
 ### Usage
 To regenerate comprehensive model ratings:

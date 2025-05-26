@@ -236,7 +236,7 @@ def calculate_benchmark_category_ratings(df: pd.DataFrame, models: Dict,
     
     return model_ratings
 
-def calculate_pricing_ratings(models: Dict) -> Dict[str, Optional[int]]:
+def calculate_pricing_ratings(models: Dict) -> Dict[str, Optional[float]]:
     """Calculate pricing affordability ratings using percentile-based approach."""
     print("Calculating pricing affordability ratings...")
     
@@ -269,47 +269,46 @@ def calculate_pricing_ratings(models: Dict) -> Dict[str, Optional[int]]:
     print(f"Cost range: ${min_cost:.3f} - ${max_cost:.3f} per million tokens")
     
     if max_cost == min_cost:
-        print("All models have the same cost, assigning rating 3")
-        ratings = {model_id: 3 for model_id in composite_scores.keys()}
+        print("All models have the same cost, assigning rating 3.00")
+        ratings = {model_id: 3.0 for model_id in composite_scores.keys()}
     else:
-        # Calculate percentile thresholds
-        p20 = costs[int(0.2 * n)] if n > 1 else costs[0]
-        p40 = costs[int(0.4 * n)] if n > 1 else costs[0]
-        p60 = costs[int(0.6 * n)] if n > 1 else costs[0]
-        p80 = costs[int(0.8 * n)] if n > 1 else costs[0]
-        
-        print(f"Percentile thresholds: ${p20:.3f}, ${p40:.3f}, ${p60:.3f}, ${p80:.3f}")
-        
+        # Use min-max normalization for more precise ratings
+        # Invert the scale so lower cost = higher rating
         ratings = {}
         for model_id, cost in composite_scores.items():
-            if cost <= p20:
-                rating = 5  # Most affordable
-            elif cost <= p40:
-                rating = 4  # Very affordable
-            elif cost <= p60:
-                rating = 3  # Moderately priced
-            elif cost <= p80:
-                rating = 2  # Expensive
-            else:
-                rating = 1  # Most expensive
+            # Normalize cost to 0-1 range
+            normalized_cost = (cost - min_cost) / (max_cost - min_cost)
+            
+            # Invert for affordability (lower cost = higher rating)
+            affordability_score = 1.0 - normalized_cost
+            
+            # Scale to 1-5 range (no rounding, keep precision)
+            rating = 1.0 + (4.0 * affordability_score)
             
             ratings[model_id] = rating
+        
+        print(f"Cost normalization: ${min_cost:.3f} (rating 5.00) to ${max_cost:.3f} (rating 1.00)")
     
     # Extend to all models (None for models without pricing)
     all_ratings = {}
     for model_id in models.keys():
         all_ratings[model_id] = ratings.get(model_id, None)
     
-    # Print distribution
-    rating_counts = {}
-    for rating in [1, 2, 3, 4, 5]:
-        rating_counts[rating] = sum(1 for r in ratings.values() if r == rating)
-    
+    # Print distribution by rating ranges
     total_with_pricing = len(ratings)
-    for rating in [1, 2, 3, 4, 5]:
-        count = rating_counts[rating]
-        percentage = (count / total_with_pricing) * 100 if total_with_pricing > 0 else 0
-        print(f"  Rating {rating}: {count} models ({percentage:.1f}%)")
+    if total_with_pricing > 0:
+        rating_ranges = {
+            "1.00-1.99": sum(1 for r in ratings.values() if 1.0 <= r < 2.0),
+            "2.00-2.99": sum(1 for r in ratings.values() if 2.0 <= r < 3.0),
+            "3.00-3.99": sum(1 for r in ratings.values() if 3.0 <= r < 4.0),
+            "4.00-4.99": sum(1 for r in ratings.values() if 4.0 <= r < 5.0),
+            "5.00": sum(1 for r in ratings.values() if r >= 5.0)
+        }
+        
+        print("  Rating distribution:")
+        for range_label, count in rating_ranges.items():
+            percentage = (count / total_with_pricing) * 100
+            print(f"    {range_label}: {count} models ({percentage:.1f}%)")
     
     return all_ratings
 
@@ -344,17 +343,20 @@ def output_comprehensive_csv(models: Dict, benchmark_ratings: Dict, pricing_rati
                 'company': model_info['company']
             }
             
-            # Add benchmark category ratings (rounded to nearest whole number)
+            # Add benchmark category ratings (rounded to 2 decimal places)
             for category in categories:
                 rating = benchmark_ratings[model_id].get(category)
                 if rating is not None:
-                    row[category] = round(rating)
+                    row[category] = round(rating, 2)
                 else:
                     row[category] = 'n/a'
             
-            # Add pricing affordability rating
+            # Add pricing affordability rating (2 decimal places)
             pricing_rating = pricing_ratings.get(model_id)
-            row['pricing_affordability'] = pricing_rating if pricing_rating is not None else 'n/a'
+            if pricing_rating is not None:
+                row['pricing_affordability'] = round(pricing_rating, 2)
+            else:
+                row['pricing_affordability'] = 'n/a'
             
             writer.writerow(row)
     
