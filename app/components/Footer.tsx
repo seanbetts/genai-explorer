@@ -95,7 +95,7 @@ const Footer: React.FC<FooterProps> = ({
                       }
                     }}
                   >
-                    <i className="bi bi-trophy mr-1.5" style={{ color: brandConfig.primaryColor }}></i>
+                    <i className="bi bi-award mr-1.5" style={{ color: brandConfig.primaryColor }}></i>
                     <span>Benchmark Explorer</span>
                   </Link>
                 </li>
@@ -126,7 +126,7 @@ const Footer: React.FC<FooterProps> = ({
                       }
                     }}
                   >
-                    <i className="bi bi-bar-chart-line mr-1.5" style={{ color: brandConfig.primaryColor }}></i>
+                    <i className="bi bi-table mr-1.5" style={{ color: brandConfig.primaryColor }}></i>
                     <span>Model Comparer</span>
                   </Link>
                 </li>

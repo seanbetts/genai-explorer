@@ -140,15 +140,11 @@ const BenchmarkExplorerView: React.FC<BenchmarkExplorerViewProps> = ({ onBenchma
   const getCategoryStyle = (category: BenchmarkCategory): string => categoryStyles.common.full;
   const getCategoryIcon = (category: BenchmarkCategory): string => {
     const iconMap: Record<BenchmarkCategory, string> = {
-      'usability': 'bi-chat-dots',
-      'reasoning': 'bi-lightbulb',
-      'coding': 'bi-code-square',
-      'factuality': 'bi-check-circle',
-      'maths': 'bi-calculator',
-      'multimodal': 'bi-camera-video', // Updated icon for multimodal
-      'science': 'bi-journal-richtext', // Updated icon for scientific knowledge
       'agentic': 'bi-robot',
-      'research': 'bi-journal-text'
+      'coding': 'bi-code-square',
+      'reasoning': 'bi-lightbulb',
+      'General Intelligence': 'bi-cpu',
+      'STEM': 'bi-calculator'
     };
     return iconMap[category] || 'bi-trophy';
   };
@@ -175,10 +171,20 @@ const BenchmarkExplorerView: React.FC<BenchmarkExplorerViewProps> = ({ onBenchma
   
   // Function to gather all featured benchmarks
   const getFeaturedBenchmarks = () => {
+    // Define category order
+    const categoryOrder = ['General Intelligence', 'reasoning', 'agentic', 'coding', 'STEM'];
+    
     // Collect all benchmarks from each category
     const allBenchmarks = Object.values(categorizedBenchmarks).flat();
     // Filter for only featured benchmarks
-    return allBenchmarks.filter(benchmark => benchmark.featured_benchmark);
+    const featured = allBenchmarks.filter(benchmark => benchmark.featured_benchmark);
+    
+    // Sort by category order
+    return featured.sort((a, b) => {
+      const aIndex = categoryOrder.indexOf(a.benchmark_category);
+      const bIndex = categoryOrder.indexOf(b.benchmark_category);
+      return aIndex - bIndex;
+    });
   };
   
   // Get featured benchmarks

@@ -21,7 +21,7 @@ export interface BenchmarkScore {
   source?: string;
 }
 
-export type BenchmarkCategory = 'usability' | 'agentic' | 'coding' | 'factuality' | 'maths' | 'multimodal' | 'reasoning' | 'research' | 'science';
+export type BenchmarkCategory = 'agentic' | 'coding' | 'reasoning' | 'General Intelligence' | 'STEM';
 export interface Feature {
   name: string;
   description: string;

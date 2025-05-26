@@ -356,7 +356,7 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onTypeSelected, res
         {/* Header */}
         <div className="text-center mb-6">
           <h1 className={`text-2xl font-semibold ${textStyles.primary} mb-2 flex items-center justify-center gap-3`}>
-            <i className={`bi bi-bar-chart-line ${brandConfig.name === 'OMG' ? 'text-blue-600' : 'text-fuchsia-500'}`}></i>
+            <i className={`bi bi-table ${brandConfig.name === 'OMG' ? 'text-blue-600' : 'text-fuchsia-500'}`}></i>
             Model Comparer
           </h1>
           <p className={textStyles.secondary}>
@@ -421,7 +421,7 @@ const ModelComparer: React.FC<ModelComparerProps> = ({ data, onTypeSelected, res
           {/* Header */}
           <div className="text-center mb-6">
             <h1 className={`text-2xl font-semibold ${textStyles.primary} mb-2 flex items-center justify-center gap-3`}>
-              <i className={`bi bi-bar-chart-line ${brandConfig.name === 'OMG' ? 'text-blue-600' : 'text-fuchsia-500'}`}></i>
+              <i className={`bi bi-table ${brandConfig.name === 'OMG' ? 'text-blue-600' : 'text-fuchsia-500'}`}></i>
               Model Comparer
             </h1>
             <p className={textStyles.secondary}>

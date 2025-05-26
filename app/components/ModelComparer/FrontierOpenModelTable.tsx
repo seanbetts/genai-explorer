@@ -104,8 +104,24 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
     );
   };
   
-  // Get featured benchmarks
-  const featuredBenchmarks = benchmarks.filter(b => b.featured_benchmark);
+  // Get featured benchmarks and sort by category order
+  const featuredBenchmarks = benchmarks
+    .filter(b => b.featured_benchmark)
+    .sort((a, b) => {
+      const categoryOrder = ['General Intelligence', 'reasoning', 'agentic', 'coding', 'STEM'];
+      const aIndex = categoryOrder.indexOf(a.benchmark_category);
+      const bIndex = categoryOrder.indexOf(b.benchmark_category);
+      
+      // If both categories are in our order list, use that ordering
+      if (aIndex !== -1 && bIndex !== -1) {
+        return aIndex - bIndex;
+      }
+      // If only one is in the list, prioritize it
+      if (aIndex !== -1) return -1;
+      if (bIndex !== -1) return 1;
+      // Otherwise sort alphabetically for any unknown categories
+      return a.benchmark_category.localeCompare(b.benchmark_category);
+    });
   
   // Helper function to get latest score for a model and benchmark with metadata
   const getModelBenchmarkData = (modelId: string, benchmarkId: string): { 

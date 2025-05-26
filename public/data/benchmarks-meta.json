@@ -138,7 +138,7 @@
   {
     "benchmark_id": "chatbot-arena",
     "benchmark_name": "Chatbot Arena",
-    "benchmark_category": "usability",
+    "benchmark_category": "General Intelligence",
     "featured_benchmark": true,
     "benchmark_description": "An open platform for crowdsourced AI benchmarking",
     "benchmark_paper": "https://lmarena.ai"
@@ -146,7 +146,7 @@
   {
     "benchmark_id": "mmlu",
     "benchmark_name": "MMLU",
-    "benchmark_category": "usability",
+    "benchmark_category": "General Intelligence",
     "featured_benchmark": false,
     "benchmark_description": "Measuring Massive Multitask Language Understanding",
     "benchmark_paper": "https://github.com/hendrycks/test"
@@ -154,7 +154,7 @@
   {
     "benchmark_id": "mmlu-pro",
     "benchmark_name": "MMLU-pro",
-    "benchmark_category": "usability",
+    "benchmark_category": "General Intelligence",
     "featured_benchmark": false,
     "benchmark_description": "Enhanced version of popular MMLU dataset with questions across multiple subjects with higher difficulty tasks",
     "benchmark_paper": "https://github.com/TIGER-AI-Lab/MMLU-Pro"
@@ -162,7 +162,7 @@
   {
     "benchmark_id": "multilingual-mmlu",
     "benchmark_name": "Multilingual MMLU",
-    "benchmark_category": "usability",
+    "benchmark_category": "General Intelligence",
     "featured_benchmark": false,
     "benchmark_description": "Evaluates models across 26 different languages and encompass three distinct tasks: ARC, HellaSwag, and MMLU",
     "benchmark_paper": "https://github.com/nlp-uoregon/mlmm-evaluation"
@@ -170,7 +170,7 @@
   {
     "benchmark_id": "facts-grounding",
     "benchmark_name": "FACTS Grounding",
-    "benchmark_category": "factuality",
+    "benchmark_category": "General Intelligence",
     "featured_benchmark": false,
     "benchmark_description": "Ability to provide factuality correct responses given documents and diverse user requests",
     "benchmark_paper": "https://storage.googleapis.com/deepmind-media/FACTS/FACTS_grounding_paper.pdf"
@@ -178,7 +178,7 @@
   {
     "benchmark_id": "loft",
     "benchmark_name": "LOFT (128k)",
-    "benchmark_category": "factuality",
+    "benchmark_category": "General Intelligence",
     "featured_benchmark": false,
     "benchmark_description": "Consists of 6 long-context task categories spanning retrieval, multi-hop compositional reasoning, and more",
     "benchmark_paper": "https://github.com/google-deepmind/loft"
@@ -186,7 +186,7 @@
   {
     "benchmark_id": "mrcr",
     "benchmark_name": "MRCR (1M)",
-    "benchmark_category": "factuality",
+    "benchmark_category": "General Intelligence",
     "featured_benchmark": false,
     "benchmark_description": "Novel, diagnostic long-context 71.9% understanding evaluation",
     "benchmark_paper": "https://arxiv.org/pdf/2409.12640v2"
@@ -194,7 +194,7 @@
   {
     "benchmark_id": "simple-qa",
     "benchmark_name": "SimpleQA",
-    "benchmark_category": "factuality",
+    "benchmark_category": "General Intelligence",
     "featured_benchmark": false,
     "benchmark_description": "World knowledge factuality with no search enabled",
     "benchmark_paper": "https://arxiv.org/abs/2411.04368"
@@ -202,7 +202,7 @@
   {
     "benchmark_id": "aime-2024",
     "benchmark_name": "AIME 2024",
-    "benchmark_category": "maths",
+    "benchmark_category": "STEM",
     "featured_benchmark": false,
     "benchmark_description": "The series of exams used to challenge bright students on the path toward choosing the team that represents the United States at the International Mathematics Olympiad (IMO)",
     "benchmark_paper": "https://artofproblemsolving.com/wiki/index.php/AIME_Problems_and_Solutions"
@@ -210,7 +210,7 @@
   {
     "benchmark_id": "aime-2025",
     "benchmark_name": "AIME 2025",
-    "benchmark_category": "maths",
+    "benchmark_category": "STEM",
     "featured_benchmark": false,
     "benchmark_description": "The series of exams used to challenge bright students on the path toward choosing the team that represents the United States at the International Mathematics Olympiad (IMO)",
     "benchmark_paper": "https://artofproblemsolving.com/wiki/index.php/AIME_Problems_and_Solutions"
@@ -218,7 +218,7 @@
   {
     "benchmark_id": "gsm8k",
     "benchmark_name": "GSM8K",
-    "benchmark_category": "maths",
+    "benchmark_category": "STEM",
     "featured_benchmark": false,
     "benchmark_description": "A dataset of 8.5K high quality linguistically diverse grade school math word problems",
     "benchmark_paper": "https://arxiv.org/pdf/2110.14168"
@@ -226,7 +226,7 @@
   {
     "benchmark_id": "hidden-math",
     "benchmark_name": "HiddenMath",
-    "benchmark_category": "maths",
+    "benchmark_category": "STEM",
     "featured_benchmark": false,
     "benchmark_description": "Competition-level math problems, Held out dataset AIME/AMC-like, crafted by experts and not leaked on the web",
     "benchmark_paper": null
@@ -234,7 +234,7 @@
   {
     "benchmark_id": "math",
     "benchmark_name": "MATH",
-    "benchmark_category": "maths",
+    "benchmark_category": "STEM",
     "featured_benchmark": false,
     "benchmark_description": "Challenging math problems (incl. algebra, geometry, pre-calculus, and others)",
     "benchmark_paper": "https://arxiv.org/pdf/2103.03874"
@@ -242,7 +242,7 @@
   {
     "benchmark_id": "math-500",
     "benchmark_name": "Math 500",
-    "benchmark_category": "maths",
+    "benchmark_category": "STEM",
     "featured_benchmark": false,
     "benchmark_description": "500 Challenging math problems (incl. algebra, geometry, pre-calculus, and others)",
     "benchmark_paper": "https://arxiv.org/pdf/2103.03874"
@@ -250,7 +250,7 @@
   {
     "benchmark_id": "math-vista",
     "benchmark_name": "MathVista",
-    "benchmark_category": "maths",
+    "benchmark_category": "STEM",
     "featured_benchmark": false,
     "benchmark_description": "A benchmark designed to combine challenges from diverse mathematical and visual tasks",
     "benchmark_paper": "https://mathvista.github.io"
@@ -258,7 +258,7 @@
   {
     "benchmark_id": "mgsm",
     "benchmark_name": "Mathematical Grade School Math",
-    "benchmark_category": "maths",
+    "benchmark_category": "STEM",
     "featured_benchmark": false,
     "benchmark_description": "Multilingual Grade School Math Benchmark",
     "benchmark_paper": "https://arxiv.org/pdf/2210.03057"
@@ -266,7 +266,7 @@
   {
     "benchmark_id": "co-vo-st2",
     "benchmark_name": "CoVoST2",
-    "benchmark_category": "multimodal",
+    "benchmark_category": "General Intelligence",
     "featured_benchmark": false,
     "benchmark_description": "Automatic speech translation",
     "benchmark_paper": "https://github.com/facebookresearch/covost"
@@ -274,7 +274,7 @@
   {
     "benchmark_id": "doc-vqa",
     "benchmark_name": "DocVQA",
-    "benchmark_category": "multimodal",
+    "benchmark_category": "General Intelligence",
     "featured_benchmark": false,
     "benchmark_description": "A series of challenges and release datasets to enable machines \"understand\" document images and thereby answer questions asked on them",
     "benchmark_paper": "https://www.docvqa.org"
@@ -282,7 +282,7 @@
   {
     "benchmark_id": "ego-schema",
     "benchmark_name": "EgoSchema",
-    "benchmark_category": "multimodal",
+    "benchmark_category": "General Intelligence",
     "featured_benchmark": false,
     "benchmark_description": "Video analysis across multiple domains",
     "benchmark_paper": "https://arxiv.org/pdf/2308.09126"
@@ -290,7 +290,7 @@
   {
     "benchmark_id": "mmmu",
     "benchmark_name": "MMMU",
-    "benchmark_category": "multimodal",
+    "benchmark_category": "General Intelligence",
     "featured_benchmark": true,
     "benchmark_description": "Multi-discipline college-level multimodal understanding and reasoning problems",
     "benchmark_paper": "https://mmmu-benchmark.github.io"
@@ -298,7 +298,7 @@
   {
     "benchmark_id": "video-mme",
     "benchmark_name": "Video-MME",
-    "benchmark_category": "multimodal",
+    "benchmark_category": "General Intelligence",
     "featured_benchmark": false,
     "benchmark_description": "A full-spectrum Multi-Modal Evaluation benchmark of MLLMs in Video analysis",
     "benchmark_paper": "https://video-mme.github.io/home_page.html"
@@ -362,7 +362,7 @@
   {
     "benchmark_id": "ai2d",
     "benchmark_name": "AI2D",
-    "benchmark_category": "science",
+    "benchmark_category": "STEM",
     "featured_benchmark": false,
     "benchmark_description": "A dataset of over 5,000 grade school science diagrams with over 150,000 rich annotations",
     "benchmark_paper": "https://paperswithcode.com/dataset/ai2d"
@@ -370,7 +370,7 @@
   {
     "benchmark_id": "gpqa-diamond",
     "benchmark_name": "GPQA Diamond",
-    "benchmark_category": "science",
+    "benchmark_category": "STEM",
     "featured_benchmark": true,
     "benchmark_description": "Challenging dataset of questions written by domain experts in biology, physics, and chemistry",
     "benchmark_paper": "https://arxiv.org/abs/2311.12022"

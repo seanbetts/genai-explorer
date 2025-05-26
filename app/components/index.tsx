@@ -359,7 +359,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData, benchmarkPageConte
               }}
             >
               <i 
-                className="bi bi-trophy mr-1.5" 
+                className="bi bi-award mr-1.5" 
                 style={{ color: brandConfig.primaryColor }}
               ></i>
               <span>Benchmark Explorer</span>
@@ -397,7 +397,7 @@ const AIExplorer: React.FC<AIExplorerProps> = ({ initialData, benchmarkPageConte
               }}
             >
               <i 
-                className="bi bi-bar-chart-line mr-1.5" 
+                className="bi bi-table mr-1.5" 
                 style={{ color: brandConfig.primaryColor }}
               ></i>
               <span>Model Comparer</span>

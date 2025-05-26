@@ -1,4 +1,4 @@
-model_id,company_id,becnhmark_id,score,date,notes,source_name,source
+model_id,company_id,benchmark_id,score,date,notes,source_name,source
 gemini-1-5-pro,google-deepmind,ai2d,94.4,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-flash,google-deepmind,ai2d,91.7,2024-02-15,,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530
 gemini-1-5-pro,google-deepmind,big-bench-hard,89.2,2024-02-15,3-shot,Gemini 1.5 announcement,https://arxiv.org/pdf/2403.05530

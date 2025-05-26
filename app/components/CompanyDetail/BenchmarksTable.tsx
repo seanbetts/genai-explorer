@@ -423,9 +423,26 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
     });
   }, [models, enrichModels]);
   
-  // Filter benchmarks to get only featured ones - memoized to avoid filtering on every render
+  // Filter benchmarks to get only featured ones and sort by category - memoized to avoid filtering on every render
   const featuredBenchmarks = useMemo(() => {
-    return benchmarks.filter(benchmark => benchmark.featured_benchmark);
+    const featured = benchmarks.filter(benchmark => benchmark.featured_benchmark);
+    
+    // Sort by category order
+    const categoryOrder = ['General Intelligence', 'reasoning', 'agentic', 'coding', 'STEM'];
+    return featured.sort((a, b) => {
+      const aIndex = categoryOrder.indexOf(a.benchmark_category);
+      const bIndex = categoryOrder.indexOf(b.benchmark_category);
+      
+      // If both categories are in our order list, use that ordering
+      if (aIndex !== -1 && bIndex !== -1) {
+        return aIndex - bIndex;
+      }
+      // If only one is in the list, prioritize it
+      if (aIndex !== -1) return -1;
+      if (bIndex !== -1) return 1;
+      // Otherwise sort alphabetically for any unknown categories
+      return a.benchmark_category.localeCompare(b.benchmark_category);
+    });
   }, [benchmarks]);
   
   // Filter and sort categories - memoized to avoid recomputation on every render
@@ -441,13 +458,20 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
           });
         });
       })
-      // Sort categories to ensure usability is first, then alphabetical
+      // Sort categories using the same order as the benchmark explorer
       .sort(([categoryA], [categoryB]) => {
-        // If categoryA is usability, it should come first
-        if (categoryA === 'usability') return -1;
-        // If categoryB is usability, it should come first
-        if (categoryB === 'usability') return 1;
-        // Otherwise sort alphabetically
+        const categoryOrder = ['General Intelligence', 'reasoning', 'agentic', 'coding', 'STEM'];
+        const aIndex = categoryOrder.indexOf(categoryA);
+        const bIndex = categoryOrder.indexOf(categoryB);
+        
+        // If both categories are in our order list, use that ordering
+        if (aIndex !== -1 && bIndex !== -1) {
+          return aIndex - bIndex;
+        }
+        // If only one is in the list, prioritize it
+        if (aIndex !== -1) return -1;
+        if (bIndex !== -1) return 1;
+        // Otherwise sort alphabetically for any unknown categories
         return categoryA.localeCompare(categoryB);
       });
   }, [groupedBenchmarks, sortedModels, benchmarkScores]);
