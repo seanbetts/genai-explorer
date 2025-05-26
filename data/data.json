@@ -975,7 +975,7 @@
               "text"
             ],
             "maxInputTokens": 200000,
-            "maxOutputTokens": 64000,
+            "maxOutputTokens": 32000,
             "knowledgeCutoff": "March 2025",
             "pricingInputPerM": 15,
             "pricingCachedInputPerM": 1.5,
