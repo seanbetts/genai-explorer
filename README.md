@@ -92,11 +92,13 @@ genai-explorer/
 │   ├── config/             # Brand configuration
 │   └── page.tsx            # Main entry point
 ├── data/                   # Data sources
-│   ├── data.json           # Company and model data
-│   └── model_ratings.csv   # Generated model ratings by category
+│   └── data.json           # Company and model data
 ├── public/                 # Static assets
 │   ├── audio/              # Audio examples
-│   ├── data/               # Benchmark data files
+│   ├── data/               # Processed data files
+│   │   ├── benchmarks.csv        # Benchmark scores
+│   │   ├── benchmarks-meta.json  # Benchmark metadata
+│   │   └── model_ratings.csv     # Generated model ratings
 │   ├── images/             # Company logos and media
 │   └── videos/             # Video examples
 ├── scripts/                # Utility scripts
@@ -193,7 +195,7 @@ python scripts/process_benchmarks.py
 ```
 This processes benchmark data from Excel, converts to CSV/JSON formats, then automatically calculates comprehensive model ratings.
 
-The output includes `data/model_ratings.csv` with ratings for:
+The output includes `public/data/model_ratings.csv` with ratings for:
 
 **Performance Categories:**
 - **General Intelligence**: Knowledge and reasoning benchmarks

@@ -313,7 +313,7 @@ def calculate_pricing_ratings(models: Dict) -> Dict[str, Optional[float]]:
     return all_ratings
 
 def output_comprehensive_csv(models: Dict, benchmark_ratings: Dict, pricing_ratings: Dict,
-                           output_file: str = 'data/model_ratings.csv'):
+                           output_file: str = 'public/data/model_ratings.csv'):
     """Output comprehensive ratings to CSV file."""
     
     # Get all benchmark categories

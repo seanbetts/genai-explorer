@@ -115,7 +115,7 @@ if __name__ == '__main__':
         print("\n" + "="*60)
         print("✅ Complete pipeline finished successfully!")
         print("- Benchmarks processed and saved to public/data/")
-        print("- Model ratings calculated and saved to data/model_ratings.csv")
+        print("- Model ratings calculated and saved to public/data/model_ratings.csv")
         print("="*60)
     else:
         print("\n" + "="*60)
