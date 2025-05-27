@@ -34,7 +34,7 @@ gemini-2-0-flash-lite,Gemini-2.0 Flash Lite,Large Language Model,Google DeepMind
 gemini-2-0-flash-thinking,Gemini-2.0 Flash Thinking,Large Language Model,Google DeepMind,4.0,4.0,n/a,3.0,n/a,n/a
 gemini-2-0-pro,Gemini-2.0 Pro,Large Language Model,Google DeepMind,4.14,4.67,n/a,3.5,n/a,n/a
 gemma-3-1b,Gemma-3 1B,Large Language Model,Google DeepMind,1.0,1.4,3.0,1.0,1.33,1.0
-gemini-2-5-pro,Gemini-2.5 Pro,Large Multimodal Model,Google DeepMind,4.5,5.0,5.0,4.25,5.0,1.06
+gemini-2-5-pro,Gemini-2.5 Pro,Large Multimodal Model,Google DeepMind,4.5,5.0,5.0,4.25,5.0,3.32
 gemma-3-12b,Gemma-3 12B,Large Multimodal Model,Google DeepMind,2.6,3.83,4.0,4.0,4.0,1.12
 gemma-3-27b,Gemma-3 27B,Large Multimodal Model,Google DeepMind,3.0,3.44,4.5,3.5,4.33,1.43
 gemma-3-4b,Gemma-3 4B,Large Multimodal Model,Google DeepMind,2.0,2.83,5.0,3.0,3.0,1.0
