@@ -184,6 +184,13 @@ The application includes a comprehensive model rating system that generates stan
 - **Cost Scale**: Rating 5.00 = Most expensive, Rating 1.00 = Least expensive
 - **Balanced Distribution**: Creates realistic spread across all rating tiers (1-5) instead of clustering
 
+### User Interface Integration
+- **Dedicated Section**: Model ratings appear in a separate "Model Ratings" section in company detail pages
+- **Interactive Tooltips**: Hover over rating category names to see detailed explanations of benchmarks and criteria used
+- **Intuitive Icons**: Each rating type has a specific icon (circle for Intelligence, lightbulb for Reasoning, CPU for Agentic, terminal for Coding, calculator for STEM, lightning for Speed, dollar for Pricing)
+- **Visual Rating Display**: 1-5 scale shown as filled/unfilled icons for immediate visual comparison
+- **About Section**: Comprehensive "About Model Ratings" box explaining methodology and usage, similar to the benchmarks section
+
 ### Enhanced Console Output
 The rating calculation script provides comprehensive visual feedback including:
 - **Histogram Visualization**: Vertical bar charts showing rating distribution for each category
