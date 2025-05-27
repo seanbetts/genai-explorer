@@ -471,7 +471,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
               {model.specs?.reasoningTokens !== undefined ? (
                 model.specs.reasoningTokens ? 
                   <i className="bi bi-check-circle-fill text-lg" style={{ color: brandConfig.secondaryColor }} title="Yes"></i> : 
-                  <i className="bi bi-x-circle-fill text-lg" style={{ color: '#ef4444' /* red-500 */ }} title="No"></i>
+                  <i className="bi bi-x-circle-fill text-lg" style={{ color: brandConfig.name === 'OMG' ? '#ef4444' : brandConfig.primaryColor }} title="No"></i>
               ) : <span className={textStyles.primary}>-</span>}
             </td>
           ))}

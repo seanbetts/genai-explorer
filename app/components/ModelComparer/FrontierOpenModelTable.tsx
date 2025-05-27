@@ -242,7 +242,8 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
         {[...Array(5)].map((_, i) => (
           <i 
             key={i} 
-            className={`${i < value ? filledIcon : icon} ${iconStyles.iconSpacing} ${i < value ? iconStyles.activeFormat : iconStyles.inactiveFormat}`}
+            className={`${i < value ? filledIcon : icon} ${iconStyles.iconSpacing}`}
+            style={{ color: i < value ? brandConfig.secondaryColor : '#4B5563' }}
           ></i>
         ))}
       </div>
@@ -286,55 +287,6 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
         ))}
       </tr>
       
-      
-      {/* Intelligence Row */}
-      {hasAnyModelCapability("intelligence") && (
-        <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-            <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-circle-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Intelligence</span>
-            </div>
-          </td>
-          {selectedModels.map(model => (
-            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {renderRating(model, "intelligence")}
-            </td>
-          ))}
-        </tr>
-      )}
-      
-      {/* Speed Row */}
-      {hasAnyModelCapability("speed") && (
-        <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-            <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-lightning-charge-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Speed</span>
-            </div>
-          </td>
-          {selectedModels.map(model => (
-            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {renderRating(model, "speed")}
-            </td>
-          ))}
-        </tr>
-      )}
-      
-      {/* Reasoning Row */}
-      {hasAnyModelCapability("reasoning") && (
-        <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`}>
-            <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-lightbulb-fill ${iconStyles.tableRowIcon}`}></i> <span className={textStyles.primary}>Reasoning</span>
-            </div>
-          </td>
-          {selectedModels.map(model => (
-            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {renderRating(model, "reasoning")}
-            </td>
-          ))}
-        </tr>
-      )}
-      
       {/* Reasoning Tokens Row */}
       {hasAnyModelSpec("reasoningTokens") && (
         <tr className="cursor-pointer">
@@ -366,11 +318,11 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           {selectedModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               <div className={iconStyles.formatContainer}>
-                <i className={`bi bi-file-text-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("text") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Text"></i>
-                <i className={`bi bi-mic-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("speech") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Speech"></i>
-                <i className={`bi bi-image-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("image") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Image"></i>
-                <i className={`bi bi-music-note-beamed ${iconStyles.lg} ${model.specs?.inputFormats?.includes("audio") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Audio"></i>
-                <i className={`bi bi-camera-video-fill ${iconStyles.lg} ${model.specs?.inputFormats?.includes("video") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Video"></i>
+                <i className={`bi bi-file-text-fill ${iconStyles.lg}`} style={{ color: model.specs?.inputFormats?.includes("text") ? brandConfig.secondaryColor : '#4B5563' }} title="Text"></i>
+                <i className={`bi bi-mic-fill ${iconStyles.lg}`} style={{ color: model.specs?.inputFormats?.includes("speech") ? brandConfig.secondaryColor : '#4B5563' }} title="Speech"></i>
+                <i className={`bi bi-image-fill ${iconStyles.lg}`} style={{ color: model.specs?.inputFormats?.includes("image") ? brandConfig.secondaryColor : '#4B5563' }} title="Image"></i>
+                <i className={`bi bi-music-note-beamed ${iconStyles.lg}`} style={{ color: model.specs?.inputFormats?.includes("audio") ? brandConfig.secondaryColor : '#4B5563' }} title="Audio"></i>
+                <i className={`bi bi-camera-video-fill ${iconStyles.lg}`} style={{ color: model.specs?.inputFormats?.includes("video") ? brandConfig.secondaryColor : '#4B5563' }} title="Video"></i>
               </div>
             </td>
           ))}
@@ -388,11 +340,11 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           {selectedModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
               <div className={iconStyles.formatContainer}>
-                <i className={`bi bi-file-text-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("text") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Text"></i>
-                <i className={`bi bi-mic-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("speech") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Speech"></i>
-                <i className={`bi bi-image-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("image") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Image"></i>
-                <i className={`bi bi-music-note-beamed ${iconStyles.lg} ${model.specs?.outputFormats?.includes("audio") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Audio"></i>
-                <i className={`bi bi-camera-video-fill ${iconStyles.lg} ${model.specs?.outputFormats?.includes("video") ? iconStyles.activeFormat : iconStyles.inactiveFormat}`} title="Video"></i>
+                <i className={`bi bi-file-text-fill ${iconStyles.lg}`} style={{ color: model.specs?.outputFormats?.includes("text") ? brandConfig.secondaryColor : '#4B5563' }} title="Text"></i>
+                <i className={`bi bi-mic-fill ${iconStyles.lg}`} style={{ color: model.specs?.outputFormats?.includes("speech") ? brandConfig.secondaryColor : '#4B5563' }} title="Speech"></i>
+                <i className={`bi bi-image-fill ${iconStyles.lg}`} style={{ color: model.specs?.outputFormats?.includes("image") ? brandConfig.secondaryColor : '#4B5563' }} title="Image"></i>
+                <i className={`bi bi-music-note-beamed ${iconStyles.lg}`} style={{ color: model.specs?.outputFormats?.includes("audio") ? brandConfig.secondaryColor : '#4B5563' }} title="Audio"></i>
+                <i className={`bi bi-camera-video-fill ${iconStyles.lg}`} style={{ color: model.specs?.outputFormats?.includes("video") ? brandConfig.secondaryColor : '#4B5563' }} title="Video"></i>
               </div>
             </td>
           ))}
@@ -705,7 +657,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} title="Based on science, technology, engineering, and mathematics benchmarks like GPQA, MMLU-STEM, and scientific reasoning tasks">
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-calculator-fill ${iconStyles.tableRowIcon}`}></i> 
+              <i className={`bi bi-calculator-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}></i> 
               <span className={textStyles.primary}>STEM</span>
             </div>
           </td>
@@ -722,7 +674,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} title="Based on response generation speed and tokens per second performance (manually assessed)">
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-lightning-charge-fill ${iconStyles.tableRowIcon}`}></i> 
+              <i className={`bi bi-lightning-charge-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}></i> 
               <span className={textStyles.primary}>Speed</span>
             </div>
           </td>
@@ -739,7 +691,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
         <tr className="cursor-pointer">
           <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} title="Based on API pricing per million tokens (5 = expensive, 1 = cheap). Combines input (70%) and output (30%) pricing">
             <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-currency-dollar ${iconStyles.tableRowIcon}`}></i> 
+              <i className={`bi bi-currency-dollar ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.secondaryColor } : {}}></i> 
               <span className={textStyles.primary}>Pricing</span>
             </div>
           </td>
