@@ -17,6 +17,7 @@ import {
   getLatestScoreForModelAndBenchmark,
   calculateGlobalRankings 
 } from '../utils/benchmarkUtils';
+import AboutBenchmarks from '../shared/AboutBenchmarks';
 
 interface FrontierOpenModelTableProps {
   selectedModels: Model[];
@@ -873,6 +874,9 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           </SharedTable>
         </div>
       )}
+      
+      {/* About Benchmarks section */}
+      {hasFeaturedBenchmarks && <AboutBenchmarks />}
     </div>
   );
 };

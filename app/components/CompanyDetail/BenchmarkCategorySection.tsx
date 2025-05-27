@@ -25,6 +25,7 @@ interface BenchmarkCategorySectionProps {
   showHeader?: boolean;
   globalRankings?: Record<string, Record<string, { rank: number, total: number }>>;
   rankingsLoaded?: boolean;
+  icon?: string; // Bootstrap icon class
 }
 
 const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
@@ -35,7 +36,8 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
   companyId,
   showHeader = true,
   globalRankings = {},
-  rankingsLoaded = false
+  rankingsLoaded = false,
+  icon = ''
 }) => {
   // Check if ANY models have scores for this category
   const hasScoresForCategory = benchmarks.some(benchmark => {
@@ -375,12 +377,15 @@ const BenchmarkCategorySection: React.FC<BenchmarkCategorySectionProps> = ({
 
   return (
     <div className="mb-8">
-      <h3 className={`text-lg font-semibold mb-2 capitalize ${
+      <h3 className={`text-lg font-semibold mb-2 capitalize flex items-center ${
         brandConfig.name === 'OMG'
           ? 'font-sans'
           : 'text-fuchsia-500 font-mono'
       }`}
       style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>
+        {icon && (
+          <i className={`bi ${icon} mr-2`} style={{ color: brandConfig.primaryColor }}></i>
+        )}
         {category} Benchmarks
       </h3>
       <p className={`text-sm mb-3 ${

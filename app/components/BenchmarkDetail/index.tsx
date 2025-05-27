@@ -14,6 +14,7 @@ import { tableStyles, containerStyles } from '../utils/layout';
 import { textStyles } from '../utils/theme';
 import { SharedTable, TableHeader } from '../shared/TableComponents';
 import brandConfig from '../../config/brand';
+import AboutBenchmarks from '../shared/AboutBenchmarks';
 
 interface BenchmarkDetailProps {
   benchmarkId: string;
@@ -734,7 +735,8 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
           </p>
         </div>
       )}
-
+      
+      <AboutBenchmarks />
     </div>
   );
 };

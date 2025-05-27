@@ -9,6 +9,7 @@ import brandConfig from '../config/brand';
 import { loadBenchmarkMetadata, loadBenchmarkScores, groupBenchmarksByCategory, getLatestScoreForModelAndBenchmark, getUniqueModelScores } from './utils/benchmarkUtils';
 import BenchmarkCategorySection from './shared/BenchmarkCategorySection';
 import BenchmarkCard from './shared/BenchmarkCard';
+import AboutBenchmarks from './shared/AboutBenchmarks';
 
 interface BenchmarkExplorerViewProps {
   onBenchmarkSelect: (benchmarkId: string) => void;
@@ -140,11 +141,11 @@ const BenchmarkExplorerView: React.FC<BenchmarkExplorerViewProps> = ({ onBenchma
   const getCategoryStyle = (category: BenchmarkCategory): string => categoryStyles.common.full;
   const getCategoryIcon = (category: BenchmarkCategory): string => {
     const iconMap: Record<BenchmarkCategory, string> = {
-      'agentic': 'bi-robot',
-      'coding': 'bi-code-square',
-      'reasoning': 'bi-lightbulb',
-      'General Intelligence': 'bi-cpu',
-      'STEM': 'bi-calculator'
+      'agentic': 'bi-cpu-fill',
+      'coding': 'bi-terminal-fill',
+      'reasoning': 'bi-lightbulb-fill',
+      'General Intelligence': 'bi-circle-fill',
+      'STEM': 'bi-calculator-fill'
     };
     return iconMap[category] || 'bi-trophy';
   };
@@ -205,7 +206,7 @@ const BenchmarkExplorerView: React.FC<BenchmarkExplorerViewProps> = ({ onBenchma
           }}>
             <div className="mb-4">
               <div className={containerStyles.categoryTitle}>
-                <i className="bi bi-star-fill mr-2" style={{ color: brandConfig.secondaryColor }}></i>
+                <i className="bi bi-star-fill mr-2" style={{ color: brandConfig.primaryColor }}></i>
                 <span style={{ 
                   color: brandConfig.secondaryColor,
                   fontFamily: brandConfig.name === 'OMG' ? 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' : 'monospace'
@@ -263,6 +264,8 @@ const BenchmarkExplorerView: React.FC<BenchmarkExplorerViewProps> = ({ onBenchma
           />
         </div>
       ))}
+      
+      <AboutBenchmarks />
     </div>
   );
 };
