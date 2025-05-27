@@ -86,7 +86,12 @@ genai-explorer/
 │   │   ├── CompanyDetail/       # Company profile components
 │   │   ├── ModelComparer/       # Model comparison components
 │   │   ├── shared/              # Reusable components
+│   │   │   ├── AboutBenchmarks.tsx     # Reusable benchmark information component
+│   │   │   ├── AboutModelRatings.tsx   # Reusable model ratings information component
+│   │   │   └── ...                     # Other shared components
 │   │   ├── utils/               # Utility functions
+│   │   │   ├── modelRatingsLoader.ts   # Model ratings data loader
+│   │   │   └── ...                     # Other utilities
 │   │   ├── benchmarkCategoryConfig.ts  # Benchmark category configuration
 │   │   └── categoryConfig.ts           # Company category configuration
 │   ├── config/             # Brand configuration
@@ -160,11 +165,15 @@ npm run dev
 
 ## Model Comparison
 
-The application includes a Model Comparer feature that allows users to:
+The application includes a comprehensive Model Comparer feature that allows users to:
 - Select up to four models to compare side-by-side
-- Compare features, capabilities, and benchmark scores
-- Identify the best model for specific use cases
-- View detailed specifications in a comparative format
+- Compare basic information, specifications, and capabilities
+- **Model Ratings Comparison**: Side-by-side comparison of 1-5 scale ratings across all categories (Intelligence, Reasoning, Agentic, Coding, STEM, Speed, Pricing)
+- **Benchmark Performance**: Compare featured benchmark scores with rankings and source links
+- **Interactive Tooltips**: Hover over rating categories to understand the benchmarks and criteria used
+- **Comprehensive Information**: Context limits, pricing, resources, and licensing details
+- **About Sections**: Built-in explanations of model ratings methodology and benchmark information
+- Identify the best model for specific use cases with detailed comparative analysis
 
 ## Comprehensive Model Rating System
 
@@ -185,11 +194,17 @@ The application includes a comprehensive model rating system that generates stan
 - **Balanced Distribution**: Creates realistic spread across all rating tiers (1-5) instead of clustering
 
 ### User Interface Integration
-- **Dedicated Section**: Model ratings appear in a separate "Model Ratings" section in company detail pages
+- **Dedicated Sections**: Model ratings appear in dedicated "Model Ratings" sections across:
+  - Company detail pages for comprehensive model overviews
+  - Model comparer for side-by-side rating comparisons
+  - Individual benchmark detail pages for context
 - **Interactive Tooltips**: Hover over rating category names to see detailed explanations of benchmarks and criteria used
 - **Intuitive Icons**: Each rating type has a specific icon (circle for Intelligence, lightbulb for Reasoning, CPU for Agentic, terminal for Coding, calculator for STEM, lightning for Speed, dollar for Pricing)
 - **Visual Rating Display**: 1-5 scale shown as filled/unfilled icons for immediate visual comparison
-- **About Section**: Comprehensive "About Model Ratings" box explaining methodology and usage, similar to the benchmarks section
+- **Reusable About Sections**: 
+  - **About Model Ratings**: Explains rating methodology, benchmark sources, and calculation process
+  - **About Benchmarks**: Describes benchmark types, data sources, and ranking systems
+  - Consistent information across all pages with automatic brand-aware styling
 
 ### Enhanced Console Output
 The rating calculation script provides comprehensive visual feedback including:

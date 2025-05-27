@@ -17,7 +17,9 @@ import {
   getLatestScoreForModelAndBenchmark,
   calculateGlobalRankings 
 } from '../utils/benchmarkUtils';
+import { loadModelRatings, getRatingForModel, type ModelRatingsData } from '../utils/modelRatingsLoader';
 import AboutBenchmarks from '../shared/AboutBenchmarks';
+import AboutModelRatings from '../shared/AboutModelRatings';
 
 interface FrontierOpenModelTableProps {
   selectedModels: Model[];
@@ -32,20 +34,27 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
   const [loading, setLoading] = useState(true);
   const [showStickyHeader, setShowStickyHeader] = useState(false);
   
+  // State for model ratings data
+  const [modelRatings, setModelRatings] = useState<ModelRatingsData>({});
+  const [ratingsLoaded, setRatingsLoaded] = useState(false);
+  
   const tableHeaderRef = useRef<HTMLDivElement>(null);
   
-  // Load benchmark data when component mounts
+  // Load benchmark data and model ratings when component mounts
   useEffect(() => {
     const loadBenchmarkData = async () => {
       try {
-        const [benchmarkMeta, scores, rankingsData] = await Promise.all([
+        const [benchmarkMeta, scores, rankingsData, ratingsData] = await Promise.all([
           loadBenchmarkMetadata(),
           loadBenchmarkScores(),
-          calculateGlobalRankings()
+          calculateGlobalRankings(),
+          loadModelRatings()
         ]);
         setBenchmarks(benchmarkMeta);
         setBenchmarkScores(scores);
         setRankings(rankingsData);
+        setModelRatings(ratingsData);
+        setRatingsLoaded(true);
       } catch (error) {
         console.error('Error loading benchmark data:', error);
       } finally {
@@ -104,6 +113,15 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
       model.specs && key in model.specs && model.specs[key as keyof typeof model.specs] !== undefined
     );
   };
+
+  // Helper to check if any model has a rating from CSV data
+  const hasAnyModelRating = (ratingType: string): boolean => {
+    if (!ratingsLoaded) return false;
+    return selectedModels.some(model => {
+      const rating = getRatingForModel(model.id, ratingType, modelRatings);
+      return rating !== null;
+    });
+  };
   
   // Get featured benchmarks and sort by category order
   const featuredBenchmarks = benchmarks
@@ -156,12 +174,29 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
 
   // Render the rating indicators (circles, lightning, etc)
   const renderRating = (model: Model, type: string) => {
-    // Check if capabilities exist for this model
-    if (!model.capabilities || !(type in model.capabilities)) {
-      return <span className={textStyles.primary}>-</span>;
+    let value: number | null = null;
+    
+    // Get rating value based on type
+    if (type === "speed") {
+      // Speed still comes from capabilities in data.json
+      if (model.capabilities && "speed" in model.capabilities) {
+        value = model.capabilities.speed as number;
+      }
+    } else {
+      // All other ratings come from model_ratings.csv
+      if (ratingsLoaded) {
+        const csvRating = getRatingForModel(model.id, type, modelRatings);
+        if (csvRating !== null) {
+          // Convert decimal rating (0-5) to integer (0-5) for display
+          value = Math.round(csvRating);
+        }
+      }
     }
     
-    const value = model.capabilities[type as keyof typeof model.capabilities] as number;
+    // If no rating available, show dash
+    if (value === null || value === undefined) {
+      return <span className={textStyles.primary}>-</span>;
+    }
     
     // Get icons based on the capability type
     let icon = "";
@@ -180,9 +215,21 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
         icon = "bi-lightbulb";
         filledIcon = "bi-lightbulb-fill";
         break;
-      case "creativity":
-        icon = "bi-star";
-        filledIcon = "bi-stars";
+      case "agentic":
+        icon = "bi-cpu";
+        filledIcon = "bi-cpu-fill";
+        break;
+      case "coding":
+        icon = "bi-terminal";
+        filledIcon = "bi-terminal-fill";
+        break;
+      case "stem":
+        icon = "bi-calculator";
+        filledIcon = "bi-calculator-fill";
+        break;
+      case "pricing":
+        icon = "bi-currency-dollar";
+        filledIcon = "bi-currency-dollar";
         break;
       default:
         icon = "bi-circle";
@@ -582,6 +629,130 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
     );
   };
 
+  // Generate model ratings rows
+  const renderModelRatingsRows = () => (
+    <>
+      {/* Intelligence Row */}
+      {hasAnyModelRating("intelligence") && (
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} title="Based on general intelligence benchmarks like MMLU, ARC, HellaSwag, and comprehensive knowledge tasks">
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-circle-fill ${iconStyles.tableRowIcon}`}></i> 
+              <span className={textStyles.primary}>Intelligence</span>
+            </div>
+          </td>
+          {selectedModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              {renderRating(model, "intelligence")}
+            </td>
+          ))}
+        </tr>
+      )}
+
+      {/* Reasoning Row */}
+      {hasAnyModelRating("reasoning") && (
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} title="Based on logical reasoning and problem-solving benchmarks like GSM8K, MATH, and logical reasoning tasks">
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-lightbulb-fill ${iconStyles.tableRowIcon}`}></i> 
+              <span className={textStyles.primary}>Reasoning</span>
+            </div>
+          </td>
+          {selectedModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              {renderRating(model, "reasoning")}
+            </td>
+          ))}
+        </tr>
+      )}
+
+      {/* Agentic Row */}
+      {hasAnyModelRating("agentic") && (
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} title="Based on tool use and autonomous task completion benchmarks like ToolBench, WebArena, and agent workflow tasks">
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-cpu-fill ${iconStyles.tableRowIcon}`}></i> 
+              <span className={textStyles.primary}>Agentic</span>
+            </div>
+          </td>
+          {selectedModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              {renderRating(model, "agentic")}
+            </td>
+          ))}
+        </tr>
+      )}
+
+      {/* Coding Row */}
+      {hasAnyModelRating("coding") && (
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} title="Based on programming and software development benchmarks like HumanEval, MBPP, and CodeContest">
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-terminal-fill ${iconStyles.tableRowIcon}`}></i> 
+              <span className={textStyles.primary}>Coding</span>
+            </div>
+          </td>
+          {selectedModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              {renderRating(model, "coding")}
+            </td>
+          ))}
+        </tr>
+      )}
+
+      {/* STEM Row */}
+      {hasAnyModelRating("stem") && (
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} title="Based on science, technology, engineering, and mathematics benchmarks like GPQA, MMLU-STEM, and scientific reasoning tasks">
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-calculator-fill ${iconStyles.tableRowIcon}`}></i> 
+              <span className={textStyles.primary}>STEM</span>
+            </div>
+          </td>
+          {selectedModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              {renderRating(model, "stem")}
+            </td>
+          ))}
+        </tr>
+      )}
+
+      {/* Speed Row */}
+      {hasAnyModelCapability("speed") && (
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} title="Based on response generation speed and tokens per second performance (manually assessed)">
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-lightning-charge-fill ${iconStyles.tableRowIcon}`}></i> 
+              <span className={textStyles.primary}>Speed</span>
+            </div>
+          </td>
+          {selectedModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              {renderRating(model, "speed")}
+            </td>
+          ))}
+        </tr>
+      )}
+
+      {/* Pricing Row */}
+      {hasAnyModelRating("pricing") && (
+        <tr className="cursor-pointer">
+          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} title="Based on API pricing per million tokens (5 = expensive, 1 = cheap). Combines input (70%) and output (30%) pricing">
+            <div className={containerStyles.flexCenter}>
+              <i className={`bi bi-currency-dollar ${iconStyles.tableRowIcon}`}></i> 
+              <span className={textStyles.primary}>Pricing</span>
+            </div>
+          </td>
+          {selectedModels.map(model => (
+            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+              {renderRating(model, "pricing")}
+            </td>
+          ))}
+        </tr>
+      )}
+    </>
+  );
+
   // Generate resources rows
   const renderResourcesRows = () => {
     const hasAnyResource = selectedModels.some(model => 
@@ -748,6 +919,10 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
   const hasContextData = hasAnyModelSpec("maxInputTokens") || hasAnyModelSpec("maxOutputTokens") || hasAnyModelSpec("knowledgeCutoff");
   const hasPricingData = hasAnyModelSpec("pricingInputPerM") || hasAnyModelSpec("pricingOutputPerM");
   const hasFeaturedBenchmarks = !loading && featuredBenchmarks.length > 0;
+  const hasModelRatingsData = ratingsLoaded && (
+    hasAnyModelRating("intelligence") || hasAnyModelRating("reasoning") || hasAnyModelRating("agentic") || 
+    hasAnyModelRating("coding") || hasAnyModelRating("stem") || hasAnyModelRating("pricing") || hasAnyModelCapability("speed")
+  );
   const hasResourceData = selectedModels.some(model => 
     model.modelPage || model.releasePost || model.systemCard || model.huggingFace
   );
@@ -820,6 +995,19 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
         </SharedTable>
       </div>
       
+      {/* Model Ratings Section */}
+      {hasModelRatingsData && (
+        <div className="mb-6">
+          <SectionTitle>Model Ratings</SectionTitle>
+          <SharedTable>
+            <TableColGroup items={headerItems} />
+            <tbody>
+              {renderModelRatingsRows()}
+            </tbody>
+          </SharedTable>
+        </div>
+      )}
+      
       {/* Context & Limits Section */}
       {hasContextData && (
         <div className="mb-6">
@@ -875,7 +1063,8 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
         </div>
       )}
       
-      {/* About Benchmarks section */}
+      {/* About sections */}
+      {hasModelRatingsData && <AboutModelRatings />}
       {hasFeaturedBenchmarks && <AboutBenchmarks />}
     </div>
   );
