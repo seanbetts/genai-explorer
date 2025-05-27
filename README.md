@@ -177,11 +177,11 @@ The application includes a comprehensive model rating system that generates stan
 - **Category Aggregation**: Simple average of ratings within each category
 - **Missing Data Handling**: Returns 'n/a' for categories without benchmark data
 
-### Pricing Affordability Methodology
+### Pricing Cost Methodology
 - **Composite Scoring**: Combines input (70%) and output (30%) pricing per million tokens
 - **Percentile-Based Normalization**: Uses 10th-90th percentile range to handle extreme outliers
 - **Outlier Management**: Caps extreme costs to prevent skewing (e.g., GPT-4.5 at $97.50 vs median $0.30)
-- **Affordability Scale**: Rating 5.00 = Most affordable, Rating 1.00 = Most expensive
+- **Cost Scale**: Rating 5.00 = Most expensive, Rating 1.00 = Least expensive
 - **Balanced Distribution**: Creates realistic spread across all rating tiers (1-5) instead of clustering
 
 ### Enhanced Console Output
@@ -189,7 +189,7 @@ The rating calculation script provides comprehensive visual feedback including:
 - **Histogram Visualization**: Vertical bar charts showing rating distribution for each category
 - **Distribution Analysis**: Percentage breakdown across all rating tiers (1-5)
 - **Performance Insights**: Easy identification of category strengths and weaknesses
-- **Pricing Analysis**: Clear view of model affordability patterns
+- **Pricing Analysis**: Clear view of model cost patterns
 
 Example output format:
 ```
@@ -220,8 +220,8 @@ The output includes `public/data/model_ratings.csv` with ratings for:
 - **coding**: Programming and software development
 - **reasoning**: Logic, problem-solving, and analytical thinking
 
-**Affordability:**
-- **pricing_affordability**: Cost-effectiveness rating based on API pricing
+**Pricing:**
+- **pricing_cost**: Cost rating based on API pricing (5 = expensive, 1 = cheap)
 
 ## Contributing
 
@@ -233,7 +233,7 @@ The application uses structured data formats:
 - **data.json**: Main data file with comprehensive information on companies, models, features, products, and specifications
 - **benchmarks.csv**: CSV format for benchmark scores by model and benchmark
 - **benchmarks-meta.json**: Metadata about benchmarks including categories, descriptions, and source information
-- **model_ratings.csv**: Generated 1-5 ratings for models covering both benchmark performance and pricing affordability
+- **model_ratings.csv**: Generated 1-5 ratings for models covering both benchmark performance and pricing cost
 
 The data structure is designed to be extensible, allowing new companies, models, and benchmarks to be added easily.
 

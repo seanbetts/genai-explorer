@@ -8,7 +8,7 @@ export interface ModelRating {
   agentic: number | null;
   coding: number | null;
   reasoning: number | null;
-  pricing_affordability: number | null;
+  pricing_cost: number | null;
 }
 
 export interface ModelRatingsData {
@@ -51,7 +51,7 @@ export async function loadModelRatings(): Promise<ModelRatingsData> {
           agentic: parseRating(values[6]), // agentic
           coding: parseRating(values[7]), // coding
           reasoning: parseRating(values[8]), // reasoning
-          pricing_affordability: parseRating(values[9]) // pricing_affordability
+          pricing_cost: parseRating(values[9]) // pricing_cost
         };
         
         ratings[rating.model_id] = rating;
@@ -82,7 +82,7 @@ export function getRatingForModel(modelId: string, ratingType: string, modelRati
     case 'reasoning':
       return rating.reasoning;
     case 'pricing':
-      return rating.pricing_affordability;
+      return rating.pricing_cost;
     default:
       return null;
   }

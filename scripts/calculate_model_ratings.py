@@ -195,7 +195,10 @@ def calculate_benchmark_category_ratings(df: pd.DataFrame, models: Dict,
     return model_ratings
 
 def calculate_pricing_ratings(models: Dict) -> Dict[str, Optional[float]]:
-    """Calculate pricing affordability ratings using percentile-based normalization to handle outliers."""
+    """Calculate pricing cost ratings using percentile-based normalization to handle outliers.
+    
+    Returns higher ratings (closer to 5) for more expensive models and lower ratings (closer to 1) for cheaper models.
+    """
     # Extract models with pricing data
     composite_scores = {}
     
@@ -239,12 +242,12 @@ def calculate_pricing_ratings(models: Dict) -> Dict[str, Optional[float]]:
             # Normalize cost to 0-1 range using capped values
             normalized_cost = (capped_cost - min_cost) / (max_cost - min_cost) if max_cost != min_cost else 0.0
             
-            # Invert for affordability (lower cost = higher rating)
-            affordability_score = 1.0 - normalized_cost
+            # Direct mapping for cost (higher cost = higher rating)
+            cost_score = normalized_cost
             
             # Scale to 1-5 range with better distribution
             # Use a curve that gives more granularity in the middle ranges
-            rating = 1.0 + (4.0 * affordability_score)
+            rating = 1.0 + (4.0 * cost_score)
             
             ratings[model_id] = rating
     
@@ -338,7 +341,7 @@ def output_comprehensive_csv(models: Dict, benchmark_ratings: Dict, pricing_rati
     
     with open(output_file, 'w', newline='') as csvfile:
         fieldnames = (['model_id', 'model_name', 'model_type', 'company'] + 
-                     categories + ['pricing_affordability'])
+                     categories + ['pricing_cost'])
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
         writer.writeheader()
@@ -362,12 +365,12 @@ def output_comprehensive_csv(models: Dict, benchmark_ratings: Dict, pricing_rati
                 else:
                     row[category] = 'n/a'
             
-            # Add pricing affordability rating (2 decimal places)
+            # Add pricing cost rating (2 decimal places)
             pricing_rating = pricing_ratings.get(model_id)
             if pricing_rating is not None:
-                row['pricing_affordability'] = round(pricing_rating, 2)
+                row['pricing_cost'] = round(pricing_rating, 2)
             else:
-                row['pricing_affordability'] = 'n/a'
+                row['pricing_cost'] = 'n/a'
             
             writer.writerow(row)
     
@@ -391,11 +394,11 @@ def output_comprehensive_csv(models: Dict, benchmark_ratings: Dict, pricing_rati
         print_category_distribution(category, ratings)
         print()  # Add spacing between categories
     
-    # Pricing affordability distribution
+    # Pricing cost distribution
     pricing_ratings_valid = [r for r in pricing_ratings.values() if r is not None]
     if pricing_ratings_valid:
-        print("Pricing Affordability:")
-        print_category_distribution("Affordability", pricing_ratings_valid)
+        print("Pricing Cost:")
+        print_category_distribution("Cost", pricing_ratings_valid)
     
     print("\n" + "="*50)
 
