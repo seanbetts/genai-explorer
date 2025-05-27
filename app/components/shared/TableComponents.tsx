@@ -267,7 +267,7 @@ export const tableHoverStyles = `
     position: sticky;
     left: 0;
     z-index: 10;
-    width: 250px;
+    width: 300px;
     background-color: #2d3748;
     box-shadow: 4px 0 4px -2px rgba(0, 0, 0, 0.3);
   }
