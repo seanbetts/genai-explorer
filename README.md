@@ -171,7 +171,8 @@ The application includes a comprehensive Model Comparer feature that allows user
 - **Model Ratings Comparison**: Side-by-side comparison of 1-5 scale ratings across all categories (Intelligence, Reasoning, Agentic, Coding, STEM, Speed, Pricing)
 - **Benchmark Performance**: Compare featured benchmark scores with rankings and source links
 - **Interactive Tooltips**: Hover over rating categories to understand the benchmarks and criteria used
-- **Comprehensive Information**: Context limits, pricing, resources, and licensing details
+- **Comprehensive Information**: Context limits, pricing with Together.ai references for open models, resources, and licensing details
+- **Brand-Consistent Styling**: Consistent icon colors and styling patterns across both OMG and personal brand versions
 - **About Sections**: Built-in explanations of model ratings methodology and benchmark information
 - Identify the best model for specific use cases with detailed comparative analysis
 

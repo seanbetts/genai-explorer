@@ -870,6 +870,10 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
   // Check if we need to show each table section
   const hasContextData = hasAnyModelSpec("maxInputTokens") || hasAnyModelSpec("maxOutputTokens") || hasAnyModelSpec("knowledgeCutoff");
   const hasPricingData = hasAnyModelSpec("pricingInputPerM") || hasAnyModelSpec("pricingOutputPerM");
+  
+  // Determine if we're showing only frontier models or only open models
+  const isAllFrontierModels = selectedModels.every(model => model.category === 'frontier');
+  const isAllOpenModels = selectedModels.every(model => model.category === 'open');
   const hasFeaturedBenchmarks = !loading && featuredBenchmarks.length > 0;
   const hasModelRatingsData = ratingsLoaded && (
     hasAnyModelRating("intelligence") || hasAnyModelRating("reasoning") || hasAnyModelRating("agentic") || 
@@ -991,7 +995,25 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
         <div className="mb-6">
           <SectionTitle>
             Pricing
-            <span className="text-xs text-gray-400 ml-2 font-normal">(per 1M tokens)</span>
+            <span className="text-xs text-gray-400 ml-2 font-normal">
+              {isAllFrontierModels ? (
+                "(per 1M tokens)"
+              ) : isAllOpenModels ? (
+                <>(per 1M tokens direct or on <a 
+                  href="https://www.together.ai/pricing#inference" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  style={{ color: brandConfig.secondaryColor }} className="hover:opacity-80 transition-colors"
+                >Together.ai</a>)</>
+              ) : (
+                <>(per 1M tokens direct or on <a 
+                  href="https://www.together.ai/pricing#inference" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  style={{ color: brandConfig.secondaryColor }} className="hover:opacity-80 transition-colors"
+                >Together.ai</a> for open models)</>
+              )}
+            </span>
           </SectionTitle>
           <SharedTable>
             <TableColGroup items={headerItems} />
