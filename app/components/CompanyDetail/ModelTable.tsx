@@ -15,12 +15,24 @@ import {
   handleTableScroll,
   tableHoverStyles
 } from '../shared/TableComponents';
+import { loadModelRatings, getRatingForModel, type ModelRatingsData } from '../utils/modelRatingsLoader';
 
 interface ModelTableProps {
   models: Model[];
 }
 
 const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
+  // State for model ratings data
+  const [modelRatings, setModelRatings] = React.useState<ModelRatingsData>({});
+  const [ratingsLoaded, setRatingsLoaded] = React.useState(false);
+
+  // Load model ratings on component mount
+  React.useEffect(() => {
+    loadModelRatings().then(ratings => {
+      setModelRatings(ratings);
+      setRatingsLoaded(true);
+    });
+  }, []);
   // Filter out archived models, then sort by status (primary first, then secondary) and then by release date (newest first)
   const displayModels = [...models]
     .filter(model => model.status !== 'archived') // Filter out archived models
@@ -64,6 +76,15 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     return displayModels.some(model => 
       model.specs && key in model.specs && model.specs[key as keyof typeof model.specs] !== undefined
     );
+  };
+
+  // Helper to check if any model has a rating from CSV data
+  const hasAnyModelRating = (ratingType: string): boolean => {
+    if (!ratingsLoaded) return false;
+    return displayModels.some(model => {
+      const rating = getRatingForModel(model.id, ratingType, modelRatings);
+      return rating !== null;
+    });
   };
 
   // Helper to check if we're showing enterprise models
@@ -301,12 +322,29 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
 
   // Render the rating indicators (circles, lightning, etc)
   const renderRating = (model: Model, type: string) => {
-    // Check if capabilities exist for this model
-    if (!model.capabilities || !(type in model.capabilities)) {
-      return <span className={textStyles.primary}>-</span>;
+    let value: number | null = null;
+    
+    // Get rating value based on type
+    if (type === "speed") {
+      // Speed still comes from capabilities in data.json
+      if (model.capabilities && "speed" in model.capabilities) {
+        value = model.capabilities.speed as number;
+      }
+    } else {
+      // All other ratings come from model_ratings.csv
+      if (ratingsLoaded) {
+        const csvRating = getRatingForModel(model.id, type, modelRatings);
+        if (csvRating !== null) {
+          // Convert decimal rating (0-5) to integer (0-5) for display
+          value = Math.round(csvRating);
+        }
+      }
     }
     
-    const value = model.capabilities[type as keyof typeof model.capabilities] as number;
+    // If no rating available, show dash
+    if (value === null || value === undefined) {
+      return <span className={textStyles.primary}>-</span>;
+    }
     
     // Get icons based on the capability type
     let icon = "";
@@ -325,9 +363,21 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         icon = "bi-lightbulb";
         filledIcon = "bi-lightbulb-fill";
         break;
-      case "creativity":
-        icon = "bi-star";
-        filledIcon = "bi-stars";
+      case "stem":
+        icon = "bi-calculator";
+        filledIcon = "bi-calculator-fill";
+        break;
+      case "agentic":
+        icon = "bi-cpu";
+        filledIcon = "bi-cpu-fill";
+        break;
+      case "coding":
+        icon = "bi-terminal";
+        filledIcon = "bi-terminal-fill";
+        break;
+      case "pricing":
+        icon = "bi-currency-dollar";
+        filledIcon = "bi-currency-dollar";
         break;
       default:
         icon = "bi-circle";
@@ -406,54 +456,6 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       
       {/* Enterprise-specific fields */}
       {renderEnterpriseSpecificFields()}
-      
-      {/* Intelligence Row */}
-      {hasAnyModelCapability("intelligence") && (
-        <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
-            <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-circle-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Intelligence</span>
-            </div>
-          </td>
-          {currentModels.map(model => (
-            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {renderRating(model, "intelligence")}
-            </td>
-          ))}
-        </tr>
-      )}
-      
-      {/* Speed Row */}
-      {hasAnyModelCapability("speed") && (
-        <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
-            <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-lightning-charge-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Speed</span>
-            </div>
-          </td>
-          {currentModels.map(model => (
-            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {renderRating(model, "speed")}
-            </td>
-          ))}
-        </tr>
-      )}
-      
-      {/* Reasoning Row */}
-      {hasAnyModelCapability("reasoning") && (
-        <tr className="cursor-pointer">
-          <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
-            <div className={containerStyles.flexCenter}>
-              <i className={`bi bi-lightbulb-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Reasoning</span>
-            </div>
-          </td>
-          {currentModels.map(model => (
-            <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {renderRating(model, "reasoning")}
-            </td>
-          ))}
-        </tr>
-      )}
       
       {/* Reasoning Tokens Row */}
       {hasAnyModelSpec("reasoningTokens") && (
@@ -712,6 +714,146 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     </>
   );
 
+  // Function to render model ratings table
+  const renderModelRatingsTable = () => {
+    // Check if we have any ratings to show
+    const hasAnyRatings = hasAnyModelRating("intelligence") || hasAnyModelRating("reasoning") || 
+                         hasAnyModelRating("agentic") || hasAnyModelRating("coding") || 
+                         hasAnyModelRating("stem") || hasAnyModelCapability("speed") || 
+                         hasAnyModelRating("pricing");
+    
+    if (!hasAnyRatings) {
+      return null;
+    }
+
+    return (
+      <div className="mb-6">
+        <SectionTitle>
+          Model Ratings
+          <span className="text-xs text-gray-400 ml-2 font-normal">
+            (based on available benchmarks)
+          </span>
+        </SectionTitle>
+        <SharedTable>
+          <TableColGroup items={headerItems} />
+          <tbody>
+            {/* Intelligence Row */}
+            {hasAnyModelRating("intelligence") && (
+              <tr className="cursor-pointer">
+                <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
+                  <div className={containerStyles.flexCenter}>
+                    <i className={`bi bi-circle-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Intelligence</span>
+                  </div>
+                </td>
+                {currentModels.map(model => (
+                  <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                    {renderRating(model, "intelligence")}
+                  </td>
+                ))}
+              </tr>
+            )}
+            
+            {/* Reasoning Row */}
+            {hasAnyModelRating("reasoning") && (
+              <tr className="cursor-pointer">
+                <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
+                  <div className={containerStyles.flexCenter}>
+                    <i className={`bi bi-lightbulb-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Reasoning</span>
+                  </div>
+                </td>
+                {currentModels.map(model => (
+                  <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                    {renderRating(model, "reasoning")}
+                  </td>
+                ))}
+              </tr>
+            )}
+            
+            {/* Agentic Row */}
+            {hasAnyModelRating("agentic") && (
+              <tr className="cursor-pointer">
+                <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
+                  <div className={containerStyles.flexCenter}>
+                    <i className={`bi bi-cpu-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Agentic</span>
+                  </div>
+                </td>
+                {currentModels.map(model => (
+                  <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                    {renderRating(model, "agentic")}
+                  </td>
+                ))}
+              </tr>
+            )}
+            
+            {/* Coding Row */}
+            {hasAnyModelRating("coding") && (
+              <tr className="cursor-pointer">
+                <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
+                  <div className={containerStyles.flexCenter}>
+                    <i className={`bi bi-terminal-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Coding</span>
+                  </div>
+                </td>
+                {currentModels.map(model => (
+                  <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                    {renderRating(model, "coding")}
+                  </td>
+                ))}
+              </tr>
+            )}
+            
+            {/* STEM Row */}
+            {hasAnyModelRating("stem") && (
+              <tr className="cursor-pointer">
+                <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
+                  <div className={containerStyles.flexCenter}>
+                    <i className={`bi bi-calculator-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>STEM</span>
+                  </div>
+                </td>
+                {currentModels.map(model => (
+                  <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                    {renderRating(model, "stem")}
+                  </td>
+                ))}
+              </tr>
+            )}
+            
+            {/* Speed Row */}
+            {hasAnyModelCapability("speed") && (
+              <tr className="cursor-pointer">
+                <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
+                  <div className={containerStyles.flexCenter}>
+                    <i className={`bi bi-lightning-charge-fill ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Speed</span>
+                  </div>
+                </td>
+                {currentModels.map(model => (
+                  <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                    {renderRating(model, "speed")}
+                  </td>
+                ))}
+              </tr>
+            )}
+            
+            {/* Pricing Row */}
+            {hasAnyModelRating("pricing") && (
+              <tr className="cursor-pointer">
+                <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }}>
+                  <div className={containerStyles.flexCenter}>
+                    <i className={`bi bi-currency-dollar ${brandConfig.name === 'OMG' ? '' : iconStyles.tableRowIcon}`} style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}></i> <span className={textStyles.primary}>Pricing</span>
+                  </div>
+                </td>
+                {currentModels.map(model => (
+                  <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
+                    {renderRating(model, "pricing")}
+                  </td>
+                ))}
+              </tr>
+            )}
+          </tbody>
+        </SharedTable>
+      </div>
+    );
+  };
+
   // Check if we need to show each table section
   const hasContextData = hasAnyModelSpec("maxInputTokens") || hasAnyModelSpec("maxOutputTokens") || hasAnyModelSpec("knowledgeCutoff");
   const hasPricingData = hasAnyModelSpec("pricingInputPerM") || hasAnyModelSpec("pricingCachedInputPerM") || hasAnyModelSpec("pricingOutputPerM");
@@ -784,6 +926,9 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           </tbody>
         </SharedTable>
       </div>
+
+      {/* Model Ratings Table */}
+      {renderModelRatingsTable()}
 
       {/* Context Table (Max Input/Output and Knowledge Cutoff) */}
       {hasContextData && (
