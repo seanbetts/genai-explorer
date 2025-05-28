@@ -91,20 +91,20 @@ genai-explorer/
 │   │   │   ├── RatingDisplay.tsx       # Half-step rating display component
 │   │   │   └── ...                     # Other shared components
 │   │   ├── utils/               # Utility functions
-│   │   │   ├── modelRatingsLoader.ts   # Model ratings data loader
+│   │   │   ├── modelRatingsLoader.ts   # Unified model ratings loader from data.json
 │   │   │   └── ...                     # Other utilities
 │   │   ├── benchmarkCategoryConfig.ts  # Benchmark category configuration
 │   │   └── categoryConfig.ts           # Company category configuration
 │   ├── config/             # Brand configuration
 │   └── page.tsx            # Main entry point
 ├── data/                   # Data sources
-│   └── data.json           # Company and model data
+│   └── data.json           # Company and model data with integrated ratings
 ├── public/                 # Static assets
 │   ├── audio/              # Audio examples
 │   ├── data/               # Processed data files
 │   │   ├── benchmarks.csv        # Benchmark scores
 │   │   ├── benchmarks-meta.json  # Benchmark metadata
-│   │   └── model_ratings.csv     # Generated model ratings
+│   │   └── model_ratings.csv     # Generated model ratings (CSV backup)
 │   ├── images/             # Company logos and media
 │   └── videos/             # Video examples
 ├── scripts/                # Utility scripts
@@ -241,9 +241,9 @@ To run the complete data processing pipeline (recommended for data updates):
 ```bash
 python scripts/process_benchmarks.py
 ```
-This processes benchmark data from Excel, converts to CSV/JSON formats, then automatically calculates comprehensive model ratings.
+This processes benchmark data from Excel, converts to CSV/JSON formats, then automatically calculates comprehensive model ratings and integrates them into the main data.json file.
 
-The output includes `public/data/model_ratings.csv` with ratings for:
+The integrated ratings in data.json include:
 
 **Performance Categories:**
 - **General Intelligence**: Knowledge and reasoning benchmarks
@@ -262,12 +262,20 @@ Contributions to improve the explorer are welcome. Please feel free to submit a 
 ## Data
 
 The application uses structured data formats:
-- **data.json**: Main data file with comprehensive information on companies, models, features, products, and specifications
+- **data.json**: Main data file with comprehensive information on companies, models, features, products, specifications, and integrated model ratings
 - **benchmarks.csv**: CSV format for benchmark scores by model and benchmark
 - **benchmarks-meta.json**: Metadata about benchmarks including categories, descriptions, and source information
-- **model_ratings.csv**: Generated 1-5 ratings for models covering both benchmark performance and pricing cost
+- **model_ratings.csv**: Generated CSV backup of 1-5 ratings for models covering both benchmark performance and pricing cost
 
 The data structure is designed to be extensible, allowing new companies, models, and benchmarks to be added easily.
+
+### Unified Data Architecture
+Model ratings are now fully integrated into the main data.json file structure:
+- **Consolidated Storage**: All model data and ratings stored in single `data.json` file
+- **Build-Time Loading**: Ratings loaded directly via import for optimal performance  
+- **Static Export Compatible**: Works seamlessly with Next.js static site generation
+- **Single Source of Truth**: Eliminates data synchronization issues between multiple files
+- **Simplified Maintenance**: Updates to ratings automatically reflect across all components
 
 ## License
 

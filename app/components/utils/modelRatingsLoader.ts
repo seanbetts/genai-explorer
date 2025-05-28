@@ -9,10 +9,34 @@ export interface ModelRating {
   coding: number | null;
   reasoning: number | null;
   pricing_cost: number | null;
+  speed: number | null;
 }
 
 export interface ModelRatingsData {
   [modelId: string]: ModelRating;
+}
+
+import companiesData from '../../../data/data.json';
+
+interface CompaniesData {
+  companies: Array<{
+    id: string;
+    name: string;
+    models?: Array<{
+      id: string;
+      name: string;
+      type: string;
+      ratings?: {
+        intelligence?: number;
+        stem?: number;
+        agentic?: number;
+        coding?: number;
+        reasoning?: number;
+        pricing_cost?: number;
+        speed?: number;
+      };
+    }>;
+  }>;
 }
 
 let modelRatingsCache: ModelRatingsData | null = null;
@@ -23,35 +47,28 @@ export async function loadModelRatings(): Promise<ModelRatingsData> {
   }
 
   try {
-    const response = await fetch('/data/model_ratings.csv');
-    const csvText = await response.text();
-    
-    const lines = csvText.trim().split('\n');
-    const headers = lines[0].split(',');
+    const data = companiesData as CompaniesData;
     
     const ratings: ModelRatingsData = {};
     
-    for (let i = 1; i < lines.length; i++) {
-      const values = lines[i].split(',');
+    for (const company of data.companies) {
+      if (!company.models) continue;
       
-      if (values.length >= headers.length) {
-        const parseRating = (value: string): number | null => {
-          if (value === 'n/a' || value === '' || !value) return null;
-          const parsed = parseFloat(value);
-          return isNaN(parsed) ? null : parsed;
-        };
-
+      for (const model of company.models) {
+        const modelRatings = model.ratings || {};
+        
         const rating: ModelRating = {
-          model_id: values[0],
-          model_name: values[1],
-          model_type: values[2],
-          company: values[3],
-          intelligence: parseRating(values[4]), // General Intelligence
-          stem: parseRating(values[5]), // STEM
-          agentic: parseRating(values[6]), // agentic
-          coding: parseRating(values[7]), // coding
-          reasoning: parseRating(values[8]), // reasoning
-          pricing_cost: parseRating(values[9]) // pricing_cost
+          model_id: model.id,
+          model_name: model.name,
+          model_type: model.type,
+          company: company.name,
+          intelligence: modelRatings.intelligence ?? null,
+          stem: modelRatings.stem ?? null,
+          agentic: modelRatings.agentic ?? null,
+          coding: modelRatings.coding ?? null,
+          reasoning: modelRatings.reasoning ?? null,
+          pricing_cost: modelRatings.pricing_cost ?? null,
+          speed: modelRatings.speed ?? null
         };
         
         ratings[rating.model_id] = rating;
@@ -83,6 +100,8 @@ export function getRatingForModel(modelId: string, ratingType: string, modelRati
       return rating.reasoning;
     case 'pricing':
       return rating.pricing_cost;
+    case 'speed':
+      return rating.speed;
     default:
       return null;
   }

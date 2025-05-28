@@ -324,18 +324,11 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
 
   // Get rating value for a model and type
   const getRatingValue = (model: Model, type: string): number | null => {
-    if (type === "speed") {
-      // Speed still comes from capabilities in data.json
-      if (model.capabilities && "speed" in model.capabilities) {
-        return model.capabilities.speed as number;
-      }
-    } else {
-      // All other ratings come from model_ratings.csv
-      if (ratingsLoaded) {
-        const csvRating = getRatingForModel(model.id, type, modelRatings);
-        if (csvRating !== null) {
-          return csvRating; // Return raw value for RatingDisplay to handle rounding
-        }
+    // All ratings now come from the unified ratings system in data.json
+    if (ratingsLoaded) {
+      const rating = getRatingForModel(model.id, type, modelRatings);
+      if (rating !== null) {
+        return rating; // Return raw value for RatingDisplay to handle rounding
       }
     }
     return null;
@@ -655,7 +648,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     // Check if we have any ratings to show
     const hasAnyRatings = hasAnyModelRating("intelligence") || hasAnyModelRating("reasoning") || 
                          hasAnyModelRating("agentic") || hasAnyModelRating("coding") || 
-                         hasAnyModelRating("stem") || hasAnyModelCapability("speed") || 
+                         hasAnyModelRating("stem") || hasAnyModelRating("speed") || 
                          hasAnyModelRating("pricing");
     
     if (!hasAnyRatings) {
@@ -754,7 +747,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
             )}
             
             {/* Speed Row */}
-            {hasAnyModelCapability("speed") && (
+            {hasAnyModelRating("speed") && (
               <tr className="cursor-pointer">
                 <td className={`${tableStyles.cell} ${tableStyles.stickyLabelCell} sticky-label`} style={{ backgroundColor: brandConfig.name === 'OMG' ? 'white' : undefined }} title="Based on response generation speed and tokens per second performance (manually assessed)">
                   <div className={containerStyles.flexCenter}>

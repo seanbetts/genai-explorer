@@ -329,6 +329,59 @@ def print_category_distribution(category_name: str, ratings: List[float], indent
     # Format percentages with matching spacing
     print(f"{indent}  {percentages[0]:<3} {percentages[1]:<3} {percentages[2]:<3} {percentages[3]:<3} {percentages[4]}")
 
+def update_data_json_with_ratings(models: Dict, benchmark_ratings: Dict, pricing_ratings: Dict,
+                                 data_file: str = 'data/data.json'):
+    """Update the main data.json file with calculated ratings."""
+    
+    # Load the existing data.json
+    with open(data_file, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    
+    # Get all benchmark categories
+    all_categories = set()
+    for ratings in benchmark_ratings.values():
+        all_categories.update(ratings.keys())
+    
+    categories = sorted(list(all_categories))
+    
+    print(f"Updating ratings in {data_file}...")
+    
+    # Update each model with its ratings
+    models_updated = 0
+    for company in data['companies']:
+        if 'models' not in company:
+            continue
+            
+        for model in company['models']:
+            model_id = model['id']
+            
+            if model_id in models:
+                # Ensure the model has a ratings object
+                if 'ratings' not in model:
+                    model['ratings'] = {}
+                
+                # Add benchmark category ratings
+                for category in categories:
+                    rating = benchmark_ratings[model_id].get(category)
+                    if rating is not None:
+                        # Map category names to shorter field names for consistency
+                        field_name = category.lower().replace(' ', '_').replace('general_intelligence', 'intelligence')
+                        model['ratings'][field_name] = round(rating, 2)
+                
+                # Add pricing cost rating
+                pricing_rating = pricing_ratings.get(model_id)
+                if pricing_rating is not None:
+                    model['ratings']['pricing_cost'] = round(pricing_rating, 2)
+                
+                models_updated += 1
+    
+    # Save the updated data.json
+    with open(data_file, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    
+    print(f"Updated {models_updated} models with ratings in {data_file}")
+    return models_updated
+
 def output_comprehensive_csv(models: Dict, benchmark_ratings: Dict, pricing_ratings: Dict,
                            output_file: str = 'public/data/model_ratings.csv'):
     """Output comprehensive ratings to CSV file."""
@@ -435,6 +488,10 @@ def main():
         pricing_ratings = calculate_pricing_ratings(models)
         
         # === OUTPUT COMBINED RESULTS ===
+        # Update the main data.json file with ratings
+        update_data_json_with_ratings(models, benchmark_ratings, pricing_ratings)
+        
+        # Also output CSV for backwards compatibility (optional)
         output_comprehensive_csv(models, benchmark_ratings, pricing_ratings)
         
     except FileNotFoundError as e:

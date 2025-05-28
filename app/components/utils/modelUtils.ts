@@ -24,11 +24,7 @@ export const deriveModelCategory = (model: Partial<Model>): CompanyCategory => {
     return 'audio';
   }
   
-  // Default to frontier for leading models or enterprise as fallback
-  if (model.capabilities?.intelligence && model.capabilities.intelligence >= 4) {
-    return 'frontier';
-  }
-  
+  // Default to enterprise as fallback
   return 'enterprise';
 };
 

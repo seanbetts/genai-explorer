@@ -83,8 +83,14 @@
           "systemCard": "https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf",
           "licenceType": "Proprietary",
           "licenceLink": "https://openai.com/policies/terms-of-use/",
-          "capabilities": {
-            "speed": 1
+          "ratings": {
+            "speed": 1,
+            "intelligence": 4.33,
+            "stem": 5.0,
+            "agentic": 4.5,
+            "coding": 5.0,
+            "reasoning": 5.0,
+            "pricing_cost": 4.29
           },
           "specs": {
             "reasoningTokens": true,
@@ -116,8 +122,14 @@
           "systemCard": "https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf",
           "licenceType": "Proprietary",
           "licenceLink": "https://openai.com/policies/terms-of-use/",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 4.0,
+            "stem": 5.0,
+            "agentic": 3.75,
+            "coding": 4.5,
+            "reasoning": 3.67,
+            "pricing_cost": 3.27
           },
           "specs": {
             "reasoningTokens": true,
@@ -149,8 +161,14 @@
           "systemCard": "",
           "licenceType": "Proprietary",
           "licenceLink": "https://openai.com/policies/terms-of-use/",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 4.29,
+            "stem": 3.0,
+            "agentic": 3.75,
+            "coding": 3.5,
+            "reasoning": 2.8,
+            "pricing_cost": 5.0
           },
           "specs": {
             "reasoningTokens": false,
@@ -182,8 +200,14 @@
           "systemCard": "https://openai.com/index/gpt-4o-system-card/",
           "licenceType": "Proprietary",
           "licenceLink": "https://openai.com/policies/terms-of-use/",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 3.3,
+            "stem": 3.11,
+            "agentic": 3.12,
+            "coding": 2.71,
+            "reasoning": 3.5,
+            "pricing_cost": 3.66
           },
           "specs": {
             "reasoningTokens": false,
@@ -218,8 +242,14 @@
           "systemCard": "https://openai.com/index/gpt-4o-system-card/",
           "licenceType": "Proprietary",
           "licenceLink": "https://openai.com/policies/terms-of-use/",
-          "capabilities": {
-            "speed": 4
+          "ratings": {
+            "speed": 4,
+            "intelligence": 2.43,
+            "stem": 3.14,
+            "agentic": 2.14,
+            "coding": 1.8,
+            "reasoning": 2.86,
+            "pricing_cost": 2.25
           },
           "specs": {
             "reasoningTokens": false,
@@ -253,8 +283,14 @@
           "systemCard": "https://openai.com/index/openai-o1-system-card/",
           "licenceType": "Proprietary",
           "licenceLink": "https://openai.com/policies/terms-of-use/",
-          "capabilities": {
-            "speed": 1
+          "ratings": {
+            "speed": 1,
+            "intelligence": 4.17,
+            "stem": 4.4,
+            "agentic": 3.62,
+            "coding": 3.5,
+            "reasoning": 4.0,
+            "pricing_cost": 4.47
           },
           "specs": {
             "reasoningTokens": true,
@@ -287,8 +323,14 @@
           "systemCard": "https://openai.com/index/o3-mini-system-card/",
           "licenceType": "Proprietary",
           "licenceLink": "https://openai.com/policies/terms-of-use/",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 3.2,
+            "stem": 5.0,
+            "agentic": 3.14,
+            "coding": 3.43,
+            "reasoning": 2.67,
+            "pricing_cost": 3.27
           },
           "specs": {
             "reasoningTokens": true,
@@ -321,8 +363,14 @@
           "systemCard": "",
           "licenceType": "Proprietary",
           "licenceLink": "https://openai.com/policies/terms-of-use/",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 4.2,
+            "stem": 3.67,
+            "agentic": 3.86,
+            "coding": 3.75,
+            "reasoning": 3.33,
+            "pricing_cost": 3.56
           },
           "specs": {
             "reasoningTokens": false,
@@ -354,8 +402,14 @@
           "systemCard": "",
           "licenceType": "Proprietary",
           "licenceLink": "https://openai.com/policies/terms-of-use/",
-          "capabilities": {
-            "speed": 4
+          "ratings": {
+            "speed": 4,
+            "intelligence": 3.5,
+            "stem": 3.67,
+            "agentic": 3.29,
+            "coding": 3.0,
+            "reasoning": 3.5,
+            "pricing_cost": 2.77
           },
           "specs": {
             "reasoningTokens": false,
@@ -387,8 +441,14 @@
           "systemCard": "",
           "licenceType": "Proprietary",
           "licenceLink": "https://openai.com/policies/terms-of-use/",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "intelligence": 2.33,
+            "stem": 2.33,
+            "agentic": 1.43,
+            "coding": 1.0,
+            "reasoning": 1.0,
+            "pricing_cost": 2.03
           },
           "specs": {
             "reasoningTokens": false,
@@ -420,7 +480,12 @@
           "systemCard": "",
           "licenceType": "",
           "licenceLink": "",
-          "capabilities": {},
+          "ratings": {
+            "intelligence": 3.0,
+            "stem": 3.0,
+            "coding": 4.0,
+            "reasoning": 2.0
+          },
           "specs": {}
         },
         {
@@ -436,7 +501,13 @@
           "systemCard": "",
           "licenceType": "",
           "licenceLink": "",
-          "capabilities": {},
+          "ratings": {
+            "intelligence": 3.0,
+            "stem": 3.75,
+            "agentic": 4.0,
+            "coding": 2.75,
+            "reasoning": 3.0
+          },
           "specs": {}
         },
         {
@@ -452,7 +523,9 @@
           "systemCard": "",
           "licenceType": "",
           "licenceLink": "",
-          "capabilities": {},
+          "ratings": {
+            "reasoning": 2.0
+          },
           "specs": {}
         },
         {
@@ -485,9 +558,9 @@
           "commerciallySafe": false,
           "metadata": {
             "C2PA": "https://c2pa.org"
-          },                          
-          "apiEndpoints": { 
-            "available": true,                                     
+          },
+          "apiEndpoints": {
+            "available": true,
             "generations": {
               "options": {
                 "inputFormats": [
@@ -496,18 +569,43 @@
                 "outputFormats": [
                   "image"
                 ],
-                "background": ["transparent","opaque"],
-                "moderation": ["low","auto"],
+                "background": [
+                  "transparent",
+                  "opaque"
+                ],
+                "moderation": [
+                  "low",
+                  "auto"
+                ],
                 "numberOfImages": 10,
                 "contextWindow": 32000,
                 "outputCompression": true,
-                "inputFileTypes": ["png","jpeg","webp"],
+                "inputFileTypes": [
+                  "png",
+                  "jpeg",
+                  "webp"
+                ],
                 "maxInputSize": 0,
                 "mask": false,
-                "outputFileTypes": ["png","jpeg","webp"],
-                "outputQuality": ["low","medium","high"],
-                "outputSize": ["1024x1024","1536x1024","1024x1536"],
-                "outputStyle": ["vivid","natural"],
+                "outputFileTypes": [
+                  "png",
+                  "jpeg",
+                  "webp"
+                ],
+                "outputQuality": [
+                  "low",
+                  "medium",
+                  "high"
+                ],
+                "outputSize": [
+                  "1024x1024",
+                  "1536x1024",
+                  "1024x1536"
+                ],
+                "outputStyle": [
+                  "vivid",
+                  "natural"
+                ],
                 "visualIntesity": 0,
                 "tileable": false,
                 "structureReference": false,
@@ -539,7 +637,7 @@
                   }
                 }
               }
-            },                                       
+            },
             "edits": {
               "options": {
                 "inputFormats": [
@@ -554,12 +652,27 @@
                 "numberOfImages": 10,
                 "contextWindow": 32000,
                 "outputCompression": false,
-                "inputFileTypes": ["png","jpeg","webp"],
+                "inputFileTypes": [
+                  "png",
+                  "jpeg",
+                  "webp"
+                ],
                 "maxInputSize": 25,
                 "mask": true,
-                "outputFileTypes": ["url", "b64_json"],
-                "outputQuality": ["low","medium","high"],
-                "outputSize": ["1024x1024","1536x1024","1024x1536"],
+                "outputFileTypes": [
+                  "url",
+                  "b64_json"
+                ],
+                "outputQuality": [
+                  "low",
+                  "medium",
+                  "high"
+                ],
+                "outputSize": [
+                  "1024x1024",
+                  "1536x1024",
+                  "1024x1536"
+                ],
                 "outputStyle": [],
                 "visualIntesity": 0,
                 "tileable": false,
@@ -569,7 +682,7 @@
                 "placementAlignment": false,
                 "pricing": {}
               }
-            }                                       
+            }
           },
           "features": {
             "generation": {
@@ -640,25 +753,43 @@
             "critterz": "https://youtu.be/qjuk0YCUdo8?si=usevL9mHIq10A_ht"
           },
           "demoVideos": {
-            "getting_started": ["https://youtu.be/360ZqfabuPQ?si=IG6ffMgp_6-zhha8"],
-            "storyboard": ["https://youtu.be/6PXWAvUG8Sg?si=NVAyyzTGdhrXenIy"],
-            "recut": ["https://youtu.be/jC0i_0wnly8?si=kLGDskuTtadtMzMX"],
-            "blend": ["https://youtu.be/OXapuT2iVqM?si=nvkM7nFmSuOOvrrg"],
-            "remix": ["https://youtu.be/tC2ZELc4bOA?si=fIs5bpse-EtKu2hr"],
-            "loop": ["https://youtu.be/7BVx1PNfIRk?si=Q_UrtJjaJ0PImnUz"],
-            "music_videos": ["https://youtu.be/0dhX84UkwFs?si=rDDo1aptOU8CLRAF"],
-            "world_building": ["https://youtu.be/PZk4t7Np4Ds?si=e-HYblD1e01DP5e1"],
-            "behind_the_scenes": ["https://youtu.be/mQG7vN8UYLU?si=xQxQmjOaHrozayNr"]
+            "getting_started": [
+              "https://youtu.be/360ZqfabuPQ?si=IG6ffMgp_6-zhha8"
+            ],
+            "storyboard": [
+              "https://youtu.be/6PXWAvUG8Sg?si=NVAyyzTGdhrXenIy"
+            ],
+            "recut": [
+              "https://youtu.be/jC0i_0wnly8?si=kLGDskuTtadtMzMX"
+            ],
+            "blend": [
+              "https://youtu.be/OXapuT2iVqM?si=nvkM7nFmSuOOvrrg"
+            ],
+            "remix": [
+              "https://youtu.be/tC2ZELc4bOA?si=fIs5bpse-EtKu2hr"
+            ],
+            "loop": [
+              "https://youtu.be/7BVx1PNfIRk?si=Q_UrtJjaJ0PImnUz"
+            ],
+            "music_videos": [
+              "https://youtu.be/0dhX84UkwFs?si=rDDo1aptOU8CLRAF"
+            ],
+            "world_building": [
+              "https://youtu.be/PZk4t7Np4Ds?si=e-HYblD1e01DP5e1"
+            ],
+            "behind_the_scenes": [
+              "https://youtu.be/mQG7vN8UYLU?si=xQxQmjOaHrozayNr"
+            ]
           },
           "termsOfService": "https://openai.com/policies/terms-of-use/",
           "usagePolicy": "https://openai.com/policies/usage-policies/",
           "commerciallySafe": false,
           "metadata": {
             "C2PA": "https://c2pa.org"
-          },                          
-          "apiEndpoints": {     
-            "available": false,                                    
-            "xxx": {}                                    
+          },
+          "apiEndpoints": {
+            "available": false,
+            "xxx": {}
           },
           "features": {
             "generation": {
@@ -666,11 +797,33 @@
               "imageToVideo": true,
               "videoToVideo": true,
               "negativePrompt": false,
-              "resolutions": ["480p","720p","1080p"],
+              "resolutions": [
+                "480p",
+                "720p",
+                "1080p"
+              ],
               "frameRate": null,
-              "durations": [5, 10, 15, 20],
-              "numberOfVideos": [1,2,4],
-              "videoStyles": ["archival","film noir","carboard & papercraft","whimsical stop motion","baloon world","superbowl commercial","cartoonify","pixel art"]
+              "durations": [
+                5,
+                10,
+                15,
+                20
+              ],
+              "numberOfVideos": [
+                1,
+                2,
+                4
+              ],
+              "videoStyles": [
+                "archival",
+                "film noir",
+                "carboard & papercraft",
+                "whimsical stop motion",
+                "baloon world",
+                "superbowl commercial",
+                "cartoonify",
+                "pixel art"
+              ]
             },
             "editing": {
               "remix": true,
@@ -723,17 +876,29 @@
           "modelGuide": "https://platform.openai.com/docs/guides/text-to-speech",
           "apiDocumentation": "https://platform.openai.com/docs/api-reference/audio",
           "audioExamples": {
-            "files": ["alloy.mp3","ash.mp3","ballad.mp3","coral.mp3","echo.mp3","fable.mp3","nova.mp3","onyx.mp3","sage.mp3","shimmer.mp3","verse.mp3"],
+            "files": [
+              "alloy.mp3",
+              "ash.mp3",
+              "ballad.mp3",
+              "coral.mp3",
+              "echo.mp3",
+              "fable.mp3",
+              "nova.mp3",
+              "onyx.mp3",
+              "sage.mp3",
+              "shimmer.mp3",
+              "verse.mp3"
+            ],
             "embeds": {}
           },
           "demoVideos": {},
           "termsOfService": "https://openai.com/policies/terms-of-use/",
           "usagePolicy": "https://platform.openai.com/docs/guides/text-to-speech",
           "commerciallySafe": false,
-          "metadata": {},                          
+          "metadata": {},
           "apiEndpoints": {
-            "available": true,                                     
-            "xxx": {}        
+            "available": true,
+            "xxx": {}
           },
           "features": {
             "generation": {
@@ -745,8 +910,17 @@
               "styles": true,
               "negativeStyles": false,
               "personas": false,
-              "durations": [9999],
-              "outputFormats": ["mp3","opus","aac","flac","wav","pcm"],
+              "durations": [
+                9999
+              ],
+              "outputFormats": [
+                "mp3",
+                "opus",
+                "aac",
+                "flac",
+                "wav",
+                "pcm"
+              ],
               "coverArt": false,
               "coverVideo": false
             },
@@ -765,9 +939,86 @@
               "trainCustomModels": false
             },
             "other": {
-              "voices": ["alloy","ash","ballad","coral","echo","fable","nova","onyx","sage","shimmer"],
-              "voiceFeatures": ["accent","emotional range","intonation","impressions","speed","tone","whipsering"],
-              "languages": ["Afrikaans", "Arabic", "Armenian", "Azerbaijani", "Belarusian", "Bosnian", "Bulgarian", "Catalan", "Chinese", "Croatian", "Czech", "Danish", "Dutch", "English", "Estonian", "Finnish", "French", "Galician", "German", "Greek", "Hebrew", "Hindi", "Hungarian", "Icelandic", "Indonesian", "Italian", "Japanese", "Kannada", "Kazakh", "Korean", "Latvian", "Lithuanian", "Macedonian", "Malay", "Marathi", "Maori", "Nepali", "Norwegian", "Persian", "Polish", "Portuguese", "Romanian", "Russian", "Serbian", "Slovak", "Slovenian", "Spanish", "Swahili", "Swedish", "Tagalog", "Tamil", "Thai", "Turkish", "Ukrainian", "Urdu", "Vietnamese", "Welsh"]
+              "voices": [
+                "alloy",
+                "ash",
+                "ballad",
+                "coral",
+                "echo",
+                "fable",
+                "nova",
+                "onyx",
+                "sage",
+                "shimmer"
+              ],
+              "voiceFeatures": [
+                "accent",
+                "emotional range",
+                "intonation",
+                "impressions",
+                "speed",
+                "tone",
+                "whipsering"
+              ],
+              "languages": [
+                "Afrikaans",
+                "Arabic",
+                "Armenian",
+                "Azerbaijani",
+                "Belarusian",
+                "Bosnian",
+                "Bulgarian",
+                "Catalan",
+                "Chinese",
+                "Croatian",
+                "Czech",
+                "Danish",
+                "Dutch",
+                "English",
+                "Estonian",
+                "Finnish",
+                "French",
+                "Galician",
+                "German",
+                "Greek",
+                "Hebrew",
+                "Hindi",
+                "Hungarian",
+                "Icelandic",
+                "Indonesian",
+                "Italian",
+                "Japanese",
+                "Kannada",
+                "Kazakh",
+                "Korean",
+                "Latvian",
+                "Lithuanian",
+                "Macedonian",
+                "Malay",
+                "Marathi",
+                "Maori",
+                "Nepali",
+                "Norwegian",
+                "Persian",
+                "Polish",
+                "Portuguese",
+                "Romanian",
+                "Russian",
+                "Serbian",
+                "Slovak",
+                "Slovenian",
+                "Spanish",
+                "Swahili",
+                "Swedish",
+                "Tagalog",
+                "Tamil",
+                "Thai",
+                "Turkish",
+                "Ukrainian",
+                "Urdu",
+                "Vietnamese",
+                "Welsh"
+              ]
             }
           },
           "safety": {
@@ -940,8 +1191,13 @@
           "systemCard": "https://www-cdn.anthropic.com/6be99a52cb68eb70eb9572b4cafad13df32ed995.pdf",
           "licenceType": "Proprietary",
           "licenceLink": "https://www.anthropic.com/legal/consumer-terms",
-          "capabilities": {
-            "speed": 2
+          "ratings": {
+            "speed": 2,
+            "intelligence": 4.0,
+            "stem": 4.5,
+            "agentic": 5.0,
+            "coding": 5.0,
+            "pricing_cost": 4.54
           },
           "specs": {
             "reasoningTokens": true,
@@ -973,8 +1229,13 @@
           "systemCard": "https://www-cdn.anthropic.com/6be99a52cb68eb70eb9572b4cafad13df32ed995.pdf",
           "licenceType": "Proprietary",
           "licenceLink": "https://www.anthropic.com/legal/consumer-terms",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 4.0,
+            "stem": 4.0,
+            "agentic": 5.0,
+            "coding": 5.0,
+            "pricing_cost": 3.82
           },
           "specs": {
             "reasoningTokens": true,
@@ -1006,8 +1267,14 @@
           "systemCard": "https://assets.anthropic.com/m/61e7d27f8c8f5919/original/Claude-3-Model-Card.pdf",
           "licenceType": "Proprietary",
           "licenceLink": "https://www.anthropic.com/legal/consumer-terms",
-          "capabilities": {
-            "speed": 4
+          "ratings": {
+            "speed": 4,
+            "intelligence": 2.8,
+            "stem": 3.33,
+            "agentic": 3.0,
+            "coding": 4.0,
+            "reasoning": 4.0,
+            "pricing_cost": 3.19
           },
           "specs": {
             "reasoningTokens": false,
@@ -1039,8 +1306,13 @@
           "systemCard": "https://assets.anthropic.com/m/61e7d27f8c8f5919/original/Claude-3-Model-Card.pdf",
           "licenceType": "Proprietary",
           "licenceLink": "https://www.anthropic.com/legal/consumer-terms",
-          "capabilities": {
-            "speed": 2
+          "ratings": {
+            "speed": 2,
+            "intelligence": 3.5,
+            "stem": 3.5,
+            "coding": 4.0,
+            "reasoning": 3.67,
+            "pricing_cost": 4.54
           },
           "specs": {
             "reasoningTokens": false,
@@ -1072,8 +1344,14 @@
           "systemCard": "https://assets.anthropic.com/m/785e231869ea8b3b/original/claude-3-7-sonnet-system-card.pdf",
           "licenceType": "Proprietary",
           "licenceLink": "https://www.anthropic.com/legal/consumer-terms",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 3.86,
+            "stem": 3.2,
+            "agentic": 5.0,
+            "coding": 3.75,
+            "reasoning": 3.0,
+            "pricing_cost": 3.82
           },
           "specs": {
             "reasoningTokens": true,
@@ -1105,7 +1383,13 @@
           "systemCard": "",
           "licenceType": "",
           "licenceLink": "",
-          "capabilities": {},
+          "ratings": {
+            "intelligence": 3.5,
+            "stem": 2.78,
+            "agentic": 4.33,
+            "coding": 3.2,
+            "reasoning": 3.6
+          },
           "specs": {}
         },
         {
@@ -1121,7 +1405,7 @@
           "systemCard": "",
           "licenceType": "",
           "licenceLink": "",
-          "capabilities": {},
+          "ratings": {},
           "specs": {}
         },
         {
@@ -1137,7 +1421,10 @@
           "systemCard": "",
           "licenceType": "",
           "licenceLink": "",
-          "capabilities": {},
+          "ratings": {
+            "intelligence": 2.5,
+            "stem": 2.75
+          },
           "specs": {}
         }
       ],
@@ -1299,8 +1586,14 @@
           "systemCard": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf",
           "licenceType": "Proprietary",
           "licenceLink": "https://ai.google.dev/gemini-api/terms",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 4.5,
+            "stem": 5.0,
+            "agentic": 5.0,
+            "coding": 4.25,
+            "reasoning": 5.0,
+            "pricing_cost": 3.57
           },
           "specs": {
             "reasoningTokens": false,
@@ -1334,8 +1627,13 @@
           "systemCard": "",
           "licenceType": "Proprietary",
           "licenceLink": "https://ai.google.dev/gemini-api/terms",
-          "capabilities": {
-            "speed": 4
+          "ratings": {
+            "speed": 4,
+            "intelligence": 3.75,
+            "stem": 4.67,
+            "coding": 3.5,
+            "reasoning": 3.0,
+            "pricing_cost": 2.25
           },
           "specs": {
             "reasoningTokens": true,
@@ -1369,8 +1667,13 @@
           "systemCard": "https://storage.googleapis.com/model-cards/documents/gemini-2-flash.pdf",
           "licenceType": "Proprietary",
           "licenceLink": "https://ai.google.dev/gemini-api/terms",
-          "capabilities": {
-            "speed": 4
+          "ratings": {
+            "speed": 4,
+            "intelligence": 3.44,
+            "stem": 3.57,
+            "coding": 3.0,
+            "reasoning": 1.0,
+            "pricing_cost": 2.03
           },
           "specs": {
             "reasoningTokens": false,
@@ -1404,8 +1707,12 @@
           "systemCard": "https://storage.googleapis.com/model-cards/documents/gemini-2-flash-lite.pdf",
           "licenceType": "Proprietary",
           "licenceLink": "",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "intelligence": 2.67,
+            "stem": 3.2,
+            "coding": 3.5,
+            "pricing_cost": 1.86
           },
           "specs": {
             "reasoningTokens": false,
@@ -1438,7 +1745,11 @@
           "systemCard": "",
           "licenceType": "",
           "licenceLink": "",
-          "capabilities": {},
+          "ratings": {
+            "intelligence": 4.14,
+            "stem": 4.67,
+            "coding": 3.5
+          },
           "specs": {}
         },
         {
@@ -1454,7 +1765,11 @@
           "systemCard": "",
           "licenceType": "",
           "licenceLink": "",
-          "capabilities": {},
+          "ratings": {
+            "intelligence": 3.6,
+            "stem": 4.0,
+            "coding": 2.0
+          },
           "specs": {}
         },
         {
@@ -1470,7 +1785,11 @@
           "systemCard": "",
           "licenceType": "",
           "licenceLink": "",
-          "capabilities": {},
+          "ratings": {
+            "intelligence": 4.0,
+            "stem": 4.0,
+            "coding": 3.0
+          },
           "specs": {}
         },
         {
@@ -1486,7 +1805,13 @@
           "systemCard": "",
           "licenceType": "",
           "licenceLink": "",
-          "capabilities": {},
+          "ratings": {
+            "intelligence": 3.6,
+            "stem": 4.14,
+            "agentic": 5.0,
+            "coding": 4.0,
+            "reasoning": 4.4
+          },
           "specs": {}
         },
         {
@@ -1502,7 +1827,13 @@
           "systemCard": "",
           "licenceType": "",
           "licenceLink": "",
-          "capabilities": {},
+          "ratings": {
+            "intelligence": 2.9,
+            "stem": 3.71,
+            "agentic": 5.0,
+            "coding": 3.33,
+            "reasoning": 3.75
+          },
           "specs": {}
         },
         {
@@ -1519,8 +1850,14 @@
           "licenceType": "Custom",
           "licenceLink": "https://ai.google.dev/gemma/terms",
           "huggingFace": "https://huggingface.co/google/gemma-3-27b-it",
-          "capabilities": {
-            "speed": 4
+          "ratings": {
+            "speed": 4,
+            "intelligence": 3.0,
+            "stem": 3.44,
+            "agentic": 4.5,
+            "coding": 3.5,
+            "reasoning": 4.33,
+            "pricing_cost": 2.8
           },
           "specs": {
             "reasoningTokens": false,
@@ -1552,8 +1889,14 @@
           "licenceType": "Custom",
           "licenceLink": "https://ai.google.dev/gemma/terms",
           "huggingFace": "https://huggingface.co/google/gemma-3-12b-it",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "intelligence": 2.5,
+            "stem": 3.83,
+            "agentic": 4.0,
+            "coding": 4.0,
+            "reasoning": 4.0,
+            "pricing_cost": 2.28
           },
           "specs": {
             "reasoningTokens": false,
@@ -1585,8 +1928,14 @@
           "licenceType": "Custom",
           "licenceLink": "https://ai.google.dev/gemma/terms",
           "huggingFace": "https://huggingface.co/google/gemma-3-4b-it",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "intelligence": 1.83,
+            "stem": 2.83,
+            "agentic": 5.0,
+            "coding": 3.0,
+            "reasoning": 3.0,
+            "pricing_cost": 1.65
           },
           "specs": {
             "reasoningTokens": false,
@@ -1618,8 +1967,14 @@
           "licenceType": "Custom",
           "licenceLink": "https://ai.google.dev/gemma/terms",
           "huggingFace": "https://huggingface.co/google/gemma-3-1b-it",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "intelligence": 1.0,
+            "stem": 1.4,
+            "agentic": 3.0,
+            "coding": 1.0,
+            "reasoning": 1.33,
+            "pricing_cost": 1.65
           },
           "specs": {
             "reasoningTokens": false,
@@ -1659,9 +2014,9 @@
           "commerciallySafe": false,
           "metadata": {
             "synthID": "https://deepmind.google/technologies/synthid/"
-          },                          
+          },
           "apiEndpoints": {
-            "available": true,                                      
+            "available": true,
             "generate": {
               "options": {
                 "inputFormats": [
@@ -1671,17 +2026,33 @@
                   "image"
                 ],
                 "background": [],
-                "moderation": ["block low+","block medium+","block high","block none"],
+                "moderation": [
+                  "block low+",
+                  "block medium+",
+                  "block high",
+                  "block none"
+                ],
                 "numberOfImages": 4,
                 "contextWindow": 480,
                 "outputCompression": true,
                 "inputFileTypes": [],
                 "maxInputSize": 0,
                 "mask": true,
-                "outputFileTypes": ["png","jpeg"],
+                "outputFileTypes": [
+                  "png",
+                  "jpeg"
+                ],
                 "outputQuality": [],
                 "outputSize": [],
-                "outputStyle": ["photograph","digital art","landscape","sketch","watercolor","cyberpunk","pop art"],
+                "outputStyle": [
+                  "photograph",
+                  "digital art",
+                  "landscape",
+                  "sketch",
+                  "watercolor",
+                  "cyberpunk",
+                  "pop art"
+                ],
                 "visualIntesity": 0,
                 "tileable": false,
                 "structureReference": false,
@@ -1690,7 +2061,7 @@
                 "placementAlignment": false,
                 "pricing": {}
               }
-            }                                    
+            }
           },
           "features": {
             "generation": {
@@ -1754,16 +2125,16 @@
             "imageFormat": "webp"
           },
           "demoVideos": {
-            "photorealistic_images":"https://www.youtube.com/watch?v=nEuNwULfGXk"
+            "photorealistic_images": "https://www.youtube.com/watch?v=nEuNwULfGXk"
           },
           "termsOfService": "https://policies.google.com/terms",
           "usagePolicy": "https://cloud.google.com/vertex-ai/generative-ai/docs/image/responsible-ai-imagen#imagen-guidelines",
           "commerciallySafe": false,
           "metadata": {
             "synthID": "https://deepmind.google/technologies/synthid/"
-          },                          
+          },
           "apiEndpoints": {
-            "available": true,                                      
+            "available": true,
             "generate": {
               "options": {
                 "inputFormats": [
@@ -1773,17 +2144,33 @@
                   "image"
                 ],
                 "background": [],
-                "moderation": ["block low+","block medium+","block high","block none"],
+                "moderation": [
+                  "block low+",
+                  "block medium+",
+                  "block high",
+                  "block none"
+                ],
                 "numberOfImages": 4,
                 "contextWindow": 480,
                 "outputCompression": true,
                 "inputFileTypes": [],
                 "maxInputSize": 0,
                 "mask": true,
-                "outputFileTypes": ["png","jpeg"],
+                "outputFileTypes": [
+                  "png",
+                  "jpeg"
+                ],
                 "outputQuality": [],
                 "outputSize": [],
-                "outputStyle": ["photograph","digital art","landscape","sketch","watercolor","cyberpunk","pop art"],
+                "outputStyle": [
+                  "photograph",
+                  "digital art",
+                  "landscape",
+                  "sketch",
+                  "watercolor",
+                  "cyberpunk",
+                  "pop art"
+                ],
                 "visualIntesity": 0,
                 "tileable": false,
                 "structureReference": false,
@@ -1792,7 +2179,7 @@
                 "placementAlignment": false,
                 "pricing": {}
               }
-            }                                    
+            }
           },
           "features": {
             "generation": {
@@ -1871,10 +2258,10 @@
           "termsOfService": "https://policies.google.com/terms",
           "usagePolicy": "",
           "commerciallySafe": false,
-          "metadata": {},                          
-          "apiEndpoints": {   
-            "available": true,                                      
-            "xxx": {}                                    
+          "metadata": {},
+          "apiEndpoints": {
+            "available": true,
+            "xxx": {}
           },
           "features": {
             "generation": {
@@ -1885,10 +2272,22 @@
               "soundEffects": true,
               "ambientNoise": true,
               "dialogue": true,
-              "resolutions": ["720p", "1080p", "4k"],
+              "resolutions": [
+                "720p",
+                "1080p",
+                "4k"
+              ],
               "frameRate": 24,
-              "durations": [5,6,7,8],
-              "numberOfVideos": [1,2],
+              "durations": [
+                5,
+                6,
+                7,
+                8
+              ],
+              "numberOfVideos": [
+                1,
+                2
+              ],
               "videoStyles": []
             },
             "editing": {
@@ -1908,7 +2307,14 @@
             "advanced": {
               "storyboard": false,
               "cameraControls": {
-                "motion": ["zoom in","zoom out","move left","move right","move up","move down"]
+                "motion": [
+                  "zoom in",
+                  "zoom out",
+                  "move left",
+                  "move right",
+                  "move up",
+                  "move down"
+                ]
               },
               "trainCustomModels": false
             }
@@ -1965,10 +2371,10 @@
           "termsOfService": "https://policies.google.com/terms",
           "usagePolicy": "",
           "commerciallySafe": false,
-          "metadata": {},                          
-          "apiEndpoints": {   
-            "available": true,                                      
-            "xxx": {}                                    
+          "metadata": {},
+          "apiEndpoints": {
+            "available": true,
+            "xxx": {}
           },
           "features": {
             "generation": {
@@ -1976,10 +2382,17 @@
               "imageToVideo": true,
               "videoToVideo": false,
               "negativePrompt": true,
-              "resolutions": ["720p"],
+              "resolutions": [
+                "720p"
+              ],
               "frameRate": 24,
-              "durations": [5,8],
-              "numberOfVideos": [4],
+              "durations": [
+                5,
+                8
+              ],
+              "numberOfVideos": [
+                4
+              ],
               "videoStyles": []
             },
             "editing": {
@@ -2033,25 +2446,41 @@
           "modelGuide": "",
           "apiDocumentation": "",
           "audioExamples": {
-            "files": ["hazy_UK_garage.mp3","hybrid_film_score.mp3","jazz.mp3","psychedelic_cumbia.mp3","sinti_jazz.mp3"],
+            "files": [
+              "hazy_UK_garage.mp3",
+              "hybrid_film_score.mp3",
+              "jazz.mp3",
+              "psychedelic_cumbia.mp3",
+              "sinti_jazz.mp3"
+            ],
             "embeds": {}
           },
           "demoVideos": {
-            "shankar_mahadevan": ["https://www.youtube.com/watch?v=7Rz3m0QtFMs"],
-            "sound_of_AI": ["https://www.youtube.com/watch?v=x84ZqMkZ18U&t=1s"],
-            "new_musical_parts": ["https://deepmind.google/api/blob/website/media/AS-1000_Create_Short.mp4"],
-            "extend": ["https://deepmind.google/api/blob/website/media/AS-1000_Extend_Short_2wGRE4T.mp4"],
-            "edit": ["https://deepmind.google/api/blob/website/media/AS-1000_Edit_Short_nv3Iiss.mp4"]
+            "shankar_mahadevan": [
+              "https://www.youtube.com/watch?v=7Rz3m0QtFMs"
+            ],
+            "sound_of_AI": [
+              "https://www.youtube.com/watch?v=x84ZqMkZ18U&t=1s"
+            ],
+            "new_musical_parts": [
+              "https://deepmind.google/api/blob/website/media/AS-1000_Create_Short.mp4"
+            ],
+            "extend": [
+              "https://deepmind.google/api/blob/website/media/AS-1000_Extend_Short_2wGRE4T.mp4"
+            ],
+            "edit": [
+              "https://deepmind.google/api/blob/website/media/AS-1000_Edit_Short_nv3Iiss.mp4"
+            ]
           },
           "termsOfService": "",
           "usagePolicy": "",
           "commerciallySafe": false,
           "metadata": {
             "synthID": "https://deepmind.google/technologies/synthid/"
-          },                        
+          },
           "apiEndpoints": {
-            "available": false,                                     
-            "xxx": {}        
+            "available": false,
+            "xxx": {}
           },
           "features": {
             "generation": {
@@ -2063,8 +2492,12 @@
               "styles": false,
               "negativeStyles": false,
               "personas": false,
-              "durations": [9999],
-              "outputFormats": ["mp3"],
+              "durations": [
+                9999
+              ],
+              "outputFormats": [
+                "mp3"
+              ],
               "coverArt": false,
               "coverVideo": false
             },
@@ -2215,8 +2648,14 @@
           "systemCard": "https://assets.amazon.science/f6/c5/79dceb124593b3356566ad6723af/the-amazon-nova-premier-technical-report-and-model-card.pdf",
           "licenceType": "Proprietary",
           "licenceLink": "https://aws.amazon.com/service-terms/",
-          "capabilities": {
-            "speed": 2
+          "ratings": {
+            "speed": 2,
+            "intelligence": 4.25,
+            "stem": 2.67,
+            "agentic": 5.0,
+            "coding": 3.0,
+            "reasoning": 1.5,
+            "pricing_cost": 3.73
           },
           "specs": {
             "reasoningTokens": false,
@@ -2249,8 +2688,14 @@
           "systemCard": "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html",
           "licenceType": "Proprietary",
           "licenceLink": "https://aws.amazon.com/service-terms/",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 4.0,
+            "stem": 3.0,
+            "agentic": 5.0,
+            "coding": 5.0,
+            "reasoning": 2.75,
+            "pricing_cost": 3.12
           },
           "specs": {
             "reasoningTokens": false,
@@ -2283,8 +2728,14 @@
           "systemCard": "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html",
           "licenceType": "Proprietary",
           "licenceLink": "https://aws.amazon.com/service-terms/",
-          "capabilities": {
-            "speed": 4
+          "ratings": {
+            "speed": 4,
+            "intelligence": 3.0,
+            "stem": 3.67,
+            "agentic": 5.0,
+            "coding": 4.0,
+            "reasoning": 4.33,
+            "pricing_cost": 1.73
           },
           "specs": {
             "reasoningTokens": false,
@@ -2317,8 +2768,14 @@
           "systemCard": "https://docs.aws.amazon.com/ai/responsible-ai/nova-micro-lite-pro/overview.html",
           "licenceType": "Proprietary",
           "licenceLink": "https://aws.amazon.com/service-terms/",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "intelligence": 3.0,
+            "stem": 3.67,
+            "agentic": 4.0,
+            "coding": 4.0,
+            "reasoning": 3.67,
+            "pricing_cost": 1.4
           },
           "specs": {
             "reasoningTokens": false,
@@ -2424,8 +2881,13 @@
           "systemCard": "",
           "licenceType": "Proprietary",
           "licenceLink": "https://x.ai/legal/terms-of-service",
-          "capabilities": {
-            "speed": 2
+          "ratings": {
+            "speed": 2,
+            "intelligence": 4.17,
+            "stem": 4.33,
+            "coding": 4.0,
+            "reasoning": 3.0,
+            "pricing_cost": 3.82
           },
           "specs": {
             "reasoningTokens": false,
@@ -2455,8 +2917,12 @@
           "systemCard": "",
           "licenceType": "Proprietary",
           "licenceLink": "https://x.ai/legal/terms-of-service",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 4.0,
+            "stem": 5.0,
+            "coding": 5.0,
+            "pricing_cost": 2.38
           },
           "specs": {
             "reasoningTokens": true,
@@ -2486,8 +2952,9 @@
           "systemCard": "",
           "licenceType": "Proprietary",
           "licenceLink": "https://x.ai/legal/terms-of-service",
-          "capabilities": {
-            "speed": 2
+          "ratings": {
+            "speed": 2,
+            "pricing_cost": 3.63
           },
           "specs": {
             "reasoningTokens": false,
@@ -2518,7 +2985,12 @@
           "systemCard": "",
           "licenceType": "",
           "licenceLink": "",
-          "capabilities": {},
+          "ratings": {
+            "intelligence": 3.6,
+            "stem": 3.33,
+            "coding": 5.0,
+            "reasoning": 2.0
+          },
           "specs": {}
         },
         {
@@ -2534,7 +3006,11 @@
           "systemCard": "",
           "licenceType": "",
           "licenceLink": "",
-          "capabilities": {},
+          "ratings": {
+            "intelligence": 3.4,
+            "stem": 3.33,
+            "coding": 4.0
+          },
           "specs": {}
         },
         {
@@ -2550,7 +3026,11 @@
           "systemCard": "",
           "licenceType": "",
           "licenceLink": "",
-          "capabilities": {},
+          "ratings": {
+            "intelligence": 2.75,
+            "stem": 2.33,
+            "coding": 3.0
+          },
           "specs": {}
         }
       ],
@@ -2637,8 +3117,14 @@
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama4/license/",
           "huggingFace": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct",
-          "capabilities": {
-            "speed": 2
+          "ratings": {
+            "speed": 2,
+            "intelligence": 4.67,
+            "stem": 3.75,
+            "agentic": 4.0,
+            "coding": 3.0,
+            "reasoning": 3.0,
+            "pricing_cost": 2.49
           },
           "specs": {
             "reasoningTokens": false,
@@ -2670,8 +3156,12 @@
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama4/license/",
           "huggingFace": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 4.0,
+            "stem": 3.0,
+            "coding": 2.0,
+            "pricing_cost": 2.29
           },
           "specs": {
             "reasoningTokens": false,
@@ -2703,8 +3193,14 @@
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama3/license/",
           "huggingFace": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 2.5,
+            "stem": 4.0,
+            "agentic": 4.0,
+            "coding": 4.0,
+            "reasoning": 2.0,
+            "pricing_cost": 2.84
           },
           "specs": {
             "reasoningTokens": false,
@@ -2735,8 +3231,14 @@
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama3/license/",
           "huggingFace": "https://huggingface.co/meta-llama/Llama-3.2-90B-Vision-Instruct",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 3.0,
+            "stem": 3.83,
+            "agentic": 5.0,
+            "coding": 4.0,
+            "reasoning": 5.0,
+            "pricing_cost": 3.0
           },
           "specs": {
             "reasoningTokens": false,
@@ -2768,8 +3270,14 @@
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama3/license/",
           "huggingFace": "https://huggingface.co/meta-llama/Llama-3.2-11B-Vision-Instruct",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "intelligence": 2.33,
+            "stem": 3.17,
+            "agentic": 4.0,
+            "coding": 3.0,
+            "reasoning": 1.0,
+            "pricing_cost": 2.0
           },
           "specs": {
             "reasoningTokens": false,
@@ -2801,8 +3309,9 @@
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama3/license/",
           "huggingFace": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "pricing_cost": 1.33
           },
           "specs": {
             "reasoningTokens": false,
@@ -2833,8 +3342,9 @@
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama3/license/",
           "huggingFace": "https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "pricing_cost": 1.33
           },
           "specs": {
             "reasoningTokens": false,
@@ -2865,8 +3375,14 @@
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama3/license/",
           "huggingFace": "https://huggingface.co/meta-llama/Llama-3.1-405B-Instruct",
-          "capabilities": {
-            "speed": 2
+          "ratings": {
+            "speed": 2,
+            "intelligence": 3.0,
+            "stem": 3.25,
+            "agentic": 4.0,
+            "coding": 1.5,
+            "reasoning": 3.67,
+            "pricing_cost": 3.52
           },
           "specs": {
             "reasoningTokens": false,
@@ -2897,8 +3413,9 @@
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama3/license/",
           "huggingFace": "https://huggingface.co/meta-llama/Llama-3.1-70B-Instruct",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "pricing_cost": 2.84
           },
           "specs": {
             "reasoningTokens": false,
@@ -2929,8 +3446,14 @@
           "licenceType": "Community",
           "licenceLink": "https://www.llama.com/llama3/license/",
           "huggingFace": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "intelligence": 2.0,
+            "stem": 3.0,
+            "agentic": 4.0,
+            "coding": 3.0,
+            "reasoning": 2.0,
+            "pricing_cost": 2.0
           },
           "specs": {
             "reasoningTokens": false,
@@ -2987,8 +3510,11 @@
           "licenceType": "Research",
           "licenceLink": "https://mistral.ai/static/licenses/MRL-0.1.md",
           "huggingFace": "https://huggingface.co/mistralai/Mistral-Large-Instruct-2407",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 1.0,
+            "reasoning": 2.0,
+            "pricing_cost": 3.48
           },
           "specs": {
             "reasoningTokens": false,
@@ -3019,8 +3545,13 @@
           "licenceType": "Apache 2.0",
           "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
           "huggingFace": "",
-          "capabilities": {
-            "speed": 4
+          "ratings": {
+            "speed": 4,
+            "intelligence": 3.25,
+            "stem": 4.0,
+            "agentic": 4.0,
+            "coding": 3.5,
+            "pricing_cost": 2.84
           },
           "specs": {
             "reasoningTokens": false,
@@ -3052,8 +3583,12 @@
           "licenceType": "Apache 2.0",
           "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
           "huggingFace": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503",
-          "capabilities": {
-            "speed": 4
+          "ratings": {
+            "speed": 4,
+            "intelligence": 3.2,
+            "stem": 3.75,
+            "coding": 5.0,
+            "pricing_cost": 1.93
           },
           "specs": {
             "reasoningTokens": false,
@@ -3085,8 +3620,9 @@
           "licenceType": "Research",
           "licenceLink": "https://mistral.ai/static/licenses/MRL-0.1.md",
           "huggingFace": "https://huggingface.co/mistralai/Ministral-8B-Instruct-2410",
-          "capabilities": {
-            "speed": 4
+          "ratings": {
+            "speed": 4,
+            "pricing_cost": 1.65
           },
           "specs": {
             "reasoningTokens": false,
@@ -3117,8 +3653,9 @@
           "licenceType": "Research",
           "licenceLink": "https://mistral.ai/static/licenses/MRL-0.1.md",
           "huggingFace": "",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "pricing_cost": 1.0
           },
           "specs": {
             "reasoningTokens": false,
@@ -3149,8 +3686,10 @@
           "licenceType": "Apache 2.0",
           "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
           "huggingFace": "https://huggingface.co/mistralai/Devstral-Small-2505",
-          "capabilities": {
-            "speed": 4
+          "ratings": {
+            "speed": 4,
+            "coding": 3.0,
+            "pricing_cost": 1.93
           },
           "specs": {
             "reasoningTokens": false,
@@ -3181,8 +3720,9 @@
           "licenceType": "Custom",
           "licenceLink": "https://mistral.ai/static/licenses/MNPL-0.1.md",
           "huggingFace": "",
-          "capabilities": {
-            "speed": 4
+          "ratings": {
+            "speed": 4,
+            "pricing_cost": 2.53
           },
           "specs": {
             "reasoningTokens": false,
@@ -3213,8 +3753,11 @@
           "licenceType": "Research",
           "licenceLink": "https://mistral.ai/static/licenses/MRL-0.1.md",
           "huggingFace": "https://huggingface.co/mistralai/Pixtral-Large-Instruct-2411",
-          "capabilities": {
-            "speed": 2
+          "ratings": {
+            "speed": 2,
+            "intelligence": 4.0,
+            "stem": 4.0,
+            "pricing_cost": 3.48
           },
           "specs": {
             "reasoningTokens": false,
@@ -3328,8 +3871,14 @@
           "licenceType": "MIT",
           "licenceLink": "https://github.com/deepseek-ai/DeepSeek-V3/blob/main/LICENSE-MODEL",
           "huggingFace": "https://huggingface.co/deepseek-ai/DeepSeek-V3",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 3.25,
+            "stem": 3.29,
+            "agentic": 3.0,
+            "coding": 2.6,
+            "reasoning": 4.0,
+            "pricing_cost": 2.57
           },
           "specs": {
             "reasoningTokens": false,
@@ -3361,8 +3910,14 @@
           "licenceType": "MIT",
           "licenceLink": "https://github.com/deepseek-ai/DeepSeek-R1/blob/main/LICENSE",
           "huggingFace": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
-          "capabilities": {
-            "speed": 1
+          "ratings": {
+            "speed": 1,
+            "intelligence": 3.75,
+            "stem": 4.25,
+            "agentic": 4.0,
+            "coding": 4.0,
+            "reasoning": 3.33,
+            "pricing_cost": 2.93
           },
           "specs": {
             "reasoningTokens": true,
@@ -3420,8 +3975,13 @@
           "licenceType": "Apache 2.0",
           "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
           "huggingFace": "https://huggingface.co/Qwen/Qwen3-235B-A22B",
-          "capabilities": {
-            "speed": 2
+          "ratings": {
+            "speed": 2,
+            "intelligence": 3.0,
+            "stem": 4.5,
+            "agentic": 4.0,
+            "coding": 4.0,
+            "pricing_cost": 2.32
           },
           "specs": {
             "reasoningTokens": true,
@@ -3452,8 +4012,13 @@
           "licenceType": "Apache 2.0",
           "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
           "huggingFace": "https://huggingface.co/Qwen/Qwen3-32B",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 2.0,
+            "stem": 4.0,
+            "agentic": 4.0,
+            "coding": 3.67,
+            "pricing_cost": 2.8
           },
           "specs": {
             "reasoningTokens": true,
@@ -3484,8 +4049,9 @@
           "licenceType": "Apache 2.0",
           "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
           "huggingFace": "https://huggingface.co/Qwen/Qwen3-14B",
-          "capabilities": {
-            "speed": 4
+          "ratings": {
+            "speed": 4,
+            "pricing_cost": 2.28
           },
           "specs": {
             "reasoningTokens": true,
@@ -3516,8 +4082,9 @@
           "licenceType": "Apache 2.0",
           "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
           "huggingFace": "https://huggingface.co/Qwen/Qwen3-8B",
-          "capabilities": {
-            "speed": 4
+          "ratings": {
+            "speed": 4,
+            "pricing_cost": 2.06
           },
           "specs": {
             "reasoningTokens": true,
@@ -3548,8 +4115,12 @@
           "licenceType": "Apache 2.0",
           "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
           "huggingFace": "https://huggingface.co/Qwen/Qwen3-4B",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "stem": 3.67,
+            "agentic": 3.0,
+            "coding": 3.0,
+            "pricing_cost": 1.65
           },
           "specs": {
             "reasoningTokens": true,
@@ -3580,8 +4151,9 @@
           "licenceType": "Apache 2.0",
           "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
           "huggingFace": "https://huggingface.co/Qwen/Qwen3-1.7B",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "pricing_cost": 1.65
           },
           "specs": {
             "reasoningTokens": true,
@@ -3612,8 +4184,9 @@
           "licenceType": "Apache 2.0",
           "licenceLink": "https://choosealicense.com/licenses/apache-2.0/",
           "huggingFace": "https://huggingface.co/Qwen/Qwen3-0.6B",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "pricing_cost": 1.65
           },
           "specs": {
             "reasoningTokens": true,
@@ -3704,7 +4277,7 @@
           "releasePost": "https://www.microsoft.com/en-us/microsoft-365/blog/2023/03/16/introducing-microsoft-365-copilot-a-whole-new-way-to-work/",
           "releaseVideo": "https://www.youtube.com/watch?v=S7xTBa93TX8",
           "releaseNotes": "https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes?tabs=all",
-          "capabilities": {
+          "ratings": {
             "intelligence": 2,
             "speed": 3,
             "reasoning": 1
@@ -3722,14 +4295,29 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": 4096,
             "knowledgeCutoff": "November 2023",
-            "groundingSources": ["Bing Web","Microsoft Graph"],
+            "groundingSources": [
+              "Bing Web",
+              "Microsoft Graph"
+            ],
             "integrations": [
-              "Word","Excel","PowerPoint","Outlook","Teams",
-              "OneNote","Designer","Whiteboard","SharePoint","Forms","Loop","Copilot Studio"
+              "Word",
+              "Excel",
+              "PowerPoint",
+              "Outlook",
+              "Teams",
+              "OneNote",
+              "Designer",
+              "Whiteboard",
+              "SharePoint",
+              "Forms",
+              "Loop",
+              "Copilot Studio"
             ],
             "dataPrivacy": {
               "usesCustomerDataForTraining": false,
-              "dataRetentionPolicy": ["Managed under Microsoft 365"],
+              "dataRetentionPolicy": [
+                "Managed under Microsoft 365"
+              ],
               "documentation": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy",
               "termsOfUse": "https://www.microsoft.com/licensing/terms/"
             },
@@ -3758,7 +4346,7 @@
           "releasePost": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/",
           "releaseVideo": "https://www.youtube.com/watch?v=rc-fc7pT9nw",
           "releaseNotes": "https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes?tabs=all",
-          "capabilities": {
+          "ratings": {
             "intelligence": 3,
             "speed": 3,
             "reasoning": 2
@@ -3776,14 +4364,29 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": 16384,
             "knowledgeCutoff": "September 2023",
-            "groundingSources": ["Bing Web", "Microsoft Graph"],
+            "groundingSources": [
+              "Bing Web",
+              "Microsoft Graph"
+            ],
             "integrations": [
-              "Word","Excel","PowerPoint","Outlook","Teams",
-              "OneNote","Designer","Whiteboard","SharePoint","Forms","Loop","Copilot Studio"
+              "Word",
+              "Excel",
+              "PowerPoint",
+              "Outlook",
+              "Teams",
+              "OneNote",
+              "Designer",
+              "Whiteboard",
+              "SharePoint",
+              "Forms",
+              "Loop",
+              "Copilot Studio"
             ],
             "dataPrivacy": {
               "usesCustomerDataForTraining": false,
-              "dataRetentionPolicy": ["Managed under Microsoft 365"],
+              "dataRetentionPolicy": [
+                "Managed under Microsoft 365"
+              ],
               "documentation": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy",
               "termsOfUse": "https://www.microsoft.com/licensing/terms/"
             },
@@ -3812,7 +4415,7 @@
           "releasePost": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/",
           "releaseVideo": "https://www.youtube.com/watch?v=rc-fc7pT9nw",
           "releaseNotes": "https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes?tabs=all",
-          "capabilities": {
+          "ratings": {
             "intelligence": 3,
             "speed": 3,
             "reasoning": 2
@@ -3830,11 +4433,17 @@
             "maxInputTokens": 128000,
             "maxOutputTokens": 16384,
             "knowledgeCutoff": "September 2023",
-            "groundingSources": ["Bing Web"],
-            "integrations": ["Designer"],
+            "groundingSources": [
+              "Bing Web"
+            ],
+            "integrations": [
+              "Designer"
+            ],
             "dataPrivacy": {
               "usesCustomerDataForTraining": false,
-              "dataRetentionPolicy": ["Managed under Microsoft 365"],
+              "dataRetentionPolicy": [
+                "Managed under Microsoft 365"
+              ],
               "documentation": "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy",
               "termsOfUse": "https://www.microsoft.com/licensing/terms/"
             },
@@ -3865,8 +4474,13 @@
           "licenceType": "MIT",
           "licenceLink": "https://choosealicense.com/licenses/mit/",
           "huggingFace": "https://huggingface.co/microsoft/Phi-4-reasoning-plus",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 4.0,
+            "stem": 4.0,
+            "agentic": 4.0,
+            "coding": 3.67,
+            "pricing_cost": 2.28
           },
           "specs": {
             "reasoningTokens": true,
@@ -3897,8 +4511,13 @@
           "licenceType": "MIT",
           "licenceLink": "https://choosealicense.com/licenses/mit/",
           "huggingFace": "https://huggingface.co/microsoft/Phi-4-reasoning",
-          "capabilities": {
-            "speed": 4
+          "ratings": {
+            "speed": 4,
+            "intelligence": 4.0,
+            "stem": 4.0,
+            "agentic": 4.0,
+            "coding": 3.67,
+            "pricing_cost": 2.28
           },
           "specs": {
             "reasoningTokens": true,
@@ -3929,8 +4548,10 @@
           "licenceType": "MIT",
           "licenceLink": "https://choosealicense.com/licenses/mit/",
           "huggingFace": "https://huggingface.co/microsoft/Phi-4-mini-reasoning",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "stem": 3.33,
+            "pricing_cost": 1.65
           },
           "specs": {
             "reasoningTokens": true,
@@ -3961,8 +4582,11 @@
           "licenceType": "MIT",
           "licenceLink": "https://choosealicense.com/licenses/mit/",
           "huggingFace": "https://huggingface.co/microsoft/Phi-4-multimodal-instruct",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "intelligence": 3.0,
+            "stem": 3.0,
+            "pricing_cost": 2.17
           },
           "specs": {
             "reasoningTokens": false,
@@ -3996,8 +4620,13 @@
           "licenceType": "MIT",
           "licenceLink": "https://choosealicense.com/licenses/mit/",
           "huggingFace": "https://huggingface.co/microsoft/phi-4",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "intelligence": 4.0,
+            "stem": 2.0,
+            "agentic": 1.0,
+            "coding": 4.0,
+            "pricing_cost": 2.17
           },
           "specs": {
             "reasoningTokens": false,
@@ -4028,8 +4657,10 @@
           "licenceType": "MIT",
           "licenceLink": "https://choosealicense.com/licenses/mit/",
           "huggingFace": "https://huggingface.co/microsoft/Phi-4-mini-instruct",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "stem": 1.33,
+            "pricing_cost": 2.17
           },
           "specs": {
             "reasoningTokens": false,
@@ -4060,8 +4691,13 @@
           "licenceType": "MIT",
           "licenceLink": "https://choosealicense.com/licenses/mit/",
           "huggingFace": "https://huggingface.co/microsoft/Phi-3.5-mini-instruct",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "intelligence": 1.67,
+            "stem": 3.33,
+            "coding": 3.0,
+            "reasoning": 3.0,
+            "pricing_cost": 2.17
           },
           "specs": {
             "reasoningTokens": false,
@@ -4092,8 +4728,13 @@
           "licenceType": "MIT",
           "licenceLink": "https://choosealicense.com/licenses/mit/",
           "huggingFace": "https://huggingface.co/microsoft/Phi-3.5-MoE-instruct",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "intelligence": 3.0,
+            "stem": 3.67,
+            "coding": 3.0,
+            "reasoning": 4.0,
+            "pricing_cost": 2.29
           },
           "specs": {
             "reasoningTokens": false,
@@ -4124,8 +4765,9 @@
           "licenceType": "MIT",
           "licenceLink": "https://choosealicense.com/licenses/mit/",
           "huggingFace": "https://huggingface.co/microsoft/Phi-3.5-vision-instruct",
-          "capabilities": {
-            "speed": 5
+          "ratings": {
+            "speed": 5,
+            "pricing_cost": 2.17
           },
           "specs": {
             "reasoningTokens": false,
@@ -4264,8 +4906,9 @@
           "releasePost": "https://cohere.com/blog/command-series-0824",
           "releaseVideo": "",
           "releaseNotes": "https://docs.cohere.com/changelog",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "pricing_cost": 2.25
           },
           "specs": {
             "reasoningTokens": null,
@@ -4280,11 +4923,27 @@
             "knowledgeCutoff": "",
             "pricingInputPerM": 0.15,
             "pricingOutputPerM": 0.6,
-            "groundingSources": ["RAG"],
-            "integrations": ["Elastisearch","MongoDB","Redis","Haystack","Open Search","Vespa","Chroma","Qdrant","Weaviate","Pinecone","Milvus"],
+            "groundingSources": [
+              "RAG"
+            ],
+            "integrations": [
+              "Elastisearch",
+              "MongoDB",
+              "Redis",
+              "Haystack",
+              "Open Search",
+              "Vespa",
+              "Chroma",
+              "Qdrant",
+              "Weaviate",
+              "Pinecone",
+              "Milvus"
+            ],
             "dataPrivacy": {
               "usesCustomerDataForTraining": true,
-              "dataRetentionPolicy": ["Opt Out"],
+              "dataRetentionPolicy": [
+                "Opt Out"
+              ],
               "documentation": "https://cohere.com/enterprise-data-commitments",
               "termsOfUse": "https://docs.cohere.com/docs/usage-policy"
             },
@@ -4314,8 +4973,13 @@
           "releasePost": "https://cohere.com/blog/command-series-0824",
           "releaseVideo": "",
           "releaseNotes": "https://docs.cohere.com/changelog",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 2.0,
+            "stem": 1.0,
+            "agentic": 3.0,
+            "reasoning": 2.0,
+            "pricing_cost": 3.66
           },
           "specs": {
             "reasoningTokens": null,
@@ -4330,11 +4994,27 @@
             "knowledgeCutoff": "",
             "pricingInputPerM": 2.5,
             "pricingOutputPerM": 10,
-            "groundingSources": ["RAG"],
-            "integrations": ["Elastisearch","MongoDB","Redis","Haystack","Open Search","Vespa","Chroma","Qdrant","Weaviate","Pinecone","Milvus"],
+            "groundingSources": [
+              "RAG"
+            ],
+            "integrations": [
+              "Elastisearch",
+              "MongoDB",
+              "Redis",
+              "Haystack",
+              "Open Search",
+              "Vespa",
+              "Chroma",
+              "Qdrant",
+              "Weaviate",
+              "Pinecone",
+              "Milvus"
+            ],
             "dataPrivacy": {
               "usesCustomerDataForTraining": true,
-              "dataRetentionPolicy": ["Opt Out"],
+              "dataRetentionPolicy": [
+                "Opt Out"
+              ],
               "documentation": "https://cohere.com/enterprise-data-commitments",
               "termsOfUse": "https://docs.cohere.com/docs/usage-policy"
             },
@@ -4364,8 +5044,12 @@
           "releasePost": "https://cohere.com/blog/command-r7b",
           "releaseVideo": "",
           "releaseNotes": "https://docs.cohere.com/changelog",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 2.0,
+            "stem": 2.0,
+            "agentic": 3.0,
+            "pricing_cost": 1.44
           },
           "specs": {
             "reasoningTokens": null,
@@ -4380,11 +5064,27 @@
             "knowledgeCutoff": "",
             "pricingInputPerM": 0.0375,
             "pricingOutputPerM": 0.15,
-            "groundingSources": ["RAG"],
-            "integrations": ["Elastisearch","MongoDB","Redis","Haystack","Open Search","Vespa","Chroma","Qdrant","Weaviate","Pinecone","Milvus"],
+            "groundingSources": [
+              "RAG"
+            ],
+            "integrations": [
+              "Elastisearch",
+              "MongoDB",
+              "Redis",
+              "Haystack",
+              "Open Search",
+              "Vespa",
+              "Chroma",
+              "Qdrant",
+              "Weaviate",
+              "Pinecone",
+              "Milvus"
+            ],
             "dataPrivacy": {
               "usesCustomerDataForTraining": true,
-              "dataRetentionPolicy": ["Opt Out"],
+              "dataRetentionPolicy": [
+                "Opt Out"
+              ],
               "documentation": "https://cohere.com/enterprise-data-commitments",
               "termsOfUse": "https://docs.cohere.com/docs/usage-policy"
             },
@@ -4414,8 +5114,13 @@
           "releasePost": "https://cohere.com/blog/command-a",
           "releaseVideo": "",
           "releaseNotes": "https://docs.cohere.com/changelog",
-          "capabilities": {
-            "speed": 3
+          "ratings": {
+            "speed": 3,
+            "intelligence": 3.0,
+            "stem": 3.0,
+            "agentic": 5.0,
+            "coding": 3.0,
+            "pricing_cost": 3.66
           },
           "specs": {
             "reasoningTokens": null,
@@ -4430,11 +5135,27 @@
             "knowledgeCutoff": "",
             "pricingInputPerM": 2.5,
             "pricingOutputPerM": 10,
-            "groundingSources": ["RAG"],
-            "integrations": ["Elastisearch","MongoDB","Redis","Haystack","Open Search","Vespa","Chroma","Qdrant","Weaviate","Pinecone","Milvus"],
+            "groundingSources": [
+              "RAG"
+            ],
+            "integrations": [
+              "Elastisearch",
+              "MongoDB",
+              "Redis",
+              "Haystack",
+              "Open Search",
+              "Vespa",
+              "Chroma",
+              "Qdrant",
+              "Weaviate",
+              "Pinecone",
+              "Milvus"
+            ],
             "dataPrivacy": {
               "usesCustomerDataForTraining": true,
-              "dataRetentionPolicy": ["Opt Out"],
+              "dataRetentionPolicy": [
+                "Opt Out"
+              ],
               "documentation": "https://cohere.com/enterprise-data-commitments",
               "termsOfUse": "https://docs.cohere.com/docs/usage-policy"
             },
@@ -4467,7 +5188,7 @@
           "releasePost": "https://cohere.com/blog/aya-vision",
           "releaseVideo": "https://youtu.be/WNig1E2el0I?si=72um25j1-80npoB0",
           "releaseNotes": "https://docs.cohere.com/changelog",
-          "capabilities": {
+          "ratings": {
             "speed": 2
           },
           "specs": {
@@ -4482,11 +5203,17 @@
             "maxInputTokens": 16000,
             "maxOutputTokens": 4000,
             "knowledgeCutoff": "",
-            "groundingSources": ["RAG"],
-            "integrations": ["API"],
+            "groundingSources": [
+              "RAG"
+            ],
+            "integrations": [
+              "API"
+            ],
             "dataPrivacy": {
               "usesCustomerDataForTraining": true,
-              "dataRetentionPolicy": ["Opt Out"],
+              "dataRetentionPolicy": [
+                "Opt Out"
+              ],
               "documentation": "https://cohere.com/enterprise-data-commitments",
               "termsOfUse": "https://docs.cohere.com/docs/usage-policy"
             },
@@ -4559,26 +5286,56 @@
             "imageFormat": "webp"
           },
           "demoVideos": {
-            "discover": ["https://images-tv.adobe.com/mpcv3/7628/fbbef6db-f4e7-4757-80bd-5706d1a8749e_1739525687.854x480at800_h264.mp4", "https://images-tv.adobe.com/mpcv3/3f9704a8-b1e2-4248-9176-2ad96d92c053/cc227605-babb-4df3-b4f5-194cf6d7d946/e6ead2a7aa1d4561be81f33dc42bba9d_1737456413-1920x1080.jpg"],
+            "discover": [
+              "https://images-tv.adobe.com/mpcv3/7628/fbbef6db-f4e7-4757-80bd-5706d1a8749e_1739525687.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/3f9704a8-b1e2-4248-9176-2ad96d92c053/cc227605-babb-4df3-b4f5-194cf6d7d946/e6ead2a7aa1d4561be81f33dc42bba9d_1737456413-1920x1080.jpg"
+            ],
             "how_to_use": "https://www.youtube.com/watch?v=lt4k9lVnS1Y",
-            "photorealism":["https://images-tv.adobe.com/mpcv3/7622/0e07750b-e7f3-4db5-8153-8b765c34faf0_1713215919.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/2ed983f4-b08a-4c44-88ce-f7639eaf89e0/93d5b6fa42754f3ca12f9846d034f682_1713216043-1920x1080.jpg"],
-            "text_prompts":["https://images-tv.adobe.com/mpcv3/7622/a468b7b7-633f-441e-932e-ce382f7864bc_1713205897.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/b35dd676-d5a1-4d46-8398-7a09fef99ce1/6de6e7b3f7f54f58b72bdaab5cba622d_1713206032-1920x1080.jpg"],
-            "transform_sketches":["https://images-tv.adobe.com/mpcv3/1063/5353e9b1-c6a9-450e-aae3-381de210dc04_1716937172.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/9b229b5b-d74c-42c0-9d1a-2d33d496d618/a54cec44f3d44805874ce8c3b3f45a69_1716937270-1920x1080.jpg"],
-            "transform_text":["https://images-tv.adobe.com/mpcv3/1063/f6a63ff2-ea1e-4de1-a716-78be961a1070_1716937973.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/fca8a029-8015-40e6-a212-57f7798393dd/4e81f8f6ed764fd2bc896864be8dd3cb_1716938168-1920x1080.jpg"],
-            "style_matching": ["https://images-tv.adobe.com/mpcv3/7622/8f7444fd-927e-4068-8cc1-c150959f0304_1713206823.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/fe8afa0b-8d96-4c62-b5d6-7fca200a4d4e/e9d3cdb6f0c3459f938c706941d225f9_1713207027-1920x1080.jpg"],
-            "add_content": ["https://images-tv.adobe.com/mpcv3/7622/8dca1058-c285-4c08-903e-b68f11a65a7c_1713212102.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/66ad340b-0db5-44d1-a8eb-8d6739c8d4a0/d41a998d16064a9890a3a7ad36685f62_1713213438-1920x1080.jpg"],
-            "replace_background": ["https://images-tv.adobe.com/mpcv3/7622/ce0fec19-17bb-4d5e-9744-1db1dfbdc227_1713214666.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/71874e0a-c421-4a5f-9ed3-0b22d473dd84/47fa80cf1a294ef4816092304f7e121f_1713214926-1920x1080.jpg"],
-            "remove_content": ["https://images-tv.adobe.com/mpcv3/7622/7f9bd7dc-3ef6-4283-99ca-14209fc317dd_1713215386.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/5ef9aef6-c9a2-4184-8dcc-3b58e388a5c3/0fde04a3669e4378aa106f6b601eccec_1713215597-1920x1080.jpg"],
-            "sharing": ["https://images-tv.adobe.com/mpcv3/7622/ec333148-e791-4592-abc3-8ecf2c446040_1713216428.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/d56d5e91-9798-4732-ad1a-ab5f34a3f215/8f2cd860a4d440cd9e1db5a1ffae9a55_1713216590-1920x1080.jpg"]
+            "photorealism": [
+              "https://images-tv.adobe.com/mpcv3/7622/0e07750b-e7f3-4db5-8153-8b765c34faf0_1713215919.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/2ed983f4-b08a-4c44-88ce-f7639eaf89e0/93d5b6fa42754f3ca12f9846d034f682_1713216043-1920x1080.jpg"
+            ],
+            "text_prompts": [
+              "https://images-tv.adobe.com/mpcv3/7622/a468b7b7-633f-441e-932e-ce382f7864bc_1713205897.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/b35dd676-d5a1-4d46-8398-7a09fef99ce1/6de6e7b3f7f54f58b72bdaab5cba622d_1713206032-1920x1080.jpg"
+            ],
+            "transform_sketches": [
+              "https://images-tv.adobe.com/mpcv3/1063/5353e9b1-c6a9-450e-aae3-381de210dc04_1716937172.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/9b229b5b-d74c-42c0-9d1a-2d33d496d618/a54cec44f3d44805874ce8c3b3f45a69_1716937270-1920x1080.jpg"
+            ],
+            "transform_text": [
+              "https://images-tv.adobe.com/mpcv3/1063/f6a63ff2-ea1e-4de1-a716-78be961a1070_1716937973.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/fca8a029-8015-40e6-a212-57f7798393dd/4e81f8f6ed764fd2bc896864be8dd3cb_1716938168-1920x1080.jpg"
+            ],
+            "style_matching": [
+              "https://images-tv.adobe.com/mpcv3/7622/8f7444fd-927e-4068-8cc1-c150959f0304_1713206823.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/fe8afa0b-8d96-4c62-b5d6-7fca200a4d4e/e9d3cdb6f0c3459f938c706941d225f9_1713207027-1920x1080.jpg"
+            ],
+            "add_content": [
+              "https://images-tv.adobe.com/mpcv3/7622/8dca1058-c285-4c08-903e-b68f11a65a7c_1713212102.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/66ad340b-0db5-44d1-a8eb-8d6739c8d4a0/d41a998d16064a9890a3a7ad36685f62_1713213438-1920x1080.jpg"
+            ],
+            "replace_background": [
+              "https://images-tv.adobe.com/mpcv3/7622/ce0fec19-17bb-4d5e-9744-1db1dfbdc227_1713214666.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/71874e0a-c421-4a5f-9ed3-0b22d473dd84/47fa80cf1a294ef4816092304f7e121f_1713214926-1920x1080.jpg"
+            ],
+            "remove_content": [
+              "https://images-tv.adobe.com/mpcv3/7622/7f9bd7dc-3ef6-4283-99ca-14209fc317dd_1713215386.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/5ef9aef6-c9a2-4184-8dcc-3b58e388a5c3/0fde04a3669e4378aa106f6b601eccec_1713215597-1920x1080.jpg"
+            ],
+            "sharing": [
+              "https://images-tv.adobe.com/mpcv3/7622/ec333148-e791-4592-abc3-8ecf2c446040_1713216428.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/d56d5e91-9798-4732-ad1a-ab5f34a3f215/8f2cd860a4d440cd9e1db5a1ffae9a55_1713216590-1920x1080.jpg"
+            ]
           },
           "termsOfService": "https://www.adobe.com/uk/legal/terms.html",
           "usagePolicy": "https://www.adobe.com/uk/legal/permissions/image-notice.html",
           "commerciallySafe": true,
           "metadata": {
             "C2PA": "https://c2pa.org"
-          },                          
-          "apiEndpoints": {      
-            "available": true,                                   
+          },
+          "apiEndpoints": {
+            "available": true,
             "generate": {
               "options": {
                 "inputFormats": [
@@ -4593,13 +5350,31 @@
                 "numberOfImages": 4,
                 "contextWindow": 1024,
                 "outputCompression": false,
-                "inputFileTypes": ["png","jpeg","webp"],
+                "inputFileTypes": [
+                  "png",
+                  "jpeg",
+                  "webp"
+                ],
                 "maxInputSize": 0,
                 "mask": false,
-                "outputFileTypes": ["url"],
+                "outputFileTypes": [
+                  "url"
+                ],
                 "outputQuality": [],
-                "outputSize": ["2048x2048","2304x1792","1792x2304","2688x1536","1344x768","1152x896","896x1152","1024x1024"],
-                "outputStyle": ["photo","art"],
+                "outputSize": [
+                  "2048x2048",
+                  "2304x1792",
+                  "1792x2304",
+                  "2688x1536",
+                  "1344x768",
+                  "1152x896",
+                  "896x1152",
+                  "1024x1024"
+                ],
+                "outputStyle": [
+                  "photo",
+                  "art"
+                ],
                 "visualIntesity": 10,
                 "tileable": true,
                 "structureReference": true,
@@ -4623,12 +5398,19 @@
                 "numberOfImages": 4,
                 "contextWindow": 1024,
                 "outputCompression": false,
-                "inputFileTypes": ["url","uploadID"],
+                "inputFileTypes": [
+                  "url",
+                  "uploadID"
+                ],
                 "maxInputSize": 0,
                 "mask": true,
-                "outputFileTypes": ["url"],
+                "outputFileTypes": [
+                  "url"
+                ],
                 "outputQuality": [],
-                "outputSize": ["up to 3999x3999"],
+                "outputSize": [
+                  "up to 3999x3999"
+                ],
                 "outputStyle": [],
                 "visualIntesity": 0,
                 "tileable": false,
@@ -4653,12 +5435,19 @@
                 "numberOfImages": 4,
                 "contextWindow": 1024,
                 "outputCompression": false,
-                "inputFileTypes": ["url","uploadID"],
+                "inputFileTypes": [
+                  "url",
+                  "uploadID"
+                ],
                 "maxInputSize": 0,
                 "mask": true,
-                "outputFileTypes": ["url"],
+                "outputFileTypes": [
+                  "url"
+                ],
                 "outputQuality": [],
-                "outputSize": ["up to 3999x3999"],
+                "outputSize": [
+                  "up to 3999x3999"
+                ],
                 "outputStyle": [],
                 "visualIntesity": 0,
                 "tileable": false,
@@ -4728,26 +5517,50 @@
           "modelGuide": "https://helpx.adobe.com/uk/firefly/work-with-audio-and-video/work-with-video/writing-effective-text-prompts-for-video-generation.html",
           "apiDocumentation": "",
           "videoExamples": {
-            "frog": ["https://images-tv.adobe.com/mpcv3/1024/d442cba5-c05e-41ef-90d7-efacccab3a49_1743635930.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/c5bc3038-35d2-46c2-a455-4f2e7cd95008/5ecc921d-fbd3-4987-8c0b-16f524964cd3/de41d0db5bf94ee9a1fe2bb16da4b681_1743635964-1920x1080.jpg"],
-            "sheep": ["https://images-tv.adobe.com/mpcv3/1041/50769bf1-4de2-4bf8-8287-84f0d2fdee60_1738107257.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/863b4d13-12c1-4736-9753-c3c9f740f7e2/6404c368-1bc2-47ae-8178-d8f597906c42/fdee672aa0da48ccac351f1e3e8bfe76_1736902485-1920x1440.jpg"],
-            "effects": ["https://images-tv.adobe.com/mpcv3/3710/1720e0ba-4815-4d51-a65f-7faea7b67d0d_1728499417.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/b27ade89-e9bb-4a22-9858-0c43b22e7d8a/4486a91a-5f31-4887-9e03-4604fc7a1361/b06e24b8051e4e95a1d7cc19123dec81_1728499446-1920x1080.jpg"],
-            "camera_control": ["https://images-tv.adobe.com/mpcv3/1041/b36bbe5d-f323-4424-a448-767220909215_1728323525.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/5e31c51e-4e48-4864-915d-70adfacf04f3/886d91dd-3eb2-4a90-a004-3ecde7d6ae3e/f0c441da71224fed94abf859bbeefcb4_1728323804-1920x1080.jpg"],
-            "commercially_safe": ["https://images-tv.adobe.com/mpcv3/1041/48f34c41-9f48-4352-95e1-9c65cc716537_1738107316.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/863b4d13-12c1-4736-9753-c3c9f740f7e2/e32b0faa-7d42-4161-ac86-b9aafbe5097b/b0a45774264c47d58c660333ab5bc77a_1736902594-1920x1440.jpg"]
+            "frog": [
+              "https://images-tv.adobe.com/mpcv3/1024/d442cba5-c05e-41ef-90d7-efacccab3a49_1743635930.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/c5bc3038-35d2-46c2-a455-4f2e7cd95008/5ecc921d-fbd3-4987-8c0b-16f524964cd3/de41d0db5bf94ee9a1fe2bb16da4b681_1743635964-1920x1080.jpg"
+            ],
+            "sheep": [
+              "https://images-tv.adobe.com/mpcv3/1041/50769bf1-4de2-4bf8-8287-84f0d2fdee60_1738107257.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/863b4d13-12c1-4736-9753-c3c9f740f7e2/6404c368-1bc2-47ae-8178-d8f597906c42/fdee672aa0da48ccac351f1e3e8bfe76_1736902485-1920x1440.jpg"
+            ],
+            "effects": [
+              "https://images-tv.adobe.com/mpcv3/3710/1720e0ba-4815-4d51-a65f-7faea7b67d0d_1728499417.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/b27ade89-e9bb-4a22-9858-0c43b22e7d8a/4486a91a-5f31-4887-9e03-4604fc7a1361/b06e24b8051e4e95a1d7cc19123dec81_1728499446-1920x1080.jpg"
+            ],
+            "camera_control": [
+              "https://images-tv.adobe.com/mpcv3/1041/b36bbe5d-f323-4424-a448-767220909215_1728323525.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/5e31c51e-4e48-4864-915d-70adfacf04f3/886d91dd-3eb2-4a90-a004-3ecde7d6ae3e/f0c441da71224fed94abf859bbeefcb4_1728323804-1920x1080.jpg"
+            ],
+            "commercially_safe": [
+              "https://images-tv.adobe.com/mpcv3/1041/48f34c41-9f48-4352-95e1-9c65cc716537_1738107316.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/863b4d13-12c1-4736-9753-c3c9f740f7e2/e32b0faa-7d42-4161-ac86-b9aafbe5097b/b0a45774264c47d58c660333ab5bc77a_1736902594-1920x1440.jpg"
+            ]
           },
           "demoVideos": {
-            "your_ideas_in_motion": ["https://clio-assets.adobe.com/clio-playground/video-cache/video-generation/webm/ff-video-gen-intro-video-desktop_2-en_US.webm","https://images-tv.adobe.com/mpcv3/3f9704a8-b1e2-4248-9176-2ad96d92c053/7ef26f14-60af-4f0f-8616-c78ed4730b63/471b9a0079d049b5b9a29f25490982fe_1739446221-1920x1080.jpg"],
-            "b_roll": ["https://images-tv.adobe.com/mpcv3/7622/6a38d59a-22df-4f03-b254-3a9bc46ee8a5_1740178861.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/bad37330-6a88-4f59-a9ae-abffc7f31387/39d9b5d9af7e4724b7ef9a840c6b4669_1740179024-1920x1080.jpg"],
-            "launch_teaser": ["https://images-tv.adobe.com/mpcv3/7622/85a2b1a7-8e06-4ed2-82a3-9573e9c2d72c_1740178199.854x480at800_h264.mp4","https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/192f3e99-561a-4ea7-be96-ea3acbee609e/233736a590234b698126b4fa0f180656_1740178372-1920x1080.jpg"]
+            "your_ideas_in_motion": [
+              "https://clio-assets.adobe.com/clio-playground/video-cache/video-generation/webm/ff-video-gen-intro-video-desktop_2-en_US.webm",
+              "https://images-tv.adobe.com/mpcv3/3f9704a8-b1e2-4248-9176-2ad96d92c053/7ef26f14-60af-4f0f-8616-c78ed4730b63/471b9a0079d049b5b9a29f25490982fe_1739446221-1920x1080.jpg"
+            ],
+            "b_roll": [
+              "https://images-tv.adobe.com/mpcv3/7622/6a38d59a-22df-4f03-b254-3a9bc46ee8a5_1740178861.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/bad37330-6a88-4f59-a9ae-abffc7f31387/39d9b5d9af7e4724b7ef9a840c6b4669_1740179024-1920x1080.jpg"
+            ],
+            "launch_teaser": [
+              "https://images-tv.adobe.com/mpcv3/7622/85a2b1a7-8e06-4ed2-82a3-9573e9c2d72c_1740178199.854x480at800_h264.mp4",
+              "https://images-tv.adobe.com/mpcv3/53d82c7f-77a7-4e8b-8bf4-01c5f8ff3082/192f3e99-561a-4ea7-be96-ea3acbee609e/233736a590234b698126b4fa0f180656_1740178372-1920x1080.jpg"
+            ]
           },
           "termsOfService": "",
           "usagePolicy": "",
           "commerciallySafe": true,
           "metadata": {
             "C2PA": "https://c2pa.org"
-          },                         
+          },
           "apiEndpoints": {
-            "available": false,                                     
-            "xxx": {}                                    
+            "available": false,
+            "xxx": {}
           },
           "features": {
             "generation": {
@@ -4755,10 +5568,18 @@
               "imageToVideo": true,
               "videoToVideo": false,
               "negativePrompt": false,
-              "resolutions": ["540p","720p","1080p"],
+              "resolutions": [
+                "540p",
+                "720p",
+                "1080p"
+              ],
               "frameRate": 24,
-              "durations": [5],
-              "numberOfVideos": [1],
+              "durations": [
+                5
+              ],
+              "numberOfVideos": [
+                1
+              ],
               "videoStyles": []
             },
             "editing": {
@@ -4778,9 +5599,30 @@
             "advanced": {
               "storyboard": false,
               "cameraControls": {
-                "shotSize": ["extreme close up","close up","mediun","long","extreme long"],
-                "cameraAngle": ["aerial","eye level","high angle","low angle","top down"],
-                "motion": ["zoom in","zoom out","move left","move right","tilt up","tilt down","static","handheld"]
+                "shotSize": [
+                  "extreme close up",
+                  "close up",
+                  "mediun",
+                  "long",
+                  "extreme long"
+                ],
+                "cameraAngle": [
+                  "aerial",
+                  "eye level",
+                  "high angle",
+                  "low angle",
+                  "top down"
+                ],
+                "motion": [
+                  "zoom in",
+                  "zoom out",
+                  "move left",
+                  "move right",
+                  "tilt up",
+                  "tilt down",
+                  "static",
+                  "handheld"
+                ]
               },
               "trainCustomModels": false
             }
@@ -4931,10 +5773,10 @@
           "termsOfService": "https://docs.midjourney.com/hc/en-us/articles/32083055291277-Terms-of-Service",
           "usagePolicy": "",
           "commerciallySafe": false,
-          "metadata": {},                          
-          "apiEndpoints": {   
-            "available": false,                                      
-            "generations": {}                                    
+          "metadata": {},
+          "apiEndpoints": {
+            "available": false,
+            "generations": {}
           },
           "features": {
             "generation": {
@@ -5073,9 +5915,9 @@
           "termsOfService": "https://platform.stability.ai/legal/terms-of-service",
           "usagePolicy": "https://stability.ai/use-policy",
           "commerciallySafe": false,
-          "metadata": {},                          
-          "apiEndpoints": {   
-            "available": true,                                      
+          "metadata": {},
+          "apiEndpoints": {
+            "available": true,
             "generate": {
               "options": {
                 "inputFormats": [
@@ -5090,13 +5932,40 @@
                 "numberOfImages": 1,
                 "contextWindow": 10000,
                 "outputCompression": "",
-                "inputFileTypes": ["png","jpeg","webp"],
+                "inputFileTypes": [
+                  "png",
+                  "jpeg",
+                  "webp"
+                ],
                 "maxInputSize": 0,
                 "mask": false,
-                "outputFileTypes": ["png","jpeg"],
+                "outputFileTypes": [
+                  "png",
+                  "jpeg"
+                ],
                 "outputQuality": [],
-                "outputSize": ["1024x1024"],
-                "outputStyle": ["3D model","analog film","anime","cinematic","comic book","digital art","enhance","fantasy art","isometric","line art","low poly","modeling compound","neon punk","origami","photographic","pixel art","tile texture"],
+                "outputSize": [
+                  "1024x1024"
+                ],
+                "outputStyle": [
+                  "3D model",
+                  "analog film",
+                  "anime",
+                  "cinematic",
+                  "comic book",
+                  "digital art",
+                  "enhance",
+                  "fantasy art",
+                  "isometric",
+                  "line art",
+                  "low poly",
+                  "modeling compound",
+                  "neon punk",
+                  "origami",
+                  "photographic",
+                  "pixel art",
+                  "tile texture"
+                ],
                 "visualIntesity": 0,
                 "tileable": false,
                 "structureReference": false,
@@ -5120,12 +5989,22 @@
                 "numberOfImages": 1,
                 "contextWindow": 10000,
                 "outputCompression": "",
-                "inputFileTypes": ["png","jpeg","webp"],
+                "inputFileTypes": [
+                  "png",
+                  "jpeg",
+                  "webp"
+                ],
                 "maxInputSize": 0,
                 "mask": false,
-                "outputFileTypes": ["png","jpeg","webp"],
+                "outputFileTypes": [
+                  "png",
+                  "jpeg",
+                  "webp"
+                ],
                 "outputQuality": [],
-                "outputSize": ["1024x1024"],
+                "outputSize": [
+                  "1024x1024"
+                ],
                 "outputStyle": [],
                 "visualIntesity": 0,
                 "tileable": false,
@@ -5150,13 +6029,41 @@
                 "numberOfImages": 1,
                 "contextWindow": 10000,
                 "outputCompression": "",
-                "inputFileTypes": ["png","jpeg","webp"],
+                "inputFileTypes": [
+                  "png",
+                  "jpeg",
+                  "webp"
+                ],
                 "maxInputSize": 0,
                 "mask": true,
-                "outputFileTypes": ["png","jpeg","webp"],
+                "outputFileTypes": [
+                  "png",
+                  "jpeg",
+                  "webp"
+                ],
                 "outputQuality": [],
-                "outputSize": ["1024x1024"],
-                "outputStyle": ["3D model","analog film","anime","cinematic","comic book","digital art","enhance","fantasy art","isometric","line art","low poly","modeling compound","neon punk","origami","photographic","pixel art","tile texture"],
+                "outputSize": [
+                  "1024x1024"
+                ],
+                "outputStyle": [
+                  "3D model",
+                  "analog film",
+                  "anime",
+                  "cinematic",
+                  "comic book",
+                  "digital art",
+                  "enhance",
+                  "fantasy art",
+                  "isometric",
+                  "line art",
+                  "low poly",
+                  "modeling compound",
+                  "neon punk",
+                  "origami",
+                  "photographic",
+                  "pixel art",
+                  "tile texture"
+                ],
                 "visualIntesity": 0,
                 "tileable": false,
                 "structureReference": false,
@@ -5180,13 +6087,41 @@
                 "numberOfImages": 1,
                 "contextWindow": 10000,
                 "outputCompression": "",
-                "inputFileTypes": ["png","jpeg","webp"],
+                "inputFileTypes": [
+                  "png",
+                  "jpeg",
+                  "webp"
+                ],
                 "maxInputSize": 0,
                 "mask": true,
-                "outputFileTypes": ["png","jpeg","webp"],
+                "outputFileTypes": [
+                  "png",
+                  "jpeg",
+                  "webp"
+                ],
                 "outputQuality": [],
-                "outputSize": ["1024x1024"],
-                "outputStyle": ["3D model","analog film","anime","cinematic","comic book","digital art","enhance","fantasy art","isometric","line art","low poly","modeling compound","neon punk","origami","photographic","pixel art","tile texture"],
+                "outputSize": [
+                  "1024x1024"
+                ],
+                "outputStyle": [
+                  "3D model",
+                  "analog film",
+                  "anime",
+                  "cinematic",
+                  "comic book",
+                  "digital art",
+                  "enhance",
+                  "fantasy art",
+                  "isometric",
+                  "line art",
+                  "low poly",
+                  "modeling compound",
+                  "neon punk",
+                  "origami",
+                  "photographic",
+                  "pixel art",
+                  "tile texture"
+                ],
                 "visualIntesity": 0,
                 "tileable": false,
                 "structureReference": false,
@@ -5275,9 +6210,9 @@
           "termsOfService": "https://seed.bytedance.com/en/user-agreement",
           "usagePolicy": "",
           "commerciallySafe": false,
-          "metadata": {},                          
-          "apiEndpoints": {   
-            "available": false,                                      
+          "metadata": {},
+          "apiEndpoints": {
+            "available": false,
             "xxx": {}
           },
           "features": {
@@ -5360,15 +6295,17 @@
             "consistent_characters": "https://youtu.be/Eb_SxalzkGg"
           },
           "demoVideos": {
-            "image_to_video": ["https://youtu.be/OLWd5O1O66s?si=qp_-00OWpQRiKjH6"]
+            "image_to_video": [
+              "https://youtu.be/OLWd5O1O66s?si=qp_-00OWpQRiKjH6"
+            ]
           },
           "termsOfService": "https://runwayml.com/terms-of-use",
           "usagePolicy": "https://help.runwayml.com/hc/en-us/articles/17944787368595-Runway-s-Usage-Policy",
           "commerciallySafe": false,
-          "metadata": {},                          
+          "metadata": {},
           "apiEndpoints": {
-            "available": true,                                     
-            "xxx": {}                                    
+            "available": true,
+            "xxx": {}
           },
           "features": {
             "generation": {
@@ -5376,10 +6313,17 @@
               "imageToVideo": true,
               "videoToVideo": true,
               "negativePrompt": false,
-              "resolutions": ["720p"],
+              "resolutions": [
+                "720p"
+              ],
               "frameRate": 24,
-              "durations": [5,10],
-              "numberOfVideos": [1],
+              "durations": [
+                5,
+                10
+              ],
+              "numberOfVideos": [
+                1
+              ],
               "videoStyles": []
             },
             "editing": {
@@ -5401,7 +6345,22 @@
               "cameraControls": {
                 "shotSize": [],
                 "cameraAngle": [],
-                "motion": ["zoom in","zoom out","move left","move right","move up","move down","tilt up","tilt down","pan left","pan right","roll clockwise","roll anticlockwise","static","handheld"]
+                "motion": [
+                  "zoom in",
+                  "zoom out",
+                  "move left",
+                  "move right",
+                  "move up",
+                  "move down",
+                  "tilt up",
+                  "tilt down",
+                  "pan left",
+                  "pan right",
+                  "roll clockwise",
+                  "roll anticlockwise",
+                  "static",
+                  "handheld"
+                ]
               },
               "trainCustomModels": true
             }
@@ -5542,22 +6501,38 @@
             "racoon": "videos/pika/8.mp4"
           },
           "demoVideos": {
-            "text_to_video": ["https://youtu.be/MdJRZaduFr4?si=1Npl5U6L9PVJpJL4"],
-            "retry_and_reprompt": ["https://youtu.be/hRam3oUrlRg?si=u1W2fgPTz77mh-Hk"],
-            "modify_region": ["https://youtu.be/oAkYxEdAQPY?si=BupS0Q7HLqyQPSO3"],
-            "video_to_video": ["https://youtu.be/rgJGYHXhk5Y?si=eHzfapVYx0uT8Cac"],
-            "expand_canvas": ["https://youtu.be/EV9VglxwkNg?si=6A_1Xv1TggrYi1UG"],
-            "image_to_video": ["https://youtu.be/zj-DAWuBT8U?si=e-Cq7M4DWQZ3rw9V"],
-            "lip_sync": ["https://youtu.be/XpCrBKg33QM?si=gJJyXZHW8cqq5RzJ"],
-            "styles": ["https://youtu.be/76tPM66xHuM?si=4S5r6GA4iWdHrD4p"]
+            "text_to_video": [
+              "https://youtu.be/MdJRZaduFr4?si=1Npl5U6L9PVJpJL4"
+            ],
+            "retry_and_reprompt": [
+              "https://youtu.be/hRam3oUrlRg?si=u1W2fgPTz77mh-Hk"
+            ],
+            "modify_region": [
+              "https://youtu.be/oAkYxEdAQPY?si=BupS0Q7HLqyQPSO3"
+            ],
+            "video_to_video": [
+              "https://youtu.be/rgJGYHXhk5Y?si=eHzfapVYx0uT8Cac"
+            ],
+            "expand_canvas": [
+              "https://youtu.be/EV9VglxwkNg?si=6A_1Xv1TggrYi1UG"
+            ],
+            "image_to_video": [
+              "https://youtu.be/zj-DAWuBT8U?si=e-Cq7M4DWQZ3rw9V"
+            ],
+            "lip_sync": [
+              "https://youtu.be/XpCrBKg33QM?si=gJJyXZHW8cqq5RzJ"
+            ],
+            "styles": [
+              "https://youtu.be/76tPM66xHuM?si=4S5r6GA4iWdHrD4p"
+            ]
           },
           "termsOfService": "https://pika.art/terms-of-service",
           "usagePolicy": "",
           "commerciallySafe": true,
-          "metadata": {},                          
+          "metadata": {},
           "apiEndpoints": {
-            "available": true,                                     
-            "xxx": {}                                    
+            "available": true,
+            "xxx": {}
           },
           "features": {
             "generation": {
@@ -5565,10 +6540,18 @@
               "imageToVideo": true,
               "videoToVideo": true,
               "negativePrompt": true,
-              "resolutions": ["720p","1080p"],
+              "resolutions": [
+                "720p",
+                "1080p"
+              ],
               "frameRate": null,
-              "durations": [5,10],
-              "numberOfVideos": [1],
+              "durations": [
+                5,
+                10
+              ],
+              "numberOfVideos": [
+                1
+              ],
               "videoStyles": []
             },
             "editing": {
@@ -5708,10 +6691,10 @@
           "termsOfService": "",
           "usagePolicy": "",
           "commerciallySafe": false,
-          "metadata": {},                          
+          "metadata": {},
           "apiEndpoints": {
-            "available": true,                                     
-            "xxx": {}                                    
+            "available": true,
+            "xxx": {}
           },
           "features": {
             "generation": {
@@ -5721,8 +6704,16 @@
               "negativePrompt": true,
               "resolutions": [],
               "frameRate": null,
-              "durations": [5,10],
-              "numberOfVideos": [1,2,3,4],
+              "durations": [
+                5,
+                10
+              ],
+              "numberOfVideos": [
+                1,
+                2,
+                3,
+                4
+              ],
               "videoStyles": []
             },
             "editing": {
@@ -5744,7 +6735,22 @@
               "cameraControls": {
                 "shotSize": [],
                 "cameraAngle": [],
-                "motion": ["zoom in","zoom out","move left","move right","move up","move down","tilt up","tilt down","pan left","pan right","roll clockwise","roll anticlockwise","static","handheld"]
+                "motion": [
+                  "zoom in",
+                  "zoom out",
+                  "move left",
+                  "move right",
+                  "move up",
+                  "move down",
+                  "tilt up",
+                  "tilt down",
+                  "pan left",
+                  "pan right",
+                  "roll clockwise",
+                  "roll anticlockwise",
+                  "static",
+                  "handheld"
+                ]
               },
               "trainCustomModels": false
             }
@@ -5808,15 +6814,17 @@
             }
           },
           "demoVideos": {
-            "remaster": ["https://www.youtube.com/watch?v=LGh5nqe_xD0"]
+            "remaster": [
+              "https://www.youtube.com/watch?v=LGh5nqe_xD0"
+            ]
           },
           "termsOfService": "https://suno.com/terms",
           "usagePolicy": "https://help.suno.com/en/articles/3198209",
           "commerciallySafe": false,
-          "metadata": {},                          
+          "metadata": {},
           "apiEndpoints": {
-            "available": false,                                     
-            "xxx": {}        
+            "available": false,
+            "xxx": {}
           },
           "features": {
             "generation": {
@@ -5828,8 +6836,12 @@
               "styles": true,
               "negativeStyles": true,
               "personas": true,
-              "durations": [240],
-              "outputFormats": ["mp3"],
+              "durations": [
+                240
+              ],
+              "outputFormats": [
+                "mp3"
+              ],
               "coverArt": true,
               "coverVideo": true
             },
@@ -5951,22 +6963,38 @@
             }
           },
           "demoVideos": {
-            "the_basics": ["https://youtu.be/3LII_9wI0nw?si=ILGJI_1z-tVf67KS"],
-            "advanced_techniques": ["https://youtu.be/5S0RAw-hOJg?si=obGuEQ2prXDBc90K"],
-            "feature_spotlight": ["https://youtu.be/5jMvdeFDOkg?si=rzbQn_CPeTZcsvkL"],
-            "5_min_tutorial": ["https://youtu.be/6IlItfVfOkQ?si=aRQ_6kP6ZSnMjFSk"],
-            "styles": ["https://youtu.be/QS6_R6MBjxE"],
-            "extend": ["https://youtu.be/J1FqBizOeD4?si=lkgYIWl6r18-C36W"],
-            "editing": ["https://youtu.be/Uc4xOZWKXP8?si=XAM7PdwAWN1nJIKh"],
-            "project_folders": ["https://youtu.be/pAAt1WNNtwc?si=2F35lnYUz8DdgxOw"]
+            "the_basics": [
+              "https://youtu.be/3LII_9wI0nw?si=ILGJI_1z-tVf67KS"
+            ],
+            "advanced_techniques": [
+              "https://youtu.be/5S0RAw-hOJg?si=obGuEQ2prXDBc90K"
+            ],
+            "feature_spotlight": [
+              "https://youtu.be/5jMvdeFDOkg?si=rzbQn_CPeTZcsvkL"
+            ],
+            "5_min_tutorial": [
+              "https://youtu.be/6IlItfVfOkQ?si=aRQ_6kP6ZSnMjFSk"
+            ],
+            "styles": [
+              "https://youtu.be/QS6_R6MBjxE"
+            ],
+            "extend": [
+              "https://youtu.be/J1FqBizOeD4?si=lkgYIWl6r18-C36W"
+            ],
+            "editing": [
+              "https://youtu.be/Uc4xOZWKXP8?si=XAM7PdwAWN1nJIKh"
+            ],
+            "project_folders": [
+              "https://youtu.be/pAAt1WNNtwc?si=2F35lnYUz8DdgxOw"
+            ]
           },
           "termsOfService": "https://www.udio.com/terms-of-service",
           "usagePolicy": "https://help.udio.com/en/articles/10739216-answers-to-common-usage-questions",
           "commerciallySafe": false,
-          "metadata": {},                          
+          "metadata": {},
           "apiEndpoints": {
-            "available": false,                                     
-            "xxx": {}        
+            "available": false,
+            "xxx": {}
           },
           "features": {
             "generation": {
@@ -5978,8 +7006,12 @@
               "styles": true,
               "negativeStyles": true,
               "personas": false,
-              "durations": [130],
-              "outputFormats": ["mp3"],
+              "durations": [
+                130
+              ],
+              "outputFormats": [
+                "mp3"
+              ],
               "coverArt": true,
               "coverVideo": true
             },
