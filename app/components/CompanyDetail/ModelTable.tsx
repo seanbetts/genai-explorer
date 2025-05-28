@@ -19,12 +19,14 @@ import { loadModelRatings, getRatingForModel, type ModelRatingsData } from '../u
 import AboutModelRatings from '../shared/AboutModelRatings';
 import RatingDisplay from '../shared/RatingDisplay';
 import { getModelTypeDescription } from '../utils/modelTypeDescriptions';
+import DataExport from '../shared/DataExport';
 
 interface ModelTableProps {
   models: Model[];
+  companyName?: string;
 }
 
-const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
+const ModelTable: React.FC<ModelTableProps> = ({ models, companyName }) => {
   // State for model ratings data
   const [modelRatings, setModelRatings] = React.useState<ModelRatingsData>({});
   const [ratingsLoaded, setRatingsLoaded] = React.useState(false);
@@ -333,6 +335,32 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       }
     }
     return null;
+  };
+
+  // Process data for export - round ratings and remove status
+  const processExportData = (models: Model[]) => {
+    return models.map(model => {
+      const { status, ...exportModel } = model;
+      
+      // Add rounded ratings to export data
+      if (ratingsLoaded) {
+        const ratings: Record<string, number | null> = {};
+        const ratingTypes = ['intelligence', 'reasoning', 'agentic', 'coding', 'stem', 'pricing', 'speed'];
+        
+        ratingTypes.forEach(type => {
+          const rating = getRatingValue(model, type);
+          if (rating !== null) {
+            ratings[type] = Math.round(rating * 2) / 2; // Round to nearest 0.5
+          }
+        });
+        
+        if (Object.keys(ratings).length > 0) {
+          (exportModel as any).ratings = ratings;
+        }
+      }
+      
+      return exportModel;
+    });
   };
   
   // Function to handle navigation
@@ -806,7 +834,17 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
     <div className={`${containerStyles.flexCol} transform transition-all duration-300`}>
       <style>{tableHoverStyles}</style>
 
-      <div className="header-area">
+      <div className="header-area relative">
+        {/* Export Data button (positioned to the left) */}
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 z-50">
+          <DataExport 
+            data={displayModels} 
+            filename={`${(companyName || 'Unknown Company').toLowerCase().replace(/\s+/g, '-')}-models-${new Date().toISOString().split('T')[0]}`}
+            buttonText="Export Data"
+            processData={processExportData}
+          />
+        </div>
+        
         {/* Format Icons Legend (centered) */}
         <div className={`${containerStyles.legend} transform transition-all duration-500 mb-3`}>
           <div 

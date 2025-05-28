@@ -893,7 +893,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
         <div className="absolute left-0">
           <DataExport 
             data={selectedModels} 
-            filename="frontier-open-models-comparison" 
+            filename={`model-comparison-${new Date().toISOString().split('T')[0]}`}
             buttonText="Export Data"
             processData={processExportData}
           />

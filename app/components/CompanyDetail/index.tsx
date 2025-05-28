@@ -680,7 +680,8 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
                   <ModelTable 
                     models={company.models.filter(model => 
                       model.category === 'frontier' && model.status !== 'archived'
-                    )} 
+                    )}
+                    companyName={company.name}
                   />
                 </Suspense>
               </div>
@@ -693,7 +694,8 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
                   <ModelTable 
                     models={company.models.filter(model => 
                       model.category === 'open' && model.status !== 'archived'
-                    )} 
+                    )}
+                    companyName={company.name}
                   />
                 </Suspense>
               </div>
@@ -706,7 +708,8 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
                   <ModelTable 
                     models={company.models.filter(model => 
                       model.category === 'enterprise' && model.status !== 'archived'
-                    )} 
+                    )}
+                    companyName={company.name}
                   />
                 </Suspense>
               </div>
@@ -803,6 +806,7 @@ const CompanyDetail: React.FC<CompanyDetailProps> = ({
                   <BenchmarksTable 
                     models={company.models} 
                     companyId={company.id}
+                    companyName={company.name}
                   />
                 </Suspense>
               </div>

@@ -110,11 +110,14 @@ export default function DataExport({
           </button>
           
           {isOpen && (
-            <div className={`absolute left-0 mt-2 w-48 rounded-md shadow-lg ring-1 ring-opacity-5 z-50 ${
-              brandConfig.name === 'OMG' 
-                ? 'bg-white ring-black' 
-                : 'bg-gray-800 ring-gray-600'
-            }`}>
+            <div 
+              className={`absolute left-0 mt-2 w-48 rounded-md shadow-lg ring-1 ring-opacity-5 ${
+                brandConfig.name === 'OMG' 
+                  ? 'bg-white ring-black' 
+                  : 'bg-gray-800 ring-gray-600'
+              }`}
+              style={{ zIndex: 99999 }}
+            >
               <div className="py-1">
                 <button
                   onClick={downloadJSON}

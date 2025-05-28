@@ -10,10 +10,12 @@ import { textStyles } from '../utils/theme';
 import { tableStyles, iconStyles, containerStyles } from '../utils/layout';
 import brandConfig from '../../config/brand';
 import AboutBenchmarks from '../shared/AboutBenchmarks';
+import DataExport from '../shared/DataExport';
 
 interface BenchmarksTableProps {
   models: Model[];
   companyId: string;
+  companyName?: string;
 }
 
 // Component to display a single benchmark score
@@ -360,7 +362,7 @@ const FeaturedBenchmarksSection = React.memo(FeaturedBenchmarksSectionComponent,
   );
 });
 
-const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) => {
+const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId, companyName }) => {
   const [benchmarks, setBenchmarks] = useState<Benchmark[]>([]);
   const [benchmarkScores, setBenchmarkScores] = useState<BenchmarkScore[]>([]);
   const [groupedBenchmarks, setGroupedBenchmarks] = useState<Record<BenchmarkCategory, Benchmark[]>>({} as Record<BenchmarkCategory, Benchmark[]>);
@@ -659,6 +661,67 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
     };
     return iconMap[category] || 'bi-award';
   };
+
+  // Process data for export - include comprehensive benchmark scores
+  const processExportData = (models: Model[]) => {
+    return models.map(model => {
+      const { status, description, ...exportModel } = model;
+      
+      // Add all benchmark scores for this model
+      const modelBenchmarkScores: Record<string, any> = {};
+      
+      // Group scores by benchmark category for better organization
+      filteredCategories.forEach(([category, categoryBenchmarks]) => {
+        const categoryScores: Record<string, any> = {};
+        
+        categoryBenchmarks.forEach(benchmark => {
+          const score = getLatestScoreForModelAndBenchmark(benchmarkScores, model.id, benchmark.benchmark_id);
+          const ranking = globalRankings[benchmark.benchmark_id]?.[model.id];
+          
+          if (score !== null || ranking) {
+            categoryScores[benchmark.benchmark_name] = {
+              score: score,
+              rank: ranking?.rank || null,
+              total_models: ranking?.total || null,
+              category: benchmark.benchmark_category,
+              benchmark_id: benchmark.benchmark_id,
+              featured: benchmark.featured_benchmark || false
+            };
+          }
+        });
+        
+        if (Object.keys(categoryScores).length > 0) {
+          modelBenchmarkScores[category] = categoryScores;
+        }
+      });
+      
+      // Also include featured benchmarks separately for easy access
+      const featuredScores: Record<string, any> = {};
+      featuredBenchmarks.forEach(benchmark => {
+        const score = getLatestScoreForModelAndBenchmark(benchmarkScores, model.id, benchmark.benchmark_id);
+        const ranking = globalRankings[benchmark.benchmark_id]?.[model.id];
+        
+        if (score !== null || ranking) {
+          featuredScores[benchmark.benchmark_name] = {
+            score: score,
+            rank: ranking?.rank || null,
+            total_models: ranking?.total || null,
+            category: benchmark.benchmark_category
+          };
+        }
+      });
+      
+      if (Object.keys(modelBenchmarkScores).length > 0) {
+        (exportModel as any).benchmark_scores_by_category = modelBenchmarkScores;
+      }
+      
+      if (Object.keys(featuredScores).length > 0) {
+        (exportModel as any).featured_benchmark_scores = featuredScores;
+      }
+      
+      return exportModel;
+    });
+  };
   
   return (
     <div className="transform transition-opacity duration-300">
@@ -667,15 +730,27 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
       {/* Featured Benchmarks Section - only shown if there are any featured benchmarks */}
       {featuredBenchmarks.length > 0 && (
         <div className="mb-10">
-          <h3 className={`text-lg font-semibold mb-2 flex items-center ${
-            brandConfig.name === 'OMG'
-              ? 'font-sans'
-              : 'text-fuchsia-500 font-mono'
-          }`}
-          style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>
-            <i className="bi bi-star-fill mr-2" style={{ color: brandConfig.primaryColor }}></i>
-            Featured Benchmarks
-          </h3>
+          <div className="relative">
+            <h3 className={`text-lg font-semibold mb-2 flex items-center ${
+              brandConfig.name === 'OMG'
+                ? 'font-sans'
+                : 'text-fuchsia-500 font-mono'
+            }`}
+            style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>
+              <i className="bi bi-star-fill mr-2" style={{ color: brandConfig.primaryColor }}></i>
+              Featured Benchmarks
+            </h3>
+            
+            {/* Export Controls positioned on the right */}
+            <div className="absolute top-0 right-0">
+              <DataExport 
+                data={sortedModels} 
+                filename={`${(companyName || 'Unknown Company').toLowerCase().replace(/\s+/g, '-')}-benchmarks-${new Date().toISOString().split('T')[0]}`}
+                buttonText="Export Data"
+                processData={processExportData}
+              />
+            </div>
+          </div>
           <p className={`text-sm mb-3 ${
             brandConfig.name === 'OMG'
               ? 'text-gray-600 font-sans'
@@ -691,6 +766,18 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId }) 
             companyId={companyId}
             globalRankings={globalRankings}
             rankingsLoaded={rankingsLoaded}
+          />
+        </div>
+      )}
+      
+      {/* Export Controls for when there are no featured benchmarks */}
+      {featuredBenchmarks.length === 0 && (
+        <div className="flex justify-end mb-6">
+          <DataExport 
+            data={sortedModels} 
+            filename={`${(companyName || 'Unknown Company').toLowerCase().replace(/\s+/g, '-')}-benchmarks-${new Date().toISOString().split('T')[0]}`}
+            buttonText="Export Data"
+            processData={processExportData}
           />
         </div>
       )}
