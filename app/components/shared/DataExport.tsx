@@ -9,6 +9,7 @@ interface DataExportProps {
   className?: string;
   buttonText?: string;
   processData?: (data: any[]) => any[];
+  align?: 'left' | 'right';
 }
 
 export default function DataExport({ 
@@ -16,7 +17,8 @@ export default function DataExport({
   filename, 
   className = '',
   buttonText = 'Export Data',
-  processData
+  processData,
+  align = 'left'
 }: DataExportProps) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -111,7 +113,7 @@ export default function DataExport({
           
           {isOpen && (
             <div 
-              className={`absolute left-0 mt-2 w-48 rounded-md shadow-lg ring-1 ring-opacity-5 ${
+              className={`absolute ${align === 'right' ? 'right-0' : 'left-0'} mt-2 w-56 rounded-md shadow-lg ring-1 ring-opacity-5 ${
                 brandConfig.name === 'OMG' 
                   ? 'bg-white ring-black' 
                   : 'bg-gray-800 ring-gray-600'
@@ -121,7 +123,7 @@ export default function DataExport({
               <div className="py-1">
                 <button
                   onClick={downloadJSON}
-                  className={`flex items-center w-full px-4 py-2 text-sm transition-colors ${
+                  className={`flex items-center w-full px-4 py-2 text-sm whitespace-nowrap transition-colors ${
                     brandConfig.name === 'OMG' 
                       ? 'text-gray-700 hover:bg-gray-100' 
                       : 'text-gray-300 hover:bg-gray-700'
@@ -134,7 +136,7 @@ export default function DataExport({
                 </button>
                 <button
                   onClick={downloadCSV}
-                  className={`flex items-center w-full px-4 py-2 text-sm transition-colors ${
+                  className={`flex items-center w-full px-4 py-2 text-sm whitespace-nowrap transition-colors ${
                     brandConfig.name === 'OMG' 
                       ? 'text-gray-700 hover:bg-gray-100' 
                       : 'text-gray-300 hover:bg-gray-700'

@@ -748,6 +748,7 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId, co
                 filename={`${(companyName || 'Unknown Company').toLowerCase().replace(/\s+/g, '-')}-benchmarks-${new Date().toISOString().split('T')[0]}`}
                 buttonText="Export Data"
                 processData={processExportData}
+                align="right"
               />
             </div>
           </div>
@@ -778,6 +779,7 @@ const BenchmarksTable: React.FC<BenchmarksTableProps> = ({ models, companyId, co
             filename={`${(companyName || 'Unknown Company').toLowerCase().replace(/\s+/g, '-')}-benchmarks-${new Date().toISOString().split('T')[0]}`}
             buttonText="Export Data"
             processData={processExportData}
+            align="right"
           />
         </div>
       )}

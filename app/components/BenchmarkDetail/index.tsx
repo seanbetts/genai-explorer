@@ -585,6 +585,7 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
               filename={`${benchmark?.benchmark_name?.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') || 'benchmark'}-results-${new Date().toISOString().split('T')[0]}`}
               buttonText="Export Data"
               processData={processExportData}
+              align="right"
             />
           </div>
           <div className={`overflow-x-auto rounded-lg border ${
