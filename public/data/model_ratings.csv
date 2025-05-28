@@ -2,8 +2,8 @@ model_id,model_name,model_type,company,General Intelligence,STEM,agentic,coding,
 qwen-3-0-6b,Qwen-3 0.6B,Large Hybrid Model,Alibaba,n/a,n/a,n/a,n/a,n/a,1.0
 qwen-3-1-7b,Qwen-3 1.7B,Large Hybrid Model,Alibaba,n/a,n/a,n/a,n/a,n/a,1.0
 qwen-3-14b,Qwen-3 14B,Large Hybrid Model,Alibaba,n/a,n/a,n/a,n/a,n/a,1.12
-qwen-3-235b-a22b,Qwen-3 235B,Large Hybrid Model,Alibaba,n/a,4.5,4.0,4.0,n/a,1.14
-qwen-3-32b,Qwen-3 32B,Large Hybrid Model,Alibaba,n/a,4.0,4.0,3.67,n/a,1.43
+qwen-3-235b-a22b,Qwen-3 235B,Large Hybrid Model,Alibaba,3.0,4.5,4.0,4.0,n/a,1.14
+qwen-3-32b,Qwen-3 32B,Large Hybrid Model,Alibaba,2.0,4.0,4.0,3.67,n/a,1.43
 qwen-3-4b,Qwen-3 4B,Large Hybrid Model,Alibaba,n/a,3.67,3.0,3.0,n/a,1.0
 qwen-3-8b,Qwen-3 8B,Large Hybrid Model,Alibaba,n/a,n/a,n/a,n/a,n/a,1.06
 nova-micro-1-0,Nova Micro,Large Language Model,Amazon,3.0,3.67,4.0,4.0,3.67,1.0
@@ -23,21 +23,21 @@ command-r,Command R,Large Language Model,Cohere,n/a,n/a,n/a,n/a,n/a,1.11
 command-r-plus,Command R+,Large Language Model,Cohere,2.0,1.0,3.0,n/a,2.0,3.86
 command-r7b,Command R7B,Large Language Model,Cohere,2.0,2.0,3.0,n/a,n/a,1.0
 aya-vision,Aya Vision,Large Multimodal Model,Cohere,n/a,n/a,n/a,n/a,n/a,n/a
-v3,V3,Large Language Model,Deepseek,3.5,3.29,3.0,2.6,4.0,1.26
+v3,V3,Large Language Model,Deepseek,3.25,3.29,3.0,2.6,4.0,1.26
 r1,R1,Large Reasoning Model,Deepseek,3.75,4.25,4.0,4.0,3.33,1.58
 gemini-2-0-flash,Gemini-2.0 Flash,Large Hybrid Model,Google DeepMind,3.44,3.57,n/a,3.0,1.0,1.06
 gemini-2-5-flash,Gemini-2.5 Flash,Large Hybrid Model,Google DeepMind,3.75,4.67,n/a,3.5,3.0,1.11
 gemini-1-5-flash,Gemini-1.5 Flash,Large Language Model,Google DeepMind,2.9,3.71,5.0,3.33,3.75,n/a
-gemini-1-5-pro,Gemini-1.5 Pro,Large Language Model,Google DeepMind,3.5,4.14,5.0,4.0,4.4,n/a
+gemini-1-5-pro,Gemini-1.5 Pro,Large Language Model,Google DeepMind,3.6,4.14,5.0,4.0,4.4,n/a
 gemini-2-0,Gemini-2.0,Large Language Model,Google DeepMind,3.6,4.0,n/a,2.0,n/a,n/a
 gemini-2-0-flash-lite,Gemini-2.0 Flash Lite,Large Language Model,Google DeepMind,2.67,3.2,n/a,3.5,n/a,1.03
 gemini-2-0-flash-thinking,Gemini-2.0 Flash Thinking,Large Language Model,Google DeepMind,4.0,4.0,n/a,3.0,n/a,n/a
 gemini-2-0-pro,Gemini-2.0 Pro,Large Language Model,Google DeepMind,4.14,4.67,n/a,3.5,n/a,n/a
 gemma-3-1b,Gemma-3 1B,Large Language Model,Google DeepMind,1.0,1.4,3.0,1.0,1.33,1.0
 gemini-2-5-pro,Gemini-2.5 Pro,Large Multimodal Model,Google DeepMind,4.5,5.0,5.0,4.25,5.0,3.32
-gemma-3-12b,Gemma-3 12B,Large Multimodal Model,Google DeepMind,2.6,3.83,4.0,4.0,4.0,1.12
+gemma-3-12b,Gemma-3 12B,Large Multimodal Model,Google DeepMind,2.5,3.83,4.0,4.0,4.0,1.12
 gemma-3-27b,Gemma-3 27B,Large Multimodal Model,Google DeepMind,3.0,3.44,4.5,3.5,4.33,1.43
-gemma-3-4b,Gemma-3 4B,Large Multimodal Model,Google DeepMind,2.0,2.83,5.0,3.0,3.0,1.0
+gemma-3-4b,Gemma-3 4B,Large Multimodal Model,Google DeepMind,1.83,2.83,5.0,3.0,3.0,1.0
 llama-3-1-405b,Llama-3.1 405B,Large Language Model,Meta,3.0,3.25,4.0,1.5,3.67,3.09
 llama-3-1-70b,Llama-3.1 70B,Large Language Model,Meta,n/a,n/a,n/a,n/a,n/a,1.48
 llama-3-1-8b,Llama-3.1 8B,Large Language Model,Meta,2.0,3.0,4.0,3.0,2.0,1.05
@@ -65,22 +65,22 @@ devstral-small-2505,Devstral,Large Language Model,Mistral AI,n/a,n/a,n/a,3.0,n/a
 ministral-3B,Ministral 3B,Large Language Model,Mistral AI,n/a,n/a,n/a,n/a,n/a,1.0
 ministral-8B,Ministral 8B,Large Language Model,Mistral AI,n/a,n/a,n/a,n/a,n/a,1.0
 mistral-large-2,Mistral Large,Large Language Model,Mistral AI,1.0,n/a,n/a,n/a,2.0,2.91
-mistral-medium-3,Mistral Medium,Large Multimodal Model,Mistral AI,3.33,4.0,4.0,3.5,n/a,1.48
+mistral-medium-3,Mistral Medium,Large Multimodal Model,Mistral AI,3.25,4.0,4.0,3.5,n/a,1.48
 mistral-small-3-1,Mistral Small,Large Multimodal Model,Mistral AI,3.2,3.75,n/a,5.0,n/a,1.04
 pixtral-large,Pixtral Large,Large Multimodal Model,Mistral AI,4.0,4.0,n/a,n/a,n/a,2.91
-gpt-4-1-mini,GPT 4.1 Mini,Large Language Model,OpenAI,4.0,3.67,3.29,3.0,3.5,1.41
+gpt-4-1-mini,GPT 4.1 Mini,Large Language Model,OpenAI,3.5,3.67,3.29,3.0,3.5,1.41
 gpt-4-1-nano,GPT 4.1 Nano,Large Language Model,OpenAI,2.33,2.33,1.43,1.0,1.0,1.06
 gpt-4-turbo,GPT-4 Turbo,Large Language Model,OpenAI,3.0,3.0,n/a,4.0,2.0,n/a
-gpt-4-1,GPT-4.1,Large Language Model,OpenAI,4.5,3.67,3.86,3.75,3.33,3.28
+gpt-4-1,GPT-4.1,Large Language Model,OpenAI,4.2,3.67,3.86,3.75,3.33,3.28
 gpt-4-5,GPT-4.5,Large Multimodal Model,OpenAI,4.29,3.0,3.75,3.5,2.8,5.0
 gpt-4o,GPT-4o,Large Multimodal Model,OpenAI,3.3,3.11,3.12,2.71,3.5,3.86
 gpt-4o-mini,GPT-4o Mini,Large Multimodal Model,OpenAI,2.43,3.14,2.14,1.8,2.86,1.11
 o1,o1,Large Reasoning Model,OpenAI,4.17,4.4,3.62,3.5,4.0,5.0
 o1-mini,o1-mini,Large Reasoning Model,OpenAI,3.0,3.75,4.0,2.75,3.0,n/a
 o1-pro,o1-pro,Large Reasoning Model,OpenAI,n/a,n/a,n/a,n/a,2.0,n/a
-o3,o3,Large Reasoning Model,OpenAI,4.5,5.0,4.5,5.0,5.0,5.0
+o3,o3,Large Reasoning Model,OpenAI,4.33,5.0,4.5,5.0,5.0,5.0
 o3-mini,o3-mini,Large Reasoning Model,OpenAI,3.2,5.0,3.14,3.43,2.67,2.22
-o4-mini,o4-mini,Large Reasoning Model,OpenAI,5.0,5.0,3.75,4.5,3.67,2.22
+o4-mini,o4-mini,Large Reasoning Model,OpenAI,4.0,5.0,3.75,4.5,3.67,2.22
 grok-3-mini,Grok-3 Mini,Large Hybrid Model,xAI,4.0,5.0,n/a,5.0,n/a,1.16
 grok-1-5,Grok 1.5,Large Language Model,xAI,2.75,2.33,n/a,3.0,n/a,n/a
 grok-2,Grok 2,Large Language Model,xAI,3.6,3.33,n/a,5.0,2.0,n/a
