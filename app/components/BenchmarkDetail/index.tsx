@@ -15,6 +15,7 @@ import { textStyles } from '../utils/theme';
 import { SharedTable, TableHeader } from '../shared/TableComponents';
 import brandConfig from '../../config/brand';
 import AboutBenchmarks from '../shared/AboutBenchmarks';
+import DataExport from '../shared/DataExport';
 
 interface BenchmarkDetailProps {
   benchmarkId: string;
@@ -251,6 +252,36 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
 
   // Generate benchmark structured data
   const benchmarkJsonLd = generateBenchmarkJsonLd(benchmark, sortedScores);
+
+  // Process data for export - create comprehensive benchmark results
+  const processExportData = (scores: BenchmarkScore[]) => {
+    return scores.map((score, index) => {
+      const model = allModels[score.model_id];
+      const companyId = score.company_id?.trim();
+      const company = companies[companyId || ''];
+      const ranking = rankings[benchmark?.benchmark_id]?.[score.model_id];
+      
+      return {
+        rank: index + 1,
+        model_id: score.model_id,
+        model_name: model ? model.name : score.model_id.split('-').map(word => 
+          word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
+        model_type: model?.type || null,
+        model_release_date: model?.releaseDate || null,
+        company_id: companyId || null,
+        company_name: company?.name || (companyId ? companyId.charAt(0).toUpperCase() + companyId.slice(1) : 'Unknown'),
+        score: score.score,
+        date: score.date,
+        source: score.source || null,
+        source_name: score.source_name || null,
+        notes: score.notes || null,
+        benchmark_id: benchmark?.benchmark_id || null,
+        benchmark_name: benchmark?.benchmark_name || null,
+        benchmark_category: benchmark?.benchmark_category || null,
+        total_models_ranked: sortedScores.length
+      };
+    });
+  };
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4">
@@ -549,6 +580,12 @@ const BenchmarkDetail: React.FC<BenchmarkDetailProps> = ({ benchmarkId, onBack, 
             style={brandConfig.name === 'OMG' ? { color: brandConfig.primaryColor } : {}}>
               All Results
             </h2>
+            <DataExport 
+              data={sortedScores} 
+              filename={`${benchmark?.benchmark_name?.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') || 'benchmark'}-results-${new Date().toISOString().split('T')[0]}`}
+              buttonText="Export Data"
+              processData={processExportData}
+            />
           </div>
           <div className={`overflow-x-auto rounded-lg border ${
             brandConfig.name === 'OMG'
