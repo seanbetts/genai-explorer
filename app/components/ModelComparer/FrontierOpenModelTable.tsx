@@ -292,12 +292,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           ))}
         </tr>
       )}
-    </>
-  );
-
-  // Generate context table rows
-  const renderContextRows = () => (
-    <>
+      
       {/* Max Input Tokens Row */}
       {hasAnyModelSpec("maxInputTokens") && (
         <tr className="cursor-pointer">
@@ -315,7 +310,6 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           ))}
         </tr>
       )}
-
 
       {/* Max Output Tokens Row */}
       {hasAnyModelSpec("maxOutputTokens") && (
@@ -350,6 +344,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
       </tr>
     </>
   );
+
 
   // Generate pricing table rows
   const renderPricingRows = () => (
@@ -810,7 +805,6 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
   }
 
   // Check if we need to show each table section
-  const hasContextData = hasAnyModelSpec("maxInputTokens") || hasAnyModelSpec("maxOutputTokens") || hasAnyModelSpec("knowledgeCutoff");
   const hasPricingData = hasAnyModelSpec("pricingInputPerM") || hasAnyModelSpec("pricingOutputPerM");
   
   // Determine if we're showing only frontier models or only open models
@@ -901,19 +895,6 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
             <TableColGroup items={headerItems} />
             <tbody>
               {renderModelRatingsRows()}
-            </tbody>
-          </SharedTable>
-        </div>
-      )}
-      
-      {/* Context & Limits Section */}
-      {hasContextData && (
-        <div className="mb-6">
-          <SectionTitle>Context & Limits</SectionTitle>
-          <SharedTable>
-            <TableColGroup items={headerItems} />
-            <tbody>
-              {renderContextRows()}
             </tbody>
           </SharedTable>
         </div>

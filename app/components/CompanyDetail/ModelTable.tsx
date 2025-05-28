@@ -520,12 +520,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
           ))}
         </tr>
       )}
-    </>
-  );
-
-  // Generate context table rows - Max Input/Output and Knowledge Cutoff
-  const renderContextRows = () => (
-    <>
+      
       {/* Max Input Tokens Row */}
       {hasAnyModelSpec("maxInputTokens") && (
         <tr className="cursor-pointer">
@@ -579,6 +574,7 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
       )}
     </>
   );
+
 
   // Generate pricing table rows
   const renderPricingRows = () => (
@@ -795,7 +791,6 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
   };
 
   // Check if we need to show each table section
-  const hasContextData = hasAnyModelSpec("maxInputTokens") || hasAnyModelSpec("maxOutputTokens") || hasAnyModelSpec("knowledgeCutoff");
   const hasPricingData = hasAnyModelSpec("pricingInputPerM") || hasAnyModelSpec("pricingCachedInputPerM") || hasAnyModelSpec("pricingOutputPerM");
   
   // Determine if we're showing only frontier models or only open models
@@ -869,18 +864,6 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
 
       {/* Model Ratings Table */}
       {renderModelRatingsTable()}
-
-      {/* Context Table (Max Input/Output and Knowledge Cutoff) */}
-      {hasContextData && (
-        <div className="mb-6">
-          <SectionTitle>Context & Limits</SectionTitle>
-          <SharedTable>
-            <tbody>
-              {renderContextRows()}
-            </tbody>
-          </SharedTable>
-        </div>
-      )}
 
       {/* Pricing Table */}
       {hasPricingData && (
