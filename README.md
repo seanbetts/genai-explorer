@@ -17,7 +17,7 @@ The Generative AI Explorer is designed to help everyone get a better understandi
 
 - **Comprehensive AI Ecosystem View**: Interactive display of AI companies categorized by their capabilities
 - **Detailed Company Profiles**: In-depth information about each company including:
-  - Model specifications and capabilities with subjective ratings for intelligence, speed, and reasoning
+  - Model specifications and capabilities with comprehensive 1-5 scale ratings (with half-step precision) for intelligence, reasoning, agentic capabilities, coding, STEM, speed, and pricing
   - Product offerings with descriptions and links
   - Feature highlights showcasing capabilities and integrations
   - Subscription options with pricing and feature comparisons
@@ -88,6 +88,7 @@ genai-explorer/
 │   │   ├── shared/              # Reusable components
 │   │   │   ├── AboutBenchmarks.tsx     # Reusable benchmark information component
 │   │   │   ├── AboutModelRatings.tsx   # Reusable model ratings information component
+│   │   │   ├── RatingDisplay.tsx       # Half-step rating display component
 │   │   │   └── ...                     # Other shared components
 │   │   ├── utils/               # Utility functions
 │   │   │   ├── modelRatingsLoader.ts   # Model ratings data loader
@@ -168,7 +169,7 @@ npm run dev
 The application includes a comprehensive Model Comparer feature that allows users to:
 - Select up to four models to compare side-by-side
 - Compare basic information, specifications, and capabilities
-- **Model Ratings Comparison**: Side-by-side comparison of 1-5 scale ratings across all categories (Intelligence, Reasoning, Agentic, Coding, STEM, Speed, Pricing)
+- **Model Ratings Comparison**: Side-by-side comparison of 1-5 scale ratings with half-step precision (1.0, 1.5, 2.0, 2.5, etc.) across all categories (Intelligence, Reasoning, Agentic, Coding, STEM, Speed, Pricing)
 - **Benchmark Performance**: Compare featured benchmark scores with rankings and source links
 - **Interactive Tooltips**: Hover over rating categories to understand the benchmarks and criteria used
 - **Comprehensive Information**: Context limits, pricing with Together.ai references for open models, resources, and licensing details
@@ -201,11 +202,19 @@ The application includes a comprehensive model rating system that generates stan
   - Individual benchmark detail pages for context
 - **Interactive Tooltips**: Hover over rating category names to see detailed explanations of benchmarks and criteria used
 - **Intuitive Icons**: Each rating type has a specific icon (circle for Intelligence, lightbulb for Reasoning, CPU for Agentic, terminal for Coding, calculator for STEM, lightning for Speed, dollar for Pricing)
-- **Visual Rating Display**: 1-5 scale shown as filled/unfilled icons for immediate visual comparison
+- **Visual Rating Display**: 1-5 scale with half-step precision shown as filled/half-filled/unfilled icons for immediate visual comparison and enhanced differentiation
 - **Reusable About Sections**: 
   - **About Model Ratings**: Explains rating methodology, benchmark sources, and calculation process
   - **About Benchmarks**: Describes benchmark types, data sources, and ranking systems
   - Consistent information across all pages with automatic brand-aware styling
+
+### Half-Step Rating System
+The application features an enhanced rating display system that provides better visual differentiation:
+- **Precision**: Ratings are automatically rounded to the nearest 0.5 (e.g., 3.44 → 3.5, 3.67 → 3.5)
+- **Visual Clarity**: Half-filled icons using CSS clip-path technique for precise visual representation
+- **Enhanced Differentiation**: 10 distinct visual levels (1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0) instead of 5
+- **Consistent Implementation**: Same half-rating system across model comparer and company detail pages
+- **Reusable Component**: `RatingDisplay` component ensures consistent behavior and styling
 
 ### Enhanced Console Output
 The rating calculation script provides comprehensive visual feedback including:

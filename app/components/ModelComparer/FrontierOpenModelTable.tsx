@@ -20,6 +20,7 @@ import {
 import { loadModelRatings, getRatingForModel, type ModelRatingsData } from '../utils/modelRatingsLoader';
 import AboutBenchmarks from '../shared/AboutBenchmarks';
 import AboutModelRatings from '../shared/AboutModelRatings';
+import RatingDisplay from '../shared/RatingDisplay';
 
 interface FrontierOpenModelTableProps {
   selectedModels: Model[];
@@ -172,82 +173,23 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
     onRemove: () => onModelRemove(model.id)
   }));
 
-  // Render the rating indicators (circles, lightning, etc)
-  const renderRating = (model: Model, type: string) => {
-    let value: number | null = null;
-    
-    // Get rating value based on type
+  // Get rating value for a model and type
+  const getRatingValue = (model: Model, type: string): number | null => {
     if (type === "speed") {
       // Speed still comes from capabilities in data.json
       if (model.capabilities && "speed" in model.capabilities) {
-        value = model.capabilities.speed as number;
+        return model.capabilities.speed as number;
       }
     } else {
       // All other ratings come from model_ratings.csv
       if (ratingsLoaded) {
         const csvRating = getRatingForModel(model.id, type, modelRatings);
         if (csvRating !== null) {
-          // Convert decimal rating (0-5) to integer (0-5) for display
-          value = Math.round(csvRating);
+          return csvRating; // Return raw value for RatingDisplay to handle rounding
         }
       }
     }
-    
-    // If no rating available, show dash
-    if (value === null || value === undefined) {
-      return <span className={textStyles.primary}>-</span>;
-    }
-    
-    // Get icons based on the capability type
-    let icon = "";
-    let filledIcon = "";
-    
-    switch (type) {
-      case "intelligence":
-        icon = "bi-circle";
-        filledIcon = "bi-circle-fill";
-        break;
-      case "speed":
-        icon = "bi-lightning-charge";
-        filledIcon = "bi-lightning-charge-fill";
-        break;
-      case "reasoning":
-        icon = "bi-lightbulb";
-        filledIcon = "bi-lightbulb-fill";
-        break;
-      case "agentic":
-        icon = "bi-cpu";
-        filledIcon = "bi-cpu-fill";
-        break;
-      case "coding":
-        icon = "bi-terminal";
-        filledIcon = "bi-terminal-fill";
-        break;
-      case "stem":
-        icon = "bi-calculator";
-        filledIcon = "bi-calculator-fill";
-        break;
-      case "pricing":
-        icon = "bi-currency-dollar";
-        filledIcon = "bi-currency-dollar";
-        break;
-      default:
-        icon = "bi-circle";
-        filledIcon = "bi-circle-fill";
-    }
-    
-    // Always render the icons, even if value is 0
-    return (
-      <div className={iconStyles.ratingContainer}>
-        {[...Array(5)].map((_, i) => (
-          <i 
-            key={i} 
-            className={`${i < value ? filledIcon : icon} ${iconStyles.iconSpacing}`}
-            style={{ color: i < value ? brandConfig.secondaryColor : '#4B5563' }}
-          ></i>
-        ))}
-      </div>
-    );
+    return null;
   };
 
   // Generate capabilities rows
@@ -595,7 +537,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           </td>
           {selectedModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {renderRating(model, "intelligence")}
+              <RatingDisplay value={getRatingValue(model, "intelligence")} type="intelligence" />
             </td>
           ))}
         </tr>
@@ -612,7 +554,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           </td>
           {selectedModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {renderRating(model, "reasoning")}
+              <RatingDisplay value={getRatingValue(model, "reasoning")} type="reasoning" />
             </td>
           ))}
         </tr>
@@ -629,7 +571,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           </td>
           {selectedModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {renderRating(model, "agentic")}
+              <RatingDisplay value={getRatingValue(model, "agentic")} type="agentic" />
             </td>
           ))}
         </tr>
@@ -646,7 +588,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           </td>
           {selectedModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {renderRating(model, "coding")}
+              <RatingDisplay value={getRatingValue(model, "coding")} type="coding" />
             </td>
           ))}
         </tr>
@@ -663,7 +605,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           </td>
           {selectedModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {renderRating(model, "stem")}
+              <RatingDisplay value={getRatingValue(model, "stem")} type="stem" />
             </td>
           ))}
         </tr>
@@ -680,7 +622,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           </td>
           {selectedModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {renderRating(model, "speed")}
+              <RatingDisplay value={getRatingValue(model, "speed")} type="speed" />
             </td>
           ))}
         </tr>
@@ -697,7 +639,7 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
           </td>
           {selectedModels.map(model => (
             <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-              {renderRating(model, "pricing")}
+              <RatingDisplay value={getRatingValue(model, "pricing")} type="pricing" />
             </td>
           ))}
         </tr>
