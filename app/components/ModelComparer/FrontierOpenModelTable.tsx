@@ -22,6 +22,7 @@ import AboutBenchmarks from '../shared/AboutBenchmarks';
 import AboutModelRatings from '../shared/AboutModelRatings';
 import RatingDisplay from '../shared/RatingDisplay';
 import { getModelTypeDescription } from '../utils/modelTypeDescriptions';
+import DataExport from '../shared/DataExport';
 
 interface FrontierOpenModelTableProps {
   selectedModels: Model[];
@@ -143,6 +144,53 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
       // Otherwise sort alphabetically for any unknown categories
       return a.benchmark_category.localeCompare(b.benchmark_category);
     });
+  
+  // Process data for export - round ratings and add benchmark scores
+  const processExportData = (models: Model[]) => {
+    return models.map(model => {
+      const { status, ...exportModel } = model;
+      
+      // Add rounded ratings to export data
+      if (ratingsLoaded) {
+        const ratings: Record<string, number | null> = {};
+        const ratingTypes = ['intelligence', 'reasoning', 'agentic', 'coding', 'stem', 'pricing', 'speed'];
+        
+        ratingTypes.forEach(type => {
+          const rating = getRatingValue(model, type);
+          if (rating !== null) {
+            ratings[type] = Math.round(rating * 2) / 2; // Round to nearest 0.5
+          }
+        });
+        
+        if (Object.keys(ratings).length > 0) {
+          (exportModel as any).ratings = ratings;
+        }
+      }
+      
+      // Add featured benchmark scores
+      const modelBenchmarkScores: Record<string, any> = {};
+      featuredBenchmarks.forEach(benchmark => {
+        const { score, date, rank, source, sourceName, notes } = getModelBenchmarkData(model.id, benchmark.benchmark_id);
+        
+        if (score !== null || rank !== null) {
+          modelBenchmarkScores[benchmark.benchmark_name] = {
+            score: score,
+            rank: rank,
+            date: date,
+            source: source,
+            source_name: sourceName,
+            notes: notes
+          };
+        }
+      });
+      
+      if (Object.keys(modelBenchmarkScores).length > 0) {
+        (exportModel as any).benchmark_scores = modelBenchmarkScores;
+      }
+      
+      return exportModel;
+    });
+  };
   
   // Helper function to get latest score for a model and benchmark with metadata
   const getModelBenchmarkData = (modelId: string, benchmarkId: string): { 
@@ -842,6 +890,14 @@ const FrontierOpenModelTable: React.FC<FrontierOpenModelTableProps> = ({ selecte
 
       {/* Format Icons Legend (centered) */}
       <div className="relative flex justify-center items-center mb-4">
+        <div className="absolute left-0">
+          <DataExport 
+            data={selectedModels} 
+            filename="frontier-open-models-comparison" 
+            buttonText="Export Data"
+            processData={processExportData}
+          />
+        </div>
         <div className={`${containerStyles.legend} transform transition-all duration-500`}>
           <div 
             className={`${containerStyles.legendBox} hover:shadow-md transition-all duration-300 ${brandConfig.name === 'OMG' ? 'hover:border-blue-500' : 'hover:border-fuchsia-700'}`}
