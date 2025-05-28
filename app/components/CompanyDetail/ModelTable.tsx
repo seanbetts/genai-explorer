@@ -18,6 +18,7 @@ import {
 import { loadModelRatings, getRatingForModel, type ModelRatingsData } from '../utils/modelRatingsLoader';
 import AboutModelRatings from '../shared/AboutModelRatings';
 import RatingDisplay from '../shared/RatingDisplay';
+import { getModelTypeDescription } from '../utils/modelTypeDescriptions';
 
 interface ModelTableProps {
   models: Model[];
@@ -382,7 +383,12 @@ const ModelTable: React.FC<ModelTableProps> = ({ models }) => {
         </td>
         {currentModels.map(model => (
           <td key={model.id} className={`${tableStyles.cellCenter} transition-colors duration-150`}>
-            <span className={`capitalize ${textStyles.primary}`}>{model.type || "-"}</span>
+            <span 
+              className={`capitalize ${textStyles.primary} cursor-help`}
+              title={model.type ? getModelTypeDescription(model.type) : undefined}
+            >
+              {model.type || "-"}
+            </span>
           </td>
         ))}
       </tr>
