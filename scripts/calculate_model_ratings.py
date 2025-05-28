@@ -195,9 +195,10 @@ def calculate_benchmark_category_ratings(df: pd.DataFrame, models: Dict,
     return model_ratings
 
 def calculate_pricing_ratings(models: Dict) -> Dict[str, Optional[float]]:
-    """Calculate pricing cost ratings using percentile-based normalization to handle outliers.
+    """Calculate pricing cost ratings using logarithmic scaling to handle extreme outliers.
     
     Returns higher ratings (closer to 5) for more expensive models and lower ratings (closer to 1) for cheaper models.
+    Uses logarithmic scaling to provide better distribution across the wide range of pricing.
     """
     # Extract models with pricing data
     composite_scores = {}
@@ -214,40 +215,42 @@ def calculate_pricing_ratings(models: Dict) -> Dict[str, Optional[float]]:
     if not composite_scores:
         return {model_id: None for model_id in models.keys()}
     
-    # Sort costs for percentile calculation
+    # Sort costs for analysis
     costs = sorted(composite_scores.values())
     
     if len(costs) == 1:
         ratings = {model_id: 3.0 for model_id in composite_scores.keys()}
     else:
-        # Use percentile-based normalization to handle outliers
-        # Cap extreme outliers at 90th percentile for better distribution
-        p10_index = int(len(costs) * 0.10)
-        p90_index = int(len(costs) * 0.90)
+        # Use logarithmic scaling to better handle extreme outliers
+        # This gives more granular ratings in the lower price ranges where most models cluster
+        import math
         
-        min_cost = costs[p10_index] if p10_index < len(costs) else costs[0]
-        max_cost = costs[p90_index] if p90_index < len(costs) else costs[-1]
-        
-        # Ensure we have a reasonable range
-        if max_cost == min_cost:
-            # Fallback to simple min-max if percentile range is too narrow
-            min_cost = costs[0]
-            max_cost = costs[-1]
+        # Add small offset to avoid log(0) and handle very small prices
+        offset = 0.01
+        log_costs = [math.log(cost + offset) for cost in costs]
+        min_log = min(log_costs)
+        max_log = max(log_costs)
         
         ratings = {}
         for model_id, cost in composite_scores.items():
-            # Cap outliers to prevent extreme skewing
-            capped_cost = max(min_cost, min(cost, max_cost))
+            # Apply logarithmic transformation
+            log_cost = math.log(cost + offset)
             
-            # Normalize cost to 0-1 range using capped values
-            normalized_cost = (capped_cost - min_cost) / (max_cost - min_cost) if max_cost != min_cost else 0.0
+            # Normalize log cost to 0-1 range
+            if max_log != min_log:
+                normalized_log_cost = (log_cost - min_log) / (max_log - min_log)
+            else:
+                normalized_log_cost = 0.0
             
             # Direct mapping for cost (higher cost = higher rating)
-            cost_score = normalized_cost
+            cost_score = normalized_log_cost
             
-            # Scale to 1-5 range with better distribution
-            # Use a curve that gives more granularity in the middle ranges
-            rating = 1.0 + (4.0 * cost_score)
+            # Apply slight curve to spread out the middle range
+            # This gives better distribution across the pricing spectrum
+            curved_score = cost_score ** 0.8
+            
+            # Scale to 1-5 range
+            rating = 1.0 + (4.0 * curved_score)
             
             ratings[model_id] = rating
     
