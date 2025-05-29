@@ -77,10 +77,7 @@ function generateMetadata(): Metadata {
       },
     },
     
-    // Canonical URL
-    alternates: {
-      canonical: baseUrl,
-    },
+    // Note: Canonical URLs are set by individual pages to avoid conflicts
     
     // Verification for search consoles
     verification: {
