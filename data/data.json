@@ -1175,6 +1175,12 @@
           "description": "Allow you to seamlessly connect Claude with your existing tools and workflows",
           "image": "/images/companies/anthropic/features/connected-apps.png",
           "url": "https://support.anthropic.com/en/articles/10168395-setting-up-integrations-on-claude-ai"
+        },
+        {
+          "name": "Voice Mode",
+          "description": "Voice mode allows you to have complete spoken conversations with Claude on your iOS and Android devices",
+          "image": "/images/companies/anthropic/features/voice-mode.webp",
+          "url": "https://support.anthropic.com/en/articles/11101966-using-voice-mode-on-claude-mobile-apps?s=09"
         }
       ],
       "models": [
