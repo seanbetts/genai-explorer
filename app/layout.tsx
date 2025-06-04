@@ -17,6 +17,15 @@ function generateMetadata(): Metadata {
   // If SEO is disabled for this brand, return minimal metadata
   if (!brandConfig.seo?.enabled || !brandConfig.seo?.enableMetaTags) {
     return {
+      title: {
+        template: `%s | ${brandConfig.name}`,
+        default: `Generative AI Explorer | ${brandConfig.name}`,
+      },
+      icons: {
+        icon: brandConfig.faviconPath,
+        shortcut: brandConfig.faviconPath,
+        apple: brandConfig.faviconPath,
+      },
       robots: {
         index: false,
         follow: false,
@@ -32,27 +41,32 @@ function generateMetadata(): Metadata {
   return {
     metadataBase: new URL(baseUrl),
     title: {
-      template: '%s | The Blueprint',
-      default: 'Generative AI Explorer | The Blueprint',
+      template: `%s | ${brandConfig.name}`,
+      default: `Generative AI Explorer | ${brandConfig.name}`,
     },
-    description: "Explore the complete landscape of generative AI from The Blueprint. Compare AI models, companies, benchmarks and capabilities all in one place.",
-    keywords: ['generative AI', 'AI models', 'LLM', 'benchmarks', 'frontier models', 'AI companies', 'model comparison', 'AI explorer', 'the blueprint'],
+    description: `Explore the complete landscape of generative AI from ${brandConfig.name}. Compare AI models, companies, benchmarks and capabilities all in one place.`,
+    keywords: ['generative AI', 'AI models', 'LLM', 'benchmarks', 'frontier models', 'AI companies', 'model comparison', 'AI explorer', brandConfig.name.toLowerCase()],
     creator: 'Sean Betts',
-    publisher: 'The Blueprint',
+    publisher: brandConfig.name,
+    icons: {
+      icon: brandConfig.faviconPath,
+      shortcut: brandConfig.faviconPath,
+      apple: brandConfig.faviconPath,
+    },
     
     // Open Graph metadata
     openGraph: {
       type: 'website',
-      title: 'Generative AI Explorer | The Blueprint',
-      description: 'Explore the complete landscape of generative AI from The Blueprint. Compare AI models, companies, benchmarks and capabilities all in one place.',
-      siteName: 'The Blueprint',
+      title: `Generative AI Explorer | ${brandConfig.name}`,
+      description: `Explore the complete landscape of generative AI from ${brandConfig.name}. Compare AI models, companies, benchmarks and capabilities all in one place.`,
+      siteName: brandConfig.name,
       url: baseUrl,
       images: [
         {
           url: `${baseUrl}/images/og-image.jpg`, 
           width: 1200,
           height: 630,
-          alt: 'Generative AI Explorer by The Blueprint',
+          alt: `Generative AI Explorer by ${brandConfig.name}`,
         }
       ],
     },
@@ -60,8 +74,8 @@ function generateMetadata(): Metadata {
     // Twitter metadata
     twitter: {
       card: 'summary_large_image',
-      title: 'Generative AI Explorer | The Blueprint',
-      description: 'Explore the complete landscape of generative AI from The Blueprint. Compare AI models, companies, benchmarks and capabilities all in one place.',
+      title: `Generative AI Explorer | ${brandConfig.name}`,
+      description: `Explore the complete landscape of generative AI from ${brandConfig.name}. Compare AI models, companies, benchmarks and capabilities all in one place.`,
       images: [`${baseUrl}/images/og-image.jpg`],
       creator: '@seanbetts',
       site: '@theblueprint_ai',
@@ -113,7 +127,6 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href={brandConfig.faviconPath} type="image/x-icon" />
         {shouldIncludeStructuredData && explorerJsonLd && <JsonLd data={explorerJsonLd} />}
         
         {/* Only include Google Analytics if SEO is enabled for this brand */}

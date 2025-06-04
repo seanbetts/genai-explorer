@@ -40,7 +40,7 @@ export function generatePageMetadata(
   }
 
   const canonicalUrl = createCanonicalUrl(path);
-  const pageTitle = title ? `${title} | Generative AI Explorer | The Blueprint` : 'Generative AI Explorer | The Blueprint';
+  const pageTitle = title || 'Generative AI Explorer';
   const pageDescription = description || 'A comprehensive explorer for generative AI models, companies, benchmarks and capabilities. Compare frontier models, view benchmarks, and explore AI capabilities.';
   
   // Combine default keywords with additional ones

@@ -75,6 +75,7 @@ export const brandConfigs: Record<string, BrandConfig> = {
     secondaryColor: '#437AF6',
     seo: {
       enabled: false, // Disable all SEO features for OMG version
+      baseUrl: 'https://genai-explorer.omg-digital.com',
       enableRobots: false,
       enableSitemap: false,
       enableMetaTags: false,
@@ -94,7 +95,7 @@ export const brandConfigs: Record<string, BrandConfig> = {
 // Default to personal, override with environment variable
 const getBrandKey = (): string => {
   // When building, use the NEXT_PUBLIC_BRAND env variable
-  if (typeof process !== 'undefined' && process.env.NEXT_PUBLIC_BRAND) {
+  if (typeof process !== 'undefined' && process.env?.NEXT_PUBLIC_BRAND) {
     return process.env.NEXT_PUBLIC_BRAND;
   }
   
