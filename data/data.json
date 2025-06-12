@@ -71,6 +71,45 @@
       ],
       "models": [
         {
+          "id": "o3-pro",
+          "name": "o3-pro",
+          "status": "primary",
+          "type": "Large Reasoning Model",
+          "category": "frontier",
+          "releaseDate": "2025-06-10",
+          "modelPage": "https://platform.openai.com/docs/models/o3-pro",
+          "releasePost": "https://help.openai.com/en/articles/9624314-model-release-notes",
+          "releaseVideo": "",
+          "systemCard": "https://openai.com/index/o3-o4-mini-system-card/",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://openai.com/policies/terms-of-use/",
+          "ratings": {
+            "speed": 1,
+            "intelligence": 0,
+            "stem": 5.0,
+            "agentic": 0,
+            "coding": 5.0,
+            "reasoning": 5.0,
+            "pricing_cost": 4.6
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 200000,
+            "maxOutputTokens": 100000,
+            "knowledgeCutoff": "May 2024",
+            "pricingInputPerM": 20,
+            "pricingCachedInputPerM": 2.5,
+            "pricingOutputPerM": 80
+          }
+        },
+        {
           "id": "o3",
           "name": "o3",
           "status": "primary",
@@ -85,10 +124,10 @@
           "licenceLink": "https://openai.com/policies/terms-of-use/",
           "ratings": {
             "speed": 1,
-            "intelligence": 4.33,
+            "intelligence": 3.83,
             "stem": 5.0,
             "agentic": 4.5,
-            "coding": 5.0,
+            "coding": 4.8,
             "reasoning": 5.0,
             "pricing_cost": 4.29
           },
@@ -124,10 +163,10 @@
           "licenceLink": "https://openai.com/policies/terms-of-use/",
           "ratings": {
             "speed": 3,
-            "intelligence": 4.0,
+            "intelligence": 2.8,
             "stem": 5.0,
             "agentic": 3.75,
-            "coding": 4.5,
+            "coding": 4.6,
             "reasoning": 3.67,
             "pricing_cost": 3.27
           },
@@ -286,7 +325,7 @@
           "ratings": {
             "speed": 1,
             "intelligence": 4.17,
-            "stem": 4.4,
+            "stem": 4.2,
             "agentic": 3.62,
             "coding": 3.5,
             "reasoning": 4.0,
@@ -326,7 +365,7 @@
           "ratings": {
             "speed": 3,
             "intelligence": 3.2,
-            "stem": 5.0,
+            "stem": 4.75,
             "agentic": 3.14,
             "coding": 3.43,
             "reasoning": 2.67,
@@ -503,7 +542,7 @@
           "licenceLink": "",
           "ratings": {
             "intelligence": 3.0,
-            "stem": 3.75,
+            "stem": 3.5,
             "agentic": 4.0,
             "coding": 2.75,
             "reasoning": 3.0
@@ -524,7 +563,9 @@
           "licenceType": "",
           "licenceLink": "",
           "ratings": {
-            "reasoning": 2.0
+            "reasoning": 2.0,
+            "stem": 5.0,
+            "coding": 3.0
           },
           "specs": {}
         },
@@ -1202,8 +1243,9 @@
             "intelligence": 4.0,
             "stem": 4.5,
             "agentic": 5.0,
-            "coding": 5.0,
-            "pricing_cost": 4.54
+            "coding": 4.0,
+            "pricing_cost": 4.54,
+            "reasoning": 2.0
           },
           "specs": {
             "reasoningTokens": true,
@@ -1594,7 +1636,7 @@
           "licenceLink": "https://ai.google.dev/gemini-api/terms",
           "ratings": {
             "speed": 3,
-            "intelligence": 4.5,
+            "intelligence": 4.33,
             "stem": 5.0,
             "agentic": 5.0,
             "coding": 4.25,
@@ -1675,8 +1717,8 @@
           "licenceLink": "https://ai.google.dev/gemini-api/terms",
           "ratings": {
             "speed": 4,
-            "intelligence": 3.44,
-            "stem": 3.57,
+            "intelligence": 3.56,
+            "stem": 3.43,
             "coding": 3.0,
             "reasoning": 1.0,
             "pricing_cost": 2.03
@@ -1715,7 +1757,7 @@
           "licenceLink": "",
           "ratings": {
             "speed": 5,
-            "intelligence": 2.67,
+            "intelligence": 2.89,
             "stem": 3.2,
             "coding": 3.5,
             "pricing_cost": 1.86
@@ -1812,7 +1854,7 @@
           "licenceType": "",
           "licenceLink": "",
           "ratings": {
-            "intelligence": 3.6,
+            "intelligence": 3.5,
             "stem": 4.14,
             "agentic": 5.0,
             "coding": 4.0,
@@ -1834,7 +1876,7 @@
           "licenceType": "",
           "licenceLink": "",
           "ratings": {
-            "intelligence": 2.9,
+            "intelligence": 3.0,
             "stem": 3.71,
             "agentic": 5.0,
             "coding": 3.33,
@@ -2889,7 +2931,7 @@
           "licenceLink": "https://x.ai/legal/terms-of-service",
           "ratings": {
             "speed": 2,
-            "intelligence": 4.17,
+            "intelligence": 3.75,
             "stem": 4.33,
             "coding": 4.0,
             "reasoning": 3.0,
@@ -3126,7 +3168,7 @@
           "ratings": {
             "speed": 2,
             "intelligence": 4.67,
-            "stem": 3.75,
+            "stem": 3.5,
             "agentic": 4.0,
             "coding": 3.0,
             "reasoning": 3.0,
@@ -3919,10 +3961,10 @@
           "ratings": {
             "speed": 1,
             "intelligence": 3.75,
-            "stem": 4.25,
+            "stem": 4.75,
             "agentic": 4.0,
             "coding": 4.0,
-            "reasoning": 3.33,
+            "reasoning": 3.67,
             "pricing_cost": 2.93
           },
           "specs": {
@@ -4023,7 +4065,7 @@
             "intelligence": 2.0,
             "stem": 4.0,
             "agentic": 4.0,
-            "coding": 3.67,
+            "coding": 3.33,
             "pricing_cost": 2.8
           },
           "specs": {

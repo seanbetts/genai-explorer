@@ -1525,3 +1525,63 @@ qwen-3-32b,alibaba,chatbot-arena,1324.0,2025-05-28,,May 28th update,https://lmar
 gpt-4-1-mini,openai,chatbot-arena,1319.0,2025-05-28,,May 28th update,https://lmarena.ai
 gemma-3-12b,google-deepmind,chatbot-arena,1317.0,2025-05-28,,May 28th update,https://lmarena.ai
 gemma-3-4b,google-deepmind,chatbot-arena,1272.0,2025-05-28,,May 28th update,https://lmarena.ai
+gemini-2-5-pro,google-deepmind,humanitys-last-exam,21.6,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o3,openai,humanitys-last-exam,20.3,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o4-mini,openai,humanitys-last-exam,14.3,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+claude-4-opus,anthropic,humanitys-last-exam,10.7,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+r1,deepseek,humanitys-last-exam,14.0,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+gemini-2-5-pro,google-deepmind,gpqa-diamond,86.4,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o3,openai,gpqa-diamond,83.3,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o4-mini,openai,gpqa-diamond,81.4,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+claude-4-opus,anthropic,gpqa-diamond,79.6,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+grok-3,xai,gpqa-diamond,80.2,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+r1,deepseek,gpqa-diamond,81.0,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+gemini-2-5-pro,google-deepmind,aime-2025,88.0,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o3,openai,aime-2025,88.9,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o4-mini,openai,aime-2025,92.7,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+claude-4-opus,anthropic,aime-2025,75.5,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+grok-3,xai,aime-2025,77.3,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+r1,deepseek,aime-2025,87.5,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+gemini-2-5-pro,google-deepmind,live-code-bench,69.0,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o3,openai,live-code-bench,72.0,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o4-mini,openai,live-code-bench,75.8,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+claude-4-opus,anthropic,live-code-bench,51.1,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+r1,deepseek,live-code-bench,70.5,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+gemini-2-5-pro,google-deepmind,aider-polyglot,82.2,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o3,openai,aider-polyglot,79.6,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o4-mini,openai,aider-polyglot,72.0,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+claude-4-opus,anthropic,aider-polyglot,72.0,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+grok-3,xai,aider-polyglot,53.3,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+r1,deepseek,aider-polyglot,71.6,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+gemini-2-5-pro,google-deepmind,swe-bench-verified,59.6,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o3,openai,swe-bench-verified,69.1,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o4-mini,openai,swe-bench-verified,68.1,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+claude-4-opus,anthropic,swe-bench-verified,72.5,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+gemini-2-5-pro,google-deepmind,simple-qa,54.0,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o3,openai,simple-qa,48.6,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o4-mini,openai,simple-qa,19.3,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+grok-3,xai,simple-qa,43.6,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+r1,deepseek,simple-qa,27.8,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+gemini-2-5-pro,google-deepmind,facts-grounding,87.8,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o3,openai,facts-grounding,69.6,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o4-mini,openai,facts-grounding,62.1,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+claude-4-opus,anthropic,facts-grounding,77.7,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+grok-3,xai,facts-grounding,74.8,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+gemini-2-5-pro,google-deepmind,mmmu,82.0,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o3,openai,mmmu,82.9,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o4-mini,openai,mmmu,81.6,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+claude-4-opus,anthropic,mmmu,76.5,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+grok-3,xai,mmmu,76.0,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+gemini-2-5-pro,google-deepmind,mrcr,58.0,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o3,openai,mrcr,57.1,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o4-mini,openai,mrcr,36.3,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+grok-3,xai,mrcr,34.0,2025-06-05,,Gemini 2.5 Pro update,https://blog.google/products/gemini/gemini-2-5-pro-latest-preview/
+o1-pro,openai,aime-2024,86.0,2025-06-10,,o3-pro release notes,https://help.openai.com/en/articles/9624314-model-release-notes
+o3,openai,aime-2024,90.0,2025-06-10,,o3-pro release notes,https://help.openai.com/en/articles/9624314-model-release-notes
+o3-pro,openai,aime-2024,93.0,2025-06-10,,o3-pro release notes,https://help.openai.com/en/articles/9624314-model-release-notes
+o1-pro,openai,gpqa-diamond,79.0,2025-06-10,,o3-pro release notes,https://help.openai.com/en/articles/9624314-model-release-notes
+o3,openai,gpqa-diamond,81.0,2025-06-10,,o3-pro release notes,https://help.openai.com/en/articles/9624314-model-release-notes
+o3-pro,openai,gpqa-diamond,84.0,2025-06-10,,o3-pro release notes,https://help.openai.com/en/articles/9624314-model-release-notes
+o1-pro,openai,codeforces,1707.0,2025-06-10,,o3-pro release notes,https://help.openai.com/en/articles/9624314-model-release-notes
+o3,openai,codeforces,2517.0,2025-06-10,,o3-pro release notes,https://help.openai.com/en/articles/9624314-model-release-notes
+o3-pro,openai,codeforces,2748.0,2025-06-10,,o3-pro release notes,https://help.openai.com/en/articles/9624314-model-release-notes
