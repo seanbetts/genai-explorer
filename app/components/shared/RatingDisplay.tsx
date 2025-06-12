@@ -16,9 +16,9 @@ const RatingDisplay: React.FC<RatingDisplayProps> = ({
   type, 
   maxRating = 5 
 }) => {
-  // If no rating available, show dash
-  if (value === null || value === undefined) {
-    return <span className={textStyles.primary}>-</span>;
+  // If no rating available or zero, show n/a
+  if (value === null || value === undefined || value === 0) {
+    return <span className={textStyles.primary}>n/a</span>;
   }
 
   // Round to nearest 0.5 for half-step display
