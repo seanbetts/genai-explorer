@@ -129,7 +129,7 @@
             "agentic": 4.5,
             "coding": 4.8,
             "reasoning": 5.0,
-            "pricing_cost": 4.29
+            "pricing_cost": 3.56
           },
           "specs": {
             "reasoningTokens": true,
@@ -143,9 +143,9 @@
             "maxInputTokens": 200000,
             "maxOutputTokens": 100000,
             "knowledgeCutoff": "May 2024",
-            "pricingInputPerM": 10,
-            "pricingCachedInputPerM": 2.5,
-            "pricingOutputPerM": 40
+            "pricingInputPerM": 2,
+            "pricingCachedInputPerM": 0.5,
+            "pricingOutputPerM": 8
           }
         },
         {
