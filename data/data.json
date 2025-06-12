@@ -105,7 +105,7 @@
             "maxOutputTokens": 100000,
             "knowledgeCutoff": "May 2024",
             "pricingInputPerM": 20,
-            "pricingCachedInputPerM": 2.5,
+            "pricingCachedInputPerM": 10,
             "pricingOutputPerM": 80
           }
         },
