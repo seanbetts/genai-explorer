@@ -11,9 +11,36 @@ function createCanonicalUrl(path?: string): string {
   
   if (!path) return baseUrl;
   
-  // Clean the path - remove query parameters for canonical URLs
-  const cleanPath = path.split('?')[0];
-  return `${baseUrl}${cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`}`;
+  // Parse the path to extract base path and query parameters
+  const [basePath, queryString] = path.split('?');
+  const cleanBasePath = basePath || '/';
+  
+  // If no query parameters, return the base path
+  if (!queryString) {
+    return `${baseUrl}${cleanBasePath.startsWith('/') ? cleanBasePath : `/${cleanBasePath}`}`;
+  }
+  
+  // Parse query parameters and preserve only the important ones for canonical URLs
+  const params = new URLSearchParams(queryString);
+  const importantParams = new URLSearchParams();
+  
+  // Preserve specific parameters that define unique content
+  const preservedParams = ['company', 'benchmark'];
+  
+  preservedParams.forEach(param => {
+    const value = params.get(param);
+    if (value) {
+      importantParams.set(param, value);
+    }
+  });
+  
+  // Build the canonical URL
+  const canonicalPath = cleanBasePath.startsWith('/') ? cleanBasePath : `/${cleanBasePath}`;
+  const canonicalQuery = importantParams.toString();
+  
+  return canonicalQuery 
+    ? `${baseUrl}${canonicalPath}?${canonicalQuery}`
+    : `${baseUrl}${canonicalPath}`;
 }
 
 /**
