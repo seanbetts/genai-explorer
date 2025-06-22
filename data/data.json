@@ -1878,9 +1878,9 @@
           "ratings": {
             "intelligence": 3.0,
             "stem": 3.71,
-            "agentic": 5.0,
+            "agentic": 4.0,
             "coding": 3.33,
-            "reasoning": 3.75
+            "reasoning": 3.5
           },
           "specs": {}
         },
@@ -3541,9 +3541,44 @@
       "logo": "/images/companies/mistral/logo.png",
       "website": "https://mistral.ai",
       "description": "We exist to make frontier AI accessible to everyone.",
-      "lastUpdated": "2025-05-24",
+      "lastUpdated": "2025-06-22",
       "features": [],
       "models": [
+        {
+          "id": "magistral-medium",
+          "name": "Magistral Medium",
+          "status": "primary",
+          "type": "Large Reasoning Model",
+          "category": "open",
+          "releaseDate": "2025-06-10",
+          "modelPage": "https://mistral.ai/news/magistral",
+          "releasePost": "https://mistral.ai/news/magistral",
+          "releaseVideo": "https://www.youtube.com/watch?v=99xd7kHx80U",
+          "systemCard": "",
+          "licenceType": "Research",
+          "licenceLink": "https://mistral.ai/static/licenses/MRL-0.1.md",
+          "huggingFace": "https://huggingface.co/mistralai/Mistral-Large-Instruct-2407",
+          "ratings": {
+            "speed": 3,
+            "stem": 4.0,
+            "coding": 3.5,
+            "pricing_cost": 3.43
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 128000,
+            "maxOutputTokens": null,
+            "knowledgeCutoff": "",
+            "pricingInputPerM": 2,
+            "pricingOutputPerM": 5
+          }
+        },
         {
           "id": "mistral-large-2",
           "name": "Mistral Large",
@@ -3596,9 +3631,9 @@
           "ratings": {
             "speed": 4,
             "intelligence": 3.25,
-            "stem": 4.0,
+            "stem": 3.2,
             "agentic": 4.0,
-            "coding": 3.5,
+            "coding": 3.0,
             "pricing_cost": 2.84
           },
           "specs": {
@@ -3961,7 +3996,7 @@
           "ratings": {
             "speed": 1,
             "intelligence": 3.75,
-            "stem": 4.75,
+            "stem": 4.25,
             "agentic": 4.0,
             "coding": 4.0,
             "reasoning": 3.67,
@@ -5795,7 +5830,7 @@
       "logo": "/images/companies/midjourney/logo.png",
       "website": "https://midjourney.com",
       "description": "An independent research lab exploring new mediums of thought and expanding the imaginative powers of the human species.",
-      "lastUpdated": "2025-04-28",
+      "lastUpdated": "2025-06-22",
       "features": [],
       "models": [
         {
@@ -5860,6 +5895,84 @@
             "square (1:1)": true,
             "widescreen (16:9)": true,
             "vertical (9:16)": true
+          },
+          "safety": {
+            "chatModelRefusals": false,
+            "promptBlocking": false,
+            "outputBlocking": false,
+            "minorSafeguards": false,
+            "IPRespect": false,
+            "biasMitigation": false
+          }
+        },
+        {
+          "id": "v1",
+          "name": "v1",
+          "status": "primary",
+          "about": "Turn your images into captivating 5 second videos using Midjourney",
+          "category": "video",
+          "releaseDate": "2025-06-18",
+          "releasePost": "https://updates.midjourney.com/introducing-our-v1-video-model/",
+          "releaseVideo": "https://updates.midjourney.com/content/media/2025/06/Midjourney-Video-V1.mp4",
+          "modelPage": "https://docs.midjourney.com/hc/en-us/articles/37460773864589-Video",
+          "systemCard": "",
+          "modelGuide": "",
+          "apiDocumentation": "",
+          "videoExamples": {},
+          "demoVideos": {},
+          "termsOfService": "https://docs.midjourney.com/hc/en-us/articles/32083055291277-Terms-of-Service",
+          "usagePolicy": "",
+          "commerciallySafe": false,
+          "metadata": {},
+          "apiEndpoints": {
+            "available": false,
+            "xxx": {}
+          },
+          "features": {
+            "generation": {
+              "textToVideo": true,
+              "imageToVideo": true,
+              "videoToVideo": false,
+              "negativePrompt": false,
+              "resolutions": [
+                "480p"
+              ],
+              "frameRate": null,
+              "durations": [
+                5
+              ],
+              "numberOfVideos": [
+                1
+              ],
+              "videoStyles": []
+            },
+            "editing": {
+              "remix": false,
+              "recut": false,
+              "loop": false,
+              "blend": false,
+              "generativeExpand": false,
+              "generativeExtend": true
+            },
+            "enhancement": {
+              "photoRealism": false,
+              "textRendering": false,
+              "characterConsistency": true,
+              "upscaling": false
+            },
+            "advanced": {
+              "storyboard": false,
+              "cameraControls": {},
+              "trainCustomModels": false
+            }
+          },
+          "aspectRatios": {
+            "landscape (4:3)": true,
+            "portrait (3:4)": false,
+            "square (1:1)": true,
+            "widescreen (16:9)": true,
+            "vertical (9:16)": true,
+            "ultrawide (21:9)": false
           },
           "safety": {
             "chatModelRefusals": false,

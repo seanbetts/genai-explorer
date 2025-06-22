@@ -24,10 +24,10 @@ command-r-plus,Command R+,Large Language Model,Cohere,2.0,1.0,3.0,n/a,2.0,3.66
 command-r7b,Command R7B,Large Language Model,Cohere,2.0,2.0,3.0,n/a,n/a,1.44
 aya-vision,Aya Vision,Large Multimodal Model,Cohere,n/a,n/a,n/a,n/a,n/a,n/a
 v3,V3,Large Language Model,Deepseek,3.25,3.29,3.0,2.6,4.0,2.57
-r1,R1,Large Reasoning Model,Deepseek,3.75,4.75,4.0,4.0,3.67,2.93
+r1,R1,Large Reasoning Model,Deepseek,3.75,4.25,4.0,4.0,3.67,2.93
 gemini-2-0-flash,Gemini-2.0 Flash,Large Hybrid Model,Google DeepMind,3.56,3.43,n/a,3.0,1.0,2.03
 gemini-2-5-flash,Gemini-2.5 Flash,Large Hybrid Model,Google DeepMind,3.75,4.67,n/a,3.5,3.0,2.25
-gemini-1-5-flash,Gemini-1.5 Flash,Large Language Model,Google DeepMind,3.0,3.71,5.0,3.33,3.75,n/a
+gemini-1-5-flash,Gemini-1.5 Flash,Large Language Model,Google DeepMind,3.0,3.71,4.0,3.33,3.5,n/a
 gemini-1-5-pro,Gemini-1.5 Pro,Large Language Model,Google DeepMind,3.5,4.14,5.0,4.0,4.4,n/a
 gemini-2-0,Gemini-2.0,Large Language Model,Google DeepMind,3.6,4.0,n/a,2.0,n/a,n/a
 gemini-2-0-flash-lite,Gemini-2.0 Flash Lite,Large Language Model,Google DeepMind,2.89,3.2,n/a,3.5,n/a,1.86
@@ -65,9 +65,10 @@ devstral-small-2505,Devstral,Large Language Model,Mistral AI,n/a,n/a,n/a,3.0,n/a
 ministral-3B,Ministral 3B,Large Language Model,Mistral AI,n/a,n/a,n/a,n/a,n/a,1.0
 ministral-8B,Ministral 8B,Large Language Model,Mistral AI,n/a,n/a,n/a,n/a,n/a,1.65
 mistral-large-2,Mistral Large,Large Language Model,Mistral AI,1.0,n/a,n/a,n/a,2.0,3.48
-mistral-medium-3,Mistral Medium,Large Multimodal Model,Mistral AI,3.25,4.0,4.0,3.5,n/a,2.84
+mistral-medium-3,Mistral Medium,Large Multimodal Model,Mistral AI,3.25,3.2,4.0,3.0,n/a,2.84
 mistral-small-3-1,Mistral Small,Large Multimodal Model,Mistral AI,3.2,3.75,n/a,5.0,n/a,1.93
 pixtral-large,Pixtral Large,Large Multimodal Model,Mistral AI,4.0,4.0,n/a,n/a,n/a,3.48
+magistral-medium,Magistral Medium,Large Reasoning Model,Mistral AI,n/a,4.0,n/a,3.5,n/a,3.43
 gpt-4-1-mini,GPT 4.1 Mini,Large Language Model,OpenAI,3.5,3.67,3.29,3.0,3.5,2.77
 gpt-4-1-nano,GPT 4.1 Nano,Large Language Model,OpenAI,2.33,2.33,1.43,1.0,1.0,2.03
 gpt-4-turbo,GPT-4 Turbo,Large Language Model,OpenAI,3.0,3.0,n/a,4.0,2.0,n/a

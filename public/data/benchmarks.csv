@@ -1585,3 +1585,23 @@ o3-pro,openai,gpqa-diamond,84.0,2025-06-10,,o3-pro release notes,https://help.op
 o1-pro,openai,codeforces,1707.0,2025-06-10,,o3-pro release notes,https://help.openai.com/en/articles/9624314-model-release-notes
 o3,openai,codeforces,2517.0,2025-06-10,,o3-pro release notes,https://help.openai.com/en/articles/9624314-model-release-notes
 o3-pro,openai,codeforces,2748.0,2025-06-10,,o3-pro release notes,https://help.openai.com/en/articles/9624314-model-release-notes
+mistral-medium-3,mistral,aime-2024,26.8,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+magistral-medium,mistral,aime-2024,73.6,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+v3,deepseek,aime-2024,39.2,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+r1,deepseek,aime-2024,79.8,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+mistral-medium-3,mistral,aime-2025,21.2,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+magistral-medium,mistral,aime-2025,64.9,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+v3,deepseek,aime-2025,28.8,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+r1,deepseek,aime-2025,70.0,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+mistral-medium-3,mistral,gpqa-diamond,59.6,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+magistral-medium,mistral,gpqa-diamond,70.8,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+v3,deepseek,gpqa-diamond,59.1,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+r1,deepseek,gpqa-diamond,71.5,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+mistral-medium-3,mistral,live-code-bench,29.1,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+magistral-medium,mistral,live-code-bench,59.4,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+v3,deepseek,live-code-bench,36.2,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+r1,deepseek,live-code-bench,65.9,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+mistral-medium-3,mistral,aider-polyglot,28.9,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+magistral-medium,mistral,aider-polyglot,47.1,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+v3,deepseek,aider-polyglot,49.6,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
+r1,deepseek,aider-polyglot,53.3,2025-06-10,,Magistral announcement,https://mistral.ai/news/magistral
