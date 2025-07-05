@@ -25,7 +25,7 @@ function createCanonicalUrl(path?: string): string {
   const importantParams = new URLSearchParams();
   
   // Preserve specific parameters that define unique content
-  const preservedParams = ['company', 'benchmark'];
+  const preservedParams = ['company', 'benchmark', 'tab', 'models'];
   
   preservedParams.forEach(param => {
     const value = params.get(param);

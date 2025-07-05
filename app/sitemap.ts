@@ -56,6 +56,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7
   }))
   
+  // Company routes with important tab variations
+  const importantTabs = ['frontier-models', 'image-models', 'video-models', 'audio-models']
+  const companyTabRoutes = explorerData.companies.flatMap(company => 
+    importantTabs.map(tab => ({
+      url: `${baseUrl}/?company=${company.id}&tab=${tab}`,
+      lastModified: new Date(company.lastUpdated) || lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6
+    }))
+  )
+  
   // Benchmark routes
   const benchmarkRoutes = benchmarksData.map(benchmark => ({
     url: `${baseUrl}/benchmarks?benchmark=${benchmark.benchmark_id}`,
@@ -65,5 +76,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
   
   // Combine all routes
-  return [...routes, ...companyRoutes, ...benchmarkRoutes]
+  return [...routes, ...companyRoutes, ...companyTabRoutes, ...benchmarkRoutes]
 }
