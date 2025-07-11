@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 import { generatePageMetadata } from './lib/metadata';
 
 export const generateMetadata = (): Metadata => {
-  return generatePageMetadata();
+  return generatePageMetadata('/');
 };
 
 export default function Home() {

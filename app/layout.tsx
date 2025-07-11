@@ -39,7 +39,7 @@ function generateMetadata(): Metadata {
 
   // Return full SEO metadata for personal version
   return {
-    metadataBase: new URL(baseUrl),
+    // Removed metadataBase to avoid conflicts with individual page canonical URLs
     title: {
       template: `%s | ${brandConfig.name}`,
       default: `Generative AI Explorer | ${brandConfig.name}`,

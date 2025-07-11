@@ -9,15 +9,24 @@ function createCanonicalUrl(path?: string): string {
                   process.env.NEXT_PUBLIC_BASE_URL || 
                   'https://explorer.the-blueprint.ai';
   
-  if (!path) return baseUrl;
+  // Remove trailing slash from baseUrl for consistent handling
+  const cleanBaseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+  
+  // Handle root path (home page) - Next.js static export serves this as / with trailing slash
+  if (!path || path === '' || path === '/') {
+    return `${cleanBaseUrl}/`;
+  }
   
   // Parse the path to extract base path and query parameters
   const [basePath, queryString] = path.split('?');
   const cleanBasePath = basePath || '/';
   
-  // If no query parameters, return the base path
+  // Ensure path starts with / and normalize it
+  const normalizedPath = cleanBasePath.startsWith('/') ? cleanBasePath : `/${cleanBasePath}`;
+  
+  // If no query parameters, return the normalized path
   if (!queryString) {
-    return `${baseUrl}${cleanBasePath.startsWith('/') ? cleanBasePath : `/${cleanBasePath}`}`;
+    return `${cleanBaseUrl}${normalizedPath}`;
   }
   
   // Parse query parameters and preserve only the important ones for canonical URLs
@@ -35,12 +44,11 @@ function createCanonicalUrl(path?: string): string {
   });
   
   // Build the canonical URL
-  const canonicalPath = cleanBasePath.startsWith('/') ? cleanBasePath : `/${cleanBasePath}`;
   const canonicalQuery = importantParams.toString();
   
   return canonicalQuery 
-    ? `${baseUrl}${canonicalPath}?${canonicalQuery}`
-    : `${baseUrl}${canonicalPath}`;
+    ? `${cleanBaseUrl}${normalizedPath}?${canonicalQuery}`
+    : `${cleanBaseUrl}${normalizedPath}`;
 }
 
 /**

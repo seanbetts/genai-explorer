@@ -7,7 +7,7 @@ import brandConfig from '../config/brand';
 
 export const generateMetadata = (): Metadata => {
   return generatePageMetadata(
-    'sitemap-html', 
+    '/sitemap-html', 
     'Sitemap', 
     'Complete sitemap of all pages, companies, and benchmarks available in the Generative AI Explorer.',
     ['sitemap', 'site navigation', 'page index']

@@ -8,7 +8,7 @@ import { generatePageMetadata } from '../lib/metadata';
 
 export const generateMetadata = (): Metadata => {
   return generatePageMetadata(
-    'compare', 
+    '/compare', 
     'AI Model Comparer', 
     'Compare different AI models side-by-side to evaluate features, specifications, and benchmark performance.',
     ['model comparison', 'AI comparison tool', 'compare LLMs', 'frontier models', 'open source models', 'image generation', 'video generation', 'audio generation']
