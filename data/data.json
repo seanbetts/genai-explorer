@@ -85,12 +85,12 @@
           "licenceLink": "https://openai.com/policies/terms-of-use/",
           "ratings": {
             "speed": 3,
+            "pricing_cost": 3.57,
             "intelligence": 5.0,
             "stem": 5.0,
             "agentic": 5.0,
             "coding": 5.0,
-            "reasoning": 4.0,
-            "pricing_cost": 3.57
+            "reasoning": 4.0
           },
           "specs": {
             "reasoningTokens": true,
@@ -124,11 +124,6 @@
           "licenceLink": "https://openai.com/policies/terms-of-use/",
           "ratings": {
             "speed": 4,
-            "intelligence": 4.0,
-            "stem": 5.0,
-            "agentic": 0,
-            "coding": 5.0,
-            "reasoning": 4.0,
             "pricing_cost": 2.78
           },
           "specs": {
@@ -163,11 +158,6 @@
           "licenceLink": "https://openai.com/policies/terms-of-use/",
           "ratings": {
             "speed": 5,
-            "intelligence": 3.0,
-            "stem": 5.0,
-            "agentic": 0,
-            "coding": 5.0,
-            "reasoning": 3.0,
             "pricing_cost": 1.91
           },
           "specs": {
