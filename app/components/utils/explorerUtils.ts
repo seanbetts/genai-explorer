@@ -20,6 +20,12 @@ export const getCompaniesByModelCategory = (companies: Company[]): CategorizedCo
   
   // Helper to safely add a company to a category
   const addCompanyToCategory = (company: Company, category: CompanyCategory) => {
+    // Check if the category exists in our categorizedCompanies object
+    if (!categorizedCompanies[category]) {
+      console.warn(`Unknown category: ${category}. Skipping.`);
+      return;
+    }
+    
     // Initialize the set if it doesn't exist
     if (!addedCompanies[company.id]) {
       addedCompanies[company.id] = new Set();
@@ -44,7 +50,8 @@ export const getCompaniesByModelCategory = (companies: Company[]): CategorizedCo
   companies.forEach(company => {
     // Group by model categories
     company.models.forEach(model => {
-      if (model.status !== 'archived' && model.category) {
+      // Skip archived models and models with archived category
+      if (model.status !== 'archived' && model.category && (model.category as string) !== 'archived') {
         addCompanyToCategory(company, model.category);
       }
     });

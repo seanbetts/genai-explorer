@@ -1458,7 +1458,7 @@
         {
           "id": "claude-4-opus",
           "name": "Claude-4 Opus",
-          "status": "secondary",
+          "status": "archived",
           "type": "Large Hybrid Model",
           "category": "frontier",
           "releaseDate": "2025-05-22",
@@ -3187,7 +3187,7 @@
         {
           "id": "grok-3",
           "name": "Grok-3",
-          "status": "secondary",
+          "status": "archived",
           "type": "Large Language Model",
           "category": "frontier",
           "releaseDate": "2025-02-19",
@@ -3223,7 +3223,7 @@
         {
           "id": "grok-3-mini",
           "name": "Grok-3 Mini",
-          "status": "secondary",
+          "status": "archived",
           "type": "Large Hybrid Model",
           "category": "frontier",
           "releaseDate": "2025-02-19",
@@ -3258,7 +3258,7 @@
         {
           "id": "grok-2-vision",
           "name": "Grok 2 Vision",
-          "status": "secondary",
+          "status": "archived",
           "type": "Large Language Model",
           "category": "frontier",
           "releaseDate": "2024-08-13",
