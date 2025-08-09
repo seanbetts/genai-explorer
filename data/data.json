@@ -6,7 +6,7 @@
       "logo": "/images/companies/openai/logo.png",
       "website": "https://openai.com",
       "description": "An AI research and deployment company. Their mission is to ensure that artificial general intelligence benefits all of humanity.",
-      "lastUpdated": "2025-05-14",
+      "lastUpdated": "2025-08-05",
       "features": [
         {
           "name": "Canvas",
@@ -71,9 +71,200 @@
       ],
       "models": [
         {
+          "id": "gpt-5",
+          "name": "GPT-5",
+          "status": "primary",
+          "type": "Large Hybrid Model",
+          "category": "frontier",
+          "releaseDate": "2025-08-07",
+          "modelPage": "https://openai.com/open-models/",
+          "releasePost": "https://openai.com/index/introducing-gpt-5/",
+          "releaseVideo": "https://youtu.be/boJG84Jcf-4?si=AuCcPqfqSL92uSAX",
+          "systemCard": "https://cdn.openai.com/pdf/8124a3ce-ab78-4f06-96eb-49ea29ffb52f/gpt5-system-card-aug7.pdf",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://openai.com/policies/terms-of-use/",
+          "ratings": {
+            "speed": 3,
+            "intelligence": 5.0,
+            "stem": 5.0,
+            "agentic": 5.0,
+            "coding": 5.0,
+            "reasoning": 4.0,
+            "pricing_cost": 3.57
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 400000,
+            "maxOutputTokens": 128000,
+            "knowledgeCutoff": "September 2024",
+            "pricingInputPerM": 1.25,
+            "pricingCachedInputPerM": 0.125,
+            "pricingOutputPerM": 10
+          }
+        },
+        {
+          "id": "gpt-5-mini",
+          "name": "GPT-5 Mini",
+          "status": "primary",
+          "type": "Large Hybrid Model",
+          "category": "frontier",
+          "releaseDate": "2025-08-07",
+          "modelPage": "https://openai.com/open-models/",
+          "releasePost": "https://openai.com/index/introducing-gpt-5/",
+          "releaseVideo": "https://youtu.be/boJG84Jcf-4?si=AuCcPqfqSL92uSAX",
+          "systemCard": "https://cdn.openai.com/pdf/8124a3ce-ab78-4f06-96eb-49ea29ffb52f/gpt5-system-card-aug7.pdf",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://openai.com/policies/terms-of-use/",
+          "ratings": {
+            "speed": 4,
+            "intelligence": 4.0,
+            "stem": 5.0,
+            "agentic": 0,
+            "coding": 5.0,
+            "reasoning": 4.0,
+            "pricing_cost": 2.78
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 400000,
+            "maxOutputTokens": 128000,
+            "knowledgeCutoff": "May 2024",
+            "pricingInputPerM": 0.25,
+            "pricingCachedInputPerM": 0.03,
+            "pricingOutputPerM": 2
+          }
+        },
+        {
+          "id": "gpt-5-nano",
+          "name": "GPT-5 Nano",
+          "status": "primary",
+          "type": "Large Hybrid Model",
+          "category": "frontier",
+          "releaseDate": "2025-08-07",
+          "modelPage": "https://openai.com/open-models/",
+          "releasePost": "https://openai.com/index/introducing-gpt-5/",
+          "releaseVideo": "https://youtu.be/boJG84Jcf-4?si=AuCcPqfqSL92uSAX",
+          "systemCard": "https://cdn.openai.com/pdf/8124a3ce-ab78-4f06-96eb-49ea29ffb52f/gpt5-system-card-aug7.pdf",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://openai.com/policies/terms-of-use/",
+          "ratings": {
+            "speed": 5,
+            "intelligence": 3.0,
+            "stem": 5.0,
+            "agentic": 0,
+            "coding": 5.0,
+            "reasoning": 3.0,
+            "pricing_cost": 1.91
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 400000,
+            "maxOutputTokens": 128000,
+            "knowledgeCutoff": "May 2024",
+            "pricingInputPerM": 0.05,
+            "pricingCachedInputPerM": 0.01,
+            "pricingOutputPerM": 0.4
+          }
+        },
+        {
+          "id": "gpt-oss-120B",
+          "name": "GPT-OSS 120B",
+          "status": "primary",
+          "type": "Large Hybrid Model",
+          "category": "open",
+          "releaseDate": "2025-08-05",
+          "modelPage": "https://openai.com/open-models/",
+          "releasePost": "https://openai.com/index/introducing-gpt-oss/",
+          "releaseVideo": "",
+          "systemCard": "https://cdn.openai.com/pdf/419b6906-9da6-406c-a19d-1bb078ac7637/oai_gpt-oss_model_card.pdf",
+          "licenceType": "Apache 2.0",
+          "licenceLink": "https://www.apache.org/licenses/LICENSE-2.0",
+          "ratings": {
+            "speed": 3,
+            "intelligence": 0,
+            "stem": 5.0,
+            "agentic": 0,
+            "coding": 5.0,
+            "reasoning": 5.0,
+            "pricing_cost": 2.25
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 131072,
+            "maxOutputTokens": 131072,
+            "knowledgeCutoff": "May 2024",
+            "pricingInputPerM": 0.15,
+            "pricingOutputPerM": 0.6
+          }
+        },
+        {
+          "id": "gpt-oss-20B",
+          "name": "GPT-OSS 20B",
+          "status": "primary",
+          "type": "Large Hybrid Model",
+          "category": "open",
+          "releaseDate": "2025-08-05",
+          "modelPage": "https://openai.com/open-models/",
+          "releasePost": "https://openai.com/index/introducing-gpt-oss/",
+          "releaseVideo": "",
+          "systemCard": "https://cdn.openai.com/pdf/419b6906-9da6-406c-a19d-1bb078ac7637/oai_gpt-oss_model_card.pdf",
+          "licenceType": "Apache 2.0",
+          "licenceLink": "https://www.apache.org/licenses/LICENSE-2.0",
+          "ratings": {
+            "speed": 4,
+            "intelligence": 0,
+            "stem": 5.0,
+            "agentic": 0,
+            "coding": 5.0,
+            "reasoning": 5.0,
+            "pricing_cost": 1.62
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 131072,
+            "maxOutputTokens": 131072,
+            "knowledgeCutoff": "May 2024",
+            "pricingInputPerM": 0.05,
+            "pricingOutputPerM": 0.2
+          }
+        },
+        {
           "id": "o3-pro",
           "name": "o3-pro",
-          "status": "primary",
+          "status": "archived",
           "type": "Large Reasoning Model",
           "category": "frontier",
           "releaseDate": "2025-06-10",
@@ -89,7 +280,7 @@
             "stem": 5.0,
             "agentic": 0,
             "coding": 5.0,
-            "reasoning": 5.0,
+            "reasoning": 2.5,
             "pricing_cost": 4.6
           },
           "specs": {
@@ -114,7 +305,7 @@
           "name": "o3",
           "status": "primary",
           "type": "Large Reasoning Model",
-          "category": "frontier",
+          "category": "archived",
           "releaseDate": "2025-04-16",
           "modelPage": "https://platform.openai.com/docs/models/o3",
           "releasePost": "https://openai.com/index/introducing-o3-and-o4-mini/",
@@ -124,11 +315,11 @@
           "licenceLink": "https://openai.com/policies/terms-of-use/",
           "ratings": {
             "speed": 1,
-            "intelligence": 3.83,
+            "intelligence": 4.0,
             "stem": 5.0,
-            "agentic": 4.5,
+            "agentic": 4.6,
             "coding": 4.8,
-            "reasoning": 5.0,
+            "reasoning": 3.8,
             "pricing_cost": 3.56
           },
           "specs": {
@@ -153,7 +344,7 @@
           "name": "o4-mini",
           "status": "primary",
           "type": "Large Reasoning Model",
-          "category": "frontier",
+          "category": "archived",
           "releaseDate": "2025-04-16",
           "modelPage": "https://platform.openai.com/docs/models/o4-mini",
           "releasePost": "https://openai.com/index/introducing-o3-and-o4-mini/",
@@ -163,11 +354,11 @@
           "licenceLink": "https://openai.com/policies/terms-of-use/",
           "ratings": {
             "speed": 3,
-            "intelligence": 2.8,
+            "intelligence": 3.17,
             "stem": 5.0,
             "agentic": 3.75,
             "coding": 4.6,
-            "reasoning": 3.67,
+            "reasoning": 3.2,
             "pricing_cost": 3.27
           },
           "specs": {
@@ -190,7 +381,7 @@
         {
           "id": "gpt-4-5",
           "name": "GPT-4.5",
-          "status": "primary",
+          "status": "archived",
           "type": "Large Multimodal Model",
           "category": "frontier",
           "releaseDate": "2025-02-27",
@@ -229,7 +420,7 @@
         {
           "id": "gpt-4o",
           "name": "GPT-4o",
-          "status": "primary",
+          "status": "archived",
           "type": "Large Multimodal Model",
           "category": "frontier",
           "releaseDate": "2024-08-06",
@@ -241,11 +432,11 @@
           "licenceLink": "https://openai.com/policies/terms-of-use/",
           "ratings": {
             "speed": 3,
-            "intelligence": 3.3,
-            "stem": 3.11,
+            "intelligence": 3.4,
+            "stem": 3.44,
             "agentic": 3.12,
-            "coding": 2.71,
-            "reasoning": 3.5,
+            "coding": 2.57,
+            "reasoning": 3.14,
             "pricing_cost": 3.66
           },
           "specs": {
@@ -271,7 +462,7 @@
         {
           "id": "gpt-4o-mini",
           "name": "GPT-4o Mini",
-          "status": "secondary",
+          "status": "archived",
           "type": "Large Multimodal Model",
           "category": "frontier",
           "releaseDate": "2024-08-06",
@@ -287,7 +478,7 @@
             "stem": 3.14,
             "agentic": 2.14,
             "coding": 1.8,
-            "reasoning": 2.86,
+            "reasoning": 3.0,
             "pricing_cost": 2.25
           },
           "specs": {
@@ -327,7 +518,7 @@
             "intelligence": 4.17,
             "stem": 4.2,
             "agentic": 3.62,
-            "coding": 3.5,
+            "coding": 3.33,
             "reasoning": 4.0,
             "pricing_cost": 4.47
           },
@@ -365,10 +556,10 @@
           "ratings": {
             "speed": 3,
             "intelligence": 3.2,
-            "stem": 4.75,
+            "stem": 4.5,
             "agentic": 3.14,
-            "coding": 3.43,
-            "reasoning": 2.67,
+            "coding": 3.14,
+            "reasoning": 2.33,
             "pricing_cost": 3.27
           },
           "specs": {
@@ -392,7 +583,7 @@
         {
           "id": "gpt-4-1",
           "name": "GPT-4.1",
-          "status": "primary",
+          "status": "archived",
           "type": "Large Language Model",
           "category": "frontier",
           "releaseDate": "2025-04-14",
@@ -404,7 +595,7 @@
           "licenceLink": "https://openai.com/policies/terms-of-use/",
           "ratings": {
             "speed": 3,
-            "intelligence": 4.2,
+            "intelligence": 4.0,
             "stem": 3.67,
             "agentic": 3.86,
             "coding": 3.75,
@@ -431,7 +622,7 @@
         {
           "id": "gpt-4-1-mini",
           "name": "GPT 4.1 Mini",
-          "status": "secondary",
+          "status": "archived",
           "type": "Large Language Model",
           "category": "frontier",
           "releaseDate": "2025-04-14",
@@ -446,7 +637,7 @@
             "intelligence": 3.5,
             "stem": 3.67,
             "agentic": 3.29,
-            "coding": 3.0,
+            "coding": 2.75,
             "reasoning": 3.5,
             "pricing_cost": 2.77
           },
@@ -470,7 +661,7 @@
         {
           "id": "gpt-4-1-nano",
           "name": "GPT 4.1 Nano",
-          "status": "secondary",
+          "status": "archived",
           "type": "Large Language Model",
           "category": "frontier",
           "releaseDate": "2025-04-14",
@@ -542,7 +733,7 @@
           "licenceLink": "",
           "ratings": {
             "intelligence": 3.0,
-            "stem": 3.5,
+            "stem": 3.25,
             "agentic": 4.0,
             "coding": 2.75,
             "reasoning": 3.0
@@ -563,8 +754,8 @@
           "licenceType": "",
           "licenceLink": "",
           "ratings": {
-            "reasoning": 2.0,
-            "stem": 5.0,
+            "reasoning": 1.0,
+            "stem": 4.5,
             "coding": 3.0
           },
           "specs": {}
@@ -1226,9 +1417,48 @@
       ],
       "models": [
         {
+          "id": "claude-4-1-opus",
+          "name": "Claude-4.1 Opus",
+          "status": "primary",
+          "type": "Large Hybrid Model",
+          "category": "frontier",
+          "releaseDate": "2025-08-05",
+          "modelPage": "https://www.anthropic.com/claude/opus",
+          "releasePost": "https://www.anthropic.com/news/claude-opus-4-1",
+          "releaseVideo": "",
+          "systemCard": "https://assets.anthropic.com/m/4c024b86c698d3d4/original/Claude-4-1-System-Card.pdf",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://www.anthropic.com/legal/consumer-terms",
+          "ratings": {
+            "speed": 2,
+            "intelligence": 4.0,
+            "stem": 4.5,
+            "agentic": 5.0,
+            "coding": 5.0,
+            "pricing_cost": 4.54,
+            "reasoning": 2.0
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 200000,
+            "maxOutputTokens": 32000,
+            "knowledgeCutoff": "n/a",
+            "pricingInputPerM": 15,
+            "pricingCachedInputPerM": 1.5,
+            "pricingOutputPerM": 75
+          }
+        },
+        {
           "id": "claude-4-opus",
           "name": "Claude-4 Opus",
-          "status": "primary",
+          "status": "secondary",
           "type": "Large Hybrid Model",
           "category": "frontier",
           "releaseDate": "2025-05-22",
@@ -1283,7 +1513,8 @@
             "stem": 4.0,
             "agentic": 5.0,
             "coding": 5.0,
-            "pricing_cost": 3.82
+            "pricing_cost": 3.82,
+            "reasoning": 1.5
           },
           "specs": {
             "reasoningTokens": true,
@@ -1317,11 +1548,11 @@
           "licenceLink": "https://www.anthropic.com/legal/consumer-terms",
           "ratings": {
             "speed": 4,
-            "intelligence": 2.8,
+            "intelligence": 2.6,
             "stem": 3.33,
             "agentic": 3.0,
             "coding": 4.0,
-            "reasoning": 4.0,
+            "reasoning": 4.67,
             "pricing_cost": 3.19
           },
           "specs": {
@@ -1395,10 +1626,10 @@
           "ratings": {
             "speed": 3,
             "intelligence": 3.86,
-            "stem": 3.2,
+            "stem": 3.0,
             "agentic": 5.0,
             "coding": 3.75,
-            "reasoning": 3.0,
+            "reasoning": 2.75,
             "pricing_cost": 3.82
           },
           "specs": {
@@ -1432,10 +1663,10 @@
           "licenceType": "",
           "licenceLink": "",
           "ratings": {
-            "intelligence": 3.5,
+            "intelligence": 3.38,
             "stem": 2.78,
             "agentic": 4.33,
-            "coding": 3.2,
+            "coding": 3.0,
             "reasoning": 3.6
           },
           "specs": {}
@@ -1639,8 +1870,8 @@
             "intelligence": 4.33,
             "stem": 5.0,
             "agentic": 5.0,
-            "coding": 4.25,
-            "reasoning": 5.0,
+            "coding": 4.75,
+            "reasoning": 2.75,
             "pricing_cost": 3.57
           },
           "specs": {
@@ -1678,9 +1909,9 @@
           "ratings": {
             "speed": 4,
             "intelligence": 3.75,
-            "stem": 4.67,
+            "stem": 4.33,
             "coding": 3.5,
-            "reasoning": 3.0,
+            "reasoning": 1.33,
             "pricing_cost": 2.25
           },
           "specs": {
@@ -1835,7 +2066,7 @@
           "licenceLink": "",
           "ratings": {
             "intelligence": 4.0,
-            "stem": 4.0,
+            "stem": 3.67,
             "coding": 3.0
           },
           "specs": {}
@@ -1880,7 +2111,7 @@
             "stem": 3.71,
             "agentic": 4.0,
             "coding": 3.33,
-            "reasoning": 3.5
+            "reasoning": 3.75
           },
           "specs": {}
         },
@@ -2699,7 +2930,7 @@
           "ratings": {
             "speed": 2,
             "intelligence": 4.25,
-            "stem": 2.67,
+            "stem": 2.33,
             "agentic": 5.0,
             "coding": 3.0,
             "reasoning": 1.5,
@@ -2738,7 +2969,7 @@
           "licenceLink": "https://aws.amazon.com/service-terms/",
           "ratings": {
             "speed": 3,
-            "intelligence": 4.0,
+            "intelligence": 3.75,
             "stem": 3.0,
             "agentic": 5.0,
             "coding": 5.0,
@@ -2782,7 +3013,7 @@
             "stem": 3.67,
             "agentic": 5.0,
             "coding": 4.0,
-            "reasoning": 4.33,
+            "reasoning": 4.67,
             "pricing_cost": 1.73
           },
           "specs": {
@@ -2818,11 +3049,11 @@
           "licenceLink": "https://aws.amazon.com/service-terms/",
           "ratings": {
             "speed": 5,
-            "intelligence": 3.0,
+            "intelligence": 2.0,
             "stem": 3.67,
             "agentic": 4.0,
             "coding": 4.0,
-            "reasoning": 3.67,
+            "reasoning": 4.33,
             "pricing_cost": 1.4
           },
           "specs": {
@@ -2876,7 +3107,7 @@
       "logo": "/images/companies/xai/logo.png",
       "website": "https://x.ai",
       "description": "AI’s knowledge should be all-encompassing and as far-reaching as possible. We build AI specifically to advance human comprehension and capabilities.",
-      "lastUpdated": "2025-04-19",
+      "lastUpdated": "2025-08-09",
       "features": [
         {
           "name": "DeepSearch",
@@ -2917,9 +3148,46 @@
       ],
       "models": [
         {
+          "id": "grok-4",
+          "name": "Grok-4",
+          "status": "primary",
+          "type": "Large Hybrid Model",
+          "category": "frontier",
+          "releaseDate": "2025-07-09",
+          "modelPage": "https://docs.x.ai/docs/models/grok-4-0709",
+          "releasePost": "https://x.ai/news/grok-4",
+          "releaseVideo": "",
+          "systemCard": "",
+          "licenceType": "Proprietary",
+          "licenceLink": "https://x.ai/legal/terms-of-service",
+          "ratings": {
+            "speed": 2,
+            "intelligence": 3.75,
+            "stem": 5.0,
+            "coding": 5.0,
+            "reasoning": 4.0,
+            "pricing_cost": 3.82
+          },
+          "specs": {
+            "reasoningTokens": true,
+            "inputFormats": [
+              "text",
+              "image"
+            ],
+            "outputFormats": [
+              "text"
+            ],
+            "maxInputTokens": 256000,
+            "maxOutputTokens": 16384,
+            "knowledgeCutoff": "n/a",
+            "pricingInputPerM": 3,
+            "pricingOutputPerM": 15
+          }
+        },
+        {
           "id": "grok-3",
           "name": "Grok-3",
-          "status": "primary",
+          "status": "secondary",
           "type": "Large Language Model",
           "category": "frontier",
           "releaseDate": "2025-02-19",
@@ -2933,7 +3201,7 @@
             "speed": 2,
             "intelligence": 3.75,
             "stem": 4.33,
-            "coding": 4.0,
+            "coding": 3.5,
             "reasoning": 3.0,
             "pricing_cost": 3.82
           },
@@ -2955,7 +3223,7 @@
         {
           "id": "grok-3-mini",
           "name": "Grok-3 Mini",
-          "status": "primary",
+          "status": "secondary",
           "type": "Large Hybrid Model",
           "category": "frontier",
           "releaseDate": "2025-02-19",
@@ -3324,7 +3592,7 @@
             "stem": 3.17,
             "agentic": 4.0,
             "coding": 3.0,
-            "reasoning": 1.0,
+            "reasoning": 4.0,
             "pricing_cost": 2.0
           },
           "specs": {
@@ -3500,7 +3768,7 @@
             "stem": 3.0,
             "agentic": 4.0,
             "coding": 3.0,
-            "reasoning": 2.0,
+            "reasoning": 3.0,
             "pricing_cost": 2.0
           },
           "specs": {
@@ -3871,6 +4139,12 @@
           "description": "Combines powerful AI with extensive information access to help you get any job done, from cooking to coding.",
           "image": "/images/companies/mistral/products/le-chat.png",
           "url": "https://mistral.ai/products/le-chat"
+        },
+        {
+          "name": "Deep Research Mode",
+          "description": " Lightning fast, structured research reports on even the most complex topics.",
+          "image": "/images/companies/mistral/products/deep-research.png",
+          "url": "https://mistral.ai/news/le-chat-dives-deep"
         }
       ],
       "subscriptions": [
@@ -3998,8 +4272,8 @@
             "intelligence": 3.75,
             "stem": 4.25,
             "agentic": 4.0,
-            "coding": 4.0,
-            "reasoning": 3.67,
+            "coding": 3.5,
+            "reasoning": 3.33,
             "pricing_cost": 2.93
           },
           "specs": {
@@ -4061,7 +4335,7 @@
           "ratings": {
             "speed": 2,
             "intelligence": 3.0,
-            "stem": 4.5,
+            "stem": 4.0,
             "agentic": 4.0,
             "coding": 4.0,
             "pricing_cost": 2.32
@@ -4597,7 +4871,7 @@
           "ratings": {
             "speed": 4,
             "intelligence": 4.0,
-            "stem": 4.0,
+            "stem": 3.67,
             "agentic": 4.0,
             "coding": 3.67,
             "pricing_cost": 2.28
