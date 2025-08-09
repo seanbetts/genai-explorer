@@ -202,11 +202,6 @@
           "licenceLink": "https://www.apache.org/licenses/LICENSE-2.0",
           "ratings": {
             "speed": 3,
-            "intelligence": 0,
-            "stem": 5.0,
-            "agentic": 0,
-            "coding": 5.0,
-            "reasoning": 5.0,
             "pricing_cost": 2.25
           },
           "specs": {
@@ -239,11 +234,6 @@
           "licenceLink": "https://www.apache.org/licenses/LICENSE-2.0",
           "ratings": {
             "speed": 4,
-            "intelligence": 0,
-            "stem": 5.0,
-            "agentic": 0,
-            "coding": 5.0,
-            "reasoning": 5.0,
             "pricing_cost": 1.62
           },
           "specs": {
